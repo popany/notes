@@ -26,6 +26,10 @@
 
 [CMake link to external library](https://stackoverflow.com/questions/8774593/cmake-link-to-external-library/41909627#41909627)
 
+## Debug
+
+[CMake debugging](https://cliutils.gitlab.io/modern-cmake/chapters/features/debug.html)
+
 ## Others
 
 [OS specific instructions in CMAKE: How to?](https://stackoverflow.com/questions/9160335/os-specific-instructions-in-cmake-how-to)
