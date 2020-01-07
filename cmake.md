@@ -3,3 +3,5 @@
 [How To Write Platform Checks](https://gitlab.kitware.com/cmake/community/-/wikis/doc/tutorials/How-To-Write-Platform-Checks)
 
 [Useful Variables](https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Useful-Variables)
+
+[CMake Project with Third-party Dependencies](https://pmateusz.github.io/c++/cmake/2018/03/11/cmake-project-setup.html)
