@@ -47,3 +47,9 @@
 [FindBoost](https://cmake.org/cmake/help/v3.6/module/FindBoost.html)
 
 [Whats the proper way to link Boost with CMake and Visual Studio in Windows?](https://stackoverflow.com/questions/18354398/is-it-possible-to-build-boost-with-cmake)
+
+## windows
+
+[CMake: The C Compiler is not able to compile a simple test program](https://stackoverflow.com/questions/53633705/cmake-the-c-compiler-is-not-able-to-compile-a-simple-test-program)
+
+[CMakeSettings.json schema reference](https://docs.microsoft.com/en-us/cpp/build/cmakesettings-reference?view=vs-2019)
