@@ -43,3 +43,5 @@
 ## boost
 
 [How do you add Boost libraries in CMakeLists.txt?](https://stackoverflow.com/questions/6646405/how-do-you-add-boost-libraries-in-cmakelists-txt/6646746#6646746)
+
+[FindBoost](https://cmake.org/cmake/help/v3.6/module/FindBoost.html)
