@@ -53,3 +53,5 @@
 [CMake: The C Compiler is not able to compile a simple test program](https://stackoverflow.com/questions/53633705/cmake-the-c-compiler-is-not-able-to-compile-a-simple-test-program)
 
 [CMakeSettings.json schema reference](https://docs.microsoft.com/en-us/cpp/build/cmakesettings-reference?view=vs-2019)
+
+[The CXX compiler identification is unknown](https://stackoverflow.com/questions/20632860/the-cxx-compiler-identification-is-unknown)
