@@ -39,3 +39,7 @@
 [Useful Variables](https://gitlab.kitware.com/cmake/community/-/wikis/doc/cmake/Useful-Variables)
 
 [CMake Project with Third-party Dependencies](https://pmateusz.github.io/c++/cmake/2018/03/11/cmake-project-setup.html)
+
+## boost
+
+[How do you add Boost libraries in CMakeLists.txt?](https://stackoverflow.com/questions/6646405/how-do-you-add-boost-libraries-in-cmakelists-txt/6646746#6646746)
