@@ -57,3 +57,5 @@
 [CMakeSettings.json schema reference](https://docs.microsoft.com/en-us/cpp/build/cmakesettings-reference?view=vs-2019)
 
 [MSBuild internals for C++ projects](https://docs.microsoft.com/en-us/cpp/build/reference/msbuild-visual-cpp-overview?view=vs-2019)
+
+[MS C++ 2010 and mspdb100.dll](https://stackoverflow.com/questions/2990331/ms-c-2010-and-mspdb100-dll)
