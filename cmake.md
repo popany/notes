@@ -59,3 +59,9 @@
 [MSBuild internals for C++ projects](https://docs.microsoft.com/en-us/cpp/build/reference/msbuild-visual-cpp-overview?view=vs-2019)
 
 [MS C++ 2010 and mspdb100.dll](https://stackoverflow.com/questions/2990331/ms-c-2010-and-mspdb100-dll)
+
+## gtest
+
+[CMake + GoogleTest](https://stackoverflow.com/questions/9689183/cmake-googletest/9695234)
+
+[How to make GTest build /MDd (instead of /MTd) by default, using CMake?](https://stackoverflow.com/questions/12540970/how-to-make-gtest-build-mdd-instead-of-mtd-by-default-using-cmake)
