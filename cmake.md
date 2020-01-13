@@ -40,6 +40,8 @@
 
 [CMake Project with Third-party Dependencies](https://pmateusz.github.io/c++/cmake/2018/03/11/cmake-project-setup.html)
 
+[CMake target_link_libraries Interface Dependencies](https://stackoverflow.com/questions/26037954/cmake-target-link-libraries-interface-dependencies)
+
 ## boost
 
 [How do you add Boost libraries in CMakeLists.txt?](https://stackoverflow.com/questions/6646405/how-do-you-add-boost-libraries-in-cmakelists-txt/6646746#6646746)
