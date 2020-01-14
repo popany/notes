@@ -50,6 +50,8 @@
 
 [Whats the proper way to link Boost with CMake and Visual Studio in Windows?](https://stackoverflow.com/questions/18354398/is-it-possible-to-build-boost-with-cmake)
 
+[Listing include_directories in CMake](https://stackoverflow.com/questions/6902149/listing-include-directories-in-cmake)
+
 ## windows
 
 [CMake: The C Compiler is not able to compile a simple test program](https://stackoverflow.com/questions/53633705/cmake-the-c-compiler-is-not-able-to-compile-a-simple-test-program)
