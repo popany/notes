@@ -44,6 +44,8 @@
 
 [Listing include_directories in CMake](https://stackoverflow.com/questions/6902149/listing-include-directories-in-cmake)
 
+[CMake: include library dependencies in a static library](https://stackoverflow.com/questions/14199708/cmake-include-library-dependencies-in-a-static-library)
+
 ## boost
 
 [How do you add Boost libraries in CMakeLists.txt?](https://stackoverflow.com/questions/6646405/how-do-you-add-boost-libraries-in-cmakelists-txt/6646746#6646746)
