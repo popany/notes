@@ -42,6 +42,8 @@
 
 [CMake target_link_libraries Interface Dependencies](https://stackoverflow.com/questions/26037954/cmake-target-link-libraries-interface-dependencies)
 
+[Listing include_directories in CMake](https://stackoverflow.com/questions/6902149/listing-include-directories-in-cmake)
+
 ## boost
 
 [How do you add Boost libraries in CMakeLists.txt?](https://stackoverflow.com/questions/6646405/how-do-you-add-boost-libraries-in-cmakelists-txt/6646746#6646746)
@@ -49,8 +51,6 @@
 [FindBoost](https://cmake.org/cmake/help/v3.6/module/FindBoost.html)
 
 [Whats the proper way to link Boost with CMake and Visual Studio in Windows?](https://stackoverflow.com/questions/18354398/is-it-possible-to-build-boost-with-cmake)
-
-[Listing include_directories in CMake](https://stackoverflow.com/questions/6902149/listing-include-directories-in-cmake)
 
 ## windows
 
