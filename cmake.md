@@ -46,6 +46,23 @@
 
 [CMake: include library dependencies in a static library](https://stackoverflow.com/questions/14199708/cmake-include-library-dependencies-in-a-static-library)
 
+[CMake/Verbose output](https://sidvind.com/wiki/CMake/Verbose_output)
+
+> CMake has a nice colored output which hides the commandline. This is pretty to look at in the long run but sometimes when you write your configurations you want to know if you got all the compiler flags right. There is two ways to disable the pretty output, well, it's essentialy the same but still two different ways.
+>
+> The first way is to simply run make with the additional argument "VERBOSE=1". This will show each command being run for this session, which is the most useful way to see if the flags is correct.
+>
+> Code:
+>
+>       % make VERBOSE=1
+>
+> The second way is to permanently disable the pretty output in your CMakeLists.txt by setting CMAKE_VERBOSE_MAKEFILE. 
+>
+> Code: CMakeLists.txt
+>
+>       set( CMAKE_VERBOSE_MAKEFILE on )
+>
+
 ## boost
 
 [How do you add Boost libraries in CMakeLists.txt?](https://stackoverflow.com/questions/6646405/how-do-you-add-boost-libraries-in-cmakelists-txt/6646746#6646746)
