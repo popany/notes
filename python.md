@@ -9,3 +9,5 @@
 [How to parse JSON in Python?](https://stackoverflow.com/questions/7771011/how-to-parse-json-in-python)
 
 [Request Authentication](https://2.python-requests.org/en/master/user/authentication/)
+
+[Argparse Tutorial](https://docs.python.org/3/howto/argparse.html)
