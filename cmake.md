@@ -30,8 +30,6 @@
 
 [CMake debugging](https://cliutils.gitlab.io/modern-cmake/chapters/features/debug.html)
 
-`cmake -DCMAKE_BUILD_TYPE=Debug ..`
-
 ## Others
 
 [OS specific instructions in CMAKE: How to?](https://stackoverflow.com/questions/9160335/os-specific-instructions-in-cmake-how-to)
@@ -66,6 +64,8 @@
 >
 
 [Debug vs Release in CMake](https://stackoverflow.com/questions/7724569/debug-vs-release-in-cmake)
+
+`cmake -DCMAKE_BUILD_TYPE=Debug ..`
 
 ## boost
 
