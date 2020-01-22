@@ -48,6 +48,8 @@
 
 [CMake/Verbose output](https://sidvind.com/wiki/CMake/Verbose_output)
 
+[How do I output the result of a generator expression in CMake?](https://stackoverflow.com/questions/51353110/how-do-i-output-the-result-of-a-generator-expression-in-cmake)
+
 > CMake has a nice colored output which hides the commandline. This is pretty to look at in the long run but sometimes when you write your configurations you want to know if you got all the compiler flags right. There is two ways to disable the pretty output, well, it's essentialy the same but still two different ways.
 >
 > The first way is to simply run make with the additional argument "VERBOSE=1". This will show each command being run for this session, which is the most useful way to see if the flags is correct.
