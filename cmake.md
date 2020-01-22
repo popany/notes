@@ -30,6 +30,8 @@
 
 [CMake debugging](https://cliutils.gitlab.io/modern-cmake/chapters/features/debug.html)
 
+`cmake -DCMAKE_BUILD_TYPE=Debug ..`
+
 ## Others
 
 [OS specific instructions in CMAKE: How to?](https://stackoverflow.com/questions/9160335/os-specific-instructions-in-cmake-how-to)
