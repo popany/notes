@@ -63,6 +63,8 @@
 >       set( CMAKE_VERBOSE_MAKEFILE on )
 >
 
+[Debug vs Release in CMake](https://stackoverflow.com/questions/7724569/debug-vs-release-in-cmake)
+
 ## boost
 
 [How do you add Boost libraries in CMakeLists.txt?](https://stackoverflow.com/questions/6646405/how-do-you-add-boost-libraries-in-cmakelists-txt/6646746#6646746)
