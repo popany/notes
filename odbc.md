@@ -12,4 +12,10 @@
 
 [ODBC Connection](https://docs.genesys.com/Documentation/ES/8.5.1/Depl/ODBC)
 
+1. `odbc_update_ini.sh / <dir of libsqora.so*> <Driver_Name> <DSN> <ODBCINI>`
+
+2. edit `ServerName` in `~/.odbc.ini`
+
+3. 
+
 ## [ODBC Programmer's Reference](https://docs.microsoft.com/en-us/sql/odbc/reference/odbc-programmer-s-reference?view=sql-server-ver15)
