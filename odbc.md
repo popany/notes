@@ -36,9 +36,11 @@
 
 1. `odbc_update_ini.sh / <dir of libsqora.so*> <Driver_Name> <DSN> <ODBCINI>`
 
-2. edit `~/TNSNAMES.ora`
+2. edit `/usr/lib/oracle/12.2/client64/lib/network/admin/sqlnet.ora`
 
-3. edit `ServerName` in `~/.odbc.ini` with respect to `TNSNAMES.ora`
+3. edit `/usr/lib/oracle/12.2/client64/lib/network/admin/tnsnames.ora`
+
+4. edit `ServerName` in `~/.odbc.ini` with respect to `tnsnames.ora`
 
 ##### problems
 ["\[unixODBC\]\[DriverSManager\]Can't open lib..."](https://stackoverflow.com/questions/22999798/01000unixodbcdriver-managercant-open-lib-usr-local-easysoft-oracle-inst)
