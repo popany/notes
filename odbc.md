@@ -6,6 +6,8 @@
 
 #### oracle
 
+##### reference
+
 [Using the Oracle ODBC Driver](https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/odbc-driver.html)
 
 [Oracle Instant Client ODBC Installation Notes](https://www.oracle.com/database/technologies/releasenote-odbc-ic.html)
@@ -17,6 +19,8 @@
 [Configuring the Oracle Net client](https://www.ibm.com/support/knowledgecenter/en/SSBNJ7_1.4.3/oracle/ttnpm_ora_configoraclenetclien.html)
 
 [Profile Parameters (sqlnet.ora)](https://docs.oracle.com/cd/B28359_01/network.111/b28317/sqlnet.htm#NETRF006)
+
+##### procedure
 
 1. `odbc_update_ini.sh / <dir of libsqora.so*> <Driver_Name> <DSN> <ODBCINI>`
 
