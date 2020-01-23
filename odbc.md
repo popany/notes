@@ -23,4 +23,6 @@
 
 [Package unixODBC is missing shared library libodbcinst.so.1](https://bugzilla.redhat.com/show_bug.cgi?id=498311)
 
+[ORA-12154: TNS:could not resolve the connect identifier specified](https://docs.oracle.com/cd/B19306_01/server.102/b14219/net12150.htm)
+
 ## [ODBC Programmer's Reference](https://docs.microsoft.com/en-us/sql/odbc/reference/odbc-programmer-s-reference?view=sql-server-ver15)
