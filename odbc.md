@@ -14,6 +14,16 @@
 
 [Oracle Instant Client ODBC Installation Notes](https://www.oracle.com/database/technologies/releasenote-odbc-ic.html)
 
+[Instant Client Downloads for Linux x86-64 (64-bit)](https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html)
+
+> If you intend to co-locate optional Oracle configuration files such as tnsnames.ora, sqlnet.ora ldap.ora, or oraaccess.xml with Instant Client, put them in the network/admin subdirectory. This needs to be created for 12.2 and earlier, for example:
+>
+> `sudo mkdir -p /usr/lib/oracle/12.2/client64/lib/network/admin`
+>
+> This is the default Oracle configuration directory for applications linked with this Instant Client.
+>
+> Alternatively, Oracle configuration files can be put in another, accessible directory. Then set the environment variable `TNS_ADMIN` to that directory name.
+
 [ODBC Connection](https://docs.genesys.com/Documentation/ES/8.5.1/Depl/ODBC)
 
 [Oracle Network Configuration (listener.ora , tnsnames.ora , sqlnet.ora)](https://oracle-base.com/articles/misc/oracle-network-configuration)
