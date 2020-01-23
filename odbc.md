@@ -10,7 +10,7 @@
 
 [Using the Oracle ODBC Driver](https://docs.oracle.com/en/database/oracle/oracle-database/19/adfns/odbc-driver.html)
 
-Unix users must use the odbc_update_ini.sh file to create a DSN.
+> Unix users must use the odbc_update_ini.sh file to create a DSN.
 
 [Oracle Instant Client ODBC Installation Notes](https://www.oracle.com/database/technologies/releasenote-odbc-ic.html)
 
