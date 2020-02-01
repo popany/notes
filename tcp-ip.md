@@ -25,3 +25,11 @@ If this is the first fragment (that is the fragment offset is zero) this header 
 The maximum sized datagram that can be transmitted through the next network is called the maximum transmission unit (MTU). <[ref](https://tools.ietf.org/html/rfc791)>
 
 Every internet module must be able to forward a datagram of 68 octets without further fragmentation. This is because an internet header may be up to 60 octets, and the minimum fragment is 8 octets. <[ref](https://tools.ietf.org/html/rfc791)>
+
+## socket
+
+### `connect`
+
+If `connect` fails, the socket is no longer usable and must be closed. We cannot call `connect` again on the socket, we must close the socket descriptor and call socket again.
+
+When `connect` is interrupted by a caught signal and is not automatically restarted, we must call `select` to wait for the connection to complete.
