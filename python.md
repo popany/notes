@@ -10,6 +10,14 @@
 
 [Manually raising (throwing) an exception in Python](https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python)
 
+[Accessing the index in 'for' loops?](https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops)
+
+## regular expression
+
+[tutorialspoint Python 3 - Regular Expressions](https://www.tutorialspoint.com/python3/python_reg_expressions.htm)
+
+[Regular Expression HOWTO](https://docs.python.org/3/howto/regex.html)
+
 ## HTTP
 
 [How to send POST request?](https://stackoverflow.com/questions/11322430/how-to-send-post-request)
