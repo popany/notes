@@ -47,3 +47,5 @@ show version
 [Date Demo Rrule](https://matplotlib.org/gallery/ticks_and_spines/date_demo_rrule.html)
 
 [Gallery](https://matplotlib.org/gallery/index.html)
+
+[Writing numerical values on the plot with Matplotlib](https://stackoverflow.com/questions/6282058/writing-numerical-values-on-the-plot-with-matplotlib)
