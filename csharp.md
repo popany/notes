@@ -85,3 +85,7 @@ Set active thread
 
 `!threads [-live] [-special]`  
 all managed threads
+
+### tools
+
+[Sysinternals Process Utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/process-utilities)
