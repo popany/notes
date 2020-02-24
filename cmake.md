@@ -69,6 +69,14 @@
 
 [How do I output the result of a generator expression in CMake?](https://stackoverflow.com/questions/51353110/how-do-i-output-the-result-of-a-generator-expression-in-cmake)
 
+[CMake: how to use INTERFACE_INCLUDE_DIRECTORIES with ExternalProject?](https://stackoverflow.com/questions/45516209/cmake-how-to-use-interface-include-directories-with-externalproject)
+
+>
+>     # Hack to make it work, otherwise INTERFACE_INCLUDE_DIRECTORIES will not be propagated
+>     file(MAKE_DIRECTORY ${XGBOOST_LIB_INCLUDE})
+
+[CMAKE_BUILD_TYPE is not being used in CMakeLists.txt](https://stackoverflow.com/questions/24460486/cmake-build-type-is-not-being-used-in-cmakelists-txt/24470998#24470998)
+
 ## boost
 
 [How do you add Boost libraries in CMakeLists.txt?](https://stackoverflow.com/questions/6646405/how-do-you-add-boost-libraries-in-cmakelists-txt/6646746#6646746)
