@@ -8,12 +8,28 @@
       - [七态模型](#%e4%b8%83%e6%80%81%e6%a8%a1%e5%9e%8b)
     - [进程间通信方式](#%e8%bf%9b%e7%a8%8b%e9%97%b4%e9%80%9a%e4%bf%a1%e6%96%b9%e5%bc%8f)
   - [网络编程](#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b)
+    - [ICMP](#icmp)
+    - [IGMP](#igmp)
+    - [TCP](#tcp)
+      - [三次握手](#%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b)
+        - [SYN](#syn)
+        - [ACK](#ack)
+        - [TCP选项](#tcp%e9%80%89%e9%a1%b9)
+      - [TCP连接断开](#tcp%e8%bf%9e%e6%8e%a5%e6%96%ad%e5%bc%80)
+      - [TCP状态](#tcp%e7%8a%b6%e6%80%81)
+      - [2MSL TIME_WAIT](#2msl-timewait)
+      - [TCP粘包](#tcp%e7%b2%98%e5%8c%85)
+      - [可靠性](#%e5%8f%af%e9%9d%a0%e6%80%a7)
+      - [流量控制](#%e6%b5%81%e9%87%8f%e6%8e%a7%e5%88%b6)
+      - [滑动窗口](#%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3)
     - [5种IO模型](#5%e7%a7%8dio%e6%a8%a1%e5%9e%8b)
       - [阻塞IO(blocking I/O)](#%e9%98%bb%e5%a1%9eioblocking-io)
       - [非阻塞IO(noblocking I/O)](#%e9%9d%9e%e9%98%bb%e5%a1%9eionoblocking-io)
       - [IO多路复用(I/O multiplexing)](#io%e5%a4%9a%e8%b7%af%e5%a4%8d%e7%94%a8io-multiplexing)
       - [信号驱动IO(signal blocking I/O)](#%e4%bf%a1%e5%8f%b7%e9%a9%b1%e5%8a%a8iosignal-blocking-io)
       - [异步IO(asynchronous I/O)](#%e5%bc%82%e6%ad%a5ioasynchronous-io)
+    - [IO多路复用](#io%e5%a4%9a%e8%b7%af%e5%a4%8d%e7%94%a8)
+      - [select/poll/epoll](#selectpollepoll)
 
 ## 线程/进程
 
@@ -128,6 +144,133 @@ stateDiagram
 
 ## 网络编程
 
+### ICMP
+
+### IGMP
+
+### TCP
+
+#### 三次握手
+
+```mermaid
+sequenceDiagram
+    participant client
+    participant server
+    Note right of server: socket
+    Note right of server: binkd
+    Note right of server: listen (passive open)
+    Note over server: LISTEN
+    activate server
+    Note right of server: accept (blocks)
+    Note left of client: socket
+    client->>server: SYN J
+    activate client
+    Note over client: SYN_SENT
+    Note left of client: connect (blocks)(active open)
+    server->>client: SYN K, ACK J+1
+    Note over server: SYN_RCVD
+    client->>server: ACK K+1
+    deactivate client
+    deactivate server
+    Note over client: ESTABLISHED
+    Note over server: ESTABLISHED
+```
+
+##### SYN
+
+SYN(Synchronize Sequence Numbers, 同步序列编号)
+
+通常SYN包中仅包含IP头、TCP头及可能包含的TCP选项
+
+##### ACK
+
+ACK包中的确认号表示发送ACK端期望对端下次发送的序列号, SYN包占据序列号空间中的一个位置, 因此与SYN包对应的ACK包的确认号为初始序列号(Initial Sequence Number)加1. 同样, FIN包对应的ACK包的确认号为FIN包的序列号加1.
+
+服务端维护未连接队列, 收到客户端SYN包后, 服务端向客户端发出确认包, 并在未连接队列中创建相应条目, 以标识该连接在服务端处于SYN_RECV状态. 服务端收到客户端确认包后, 未连接队列中的相应条目被删除, 连接在服务端处于ESTABLISHED状态.
+
+##### TCP选项
+
+- MSS选项  
+  用于SYN包发送方声明本端MSS(maximum segment size), 即本端能接受的TCP报文的最大数据段长度(MSS不包括TCP头). TCP报文发送方根据对端MSS决定本端发送分段的最大长度.
+
+#### TCP连接断开
+
+```mermaid
+sequenceDiagram
+    participant client
+    participant server
+    Note left of client: close (active close)
+    client->>server: FIN M
+    Note over client: FIN_WAIT_1
+    Note right of server: (passive close) read returns 0
+    server->>client: ACK M+1
+    Note over server: CLOSE_WAIT
+    Note over client: FIN_WAIT_2
+    Note right of server: close
+    server->>client: FIN N
+    Note over server: LAST_ACK
+    client->>server: ACK N+1
+    Note over client: TIME_WAIT
+    Note over server: CLOSED
+```
+
+客户端与服务端均可进行主动关闭, 进行主动关闭的一方将会进入TIME_WAIT状态.
+
+#### TCP状态
+
+- CLOSED: 表示初始状态 
+
+- LISTEN: 该状态表示服务器端的某个SOCKET处于监听状态, 可以接受连接
+
+- SYN_SENT: 客户端发送SYN报文后进入SYN_SENT状态
+
+- SYN_RCVD: 该状态表示接收到SYN报文
+
+- ESTABLISHED: 表示连接已经建立
+
+- FIN_WAIT_1: 主动关闭方发送FIN报文后进FIN_WAIT_1状态
+
+- FIN_WAIT_2: 主动关闭方发送FIN报文后, 收到对端ACK回应后进入到FIN_WAIT_2状态. 此时主动关闭方处于半关闭状态, 该状态下只能接受数据, 不能发送数据. 正常情况下, 对方应马上回应ACK报文, 所以FIN_WAIT_1状态一般较难见到, 而FIN_WAIT_2状态可用netstat看到 
+
+- TIME_WAIT: 表示收到了对方的FIN报文, 并发送出了ACK报文, 等2MSL后即可回到CLOSED可用状态. 如果FIN_WAIT_1状态下, 收到对方同时带FIN标志和ACK标志的报文, 可以直接进入到TIME_WAIT状态，而无须经过FIN_WAIT_2状态
+
+- CLOSING: 这种状态较特殊, 属于一种较罕见的状态. 双方几乎同时关闭时会进入该状态
+
+- CLOSE_WAIT: 被动关闭方收到FIN报文并发送ACK报文后进入该状态
+
+- LAST_ACK: 该状态是被动关闭一方在发送FIN报文后进入该状态. 当收到ACK报文后，即可以进入到CLOSED可用状态
+
+#### 2MSL TIME_WAIT
+
+MSL(Maximum Segment Lifetime)
+
+2MSL TIME_WAIT状态的存在的理由:
+
+1. 让4次挥手关闭流程更加可靠  
+   4次挥手的最后一个ACK是由主动关闭方发送的. 若这个ACK丢失, 被动关闭方会再次发一个FIN. 若主动关闭方能够保持一个2MSL的TIME_WAIT状态, 则有更大的机会让丢失的ACK被再次发送出去
+
+2. 防止lost duplicate对后续新建正常链接的传输造成破坏.  
+   lost uplicate在实际的网络中非常常见, 经常是由于路由器产生故障, 路径无法收敛, 导致一个packet在路由器A、B、C之间做类似死循环的跳转. IP头部的TTL限制了一个包在网络中的最大跳数，因此这个包有两种命运, 要么最后TTL变为0, 在网络中消失; 要么TTL在变为0之前路由器路径收敛, 它凭借剩余的TTL跳数终于到达目的地. 但非常可惜的是TCP通过超时重传机制在早些时候发送了一个跟它一模一样的包, 并先于它达到了目的地, 因此它的命运也就注定被TCP协议栈抛弃.  
+   另外一个概念叫做incarnation connection, 指跟上次的socket pair一摸一样的新连接, 叫做incarnation of previous connection.  
+   lost uplicate加上incarnation connection会对传输造成致命的错误.  
+   TCP是流式的, 所有包到达的顺序是不一致的, 依靠序列号由TCP协议栈做顺序的拼接. 假设一个incarnation connection这时收到的seq=1000, 来了一个lost duplicate为seq=1000, len=1000, 则TCP认为这个lost duplicate合法, 并存放入了receive buffer，导致传输出现错误. 通过一个2MSL TIME_WAIT状态, 确保所有的lost duplicate都会消失掉, 避免对新连接造成错误
+
+为什么设计在主动关闭一方:
+
+1. 发最后ACK的是主动关闭一方
+
+2. 只要有一方保持TIME_WAIT状态, 就能起到避免incarnation connection在2MSL内的重新建立, 不需要两方都有
+
+RFC要求socket pair在处于TIME_WAIT时, 不能再起一个incarnation connection. 但绝大部分TCP实现进行了更为严格的限制, 在2MSL等待期间, socket中使用的本地端口在默认情况下不能再被使用
+
+#### TCP粘包
+
+#### 可靠性
+
+#### 流量控制
+
+#### 滑动窗口
+
 ### 5种IO模型
 
 输入操作可分为两个阶段:
@@ -185,6 +328,8 @@ sequenceDiagram
 ```
 
 #### IO多路复用(I/O multiplexing)
+
+通过I/O多路复用, 可以监视多个描述符, 一旦某个描述符就绪(一般是读就绪或者写就绪), 能够通知程序进行相应的读写操作
 
 ```mermaid
 sequenceDiagram
@@ -259,3 +404,9 @@ sequenceDiagram
     Note left of application: signal handler process datagram
     deactivate application
 ```
+
+### IO多路复用
+
+#### select/poll/epoll
+
+select/poll/epoll都是IO多路复用的机制
