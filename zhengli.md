@@ -1,11 +1,19 @@
-# 总结
+# 整理
 
-- [总结](#%e6%80%bb%e7%bb%93)
+- [整理](#%e6%95%b4%e7%90%86)
   - [线程/进程](#%e7%ba%bf%e7%a8%8b%e8%bf%9b%e7%a8%8b)
     - [进程状态切换](#%e8%bf%9b%e7%a8%8b%e7%8a%b6%e6%80%81%e5%88%87%e6%8d%a2)
       - [三态模型](#%e4%b8%89%e6%80%81%e6%a8%a1%e5%9e%8b)
       - [五态模型](#%e4%ba%94%e6%80%81%e6%a8%a1%e5%9e%8b)
       - [七态模型](#%e4%b8%83%e6%80%81%e6%a8%a1%e5%9e%8b)
+    - [进程间通信方式](#%e8%bf%9b%e7%a8%8b%e9%97%b4%e9%80%9a%e4%bf%a1%e6%96%b9%e5%bc%8f)
+  - [网络编程](#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b)
+    - [5种IO模型](#5%e7%a7%8dio%e6%a8%a1%e5%9e%8b)
+      - [阻塞IO(blocking I/O)](#%e9%98%bb%e5%a1%9eioblocking-io)
+      - [非阻塞IO(noblocking I/O)](#%e9%9d%9e%e9%98%bb%e5%a1%9eionoblocking-io)
+      - [IO多路复用(I/O multiplexing)](#io%e5%a4%9a%e8%b7%af%e5%a4%8d%e7%94%a8io-multiplexing)
+      - [信号驱动IO(signal blocking I/O)](#%e4%bf%a1%e5%8f%b7%e9%a9%b1%e5%8a%a8iosignal-blocking-io)
+      - [异步IO(asynchronous I/O)](#%e5%bc%82%e6%ad%a5ioasynchronous-io)
 
 ## 线程/进程
 
@@ -103,3 +111,151 @@ stateDiagram
 - 挂起等待态 $\rightarrow$ 等待态：当一个进程等待一个事件时，原则上不需要把它调入内存. 但是在下面一种情况下, 这一状态变化是可能的. 当一个进程退出后, 主存已经有了一大块自由空间, 而某个挂起等待态进程具有较高的优先级并且操作系统已经得知导致它阻塞的事件即将结束, 此时便发生了这一状态变化
 - 运行态 $\rightarrow$ 挂起就绪态: 当一个具有较高优先级的挂起等待态进程的等待事件结束后, 它需要抢占CPU, 而此时主存空间不够, 从而可能导致正在运行的进程转化为挂起就绪态. 另外处于运行态的进程也可以自己挂起自己
 - 新建态 $\rightarrow$ 挂起就绪态: 考虑到系统当前资源状况和性能要求, 可以决定新建的进程将被对换出去成为挂起就绪态
+
+### 进程间通信方式
+
+- 管道(pipe)及有名管道(named pipe): 管道可用于具有亲缘关系的父子进程间的通信, 有名管道除了具有管道所具有的功能外, 它还允许无亲缘关系进程间的通信。
+
+- 信号(signal): 信号是在软件层次上对中断机制的一种模拟, 它是比较复杂的通信方式, 用于通知进程有某事件发生, 一个进程收到一个信号与处理器收到一个中断请求效果上可以说是一致的
+
+- 消息队列(message queue): 消息队列是消息的链接表, 它克服了上两种通信方式中信号量有限的缺点, 具有写权限得进程可以按照一定得规则向消息队列中添加新信息; 对消息队列有读权限得进程则可以从消息队列中读取信息
+
+- 共享内存(shared memory): 可以说这是最有用的进程间通信方式. 它使得多个进程可以访问同一块内存空间, 不同进程可以及时看到对方进程中对共享内存中数据得更新. 这种方式需要依靠某种同步操作, 如互斥锁和信号量等
+
+- 信号量(semaphore): 主要作为进程之间及同一种进程的不同线程之间得同步和互斥手段
+
+- 套接字(socket): 这是一种更为一般得进程间通信机制, 它可用于网络中不同机器之间的进程间通信, 应用非常广泛
+
+## 网络编程
+
+### 5种IO模型
+
+输入操作可分为两个阶段:
+
+1. 等待数据就绪
+2. 将数据从内核空间拷贝至用户空间
+
+根据第2个阶段是否阻塞, 可将I/O分为同步I/O和异步I/O.  
+阻塞IO/非阻塞IO/信号驱动IO/IO多路复用属于同步I/O, 其仅在第1个阶段由区别.
+
+#### 阻塞IO(blocking I/O)
+
+```mermaid
+sequenceDiagram
+    participant application
+    participant kernel
+    application->>kernel: recvfrom
+    activate application
+    activate kernel
+    Note right of kernel: wait for data
+    Note left of application: process blocks in call to recvfrom
+    deactivate kernel
+    Note over kernel: data ready
+    activate kernel
+    Note right of kernel: copy data from kernel to user
+    kernel->>application: return OK
+    deactivate kernel
+    deactivate application
+```
+
+#### 非阻塞IO(noblocking I/O)
+
+```mermaid
+sequenceDiagram
+    participant application
+    participant kernel
+    application->>kernel: recvfrom
+    activate application
+    activate kernel
+    kernel->>application: EWOULDBLOCK
+    deactivate kernel
+    Note right of kernel: wait for data
+    application->>kernel: recvfrom
+    activate kernel
+    kernel->>application: EWOULDBLOCK
+    deactivate kernel
+    Note left of application: process repeatedly calls recvfrom untill OK returned (polling)
+    Note over kernel: data ready
+    application->>kernel: recvfrom
+    activate kernel
+    Note right of kernel: copy data from kernel to user
+    kernel->>application: return OK
+    deactivate kernel
+    deactivate application
+```
+
+#### IO多路复用(I/O multiplexing)
+
+```mermaid
+sequenceDiagram
+    participant application
+    participant kernel
+    application->>kernel: select
+    activate application
+    activate kernel
+    Note left of application: process blocks in call to select
+    Note right of kernel: wait for data
+    deactivate kernel
+    Note over kernel: data ready
+    kernel->>application: return readable
+    deactivate application
+    application->>kernel: recvfrom
+    activate application
+    activate kernel
+    Note right of kernel: copy data from kernel to user
+    Note left of application: process blocks while data copied into application buffer
+    kernel->>application: return OK
+    deactivate kernel
+    deactivate application
+```
+
+#### 信号驱动IO(signal blocking I/O)
+
+```mermaid
+sequenceDiagram
+    participant application
+    participant kernel
+    application->>kernel: sigaction
+    kernel->>application: return
+    activate application
+    activate kernel
+    Note left of application: process continues executing
+    Note right of kernel: wait for data
+    deactivate kernel
+    Note over kernel: data ready
+    kernel->>application: deliver SIGIO
+    deactivate application
+    Note left of application: signal handler
+    application->>kernel: recvfrom
+    activate application
+    activate kernel
+    Note right of kernel: copy data from kernel to user
+    Note left of application: process blocks while data copied into application buffer
+    kernel->>application: return OK
+    deactivate kernel
+    deactivate application
+```
+
+#### 异步IO(asynchronous I/O)
+
+异步I/O与信号驱动I/O的主要区别是, 异步I/O由内核通知I/O操作已结束, 信号驱动I/O由内核通知I/O操作可执行.
+
+```mermaid
+sequenceDiagram
+    participant application
+    participant kernel
+    application->>kernel: aio_read
+    kernel->>application: return
+    activate application
+    activate kernel
+    Note right of kernel: wait for data
+    Note left of application: process continues excecuting
+    deactivate kernel
+    Note over kernel: data ready
+    activate kernel
+    Note right of kernel: copy data from kernel to user
+    kernel->>application: deliver signal specified in aio_read
+    deactivate kernel
+    Note left of application: signal handler process datagram
+    deactivate application
+```
