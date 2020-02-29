@@ -22,6 +22,10 @@
 
 [How C# Reflection Works With Code Examples](https://stackify.com/what-is-c-reflection/)
 
+[What is gcnew?](https://stackoverflow.com/questions/202459/what-is-gcnew)
+
+[Understanding gcroot](https://stackoverflow.com/questions/4281834/understanding-gcroot)
+
 ## Debug
 
 [Using WinDbg to Analyze .NET Crash Dumps – Async Crash](https://stackify.com/using-windbg-to-analyze-net-crash-dumps-async-crash/)
