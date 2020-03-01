@@ -409,4 +409,3 @@ sequenceDiagram
 
 #### select/poll/epoll
 
-select/poll/epoll都是IO多路复用的机制
