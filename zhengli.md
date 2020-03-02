@@ -1,41 +1,83 @@
 # 整理
 
 - [整理](#%e6%95%b4%e7%90%86)
-  - [线程/进程](#%e7%ba%bf%e7%a8%8b%e8%bf%9b%e7%a8%8b)
-    - [进程状态切换](#%e8%bf%9b%e7%a8%8b%e7%8a%b6%e6%80%81%e5%88%87%e6%8d%a2)
-      - [三态模型](#%e4%b8%89%e6%80%81%e6%a8%a1%e5%9e%8b)
-      - [五态模型](#%e4%ba%94%e6%80%81%e6%a8%a1%e5%9e%8b)
-      - [七态模型](#%e4%b8%83%e6%80%81%e6%a8%a1%e5%9e%8b)
-    - [进程间通信方式](#%e8%bf%9b%e7%a8%8b%e9%97%b4%e9%80%9a%e4%bf%a1%e6%96%b9%e5%bc%8f)
+  - [并发编程](#%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b)
+    - [进程](#%e8%bf%9b%e7%a8%8b)
+      - [进程状态切换](#%e8%bf%9b%e7%a8%8b%e7%8a%b6%e6%80%81%e5%88%87%e6%8d%a2)
+        - [三态模型](#%e4%b8%89%e6%80%81%e6%a8%a1%e5%9e%8b)
+        - [五态模型](#%e4%ba%94%e6%80%81%e6%a8%a1%e5%9e%8b)
+        - [七态模型](#%e4%b8%83%e6%80%81%e6%a8%a1%e5%9e%8b)
+      - [进程间通信方式](#%e8%bf%9b%e7%a8%8b%e9%97%b4%e9%80%9a%e4%bf%a1%e6%96%b9%e5%bc%8f)
+      - [进程上下文](#%e8%bf%9b%e7%a8%8b%e4%b8%8a%e4%b8%8b%e6%96%87)
+        - [PCB](#pcb)
+      - [CPU利用率](#cpu%e5%88%a9%e7%94%a8%e7%8e%87)
+    - [线程](#%e7%ba%bf%e7%a8%8b)
+      - [内存模型](#%e5%86%85%e5%ad%98%e6%a8%a1%e5%9e%8b)
+      - [线程间同步方式](#%e7%ba%bf%e7%a8%8b%e9%97%b4%e5%90%8c%e6%ad%a5%e6%96%b9%e5%bc%8f)
+      - [死锁问题](#%e6%ad%bb%e9%94%81%e9%97%ae%e9%a2%98)
+      - [线程池](#%e7%ba%bf%e7%a8%8b%e6%b1%a0)
+        - [线程数](#%e7%ba%bf%e7%a8%8b%e6%95%b0)
+    - [生产者/消费者模式](#%e7%94%9f%e4%ba%a7%e8%80%85%e6%b6%88%e8%b4%b9%e8%80%85%e6%a8%a1%e5%bc%8f)
   - [网络编程](#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b)
-    - [ICMP](#icmp)
-    - [IGMP](#igmp)
     - [TCP](#tcp)
-      - [三次握手](#%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b)
-        - [SYN](#syn)
-        - [ACK](#ack)
-        - [TCP选项](#tcp%e9%80%89%e9%a1%b9)
-      - [TCP连接断开](#tcp%e8%bf%9e%e6%8e%a5%e6%96%ad%e5%bc%80)
+      - [TCP连接](#tcp%e8%bf%9e%e6%8e%a5)
+        - [三次握手](#%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b)
+          - [SYN](#syn)
+          - [ACK](#ack)
+          - [TCP选项](#tcp%e9%80%89%e9%a1%b9)
+        - [TCP连接断开](#tcp%e8%bf%9e%e6%8e%a5%e6%96%ad%e5%bc%80)
       - [TCP状态](#tcp%e7%8a%b6%e6%80%81)
-      - [2MSL TIME_WAIT](#2msl-timewait)
+        - [2MSL TIME_WAIT](#2msl-timewait)
       - [TCP粘包](#tcp%e7%b2%98%e5%8c%85)
       - [可靠性](#%e5%8f%af%e9%9d%a0%e6%80%a7)
       - [流量控制](#%e6%b5%81%e9%87%8f%e6%8e%a7%e5%88%b6)
       - [滑动窗口](#%e6%bb%91%e5%8a%a8%e7%aa%97%e5%8f%a3)
-    - [5种IO模型](#5%e7%a7%8dio%e6%a8%a1%e5%9e%8b)
-      - [阻塞IO(blocking I/O)](#%e9%98%bb%e5%a1%9eioblocking-io)
-      - [非阻塞IO(noblocking I/O)](#%e9%9d%9e%e9%98%bb%e5%a1%9eionoblocking-io)
-      - [IO多路复用(I/O multiplexing)](#io%e5%a4%9a%e8%b7%af%e5%a4%8d%e7%94%a8io-multiplexing)
-      - [信号驱动IO(signal blocking I/O)](#%e4%bf%a1%e5%8f%b7%e9%a9%b1%e5%8a%a8iosignal-blocking-io)
-      - [异步IO(asynchronous I/O)](#%e5%bc%82%e6%ad%a5ioasynchronous-io)
-    - [IO多路复用](#io%e5%a4%9a%e8%b7%af%e5%a4%8d%e7%94%a8)
-      - [select/poll/epoll](#selectpollepoll)
+    - [IO模型](#io%e6%a8%a1%e5%9e%8b)
+      - [5种IO模型](#5%e7%a7%8dio%e6%a8%a1%e5%9e%8b)
+        - [阻塞IO(blocking I/O)](#%e9%98%bb%e5%a1%9eioblocking-io)
+        - [非阻塞IO(noblocking I/O)](#%e9%9d%9e%e9%98%bb%e5%a1%9eionoblocking-io)
+        - [IO多路复用(I/O multiplexing)](#io%e5%a4%9a%e8%b7%af%e5%a4%8d%e7%94%a8io-multiplexing)
+        - [信号驱动IO(signal blocking I/O)](#%e4%bf%a1%e5%8f%b7%e9%a9%b1%e5%8a%a8iosignal-blocking-io)
+        - [异步IO(asynchronous I/O)](#%e5%bc%82%e6%ad%a5ioasynchronous-io)
+      - [IO多路复用](#io%e5%a4%9a%e8%b7%af%e5%a4%8d%e7%94%a8)
+        - [select/poll/epoll](#selectpollepoll)
+      - [IO设计模式](#io%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f)
+        - [Reactor](#reactor)
+        - [Proactor](#proactor)
+  - [网络协议](#%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae)
+    - [ARP协议](#arp%e5%8d%8f%e8%ae%ae)
+    - [IP协议](#ip%e5%8d%8f%e8%ae%ae)
+      - [分片](#%e5%88%86%e7%89%87)
+        - [MTU](#mtu)
+    - [ICMP协议](#icmp%e5%8d%8f%e8%ae%ae)
+    - [IGMP协议](#igmp%e5%8d%8f%e8%ae%ae)
+    - [TCP协议](#tcp%e5%8d%8f%e8%ae%ae)
+      - [MSS](#mss)
+  - [分布式](#%e5%88%86%e5%b8%83%e5%bc%8f)
+    - [负载均衡](#%e8%b4%9f%e8%bd%bd%e5%9d%87%e8%a1%a1)
+    - [zookeeper](#zookeeper)
+    - [分布式缓存](#%e5%88%86%e5%b8%83%e5%bc%8f%e7%bc%93%e5%ad%98)
+    - [分布式存储](#%e5%88%86%e5%b8%83%e5%bc%8f%e5%ad%98%e5%82%a8)
+    - [消息队列](#%e6%b6%88%e6%81%af%e9%98%9f%e5%88%97)
+  - [C++](#c)
+    - [RAII](#raii)
+    - [多态](#%e5%a4%9a%e6%80%81)
+      - [虚函数](#%e8%99%9a%e5%87%bd%e6%95%b0)
+      - [析构函数](#%e6%9e%90%e6%9e%84%e5%87%bd%e6%95%b0)
+    - [类型转换](#%e7%b1%bb%e5%9e%8b%e8%bd%ac%e6%8d%a2)
+    - [异常](#%e5%bc%82%e5%b8%b8)
+    - [内存泄漏](#%e5%86%85%e5%ad%98%e6%b3%84%e6%bc%8f)
+    - [多线程](#%e5%a4%9a%e7%ba%bf%e7%a8%8b)
+  - [数据库](#%e6%95%b0%e6%8d%ae%e5%ba%93)
+    - [连接池](#%e8%bf%9e%e6%8e%a5%e6%b1%a0)
 
-## 线程/进程
+## 并发编程
 
-### 进程状态切换
+### 进程
 
-#### 三态模型
+#### 进程状态切换
+
+##### 三态模型
 
 - 运行态(running): 占有处理器正在运行
 - 就绪态(ready): 具备运行条件，等待系统分配处理器以便运行
@@ -54,7 +96,7 @@ stateDiagram
 - 运行态 $\rightarrow$ 就绪态: 运行时间片到, 出现有更高优先权进程
 - 就绪态 $\rightarrow$ 运行态: CPU 空闲时选择一个就绪进程
 
-#### 五态模型
+##### 五态模型
 
 - 新建态(new): 进程没有被提交执行, 等待操作系统完成创建进程的必要操作. 操作系统有时将根据系统性能或主存容量的限制推迟新建态进程的提交
 - 终止态(exit): 进程不再执行, 保留在操作系统中等待善后. 一旦其他进程完成了对终止态进程的信息抽取之后, 操作系统将删除该进程
@@ -78,7 +120,7 @@ stateDiagram
 - 就绪态 $\rightarrow$ 终止态: 某些操作系统允许父进程终结子进程
 - 等待态 $\rightarrow$ 终止态：某些操作系统允许父进程终结子进程
 
-#### 七态模型
+##### 七态模型
 
 - 挂起就绪态(ready, suspend): 挂起就绪态表明了进程具备运行条件但目前在二级存储器中, 只有当它被对换到主存才能被调度执行
 - 挂起等待态(blocked, suspend): 挂起等待态则表明了进程正在等待某一个事件且在二级存储器中
@@ -128,7 +170,7 @@ stateDiagram
 - 运行态 $\rightarrow$ 挂起就绪态: 当一个具有较高优先级的挂起等待态进程的等待事件结束后, 它需要抢占CPU, 而此时主存空间不够, 从而可能导致正在运行的进程转化为挂起就绪态. 另外处于运行态的进程也可以自己挂起自己
 - 新建态 $\rightarrow$ 挂起就绪态: 考虑到系统当前资源状况和性能要求, 可以决定新建的进程将被对换出去成为挂起就绪态
 
-### 进程间通信方式
+#### 进程间通信方式
 
 - 管道(pipe)及有名管道(named pipe): 管道可用于具有亲缘关系的父子进程间的通信, 有名管道除了具有管道所具有的功能外, 它还允许无亲缘关系进程间的通信。
 
@@ -142,15 +184,33 @@ stateDiagram
 
 - 套接字(socket): 这是一种更为一般得进程间通信机制, 它可用于网络中不同机器之间的进程间通信, 应用非常广泛
 
+#### 进程上下文
+
+##### PCB
+
+#### CPU利用率
+
+### 线程
+
+#### 内存模型
+
+#### 线程间同步方式
+
+#### 死锁问题
+
+#### 线程池
+
+##### 线程数
+
+### 生产者/消费者模式
+
 ## 网络编程
-
-### ICMP
-
-### IGMP
 
 ### TCP
 
-#### 三次握手
+#### TCP连接
+
+##### 三次握手
 
 ```mermaid
 sequenceDiagram
@@ -176,24 +236,24 @@ sequenceDiagram
     Note over server: ESTABLISHED
 ```
 
-##### SYN
+###### SYN
 
 SYN(Synchronize Sequence Numbers, 同步序列编号)
 
 通常SYN包中仅包含IP头、TCP头及可能包含的TCP选项
 
-##### ACK
+###### ACK
 
 ACK包中的确认号表示发送ACK端期望对端下次发送的序列号, SYN包占据序列号空间中的一个位置, 因此与SYN包对应的ACK包的确认号为初始序列号(Initial Sequence Number)加1. 同样, FIN包对应的ACK包的确认号为FIN包的序列号加1.
 
 服务端维护未连接队列, 收到客户端SYN包后, 服务端向客户端发出确认包, 并在未连接队列中创建相应条目, 以标识该连接在服务端处于SYN_RECV状态. 服务端收到客户端确认包后, 未连接队列中的相应条目被删除, 连接在服务端处于ESTABLISHED状态.
 
-##### TCP选项
+###### TCP选项
 
 - MSS选项  
   用于SYN包发送方声明本端MSS(maximum segment size), 即本端能接受的TCP报文的最大数据段长度(MSS不包括TCP头). TCP报文发送方根据对端MSS决定本端发送分段的最大长度.
 
-#### TCP连接断开
+##### TCP连接断开
 
 ```mermaid
 sequenceDiagram
@@ -218,7 +278,7 @@ sequenceDiagram
 
 #### TCP状态
 
-- CLOSED: 表示初始状态 
+- CLOSED: 表示初始状态
 
 - LISTEN: 该状态表示服务器端的某个SOCKET处于监听状态, 可以接受连接
 
@@ -240,7 +300,7 @@ sequenceDiagram
 
 - LAST_ACK: 该状态是被动关闭一方在发送FIN报文后进入该状态. 当收到ACK报文后，即可以进入到CLOSED可用状态
 
-#### 2MSL TIME_WAIT
+##### 2MSL TIME_WAIT
 
 MSL(Maximum Segment Lifetime)
 
@@ -271,7 +331,9 @@ RFC要求socket pair在处于TIME_WAIT时, 不能再起一个incarnation connect
 
 #### 滑动窗口
 
-### 5种IO模型
+### IO模型
+
+#### 5种IO模型
 
 输入操作可分为两个阶段:
 
@@ -281,7 +343,7 @@ RFC要求socket pair在处于TIME_WAIT时, 不能再起一个incarnation connect
 根据第2个阶段是否阻塞, 可将I/O分为同步I/O和异步I/O.  
 阻塞IO/非阻塞IO/信号驱动IO/IO多路复用属于同步I/O, 其仅在第1个阶段由区别.
 
-#### 阻塞IO(blocking I/O)
+##### 阻塞IO(blocking I/O)
 
 ```mermaid
 sequenceDiagram
@@ -301,7 +363,7 @@ sequenceDiagram
     deactivate application
 ```
 
-#### 非阻塞IO(noblocking I/O)
+##### 非阻塞IO(noblocking I/O)
 
 ```mermaid
 sequenceDiagram
@@ -327,7 +389,7 @@ sequenceDiagram
     deactivate application
 ```
 
-#### IO多路复用(I/O multiplexing)
+##### IO多路复用(I/O multiplexing)
 
 通过I/O多路复用, 可以监视多个描述符, 一旦某个描述符就绪(一般是读就绪或者写就绪), 能够通知程序进行相应的读写操作
 
@@ -354,7 +416,7 @@ sequenceDiagram
     deactivate application
 ```
 
-#### 信号驱动IO(signal blocking I/O)
+##### 信号驱动IO(signal blocking I/O)
 
 ```mermaid
 sequenceDiagram
@@ -381,7 +443,7 @@ sequenceDiagram
     deactivate application
 ```
 
-#### 异步IO(asynchronous I/O)
+##### 异步IO(asynchronous I/O)
 
 异步I/O与信号驱动I/O的主要区别是, 异步I/O由内核通知I/O操作已结束, 信号驱动I/O由内核通知I/O操作可执行.
 
@@ -405,7 +467,64 @@ sequenceDiagram
     deactivate application
 ```
 
-### IO多路复用
+#### IO多路复用
 
-#### select/poll/epoll
+##### select/poll/epoll
 
+#### IO设计模式
+
+##### Reactor
+
+##### Proactor
+
+## 网络协议
+
+### ARP协议
+
+### IP协议
+
+#### 分片
+
+##### MTU
+
+### ICMP协议
+
+### IGMP协议
+
+### TCP协议
+
+#### MSS
+
+## 分布式
+
+### 负载均衡
+
+### zookeeper
+
+### 分布式缓存
+
+### 分布式存储
+
+### 消息队列
+
+## C++
+
+### RAII
+
+### 多态
+
+#### 虚函数
+
+#### 析构函数
+
+### 类型转换
+
+### 异常
+
+### 内存泄漏
+
+### 多线程
+
+## 数据库
+
+### 连接池
