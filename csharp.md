@@ -1,4 +1,18 @@
-# C\#
+# `C#`
+
+- [`C#`](#c)
+  - [basic](#basic)
+  - [Database](#database)
+    - [DbProviderFactory](#dbproviderfactory)
+  - [Dynamic Programming in the .NET Framework](#dynamic-programming-in-the-net-framework)
+    - [Reflection in .NET](#reflection-in-net)
+    - [Emitting Dynamic Methods and Assemblies](#emitting-dynamic-methods-and-assemblies)
+  - [others](#others)
+  - [Debug](#debug)
+    - [WinDbg command](#windbg-command)
+    - [tools](#tools)
+  - [Performace](#performace)
+    - [GC](#gc)
 
 ## basic
 
@@ -93,3 +107,23 @@ all managed threads
 ### tools
 
 [Sysinternals Process Utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/process-utilities)
+
+## Performace
+
+### GC
+
+[What is the meaning of “% Time in GC” performance counter](https://stackoverflow.com/questions/31570183/what-is-the-meaning-of-time-in-gc-performance-counter)
+
+[Reasons for seeing high “% Time in GC” in Perf Mon](https://stackoverflow.com/questions/1132033/reasons-for-seeing-high-time-in-gc-in-perf-mon)
+
+[GC Performance Counters](https://devblogs.microsoft.com/dotnet/gc-performance-counters/)
+
+[Improving Managed Code Performance](https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ff647790(v=pandp.10)?redirectedfrom=MSDN#scalenetchapt05_topic10)
+
+
+
+
+
+
+
+
