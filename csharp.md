@@ -13,6 +13,7 @@
     - [tools](#tools)
   - [Performace](#performace)
     - [GC](#gc)
+  - [Parallel Programming](#parallel-programming)
 
 ## basic
 
@@ -120,7 +121,9 @@ all managed threads
 
 [Improving Managed Code Performance](https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ff647790(v=pandp.10)?redirectedfrom=MSDN#scalenetchapt05_topic10)
 
+## Parallel Programming
 
+[Get list of threads](https://stackoverflow.com/questions/10315862/get-list-of-threads)
 
 
 
