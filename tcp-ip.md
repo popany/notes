@@ -1,5 +1,14 @@
 # TCP/IP
 
+- [TCP/IP](#tcpip)
+  - [IPv4 datagram](#ipv4-datagram)
+  - [IPv4 fragment](#ipv4-fragment)
+    - [An Example Reassembly Procedure <ref>](#an-example-reassembly-procedure-ref)
+  - [maximum transmission unit (MTU)](#maximum-transmission-unit-mtu)
+  - [socket](#socket)
+    - [`connect`](#connect)
+    - [others](#others)
+
 ## IPv4 datagram
 
 The maximum size of an IPv4 datagram is 65,535 bytes.
@@ -33,3 +42,9 @@ Every internet module must be able to forward a datagram of 68 octets without fu
 If `connect` fails, the socket is no longer usable and must be closed. We cannot call `connect` again on the socket, we must close the socket descriptor and call socket again.
 
 When `connect` is interrupted by a caught signal and is not automatically restarted, we must call `select` to wait for the connection to complete.
+
+### others
+
+[How do SO_REUSEADDR and SO_REUSEPORT differ?](https://stackoverflow.com/questions/14388706/how-do-so-reuseaddr-and-so-reuseport-differ)
+
+[Example: Nonblocking I/O and select()](https://www.ibm.com/support/knowledgecenter/en/ssw_ibm_i_73/rzab6/xnonblock.htm)
