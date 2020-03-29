@@ -17,7 +17,8 @@
       - [Start a container with a volume](#start-a-container-with-a-volume)
   - [cmd](#cmd)
     - [run a centos container](#run-a-centos-container)
-      - [run a centos container in Docker Desktop](#run-a-centos-container-in-docker-desktop)
+      - [Run a centos container in Docker Desktop](#run-a-centos-container-in-docker-desktop)
+      - [Commit a container and change ENTRYPOINT](#commit-a-container-and-change-entrypoint)
   - [Troubleshooting](#troubleshooting)
     - [Error pulling image : no matching manifest](#error-pulling-image--no-matching-manifest)
       - [Find the OS/Arch of you system](#find-the-osarch-of-you-system)
@@ -101,9 +102,13 @@ or
 
     docker run -d --name test --network host -v vol_a:/app -ti centos
 
-#### run a centos container in Docker Desktop
+#### Run a centos container in Docker Desktop
 
     docker run -d --name test --network host --mount type=bind,source="/c/test",target=/app -ti centos
+
+#### [Commit a container and change ENTRYPOINT](https://stackoverflow.com/questions/29015023/docker-commit-created-images-and-entrypoint)
+
+    docker commit --change='ENTRYPOINT ["/bin/bash"]' <container-name> <image-name>
 
 ## Troubleshooting
 

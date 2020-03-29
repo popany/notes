@@ -1,6 +1,8 @@
 # bash
 
 - [bash](#bash)
+  - [Bash scripting cheatsheet](#bash-scripting-cheatsheet)
+    - [Special variables](#special-variables)
   - [alias](#alias)
   - [prompt](#prompt)
   - [basic](#basic)
@@ -19,6 +21,28 @@
     - [readelf](#readelf)
     - [objcopy](#objcopy)
   - [telnet](#telnet)
+  - [curl](#curl)
+    - [download file](#download-file)
+
+## [Bash scripting cheatsheet](https://devhints.io/bash)
+
+### Special variables
+
+Exit status of last task:
+
+    $?
+
+PID of last background task:
+
+    $!
+
+PID of shell:
+
+    $$
+
+Filename of the shell script:
+
+    $0
 
 ## alias
 
@@ -103,3 +127,9 @@ restart `sshd`
 ### objcopy
 
 ## telnet
+
+## curl
+
+### download file
+
+    curl -o localname.zip http://example.com/download/myfile.zip
