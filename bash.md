@@ -11,6 +11,8 @@
     - [cp](#cp)
       - [copying a file without changing date stamp](#copying-a-file-without-changing-date-stamp)
     - [check the exit status](#check-the-exit-status)
+    - [User](#user)
+      - [List all users](#list-all-users)
   - [CentOS](#centos)
     - [Check CentOS version](#check-centos-version)
     - [sftp](#sftp)
@@ -74,6 +76,12 @@ Filename of the shell script:
 ### [check the exit status](https://stackoverflow.com/questions/26675681/how-to-check-the-exit-status-using-an-if-statement)
 
     (($? != 0)) && { printf '%s\n' "Command exited with non-zero"; exit 1; }
+
+### User
+
+#### List all users
+
+    cat /etc/passwd
 
 ## CentOS
 

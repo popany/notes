@@ -41,6 +41,7 @@
       - [Related Docker Hub Repos](#related-docker-hub-repos)
         - [.NET Framework](#net-framework)
         - [.NET Core](#net-core)
+  - [Install & Update](#install--update)
   - [Q & A](#q--a)
     - [Can Windows Containers be hosted on linux?](#can-windows-containers-be-hosted-on-linux)
 
@@ -196,6 +197,10 @@ From the Docker Desktop menu, you can toggle which daemon (Linux or Windows) the
 - [dotnet/core](https://hub.docker.com/_/microsoft-dotnet-core/): .NET Core
 - [dotnet/core/samples](https://hub.docker.com/_/microsoft-dotnet-core-samples/): .NET Core Samples
 - [dotnet/core-nightly](https://hub.docker.com/_/microsoft-dotnet-core-nightly/): .NET Core (Preview)
+
+## Install & Update
+
+
 
 ## Q & A
 
