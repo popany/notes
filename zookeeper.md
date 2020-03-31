@@ -24,6 +24,7 @@
       - [Connecting to ZooKeeper](#connecting-to-zookeeper)
       - [Programming to ZooKeeper](#programming-to-zookeeper)
       - [Running Replicated ZooKeeper](#running-replicated-zookeeper)
+      - [Other Optimizations](#other-optimizations)
   - [zookeeper docker](#zookeeper-docker)
     - [zookeeper docker hub](#zookeeper-docker-hub)
 
@@ -146,7 +147,7 @@ To show the behavior of the system over time as failures are injected we ran a Z
 ZooKeeper has been [successfully used](https://cwiki.apache.org/confluence/display/ZOOKEEPER/PoweredBy) in many industrial applications. It is used at Yahoo! as the coordination and failure recovery service for Yahoo! Message Broker, which is a highly scalable publish-subscribe system managing thousands of topics for replication and data delivery. It is used by the Fetching Service for Yahoo! crawler, where it also manages failure recovery. A number of Yahoo! advertising systems also use ZooKeeper to implement reliable services.
 All users and developers are encouraged to join the community and contribute their expertise. See the [Zookeeper Project on Apache](http://zookeeper.apache.org/) for more information.
 
-### ZooKeeper Getting Started Guide
+### [ZooKeeper Getting Started Guide](http://zookeeper.apache.org/doc/current/zookeeperStarted.html)
 
 #### Getting Started: Coordinating Distributed Applications with ZooKeeper
 
@@ -310,27 +311,36 @@ Running ZooKeeper in standalone mode is convenient for evaluation, some developm
 NOTE:  
 For replicated mode, a minimum of three servers are required, and it is strongly recommended that you have an odd number of servers. If you only have two servers, then you are in a situation where if one of them fails, there are not enough machines to form a majority quorum. Two servers is inherently less stable than a single server, because there are two single points of failure.
 
+The required `conf/zoo.cfg` file for replicated mode is similar to the one used in standalone mode, but with a few differences. Here is an example:
 
+    tickTime=2000
+    dataDir=/var/lib/zookeeper
+    clientPort=2181
+    initLimit=5
+    syncLimit=2
+    server.1=zoo1:2888:3888
+    server.2=zoo2:2888:3888
+    server.3=zoo3:2888:3888
 
+The new entry, **initLimit** is timeouts ZooKeeper uses to limit the length of time the ZooKeeper servers in quorum have to **connect to a leader**. The entry **syncLimit** limits how far out of date a server can be from a leader.
 
+With both of these timeouts, you specify the **unit of time** using **tickTime**. In this example, the timeout for initLimit is 5 ticks at 2000 milleseconds a tick, or 10 seconds.
 
+The entries of the form `server.X` list the servers that make up the ZooKeeper service. When the server starts up, it knows which server it is by looking for the file `myid` in the data directory. That file has the contains the server number, in ASCII.
 
+Finally, note the **two port** numbers after each server name: "2888" and "3888". Peers use the former port to **connect to other peers**. Such a connection is necessary so that peers can communicate, for example, to agree upon the order of updates. More specifically, a ZooKeeper server uses this port to connect followers to the leader. When a new leader arises, a follower opens a TCP connection to the leader using this port. Because the default leader election also uses TCP, we currently require another port for **leader election**. This is the second port in the server entry.
 
+NOTE:  
+If you want to test multiple servers on a single machine, specify the servername as localhost with unique quorum & leader election ports (i.e. 2888:3888, 2889:3889, 2890:3890 in the example above) for each server.X in that server's config file. Of course separate _dataDir_s and distinct _clientPort_s are also necessary (in the above replicated example, running on a single localhost, you would still have three config files).  
+Please be aware that setting up multiple servers on a single machine will not create any redundancy. If something were to happen which caused the machine to die, all of the zookeeper servers would be offline. Full redundancy requires that each server have its own machine. It must be a completely separate physical server. Multiple virtual machines on the same physical host are still vulnerable to the complete failure of that host.
 
+#### Other Optimizations
 
+There are a couple of other configuration parameters that can greatly increase performance:
 
+To get low latencies on updates it is important to have a dedicated transaction log directory. By default transaction logs are put in the same directory as the data snapshots and myid file. The dataLogDir parameters indicates a different directory to use for the transaction logs.
 
-
-
-
-
-
-
-
-
-
-
-
+[tbd: what is the other config param?]
 
 ## zookeeper docker
 

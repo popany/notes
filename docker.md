@@ -18,7 +18,11 @@
   - [cmd](#cmd)
     - [run a centos container](#run-a-centos-container)
       - [Run a centos container in Docker Desktop](#run-a-centos-container-in-docker-desktop)
-      - [Commit a container and change ENTRYPOINT](#commit-a-container-and-change-entrypoint)
+    - [Commit a container and change ENTRYPOINT](#commit-a-container-and-change-entrypoint)
+    - [Move Docker container to another host](#move-docker-container-to-another-host)
+      - [Export and import containers](#export-and-import-containers)
+      - [Container image migration](#container-image-migration)
+      - [Migrate data volumes](#migrate-data-volumes)
   - [Troubleshooting](#troubleshooting)
     - [Error pulling image : no matching manifest](#error-pulling-image--no-matching-manifest)
       - [Find the OS/Arch of you system](#find-the-osarch-of-you-system)
@@ -42,6 +46,12 @@
         - [.NET Framework](#net-framework)
         - [.NET Core](#net-core)
   - [Install & Update](#install--update)
+    - [Get Docker Engine - Community for CentOS](#get-docker-engine---community-for-centos)
+      - [Uninstall old versions](#uninstall-old-versions)
+      - [Install Docker Engine - Community](#install-docker-engine---community)
+        - [Install using the repository](#install-using-the-repository)
+          - [Set up the repository](#set-up-the-repository)
+          - [Install Docker Engine - Community](#install-docker-engine---community-1)
   - [Q & A](#q--a)
     - [Can Windows Containers be hosted on linux?](#can-windows-containers-be-hosted-on-linux)
 
@@ -107,9 +117,54 @@ or
 
     docker run -d --name test --network host --mount type=bind,source="/c/test",target=/app -ti centos
 
-#### [Commit a container and change ENTRYPOINT](https://stackoverflow.com/questions/29015023/docker-commit-created-images-and-entrypoint)
+### [Commit a container and change ENTRYPOINT](https://stackoverflow.com/questions/29015023/docker-commit-created-images-and-entrypoint)
 
     docker commit --change='ENTRYPOINT ["/bin/bash"]' <container-name> <image-name>
+
+### [Move Docker container to another host](https://bobcares.com/blog/move-docker-container-to-another-host/)
+
+#### Export and import containers
+
+Export:
+
+    docker export container-name | gzip > container-name.gz
+
+Import:
+
+    zcat container-name.gz | docker import - container-name
+
+The new container created in the new host can be accessed using `docker run` command.
+
+One **drawback** of export tool is that, it does not copy ports and variables, or the underlying data volume which contains the container data.
+
+This can lead to errors when trying to load the container in another host. In such cases, we opt for Docker image migration to move containers from one host to another.
+
+#### Container image migration
+
+Save the container's image
+
+    docker commit container-id image-name
+    docker save image-name > image-name.tar
+
+Load image in new host
+
+    cat image-name.tar | docker load
+
+#### Migrate data volumes
+
+When Docker containers or images are moved from one host to another using export or commit tools, the underlying data volume is not migrated.
+
+In such situations, the directory containing data is manually moved to the new host. Then containers are created there with reference to that directory as its data volume.
+
+Another fool proof method is to backup and restore the data volume by passing ‘–volumes-from’ parameter in the ‘docker run’ command.
+
+    docker run --rm --volumes-from datavolume-name -v $(pwd):/backup image-name tar cvf  backup.tar /path-to-datavolume
+
+This command provides a backup of the data volume. The backup generated can be moved to new host via scp or ftp tools.
+
+Copied backup is then extracted and restored to the data volume in the new container there.
+
+    docker run --rm --volumes-from datavolume-name -v $(pwd):/backup image-name bash -c "cd /path-to-datavolume && tar xvf /backup/backup.tar --strip 1"
 
 ## Troubleshooting
 
@@ -200,7 +255,58 @@ From the Docker Desktop menu, you can toggle which daemon (Linux or Windows) the
 
 ## Install & Update
 
+### [Get Docker Engine - Community for CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
 
+#### Uninstall old versions
+
+Older versions of Docker were called `docker` or `docker-engine`. If these are installed, uninstall them, along with associated dependencies.
+
+    yum remove docker \
+        docker-client \
+        docker-client-latest \
+        docker-common \
+        docker-latest \
+        docker-latest-logrotate \
+        docker-logrotate \
+        docker-engine
+
+It’s OK if yum reports that none of these packages are installed.
+
+The contents of `/var/lib/docker/`, including images, containers, volumes, and networks, are **preserved**. The Docker Engine - Community package is now called `docker-ce`.
+
+#### Install Docker Engine - Community
+
+##### Install using the repository
+
+###### Set up the repository
+
+- Install required packages. `yum-utils` provides the `yum-config-manager` utility, and `device-mapper-persistent-data` and `lvm2` are required by the `devicemapper` storage driver.
+
+    yum install -y yum-utils \
+        device-mapper-persistent-data \
+        lvm2
+
+- Use the following command to set up the stable repository.
+
+    yum-config-manager \
+        --add-repo \
+        https://download.docker.com/linux/centos/docker-ce.repo
+
+- Optional: Enable the nightly or test repositories.
+
+###### Install Docker Engine - Community
+
+- Install the latest version of Docker Engine - Community and containerd
+
+        yum install docker-ce docker-ce-cli containerd.io
+
+- Start Docker
+
+        systemctl start docker
+
+- Verify that Docker Engine - Community is installed correctly by running the hello-world image.
+
+        docker run hello-world
 
 ## Q & A
 

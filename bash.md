@@ -13,8 +13,12 @@
     - [check the exit status](#check-the-exit-status)
     - [User](#user)
       - [List all users](#list-all-users)
+    - [`tail`](#tail)
+    - [`head`](#head)
   - [CentOS](#centos)
     - [Check CentOS version](#check-centos-version)
+    - [`yum`](#yum)
+    - [`rpm`](#rpm)
     - [sftp](#sftp)
       - [How to setup an SFTP server on CentOS 7](#how-to-setup-an-sftp-server-on-centos-7)
     - [firewall](#firewall)
@@ -83,11 +87,43 @@ Filename of the shell script:
 
     cat /etc/passwd
 
+### `tail`
+
+Output the last 5 lines
+
+    tail -n 5
+
+Output starting with the 5th
+
+    tail -n +5
+
+### `head`
+
+Print the first 5 lines
+
+    head -n 5
+
+Print all but the last 5 lines
+
+    head -n -5
+
 ## CentOS
 
 ### Check CentOS version
 
     cat /etc/centos-release
+
+### `yum`
+
+List installed packages:
+
+    yum list installed
+
+### `rpm`
+
+    rpm -qa
+
+List installed packages
 
 ### sftp
 

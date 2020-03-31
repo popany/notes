@@ -8,7 +8,9 @@
       - [Running Oracle Database in a Docker container](#running-oracle-database-in-a-docker-container)
         - [Running Oracle Database 18c Express Edition in a Docker container](#running-oracle-database-18c-express-edition-in-a-docker-container)
     - [Build and Run Oracle Database Container in Docker Desktop](#build-and-run-oracle-database-container-in-docker-desktop)
+    - [Run Oracle Database Container in CentOS](#run-oracle-database-container-in-centos)
       - [Use Oracle11g Client](#use-oracle11g-client)
+        - [cmd with docker](#cmd-with-docker)
   - [Oracle Network Configuration (listener.ora, tnsnames.ora, sqlnet.ora)](#oracle-network-configuration-listenerora-tnsnamesora-sqlnetora)
     - [Assumptions](#assumptions)
     - [listener.ora](#listenerora)
@@ -101,6 +103,14 @@ The **password** for those accounts can be changed via the docker exec command. 
 
     docker logs -f oracle18xe >startup.log 2>&1 &
 
+### Run Oracle Database Container in CentOS
+
+    docker volume create vol_oracledb
+
+    docker run -d --name oracle18xe -p 1521:1521 -p 5500:5500 -e ORACLE_PWD=abc -e ORACLE_CHARACTERSET=AL32UTF8 -v vol_oracledb:/opt/oracle/oradata oracle/database:18.4.0-xe
+
+    docker logs -f oracle18xe >startup.log 2>&1 &
+
 #### Use Oracle11g Client
 
 - Set the values of the `SQLNET.ALLOWED_LOGON_VERSION_SERVER` and `SQLNET.ALLOWED_LOGON_VERSION_CLIENT` parameters int `sqlnet.ora`, on **both the client and on the server**
@@ -113,8 +123,6 @@ The **password** for those accounts can be changed via the docker exec command. 
     Login by SQL*Plus on the server side
 
         sqlplus system/abc@//localhost:1521/XE
-
-    Change the password
 
         SQL> password
         Changing password for MY_USER
@@ -134,6 +142,24 @@ The **password** for those accounts can be changed via the docker exec command. 
               (SERVICE_NAME = XE)
             )
           )
+
+##### cmd with docker
+
+- Edit sqlnet.ora
+
+      docker exec -ti oracle18xe bash -c 'cat >> $ORACLE_HOME/network/admin/sqlnet.ora << EOF
+      SQLNET.ALLOWED_LOGON_VERSION_CLIENT=11
+      SQLNET.ALLOWED_LOGON_VERSION_SERVER=11
+      EOF'
+
+- Change the password
+
+      docker exec -ti oracle18xe bash -c 'sqlplus -s /nolog << EOF 
+      connect system/"abc"@//localhost:1521/XE
+      alter user system identified by "123" replace "abc";
+      /
+      exit
+      EOF'
 
 ## [Oracle Network Configuration (listener.ora, tnsnames.ora, sqlnet.ora)](https://oracle-base.com/articles/misc/oracle-network-configuration)
 
