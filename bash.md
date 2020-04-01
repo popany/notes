@@ -15,6 +15,9 @@
       - [List all users](#list-all-users)
     - [`tail`](#tail)
     - [`head`](#head)
+    - [`icov`](#icov)
+    - [`sed`](#sed)
+      - [Use sed to extract substring](#use-sed-to-extract-substring)
   - [CentOS](#centos)
     - [Check CentOS version](#check-centos-version)
     - [`yum`](#yum)
@@ -106,6 +109,33 @@ Print the first 5 lines
 Print all but the last 5 lines
 
     head -n -5
+
+### `icov`
+
+Convert encoding from gbk to utf8
+
+    iconv -f GBK -t UTF-8 file_name
+
+List all known coded character sets
+
+    iconv -l
+
+### [`sed`](https://www.computerhope.com/unix/used.htm)
+
+#### [Use sed to extract substring](https://stackoverflow.com/questions/16675179/how-to-use-sed-to-extract-substring)
+
+    sed 's/[^"]*"\([^"]*\).*/\1/'
+
+- `s` - tells sed to substitute
+- `/` - start of regex string to search for
+- `[^"]*` - any character that is not `"`, any number of times.
+- `"` - just a `"`.
+- `([^"]*)` - anything inside `()` will be saved for reference to use later. The `\` are there so the brackets are not considered as characters to search for. `[^"]*` means the same as above.
+- `.*` - any character, any number of times.
+- `/` - end of the search regex, and start of the substitute string.
+- `\1` - reference to that string we found in the brackets above.
+- `/` end of the substitute string.
+
 
 ## CentOS
 
