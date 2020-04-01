@@ -14,6 +14,8 @@
   - [Singleton Pattern](#singleton-pattern)
     - [Implementation](#implementation-2)
   - [Builder Pattern](#builder-pattern)
+    - [Implementation](#implementation-3)
+  - [Prototype Pattern](#prototype-pattern)
 
 Design patterns represent the **best practices** used by experienced **object-oriented** software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
 
@@ -192,3 +194,85 @@ We're going to create a `SingleObject` class. `SingleObject` class have its cons
 ```
 
 ## Builder Pattern
+
+Builder pattern builds a complex object using simple objects and using a **step by step** approach. This type of design pattern comes under **creational pattern** as this pattern provides one of the best ways to create an object.
+
+A Builder class builds the final object step by step. This builder is independent of other objects.
+
+### Implementation
+
+We have considered a business case of fast-food restaurant where a typical meal could be a burger and a cold drink. Burger could be either a Veg Burger or Chicken Burger and will be packed by a wrapper. Cold drink could be either a coke or pepsi and will be packed in a bottle.
+
+We are going to create an **`Item` interface** representing food `items` such as burgers and cold drinks and concrete classes implementing the `Item` interface and a **`Packing` interface** representing packaging of food items and concrete classes implementing the `Packing` interface as burger would be packed in wrapper and cold drink would be packed as bottle.
+
+We then create a `Meal` class having `ArrayList` of `Item` and a `MealBuilder` to build different types of `Meal` objects by combining Item. `BuilderPatternDemo`, our demo class will use `MealBuilder` to build a `Meal`.
+
+```mermaid
+ classDiagram
+    class Item{
+        <<interface>>
+        +name() String
+        +packing() Packing
+        +price() foat
+    }
+    class Burger{
+    }
+    class ColdDrink{
+    }
+    class VegBurger{
+    }
+    class ChickenBurger{
+    }
+    class Pepsi{
+    }
+    class Coke{
+    }
+    class Bottle{
+    }
+    class Packing{
+        <<interface>>
+    }
+    class Wrapper{
+    }
+    class Packing{
+    }
+    Item <|-- ColdDrink : implement
+    ColdDrink <|-- Pepsi : extend
+    ColdDrink <|-- Coke : extend
+    ColdDrink --> Bottle : use
+    Packing <|-- Bottle : implement
+    Packing <|-- Wrapper : implement
+    Item <|-- Burger : implement
+    Burger --> Wrapper : use
+    Burger <|-- ChickenBurger : extend
+    Burger <|-- VegBurger : extend
+    class Meal{
+        -items ArrayList<item>
+        +addItem(Item item) void
+        +getCost() float
+        +showItems() void
+    }
+    Item <-- Meal : uses
+    class MealBuilder{
+        +prepareVegMeal() Meal
+        +prepareNonVegMeal() Meal
+    }
+    Meal <-- MealBuilder : builds
+    class BuilderPatternDemo{
+        +main() void
+    }
+    MealBuilder <-- BuilderPatternDemo : asks
+```
+
+## Prototype Pattern
+
+
+
+
+
+
+
+
+
+
+
