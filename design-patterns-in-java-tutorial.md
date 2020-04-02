@@ -16,6 +16,8 @@
   - [Builder Pattern](#builder-pattern)
     - [Implementation](#implementation-3)
   - [Prototype Pattern](#prototype-pattern)
+    - [Implementation](#implementation-4)
+  - [Adapter Pattern](#adapter-pattern)
 
 Design patterns represent the **best practices** used by experienced **object-oriented** software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
 
@@ -266,13 +268,62 @@ We then create a `Meal` class having `ArrayList` of `Item` and a `MealBuilder` t
 
 ## Prototype Pattern
 
+Prototype pattern refers to creating duplicate object while **keeping performance in mind**. This type of design pattern comes under **creational pattern** as this pattern provides one of the best ways to create an object.
 
+This pattern involves implementing a **prototype interface** which tells to create a **clone** of the current object. This pattern is used when creation of object directly is costly. For example, an object is to be created after a costly database operation. We can cache the object, returns its clone on next request and update the database as and when needed thus reducing database calls.
 
+### Implementation
 
+We're going to create an abstract class `Shape` and concrete classes extending the `Shape` class. A class `ShapeCache` is defined as a next step which stores shape objects in a `Hashtable` and returns their clone when requested.
 
+`PrototypPatternDemo`, our demo class will use `ShapeCache` class to get a `Shape` object.
 
+```mermaid
+ classDiagram
+    class Shape{
+        -id String
+        +type String
+        +getType() String
+        +getId() String
+        +setId() void
+        +clone() Object
+    }
+    class Circle{
+        +type String
+        +getType() String
+        +getId() String
+        +setId() void
+        +clone() Object
+    }
+    class Rectangle{
+        +type String
+        +getType() String
+        +getId() String
+        +setId() void
+        +clone() Object
+    }
+    class Square{
+        +type String
+        +getType() String
+        +getId() String
+        +setId() void
+        +clone() Object
+    }
+    class ShapeCache{
+        -shapeMap HashMap
+        +getShape() Shape
+        +loadCache() void
+    }
+    Shape <|-- Circle : extends
+    Shape <|-- Rectangle : extends
+    Shape <|-- Square : extends
+    Circle <-- ShapeCache : clones
+    Rectangle <-- ShapeCache : clones
+    Square <-- ShapeCache : clones
+    class PrototypePatternDemo{
+        +main() void
+    }
+    PrototypePatternDemo --> ShapeCache : asks
+```
 
-
-
-
-
+## Adapter Pattern
