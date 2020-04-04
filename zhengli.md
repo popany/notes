@@ -18,6 +18,8 @@
       - [线程池](#%e7%ba%bf%e7%a8%8b%e6%b1%a0)
         - [线程数](#%e7%ba%bf%e7%a8%8b%e6%95%b0)
     - [生产者/消费者模式](#%e7%94%9f%e4%ba%a7%e8%80%85%e6%b6%88%e8%b4%b9%e8%80%85%e6%a8%a1%e5%bc%8f)
+    - [Reactor](#reactor)
+    - [Proactor](#proactor)
   - [网络编程](#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b)
     - [TCP](#tcp)
       - [TCP连接](#tcp%e8%bf%9e%e6%8e%a5)
@@ -41,9 +43,6 @@
         - [异步IO(asynchronous I/O)](#%e5%bc%82%e6%ad%a5ioasynchronous-io)
       - [IO多路复用](#io%e5%a4%9a%e8%b7%af%e5%a4%8d%e7%94%a8)
         - [select/poll/epoll](#selectpollepoll)
-      - [IO设计模式](#io%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f)
-        - [Reactor](#reactor)
-        - [Proactor](#proactor)
   - [网络协议](#%e7%bd%91%e7%bb%9c%e5%8d%8f%e8%ae%ae)
     - [ARP协议](#arp%e5%8d%8f%e8%ae%ae)
     - [IP协议](#ip%e5%8d%8f%e8%ae%ae)
@@ -69,6 +68,15 @@
     - [内存泄漏](#%e5%86%85%e5%ad%98%e6%b3%84%e6%bc%8f)
     - [多线程](#%e5%a4%9a%e7%ba%bf%e7%a8%8b)
     - [静态库/共享库](#%e9%9d%99%e6%80%81%e5%ba%93%e5%85%b1%e4%ba%ab%e5%ba%93)
+  - [面向对象](#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1)
+    - [面向对象设计七大原则](#%e9%9d%a2%e5%90%91%e5%af%b9%e8%b1%a1%e8%ae%be%e8%ae%a1%e4%b8%83%e5%a4%a7%e5%8e%9f%e5%88%99)
+    - [设计模式](#%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f)
+      - [设计模式的分类](#%e8%ae%be%e8%ae%a1%e6%a8%a1%e5%bc%8f%e7%9a%84%e5%88%86%e7%b1%bb)
+        - [根据目的分类](#%e6%a0%b9%e6%8d%ae%e7%9b%ae%e7%9a%84%e5%88%86%e7%b1%bb)
+        - [根据范围分类](#%e6%a0%b9%e6%8d%ae%e8%8c%83%e5%9b%b4%e5%88%86%e7%b1%bb)
+      - [创建型模式](#%e5%88%9b%e5%bb%ba%e5%9e%8b%e6%a8%a1%e5%bc%8f)
+      - [结构型模式](#%e7%bb%93%e6%9e%84%e5%9e%8b%e6%a8%a1%e5%bc%8f)
+      - [行为型模式](#%e8%a1%8c%e4%b8%ba%e5%9e%8b%e6%a8%a1%e5%bc%8f)
   - [数据库](#%e6%95%b0%e6%8d%ae%e5%ba%93)
     - [连接池](#%e8%bf%9e%e6%8e%a5%e6%b1%a0)
 
@@ -204,6 +212,10 @@ stateDiagram
 ##### 线程数
 
 ### 生产者/消费者模式
+
+### Reactor
+
+### Proactor
 
 ## 网络编程
 
@@ -472,11 +484,6 @@ sequenceDiagram
 
 ##### select/poll/epoll
 
-#### IO设计模式
-
-##### Reactor
-
-##### Proactor
 
 ## 网络协议
 
@@ -527,6 +534,82 @@ sequenceDiagram
 ### 多线程
 
 ### 静态库/共享库
+
+## 面向对象
+
+### 面向对象设计七大原则
+
+https://blog.csdn.net/qq_34760445/article/details/82931002
+
+https://juejin.im/post/5b9526c1e51d450e69731dc2
+
+https://blog.csdn.net/qq_34760445/article/details/82931002
+
+https://www.cnblogs.com/qifengshi/p/5709594.html
+
+https://www.cnblogs.com/sunflower627/p/4718702.html
+
+https://juejin.im/post/5b9526c1e51d450e69731dc2#heading-52
+
+### 设计模式
+
+#### [设计模式的分类](https://www.cnblogs.com/WindSun/p/10223126.html)
+
+##### 根据目的分类
+
+- 创建型(Creational)
+
+    主要用于创建对象
+
+- 结构型(Structural)
+
+    主要用于处理类或对象的组合
+  
+- 行为型(Behavioral)
+
+    主要用于描述对类或对象怎样交互和怎样分配职责
+
+##### 根据范围分类
+
+- 类模式
+
+    处理类和子类之间的关系，这些关系通过继承建立，在编译时刻就被确定下来，是属于静态的
+
+- 对象模式
+
+    处理对象间的关系，这些关系在运行时刻变化，更具动态性
+
+#### 创建型模式
+
+- 抽象工厂模式(Abstract Factory)
+- 建造者模式(Builder)
+- 工厂方法模式(Factory Method)
+- 原型模式(Prototype)
+- 单例模式(Singleton) 
+
+#### 结构型模式
+
+- 适配器模式(Adapter)
+- 桥接模式(Bridge)
+- 组合模式(Composite)
+- 装饰模式(Decorator)
+- 外观模式(Facade)
+- 享元模式(Flyweight)
+- 代理模式(Proxy)
+
+#### 行为型模式
+
+- 职责链模式(Chain of Responsibility)
+- 命令模式(Command)
+- 解释器模式(Interpreter)
+- 迭代器模式(Iterator)
+- 中介者模式(Mediator)
+- 备忘录模式(Memento)
+- 观察者模式(Observer)
+- 状态模式(State)
+- 策略模式(Strategy)
+- 模板方法模式(Template Method)
+- 访问者模式(Visitor)
 
 ## 数据库
 

@@ -7,17 +7,15 @@
       - [Common platform for developers](#common-platform-for-developers)
       - [Best Practices](#best-practices)
     - [Types of Design Patterns](#types-of-design-patterns)
-  - [Factory Pattern](#factory-pattern)
-    - [Implementation](#implementation)
-  - [Abstract Factory Pattern](#abstract-factory-pattern)
-    - [Implementation](#implementation-1)
-  - [Singleton Pattern](#singleton-pattern)
-    - [Implementation](#implementation-2)
-  - [Builder Pattern](#builder-pattern)
-    - [Implementation](#implementation-3)
-  - [Prototype Pattern](#prototype-pattern)
-    - [Implementation](#implementation-4)
-  - [Adapter Pattern](#adapter-pattern)
+  - [Creational Patterns](#creational-patterns)
+    - [Factory Pattern](#factory-pattern)
+    - [Abstract Factory Pattern](#abstract-factory-pattern)
+    - [Singleton Pattern](#singleton-pattern)
+    - [Builder Pattern](#builder-pattern)
+    - [Prototype Pattern](#prototype-pattern)
+  - [Structural pattern](#structural-pattern)
+    - [Adapter Pattern](#adapter-pattern)
+    - [Bridge Pattern](#bridge-pattern)
 
 Design patterns represent the **best practices** used by experienced **object-oriented** software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
 
@@ -67,13 +65,15 @@ As per the design pattern reference book **Design Patterns - Elements of Reusabl
 
     These design patterns are specifically concerned with the presentation tier. These patterns are identified by Sun Java Center.
 
-## Factory Pattern
+## Creational Patterns
+
+### Factory Pattern
 
 Factory pattern is one of the most used design patterns in Java. This type of design pattern comes under **creational pattern** as this pattern provides one of the best ways to create an object.
 
 In Factory pattern, we create object without exposing the creation logic to the client and refer to newly created object using a **common interface**.
 
-### Implementation
+Implementation
 
 We're going to create a `Shape` interface and concrete classes implementing the `Shape` interface. A factory class `ShapeFactory` is defined as a next step.
 
@@ -109,13 +109,13 @@ We're going to create a `Shape` interface and concrete classes implementing the 
       FactoryPatternDemo --> ShapeFactory : ask
 ```
 
-## Abstract Factory Pattern
+### Abstract Factory Pattern
 
 Abstract Factory patterns work around a super-factory which **creates other factories**. This factory is also called as factory of factories. This type of design pattern comes under **creational pattern** as this pattern provides one of the best ways to create an object.
 
 In Abstract Factory pattern an interface is responsible for **creating a factory of related objects** without explicitly specifying their classes. Each generated factory can give the objects as per the Factory pattern.
 
-### Implementation
+Implementation
 
 We are going to create a `Shape` interface and a concrete class implementing it. We create an abstract factory class `AbstractFactory` as next step. Factory class `ShapeFactory` is defined, which extends `AbstractFactory`. A factory creator/generator class `FactoryProducer` is created.
 
@@ -169,13 +169,13 @@ We are going to create a `Shape` interface and a concrete class implementing it.
     RoundedShapeFactory --> RoundedSquare : creates
  ```
 
-## Singleton Pattern
+### Singleton Pattern
 
 Singleton pattern is one of the simplest design patterns in Java. This type of design pattern comes under **creational pattern** as this pattern provides one of the best ways to create an object.
 
 This pattern involves a single class which is responsible to create an object while making sure that only single object gets created. This class provides a way to access its only object which can be accessed directly without need to instantiate the object of the class.
 
-### Implementation
+Implementation
 
 We're going to create a `SingleObject` class. `SingleObject` class have its constructor as private and have a static instance of itself.
 
@@ -195,13 +195,13 @@ We're going to create a `SingleObject` class. `SingleObject` class have its cons
     SingletonPatternDemo --> SingleObject : asks
 ```
 
-## Builder Pattern
+### Builder Pattern
 
 Builder pattern builds a complex object using simple objects and using a **step by step** approach. This type of design pattern comes under **creational pattern** as this pattern provides one of the best ways to create an object.
 
 A Builder class builds the final object step by step. This builder is independent of other objects.
 
-### Implementation
+Implementation
 
 We have considered a business case of fast-food restaurant where a typical meal could be a burger and a cold drink. Burger could be either a Veg Burger or Chicken Burger and will be packed by a wrapper. Cold drink could be either a coke or pepsi and will be packed in a bottle.
 
@@ -266,13 +266,13 @@ We then create a `Meal` class having `ArrayList` of `Item` and a `MealBuilder` t
     MealBuilder <-- BuilderPatternDemo : asks
 ```
 
-## Prototype Pattern
+### Prototype Pattern
 
 Prototype pattern refers to creating duplicate object while **keeping performance in mind**. This type of design pattern comes under **creational pattern** as this pattern provides one of the best ways to create an object.
 
 This pattern involves implementing a **prototype interface** which tells to create a **clone** of the current object. This pattern is used when creation of object directly is costly. For example, an object is to be created after a costly database operation. We can cache the object, returns its clone on next request and update the database as and when needed thus reducing database calls.
 
-### Implementation
+Implementation
 
 We're going to create an abstract class `Shape` and concrete classes extending the `Shape` class. A class `ShapeCache` is defined as a next step which stores shape objects in a `Hashtable` and returns their clone when requested.
 
@@ -326,4 +326,134 @@ We're going to create an abstract class `Shape` and concrete classes extending t
     PrototypePatternDemo --> ShapeCache : asks
 ```
 
-## Adapter Pattern
+## Structural pattern
+
+### Adapter Pattern
+
+Adapter pattern works as a bridge between two incompatible interfaces. This type of design pattern comes under **structural pattern** as this pattern combines the capability of two independent interfaces.
+
+This pattern involves a single class which is responsible to join functionalities of independent or incompatible interfaces. A real life example could be a case of card reader which acts as an adapter between memory card and a laptop. You plugin the memory card into card reader and card reader into the laptop so that memory card can be read via laptop.
+
+We are demonstrating use of Adapter pattern via following example in which an audio player device can play mp3 files only and wants to use an advanced audio player capable of playing vlc and mp4 files.
+
+Implementation
+
+We have a `MediaPlayer` interface and a concrete class `AudioPlayer` implementing the `MediaPlayer` interface. `AudioPlayer` can play mp3 format audio files by default.
+
+We are having another interface `AdvancedMediaPlayer` and concrete classes implementing the `AdvancedMediaPlayer` interface. These classes can play vlc and mp4 format files.
+
+We want to make `AudioPlayer` to play other formats as well. To attain this, we have created an adapter class `MediaAdapter` which implements the `MediaPlayer` interface and uses `AdvancedMediaPlayer` objects to play the required format.
+
+`AudioPlayer` uses the adapter class `MediaAdapter` passing it the desired audio type without knowing the actual class which can play the desired format. `AdapterPatternDemo`, our demo class will use `AudioPlayer` class to play various formats.
+
+```mermaid
+classDiagram
+    class AdvancedMediaPlayer{
+        <<interface>>
+        +playVlc() void
+        +playMp4() void
+    }
+    class VlcPlayer{
+        +playVlc() void
+        +playMp4() void
+    }
+    class Mp4Player{
+        +playVlc() void
+        +playMp4() void
+    }
+    class MediaAdapter{
+        AdvancedMediaPlayer advancedMediaPlayer
+        +play() void
+    }
+    AdvancedMediaPlayer <|-- VlcPlayer : implements
+    AdvancedMediaPlayer <|-- Mp4Player : implements
+    VlcPlayer <-- MediaAdapter : uses
+    Mp4Player <-- MediaAdapter : uses
+    class MediaPlayer{
+        +play() void
+    }
+    class AudioPlayer{
+        +MediaAdapter mediaAdapter
+        +play() void
+    }
+    MediaAdapter <-- AudioPlayer : uses
+    MediaPlayer <-- MediaAdapter : implements
+    MediaPlayer <-- AudioPlayer : implements
+    class AdapterPatternDemo{
+        +main() void
+    }
+    AudioPlayer <-- AdapterPatternDemo : uses
+```
+
+### Bridge Pattern
+
+Bridge is used when we need to **decouple** an abstraction from its implementation so that the two can vary independently. This type of design pattern comes under **structural pattern** as this pattern decouples implementation class and abstract class by providing a bridge structure between them.
+
+This pattern involves an interface which acts as a bridge which makes the functionality of concrete classes independent from interface implementer classes. Both types of classes can be altered structurally without affecting each other.
+
+We are demonstrating use of Bridge pattern via following example in which a circle can be drawn in different colors using same abstract class method but different bridge implementer classes.
+
+Implementation
+
+We have a `DrawAPI` interface which is acting as a bridge implementer and concrete classes `RedCircle`, `GreenCircle` implementing the `DrawAPI` interface. `Shape` is an abstract class and will use object of `DrawAPI`. `BridgePatternDemo`, our demo class will use `Shape` class to draw different colored circle.
+
+```mermaid
+classDiagram
+    class DrawApi{
+        <<interface>>
+        +drawCircle() void
+    }
+    class RedCircle{
+        +drawCircle() void
+    }
+    class GreenCircle{
+        +drawCircle() void
+    }
+    DrawApi <|-- RedCircle : implements
+    DrawApi <|-- GreenCircle : implements
+    class Shape{
+        +DrawApi drawApi
+        +draw() void
+    }
+    class Circle{
+        int x, y, radius
+        +draw() void
+    }
+    Shape <|-- Circle : extends
+    DrawApi <-- Shape : uses
+    class BridgePatternDemo{
+        +main() void
+    }
+    Shape <-- BridgePatternDemo : uses
+    RedCircle <-- BridgePatternDemo : uses
+    GreenCircle <-- BridgePatternDemo : uses
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
