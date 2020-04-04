@@ -31,6 +31,8 @@
       - [Upgrading plugins](#upgrading-plugins)
       - [Hacking](#hacking)
   - [Practice](#practice)
+    - [Get latest LTS](#get-latest-lts)
+    - [Run jenkins container](#run-jenkins-container)
 
 ## [Jenkins User Documentation](https://jenkins.io/doc/)
 
@@ -257,38 +259,29 @@ You can rely on the `install-plugins.sh` script to pass a set of plugins to down
 
 ##### Setting update centers
 
-
-
 ##### Plugin version format
-
 
 ##### Fine-tune the downloads
 
-
-
 ##### Other environment variables
-
-
 
 ##### Script usage
 
-
-
-
-
-
 ### Upgrading
 
-
 #### Upgrading plugins
-
-
 
 #### Hacking
 
 ## Practice
 
+### Get latest LTS
 
+    docker pull jenkins/jenkins:lts
+
+### Run jenkins container
+
+    docker run --name myjenkins -d -v jenkins_home:/var/jenkins_home -p 8081:8080 -p 50001:50000 jenkins/jenkins:lts
 
 
 
