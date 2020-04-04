@@ -18,6 +18,8 @@
   - [cmd](#cmd)
     - [run a centos container](#run-a-centos-container)
       - [Run a centos container in Docker Desktop](#run-a-centos-container-in-docker-desktop)
+      - [Publish container port 8080 to the host port 8081](#publish-container-port-8080-to-the-host-port-8081)
+    - [Copy files/folders between a container and the local filesystem](#copy-filesfolders-between-a-container-and-the-local-filesystem)
     - [Commit a container and change ENTRYPOINT](#commit-a-container-and-change-entrypoint)
     - [Move Docker container to another host](#move-docker-container-to-another-host)
       - [Export and import containers](#export-and-import-containers)
@@ -116,6 +118,16 @@ or
 #### Run a centos container in Docker Desktop
 
     docker run -d --name test --network host --mount type=bind,source="/c/test",target=/app -ti centos
+
+#### Publish container port 8080 to the host port 8081
+
+    docker run -d --name test -p 8081:8080 -v vol_a:/app -ti centos
+
+### Copy files/folders between a container and the local filesystem
+
+    docker cp CONTAINER:SRC_PATH DEST_PATH
+
+    docker cp SRC_PATH CONTAINER:DEST_PATH
 
 ### [Commit a container and change ENTRYPOINT](https://stackoverflow.com/questions/29015023/docker-commit-created-images-and-entrypoint)
 

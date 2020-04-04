@@ -17,6 +17,7 @@
     - [Adapter Pattern](#adapter-pattern)
     - [Bridge Pattern](#bridge-pattern)
     - [Filter Pattern](#filter-pattern)
+    - [Composite Pattern](#composite-pattern)
 
 Design patterns represent the **best practices** used by experienced **object-oriented** software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
 
@@ -432,7 +433,62 @@ classDiagram
 
 ### Filter Pattern
 
+Filter pattern or Criteria pattern is a design pattern that enables developers to filter a set of objects using different criteria and chaining them in a decoupled way through logical operations. This type of design pattern comes under **structural pattern** as this pattern combines multiple criteria to obtain single criteria.
 
+Implementation
+
+We're going to create a `Person` object, `Criteria` interface and concrete classes implementing this interface to filter list of `Person` objects. `CriteriaPatternDemo`, our demo class uses `Criteria` objects to filter List of `Person` objects based on various criteria and their combinations.
+
+```mermaid
+classDiagram
+    class Criteria{
+        <<interface>>
+        +meetCriteria() List<Person>
+    }
+    class AndCriteria{
+        -Criteria criteria
+        -Criteria otherCriteria
+        +meetCriteria() List<Person>
+    }
+    class OrCriteria{
+        -Criteria criteria
+        -Criteria otherCriteria
+        +meetCriteria() List<Person>
+    }
+    class CriteriaMale{
+        +meetCriteria() List<Person>
+    }
+    class CriteriaFemale{
+        +meetCriteria() List<Person>
+    }
+    class CriteriaSingle{
+        +meetCriteria() List<Person>
+    }
+    Criteria <|-- AndCriteria : implements
+    Criteria <|-- OrCriteria : implements
+    Criteria <|-- CriteriaSingle : implements
+    Criteria <|-- CriteriaMale : implements
+    Criteria <|-- CriteriaFemale : implements
+    class CriteriaPatternDemo{
+        +main() void
+    }
+    AndCriteria <-- CriteriaPatternDemo : uses
+    OrCriteria <-- CriteriaPatternDemo : uses
+    CriteriaMale <-- CriteriaPatternDemo : uses
+    CriteriaFemale <-- CriteriaPatternDemo : uses
+    CriteriaSingle <-- CriteriaPatternDemo : uses
+    class Person{
+        -String name
+        -String gender
+        -String maritalStatus
+        +getName() String
+        +getGender() String
+        +getMaritalStatus() String
+    }
+    CriteriaPatternDemo --> Person : uses
+```
+
+### Composite Pattern
 
 
 
