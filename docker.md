@@ -15,6 +15,12 @@
         - [Inspect a volume](#inspect-a-volume)
         - [Remove a volume](#remove-a-volume)
       - [Start a container with a volume](#start-a-container-with-a-volume)
+      - [Backup, restore, or migrate data volumes](#backup-restore-or-migrate-data-volumes)
+        - [Backup a container](#backup-a-container)
+        - [Restore container from backup](#restore-container-from-backup)
+      - [Remove volumes](#remove-volumes)
+        - [Remove anonymous volumes](#remove-anonymous-volumes)
+        - [Remove all volumes](#remove-all-volumes)
   - [cmd](#cmd)
     - [run a centos container](#run-a-centos-container)
       - [Run a centos container in Docker Desktop](#run-a-centos-container-in-docker-desktop)
@@ -24,7 +30,6 @@
     - [Move Docker container to another host](#move-docker-container-to-another-host)
       - [Export and import containers](#export-and-import-containers)
       - [Container image migration](#container-image-migration)
-      - [Migrate data volumes](#migrate-data-volumes)
   - [Troubleshooting](#troubleshooting)
     - [Error pulling image : no matching manifest](#error-pulling-image--no-matching-manifest)
       - [Find the OS/Arch of you system](#find-the-osarch-of-you-system)
@@ -47,6 +52,7 @@
       - [Related Docker Hub Repos](#related-docker-hub-repos)
         - [.NET Framework](#net-framework)
         - [.NET Core](#net-core)
+    - [Practice](#practice)
   - [Install & Update](#install--update)
     - [Get Docker Engine - Community for CentOS](#get-docker-engine---community-for-centos)
       - [Uninstall old versions](#uninstall-old-versions)
@@ -101,11 +107,69 @@
 
 #### Start a container with a volume
 
-    docker run -d --name devtest --mount source=myvol2,target=/app nginx:latest
+If you start a container with a volume that does not yet exist, Docker creates the volume for you.
 
-or
+- use `--mount`
 
-    docker run -d --name devtest -v myvol2:/app nginx:latest
+      docker run -d --name devtest --mount source=myvol2,target=/app nginx:latest
+
+- user `-v`
+
+      docker run -d --name devtest -v myvol2:/app nginx:latest
+
+#### Backup, restore, or migrate data volumes
+
+Volumes are useful for backups, restores, and migrations. Use the `--volumes-from` flag to create a new container that mounts that volume.
+
+##### Backup a container
+
+For example, create a new container named `dbstore`:
+
+    docker run -v /dbdata --name dbstore centos /bin/bash
+
+Then in the next command, we:
+
+- Launch a new container and mount the volume from the `dbstore` container
+- Mount a local host directory as `/backup`
+- Pass a command that tars the contents of the `dbdata` volume to a `backup.tar` file inside our `/backup` directory.
+
+    docker run --rm --volumes-from dbstore -v $(pwd):/backup centos tar cvf /backup/backup.tar /dbdata
+
+When the command completes and the container stops, we are left with a backup of our `dbdata` volume.
+
+##### Restore container from backup
+
+With the backup just created, you can restore it to the same container, or another that you made elsewhere.
+
+For example, create a new container named `dbstore2`:
+
+    docker run -v /dbdata --name dbstore2 centos /bin/bash
+
+Then un-tar the backup file in the new container`s data volume:
+
+    docker run --rm --volumes-from dbstore2 -v $(pwd):/backup centos bash -c "cd /dbdata && tar xvf /backup/backup.tar --strip 1"
+
+You can use the techniques above to automate backup, migration and restore testing using your preferred tools.
+
+#### Remove volumes
+
+A Docker data volume persists after a container is deleted. There are two types of volumes to consider:
+
+- **Named volumes** have a specific source from outside the container, for example `awesome:/bar`.
+
+- Anonymous volumes have no specific source so when the container is deleted, instruct the Docker Engine daemon to remove them.
+
+##### Remove anonymous volumes
+
+To automatically remove anonymous volumes, use the `--rm` option. For example, this command creates an **anonymous** `/foo` volume. When the container is removed, the Docker Engine removes the `/foo` volume but not the `awesome` volume.
+
+    docker run --rm -v /foo -v awesome:/bar busybox top
+
+##### Remove all volumes
+
+To remove all unused volumes and free up space:
+
+    docker volume prune
 
 ## cmd
 
@@ -161,22 +225,6 @@ Save the container's image
 Load image in new host
 
     cat image-name.tar | docker load
-
-#### Migrate data volumes
-
-When Docker containers or images are moved from one host to another using export or commit tools, the underlying data volume is not migrated.
-
-In such situations, the directory containing data is manually moved to the new host. Then containers are created there with reference to that directory as its data volume.
-
-Another fool proof method is to backup and restore the data volume by passing ‘–volumes-from’ parameter in the ‘docker run’ command.
-
-    docker run --rm --volumes-from datavolume-name -v $(pwd):/backup image-name tar cvf  backup.tar /path-to-datavolume
-
-This command provides a backup of the data volume. The backup generated can be moved to new host via scp or ftp tools.
-
-Copied backup is then extracted and restored to the data volume in the new container there.
-
-    docker run --rm --volumes-from datavolume-name -v $(pwd):/backup image-name bash -c "cd /path-to-datavolume && tar xvf /backup/backup.tar --strip 1"
 
 ## Troubleshooting
 
@@ -264,6 +312,10 @@ From the Docker Desktop menu, you can toggle which daemon (Linux or Windows) the
 - [dotnet/core](https://hub.docker.com/_/microsoft-dotnet-core/): .NET Core
 - [dotnet/core/samples](https://hub.docker.com/_/microsoft-dotnet-core-samples/): .NET Core Samples
 - [dotnet/core-nightly](https://hub.docker.com/_/microsoft-dotnet-core-nightly/): .NET Core (Preview)
+
+### Practice
+
+
 
 ## Install & Update
 

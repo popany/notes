@@ -18,6 +18,7 @@
     - [Bridge Pattern](#bridge-pattern)
     - [Filter Pattern](#filter-pattern)
     - [Composite Pattern](#composite-pattern)
+    - [Decorator Pattern](#decorator-pattern)
 
 Design patterns represent the **best practices** used by experienced **object-oriented** software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
 
@@ -490,8 +491,35 @@ classDiagram
 
 ### Composite Pattern
 
+Composite pattern is used where we need to treat a group of objects in similar way as a single object. Composite pattern composes objects in term of a **tree structure** to represent part as well as whole **hierarchy**. This type of design pattern comes under **structural pattern** as this pattern creates a tree structure of group of objects.
 
+This pattern creates a class that contains group of its own objects. This class provides ways to modify its group of same objects.
 
+We are demonstrating use of composite pattern via following example in which we will show employees hierarchy of an organization.
+
+Implementation
+
+We have a class `Employee` which acts as composite pattern actor class. `CompositePatternDemo`, our demo class will use `Employee` class to add department level hierarchy and print all employees.
+
+```mermaid
+classDiagram
+    class CompositePatternDemo{
+        +main() void
+    }
+    class Employee{
+        -String name
+        -Stirng dept
+        -int salary
+        -List<Employee> subordinates
+        +add() void
+        +remove() void
+        +getSubordinates() List<Employee>
+        +toString() String
+    }
+    Employee <-- CompositePatternDemo : asks
+```
+
+### Decorator Pattern
 
 
 

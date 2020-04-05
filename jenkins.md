@@ -33,6 +33,7 @@
   - [Practice](#practice)
     - [Get latest LTS](#get-latest-lts)
     - [Run jenkins container](#run-jenkins-container)
+  - [.Net 自动化构建](#net-%e8%87%aa%e5%8a%a8%e5%8c%96%e6%9e%84%e5%bb%ba)
 
 ## [Jenkins User Documentation](https://jenkins.io/doc/)
 
@@ -282,6 +283,15 @@ You can rely on the `install-plugins.sh` script to pass a set of plugins to down
 ### Run jenkins container
 
     docker run --name myjenkins -d -v jenkins_home:/var/jenkins_home -p 8081:8080 -p 50001:50000 jenkins/jenkins:lts
+
+## .Net 自动化构建
+
+[jenkins部署.net平台自动化构建](https://www.cnblogs.com/shenh/p/8946404.html)
+
+[Jenkins 部署.NET 自动化构建](https://testerhome.com/topics/9743)
+
+[Jenkins自动化构建.net问题解决方案](https://blog.csdn.net/RainyLin/article/details/79302519)
+
 
 
 

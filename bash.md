@@ -26,6 +26,8 @@
       - [How to setup an SFTP server on CentOS 7](#how-to-setup-an-sftp-server-on-centos-7)
     - [firewall](#firewall)
       - [How to Configure Firewall in CentOS 7 and RHEL 7](#how-to-configure-firewall-in-centos-7-and-rhel-7)
+  - [Ubuntu](#ubuntu)
+    - [Check Ubuntu version](#check-ubuntu-version)
   - [GNU Binary Utilities](#gnu-binary-utilities)
     - [readelf](#readelf)
     - [objcopy](#objcopy)
@@ -136,7 +138,6 @@ List all known coded character sets
 - `\1` - reference to that string we found in the brackets above.
 - `/` end of the substitute string.
 
-
 ## CentOS
 
 ### Check CentOS version
@@ -193,6 +194,17 @@ restart `sshd`
 ### firewall
 
 #### [How to Configure Firewall in CentOS 7 and RHEL 7](https://www.looklinux.com/how-to-configure-firewall-in-centos-7-and-rhel-7/)
+
+## Ubuntu
+
+### Check Ubuntu version
+
+    lsb_release -a
+
+    cat /etc/issue
+
+    # Ubuntu 16.04 or newer
+    cat /etc/os-release
 
 ## [GNU Binary Utilities](https://sourceware.org/binutils/docs-2.34/binutils/index.html)
 
