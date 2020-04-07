@@ -18,6 +18,7 @@
     - [`icov`](#icov)
     - [`sed`](#sed)
       - [Use sed to extract substring](#use-sed-to-extract-substring)
+    - [`grep`](#grep)
   - [CentOS](#centos)
     - [Check CentOS version](#check-centos-version)
     - [`yum`](#yum)
@@ -137,6 +138,16 @@ List all known coded character sets
 - `/` - end of the search regex, and start of the substitute string.
 - `\1` - reference to that string we found in the brackets above.
 - `/` end of the substitute string.
+
+### `grep`
+
+Count lines for matched words
+
+    grep -c 'word' /path/to/file
+
+List only the names of matching files
+
+    grep -l 'primary' *.c
 
 ## CentOS
 

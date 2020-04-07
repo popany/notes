@@ -19,6 +19,7 @@
     - [Filter Pattern](#filter-pattern)
     - [Composite Pattern](#composite-pattern)
     - [Decorator Pattern](#decorator-pattern)
+    - [Facade Pattern](#facade-pattern)
 
 Design patterns represent the **best practices** used by experienced **object-oriented** software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
 
@@ -520,6 +521,56 @@ classDiagram
 ```
 
 ### Decorator Pattern
+
+Decorator pattern allows a user to add new functionality to an existing object without altering its structure. This type of design pattern comes under **structural pattern** as this pattern acts as a wrapper to existing class.
+
+This pattern creates a decorator class which wraps the original class and provides additional functionality keeping class methods signature intact.
+
+We are demonstrating the use of decorator pattern via following example in which we will decorate a shape with some color without alter shape class.
+
+Implementation
+
+We're going to create a `Shape` interface and concrete classes implementing the `Shape` interface. We will then create an abstract decorator class `ShapeDecorator` implementing the `Shape` interface and having Shape object as its instance variable.
+
+`RedShapeDecorator` is concrete class implementing `ShapeDecorator`.
+
+`DecoratorPatternDemo`, our demo class will use `RedShapeDecorator` to decorate `Shape` objects.
+
+```mermaid
+classDiagram
+    class Shape{
+        <<interface>>
+        +draw() void
+    }
+    class Circle{
+        +draw() void
+    }
+    class Rectangle{
+        +draw() void
+    }
+    class ShapeDecorator{
+        +Shape shape
+        +draw() void
+    }
+    class RedShapeDecorator{
+        +Shape shape
+        +draw() void
+        +setRedBorder() void
+    }
+    class DecoratorPatternDemo{
+        +main() void
+    }
+    Shape <|-- Circle : implements
+    Shape <|-- Rectangle : implements
+    Shape <|-- ShapeDecorator : decorates
+    ShapeDecorator <|-- RedShapeDecorator : implements
+    ShapeDecorator <-- DecoratorPatternDemo : asks
+```
+
+### Facade Pattern
+
+
+
 
 
 

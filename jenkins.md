@@ -34,6 +34,7 @@
     - [Get latest LTS](#get-latest-lts)
     - [Run jenkins container](#run-jenkins-container)
   - [.Net 自动化构建](#net-%e8%87%aa%e5%8a%a8%e5%8c%96%e6%9e%84%e5%bb%ba)
+  - [多节点](#%e5%a4%9a%e8%8a%82%e7%82%b9)
 
 ## [Jenkins User Documentation](https://jenkins.io/doc/)
 
@@ -286,7 +287,6 @@ You can rely on the `install-plugins.sh` script to pass a set of plugins to down
 
 ## .Net 自动化构建
 
-[jenkins部署.net平台自动化构建](https://www.cnblogs.com/shenh/p/8946404.html)
 
 [Jenkins 部署.NET 自动化构建](https://testerhome.com/topics/9743)
 
@@ -295,11 +295,20 @@ You can rely on the `install-plugins.sh` script to pass a set of plugins to down
 
 
 
+[jenkins部署.net平台自动化构建](https://www.cnblogs.com/shenh/p/8946404.html)
+
+[Jenkins：添加SSH全局凭证](https://www.cnblogs.com/dotnet261010/p/12393917.html)
 
 
 
+[How to Perform remote build in Jenkins](https://stackoverflow.com/questions/13718476/how-to-perform-remote-build-in-jenkins)
 
 
+## 多节点
+
+[Jenkins 多节点(Master/Slave)构建](https://xiaozhuanlan.com/topic/3684290715)
+
+[Jenkins添加Windows自动化构建方案](https://blog.csdn.net/witton/article/details/58152032)
 
 
 
