@@ -20,6 +20,7 @@
     - [Composite Pattern](#composite-pattern)
     - [Decorator Pattern](#decorator-pattern)
     - [Facade Pattern](#facade-pattern)
+  - [Flyweight Pattern](#flyweight-pattern)
 
 Design patterns represent the **best practices** used by experienced **object-oriented** software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
 
@@ -569,18 +570,52 @@ classDiagram
 
 ### Facade Pattern
 
+Facade pattern hides the complexities of the system and provides an interface to the client using which the client can access the system. This type of design pattern comes under **structural pattern** as this pattern adds an interface to existing system to hide its complexities.
 
+This pattern involves a single class which provides simplified methods required by client and delegates calls to methods of existing system classes.
 
+Implementation
 
+We are going to create a `Shape` interface and concrete classes implementing the `Shape` interface. A facade class `ShapeMaker` is defined as a next step.
 
+`ShapeMaker` class uses the concrete classes to delegate user calls to these classes. `FacadePatternDemo`, our demo class, will use `ShapeMaker` class to show the results.
 
+```mermaid
+classDiagram
+    class Shape{
+        <<interface>>
+        +draw() void
+    }
+    class Circle{
+        +draw() void
+    }
+    class Rectangle{
+        +draw() void
+    }
+    class Square{
+        +draw() void
+    }
+    Shape <-- Circle : implements
+    Shape <-- Rectangle : implements
+    Shape <-- Square : implements
+    class ShapeMaker{
+        -Shape circle
+        -Shape rectangle
+        -Shape square
+        +drawCircle() void
+        +drawRectangle() void
+        +drawSquare() void
+    }
+    Circle <-- ShapeMaker : creates
+    Rectangle <-- ShapeMaker : creates
+    Square <-- ShapeMaker : creates
+    class FacadePatternDemo{
+        +main() void
+    }
+    ShapeMaker <-- FacadePatternDemo : asks
+```
 
-
-
-
-
-
-
+## Flyweight Pattern
 
 
 

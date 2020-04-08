@@ -601,9 +601,11 @@ https://juejin.im/post/5b9526c1e51d450e69731dc2#heading-52
 
 - 装饰模式(Decorator)
 
-    不改变类的结构与接口的情况下增加类的功能。
+    不改变类的结构与接口的情况下增加类的功能
 
 - 外观模式(Facade)
+
+    口封装复杂接口
 
 - 享元模式(Flyweight)
 
