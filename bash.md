@@ -19,6 +19,7 @@
     - [`sed`](#sed)
       - [Use sed to extract substring](#use-sed-to-extract-substring)
     - [`grep`](#grep)
+    - [`tar`](#tar)
   - [CentOS](#centos)
     - [Check CentOS version](#check-centos-version)
     - [`yum`](#yum)
@@ -148,6 +149,24 @@ Count lines for matched words
 List only the names of matching files
 
     grep -l 'primary' *.c
+
+### `tar`
+
+Create archive.tar from files foo and bar.
+
+    tar -cf archive.tar foo bar  
+
+List all files in archive.tar verbosely.
+
+    tar -tvf archive.tar
+
+Extract all files from archive.tar.
+
+    tar -xf archive.tar
+
+Extract to a directory
+
+    tar -xf archive.tar -C /path/to/directory
 
 ## CentOS
 

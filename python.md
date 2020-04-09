@@ -1,5 +1,13 @@
 # Python
 
+- [Python](#python)
+  - [Basic](#basic)
+    - [](#)
+  - [regular expression](#regular-expression)
+  - [HTTP](#http)
+  - [JSON](#json)
+  - [matplotlib](#matplotlib)
+
 ## Basic
 
 [How can I iterate over files in a given directory?](https://stackoverflow.com/questions/10377998/how-can-i-iterate-over-files-in-a-given-directory)
@@ -11,6 +19,8 @@
 [Manually raising (throwing) an exception in Python](https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python)
 
 [Accessing the index in 'for' loops?](https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops)
+
+### 
 
 ## regular expression
 

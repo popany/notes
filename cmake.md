@@ -1,6 +1,6 @@
-# Useful materials
+# cmake
 
-- [Useful materials](#useful-materials)
+- [cmake](#cmake)
   - [Examples](#examples)
   - [`Find<package>.cmake` file](#findpackagecmake-file)
   - [Debug](#debug)
@@ -8,6 +8,7 @@
   - [boost](#boost)
   - [windows](#windows)
   - [gtest](#gtest)
+  - [Install](#install)
 
 [CMake Useful Variables](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Useful-Variables)  
 
@@ -111,3 +112,12 @@
 [CMake + GoogleTest](https://stackoverflow.com/questions/9689183/cmake-googletest/9695234)
 
 [How to make GTest build /MDd (instead of /MTd) by default, using CMake?](https://stackoverflow.com/questions/12540970/how-to-make-gtest-build-mdd-instead-of-mtd-by-default-using-cmake)
+
+## Install
+
+    yum install gcc-c++
+    yum install make
+    yum install openssl-devel
+    ./bootstrap
+    make
+    make install
