@@ -22,6 +22,7 @@
     - [Facade Pattern](#facade-pattern)
   - [Flyweight Pattern](#flyweight-pattern)
   - [Proxy Pattern](#proxy-pattern)
+  - [Chain of Responsibility Pattern](#chain-of-responsibility-pattern)
 
 Design patterns represent the **best practices** used by experienced **object-oriented** software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
 
@@ -659,21 +660,58 @@ classDiagram
     ShapeFactory <-- FlyweightPatternDemo : asks
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Proxy Pattern
+
+In proxy pattern, a class represents functionality of another class. This type of design pattern comes under **structural pattern**.
+
+In proxy pattern, we create object having original object to interface its functionality to outer world.
+
+Implementation
+
+We are going to create an `Image` interface and concrete classes implementing the `Image` interface. `ProxyImage` is a proxy class to reduce memory footprint of `RealImage` object loading.
+
+`ProxyPatternDemo`, our demo class, will use `ProxyImage` to get an Image object to load and display as it needs.
+
+```mermaid
+classDiagram
+    class Image{
+        +display() void
+    }
+    class RealImage{
+        -String fileName
+        +display() void
+        -loadFromDisk() void
+    }
+    class ProxyImage{
+        -String fileName
+        -RealImage realImage
+        +display() void
+    }
+    class ProxyPatternDemo{
+        +main() void
+    }
+    Image <-- RealImage : implements
+    Image <-- ProxyImage : implements
+    ProxyImage <-- ProxyPatternDemo : asks
+```
+
+## Chain of Responsibility Pattern
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
