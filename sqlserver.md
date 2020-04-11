@@ -7,8 +7,10 @@
     - [How NOLOCK Will Block Your Queries](#how-nolock-will-block-your-queries)
     - [Can NOLOCK cause DISTINCT to fail?](#can-nolock-cause-distinct-to-fail)
     - [The Effect of NOLOCK on Performance](#the-effect-of-nolock-on-performance)
-    - [SQL Server table hints – WITH (NOLOCK) best practices](#sql-server-table-hints-%e2%80%93-with-nolock-best-practices)
+    - [SQL Server table hints – WITH (NOLOCK) best practices](#sql-server-table-hints-%c3%a2%e2%82%ac-with-nolock-best-practices)
     - [Understanding the SQL Server NOLOCK hint](#understanding-the-sql-server-nolock-hint)
+  - [Docker](#docker)
+    - [Quickstart: Run SQL Server container images with Docker](#quickstart-run-sql-server-container-images-with-docker)
 
 ## WITH (NOLOCK)
 
@@ -30,3 +32,18 @@ Disadvantages:
 ### [SQL Server table hints – WITH (NOLOCK) best practices](https://www.sqlshack.com/understanding-impact-clr-strict-security-configuration-setting-sql-server-2017/)
 
 ### [Understanding the SQL Server NOLOCK hint](https://www.mssqltips.com/sqlservertip/2470/understanding-the-sql-server-nolock-hint/)
+
+## Docker
+
+### [Quickstart: Run SQL Server container images with Docker](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
+
+
+
+
+
+
+
+
+
+
+

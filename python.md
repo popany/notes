@@ -2,8 +2,8 @@
 
 - [Python](#python)
   - [Basic](#basic)
-    - [](#)
   - [regular expression](#regular-expression)
+    - [replace](#replace)
   - [HTTP](#http)
   - [JSON](#json)
   - [matplotlib](#matplotlib)
@@ -20,13 +20,15 @@
 
 [Accessing the index in 'for' loops?](https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops)
 
-### 
-
 ## regular expression
 
 [tutorialspoint Python 3 - Regular Expressions](https://www.tutorialspoint.com/python3/python_reg_expressions.htm)
 
 [Regular Expression HOWTO](https://docs.python.org/3/howto/regex.html)
+
+### replace
+
+    re.sub(pattern, repl, string, count=0, flags=0)
 
 ## HTTP
 

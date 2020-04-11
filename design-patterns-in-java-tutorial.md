@@ -20,9 +20,10 @@
     - [Composite Pattern](#composite-pattern)
     - [Decorator Pattern](#decorator-pattern)
     - [Facade Pattern](#facade-pattern)
-  - [Flyweight Pattern](#flyweight-pattern)
-  - [Proxy Pattern](#proxy-pattern)
-  - [Chain of Responsibility Pattern](#chain-of-responsibility-pattern)
+    - [Flyweight Pattern](#flyweight-pattern)
+    - [Proxy Pattern](#proxy-pattern)
+    - [Chain of Responsibility Pattern](#chain-of-responsibility-pattern)
+    - [Command Pattern](#command-pattern)
 
 Design patterns represent the **best practices** used by experienced **object-oriented** software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
 
@@ -617,7 +618,7 @@ classDiagram
     ShapeMaker <-- FacadePatternDemo : asks
 ```
 
-## Flyweight Pattern
+### Flyweight Pattern
 
 Flyweight pattern is primarily used to reduce the number of objects created and to decrease memory footprint and increase performance. This type of design pattern comes under **structural pattern** as this pattern provides ways to decrease object count thus improving the object structure of application.
 
@@ -660,7 +661,7 @@ classDiagram
     ShapeFactory <-- FlyweightPatternDemo : asks
 ```
 
-## Proxy Pattern
+### Proxy Pattern
 
 In proxy pattern, a class represents functionality of another class. This type of design pattern comes under **structural pattern**.
 
@@ -695,8 +696,54 @@ classDiagram
     ProxyImage <-- ProxyPatternDemo : asks
 ```
 
-## Chain of Responsibility Pattern
+### Chain of Responsibility Pattern
 
+As the name suggests, the chain of responsibility pattern creates a chain of receiver objects for a request. This pattern decouples sender and receiver of a request based on type of request. This pattern comes under **behavioral patterns**.
+
+In this pattern, normally each receiver contains reference to another receiver. If one object cannot handle the request then it passes the same to the next receiver and so on.
+
+Implementation
+
+We have created an abstract class `AbstractLogger` with a level of logging. Then we have created three types of loggers extending the `AbstractLogger`. Each logger checks the level of message to its level and print accordingly otherwise does not print and pass the message to its next logger.
+
+```mermaid
+classDiagram
+    class AbstractLogger{
+        <<abstract>>
+        +int INFO
+        +int DEBUG
+        +int ERROR
+        +int level
+        +AbstractLogger nextLogger
+        +setNextLogger() void
+        +logMessage() void
+        -write() void
+    }
+    class ConsoleLogger{
+        +setNextLogger() void
+        +logMessage() void
+        -write() void
+    }
+    class ErrorLogger{
+        +setNextLogger() void
+        +logMessage() void
+        -write() void
+    }
+    class FileLogger{
+        +setNextLogger() void
+        +logMessage() void
+        -write() void
+    }
+    class ChainPatternDemo{
+        +main() void
+    }
+    AbstractLogger <-- ConsoleLogger : extends
+    AbstractLogger <-- ErrorLogger : extends
+    AbstractLogger <-- FileLogger : extends
+    ChainPatternDemo --> AbstractLogger : uses
+```
+
+### Command Pattern
 
 
 
