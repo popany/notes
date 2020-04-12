@@ -22,8 +22,10 @@
     - [Facade Pattern](#facade-pattern)
     - [Flyweight Pattern](#flyweight-pattern)
     - [Proxy Pattern](#proxy-pattern)
+  - [Behavioral pattern](#behavioral-pattern)
     - [Chain of Responsibility Pattern](#chain-of-responsibility-pattern)
     - [Command Pattern](#command-pattern)
+    - [Interpreter Pattern](#interpreter-pattern)
 
 Design patterns represent the **best practices** used by experienced **object-oriented** software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
 
@@ -696,6 +698,8 @@ classDiagram
     ProxyImage <-- ProxyPatternDemo : asks
 ```
 
+## Behavioral pattern
+
 ### Chain of Responsibility Pattern
 
 As the name suggests, the chain of responsibility pattern creates a chain of receiver objects for a request. This pattern decouples sender and receiver of a request based on type of request. This pattern comes under **behavioral patterns**.
@@ -745,6 +749,52 @@ classDiagram
 
 ### Command Pattern
 
+Command pattern is a data driven design pattern and falls under **behavioral pattern** category. A request is wrapped under an object as command and passed to invoker object. Invoker object looks for the appropriate object which can handle this command and passes the command to the corresponding object which executes the command.
+
+Implementation
+
+We have created an interface `Order` which is acting as a command. We have created a `Stock` class which acts as a request. We have concrete command classes `BuyStock` and `SellStock` implementing `Order` interface which will do actual command processing. A class `Broker` is created which acts as an invoker object. It can take and place orders.
+
+`Broker` object uses command pattern to identify which object will execute which command based on the type of command. `CommandPatternDemo`, our demo class, will use `Broker` class to demonstrate command pattern.
+
+```mermaid
+classDiagram
+    class Stock{
+        -String name
+        int quantity
+        +buy() void
+        +sell() void
+    }
+    class Broker{
+        -List orders
+        +takeOrder() void
+        +placeOrders() void
+    }
+    class Order{
+        <<interface>>
+        +execute() void
+    }
+    class BuyStock{
+        -Stock stock
+        +BuyStock() void
+        +execute() void
+    }
+    class SellStock{
+        -Stock stock
+        +SellStock() void
+        +execute() void
+    }
+    class CommandPatternDemo{
+        +main() void
+    }
+    Order <|-- BuyStock : implements
+    Order <|-- SellStock : implements
+    Broker --> Order : uses
+    CommandPatternDemo --> Broker : uses
+    CommandPatternDemo --> Stock : uses
+```
+
+### Interpreter Pattern
 
 
 

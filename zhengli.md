@@ -618,6 +618,8 @@ https://juejin.im/post/5b9526c1e51d450e69731dc2#heading-52
 #### 行为型模式
 
 - 职责链模式(Chain of Responsibility)
+  
+  对于一次请求，使用若干对象进行处理。使用链表存储对象集合。每一对象被依次访问，根据请求类型决定对象的处理行为。
 
 - 命令模式(Command)
 

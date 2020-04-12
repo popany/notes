@@ -24,6 +24,8 @@
   - [Debug](#debug)
     - [WinDbg command](#windbg-command)
     - [tools](#tools)
+      - [Sysinternals Process Utilities](#sysinternals-process-utilities)
+      - [AsmSpy](#asmspy)
     - [Lib](#lib)
   - [Performace](#performace)
     - [GC](#gc)
@@ -368,7 +370,9 @@ all managed threads
 
 ### tools
 
-[Sysinternals Process Utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/process-utilities)
+#### [Sysinternals Process Utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/process-utilities)
+
+#### [AsmSpy](https://github.com/mikehadlow/AsmSpy)
 
 ### Lib
 

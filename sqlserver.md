@@ -11,6 +11,8 @@
     - [Understanding the SQL Server NOLOCK hint](#understanding-the-sql-server-nolock-hint)
   - [Docker](#docker)
     - [Quickstart: Run SQL Server container images with Docker](#quickstart-run-sql-server-container-images-with-docker)
+      - [Pull and run the container image](#pull-and-run-the-container-image)
+    - [Docker Hub](#docker-hub)
 
 ## WITH (NOLOCK)
 
@@ -37,6 +39,30 @@ Disadvantages:
 
 ### [Quickstart: Run SQL Server container images with Docker](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
 
+In this quickstart, you use Docker to pull and run the SQL Server 2019 container image, [mssql-server](https://hub.docker.com/r/microsoft/mssql-server). Then connect with `sqlcmd` to create your first database and run queries.
+
+This image consists of SQL Server running on Linux based on Ubuntu 18.04. It can be used with the Docker Engine 1.8+ on Linux or on Docker for Mac/Windows. This quickstart specifically focuses on using the SQL Server on linux image. The Windows image is not covered, but you can learn more about it on the [mssql-server-windows-developer Docker Hub page](https://hub.docker.com/r/microsoft/mssql-server-windows-developer/).
+
+#### Pull and run the container image
+
+1. Pull the SQL Server 2019 Linux container image from Docker Hub.
+
+      docker pull mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### [Docker Hub](https://hub.docker.com/_/microsoft-mssql-server?tab=description)
 
 
 
