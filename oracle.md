@@ -7,10 +7,14 @@
       - [Building Oracle Database Docker Install Images](#building-oracle-database-docker-install-images)
       - [Running Oracle Database in a Docker container](#running-oracle-database-in-a-docker-container)
         - [Running Oracle Database 18c Express Edition in a Docker container](#running-oracle-database-18c-express-edition-in-a-docker-container)
-    - [Build and Run Oracle Database Container in Docker Desktop](#build-and-run-oracle-database-container-in-docker-desktop)
-    - [Run Oracle Database Container in CentOS](#run-oracle-database-container-in-centos)
-      - [Use Oracle11g Client](#use-oracle11g-client)
-        - [cmd with docker](#cmd-with-docker)
+    - [Practice](#practice)
+      - [Build and Run Oracle Database Container in Docker Desktop](#build-and-run-oracle-database-container-in-docker-desktop)
+      - [Run Oracle Database Container in CentOS](#run-oracle-database-container-in-centos)
+        - [Use Oracle11g Client](#use-oracle11g-client)
+          - [cmd with docker](#cmd-with-docker)
+        - [Create User](#create-user)
+        - [Granting all privileges to an existing user](#granting-all-privileges-to-an-existing-user)
+        - [Drop User](#drop-user)
   - [Oracle Network Configuration (listener.ora, tnsnames.ora, sqlnet.ora)](#oracle-network-configuration-listenerora-tnsnamesora-sqlnetora)
     - [Assumptions](#assumptions)
     - [listener.ora](#listenerora)
@@ -19,6 +23,7 @@
     - [Testing](#testing)
   - [Troubleshooting](#troubleshooting)
     - [ORA-28040: No matching authentication protocol](#ora-28040-no-matching-authentication-protocol)
+    - [ORA-01950: no privileges on tablespace 'USERS'](#ora-01950-no-privileges-on-tablespace-users)
   - [Oracle SQL Glossary of Terms](#oracle-sql-glossary-of-terms)
 
 ## Oracle Database XE
@@ -91,7 +96,9 @@ On the first startup of the container a random password will be generated for th
 
 The **password** for those accounts can be changed via the docker exec command. Note, the container has to be running: `docker exec /opt/oracle/setPassword.sh`
 
-### Build and Run Oracle Database Container in Docker Desktop
+### Practice
+
+#### Build and Run Oracle Database Container in Docker Desktop
 
     git clone git@github.com:oracle/docker-images.git
     
@@ -103,7 +110,7 @@ The **password** for those accounts can be changed via the docker exec command. 
 
     docker logs -f oracle18xe >startup.log 2>&1 &
 
-### Run Oracle Database Container in CentOS
+#### Run Oracle Database Container in CentOS
 
     docker volume create vol_oracledb
 
@@ -111,7 +118,7 @@ The **password** for those accounts can be changed via the docker exec command. 
 
     docker logs -f oracle18xe >startup.log 2>&1 &
 
-#### Use Oracle11g Client
+##### Use Oracle11g Client
 
 - Set the values of the `SQLNET.ALLOWED_LOGON_VERSION_SERVER` and `SQLNET.ALLOWED_LOGON_VERSION_CLIENT` parameters int `sqlnet.ora`, on **both the client and on the server**
 
@@ -143,7 +150,7 @@ The **password** for those accounts can be changed via the docker exec command. 
             )
           )
 
-##### cmd with docker
+###### cmd with docker
 
 - Edit sqlnet.ora
 
@@ -160,6 +167,34 @@ The **password** for those accounts can be changed via the docker exec command. 
       /
       exit
       EOF'
+
+##### Create User
+
+    docker exec -ti oracle18xe bash -c 'sqlplus -s /nolog << EOF 
+    connect system/"123"@//localhost:1521/XE
+    alter session set "_ORACLE_SCRIPT"=true;
+    create user newuser identified by 123;
+    grant create session to newuser;
+    exit
+    EOF'
+
+##### Granting all privileges to an existing user
+
+    docker exec -ti oracle18xe bash -c 'sqlplus -s /nolog << EOF 
+    connect system/"123"@//localhost:1521/XE
+    alter session set "_ORACLE_SCRIPT"=true;
+    grant all privileges to newuser;
+    exit
+    EOF'
+
+##### Drop User
+
+    docker exec -ti oracle18xe bash -c 'sqlplus -s /nolog << EOF 
+    connect system/"123"@//localhost:1521/XE
+    alter session set "_ORACLE_SCRIPT"=true;
+    drop user newuser;
+    exit
+    EOF'
 
 ## [Oracle Network Configuration (listener.ora, tnsnames.ora, sqlnet.ora)](https://oracle-base.com/articles/misc/oracle-network-configuration)
 
@@ -268,6 +303,18 @@ Once the files are present in the correct location and amended as necessary the 
 > - Action
 >
 >   The administrator should set the values of the `SQLNET.ALLOWED_LOGON_VERSION_SERVER` and `SQLNET.ALLOWED_LOGON_VERSION_CLIENT` parameters, on **both the client and on the server**, to values that match the minimum version software supported in the system. This error `ORA-28040` is also raised when the client is authenticating to a user account which was created without a verifier suitable for the client software version. In this situation, that **account's password must be reset**, in order for the required verifier to be generated and allow authentication to proceed successfully.
+
+### [ORA-01950: no privileges on tablespace 'USERS'](https://stackoverflow.com/questions/21671008/ora-01950-no-privileges-on-tablespace-users)
+
+You cannot insert data because you have a quota of 0 on the tablespace. To fix this, run
+
+    ALTER USER <user> quota unlimited on <tablespace name>;
+
+or
+
+    ALTER USER <user> quota 100M on <tablespace name>;
+
+as a DBA user (depending on how much space you need / want to grant).
 
 ## [Oracle SQL Glossary of Terms](https://www.databasestar.com/oracle-sql-glossary/)
 
