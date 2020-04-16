@@ -9,15 +9,16 @@
     - [Walkthrough: Create and use your own Dynamic Link Library (C++)](#walkthrough-create-and-use-your-own-dynamic-link-library-c)
   - [Install Build Tools into a container](#install-build-tools-into-a-container)
   - [MSBuild](#msbuild)
-    - [Use MSBuild at a command prompt](#use-msbuild-at-a-command-prompt)
-    - [Project file](#project-file)
-      - [Properties](#properties)
-      - [Items](#items)
-      - [Tasks](#tasks)
-      - [Targets](#targets)
-    - [Build logs](#build-logs)
-    - [Use MSBuild in Visual Studio](#use-msbuild-in-visual-studio)
-    - [Multitargeting](#multitargeting)
+    - [MSBuild Overview](#msbuild-overview)
+      - [Use MSBuild at a command prompt](#use-msbuild-at-a-command-prompt)
+      - [Project file](#project-file)
+        - [Properties](#properties)
+        - [Items](#items)
+        - [Tasks](#tasks)
+        - [Targets](#targets)
+      - [Build logs](#build-logs)
+      - [Use MSBuild in Visual Studio](#use-msbuild-in-visual-studio)
+      - [Multitargeting](#multitargeting)
     - [Walkthrough: Use MSBuild](#walkthrough-use-msbuild)
       - [Create an MSBuild project](#create-an-msbuild-project)
         - [To create a project file](#to-create-a-project-file)
@@ -50,6 +51,25 @@
           - [To examine well-known metadata](#to-examine-well-known-metadata)
         - [Metadata transformations](#metadata-transformations)
           - [To transform items using metadata](#to-transform-items-using-metadata)
+    - [MSBuild concepts](#msbuild-concepts)
+      - [Targets](#targets-1)
+        - [Target build order](#target-build-order)
+          - [Initial targets](#initial-targets)
+          - [Default targets](#default-targets)
+          - [First target](#first-target)
+          - [Target dependencies](#target-dependencies)
+          - [BeforeTargets and AfterTargets](#beforetargets-and-aftertargets)
+          - [Determine the target build order](#determine-the-target-build-order)
+        - [Build specific targets in solutions by using MSBuild.exe](#build-specific-targets-in-solutions-by-using-msbuildexe)
+          - [To build a specific target of a specific project in a solution](#to-build-a-specific-target-of-a-specific-project-in-a-solution)
+    - [MSBuild reference](#msbuild-reference)
+      - [MSBuild command-line reference](#msbuild-command-line-reference)
+    - [Practice](#practice)
+      - [Build a solution](#build-a-solution)
+      - [Build a specific project](#build-a-specific-project)
+      - [Specifying MSBuild Configuration parameter](#specifying-msbuild-configuration-parameter)
+      - [Rebuilding project](#rebuilding-project)
+      - [Cleaning Solution/Project](#cleaning-solutionproject)
   - [Additional MSVC Build Tools](#additional-msvc-build-tools)
     - [LIB.EXE](#libexe)
     - [EDITBIN.EXE](#editbinexe)
@@ -147,7 +167,9 @@ When the `MATHLIBRARY_EXPORTS` macro is defined, the `MATHLIBRARY_API` macro set
 
 ## [Install Build Tools into a container](https://docs.microsoft.com/en-us/visualstudio/install/build-tools-container?view=vs-2019)
 
-## [MSBuild](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild?view=vs-2019)
+## MSBuild
+
+### [MSBuild Overview](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild?view=vs-2019)
 
 The **Microsoft Build Engine** is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform processes and builds software. Visual Studio uses MSBuild, but MSBuild doesn't depend on Visual Studio. By invoking `msbuild.exe` on your project or solution file, you can orchestrate and build products in environments where Visual Studio isn't installed.
 
@@ -175,7 +197,7 @@ The following examples illustrate when you might run builds by invoking MSBuild 
 
 You can write code in the Visual Studio IDE but run builds by using MSBuild. As another alternative, you can build code in the IDE on a development computer but run MSBuild from the command line to build code that's integrated from multiple developers. You can also use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/en-us/dotnet/core/tools/), which uses MSBuild, to build .NET Core projects.
 
-### Use MSBuild at a command prompt
+#### Use MSBuild at a command prompt
 
 To run MSBuild at a command prompt, pass a project file to `MSBuild.exe`, together with the appropriate command-line options. Command-line options let you set properties, execute specific targets, and set other options that control the build process. For example, you would use the following command-line syntax to build the file `MyProj.proj` with the Configuration property set to `Debug`.
 
@@ -183,13 +205,13 @@ To run MSBuild at a command prompt, pass a project file to `MSBuild.exe`, togeth
 
 For more information about MSBuild command-line options, see [Command-line reference](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019).
 
-### Project file
+#### Project file
 
 MSBuild uses an XML-based project file format that's straightforward and extensible. The MSBuild project file format lets developers describe the items that are to be built, and also how they are to be built for different operating systems and configurations. In addition, the project file format lets developers author reusable build rules that can be factored into separate files so that builds can be performed consistently across different projects in the product.
 
 The following sections describe some of the basic elements of the MSBuild project file format. For a tutorial about how to create a basic project file, see Walkthrough: [Creating an MSBuild project file from scratch](https://docs.microsoft.com/en-us/visualstudio/msbuild/walkthrough-creating-an-msbuild-project-file-from-scratch?view=vs-2019).
 
-#### Properties
+##### Properties
 
 Properties represent key/value pairs that can be used to configure builds. Properties are declared by creating an element that has the name of the property as a child of a [`PropertyGroup`](https://docs.microsoft.com/en-us/visualstudio/msbuild/propertygroup-element-msbuild?view=vs-2019) element. For example, the following code creates a property named `BuildDir` that has a value of Build.
 
@@ -205,7 +227,7 @@ Properties can be referenced throughout the project file by using the syntax `$(
 
 For more information about properties, see [MSBuild properties](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-properties?view=vs-2019).
 
-#### Items
+##### Items
 
 Items are inputs into the build system and typically represent files. Items are grouped into **item types** based on user-defined **item names**. These item types can be used as parameters for tasks, which use the individual items to perform the steps of the build process.
 
@@ -227,7 +249,7 @@ In MSBuild, element and attribute names are case-sensitive. However, property, i
 
 Items can be declared by using wildcard characters and may contain additional metadata for more advanced build scenarios. For more information about items, see [Items](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-items?view=vs-2019).
 
-#### Tasks
+##### Tasks
 
 Tasks are units of executable code that MSBuild projects use to perform build operations. For example, a task might **compile input files** or **run an external tool**. Tasks can be reused, and they can be shared by different developers in different projects.
 
@@ -243,7 +265,7 @@ A task is executed in an MSBuild project file by creating an element that has th
 
 For more information about tasks, see [Tasks](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-tasks?view=vs-2019).
 
-#### Targets
+##### Targets
 
 Targets **group tasks together** in a particular order and expose sections of the project file as entry points into the build process. Targets are often grouped into **logical sections** to increase readability and to allow for expansion. Breaking the build steps into targets lets you call one piece of the build process from other targets without copying that section of code into every target. For example, if several entry points into the build process require references to be built, you can create a target that builds references and then run that target from every entry point where it's required.
 
@@ -255,17 +277,17 @@ Targets are declared in the project file by using the [Target](https://docs.micr
 
 In more advanced scenarios, targets can be used to describe relationships among one another and perform dependency analysis so that whole sections of the build process can be skipped if that target is up-to-date. For more information about targets, see [Targets](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-targets?view=vs-2019).
 
-### Build logs
+#### Build logs
 
 You can log build errors, warnings, and messages to the console or another output device. For more information, see [Obtaining build logs](https://docs.microsoft.com/en-us/visualstudio/msbuild/obtaining-build-logs-with-msbuild?view=vs-2019) and [Logging in MSBuild](https://docs.microsoft.com/en-us/visualstudio/msbuild/logging-in-msbuild?view=vs-2019).
 
-### Use MSBuild in Visual Studio
+#### Use MSBuild in Visual Studio
 
 Visual Studio uses the MSBuild project file format to store build information about managed projects. Project settings that are added or changed by using the Visual Studio interface are reflected in the .*proj file that's generated for every project. Visual Studio uses a hosted instance of MSBuild to build managed projects. This means that a managed project can be built in Visual Studio or at a command prompt (even if Visual Studio isn't installed), and the results will be identical.
 
 For a tutorial about how to use MSBuild in Visual Studio, see [Walkthrough: Using MSBuild](https://docs.microsoft.com/en-us/visualstudio/msbuild/walkthrough-using-msbuild?view=vs-2019).
 
-### Multitargeting
+#### Multitargeting
 
 By using Visual Studio, you can compile an application to run on any one of several versions of .NET Framework. For example, you can compile an application to run on .NET Framework 2.0 on a 32-bit platform, and you can compile the same application to run on .NET Framework 4.5 on a 64-bit platform. The ability to compile to more than one framework is named multitargeting.
 
@@ -695,6 +717,227 @@ For example, an item list of source files can be transformed into a collection o
 4. Examine the output.
 
 Notice that metadata expressed in this syntax does not cause batching.
+
+### [MSBuild concepts](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-concepts?view=vs-2019)
+
+#### [Targets](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-targets?view=vs-2019)
+
+##### [Target build order](https://docs.microsoft.com/en-us/visualstudio/msbuild/target-build-order?view=vs-2019)
+
+Targets must be ordered if the input to one target depends on the output of another target. You can use these attributes to specify the order in which targets are run:
+
+- `InitialTargets`. This **`Project` attribute** specifies the targets that will run first, even if targets are specified on the **command line** or in the `DefaultTargets` attribute.
+
+- `DefaultTargets`. This Project attribute specifies which targets are run if a target is not specified explicitly on the command line.
+
+- `DependsOnTargets`. This Target attribute specifies targets that must run before this target can run.
+
+- `BeforeTargets` and `AfterTargets`. These Target attributes specify that this target should run before or after the specified targets (MSBuild 4.0).
+
+A target is **never run twice** during a build, even if a subsequent target in the build depends on it. Once a target has been run, its contribution to the build is complete.
+
+Targets may have a **`Condition` attribute**. If the specified condition evaluates to `false`, the target isn't executed and has no effect on the build. For more information about conditions, see [Conditions](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-conditions?view=vs-2019).
+
+###### Initial targets
+
+The `InitialTargets` attribute of the [Project](https://docs.microsoft.com/en-us/visualstudio/msbuild/project-element-msbuild?view=vs-2019) element specifies targets that will run first, **even if** targets are specified on the **command line** or in the **`DefaultTargets` attribute**. Initial targets are typically used for error checking.
+
+The value of the `InitialTargets` attribute can be a **semicolon-delimited**, ordered list of targets. The following example specifies that the Warm target runs, and then the Eject target runs.
+
+    <Project InitialTargets="Warm;Eject" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+Imported projects may have their own `InitialTargets` attributes. All initial targets are aggregated together and run in order.
+
+For more information, see [How to: Specify which target to build first](https://docs.microsoft.com/en-us/visualstudio/msbuild/how-to-specify-which-target-to-build-first?view=vs-2019).
+
+###### Default targets
+
+The `DefaultTargets` attribute of the Project element specifies which target or targets are built if a target **isn't specified explicitly** in a **command line**.
+
+The value of the `DefaultTargets` attribute can be a **semicolon-delimited**, ordered list of default targets. The following example specifies that the `Clean` target runs, and then the `Build` target runs.
+
+    <Project DefaultTargets="Clean;Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+You can **override** the default targets by using the `-target` switch on the command line. The following example specifies that the `Build` target runs, and then the `Report` target runs. When you specify targets in this way, any default targets are ignored.
+
+    msbuild -target:Build;Report
+
+If both initial targets and default targets are specified, and if no command-line targets are specified, MSBuild runs the initial targets first, and then runs the default targets.
+
+`Imported` projects may have their own `DefaultTargets` attributes. The **first** `DefaultTargets` attribute encountered determines which default targets will run.
+
+For more information, see [How to: Specify which target to build first](https://docs.microsoft.com/en-us/visualstudio/msbuild/how-to-specify-which-target-to-build-first?view=vs-2019).
+
+###### First target
+
+If there are no initial targets, default targets, or command-line targets, then MSBuild runs the first target it encounters in the project file or any imported project files.
+
+###### Target dependencies
+
+Targets can describe dependency relationships with each other. The `DependsOnTargets` attribute indicates that a target depends on other targets. For example,
+
+    <Target Name="Serve" DependsOnTargets="Chop;Cook" />
+
+tells MSBuild that the Serve target depends on the Chop target and the Cook target. MSBuild runs the Chop target, and then runs the Cook target before it runs the Serve target.
+
+###### BeforeTargets and AfterTargets
+
+In MSBuild 4.0, you can specify target order by using the `BeforeTargets` and `AfterTargets` attributes.
+Consider the following script.
+
+    <Project DefaultTargets="Compile;Link" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+        <Target Name="Compile">
+            <Message Text="Compiling" />
+        </Target>
+        <Target Name="Link">
+            <Message Text="Linking" />
+        </Target>
+    </Project>
+
+To create an intermediate target Optimize that runs after the Compile target, but before the Link target, add the following target anywhere in the Project element.
+
+    <Target Name="Optimize"
+        AfterTargets="Compile" BeforeTargets="Link">
+        <Message Text="Optimizing" />
+    </Target>
+
+###### Determine the target build order
+
+MSBuild determines the target build order as follows:
+
+1. `InitialTargets` targets are run.
+
+2. Targets specified on the command line by the **`-target`** switch are run. If you specify no targets on the command line, then the **`DefaultTargets`** targets are run. If neither is present, then the **first target** encountered is run.
+
+3. The `Condition` attribute of the target is evaluated. If the `Condition` attribute is present and evaluates to `false`, the target isn't executed and has no further effect on the build.
+
+    Other targets that list the conditional target in `BeforeTargets` or `AfterTargets` **still execute** in the prescribed order.
+
+4. Before the target is executed or skipped, its `DependsOnTargets` targets are run, unless the `Condition` attribute is applied to the target and evaluates to `false`.
+
+    Note: A target is considered **skipped** if it is not executed because its output items are up-to-date (see [incremental build](https://docs.microsoft.com/en-us/visualstudio/msbuild/incremental-builds?view=vs-2019)). This check is done just before executing the tasks inside target, and does not affect the order of execution of targets.
+
+5. Before the target is executed or skipped, any other target that lists the target in a `BeforeTargets` attribute is run.
+
+6. Before the target is executed, its **`Inputs` attribute** and **`Outputs` attribute** are **compared**. If MSBuild determines that any output files are out of date with respect to the corresponding input file or files, then MSBuild executes the target. Otherwise, MSBuild skips the target.
+
+7. After the target is executed or skipped, any other target that lists it in an `AfterTargets` attribute is run.
+
+##### [Build specific targets in solutions by using MSBuild.exe](https://docs.microsoft.com/en-us/visualstudio/msbuild/how-to-build-specific-targets-in-solutions-by-using-msbuild-exe?view=vs-2019)
+
+You can use MSBuild.exe to build **specific targets** of **specific projects** in a **solution**.
+
+###### To build a specific target of a specific project in a solution
+
+1. At the command line, type MSBuild.exe `<SolutionName>`.sln, where `<SolutionName>` corresponds to the file name of the solution that contains the target that you want to execute.
+
+2. Specify the target after the `-target:` switch in the format `<ProjectName>:<TargetName>`. If the project name contains any of the characters `%`, `$`, `@`, `;`, `.`, `(`, `)`, or `'`, replace them with an `_` in the specified target name.
+
+Example
+
+The following example executes the `Rebuild` target of the `NotInSlnFolder` project, and then executes the `Clean` target of the `InSolutionFolder` project, which is located in the `NewFolder` solution folder.
+
+    msbuild SlnFolders.sln -target:NotInSlnfolder:Rebuild;NewFolder\InSolutionFolder:Clean
+
+Troubleshooting
+
+If you would like to examine the options available to you, you can use a **debugging option** provided by MSBuild to do so. Set the environment variable `MSBUILDEMITSOLUTION=1` and build your solution. This will produce an MSBuild file named `<SolutionName>.sln.metaproj` that shows MSBuild's internal view of the solution at build time. You can inspect this view to determine what targets are available to build.
+
+Do not build with this environment variable set unless you need this internal view. This setting can cause problems building projects in your solution.
+
+### [MSBuild reference](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-reference?view=vs-2019)
+
+#### [MSBuild command-line reference](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference?view=vs-2019)
+
+When you use MSBuild.exe to build a project or solution file, you can include several **switches** to specify various aspects of the process.
+
+Every switch is available in two forms: `-switch` and `/switch`. The documentation only shows the `-switch` form. Switches are **not case-sensitive**. If you run MSBuild from a shell other than the Windows command prompt, lists of arguments to a switch (separated by semicolons or commas) might need single or double quotes to ensure that lists are passed to MSBuild instead of interpreted by the shell.
+
+Syntax
+
+    MSBuild.exe [Switches] [ProjectFile]
+
+- Arguments
+
+  - ProjectFile
+
+    Builds the targets in the **project file** that you specify. If you don't specify a project file, MSBuild **searches** the current working directory for a file name **extension** that ends in `proj` and uses that file. You can also specify a Visual Studio **solution file** for this argument.
+
+- Switches
+
+  - `-detailedSummary` or `-ds`
+
+    Show detailed information at the end of the build log about the configurations that were built and how they were scheduled to nodes.
+
+  - `-graphBuild[:True or False]` or `-graph[:True or False]`
+
+    Causes MSBuild to construct and build a project graph. Constructing a graph involves identifying project references to form dependencies. Building that graph involves attempting to build project references prior to the projects that reference them, differing from traditional MSBuild scheduling.
+
+  - `-property:name=value` or `-p:name=value`
+
+    Set or override the specified **project-level** properties, where name is the property name and value is the property value. Specify each property separately, or use a semicolon or comma to separate multiple properties, as the following example shows:
+
+        -property:WarningLevel=2;OutDir=bin\Debug
+
+  - `-target:targets` or -t:targets
+
+    Build the specified targets in the project. Specify each target separately, or use a semicolon or comma to separate **multiple targets**, as the following example shows:
+
+          -target:PrepareResources;Compile
+
+    If you specify any targets by using this switch, they are run instead of any targets in the `DefaultTargets` attribute in the project file. For more information, see Target build order and [How to: Specify which target to build first](https://docs.microsoft.com/en-us/visualstudio/msbuild/how-to-specify-which-target-to-build-first?view=vs-2019).
+
+    A target is a group of tasks. For more information, see [Targets](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-targets?view=vs-2019).
+
+  - `-verbosity:level` or `-v:level`
+
+    Specifies the amount of information to display in the **build log**. Each logger displays events based on the verbosity level that you set for that logger.
+
+    You can specify the following verbosity levels: `q[uiet]`, `m[inimal]`, `n[ormal]` (default), `d[etailed]`, and `diag[nostic]`.
+
+    The following setting is an example: `-verbosity:quiet`
+
+- Switches for loggers
+
+  - `-fileLogger[number]` or `-fl[number]`
+
+    **Log the build output to a single file** in the current directory. If you don't specify number, the output file is named `msbuild.log`. If you specify number, the output file is named `msbuild<n>.log`, where `<n>` is number. Number can be a digit from 1 to 9.
+
+    You can use the `-fileLoggerParameters` switch to specify the **location of the file** and other parameters for the fileLogger.
+
+Example
+
+The following example builds the rebuild target of the `MyProject.proj` project.
+
+    MSBuild.exe MyProject.proj -t:rebuild
+
+Example
+
+You can use MSBuild.exe to perform more complex builds. For example, you can use it to build specific targets of specific projects in a solution. The following example rebuilds the project `NotInSolutionFolder` and cleans the project `InSolutionFolder`, which is in the `NewFolder` solution folder.
+
+    msbuild SlnFolders.sln -t:NotInSolutionfolder:Rebuild;NewFolder\InSolutionFolder:Clean
+
+### Practice
+
+#### Build a solution
+
+    msbuild  NameOfYourSoution.sln
+
+#### Build a specific project
+
+    msbuild NameOfYourProject.csproj
+
+#### Specifying MSBuild Configuration parameter
+
+    msbuild NameOfYourProject.csproj -p:Configuration=Release
+
+#### Rebuilding project
+
+    msbuild NameOfYourProject.csproj -t:rebuild
+
+#### Cleaning Solution/Project
+
+    msbuild NameOfYourSolution.sln -t:clean
 
 ## [Additional MSVC Build Tools](https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-build-tools?view=vs-2019)
 
