@@ -67,9 +67,21 @@
     - [Practice](#practice)
       - [Build a solution](#build-a-solution)
       - [Build a specific project](#build-a-specific-project)
-      - [Specifying MSBuild Configuration parameter](#specifying-msbuild-configuration-parameter)
+      - [Specifying the Configuration for MSBuild](#specifying-the-configuration-for-msbuild)
+      - [Specifying the Platform for MSBuild](#specifying-the-platform-for-msbuild)
       - [Rebuilding project](#rebuilding-project)
       - [Cleaning Solution/Project](#cleaning-solutionproject)
+      - [Write Log to `msbuild.log`](#write-log-to-msbuildlog)
+  - [Inside the Visual Studio SDK](#inside-the-visual-studio-sdk)
+    - [Projects](#projects)
+      - [Project Types](#project-types)
+        - [Managing Configuration Options](#managing-configuration-options)
+          - [Configuration options overview](#configuration-options-overview)
+          - [Solution Configuration](#solution-configuration)
+          - [Project Configuration for Building](#project-configuration-for-building)
+    - [Solutions](#solutions)
+      - [Solutions overview](#solutions-overview)
+      - [Solution (.sln) file](#solution-sln-file)
   - [Additional MSVC Build Tools](#additional-msvc-build-tools)
     - [LIB.EXE](#libexe)
     - [EDITBIN.EXE](#editbinexe)
@@ -927,9 +939,13 @@ You can use MSBuild.exe to perform more complex builds. For example, you can use
 
     msbuild NameOfYourProject.csproj
 
-#### Specifying MSBuild Configuration parameter
+#### Specifying the Configuration for MSBuild
 
     msbuild NameOfYourProject.csproj -p:Configuration=Release
+
+#### Specifying the Platform for MSBuild
+
+    msbuild NameOfYourProject.sln -p:Configuration=Release -p:Platform=x64
 
 #### Rebuilding project
 
@@ -938,6 +954,210 @@ You can use MSBuild.exe to perform more complex builds. For example, you can use
 #### Cleaning Solution/Project
 
     msbuild NameOfYourSolution.sln -t:clean
+
+#### Write Log to `msbuild.log`
+
+    msbuild  NameOfYourSoution.sln -fl
+
+## [Inside the Visual Studio SDK](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/inside-the-visual-studio-sdk?view=vs-2019)
+
+### [Projects](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/projects?view=vs-2019)
+
+In Visual Studio, projects are the **containers** that developers use to organize **source code files** and **other resources** that appear in Solution Explorer. Typically, projects are files (for example, a .csproj file for a C# project) that store references to source code files and resources like bitmap files. Projects let you **organize**, **build**, **debug**, and **deploy** source code, references to Web services and databases, and other resources. VSPackages can extend the Visual Studio project system in three main ways: **project types**, **project subtypes**, and **custom tools**.
+
+#### [Project Types](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/project-types?view=vs-2019)
+
+Visual Studio includes several project types for languages such as Visual C# and Visual Basic. Visual Studio also lets you create your own project types.
+
+##### [Managing Configuration Options](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/managing-configuration-options?view=vs-2019)
+
+When you create a new project type, you must manage project and solution configuration settings that determine how your project will be **built**, **packaged**, **deployed**, and **run**. The following topics discuss project and solution configuration.
+
+###### [Configuration options overview](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/configuration-options-overview?view=vs-2019)
+
+Projects in Visual Studio can support multiple configurations that can be **built**, **debugged**, **run**, and/or **deployed**. A **configuration is a build type** described with a **named set of properties**, typically **compiler switches** and **file locations**. By default, new solutions contain two configurations, Debug and Release. These configurations can be applied using their default settings, or modified to meet your specific solution and/or project requirements. Some packages can be built in two ways: as an ActiveX editor or as an in-place component. Projects do not need to support multiple configurations, however. If there is only one configuration available, that configuration is **mapped into all of the solution configurations**.
+
+Configurations typically consist of two parts: the **configuration name** (such as Debug or Release) and the **platform settings**. A configuration's platform name identifies the environment that the configuration targets, such as an API set or operating system platform. Users of Visual Studio cannot create a platform; they must choose from the selections a project VSPackage allows. When a user installs a VSPackage, the delivery platform created during development of the package can surface any platform name desired based on any criteria set by the package creator. The user can then select from the list of platforms made available through the VSPackage when the property pages are instantiated.
+
+Platform names are optional since not all projects support the concept of platforms. When a configuration lacks a platform name, the string N/A is displayed in the UI.
+
+Each **solution has its own set of configurations**, **only one of which can be active at a time**. A solution configuration is a set of no more than one configuration from each project. The "no more than" stipulation is due to the option to **exclude a project from a solution configuration**. Users can create their own custom solution configurations.
+
+Changing the active configuration for a solution **selects the set of project configurations** that is built, run, debugged, or deployed in that solution. For example, if you change the active solution configuration from Release to Debug, all projects within that solution are automatically built with the projects' configuration indicated in the solution's debug configuration. The projects' configurations are also named Debug unless the user has made manual changes in the environment's Configuration Manager.
+
+The **solution configuration properties** stored for each project include the **project name**, **project configuration name**, **flags** to indicate whether or not to build or to deploy, and **platform name**. For more information, see [Solution configuration](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-configuration?view=vs-2019).
+
+The user can view and set solution configuration parameters by selecting the solution in the hierarchy (Solution Explorer) and opening the property pages. Similarly, you can view and set project configuration parameters by selecting a project in Solution Explorer and opening the property pages for that project.
+
+The user can also build one project using release configuration settings and all the rest with debug configuration settings if necessary. For more information, see [Project configuration for building](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/project-configuration-for-building?view=vs-2019).
+
+###### [Solution Configuration](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-configuration?view=vs-2019)
+
+Solution configurations store solution-level properties. They **direct the behavior** of the **Start (F5) key** and **Build commands**. By default, these commands build and start the debug configuration. Both commands execute in the **context of a solution configuration**. This means that the user can expect F5 to start and build whatever the active solution is configured through the settings. The environment is designed to optimize for solutions rather than projects when it comes to building and running.
+
+Here is how you can implement the solution configurations supported by your project type:
+
+- Project
+
+   Displays the names of projects found in the current solution.
+
+- Configuration
+
+   To provide the list of configurations supported by your project type and displayed in the property pages, implement [IVsCfgProvider2](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivscfgprovider2).
+
+   The Configuration column displays the name of the project configuration to build in this solution configuration, and lists all of the project configurations when you click the arrow button. The environment calls the [GetCfgNames](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivscfgprovider2.getcfgnames) method to fill out this list. If the [GetCfgProviderProperty](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivscfgprovider2.getcfgproviderproperty) method indicates that the project supports configuration editing, New or Edit selections are also displayed under the Configuration heading. Each of these selections launch dialog boxes that call methods of the `IVsCfgProvider2` interface to edit the project's configurations.
+
+   If a project does not support configurations, the Configuration column displays None and is disabled.
+
+- Platform
+
+   Displays the platform the selected project configuration builds for, and lists all of the available platforms for the project when you click the arrow button. The environment calls the [GetPlatformNames](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivscfgprovider2.getplatformnames) method to fill out this list. If the [GetCfgProviderProperty](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivscfgprovider2.getcfgproviderproperty) method indicates that the project supports platform editing, New or Edit selections are also displayed under the Platform heading. Each of these selections launch dialog boxes that call IVsCfgProvider2 methods to edit the project's available platforms.
+
+   If a project does not support platforms, the platform column for that project displays None and is disabled.
+
+- Build
+
+   Specifies whether or not the project is built by the current solution configuration. **Unselected projects are not built when the solution-level build commands are invoked despite any project dependencies they contain**. Projects not selected to be built are **still** included in debugging, running, packaging, and deployment of the solution.
+
+- Deploy
+
+   Specifies whether or not the project will be deployed when the Start or Deploy commands are used with the selected solution build configuration. The check box for this field will be available if the project supports deploying by implementing the [IVsDeployableProjectCfg](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivsdeployableprojectcfg) interface on its [IVsProjectCfg2](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivsprojectcfg2) object.
+
+   Once a new solution configuration is added, the user can select it from the Solution Configuration drop-down list box on the standard toolbar to build and/or start that configuration.
+
+###### [Project Configuration for Building](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/project-configuration-for-building?view=vs-2019)
+
+The list of solution configurations for a given solution is managed by the Solution Configurations dialog box.
+
+A user can create additional solution configurations, each with its own unique name. When the user creates a new solution configuration, the IDE defaults to the corresponding configuration name in the projects, or Debug if no corresponding name exists. The user can change the selection to meet specific requirements if necessary. The only exception to this behavior is when the project supports a configuration that matches the name of the new solution configuration. For example, assume a solution contains Project1 and Project2. Project1 has project configurations Debug, Retail, and MyConfig1. Project2 has project configurations Debug, Retail, and MyConfig2.
+
+If the user creates a new solution configuration named MyConfig2, Project1 binds its Debug configuration to the solution configuration by default. Project2 also binds its MyConfig2 configuration to the solution configuration by default.
+
+**Project dependencies and build order** are **solution configuration independent**: that is, you can only set up one dependency tree for all of the projects in the solution. Right-clicking the solution or project and selecting either the **Project Dependencies** or **Project Build Order** option opens the Project Dependencies dialog box. It can also be opened from the Project menu.
+
+Project dependencies determine the order in which projects build. Use the Build Order tab on the dialog box to view the exact order in which projects within a solution will build, and use the Dependencies tab to modify the build order.
+
+Visual Studio build processes include the typical **compile** and **link** operations that are invoked with a single Build command. Two other build processes can also be supported: a **clean** operation to delete all output items from a previous build, and an **up-to-date check** to determine if an output item in a configuration has changed.
+
+### Solutions
+
+#### [Solutions overview](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solutions-overview?view=vs-2019)
+
+A solution is a **grouping of one or more projects** that work together to create an application. The project and status information pertaining to the solution are stored in two different solution files. The [solution (.sln) file](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2019) is text-based and can be placed under source code control and shared between users. The [solution user option (.suo) file](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-user-options-dot-suo-file?view=vs-2019) is binary. As a result, the `.suo` file cannot be placed under source code control and contains user-specific information.
+
+Any [VSPackage](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solutions-overview?view=vs-2019) can write to either type of solution file. Because of the nature of the files, there are two different interfaces implemented to write to them. The [IVsPersistSolutionProps](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivspersistsolutionprops) interface writes text information to the .sln file and the [IVsPersistSolutionOpts](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivspersistsolutionopts) interface writes binary streams to the .suo file.
+
+Note: A project does not have to explicitly write an entry for itself into the solution file; the environment handles that for the project. Therefore, unless you want to add additional content specifically to the solution file, you do not need to register your VSPackage in this way.
+
+When a solution is opened, the following process takes place.
+
+1. The environment reads the solution.
+
+2. If the environment finds a `CLSID`, it loads the corresponding VSPackage.
+
+3. If a VSPackage is loaded, the environment calls `QueryInterface` for [IVsPackage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivspackage) interface for the interface that the VSPackage requires.
+
+   - When reading from an .sln file, the environment calls `QueryInterface` for `IVsPersistSolutionProps`.
+
+   - When reading from an .suo file, the environment calls `QueryInterface` for `IVsPersistSolutionOpts`.
+
+   Specific information relating to the use of these files can be found in [Solution (.Sln) File](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2019) and [Solution User Options (.Suo) File](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-user-options-dot-suo-file?view=vs-2019).
+
+Note: If you want to create a new solution configuration consisting of two projects' configurations and excluding a third from the build, you need to use the Property Pages UI or automation. You can't change the solution build manager configurations and their properties directly, but you can manipulate the solution build manager using the `SolutionBuild` class from DTE in the automation model. For more information about configuring solutions, see [Solution Configuration](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-configuration?view=vs-2019).
+
+#### [Solution (.sln) file](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-dot-sln-file?view=vs-2019)
+
+A solution is a structure for organizing projects in Visual Studio. The solution maintains the state information for projects in two files:
+
+- .sln file (text-based, shared)
+
+- .suo file (binary, user-specific solution options)
+
+For more information about .suo files, see [Solution User Options (.Suo) File](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/solution-user-options-dot-suo-file?view=vs-2019).
+
+If your VSPackage is loaded as a result of being referenced in the .sln file, the environment calls [ReadSolutionProps](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivspersistsolutionprops.readsolutionprops) to read in the .sln file.
+
+The `.sln` file contains text-based information the environment uses to find and load the name-value parameters for the persisted data and the project VSPackages it references. When a user opens a solution, the environment cycles through the **`preSolution`**, **`Project`**, and **`postSolution`** information in the `.sln` file to load the solution, projects within the solution, and any persisted information attached to the solution.
+
+Each project's file contains additional information read by the environment to populate the hierarchy with that project's items. The hierarchy data persistence is controlled by the project. The data is not normally stored in the `.sln` file, although you can intentionally write project information to the `.sln` file if you choose to do so. For more information about persistence, see [Project Persistence](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/project-persistence?view=vs-2019) and [Opening and Saving Project Items](https://docs.microsoft.com/en-us/visualstudio/extensibility/internals/opening-and-saving-project-items?view=vs-2019).
+
+- File header
+
+  The header of a .sln file looks like this:
+
+      Microsoft Visual Studio Solution File, Format Version 12.00
+      # Visual Studio Version 16
+      VisualStudioVersion = 16.0.28701.123
+      MinimumVisualStudioVersion = 10.0.40219.1
+
+  - `Microsoft Visual Studio Solution File, Format Version 12.00`
+
+    Standard header that defines the file format version.
+
+  - `# Visual Studio Version 16`
+
+    The major version of Visual Studio that (most recently) saved this solution file. This information controls the version number in the solution icon.
+
+  - `VisualStudioVersion = 16.0.28701.123`
+
+    The full version of Visual Studio that (most recently) saved the solution file. If the solution file is saved by a newer version of Visual Studio that has the same major version, this value is not updated so as to lessen churn in the file.
+
+  - `MinimumVisualStudioVersion = 10.0.40219.1`
+
+    The minimum (oldest) version of Visual Studio that can open this solution file.
+
+- File body
+
+  The body of an `.sln` file consists of several sections labeled `GlobalSection`, like this:
+
+      Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Project1", "Project1.vbproj", "{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}"
+      EndProject
+      Global
+        GlobalSection(SolutionNotes) = postSolution
+        EndGlobalSection
+        GlobalSection(SolutionConfiguration) = preSolution
+             ConfigName.0 = Debug
+             ConfigName.1 = Release
+        EndGlobalSection
+        GlobalSection(ProjectDependencies) = postSolution
+        EndGlobalSection
+        GlobalSection(ProjectConfiguration) = postSolution
+         {8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Debug.ActiveCfg = Debug|x86
+         {8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Debug.Build.0 = Debug|x86
+         {8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Release.ActiveCfg = Release|x86
+         {8CDD8387-B905-44A8-B5D5-07BB50E05BEA}.Release.Build.0 = Release|x86
+        EndGlobalSection
+        GlobalSection(ExtensibilityGlobals) = postSolution
+        EndGlobalSection
+        GlobalSection(ExtensibilityAddIns) = postSolution
+        EndGlobalSection
+      EndGlobal
+
+  To load a solution, the environment performs the following sequence of tasks:
+
+  1. The environment reads the Global section of the .sln file and processes all sections marked `preSolution`. In this example file, there is one such statement:
+
+         GlobalSection(SolutionConfiguration) = preSolution
+              ConfigName.0 = Debug
+              ConfigName.1 = Release
+
+     When the environment reads the `GlobalSection('name')` tag, it maps the name to a VSPackage using the registry. The key name should exist in the registry under `[HKLM\<Application ID Registry Root>\SolutionPersistence\AggregateGUIDs]`. The keys' default value is the Package GUID (REG_SZ) of the VSPackage that wrote the entries.
+
+  2. The environment loads the VSPackage, calls `QueryInterface` on the VSPackage for the [IVsPersistSolutionProps](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivspersistsolutionprops) interface, and calls the [ReadSolutionProps](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivspersistsolutionprops.readsolutionprops) method with the data in the section so the VSPackage can store the data. The environment repeats this process for each `preSolution` section.
+
+  3. The environment iterates through the project persistence blocks. In this case, there is one project.
+
+         Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Project1",
+         "Project1.vbproj", "{8CDD8387-B905-44A8-B5D5-07BB50E05BEA}"
+         EndProject
+
+     This statement contains the unique **project GUID** and the **project type GUID**. This information is used by the environment to **find the project file** or files belonging to the solution, and the VSPackage required for each project. The project GUID is passed to [IVsProjectFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.interop.ivsprojectfactory) to load the specific VSPackage related to the project, then the project is loaded by the VSPackage. In this case, the VSPackage that is loaded for this project is Visual Basic.
+
+     Each project can persist a **unique project instance ID** so that it can be accessed as needed by other projects in the solution. Ideally, if the solution and projects are under source code control, the **path to the project should be relative to the path to the solution**. When the solution is first loaded, the project files cannot be on the user's machine. By having the project file stored on the server relative to the solution file, it is relatively simple for the project file to be found and copied to the user's machine. It then copies and loads the rest of the files needed for the project.
+
+  4. Based on the information contained in the **project section** of the `.sln` file, the environment loads each project file. The project itself is then responsible for populating the **project hierarchy** and loading any **nested projects**.
+
+  5. After all sections of the `.sln` file are processed, the solution is displayed in Solution Explorer and is ready for modification by the user.
 
 ## [Additional MSVC Build Tools](https://docs.microsoft.com/en-us/cpp/build/reference/c-cpp-build-tools?view=vs-2019)
 

@@ -146,6 +146,10 @@ Count lines for matched words
 
     grep -c 'word' /path/to/file
 
+Print file name with output lines
+
+    grep -H 'word' /path/to/file
+
 List only the names of matching files
 
     grep -l 'primary' *.c

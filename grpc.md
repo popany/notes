@@ -13,11 +13,11 @@
 
 This guide gets you started with gRPC in C++ with a simple working example.
 
-In the C++ world, there’s no universally accepted standard for managing project dependencies. In this quick start, you’ll follow steps to build and locally install gRPC before building and running this quick start’s Hello World example.
+In the C++ world, there's no universally accepted standard for **managing project dependencies**. In this quick start, you'll follow steps to **build** and locally **install** gRPC before building and running this quick start's Hello World example.
 
 ### Setup
 
-Choose a directory to hold locally installed packages. This page assumes that the environment variable `MY_INSTALL_DIR` holds this directory path. For example:
+Choose a **directory to hold locally installed packages**. This page assumes that the environment variable `MY_INSTALL_DIR` holds this directory path. For example:
 
     export MY_INSTALL_DIR=$HOME/local
 
@@ -60,6 +60,8 @@ Linux
 
 
 ## [Repository](https://github.com/grpc/grpc)
+
+    git clone --recurse-submodules git@github.com:grpc/grpc.git
 
 ### [gRPC C++ - Building from source](https://github.com/grpc/grpc/blob/master/BUILDING.md)
 
