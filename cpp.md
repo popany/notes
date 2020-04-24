@@ -1,6 +1,8 @@
 # C++
 
 - [C++](#c)
+  - [Syntax](#syntax)
+    - [Sleep](#sleep)
   - [C++ Unit Test](#c-unit-test)
     - [mockcpp](#mockcpp)
   - [Database Access Library](#database-access-library)
@@ -14,6 +16,12 @@
     - [ODB](#odb)
     - [sqlpp11](#sqlpp11)
     - [SQLiteCpp](#sqlitecpp)
+
+## Syntax
+
+### Sleep
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
 ## C++ Unit Test
 

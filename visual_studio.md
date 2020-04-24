@@ -62,6 +62,7 @@
           - [Determine the target build order](#determine-the-target-build-order)
         - [Build specific targets in solutions by using MSBuild.exe](#build-specific-targets-in-solutions-by-using-msbuildexe)
           - [To build a specific target of a specific project in a solution](#to-build-a-specific-target-of-a-specific-project-in-a-solution)
+        - [Build Incrementally](#build-incrementally)
     - [MSBuild reference](#msbuild-reference)
       - [MSBuild command-line reference](#msbuild-command-line-reference)
     - [Practice](#practice)
@@ -856,6 +857,8 @@ Troubleshooting
 If you would like to examine the options available to you, you can use a **debugging option** provided by MSBuild to do so. Set the environment variable `MSBUILDEMITSOLUTION=1` and build your solution. This will produce an MSBuild file named `<SolutionName>.sln.metaproj` that shows MSBuild's internal view of the solution at build time. You can inspect this view to determine what targets are available to build.
 
 Do not build with this environment variable set unless you need this internal view. This setting can cause problems building projects in your solution.
+
+##### [Build Incrementally](https://docs.microsoft.com/en-us/visualstudio/msbuild/how-to-build-incrementally?view=vs-2015&redirectedfrom=MSDN)
 
 ### [MSBuild reference](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-reference?view=vs-2019)
 

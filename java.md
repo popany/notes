@@ -28,6 +28,7 @@
       - [Enhancing Security with Manifest Attributes](#enhancing-security-with-manifest-attributes)
     - [Signing and Verifying JAR Files](#signing-and-verifying-jar-files)
     - [Using JAR-related APIs](#using-jar-related-apis)
+  - [IDE](#ide)
 
 ## [Java Tutorial](https://www.tutorialspoint.com/java/index.htm)
 
@@ -483,3 +484,7 @@ specifies that all packages in this archive are sealed unless explicitly overrid
 ### Signing and Verifying JAR Files
 
 ### Using JAR-related APIs
+
+## IDE
+
+idea

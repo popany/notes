@@ -18,6 +18,7 @@
     - [`icov`](#icov)
     - [`sed`](#sed)
       - [Use sed to extract substring](#use-sed-to-extract-substring)
+      - [Replace "\r\n" with "\n"](#replace-%22rn%22-with-%22n%22)
     - [`grep`](#grep)
     - [`tar`](#tar)
   - [CentOS](#centos)
@@ -139,6 +140,10 @@ List all known coded character sets
 - `/` - end of the search regex, and start of the substitute string.
 - `\1` - reference to that string we found in the brackets above.
 - `/` end of the substitute string.
+
+#### Replace "\r\n" with "\n"
+
+    sed 's/\r$//'
 
 ### `grep`
 
