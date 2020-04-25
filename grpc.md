@@ -28,9 +28,11 @@
           - [Install after build](#install-after-build)
   - [Practice](#practice)
     - [CentOS 8 + grpc v1.14.0](#centos-8--grpc-v1140)
-      - [Install packages](#install-packages)
-      - [Clone repository](#clone-repository)
-      - [Compile](#compile)
+      - [Try](#try)
+        - [Install packages](#install-packages)
+        - [Clone repository](#clone-repository)
+        - [Compile](#compile)
+      - [Feasible solution](#feasible-solution)
   - [gRPC 官方文档中文版](#grpc-%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3%e4%b8%ad%e6%96%87%e7%89%88)
 
 ## [C++ Quick Start](https://grpc.io/docs/quickstart/cpp/)
@@ -275,7 +277,9 @@ NOTE: all of gRPC's dependencies need to be already installed
 
 ### CentOS 8 + grpc v1.14.0
 
-#### Install packages
+#### Try
+
+##### Install packages
 
     yum install -y autoconf libtool pkg-config gcc-c++ cmake make go
 
@@ -287,13 +291,13 @@ NOTE: all of gRPC's dependencies need to be already installed
 
     cmake version 3.11.4
 
-#### Clone repository
+##### Clone repository
 
     git clone git@github.com:grpc/grpc.git
     git checkout v1.14.0
     git submodule update --init
 
-#### Compile
+##### Compile
 
     export GRPC_INSTALL_DIR=/grpc_install_dir
     mkdir -p $GRPC_INSTALL_DIR
@@ -322,17 +326,28 @@ If `gRPC_INSTALL` if `FALSE`, `gRPCTargets.cmake` will not be installed, and the
 
 For gRPC v1.14.0, gRPC's dependencies must be handled in "package" mode (i.e. use `-DgRPC_<depname>_PROVIDER`).
 
----
+>     cmake -DgRPC_INSTALL=ON \
+>         -DgRPC_BUILD_TESTS=OFF \
+>         -DCMAKE_INSTALL_PREFIX=$GRPC_INSTALL_DIR \
+>         -DCMAKE_BUILD_TYPE=Release \
+>         -DgRPC_CARES_PROVIDER=package \
+>         -DgRPC_PROTOBUF_PROVIDER=package \
+>         -DgRPC_SSL_PROVIDER=package \
+>         -DgRPC_ZLIB_PROVIDER=package \
+>         ../..
 
-    cmake -DgRPC_INSTALL=ON \
-        -DgRPC_BUILD_TESTS=OFF \
-        -DCMAKE_INSTALL_PREFIX=$GRPC_INSTALL_DIR \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DgRPC_CARES_PROVIDER=package \
-        -DgRPC_PROTOBUF_PROVIDER=package \
-        -DgRPC_SSL_PROVIDER=package \
-        -DgRPC_ZLIB_PROVIDER=package \
-        ../..
+We can't use the above command directly, because `cmake` will report an error:
+
+<pre>  Could not find a package configuration file provided by "c-ares" with any
+  of the following names:
+
+    c-aresConfig.cmake
+    c-ares-config.cmake
+</pre>
+
+Let's put the "package" question aside, and continue without `-DgRPC_<depname>_PROVIDER`.
+
+---
 
     make VERBOSE=1
 
@@ -359,6 +374,14 @@ make[1]: Leaving directory '/demo/grpc_build/grpc/cmake/build'
 make: *** [Makefile:130: all] Error 2
 </pre>
 
+Because of `-Wshadow` flag is set in `grpc/third_party/boringssl/CMakeLists.txt`:
+
+>     if((CMAKE_COMPILER_IS_GNUCXX AND CMAKE_C_COMPILER_VERSION VERSION_GREATER "4.7.99") OR
+>        CLANG)
+>       set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wshadow")
+>       set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wshadow")
+>     endif()
+
 solution:
 
 recompile this file without `-Wshadow`
@@ -371,6 +394,58 @@ recompile this file without `-Wshadow`
     make VERBOSE=1
 
     make install
+    popd
+
+#### Feasible solution
+
+    yum install -y autoconf libtool pkg-config gcc-c++ cmake make go
+
+    git clone git@github.com:grpc/grpc.git
+    git checkout v1.14.0
+    git submodule update --init
+
+    export GRPC_INSTALL_DIR=/grpc_install_dir
+    mkdir -p $GRPC_INSTALL_DIR
+
+    mkdir -p cmake/build
+    pushd cmake/build
+    cmake -DgRPC_INSTALL=ON \
+        -DgRPC_BUILD_TESTS=OFF \
+        -DCMAKE_INSTALL_PREFIX=$GRPC_INSTALL_DIR \
+        -DCMAKE_BUILD_TYPE=Release \
+        ../..
+
+    pushd third_party/cares/cares/
+    make
+    make install
+    popd
+
+    pushd third_party/protobuf/
+    make
+    make install
+    popd
+
+    cmake -DgRPC_INSTALL=ON \
+        -DgRPC_BUILD_TESTS=OFF \
+        -DCMAKE_INSTALL_PREFIX=$GRPC_INSTALL_DIR \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DgRPC_CARES_PROVIDER=package \
+        -DgRPC_PROTOBUF_PROVIDER=package \
+        -DgRPC_SSL_PROVIDER=package \
+        -DgRPC_ZLIB_PROVIDER=package \
+        ../..
+
+    make -j4
+    make install
+    popd
+
+Build the example using cmake:
+
+    cd examples/cpp/helloworld
+    mkdir -p cmake/build
+    pushd cmake/build
+    cmake -DCMAKE_PREFIX_PATH=$GRPC_INSTALL_DIR ../..
+    make -j
     popd
 
 ## [gRPC 官方文档中文版](http://doc.oschina.net/grpc)
