@@ -9,6 +9,7 @@
       - [5.2.4 Operations on std::atomic<T*>: pointer arithmetic](#524-operations-on-stdatomict-pointer-arithmetic)
       - [5.2.5 Operations on standard atomic integral types](#525-operations-on-standard-atomic-integral-types)
       - [5.2.6 The std::atomic<> primary class template](#526-the-stdatomic-primary-class-template)
+      - [5.2.7 Free functions for atomic operations](#527-free-functions-for-atomic-operations)
     - [5.3 Synchronizing operations and enforcing ordering](#53-synchronizing-operations-and-enforcing-ordering)
 
 ## 5 The C++ memory model and operations on atomic types
@@ -102,8 +103,38 @@ We’ve now looked at all the basic atomic types; all that remains is the generi
 
 #### 5.2.6 The std::atomic<> primary class template
 
-The presence of the primary template allows a user to create an atomic variant of a user-defined type, in addition to the standard atomic types. Given a user-defined type `UDT`, `std::atomic<UDT>` provides the same interface as `std::atomic<bool>` (as described in section 5.2.3), except that the bool parameters and return types that relate to the stored value (rather than the success/failure result of the compare exchange operations) are `UDT` instead. You **can’t use just any user-defined type with `std::atomic<>`**, though; the type has to fulfill certain criteria. In order to use `std::atomic<UDT>` for some user-defined type `UDT`,, this type must have a **trivial copy-assignment operator**. This means that the type must **not have any virtual functions or virtual base classes** and must **use the compiler-generated copy-assignment operator**. Not only that, but every **base class** and **non-static data member** of a user-defined type must also have a trivial copy-assignment operator. This permits the compiler to use `memcpy()` or an equivalent operation for assignment operations, because there’s no
-user-written code to run.
+The presence of the primary template allows a user to create an atomic variant of a user-defined type, in addition to the standard atomic types. Given a user-defined type `UDT`, `std::atomic<UDT>` provides the same interface as `std::atomic<bool>` (as described in section 5.2.3), except that the bool parameters and return types that relate to the stored value (rather than the success/failure result of the compare exchange operations) are `UDT` instead. You **can’t use just any user-defined type with `std::atomic<>`**, though; the type has to fulfill certain criteria. In order to use `std::atomic<UDT>` for some user-defined type `UDT`,, this type must have a **trivial copy-assignment operator**. This means that the type must **not have any virtual functions or virtual base classes** and must **use the compiler-generated copy-assignment operator**. Not only that, but every **base class** and **non-static data member** of a user-defined type must also have a trivial copy-assignment operator. This permits the compiler to use `memcpy()` or an equivalent operation for assignment operations, because there’s no user-written code to run.
+
+Finally, it is worth noting that the compare-exchange operations do **bitwise comparison** as if using memcmp, rather than using any comparison operator that may be defined for UDT. If the type provides comparison operations that **have different semantics**, or the type has **padding bits** that do not participate in normal comparisons, then this can lead to a **compare-exchange operation failing**, even though the values compare equally.
+
+The reasoning behind these restrictions goes back to one of the guidelines from chapter 3: **don’t pass pointers and references to protected data outside the scope of the lock by passing them as arguments to user-supplied functions**. In general, the compiler **isn’t going to be able to generate lock-free code** for `std::atomic<UDT>`, so it will have to use an internal lock for all the operations. If user-supplied copy-assignment or comparison operators were permitted, this would require passing a reference to the protected data as an argument to a user-supplied function, violating the guideline. Also, the library is entirely at liberty to use a single lock for all atomic operations that need it, and allowing user-supplied functions to be called while holding that lock might cause deadlock or cause other threads to block because a comparison operation took a long time. Finally, these restrictions increase the chance that the compiler will be able to make use of atomic instructions directly for `std::atomic<UDT>` (and make a particular instantiation lock-free), because it can treat the user-defined type as a set of raw bytes.
+
+Note that although you can use `std::atomic<float>` or `std::atomic<double>`, because the built-in floating point types do satisfy the criteria for use with `memcpy` and `memcmp`, the behavior may be surprising in the case of `compare_exchange_strong` (`compare_exchange_weak` can **always fail** for arbitrary internal reasons, as described previously). The operation may fail even though the old stored value was equal in value to the comparand, **if the stored value had a different representation**. Note that there are **no atomic arithmetic operations on floating-point values**. You’ll get similar behavior with `compare_exchange_strong` if you use `std::atomic<>` with a userdefined type that has an equality-comparison operator defined, and that operator differs from the comparison using memcmp—the operation may fail because the otherwise-equal values have a different representation.
+
+If your `UDT` is the same size as (or smaller than) an `int` or a `void*`, most common platforms will be able to use atomic instructions for `std::atomic<UDT>`. Some platforms will also be able to use atomic instructions for user-defined types that are twice the size of an `int` or `void*`. These platforms are typically those that support a so-called **double-word-compare-and-swap (DWCAS)** instruction corresponding to the compare_exchange_xxx functions. As you’ll see in chapter 7, such support can be helpful when writing lock-free code.
+
+These restrictions mean that you can’t, for example, create `std::atomic<std::vector<int>>` (because it has a non-trivial copy constructor and copy assignment operator), but you can instantiate `std::atomic<>` with classes containing counters or flags or pointers or even **arrays of simple data elements**. This isn’t particularly a problem; the more complex the data structure, the more likely you’ll want to do operations on it other than simple assignment and comparison. If that’s the case, you’re **better off using an `std::mutex`** to ensure that the data is appropriately protected for the desired operations, as described in chapter 3.
+
+As already mentioned, when instantiated with a user-defined type `T`, the interface of `std::atomic<T>` is **limited to the set of operations available** for **std::atomic<bool>**: **load()**, **store()**, **exchange()**, **compare_exchange_weak()**, **compare_exchange_strong()**, and **assignment from** and **conversion to** an instance of type `T`.
+
+#### 5.2.7 Free functions for atomic operations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

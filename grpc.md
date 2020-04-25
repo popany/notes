@@ -5,7 +5,13 @@
     - [Setup](#setup)
     - [Prerequisites](#prerequisites)
       - [cmake](#cmake)
-      - [gRPC and Protocol Buffers](#grpc-and-protocol-buffers)
+    - [gRPC and Protocol Buffers](#grpc-and-protocol-buffers)
+      - [Install the basic tools required to build gRPC](#install-the-basic-tools-required-to-build-grpc)
+      - [Clone the `grpc` repo and its submodules](#clone-the-grpc-repo-and-its-submodules)
+      - [Build and locally install gRPC and all requisite tools](#build-and-locally-install-grpc-and-all-requisite-tools)
+      - [More information:](#more-information)
+    - [Build the example](#build-the-example)
+    - [Try it](#try-it)
   - [Repository](#repository)
     - [gRPC C++ - Building from source](#grpc-c---building-from-source)
       - [Pre-requisites](#pre-requisites)
@@ -20,6 +26,11 @@
           - [Windows, Using Ninja (faster build)](#windows-using-ninja-faster-build)
           - [Dependency management](#dependency-management)
           - [Install after build](#install-after-build)
+  - [Practice](#practice)
+    - [CentOS 8 + grpc v1.14.0](#centos-8--grpc-v1140)
+      - [Install packages](#install-packages)
+      - [Clone repository](#clone-repository)
+      - [Compile](#compile)
   - [gRPC 官方文档中文版](#grpc-%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3%e4%b8%ad%e6%96%87%e7%89%88)
 
 ## [C++ Quick Start](https://grpc.io/docs/quickstart/cpp/)
@@ -46,22 +57,81 @@ Add the local bin folder to your path variable, for example:
 
 #### cmake
 
-Version 3.13 or later of `cmake` is required to install gRPC locally.
+Version 3.13 or later of cmake is required to install gRPC locally.
 
-#### gRPC and Protocol Buffers
+- Linux
+
+      sudo apt install -y cmake
+
+Under Linux, the version of the system-wide cmake can be too low. You can install a more recent version into your local installation directory as follows:
+
+    wget -q -O cmake-linux.sh https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0-Linux-x86_64.sh
+
+    sh cmake-linux.sh -- --skip-license --prefix=$MY_INSTALL_DIR
+
+    rm cmake-linux.sh
+
+### gRPC and Protocol Buffers
 
 While not mandatory, gRPC applications usually leverage [Protocol Buffers](https://developers.google.com/protocol-buffers) for service definitions and data serialization, and the example code uses [proto3](https://developers.google.com/protocol-buffers/docs/proto3).
 
 The following instructions will locally install gRPC and Protocol Buffers.
 
-1. Install the basic tools required to build gRPC:
-Linux
+#### Install the basic tools required to build gRPC
 
-    apt install -y build-essential autoconf libtool pkg-config
+- Linux
 
+      sudo apt install -y build-essential autoconf libtool pkg-config
 
+#### Clone the `grpc` repo and its submodules
 
+    git clone --recurse-submodules -b v1.28.1 https://github.com/grpc/grpc
+    cd grpc
 
+#### Build and locally install gRPC and all requisite tools
+
+    mkdir -p cmake/build
+    pushd cmake/build
+    cmake -DgRPC_INSTALL=ON \
+        -DgRPC_BUILD_TESTS=OFF \
+        -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \
+        ../..
+    make -j
+    make install
+    popd
+
+#### More information:
+
+You can find a complete set of instructions for building gRPC C++ in [Building from source](https://github.com/grpc/grpc/blob/master/BUILDING.md).
+
+For general instructions on how to add gRPC as a dependency to your C++ project, see [Start using gRPC C++](https://github.com/grpc/grpc/tree/master/src/cpp#to-start-using-grpc-c).
+
+### Build the example
+
+The example code is part of the grpc repo source, which you cloned as part of the steps of the previous section.
+
+Change to the example’s directory:
+
+    cd examples/cpp/helloworld
+
+Build the example using cmake:
+
+    mkdir -p cmake/build
+    pushd cmake/build
+    cmake -DCMAKE_PREFIX_PATH=$MY_INSTALL_DIR ../..
+    make -j
+
+### Try it
+
+Run the example from the example build directory examples/cpp/helloworld/cmake/build:
+
+Run the server:
+
+    ./greeter_server
+
+From a different terminal, run the client and see the client output:
+
+    ./greeter_client
 
 
 
@@ -98,17 +168,9 @@ To prepare for cmake + Microsoft Visual C++ compiler build
 
 Before building, you need to clone the gRPC github repository and download submodules containing source code for gRPC's dependencies (that's done by the submodule command or --recursive flag). Use following commands to clone the gRPC repository at the [latest stable release tag](https://github.com/grpc/grpc/releases)
 
-- Unix
-
-      git clone -b RELEASE_TAG_HERE https://github.com/grpc/grpc
-      cd grpc
-      git submodule update --init
-
-- Windows
-
-      git clone -b RELEASE_TAG_HERE https://github.com/grpc/grpc
-      cd grpc
-      git submodule update --init
+    git clone -b RELEASE_TAG_HERE https://github.com/grpc/grpc
+    cd grpc
+    git submodule update --init
 
 NOTE: The bazel build tool uses a different model for dependencies. You only need to worry about downloading submodules if you're building with something else than bazel (e.g. cmake).
 
@@ -177,9 +239,9 @@ If you want to build DLLs, run cmake with -DBUILD_SHARED_LIBS=ON.
 
 gRPC's CMake build system provides two modes for handling dependencies.
 
-- module - build dependencies alongside gRPC.
+- **module** - build dependencies alongside gRPC.
 
-- package - use external copies of dependencies that are already available on your system.
+- **package** - use external copies of dependencies that are already available on your system.
 
 This behavior is controlled by the `gRPC_<depname>_PROVIDER` CMake variables, ie `gRPC_CARES_PROVIDER`.
 
@@ -193,9 +255,9 @@ Perform the following steps to install gRPC using CMake.
 
 The install destination is controlled by the `CMAKE_INSTALL_PREFIX` variable.
 
-If you are running CMake v3.13 or newer you can build gRPC's dependencies in "module" mode and install them alongside gRPC in a single step. Example
+**If you are running CMake v3.13 or newer you can build gRPC's dependencies in "module" mode and install them alongside gRPC in a single step**. [Example](https://github.com/grpc/grpc/blob/master/test/distrib/cpp/run_distrib_test_cmake_module_install.sh)
 
-If you are using an older version of gRPC, you will need to select "package" mode (rather than "module" mode) for the dependencies. This means you will need to have external copies of these libraries available on your system. This example shows how to install dependencies with cmake before proceeding to installing gRPC itself.
+**If you are using an older version of gRPC, you will need to select "package" mode (rather than "module" mode) for the dependencies**. This means you will need to have external copies of these libraries available on your system. This example shows how to install dependencies with cmake before proceeding to installing gRPC itself.
 
 NOTE: all of gRPC's dependencies need to be already installed
 
@@ -209,31 +271,106 @@ NOTE: all of gRPC's dependencies need to be already installed
     make
     make install
 
+## Practice
 
+### CentOS 8 + grpc v1.14.0
 
+#### Install packages
 
+    yum install -y autoconf libtool pkg-config gcc-c++ cmake make go
 
+- g++ version
 
+    g++ (GCC) 8.3.1 20190507 (Red Hat 8.3.1-4)
 
+- cmake version
 
+    cmake version 3.11.4
 
+#### Clone repository
 
+    git clone git@github.com:grpc/grpc.git
+    git checkout v1.14.0
+    git submodule update --init
 
+#### Compile
 
+    export GRPC_INSTALL_DIR=/grpc_install_dir
+    mkdir -p $GRPC_INSTALL_DIR
 
+    mkdir -p cmake/build
+    pushd cmake/build
+    cmake -DgRPC_INSTALL=ON \
+        -DgRPC_BUILD_TESTS=OFF \
+        -DCMAKE_INSTALL_PREFIX=$GRPC_INSTALL_DIR \
+        -DCMAKE_BUILD_TYPE=Release \
+        ../..
+
+---
+
+Warning occurred:
+
+<pre>CMake Warning at cmake/zlib.cmake:32 (message):
+  gRPC_INSTALL will be forced to FALSE because gRPC_ZLIB_PROVIDER is "module"
+Call Stack (most recent call first):
+  CMakeLists.txt:116 (include)
+</pre>
+
+`gRPC_INSTALL` will be forced to FALSE if it's dependancies are in "module" mode and `cmake` version is less than `3.13`. (In this case gRPC verison is v1.14.0, the `cmake` version will not be considered for v1.14.0 is an "order version of gRPC")
+
+If `gRPC_INSTALL` if `FALSE`, `gRPCTargets.cmake` will not be installed, and then `find_package` will fail with gRPC.
+
+For gRPC v1.14.0, gRPC's dependencies must be handled in "package" mode (i.e. use `-DgRPC_<depname>_PROVIDER`).
+
+---
+
+    cmake -DgRPC_INSTALL=ON \
+        -DgRPC_BUILD_TESTS=OFF \
+        -DCMAKE_INSTALL_PREFIX=$GRPC_INSTALL_DIR \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DgRPC_CARES_PROVIDER=package \
+        -DgRPC_PROTOBUF_PROVIDER=package \
+        -DgRPC_SSL_PROVIDER=package \
+        -DgRPC_ZLIB_PROVIDER=package \
+        ../..
+
+    make VERBOSE=1
+
+---
+
+Error occurred:
+
+<pre>
+[ 96%] Building CXX object third_party/boringssl/crypto/CMakeFiles/crypto_test.dir/x509/x509_test.cc.o
+cd /demo/grpc_build/grpc/cmake/build/third_party/boringssl/crypto && /usr/bin/c++  -DBORINGSSL_IMPLEMENTATION -DOPENSSL_NO_ASM -DPB_FIELD_16BIT -I/demo/grpc_build/grpc/third_party/zlib -I/demo/grpc_build/grpc/third_party/boringssl/third_party/googletest/include -I/demo/grpc_build/grpc/third_party/boringssl/crypto/../include  -Werror -Wformat=2 -Wsign-compare -Wmissing-field-initializers -Wwrite-strings -Wall -ggdb -fvisibility=hidden -fno-common -Wno-free-nonheap-object -Wimplicit-fallthrough -Wmissing-declarations -std=c++11 -fno-exceptions -fno-rtti -Wshadow -O2 -DNDEBUG -fPIE   -o CMakeFiles/crypto_test.dir/x509/x509_test.cc.o -c /demo/grpc_build/grpc/third_party/boringssl/crypto/x509/x509_test.cc
+/demo/grpc_build/grpc/third_party/boringssl/crypto/x509/x509_test.cc: In member function ‘virtual void X509Test_ZeroLengthsWithX509PARAM_Test::TestBody()’:
+/demo/grpc_build/grpc/third_party/boringssl/crypto/x509/x509_test.cc:712:10: error: declaration of ‘struct X509Test_ZeroLengthsWithX509PARAM_Test::TestBody()::Test’ shadows a previous local [-Werror=shadow]
+   struct Test {
+          ^~~~
+In file included from /demo/grpc_build/grpc/third_party/boringssl/crypto/x509/x509_test.cc:19:
+/demo/grpc_build/grpc/third_party/boringssl/third_party/googletest/include/gtest/gtest.h:375:23: note: shadowed declaration is here
+ class GTEST_API_ Test {
+                       ^
+cc1plus: all warnings being treated as errors
+make[2]: *** [third_party/boringssl/crypto/CMakeFiles/crypto_test.dir/build.make:635: third_party/boringssl/crypto/CMakeFiles/crypto_test.dir/x509/x509_test.cc.o] Error 1
+make[2]: Leaving directory '/demo/grpc_build/grpc/cmake/build'
+make[1]: *** [CMakeFiles/Makefile2:2336: third_party/boringssl/crypto/CMakeFiles/crypto_test.dir/all] Error 2
+make[1]: Leaving directory '/demo/grpc_build/grpc/cmake/build'
+make: *** [Makefile:130: all] Error 2
+</pre>
+
+solution:
+
+recompile this file without `-Wshadow`
+
+---
+
+    cd /demo/grpc_build/grpc/cmake/build/third_party/boringssl/crypto && /usr/bin/c++  -DBORINGSSL_IMPLEMENTATION -DOPENSSL_NO_ASM -DPB_FIELD_16BIT -I/demo/grpc_build/grpc/third_party/zlib -I/demo/grpc_build/grpc/third_party/boringssl/third_party/googletest/include -I/demo/grpc_build/grpc/third_party/boringssl/crypto/../include  -Werror -Wformat=2 -Wsign-compare -Wmissing-field-initializers -Wwrite-strings -Wall -ggdb -fvisibility=hidden -fno-common -Wno-free-nonheap-object -Wimplicit-fallthrough -Wmissing-declarations -std=c++11 -fno-exceptions -fno-rtti -O2 -DNDEBUG -fPIE   -o CMakeFiles/crypto_test.dir/x509/x509_test.cc.o -c /demo/grpc_build/grpc/third_party/boringssl/crypto/x509/x509_test.cc
+    cd -
+
+    make VERBOSE=1
+
+    make install
+    popd
 
 ## [gRPC 官方文档中文版](http://doc.oschina.net/grpc)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
