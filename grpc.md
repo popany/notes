@@ -33,6 +33,12 @@
         - [Clone repository](#clone-repository)
         - [Compile](#compile)
       - [Feasible solution](#feasible-solution)
+    - [Windows10 + vs2019 + gRPC v1.14.0](#windows10--vs2019--grpc-v1140)
+      - [Install choco](#install-choco)
+      - [Install packages](#install-packages-1)
+      - [Compile & Install OpenSSL](#compile--install-openssl)
+      - [Build](#build)
+      - [Build an example](#build-an-example)
   - [gRPC 官方文档中文版](#grpc-%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3%e4%b8%ad%e6%96%87%e7%89%88)
 
 ## [C++ Quick Start](https://grpc.io/docs/quickstart/cpp/)
@@ -283,6 +289,12 @@ NOTE: all of gRPC's dependencies need to be already installed
 
     yum install -y autoconf libtool pkg-config gcc-c++ cmake make go
 
+---
+
+Note: `go` depends on `openssl` and `openssl-devel`
+
+---
+
 - g++ version
 
     g++ (GCC) 8.3.1 20190507 (Red Hat 8.3.1-4)
@@ -416,12 +428,12 @@ recompile this file without `-Wshadow`
         ../..
 
     pushd third_party/cares/cares/
-    make
+    make -j4
     make install
     popd
 
     pushd third_party/protobuf/
-    make
+    make -j4
     make install
     popd
 
@@ -447,5 +459,70 @@ Build the example using cmake:
     cmake -DCMAKE_PREFIX_PATH=$GRPC_INSTALL_DIR ../..
     make -j
     popd
+
+### Windows10 + vs2019 + [gRPC v1.14.0](https://github.com/grpc/grpc/blob/v1.14.0/BUILDING.md)
+
+#### Install choco
+
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+#### Install packages
+
+    choco install activeperl
+    choco install golang
+    choco install yasm
+
+#### Compile & Install OpenSSL
+
+#### Build
+
+    pushd
+    Launch-VsDevShell.ps1
+    popd
+
+    $ENV:GRPC_INSTALL_DIR="C:\grpc_install_dir"
+    md -p $ENV:GRPC_INSTALL_DIR
+
+    md .build
+    pushd .build
+
+    cmake -G "Visual Studio 14 2015" -DgRPC_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=C:\grpc_install_dir ..
+
+    pushd .\third_party\zlib\
+    cmake  --build . --config Release
+    cmake --install .
+    popd
+
+    pushd .\third_party\cares\cares\
+    cmake  --build . --config Release
+    cmake --install .
+    popd
+
+    pushd .\third_party\protobuf
+    cmake  --build . --config Release
+    cmake --install .
+    popd
+
+    $ENV:OPENSSL_LIBRARIES="C:\openssl_install_dir_x86\lib"
+    $ENV:OPENSSL_INCLUDE_DIR="C:\openssl_install_dir_x86\include"
+    $ENV:PATH=$ENV:PATH + ";" + "C:\openssl_install_dir_x86\bin"
+
+    cmake -G "Visual Studio 14 2015" -DgRPC_INSTALL=ON -DgRPC_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=C:\grpc_install_dir -DgRPC_CARES_PROVIDER=package -DgRPC_PROTOBUF_PROVIDER=package -DgRPC_SSL_PROVIDER=package -DgRPC_ZLIB_PROVIDER=package -DProtobuf_USE_STATIC_LIBS=ON -DCMAKE_PREFIX_PATH=C:\grpc_install_dir ..
+
+    cmake --build . --config Release
+    cmake --install .
+
+    popd
+
+#### Build an example
+
+    cd examples/cpp/helloworld
+
+    mkdir -p cmake/build
+    pushd cmake/build
+
+    cmake -G "Visual Studio 14 2015" -DCMAKE_PREFIX_PATH=C:\grpc_install_dir ../..
+
+    cmake --build . --config Release
 
 ## [gRPC 官方文档中文版](http://doc.oschina.net/grpc)

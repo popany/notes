@@ -11,6 +11,7 @@
   - [Library](#library)
     - [Static library](#static-library)
       - [What is inside .lib file of Static library, Statically linked dynamic library and dynamically linked dynamic library?](#what-is-inside-lib-file-of-static-library-statically-linked-dynamic-library-and-dynamically-linked-dynamic-library)
+  - [Compile Options](#compile-options)
 
 ## Do not display the Windows Error Reporting dialog
 
@@ -44,7 +45,12 @@ For a dynamic library, the `.lib` file contains a list of the exported functions
 
 You don't need a .lib file to use a dynamic library, but without one you cannot treat functions from the DLL as normal functions in your code. Instead you must manually call LoadLibrary to load the DLL (and FreeLibrary when you're done), and GetProcAddress to obtain the address of the function or data item in the DLL. You must then cast the returned address to an appropriate pointer-to-function in order to use it.
 
+## Compile Options
 
+- MD for dynamic-release
+- MDd for dynamic-debug
+- MT for static-release
+- MTd for static-debug
 
 
 

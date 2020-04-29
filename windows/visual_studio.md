@@ -8,6 +8,10 @@
       - [Advantages of using DLLs](#advantages-of-using-dlls)
     - [Walkthrough: Create and use your own Dynamic Link Library (C++)](#walkthrough-create-and-use-your-own-dynamic-link-library-c)
   - [Install Build Tools into a container](#install-build-tools-into-a-container)
+  - [C/C++ projects and build systems in Visual Studio](#cc-projects-and-build-systems-in-visual-studio)
+    - [MSBuild on the command line - C++](#msbuild-on-the-command-line---c)
+      - [How to: Modify the Target Framework and Platform Toolset](#how-to-modify-the-target-framework-and-platform-toolset)
+        - [Platform toolset](#platform-toolset)
   - [MSBuild](#msbuild)
     - [MSBuild Overview](#msbuild-overview)
       - [Use MSBuild at a command prompt](#use-msbuild-at-a-command-prompt)
@@ -92,6 +96,8 @@
     - [ERRLOOK](#errlook)
     - [XDCMake](#xdcmake)
     - [BSCMAKE.EXE](#bscmakeexe)
+  - [Other Practice](#other-practice)
+    - [Set Platform toolset version for msbuild](#set-platform-toolset-version-for-msbuild)
 
 ## DLL
 
@@ -179,6 +185,20 @@ Notice the preprocessor statements at the top of the file. The new project templ
 When the `MATHLIBRARY_EXPORTS` macro is defined, the `MATHLIBRARY_API` macro sets the `__declspec(dllexport)` modifier on the function declarations. This modifier tells the compiler and linker to **export a function or variable** from the DLL for use by other applications. When `MATHLIBRARY_EXPORTS` is undefined, for example, when the header file is included by a client application, `MATHLIBRARY_API` applies the `__declspec(dllimport)` modifier to the declarations. This modifier **optimizes the import of the function or variable** in an application. For more information, see [dllexport](https://docs.microsoft.com/en-us/cpp/cpp/dllexport-dllimport?view=vs-2019), [dllimport](https://docs.microsoft.com/en-us/cpp/cpp/dllexport-dllimport?view=vs-2019).
 
 ## [Install Build Tools into a container](https://docs.microsoft.com/en-us/visualstudio/install/build-tools-container?view=vs-2019)
+
+## [C/C++ projects and build systems in Visual Studio](https://docs.microsoft.com/en-us/cpp/build/projects-and-build-systems-cpp?view=vs-2019)
+
+### [MSBuild on the command line - C++](https://docs.microsoft.com/en-us/cpp/build/msbuild-visual-cpp?view=vs-2019)
+
+#### [How to: Modify the Target Framework and Platform Toolset](https://docs.microsoft.com/en-us/cpp/build/how-to-modify-the-target-framework-and-platform-toolset?view=vs-2019)
+
+##### Platform toolset
+
+The platform toolset consists of the C++ compiler (cl.exe) and linker (link.exe), along with the C/C++ standard libraries. Since Visual Studio 2015, the major version of the toolset has remained at 14, which means that projects compiled with Visual Studio 2019 or Visual Studio 2017 are ABI-backwards-compatible with projects compiled with Visual Studio 2015. The minor version has updated by 1 for each version since Visual Studio 2015:
+
+- Visual Studio 2015: v140
+- Visual Studio 2017: v141
+- Visual Studio 2019: v142
 
 ## MSBuild
 
@@ -1247,3 +1267,11 @@ XDCMake. A tool for processing source code files that contain documentation comm
 ### [BSCMAKE.EXE](https://docs.microsoft.com/en-us/cpp/build/reference/bscmake-reference?view=vs-2019)
 
 BSCMAKE.EXE (provided for backward compatibility only) builds a browse information file (.bsc) that contains information about the symbols (classes, functions, data, macros, and types) in your program. You view this information in browse windows within the development environment. (A .bsc file can also be built in the development environment.)
+
+## Other Practice
+
+### Set Platform toolset version for msbuild
+
+- Set the environment variable `VisualStudioVersion` to 12.0 tells MSBuild to use the Visual Studio 2013 (V120) toolset.
+
+- Pass the `/p:VisualStudioVersion=14.0` option to MSBuild to use Visual Studio 2015 (V140) toolset.
