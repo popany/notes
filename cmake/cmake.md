@@ -9,6 +9,8 @@
   - [windows](#windows)
   - [gtest](#gtest)
   - [Install](#install)
+    - [Install from source](#install-from-source)
+    - [Install by command](#install-by-command)
 
 [CMake Useful Variables](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Useful-Variables)  
 
@@ -115,9 +117,21 @@
 
 ## Install
 
+### Install from source
+
     yum install gcc-c++
     yum install make
     yum install openssl-devel
     ./bootstrap
     make
     make install
+
+### Install by command
+
+    apt-get update && apt-get install -y wget
+
+    wget -q -O cmake-linux.sh https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-Linux-x86_64.sh
+
+    sh cmake-linux.sh -- --skip-license --prefix=/usr
+
+    rm cmake-linux.sh

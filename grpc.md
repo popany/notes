@@ -27,19 +27,21 @@
           - [Dependency management](#dependency-management)
           - [Install after build](#install-after-build)
   - [Practice](#practice)
-    - [CentOS 8 + grpc v1.14.0](#centos-8--grpc-v1140)
-      - [Try](#try)
-        - [Install packages](#install-packages)
-        - [Clone repository](#clone-repository)
-        - [Compile](#compile)
-      - [Feasible solution](#feasible-solution)
-    - [Windows10 + vs2019 + gRPC v1.14.0](#windows10--vs2019--grpc-v1140)
-      - [Install choco](#install-choco)
-      - [Install packages](#install-packages-1)
-      - [Compile & Install OpenSSL](#compile--install-openssl)
-      - [Build](#build)
-      - [Build an example](#build-an-example)
-  - [gRPC 官方文档中文版](#grpc-%e5%ae%98%e6%96%b9%e6%96%87%e6%a1%a3%e4%b8%ad%e6%96%87%e7%89%88)
+    - [Compile gRPC v1.14.0](#compile-grpc-v1140)
+      - [CentOS 8](#centos-8)
+        - [Try](#try)
+          - [Install packages](#install-packages)
+          - [Clone repository](#clone-repository)
+          - [Compile](#compile)
+        - [Feasible solution](#feasible-solution)
+      - [Windows10 + vs2019 + gRPC v1.14.0](#windows10--vs2019--grpc-v1140)
+        - [Install choco](#install-choco)
+        - [Install packages](#install-packages-1)
+        - [Compile & Install OpenSSL](#compile--install-openssl)
+        - [Build](#build)
+        - [Build an example](#build-an-example)
+    - [Compile gRPC v1.28.1](#compile-grpc-v1281)
+      - [CentOS 8](#centos-8-1)
 
 ## [C++ Quick Start](https://grpc.io/docs/quickstart/cpp/)
 
@@ -281,11 +283,13 @@ NOTE: all of gRPC's dependencies need to be already installed
 
 ## Practice
 
-### CentOS 8 + grpc v1.14.0
+### Compile gRPC v1.14.0
 
-#### Try
+#### CentOS 8
 
-##### Install packages
+##### Try
+
+###### Install packages
 
     yum install -y autoconf libtool pkg-config gcc-c++ cmake make go
 
@@ -303,13 +307,13 @@ Note: `go` depends on `openssl` and `openssl-devel`
 
     cmake version 3.11.4
 
-##### Clone repository
+###### Clone repository
 
     git clone git@github.com:grpc/grpc.git
     git checkout v1.14.0
     git submodule update --init
 
-##### Compile
+###### Compile
 
     export GRPC_INSTALL_DIR=/grpc_install_dir
     mkdir -p $GRPC_INSTALL_DIR
@@ -408,7 +412,7 @@ recompile this file without `-Wshadow`
     make install
     popd
 
-#### Feasible solution
+##### Feasible solution
 
     yum install -y autoconf libtool pkg-config gcc-c++ cmake make go
 
@@ -460,21 +464,21 @@ Build the example using cmake:
     make -j
     popd
 
-### Windows10 + vs2019 + [gRPC v1.14.0](https://github.com/grpc/grpc/blob/v1.14.0/BUILDING.md)
+#### Windows10 + vs2019 + [gRPC v1.14.0](https://github.com/grpc/grpc/blob/v1.14.0/BUILDING.md)
 
-#### Install choco
+##### Install choco
 
     Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-#### Install packages
+##### Install packages
 
     choco install activeperl
     choco install golang
     choco install yasm
 
-#### Compile & Install OpenSSL
+##### Compile & Install OpenSSL
 
-#### Build
+##### Build
 
     pushd
     Launch-VsDevShell.ps1
@@ -514,7 +518,7 @@ Build the example using cmake:
 
     popd
 
-#### Build an example
+##### Build an example
 
     cd examples/cpp/helloworld
 
@@ -525,4 +529,29 @@ Build the example using cmake:
 
     cmake --build . --config Release
 
-## [gRPC 官方文档中文版](http://doc.oschina.net/grpc)
+### Compile gRPC v1.28.1
+
+#### CentOS 8
+
+    yum install -y openssl-devel
+    yum install -y wget
+
+    wget -q -O cmake-linux.sh https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-Linux-x86_64.sh
+
+    sh cmake-linux.sh -- --skip-license --prefix=/usr
+    rm cmake-linux.sh
+
+    yum install -y autoconf libtool pkg-config gcc-c++ make go
+
+    mkdir -p "cmake/build"
+    pushd "cmake/build"
+
+    cmake \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DgRPC_INSTALL=ON \
+      -DgRPC_BUILD_TESTS=OFF \
+      -DgRPC_SSL_PROVIDER=package \
+      ../..
+
+    make -j4 install
+    popd
