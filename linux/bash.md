@@ -21,6 +21,7 @@
       - [Replace "\r\n" with "\n"](#replace-%22rn%22-with-%22n%22)
     - [`grep`](#grep)
     - [`tar`](#tar)
+    - [Count lines of code](#count-lines-of-code)
   - [CentOS](#centos)
     - [Check CentOS version](#check-centos-version)
     - [`yum`](#yum)
@@ -176,6 +177,10 @@ Extract all files from archive.tar.
 Extract to a directory
 
     tar -xf archive.tar -C /path/to/directory
+
+### Count lines of code
+
+    find ./src -name '*.c'|xargs wc -l
 
 ## CentOS
 
