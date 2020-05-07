@@ -5,17 +5,8 @@
     - [Sleep](#sleep)
   - [C++ Unit Test](#c-unit-test)
     - [mockcpp](#mockcpp)
-  - [Database Access Library](#database-access-library)
-    - [SQLAPI++](#sqlapi)
-    - [SOCI](#soci)
-    - [OTL](#otl)
-    - [Libodbc++](#libodbc)
-    - [SQLite](#sqlite)
-    - [DTL](#dtl)
-    - [odbcpp](#odbcpp)
-    - [ODB](#odb)
-    - [sqlpp11](#sqlpp11)
-    - [SQLiteCpp](#sqlitecpp)
+  - [Library](#library)
+    - [Database Access Library](#database-access-library)
 
 ## Syntax
 
@@ -39,27 +30,31 @@
 
 [mockcpp - mock++ is a jmock-like generic easy-of-use C++ Mock Framework, creating a mock object by mock++ is virtually as easy as using jMock.](https://bitbucket.org/godsme/mockcpp/src/default/)
 
-## Database Access Library
+## Library
 
-### [SQLAPI++](https://www.sqlapi.com/)
+[Awesome C++](https://cpp.libhunt.com/), A curated list of awesome C/C++ frameworks, libraries, resources, and shiny things 
 
-### [SOCI](http://soci.sourceforge.net/)
+### Database Access Library
 
-### [OTL](http://otl.sourceforge.net/)
+[SQLAPI++](https://www.sqlapi.com/)
 
-### [Libodbc++](http://libodbcxx.sourceforge.net/)
+[SOCI](http://soci.sourceforge.net/)
 
-### [SQLite](https://www.sqlite.org/cintro.html)
+[OTL](http://otl.sourceforge.net/)
 
-### [DTL](http://dtemplatelib.sourceforge.net/)
+[Libodbc++](http://libodbcxx.sourceforge.net/)
 
-### [odbcpp](https://www.m2osw.com/odbcpp)
+[SQLite](https://www.sqlite.org/cintro.html)
 
-### [ODB](https://www.codesynthesis.com/products/odb/)
+[DTL](http://dtemplatelib.sourceforge.net/)
 
-### [sqlpp11](https://github.com/rbock/sqlpp11)
+[odbcpp](https://www.m2osw.com/odbcpp)
 
-### [SQLiteCpp](https://github.com/SRombauts/SQLiteCpp)
+[ODB](https://www.codesynthesis.com/products/odb/)
+
+[sqlpp11](https://github.com/rbock/sqlpp11)
+
+[SQLiteCpp](https://github.com/SRombauts/SQLiteCpp)
 
 
 
