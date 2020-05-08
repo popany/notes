@@ -12,6 +12,7 @@
     - [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
     - [`git submodule` command](#git-submodule-command)
   - [Practice](#practice)
+    - [SSH Key](#ssh-key)
 
 ## tag
 
@@ -197,6 +198,8 @@ Initialize, fetch and checkout any nested submodules
     git submodule update --init --recursive
 
 ## Practice
+
+### SSH Key
 
     git config --global --add user.name "xxx"
     git config --global --add user.email "xxx@example.com"
