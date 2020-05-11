@@ -24,6 +24,8 @@
   - [Troubleshooting](#troubleshooting)
     - [ORA-28040: No matching authentication protocol](#ora-28040-no-matching-authentication-protocol)
     - [ORA-01950: no privileges on tablespace 'USERS'](#ora-01950-no-privileges-on-tablespace-users)
+  - [sqlplus](#sqlplus)
+    - [Run Oracle SQL*PLUS Script from Command Line in Windows](#run-oracle-sqlplus-script-from-command-line-in-windows)
   - [Oracle SQL Glossary of Terms](#oracle-sql-glossary-of-terms)
 
 ## Oracle Database XE
@@ -315,6 +317,16 @@ or
     ALTER USER <user> quota 100M on <tablespace name>;
 
 as a DBA user (depending on how much space you need / want to grant).
+
+## sqlplus
+
+### Run Oracle SQL*PLUS Script from Command Line in Windows
+
+    sqlplus username/psw@orcl @your_script.sql
+
+To run the script with parameters, for example, you want to pass the employee number 7852 and the employee name SCOTT to the SQL script, below is the example:
+
+    sqlplus username/psw@orcl @extract_employees_record.sql 7852 SCOTT
 
 ## [Oracle SQL Glossary of Terms](https://www.databasestar.com/oracle-sql-glossary/)
 

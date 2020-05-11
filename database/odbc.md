@@ -7,6 +7,9 @@
         - [reference](#reference)
         - [procedure](#procedure)
         - [problems](#problems)
+  - [ODBC Driver install](#odbc-driver-install)
+    - [Windows](#windows)
+      - [Oracle](#oracle-1)
   - [ODBC Programmer's Reference](#odbc-programmers-reference)
 
 ## ODBC config
@@ -50,6 +53,7 @@
 3. edit `ServerName` in `~/.odbc.ini` with respect to `tnsnames.ora`
 
 ##### problems
+
 ["\[unixODBC\]\[DriverSManager\]Can't open lib..."](https://stackoverflow.com/questions/22999798/01000unixodbcdriver-managercant-open-lib-usr-local-easysoft-oracle-inst)
 
 [Package unixODBC is missing shared library libodbcinst.so.1](https://bugzilla.redhat.com/show_bug.cgi?id=498311)
@@ -57,5 +61,31 @@
 > `ln -s libodbcinst.so.2 libodbcinst.so.1`
 
 [ORA-12154: TNS:could not resolve the connect identifier specified](https://docs.oracle.com/cd/B19306_01/server.102/b14219/net12150.htm)
+
+## ODBC Driver install
+
+### Windows
+
+#### Oracle
+
+- Download [Instant Client](https://www.oracle.com/database/technologies/instant-client/winx64-64-downloads.html) Version 11.2.0.4.0
+
+  - Instant Client Package - Basic (instantclient-basic-windows.x64-11.2.0.4.0.zip)
+
+  - Instant Client Package - ODBC (instantclient-odbc-windows.x64-11.2.0.4.0.zip)
+
+- unzip
+
+  - instantclient-basic-windows.x64-11.2.0.4.0.zip -> C:\oracle\x64\instantclient_11_2
+
+  - instantclient-odbc-windows.x64-11.2.0.4.0.zip -> C:\oracle\x64\instantclient_11_2
+
+- install
+
+  - Launch `cmd` as administrator
+
+  - `cd C:\oracle\x64\instantclient_11_2`
+
+  - call `odbc_install.exe`
 
 ## [ODBC Programmer's Reference](https://docs.microsoft.com/en-us/sql/odbc/reference/odbc-programmer-s-reference?view=sql-server-ver15)
