@@ -7,6 +7,7 @@
     - [mockcpp](#mockcpp)
   - [Library](#library)
     - [Database Access Library](#database-access-library)
+  - [Resources](#resources)
 
 ## Syntax
 
@@ -56,7 +57,9 @@
 
 [SQLiteCpp](https://github.com/SRombauts/SQLiteCpp)
 
+## Resources
 
+[Incomplete types and shared_ptr / unique_ptr](http://howardhinnant.github.io/incomplete.html)
 
 
 

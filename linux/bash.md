@@ -21,6 +21,7 @@
       - [Replace "\r\n" with "\n"](#replace-%22rn%22-with-%22n%22)
     - [`grep`](#grep)
     - [`tar`](#tar)
+    - [`unzip`](#unzip)
     - [Count lines of code](#count-lines-of-code)
   - [CentOS](#centos)
     - [Check CentOS version](#check-centos-version)
@@ -178,6 +179,14 @@ Extract to a directory
 
     tar -xf archive.tar -C /path/to/directory
 
+### `unzip`
+
+    unzip -l foo.zip
+
+    unzip -d foo foo.zip
+
+    unzip -O CP936 foo.zip
+
 ### Count lines of code
 
     find ./src -name '*.c'|xargs wc -l
@@ -238,6 +247,8 @@ restart `sshd`
 ### firewall
 
 #### [How to Configure Firewall in CentOS 7 and RHEL 7](https://www.looklinux.com/how-to-configure-firewall-in-centos-7-and-rhel-7/)
+
+
 
 ## Ubuntu
 

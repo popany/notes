@@ -2,6 +2,7 @@
 
 - [Python](#python)
   - [Basic](#basic)
+    - [format print list](#format-print-list)
   - [regular expression](#regular-expression)
     - [replace](#replace)
   - [HTTP](#http)
@@ -19,6 +20,11 @@
 [Manually raising (throwing) an exception in Python](https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python)
 
 [Accessing the index in 'for' loops?](https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops)
+
+### format print list
+
+    a = [1, 2, 3, 4, 5]
+    print(*a, sep = "\n")
 
 ## regular expression
 

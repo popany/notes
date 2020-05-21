@@ -62,6 +62,9 @@
           - [Install Docker Engine - Community](#install-docker-engine---community-1)
   - [Q & A](#q--a)
     - [Can Windows Containers be hosted on linux?](#can-windows-containers-be-hosted-on-linux)
+  - [Practice](#practice-1)
+    - [ssh into a centos container](#ssh-into-a-centos-container)
+      - [`/usr/sbin/sshd`](#usrsbinsshd)
 
 ## 教程
 
@@ -376,3 +379,47 @@ The contents of `/var/lib/docker/`, including images, containers, volumes, and n
 
 ### [Can Windows Containers be hosted on linux?](https://stackoverflow.com/questions/42158596/can-windows-containers-be-hosted-on-linux)
 
+## Practice
+
+[ssh登录容器](http://www.fecmall.com/topic/592)
+
+### ssh into a centos container
+
+[dockerfiles-centos-ssh](https://github.com/CentOS/CentOS-Dockerfiles/tree/master/ssh/centos7)
+
+    docker run -ti --name test-ssh -p 50022 centos:7.4 bash
+
+    mkdir /root/.ssh
+
+edit `/root/.ssh/authorized_keys`, add `id_rsa.pub` of client
+
+    yum -y install openssh-server
+    passwd root
+    ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N '' 
+
+edit `/etc/ssh/sshd_config`
+
+    PermitRootLogin yes
+    PubkeyAuthentication yes
+    RSAAuthentication yes
+
+start `sshd`
+
+    mkdir /var/run/sshd
+    /usr/sbin/sshd -E /var/run/sshd/sshd.log -p 50022
+
+#### `/usr/sbin/sshd`
+
+- `-D`
+  
+  When this option is specified, sshd will not detach and does not become a daemon. This allows easy monitoring of sshd.
+
+- `-d`
+
+  Debug mode. The server sends verbose debug output to standard error, and does not put itself in the background. The server also will not fork and will only process one connection. This option is only intended for debugging for the server. Multiple -d options increase the debugging level. Maximum is 3.
+
+[SSH still asks for password after setting up key based authentication](https://superuser.com/questions/352368/ssh-still-asks-for-password-after-setting-up-key-based-authentication/1072999#1072999)
+
+> If I ran sshd on different port 'sshd -p 5555 -d'. The key worked. Passwordless login ok. WTF?
+>
+> Then I disabled selinux (set SELINUX=disabled in /etc/selinux/config) and reboot. Passwordless login then worked ok.

@@ -15,6 +15,8 @@
         - [Create User](#create-user)
         - [Granting all privileges to an existing user](#granting-all-privileges-to-an-existing-user)
         - [Drop User](#drop-user)
+        - [Check characterset](#check-characterset)
+        - [Change characterset](#change-characterset)
   - [Oracle Network Configuration (listener.ora, tnsnames.ora, sqlnet.ora)](#oracle-network-configuration-listenerora-tnsnamesora-sqlnetora)
     - [Assumptions](#assumptions)
     - [listener.ora](#listenerora)
@@ -27,6 +29,7 @@
   - [sqlplus](#sqlplus)
     - [Run Oracle SQL*PLUS Script from Command Line in Windows](#run-oracle-sqlplus-script-from-command-line-in-windows)
   - [Oracle SQL Glossary of Terms](#oracle-sql-glossary-of-terms)
+  - [Oracle Database Reference](#oracle-database-reference)
 
 ## Oracle Database XE
 
@@ -198,6 +201,87 @@ The **password** for those accounts can be changed via the docker exec command. 
     exit
     EOF'
 
+##### Check characterset
+
+    select * from nls_database_parameters where parameter='NLS_CHARACTERSET';
+
+##### Change characterset
+
+    bash-4.2# sqlplus sys/abc@XE as sysdba
+
+    SQL*Plus: Release 18.0.0.0.0 - Production on Mon May 18 09:58:26 2020
+    Version 18.4.0.0.0
+
+    Copyright (c) 1982, 2018, Oracle.  All rights reserved.
+
+
+    Connected to:
+    Oracle Database 18c Express Edition Release 18.0.0.0.0 - Production
+    Version 18.4.0.0.0
+
+    SQL> shutdown immediate;
+    Database closed.
+    Database dismounted.
+    ORACLE instance shut down.
+
+    SQL> exit
+
+    bash-4.2# sqlplus /nolog
+
+    SQL*Plus: Release 18.0.0.0.0 - Production on Mon May 18 10:22:13 2020
+    Version 18.4.0.0.0
+
+    Copyright (c) 1982, 2018, Oracle.  All rights reserved.
+
+    SQL> connect sys/abc as sysdba
+    Connected to an idle instance.
+    SQL> startup mount
+    ORACLE instance started.
+
+    Total System Global Area 1610612704 bytes
+    Fixed Size                  8896480 bytes
+    Variable Size             520093696 bytes
+    Database Buffers         1073741824 bytes
+    Redo Buffers                7880704 bytes
+    Database mounted.
+    SQL> ALTER SYSTEM ENABLE RESTRICTED SESSION;
+
+    System altered.
+
+    SQL>  ALTER SYSTEM SET JOB_QUEUE_PROCESSES=0;
+
+    System altered.
+
+    SQL> ALTER SYSTEM SET AQ_TM_PROCESSES=0;
+
+    System altered.
+
+    SQL> alter database open;
+
+    Database altered.
+
+    SQL> ALTER DATABASE character set INTERNAL_USE ZHS16GBK;
+
+    Database altered.
+
+    SQL> shutdown immediate;
+    Database closed.
+    Database dismounted.
+    ORACLE instance shut down.
+
+    SQL> startup
+    ORACLE instance started.
+
+    Total System Global Area 1610612704 bytes
+    Fixed Size                  8896480 bytes
+    Variable Size             520093696 bytes
+    Database Buffers         1073741824 bytes
+    Redo Buffers                7880704 bytes
+    Database mounted.
+    Database opened.
+
+    SQL>
+
 ## [Oracle Network Configuration (listener.ora, tnsnames.ora, sqlnet.ora)](https://oracle-base.com/articles/misc/oracle-network-configuration)
 
 ### Assumptions
@@ -339,8 +423,21 @@ To run the script with parameters, for example, you want to pass the employee nu
 
     TNS stands for Transparent Network Substrate, and is a technology for connecting to Oracle databases.
     There are many error messages that relate to TNS errors.
-    There’s also a TNSNAMES.ORA file that contains connection data.
+    There's also a TNSNAMES.ORA file that contains connection data.
 
 - TNSNAMES.ora
 
     A file that contains network service names and how they map to connection descriptors or connection strings.
+
+## Oracle Database Reference
+
+- [USER_OBJECTS](https://docs.oracle.com/cd/B19306_01/server.102/b14237/statviews_4378.htm#i1634422)
+
+  USER_OBJECTS describes all objects owned by the current user. Its columns are the same as those in "[ALL_OBJECTS](https://docs.oracle.com/cd/B19306_01/server.102/b14237/statviews_2005.htm#i1583352)".
+
+
+
+
+
+
+
