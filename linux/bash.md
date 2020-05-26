@@ -21,6 +21,7 @@
       - [Replace "\r\n" with "\n"](#replace-%22rn%22-with-%22n%22)
     - [`grep`](#grep)
     - [`tar`](#tar)
+    - [`zip`](#zip)
     - [`unzip`](#unzip)
     - [Count lines of code](#count-lines-of-code)
   - [CentOS](#centos)
@@ -178,6 +179,10 @@ Extract all files from archive.tar.
 Extract to a directory
 
     tar -xf archive.tar -C /path/to/directory
+
+### `zip`
+
+    zip -q -r foo.zip ./foo
 
 ### `unzip`
 
