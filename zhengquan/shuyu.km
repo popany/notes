@@ -503,7 +503,7 @@
                                                                     "id": "c2y42fs4aug0",
                                                                     "created": 1590237277034,
                                                                     "text": "深圳证券交易所STEP行情数据接口规范（Ver1.06）",
-                                                                    "expandState": "expand"
+                                                                    "expandState": "collapse"
                                                                 },
                                                                 "children": [
                                                                     {
@@ -6320,6 +6320,14 @@
                                                                         ]
                                                                     }
                                                                 ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c30b3f0zdnk0",
+                                                                    "created": 1590460221440,
+                                                                    "text": "深圳证券交易所数据文件交换接口规范（Ver1.19）"
+                                                                },
+                                                                "children": []
                                                             }
                                                         ]
                                                     }

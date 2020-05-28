@@ -1,0 +1,47 @@
+{
+    "root": {
+        "data": {
+            "id": "c30fra78r6g0",
+            "created": 1590473376114,
+            "text": "oracle"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c30frd0c90g0",
+                    "created": 1590473382227,
+                    "text": "数据库名"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c30frxlp3n40",
+                            "created": 1590473427054,
+                            "text": "https://www.cnblogs.com/advocate/archive/2010/08/20/1804063.html"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c30frm2mik00",
+                    "created": 1590473401956,
+                    "text": "实例名"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c30frnmzynk0",
+                    "created": 1590473405365,
+                    "text": "ORACLE_SID "
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

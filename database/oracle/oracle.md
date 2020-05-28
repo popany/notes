@@ -30,6 +30,8 @@
     - [Run Oracle SQL*PLUS Script from Command Line in Windows](#run-oracle-sqlplus-script-from-command-line-in-windows)
   - [Oracle SQL Glossary of Terms](#oracle-sql-glossary-of-terms)
   - [Oracle Database Reference](#oracle-database-reference)
+  - [Cases](#cases)
+    - [`DROP TABLESPACE`](#drop-tablespace)
 
 ## Oracle Database XE
 
@@ -175,7 +177,7 @@ The **password** for those accounts can be changed via the docker exec command. 
 
 ##### Create User
 
-    docker exec -ti oracle18xe bash -c 'sqlplus -s /nolog << EOF 
+    docker exec oracle18xe bash -c 'sqlplus -s /nolog << EOF 
     connect system/"123"@//localhost:1521/XE
     alter session set "_ORACLE_SCRIPT"=true;
     create user newuser identified by 123;
@@ -185,7 +187,7 @@ The **password** for those accounts can be changed via the docker exec command. 
 
 ##### Granting all privileges to an existing user
 
-    docker exec -ti oracle18xe bash -c 'sqlplus -s /nolog << EOF 
+    docker exec oracle18xe bash -c 'sqlplus -s /nolog << EOF 
     connect system/"123"@//localhost:1521/XE
     alter session set "_ORACLE_SCRIPT"=true;
     grant all privileges to newuser;
@@ -194,7 +196,7 @@ The **password** for those accounts can be changed via the docker exec command. 
 
 ##### Drop User
 
-    docker exec -ti oracle18xe bash -c 'sqlplus -s /nolog << EOF 
+    docker exec oracle18xe bash -c 'sqlplus -s /nolog << EOF 
     connect system/"123"@//localhost:1521/XE
     alter session set "_ORACLE_SCRIPT"=true;
     drop user newuser;
@@ -435,9 +437,30 @@ To run the script with parameters, for example, you want to pass the employee nu
 
   USER_OBJECTS describes all objects owned by the current user. Its columns are the same as those in "[ALL_OBJECTS](https://docs.oracle.com/cd/B19306_01/server.102/b14237/statviews_2005.htm#i1583352)".
 
+## Cases
 
+### `DROP TABLESPACE`
 
+    DROP TABLESPACE tablespace_name INCLUDING CONTENTS AND DATAFILES;
 
+- If `.DBF` file was removed before, `DROP TABLESPACE` will fail
 
+      SQL> DROP TABLESPACE TS_WOLF INCLUDING CONTENTS AND DATAFILES;
+      DROP TABLESPACE TS_WOLF INCLUDING CONTENTS AND DATAFILES
+      *
+      ERROR at line 1:
+      ORA-01116: error in opening database file 169
+      ORA-01110: data file 169: '/opt/oracle/oradata/XE/TS_WOLF.DBF'
+      ORA-27041: unable to open file
+      Linux-x86_64 Error: 2: No such file or directory
+      Additional information: 3
 
+- Solution
 
+      SQL> alter database datafile '/opt/oracle/oradata/XE/TS_WOLF.DBF' offline drop;
+
+      Database altered.
+
+      SQL> DROP TABLESPACE TS_WOLF INCLUDING CONTENTS AND DATAFILES;
+
+      Tablespace dropped.
