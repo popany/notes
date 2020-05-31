@@ -2,8 +2,15 @@
 
 - [PowerShell](#powershell)
   - [`rm -rf`](#rm--rf)
+  - [delete empty files](#delete-empty-files)
   - [head/tail](#headtail)
+  - [Select-String](#select-string)
+  - [Run a string](#run-a-string)
+  - [String replace](#string-replace)
+  - [match](#match)
   - [Sleep](#sleep)
+  - [Variables and Arrays](#variables-and-arrays)
+    - [Array List](#array-list)
   - [Print environment variable](#print-environment-variable)
   - [Path](#path)
     - [Create folder if not exists](#create-folder-if-not-exists)
@@ -13,6 +20,7 @@
     - [List Files](#list-files)
     - [Display the contents of child directories](#display-the-contents-of-child-directories)
     - [ForEach loop](#foreach-loop)
+  - [Count the files in a folder](#count-the-files-in-a-folder)
   - [Run .ps1 from cmd](#run-ps1-from-cmd)
   - [Gaining administrator privileges in PowerShell](#gaining-administrator-privileges-in-powershell)
   - [Environment Variable](#environment-variable)
@@ -26,10 +34,40 @@
 
     rm C:\path\to\delete -r -fo
 
+## delete empty files
+
+    get-childItem "PathToFiles" | where {$_.length -eq 0} | remove-Item
+
 ## head/tail
 
     gc file-name | select -first 100
     gc file-name | select -last 100
+
+## Select-String
+
+    Select-String [-pattern] <string[]>
+
+[select-string how to only return first match line in first file](https://stackoverflow.com/questions/25382056/select-string-how-to-only-return-first-match-line-in-first-file)
+
+    $m = Select-String -Pattern get -Path *.ps1 -list -SimpleMatch | select-object -First 1
+    $m.Line
+    $m.Path
+
+## Run a string
+
+    $commandString = "ls"
+    & $commandString
+
+    $commandString = "help ls"
+    iex $commandString
+
+## String replace
+
+    ("this is test").Replace(" ", "-") 
+
+## match
+
+    git diff HEAD master --name-only| ForEach-Object { if ($_ -match "code/(ProjectNamePrefix.*?)/") {$matches[0] + $matches[1] + ".csproj"}} | Group-Object | Select -ExpandProperty Name
 
 ## Sleep
 
@@ -40,6 +78,20 @@ Sleep 10s
 Sleep 1000ms
 
     Start-Sleep -m 1000
+
+## [Variables and Arrays](https://blog.netwrix.com/2018/10/04/powershell-variables-and-arrays/)
+
+### Array List
+
+    $array1 = New-Object System.Collections.ArrayList
+    $array1.Add("one")
+    $array1.Add("two")
+    $array1.Add("three")
+    $array1.Remove("three")
+    foreach($a in $array1)
+    {
+        Write-output $a
+    }
 
 ## Print environment variable
 
@@ -101,6 +153,16 @@ with `Where-Object`
     ForEach-Object {
        $_.FullName
     }
+
+## Count the files in a folder
+
+    (Get-ChildItem | Measure-Object).Count
+
+    (Get-ChildItem -Directory | Measure-Object).Count
+
+    (Get-ChildItem -File | Measure-Object).Count
+
+    (Get-ChildItem -Recurse | Measure-Object).Count
 
 ## Run .ps1 from cmd
 

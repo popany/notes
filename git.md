@@ -1,20 +1,25 @@
 # git
 
 - [git](#git)
-  - [tag](#tag)
-    - [List tags with pattern `v-*`](#list-tags-with-pattern-v)
+  - [`git tag`](#git-tag)
+    - [List tags with pattern `v-*`](#list-tags-with-pattern-v-)
     - [Add a tag](#add-a-tag)
     - [Delete a tag](#delete-a-tag)
     - [Checkout a tag](#checkout-a-tag)
   - [`git clone`](#git-clone)
+  - [`git diff`](#git-diff)
+    - [Show changed files's name between two branches](#show-changed-filess-name-between-two-branches)
   - [git submodule](#git-submodule)
     - [Starting with Submodules](#starting-with-submodules)
     - [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
     - [`git submodule` command](#git-submodule-command)
   - [Practice](#practice)
     - [SSH Key](#ssh-key)
+  - [Config](#config)
+    - [`autocrlf`](#autocrlf)
+    - [safecrlf](#safecrlf)
 
-## tag
+## `git tag`
 
 ### List tags with pattern `v-*`
 
@@ -36,6 +41,12 @@
 
     --branch <name>, -b <name>
         Instead of pointing the newly created HEAD to the branch pointed to by the cloned repository’s HEAD, point to <name> branch instead. In a non-bare repository, this is the branch that will be checked out. --branch can also take tags and detaches the HEAD at that commit in the resulting repository.    
+
+## `git diff`
+
+### Show changed files's name between two branches
+
+    git diff foo bar --name-only
 
 ## [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 
@@ -206,3 +217,27 @@ Initialize, fetch and checkout any nested submodules
     ssh-keygen -t rsa -b 4096 -C "xxx@example.com"
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_rsa
+
+## Config
+
+### `autocrlf`
+
+    // ??????LF???????CRLF
+    git config --global core.autocrlf true
+
+    // ??????LF???????
+    git config --global core.autocrlf input
+
+    // ????????
+    git config --global core.autocrlf false
+
+### safecrlf
+
+    // ??????????????
+    git config --global core.safecrlf true
+    
+    // ??????????????
+    git config --global core.safecrlf false
+    
+    // ?????????????????
+    git config --global core.safecrlf warn
