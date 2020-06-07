@@ -3305,7 +3305,162 @@
                             "created": 1590941100515,
                             "text": "Writing to a TCP socket synchronously"
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c351myh2ad40",
+                                    "created": 1590941341374,
+                                    "text": "How to do it",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c351na9fwzs0",
+                                            "created": 1590941367035,
+                                            "text": "write_some() method of the asio::ip::tcp::socket class"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c351o11gn7s0",
+                                                    "created": 1590941425325,
+                                                    "text": "the return value indicates the number of bytes written"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c351oderzzk0",
+                                                    "created": 1590941452252,
+                                                    "text": "may not send all the data provided to it through the buffers argument"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c351oklngn40",
+                                                    "created": 1590941467905,
+                                                    "text": "at least one byte will be written if an error does not occur"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c351ou3zwy80",
+                                                    "created": 1590941488605,
+                                                    "text": "in order to write all the data from the buffer to the socket, we may need to call this method several times"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c351p6zvee80",
+                                            "created": 1590941516654,
+                                            "text": "synchronously write data to a TCP socket"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c351pg22fw00",
+                                                    "created": 1590941536378,
+                                                    "text": "1. In a client application, allocate, open, and connect an active TCP socket. In a server application, obtain a connected active TCP socket by accepting a connection request using an acceptor socket"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c351ppglh880",
+                                                    "created": 1590941556847,
+                                                    "text": "2. Allocate the buffer and fill it with data that is to be written to the socket"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c351pyaueg80",
+                                                    "created": 1590941576091,
+                                                    "text": "3. In a loop, call the socket's write_some() method as many times as it is needed to send all the data available in the buffer"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c351r1qdaw00",
+                                    "created": 1590941661924,
+                                    "text": "How it works"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c351u900irs0",
+                                            "created": 1590941912837,
+                                            "text": "the write_some() method",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c351t7r1f5k0",
+                                                    "created": 1590941831753,
+                                                    "text": "amount of bytes written to the socket during a single call to the write_some() method depends on several factors"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c351u0yl2so0",
+                                            "created": 1590941895336,
+                                            "text": "Alternative – the send() method"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c351ut94y0o0",
+                                                    "created": 1590941956924,
+                                                    "text": "three overloads"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c351uxis1k00",
+                                                            "created": 1590941966214,
+                                                            "text": "One of them is equivalent to the write_some() method"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c351whh90qo0",
+                                    "created": 1590942088022,
+                                    "text": "There's more"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c351wxomyow0",
+                                            "created": 1590942123297,
+                                            "text": "asio::write() free function"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             }

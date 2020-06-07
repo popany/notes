@@ -6,9 +6,12 @@
     - [Add a tag](#add-a-tag)
     - [Delete a tag](#delete-a-tag)
     - [Checkout a tag](#checkout-a-tag)
+    - [Fetch origin tags](#fetch-origin-tags)
   - [`git clone`](#git-clone)
   - [`git diff`](#git-diff)
     - [Show changed files's name between two branches](#show-changed-filess-name-between-two-branches)
+  - [`git show`](#git-show)
+    - [View a file at a specific commit](#view-a-file-at-a-specific-commit)
   - [git submodule](#git-submodule)
     - [Starting with Submodules](#starting-with-submodules)
     - [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
@@ -37,6 +40,10 @@
 
     git checkout tag-name
 
+### Fetch origin tags
+
+    git fetch --tags --all
+
 ## `git clone`
 
     --branch <name>, -b <name>
@@ -47,6 +54,12 @@
 ### Show changed files's name between two branches
 
     git diff foo bar --name-only
+
+## `git show`
+
+### View a file at a specific commit
+
+    git show REVISION:/path/to/file
 
 ## [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 

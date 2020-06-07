@@ -32,6 +32,7 @@
   - [Oracle Database Reference](#oracle-database-reference)
   - [Cases](#cases)
     - [`DROP TABLESPACE`](#drop-tablespace)
+  - [sql](#sql)
 
 ## Oracle Database XE
 
@@ -464,3 +465,21 @@ To run the script with parameters, for example, you want to pass the employee nu
       SQL> DROP TABLESPACE TS_WOLF INCLUDING CONTENTS AND DATAFILES;
 
       Tablespace dropped.
+
+## sql
+
+- Show INVALIDE Object
+
+      select OBJECT_NAME, OBJECT_TYPE, status from user_objects where status='INVALID';
+
+- Select object of a user
+
+    select object_name, object_type, owner, status from all_objects where owner='user_name';
+
+- Recompile Procedure
+
+      alter procedure MYPROC compile;
+
+- Recomplie View
+
+      ALTER VIEW customer_ro COMPILE;
