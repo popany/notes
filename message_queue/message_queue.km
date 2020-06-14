@@ -1,0 +1,133 @@
+{
+    "root": {
+        "data": {
+            "id": "c3g64jw2x6w0",
+            "created": 1592071164148,
+            "text": "消息队列"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3g65alfbw00",
+                    "created": 1592071222277,
+                    "text": "概念"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3g65bsnbko0",
+                            "created": 1592071224891,
+                            "text": "队列"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3g65cynuw00",
+                                    "created": 1592071227431,
+                                    "text": "先进先出的数据结构"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3g65mgyxhc0",
+                            "created": 1592071248129,
+                            "text": "生产者"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3g65phzk680",
+                                    "created": 1592071254721,
+                                    "text": "把数据放入消息队列"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3g661sja600",
+                            "created": 1592071281480,
+                            "text": "消费者"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3g663zse740",
+                                    "created": 1592071286272,
+                                    "text": "从消息队列读取数据"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c3g66fz4oiw0",
+                    "created": 1592071312354,
+                    "text": "用处",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3g66m26nbk0",
+                            "created": 1592071325599,
+                            "text": "降低系统耦合性"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3g6ad8bffs0",
+                            "created": 1592071619836,
+                            "text": "topic"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c3g687af1l40",
+                    "created": 1592071450174,
+                    "text": "工作方式"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3g688x5axc0",
+                            "created": 1592071453725,
+                            "text": "发布订阅模式"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3g69rr6ecg0",
+                            "created": 1592071573087,
+                            "text": "JMS"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3g69x6fl880",
+                            "created": 1592071584893,
+                            "text": "AMQP"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

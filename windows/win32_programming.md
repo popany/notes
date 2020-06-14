@@ -11,6 +11,8 @@
   - [Library](#library)
     - [Static library](#static-library)
       - [What is inside .lib file of Static library, Statically linked dynamic library and dynamically linked dynamic library?](#what-is-inside-lib-file-of-static-library-statically-linked-dynamic-library-and-dynamically-linked-dynamic-library)
+    - [Dynamic-Link Library](#dynamic-link-library)
+      - [Dynamic-Link Library Search Order](#dynamic-link-library-search-order)
   - [Compile Options](#compile-options)
 
 ## Do not display the Windows Error Reporting dialog
@@ -44,6 +46,14 @@ For a static library, the `.lib` file contains all the code and data for the lib
 For a dynamic library, the `.lib` file contains a list of the exported functions and data elements from the library, and information about which DLL they came from. When the linker builds the final executable then if any of the functions or data elements from the library are used then the linker adds a reference to the DLL (causing it to be automatically loaded by Windows), and adds entries to the executable's import table so that a call to the function is redirected into that DLL.
 
 You don't need a .lib file to use a dynamic library, but without one you cannot treat functions from the DLL as normal functions in your code. Instead you must manually call LoadLibrary to load the DLL (and FreeLibrary when you're done), and GetProcAddress to obtain the address of the function or data item in the DLL. You must then cast the returned address to an appropriate pointer-to-function in order to use it.
+
+### Dynamic-Link Library
+
+#### [Dynamic-Link Library Search Order](https://docs.microsoft.com/en-us/windows/win32/dlls/dynamic-link-library-search-order)
+
+
+
+
 
 ## Compile Options
 
