@@ -10,7 +10,8 @@
                 "data": {
                     "id": "c3g65alfbw00",
                     "created": 1592071222277,
-                    "text": "概念"
+                    "text": "概念",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -71,7 +72,7 @@
                     "id": "c3g66fz4oiw0",
                     "created": 1592071312354,
                     "text": "用处",
-                    "expandState": "expand"
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -86,7 +87,235 @@
                         "data": {
                             "id": "c3g6ad8bffs0",
                             "created": 1592071619836,
-                            "text": "topic"
+                            "text": "通过异步处理提高系统性能"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3gwr20pxsg0",
+                                    "created": 1592146276480,
+                                    "text": "削峰、减少响应所需时间"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c3gwsm60tfc0",
+                    "created": 1592146398701,
+                    "text": "使用消息队列带来的问题",
+                    "expandState": "collapse"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3gwsqmz52w0",
+                            "created": 1592146408433,
+                            "text": "系统可用性降低",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3gwt1gl9e80",
+                                    "created": 1592146431991,
+                                    "text": "消息丢失"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3gwt35euxc0",
+                                    "created": 1592146435669,
+                                    "text": "消息队列挂掉"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3gwtg548xs0",
+                            "created": 1592146463949,
+                            "text": "系统复杂性提高",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3gwtk9saso0",
+                                    "created": 1592146472939,
+                                    "text": "需保证消息不被重复消费"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3gwtt9aofk0",
+                                    "created": 1592146492500,
+                                    "text": "需处理消息丢失情况",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3gwwfvk6jc0",
+                                            "created": 1592146698464,
+                                            "text": "同步落盘",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gwwiox58g0",
+                                                    "created": 1592146704593,
+                                                    "text": "生产者每发送一个消息，Broker 同步返回一个消息发送成功的反馈消息"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gwwtv80jk0",
+                                                    "created": 1592146728918,
+                                                    "text": "生产者收到确认发送消息成功，才继续之后操作"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gwx4b7vy00",
+                                            "created": 1592146751654,
+                                            "text": "提高同步落盘性能",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gwxfqqkk80",
+                                                    "created": 1592146776537,
+                                                    "text": "使用 FileChannel + DirectBuffer 池，使用堆外内存，加快内存拷贝"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gwxm6new00",
+                                                    "created": 1592146790559,
+                                                    "text": "使用数据和索引分离，当消息需要写入时，使用 commitlog 文件顺序写，当需要定位某个消息时，查询index 文件来定位，从而减少文件IO随机读写的性能损耗"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gwyu0c7xs0",
+                                            "created": 1592146885956,
+                                            "text": "消息堆积的问题",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gwzce74vc0",
+                                                    "created": 1592146925976,
+                                                    "text": "后台定时任务每隔72小时，删除旧的没有使用过的消息信息"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gwzddc1hs0",
+                                                    "created": 1592146928101,
+                                                    "text": "根据不同的业务实现不同的丢弃任务，选择不同的策略淘汰任务，例如FIFO/LRU等"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gwziqzm1c0",
+                                                    "created": 1592146939810,
+                                                    "text": "消息定时转移，或者对某些重要的 TAG 型（支付型）消息真正落库"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3gwu28r9r40",
+                                    "created": 1592146512059,
+                                    "text": "需保证消息传递的顺序性",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3gx12z8fy80",
+                                            "created": 1592147062209,
+                                            "text": "定时消息的实现",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gx1m705b40",
+                                                    "created": 1592147104037,
+                                                    "text": "创建特定时间精度的 MessageQueue"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gx13tkcb40",
+                                            "created": 1592147064043,
+                                            "text": "顺序消息的实现"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gx2srweww0",
+                                                    "created": 1592147196726,
+                                                    "text": "与定时消息同原理，生产者生产消息时指定特定的 MessageQueue"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gx3fccv740",
+                                                    "created": 1592147245852,
+                                                    "text": "消费者消费消息时，消费特定的 MessageQueue"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gx3g68pko0",
+                                                    "created": 1592147247659,
+                                                    "text": "其实单机版的消息中心在一个 MessageQueue 就天然支持了顺序消息"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3gwuigs8k80",
+                            "created": 1592146547373,
+                            "text": "一致性问题"
                         },
                         "children": []
                     }
@@ -94,34 +323,854 @@
             },
             {
                 "data": {
-                    "id": "c3g687af1l40",
-                    "created": 1592071450174,
-                    "text": "工作方式"
+                    "id": "c3gy09jug1s0",
+                    "created": 1592149819261,
+                    "text": "技术选型",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
                         "data": {
-                            "id": "c3g688x5axc0",
-                            "created": 1592071453725,
-                            "text": "发布订阅模式"
+                            "id": "c3gy0b760880",
+                            "created": 1592149822848,
+                            "text": "RabbitMQ",
+                            "expandState": "collapse"
                         },
-                        "children": []
-                    },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3gy165ij480",
+                                    "created": 1592149890229,
+                                    "text": "概述",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3gy1asecv40",
+                                            "created": 1592149900321,
+                                            "text": "Erlang 语言开发"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gy1ga0jpc0",
+                                            "created": 1592149912269,
+                                            "text": "AMQP 的开源实现"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3gy1qpa9xs0",
+                                    "created": 1592149934960,
+                                    "text": "特点",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3gy1so9ysw0",
+                                            "created": 1592149939252,
+                                            "text": "可靠性"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gy1x20by80",
+                                                    "created": 1592149948790,
+                                                    "text": "持久化"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gy21v066w0",
+                                                    "created": 1592149959250,
+                                                    "text": "传输确认"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gy26jy7fs0",
+                                                    "created": 1592149969466,
+                                                    "text": "发布确认"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gy2j34ork0",
+                                            "created": 1592149996747,
+                                            "text": "灵活的路由"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gy31gvhmo0",
+                                                    "created": 1592150036760,
+                                                    "text": "通过 Exchange 来路由消息"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gy3d752800",
+                                                    "created": 1592150062293,
+                                                    "text": "提供了一些内置的 Exchange"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gy3e7iwhc0",
+                                                    "created": 1592150064493,
+                                                    "text": "可以将多个 Exchange 绑定在一起，也通过插件机制实现自己的 Exchange"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gy31psd4w0",
+                                            "created": 1592150037299,
+                                            "text": "消息集群"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gy3xzsc3k0",
+                                                    "created": 1592150107561,
+                                                    "text": "多个 RabbitMQ 服务器可以组成一个集群，形成一个逻辑 Broker"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gy43kyyf40",
+                                            "created": 1592150119725,
+                                            "text": "高可用"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gy44h2uts0",
+                                                    "created": 1592150121667,
+                                                    "text": "队列可以在集群中的机器上进行镜像，使得在部分节点出问题的情况下队列仍然可用"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gy4dmt46o0",
+                                            "created": 1592150141604,
+                                            "text": "多种协议"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gy4hdnhv40",
+                                                    "created": 1592150149758,
+                                                    "text": "RabbitMQ 支持多种消息队列协议，比如 STOMP、MQTT 等等"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gy4il75ls0",
+                                            "created": 1592150152391,
+                                            "text": "多语言客户端"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gy4mtjikw0",
+                                            "created": 1592150161603,
+                                            "text": "管理界面"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gy4t1yihs0",
+                                            "created": 1592150175172,
+                                            "text": "跟踪机制"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gy4xzgrq00",
+                                            "created": 1592150185905,
+                                            "text": "插件机制"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3gy5dumn280",
+                                    "created": 1592150220441,
+                                    "text": "概念模型",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3gy7b1477c0",
+                                            "created": 1592150371032,
+                                            "text": "AMQP中的基本概念",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gy7wigoy80",
+                                                    "created": 1592150417793,
+                                                    "text": "Message/消息"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gy83fklao0",
+                                                            "created": 1592150432856,
+                                                            "text": "消息是不具名的"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gy8drkas00",
+                                                            "created": 1592150455349,
+                                                            "text": "由消息头和消息体组成"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gy8lgm60g0",
+                                                                    "created": 1592150472101,
+                                                                    "text": "消息头"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3gy8ojlnzs0",
+                                                                            "created": 1592150478812,
+                                                                            "text": "由一系列可选属性组成"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3gy8wsn0lk0",
+                                                                                    "created": 1592150496773,
+                                                                                    "text": "routing-key/路由键"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3gy9c7kre80",
+                                                                                    "created": 1592150530327,
+                                                                                    "text": "priority/相对于其他消息的优先权"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3gy9k63u740",
+                                                                                    "created": 1592150547653,
+                                                                                    "text": "delivery-mode/指出该消息可能需要持久性存储"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3gy9xt5ak00",
+                                                                                    "created": 1592150577344,
+                                                                                    "text": "等"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gy8n095000",
+                                                                    "created": 1592150475465,
+                                                                    "text": "消息体"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gya7xlmhk0",
+                                                    "created": 1592150599381,
+                                                    "text": "Publisher/消息生产者"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyajz83og0",
+                                                            "created": 1592150625601,
+                                                            "text": "一个向交换器发布消息的客户端应用程序"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gyat15s140",
+                                                    "created": 1592150645309,
+                                                    "text": "Consumer/消息消费者"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyawem7hs0",
+                                                            "created": 1592150652653,
+                                                            "text": "一个从消息队列中取得消息的客户端应用程序"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gyc8mlkwg0",
+                                                    "created": 1592150757621,
+                                                    "text": "Binding/绑定"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gycdrbvao0",
+                                                            "created": 1592150768791,
+                                                            "text": "消息队列和交换器之间的关联"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gycscdecg0",
+                                                                    "created": 1592150800538,
+                                                                    "text": "一个绑定就是基于路由键将交换器和消息队列连接起来的路由规则"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gyb8l9i0g0",
+                                                    "created": 1592150679176,
+                                                    "text": "Exchange/交换器",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gybe0vawo0",
+                                                            "created": 1592150691004,
+                                                            "text": "接收生产者发送的消息"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gybqhn7k80",
+                                                            "created": 1592150718139,
+                                                            "text": "将这些消息路由给服务器中的队列"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gycjrvtq00",
+                                                            "created": 1592150781885,
+                                                            "text": "可以将交换器理解成一个由绑定构成的路由表"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gye40ef9k0",
+                                                    "created": 1592150904300,
+                                                    "text": "Queue/消息队列"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gye9ah6io0",
+                                                            "created": 1592150915793,
+                                                            "text": "用来保存消息直到发送给消费者"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyexhvr0g0",
+                                                            "created": 1592150968484,
+                                                            "text": "一个消息可投入一个或多个队列"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gyf2iwetk0",
+                                                    "created": 1592150979429,
+                                                    "text": "Connection/网络连接"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyf841zlc0",
+                                                            "created": 1592150991592,
+                                                            "text": "比如一个TCP连接"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gyfim36200",
+                                                    "created": 1592151014451,
+                                                    "text": "Channel/信道"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyfvm0l140",
+                                                            "created": 1592151042744,
+                                                            "text": "多路复用连接中的一条独立的双向数据流通道"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyg3adzuw0",
+                                                            "created": 1592151059456,
+                                                            "text": "是建立在真实的TCP连接内的虚拟连接"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyg5tzxo00",
+                                                            "created": 1592151064995,
+                                                            "text": "AMQP 命令都是通过信道发出去的"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gyghppmuo0",
+                                                                    "created": 1592151090857,
+                                                                    "text": "发布消息"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gygj5w5ig0",
+                                                                    "created": 1592151094012,
+                                                                    "text": "订阅队列"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gyglnk2a00",
+                                                                    "created": 1592151099434,
+                                                                    "text": "接收消息"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyh8tr6280",
+                                                            "created": 1592151149875,
+                                                            "text": "因为对于操作系统来说建立和销毁 TCP 都是非常昂贵的开销，所以引入了信道的概念，以复用一条 TCP 连接"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gyhzdr2ts0",
+                                                    "created": 1592151207680,
+                                                    "text": "Virtual Host/虚拟主机"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyiiiqyao0",
+                                                            "created": 1592151249341,
+                                                            "text": "表示一批交换器、消息队列和相关对象"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyiv7luao0",
+                                                            "created": 1592151276966,
+                                                            "text": "虚拟主机是共享相同的身份认证和加密环境的独立服务器域"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gyjhk1u3c0",
+                                                    "created": 1592151325607,
+                                                    "text": "Broker"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyji9yvf40",
+                                                            "created": 1592151327174,
+                                                            "text": "表示消息队列服务器实体"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3gyl0tsgnk0",
+                                            "created": 1592151445919,
+                                            "text": "AMQP中的消息路由",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gyoswu0ww0",
+                                                    "created": 1592151742146,
+                                                    "text": "生产者把消息发布到 Exchange 上"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gyotxn4j40",
+                                                    "created": 1592151744371,
+                                                    "text": "Binding 决定交换器的消息应该发送到那个队列"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gyphkxpeg0",
+                                                    "created": 1592151795846,
+                                                    "text": "Exchange 类型",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyq0dqrag0",
+                                                            "created": 1592151836770,
+                                                            "text": "direct"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gyrak3sh40",
+                                                                    "created": 1592151937286,
+                                                                    "text": "消息中的路由键（routing key）如果和 Binding 中的 binding key 一致，交换器就将消息发到对应的队列中"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gyriwfwi80",
+                                                                    "created": 1592151955447,
+                                                                    "text": "完全匹配、单播的模式"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyq1ecln40",
+                                                            "created": 1592151838983,
+                                                            "text": "fanout"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gytbaqysw0",
+                                                                    "created": 1592152095626,
+                                                                    "text": "每个发到 fanout 类型交换器的消息都会分到所有绑定的队列上去"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gyu4tzd600",
+                                                                    "created": 1592152159915,
+                                                                    "text": "fanout 交换器不处理路由键，只是简单的将队列绑定到交换器上"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gyu5zcwkg0",
+                                                                    "created": 1592152162417,
+                                                                    "text": "每个发送到交换器的消息都会被转发到与该交换器绑定的所有队列上"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gyuuyzg4o0",
+                                                                    "created": 1592152216815,
+                                                                    "text": "fanout 类型转发消息是最快的"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyq52g0nk0",
+                                                            "created": 1592151846970,
+                                                            "text": "topic"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gyz3tevag0",
+                                                                    "created": 1592152549525,
+                                                                    "text": "topic 交换器通过模式匹配分配消息的路由键属性"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gyz590piw0",
+                                                                    "created": 1592152552645,
+                                                                    "text": "将路由键和某个模式进行匹配"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gyzihknmo0",
+                                                                    "created": 1592152581461,
+                                                                    "text": "队列需要绑定到一个模式上"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gyzmx89bk0",
+                                                                    "created": 1592152591115,
+                                                                    "text": "topic"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3gyqaokuk00",
+                                                            "created": 1592151859193,
+                                                            "text": "headers"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3gyqp2diig0",
+                                                                    "created": 1592151890502,
+                                                                    "text": "headers 匹配 AMQP 消息的 header 而不是路由键，此外 headers 交换器和 direct 交换器完全一致，但性能差很多，目前几乎用不到了"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c3gzrcz0bfk0",
+                    "created": 1592154763651,
+                    "text": "资料"
+                },
+                "children": [
                     {
                         "data": {
-                            "id": "c3g69rr6ecg0",
-                            "created": 1592071573087,
-                            "text": "JMS"
+                            "id": "c3gzrdw6x3s0",
+                            "created": 1592154765657,
+                            "text": "为什么会需要消息队列(MQ)",
+                            "hyperlink": "https://www.cnblogs.com/xuyatao/p/6864109.html",
+                            "hyperlinkTitle": ""
                         },
-                        "children": []
-                    },
-                    {
-                        "data": {
-                            "id": "c3g69x6fl880",
-                            "created": 1592071584893,
-                            "text": "AMQP"
-                        },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3gzsfokqeo0",
+                                    "created": 1592154847915,
+                                    "text": "集成模式中的消息模式"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3h05iqtk1s0",
+                                            "created": 1592155873315,
+                                            "text": "与其他分布式技术对比",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3gztd8lvs80",
+                                                    "created": 1592154920960,
+                                                    "text": "在众多分布式技术中，消息传递相较文件传递与远程过程调用（RPC）而言，似乎更胜一筹，因为它具有更好的平台无关性，并能够很好地支持并发与异步调用"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3gztscfec80",
+                                                    "created": 1592154953842,
+                                                    "text": "对于Web Service与RESTful而言，则可以看做是消息传递技术的一种衍生或封装"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3h06g4r0j40",
+                                            "created": 1592155945991,
+                                            "text": "常用的消息模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3h06ny49rk0",
+                                                    "created": 1592155963004,
+                                                    "text": "消息通道（Message Channel）模式"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3h08xtmoeg0",
+                                                            "created": 1592156141230,
+                                                            "text": "消息通道作为在客户端（消费者，Consumer）与服务（生产者，Producer）之间引入的间接层，可以有效地解除二者之间的耦合"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3h098rgzhs0",
+                                                            "created": 1592156165043,
+                                                            "text": "该模式可以支持多个生产者与消费者"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3h08nmq5ts0",
+                                                    "created": 1592156119044,
+                                                    "text": "发布者-订阅者（Publisher-Subscriber）模式"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3h0aag7huw0",
+                                                            "created": 1592156247080,
+                                                            "text": "拉模型"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3h0ami339s0",
+                                                                    "created": 1592156273315,
+                                                                    "text": "由消息的消费者发起"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3h0b1wriw80",
+                                                                            "created": 1592156306854,
+                                                                            "text": "根据自己的情况对生产者发起调用"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3h0blrofnc0",
+                                                                    "created": 1592156350082,
+                                                                    "text": "拉模型的另一种体现则由生产者在状态发生变更时，通知消费者其状态发生了改变。但得到通知的消费者却会以回调方式，通过调用传递过来的消费者对象获取更多细节消息"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3h0abez18g0",
+                                                            "created": 1592156249182,
+                                                            "text": "推模型"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             }
