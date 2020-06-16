@@ -96,6 +96,7 @@
     - [ERRLOOK](#errlook)
     - [XDCMake](#xdcmake)
     - [BSCMAKE.EXE](#bscmakeexe)
+  - [How to](#how-to)
   - [Other Practice](#other-practice)
     - [Set Platform toolset version for msbuild](#set-platform-toolset-version-for-msbuild)
 
@@ -1267,6 +1268,10 @@ XDCMake. A tool for processing source code files that contain documentation comm
 ### [BSCMAKE.EXE](https://docs.microsoft.com/en-us/cpp/build/reference/bscmake-reference?view=vs-2019)
 
 BSCMAKE.EXE (provided for backward compatibility only) builds a browse information file (.bsc) that contains information about the symbols (classes, functions, data, macros, and types) in your program. You view this information in browse windows within the development environment. (A .bsc file can also be built in the development environment.)
+
+## How to
+
+[How to: Use the Windows 10 SDK in a Windows Desktop application](https://docs.microsoft.com/en-us/cpp/windows/how-to-use-the-windows-10-sdk-in-a-windows-desktop-application?view=vs-2019)
 
 ## Other Practice
 

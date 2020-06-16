@@ -26,6 +26,7 @@
     - [Chain of Responsibility Pattern](#chain-of-responsibility-pattern)
     - [Command Pattern](#command-pattern)
     - [Interpreter Pattern](#interpreter-pattern)
+    - [Iterator Pattern](#iterator-pattern)
 
 Design patterns represent the **best practices** used by experienced **object-oriented** software developers. Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.
 
@@ -796,7 +797,45 @@ classDiagram
 
 ### Interpreter Pattern
 
+Interpreter pattern provides a way to evaluate language grammar or expression. This type of pattern comes under **behavioral pattern**. This pattern involves implementing an expression interface which tells to interpret a particular context. This pattern is used in SQL parsing, symbol processing engine etc.
 
+Implementation
+
+We are going to create an interface `Expression` and concrete classes implementing the `Expression` interface. A class `TerminalExpression` is defined which acts as a main interpreter of context in question. Other classes `OrExpression`, `AndExpression` are used to create combinational expressions.
+
+`InterpreterPatternDemo`, our demo class, will use `Expression` class to create rules and demonstrate parsing of expressions.
+
+```mermaid
+classDiagram
+    class Expression {
+        <<interface>>
+        +interperate() boolean
+    }
+    class TerminalExpression {
+        -String data
+        +interperate() boolean
+    }
+    class AndExpression {
+        -Expression expr1
+        -Expression expr2
+        +interperate() boolean
+    }
+    class OrExpression {
+        -Expression expr1
+        -Expression expr2
+        +interperate() boolean
+    }
+    Expression <|-- TerminalExpression : implements
+    Expression <|-- AndExpression : implements
+    Expression <|-- OrExpression : implements
+    class InterpreterPatternDemo{
+        +getMaleExpression() void
+        +getMarriedWomanExpression() void
+    }
+    InterpreterPatternDemo --> Expression : uses 
+```
+
+### Iterator Pattern
 
 
 
