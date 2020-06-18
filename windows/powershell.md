@@ -21,8 +21,11 @@
     - [Display the contents of child directories](#display-the-contents-of-child-directories)
     - [ForEach loop](#foreach-loop)
   - [Count the files in a folder](#count-the-files-in-a-folder)
+  - [Check if string is in list of strings](#check-if-string-is-in-list-of-strings)
   - [Run .ps1 from cmd](#run-ps1-from-cmd)
   - [Gaining administrator privileges in PowerShell](#gaining-administrator-privileges-in-powershell)
+  - [Understanding Booleans in PowerShell](#understanding-booleans-in-powershell)
+  - [about_Logical_Operators](#about_logical_operators)
   - [Environment Variable](#environment-variable)
     - [Use PowerShell to Set Environment Variables](#use-powershell-to-set-environment-variables)
       - [Set a locally scoped Environment Variable](#set-a-locally-scoped-environment-variable)
@@ -67,7 +70,24 @@
 
 ## match
 
-    git diff HEAD master --name-only| ForEach-Object { if ($_ -match "code/(ProjectNamePrefix.*?)/") {$matches[0] + $matches[1] + ".csproj"}} | Group-Object | Select -ExpandProperty Name
+- Example 1
+
+      git diff HEAD master --name-only| ForEach-Object { if ($_ -match "code/(ProjectNamePrefix.*?)/") {$matches[0] + $matches[1] + ".csproj"}} | Group-Object | Select -ExpandProperty Name
+
+- Example 2
+
+     "abc\def\ghi" -match "abc\\(.*?)\\(.*)" | % {$matches}
+
+- Example 3
+
+      $def = "abc\def\ghi" -match "abc\\(.*?)\\(.*)" | % {$matches[1]}
+
+- [Example 4](https://social.technet.microsoft.com/Forums/scriptcenter/en-US/66107c99-67c4-40bc-b49a-f0134c4235b3/powershell-matches-collection)
+
+      $ex=new-object System.Text.RegularExpressions.Regex("abc\\(.*?)\\(.*)", [System.Text.RegularExpressions.RegexOptions]::Singleline)
+      $m=$ex.Matches('abc\def\ghi')
+      $count = $m.count
+      $def = $m.groups[1].value
 
 ## Sleep
 
@@ -164,6 +184,14 @@ with `Where-Object`
 
     (Get-ChildItem -Recurse | Measure-Object).Count
 
+## [Check if string is in list of strings](https://stackoverflow.com/questions/47096341/check-if-string-is-in-list-of-strings)
+
+    $MachineList = "srv-a*", "srv-b*", "srv-c*", ...
+    ...
+    if ($MachineList | Where-Object {$Machine.Name -like $_}) {
+        ...
+    }
+
 ## Run .ps1 from cmd
 
     powershell -file "C:\Program Files (x86)\DAUM\test.ps1"
@@ -171,6 +199,10 @@ with `Where-Object`
 ## [Gaining administrator privileges in PowerShell](https://serverfault.com/questions/11879/gaining-administrator-privileges-in-powershell)
 
     start-process powershell –verb runAs
+
+## [Understanding Booleans in PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/2286.understanding-booleans-in-powershell.aspx)
+
+## [about_Logical_Operators](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_logical_operators?view=powershell-7)
 
 ## Environment Variable
 

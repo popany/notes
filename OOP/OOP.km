@@ -1,0 +1,1432 @@
+{
+    "root": {
+        "data": {
+            "id": "c3k5vvunaqw0",
+            "created": 1592476724732,
+            "text": "OOP"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3k5we43lm00",
+                    "created": 1592476764486,
+                    "text": "面向对象的七大设计原则",
+                    "hyperlink": "https://blog.csdn.net/qq_34760445/article/details/82931002",
+                    "hyperlinkTitle": ""
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3k5wj14rhc0",
+                            "created": 1592476775190,
+                            "text": "设计目标"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3k5xvcb9bk0",
+                                    "created": 1592476880352,
+                                    "text": "开闭原则",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3k6viipc880",
+                                            "created": 1592479516822,
+                                            "text": "概述",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6voe1k0w0",
+                                                    "created": 1592479529601,
+                                                    "text": "软件实体（模块，类，方法等）应该对扩展开放，对修改关闭。"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k5ysm0wm80",
+                                            "created": 1592476952773,
+                                            "text": "要点"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k5yusvjqo0",
+                                                    "created": 1592476957541,
+                                                    "text": "对扩展开放"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k5zps3qg00",
+                                                            "created": 1592477024974,
+                                                            "text": "软件系统的功能上的可扩展性要求模块是扩展开放的"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k5yvmf0wg0",
+                                                    "created": 1592476959327,
+                                                    "text": "对修改关闭"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k65xaqi000",
+                                                            "created": 1592477511524,
+                                                            "text": "软件系统的功能上的稳定性，持续性要求模块是修改关闭的"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k66pd9izk0",
+                                            "created": 1592477572626,
+                                            "text": "动因"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k675dfzds0",
+                                                    "created": 1592477607466,
+                                                    "text": "稳定性"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k676agyg00",
+                                                    "created": 1592477609463,
+                                                    "text": "扩展性"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k66ux92800",
+                                            "created": 1592477584719,
+                                            "text": "实现方法"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k69tcu5ko0",
+                                                    "created": 1592477816400,
+                                                    "text": "可以把这些不变的部分加以抽象成不变的接口，这些不变的接口可以应对未来的扩展"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6a12e79k0",
+                                                    "created": 1592477833183,
+                                                    "text": "接口的最小功能设计原则。根据这个原则，原有的接口要么可以应对未来的扩展；不足的部分可以通过定义新的接口来实现"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6a1p32lk0",
+                                                    "created": 1592477834555,
+                                                    "text": "模块之间的调用通过抽象接口进行，这样即使实现层发生变化，也无需修改调用方的代码"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6anxn24w0",
+                                            "created": 1592477882961,
+                                            "text": "补充"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6aozjuo80",
+                                                    "created": 1592477885254,
+                                                    "text": "现在多把开闭原则等同于面向接口的软件设计"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3k5xw957q80",
+                                    "created": 1592476882337,
+                                    "text": "里氏代换原则",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3k6vwojayg0",
+                                            "created": 1592479547649,
+                                            "text": "概述"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6w4vofs00",
+                                                    "created": 1592479565496,
+                                                    "text": "所有引用基类的地方必须能透明地使用其派生类的对象。"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6bypz3j40",
+                                            "created": 1592477984807,
+                                            "text": "要点"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6cb5j8a80",
+                                                    "created": 1592478011869,
+                                                    "text": "不应该在代码中出现if/else之类对派生类类型进行判断的条件"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6cc09ffk0",
+                                                    "created": 1592478013727,
+                                                    "text": "派生类应当可以替换基类并出现在基类能够出现的任何地方，或者说如果我们把代码中使用基类的地方用它的派生类所代替，代码还能正常工作"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6crq5duo0",
+                                            "created": 1592478047944,
+                                            "text": "实现方法"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6dtj7l2g0",
+                                                    "created": 1592478130242,
+                                                    "text": "子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6dwxmdpk0",
+                                                    "created": 1592478137644,
+                                                    "text": "子类中可以增加自己特有的方法"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6e0jjpk00",
+                                                    "created": 1592478145500,
+                                                    "text": "当子类的方法重载父类的方法时，方法的前置条件（即方法的输入/入参）要比父类方法的输入参数更宽松"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6e7dvq2o0",
+                                                    "created": 1592478160395,
+                                                    "text": "当子类的方法实现父类的方法时（重载/重写或实现抽象方法）的后置条件（即方法的输出/返回值）要比父类更严格或相等"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6ctcv3340",
+                                            "created": 1592478051494,
+                                            "text": "补充"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6cud6umo0",
+                                                    "created": 1592478053691,
+                                                    "text": "里氏替换原则(LSP)是使代码符合开闭原则的一个重要保证"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3k5y0dkb2w0",
+                                    "created": 1592476891312,
+                                    "text": "迪米特原则",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3k6wo9097s0",
+                                            "created": 1592479607660,
+                                            "text": "概述"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6wqz8ns00",
+                                                    "created": 1592479613600,
+                                                    "text": "又叫最少知道原则（Least Knowledge Principle），可以简单说成：talk only to your immediate friends，只与你直接的朋友们通信，不要跟“陌生人”说话。"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6hdkrmeo0",
+                                            "created": 1592478408964,
+                                            "text": "要点"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6hffs9m00",
+                                                    "created": 1592478413017,
+                                                    "text": "一个软件实体应当尽可能少地与其他实体发生相互作用"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6hg67krs0",
+                                                    "created": 1592478414615,
+                                                    "text": "每一个软件单位对其他的单位都只有最少的知识，而且局限于那些与本单位密切相关的软件单位"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6hw4ezfc0",
+                                            "created": 1592478449335,
+                                            "text": "实现方法"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6i1xvzqo0",
+                                                    "created": 1592478462001,
+                                                    "text": "\"朋友\"条件"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k6ibkueq00",
+                                                            "created": 1592478482980,
+                                                            "text": "当前对象本身（this）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k6id6me2o0",
+                                                            "created": 1592478486473,
+                                                            "text": "以参量形式传入到当前对象方法中的对象"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k6ihqk2xs0",
+                                                            "created": 1592478496386,
+                                                            "text": "当前对象的实例变量直接引用的对象"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k6ipe8lq00",
+                                                            "created": 1592478513055,
+                                                            "text": "当前对象的实例变量如果是一个聚集，那么聚集中的元素也都是朋友"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k6itx4go00",
+                                                            "created": 1592478522904,
+                                                            "text": "当前对象所创建的对象"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6jioda4g0",
+                                            "created": 1592478576794,
+                                            "text": "优点"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6jk7mwiw0",
+                                                    "created": 1592478580136,
+                                                    "text": "降低类之间的耦合"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6jsvq0c00",
+                                                    "created": 1592478599007,
+                                                    "text": "很容易使得系统的功能模块功能独立，相互之间不存在（或很少有）依赖关系"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6k6hz0g00",
+                                            "created": 1592478628650,
+                                            "text": "缺点"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6khg1ymo0",
+                                                    "created": 1592478652479,
+                                                    "text": "增加了系统的复杂度",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k6k7wfmw00",
+                                                            "created": 1592478631702,
+                                                            "text": "系统中存在大量的中介类，这些类之所以存在完全是为了传递类之间的相互调用关系"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6oj59p1k0",
+                                            "created": 1592478969637,
+                                            "text": "补充"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6ooxx5o80",
+                                                    "created": 1592478982253,
+                                                    "text": "朋友间也是有距离的"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k6padggoo0",
+                                                            "created": 1592479028905,
+                                                            "text": "一个类公开的public属性或方法越多，修改时涉及的面也就越大，变更引起的风险扩散也就越大。因此，为了保持朋友类间的距离，在设计时需要反复衡量：是否还可以再减少public方法和属性，是否可以修改为private等"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6osnbt600",
+                                                    "created": 1592478990320,
+                                                    "text": "是自己的就是自己的"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k6pkmh5k00",
+                                                            "created": 1592479051219,
+                                                            "text": "如果一个方法放在本类中，既不增加类间关系，也对本类不产生负面影响，就放置在本类中"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3k5wx69ryg0",
+                            "created": 1592476805976,
+                            "text": "设计方法"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3k5y74y9nc0",
+                                    "created": 1592476906028,
+                                    "text": "单一职责原则",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3k6x0tmjo00",
+                                            "created": 1592479635029,
+                                            "text": "概述"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6x3knxrc0",
+                                                    "created": 1592479641017,
+                                                    "text": "永远不要让一个类存在多个改变的理由。"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6q09yzug0",
+                                            "created": 1592479085291,
+                                            "text": "要点"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6qe27bi80",
+                                                    "created": 1592479115296,
+                                                    "text": "只能让一个类/接口/方法有且仅有一个职责"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6q0p6r0o0",
+                                            "created": 1592479086211,
+                                            "text": "原因"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6r9h5mqg0",
+                                                    "created": 1592479183681,
+                                                    "text": "一个职责使用了外部类库，则使用另外一个职责的用户却也不得不包含这个未被使用的外部类库"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6ra3l1zc0",
+                                                    "created": 1592479185037,
+                                                    "text": "某个用户由于某个原因需要修改其中一个职责，另外一个职责的用户也将受到影响，他将不得不重新编译和配置"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6s1xb2jk0",
+                                            "created": 1592479245607,
+                                            "text": "实现方法",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6q0r845s0",
+                                                    "created": 1592479086334,
+                                                    "text": "职责的划分"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k6sfe2u5c0",
+                                                            "created": 1592479274919,
+                                                            "text": "所谓一个类的一个职责是指引起该类变化的一个原因"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k6sg1zskw0",
+                                                            "created": 1592479276365,
+                                                            "text": "如果你能想到一个类存在多个使其改变的原因，那么这个类就存在多个职责"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6q0yhywg0",
+                                            "created": 1592479086774,
+                                            "text": "补充"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6q36c42o0",
+                                                    "created": 1592479091601,
+                                                    "text": "如果一个类需要改变，改变它的理由永远只有一个。如果存在多个改变它的理由，就需要重新设计该类"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3k5y7xud7s0",
+                                    "created": 1592476907775,
+                                    "text": "接口分隔原则",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3k6xhdike00",
+                                            "created": 1592479671060,
+                                            "text": "概述"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6xidqvk80",
+                                                    "created": 1592479673250,
+                                                    "text": "不能强迫用户去依赖那些他们不使用的接口"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6xsp15qg0",
+                                            "created": 1592479695701,
+                                            "text": "要点"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6xu7v7bk0",
+                                                    "created": 1592479699016,
+                                                    "text": "接口的设计原则"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k6y2y8e7c0",
+                                                            "created": 1592479718025,
+                                                            "text": "接口的设计应该遵循最小接口原则，不要把用户不使用的方法塞进同一个接口里。如果一个接口的方法没有被使用到，则说明该接口过胖，应该将其分割成几个功能专一的接口"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6y5md7a80",
+                                                    "created": 1592479723838,
+                                                    "text": "接口的依赖（继承）原则"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k6yma57kw0",
+                                                            "created": 1592479760104,
+                                                            "text": "如果一个接口a继承另一个接口b，则接口a相当于继承了接口b的方法，那么继承了接口b后的接口a也应该遵循上述原则：不应该包含用户不使用的方法。 反之，则说明接口a被b给污染了，应该重新设计它们的关系"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6z17y59k0",
+                                            "created": 1592479792623,
+                                            "text": "实现方法"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6zdaiej40",
+                                                    "created": 1592479818899,
+                                                    "text": "一个类对一个类的依赖应该建立在最小的接口上"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6ze5xd0g0",
+                                                    "created": 1592479820799,
+                                                    "text": "建立单一接口，不要建立庞大臃肿的接口"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k6zipgpjc0",
+                                                    "created": 1592479830687,
+                                                    "text": "尽量细化接口，接口中的方法尽量少"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k70mwkkts0",
+                                            "created": 1592479918188,
+                                            "text": "原则"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k719zr1k00",
+                                                    "created": 1592479968447,
+                                                    "text": "接口分隔原则从对接口的使用上为我们对接口抽象的颗粒度建立了判断基准：在为系统设计接口的时候，使用多个专门的接口代替单一的胖接口"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k71gpoh4w0",
+                                                    "created": 1592479983075,
+                                                    "text": "符合高内聚低耦合的设计思想，从而使得类具有很好的可读性、可扩展性和可维护性"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k71hg4njc0",
+                                                    "created": 1592479984674,
+                                                    "text": "注意适度原则，接口分隔要适度，避免产生大量的细小接口"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k6z1ab00w0",
+                                            "created": 1592479792765,
+                                            "text": "补充"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k6z27nhcg0",
+                                                    "created": 1592479794782,
+                                                    "text": "如果用户被迫依赖他们不使用的接口，当接口发生改变时，他们也不得不跟着改变。换而言之，一个用户依赖了未使用但被其他用户使用的接口，当其他用户修改该接口时，依赖该接口的所有用户都将受到影响。这显然违反了开闭原则，也不是我们所期望的"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3k5yazn9m00",
+                                    "created": 1592476914415,
+                                    "text": "依赖倒置原则",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3k7216cvs00",
+                                            "created": 1592480027619,
+                                            "text": "概述"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k7221trkg0",
+                                                    "created": 1592480029522,
+                                                    "text": "高层模块不应该依赖于低层模块，二者都应该依赖于抽象"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k729qmcoo0",
+                                                    "created": 1592480046259,
+                                                    "text": "抽象不应该依赖于细节，细节应该依赖于抽象"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k72afnyhc0",
+                                                    "created": 1592480047773,
+                                                    "text": "针对接口编程，不要针对实现编程"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k72wsr5xk0",
+                                            "created": 1592480096454,
+                                            "text": "概念"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k72zpm8400",
+                                                    "created": 1592480102794,
+                                                    "text": "依赖"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k735nnis80",
+                                                            "created": 1592480115736,
+                                                            "text": "在程序设计中，如果一个模块a使用/调用了另一个模块b，我们称模块a依赖模块b"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k736o4k680",
+                                                    "created": 1592480117942,
+                                                    "text": "高层模块与低层模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k73hh70bk0",
+                                                            "created": 1592480141467,
+                                                            "text": "往往在一个应用程序中，我们有一些低层次的类，这些类实现了一些基本的或初级的操作，我们称之为低层模块；另外有一些高层次的类，这些类封装了某些复杂的逻辑，并且依赖于低层次的类，这些类我们称之为高层模块"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k73piqze80",
+                                                    "created": 1592480158975,
+                                                    "text": "依赖倒置"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k73q9cvkg0",
+                                                            "created": 1592480160584,
+                                                            "text": "面向对象程序设计相对于面向过程（结构化）程序设计而言，依赖关系被倒置了。因为传统的结构化程序设计中，高层模块总是依赖于低层模块"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k74icsi6w0",
+                                            "created": 1592480221742,
+                                            "text": "要点"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k74jiobmg0",
+                                                    "created": 1592480224274,
+                                                    "text": "抽象接口是对低层模块的抽象，低层模块继承或实现该抽象接口"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k750mwh6g0",
+                                                    "created": 1592480261535,
+                                                    "text": "高层模块不直接依赖低层模块，而是依赖抽象接口层"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k75b80nao0",
+                                                    "created": 1592480284580,
+                                                    "text": "抽象接口也不依赖低层模块的实现细节，而是低层模块依赖（继承或实现）抽象接口"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k75nwdry00",
+                                                    "created": 1592480312174,
+                                                    "text": "类与类之间都通过抽象接口层来建立关系"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k76e2qc5k0",
+                                            "created": 1592480369155,
+                                            "text": "实现方法"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k76jb7zm00",
+                                                    "created": 1592480380552,
+                                                    "text": "依赖于抽象"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k76n4iyfs0",
+                                                            "created": 1592480388854,
+                                                            "text": "任何变量都不应该持有一个指向具体类的指针或引用"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k76u6vr6o0",
+                                                            "created": 1592480404234,
+                                                            "text": "任何类都不应该从具体类派生"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k76zfhz680",
+                                                    "created": 1592480415639,
+                                                    "text": "设计接口而非设计实现"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k77076ktc0",
+                                                            "created": 1592480417313,
+                                                            "text": "使用继承避免对类的直接绑定"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k773q8rz40",
+                                                            "created": 1592480424996,
+                                                            "text": "抽象类/接口： 倾向于较少的变化；抽象是关键点，它易于修改和扩展；不要强制修改那些抽象接口/类"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3k77f39lko0",
+                                                    "created": 1592480449728,
+                                                    "text": "避免传递依赖"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k77fqabtc0",
+                                                            "created": 1592480451120,
+                                                            "text": "避免高层依赖于低层"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k77j968bk0",
+                                                            "created": 1592480458792,
+                                                            "text": "使用继承和抽象类来有效地消除传递依赖"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3k5ye1t1jk0",
+                                    "created": 1592476921076,
+                                    "text": "组合/聚合复用原则",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3k77wmk7lc0",
+                                            "created": 1592480487900,
+                                            "text": "概要"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k77ydtpg00",
+                                                    "created": 1592480491725,
+                                                    "text": "尽量使用组合/聚合，不要使用类继承。"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k77zor2vk0",
+                                            "created": 1592480494563,
+                                            "text": "要点"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k78engb3c0",
+                                                    "created": 1592480527136,
+                                                    "text": "在一个新的对象里面使用一些已有的对象，使之成为新对象的一部分，新对象通过向这些对象的委派达到复用已有功能的目的。就是说要尽量的使用合成和聚合，而不是继承关系达到复用的目的"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k78sv4ksw0",
+                                            "created": 1592480558075,
+                                            "text": "概念",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k78uwfdjs0",
+                                                    "created": 1592480562507,
+                                                    "text": "组合和聚合都是关联的特殊种类"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k79046qi80",
+                                                            "created": 1592480573860,
+                                                            "text": "聚合"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3k791e54fs0",
+                                                                    "created": 1592480576639,
+                                                                    "text": "表示整体和部分的关系，表示“拥有”"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k796akj1k0",
+                                                            "created": 1592480587307,
+                                                            "text": "组合"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3k79bn5ee80",
+                                                                    "created": 1592480598951,
+                                                                    "text": "一种更强的“拥有”，部分和整体的生命周期一样"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3k79vrybts0",
+                                                                    "created": 1592480642778,
+                                                                    "text": "组合的新的对象完全支配其组成部分，包括它们的创建和湮灭等"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3k7a4jqyhc0",
+                                                                    "created": 1592480661873,
+                                                                    "text": "一个组合关系的成分对象是不能与另一个组合关系共享的"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3k7ahaqf2o0",
+                                                                    "created": 1592480689626,
+                                                                    "text": "组合是值的聚合（Aggregation by Value），而一般说的聚合是引用的聚合（Aggregation by Reference）"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3k7ao3dwl40",
+                                            "created": 1592480704419,
+                                            "text": "实践"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3k7apb9ha00",
+                                                    "created": 1592480707072,
+                                                    "text": "实现复用"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k7ax5z7l40",
+                                                            "created": 1592480724167,
+                                                            "text": "通过组合/聚合",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3k7hzl2whk0",
+                                                                    "created": 1592481277982,
+                                                                    "text": "优缺点",
+                                                                    "expandState": "expand"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3k7fvs8lwg0",
+                                                                            "created": 1592481112980,
+                                                                            "text": "优点"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7glqnqo80",
+                                                                                    "created": 1592481169481,
+                                                                                    "text": "新对象存取子对象的唯一方法是通过子对象的接口"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7glqnuuo0",
+                                                                                    "created": 1592481169481,
+                                                                                    "text": "这种复用是黑箱复用，因为子对象的内部细节是新对象所看不见的"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7glqnzgo0",
+                                                                                    "created": 1592481169481,
+                                                                                    "text": "这种复用更好地支持封装性"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7glqo37k0",
+                                                                                    "created": 1592481169481,
+                                                                                    "text": "这种复用实现上的相互依赖性比较小"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7glqo0xk0",
+                                                                                    "created": 1592481169481,
+                                                                                    "text": "每一个新的类可以将焦点集中在一个任务上"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7glqoi7s0",
+                                                                                    "created": 1592481169482,
+                                                                                    "text": "这种复用可以在运行时间内动态进行，新对象可以动态的引用与子对象类型相同的对象"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7glqobnk0",
+                                                                                    "created": 1592481169482,
+                                                                                    "text": "作为复用手段可以应用到几乎任何环境中去"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3k7gnys7p40",
+                                                                            "created": 1592481174325,
+                                                                            "text": "缺点",
+                                                                            "expandState": "expand"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7glqodzk0",
+                                                                                    "created": 1592481169482,
+                                                                                    "text": "就是系统中会有较多的对象需要管理"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3k7b0d75qw0",
+                                                            "created": 1592480731134,
+                                                            "text": "通过继承"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3k7ie3ntug0",
+                                                                    "created": 1592481309581,
+                                                                    "text": "优缺点"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3k7iv7dcnc0",
+                                                                            "created": 1592481346811,
+                                                                            "text": "优点"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7iypxnyw0",
+                                                                                    "created": 1592481354463,
+                                                                                    "text": "新的实现较为容易，因为基类的大部分功能可以通过继承的关系自动进入派生类"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7iypxda00",
+                                                                                    "created": 1592481354463,
+                                                                                    "text": "修改和扩展继承而来的实现较为容易"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3k7j2njpwg0",
+                                                                            "created": 1592481363026,
+                                                                            "text": "缺点"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7jcjx25c0",
+                                                                                    "created": 1592481384575,
+                                                                                    "text": "继承复用破坏封装性，因为继承将基类的实现细节暴露给派生类。由于基类的内部细节常常是对于派生类透明的，所以这种复用是透明的复用，又称“白箱”复用"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7jgfgupk0",
+                                                                                    "created": 1592481393013,
+                                                                                    "text": "如果基类发生改变，那么派生类的实现也不得不发生改变"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7jla4u2o0",
+                                                                                    "created": 1592481403574,
+                                                                                    "text": "从基类继承而来的实现是静态的，不可能在运行时间内发生改变，没有足够的灵活性"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3k7b7tcrnk0",
+                                                                    "created": 1592480747348,
+                                                                    "text": "什么时候才应该使用继承"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3k7bf9udmg0",
+                                                                            "created": 1592480763582,
+                                                                            "text": "条件全部被满足时"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7bnie2ao0",
+                                                                                    "created": 1592480781513,
+                                                                                    "text": "派生类是基类的一个特殊种类，而不是基类的一个角色，也就是区分\"Has-A\"和\"Is-A\"。只有\"Is-A\"关系才符合继承关系，\"Has-A\"关系应当用聚合来描述"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7bp7qaps0",
+                                                                                    "created": 1592480785222,
+                                                                                    "text": "永远不会出现需要将派生类换成另外一个类的派生类的情况。如果不能肯定将来是否会变成另外一个派生类的话，就不要使用继承"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7c5glu6o0",
+                                                                                    "created": 1592480820588,
+                                                                                    "text": "派生类具有扩展基类的责任，而不是具有置换掉（override）或注销掉（Nullify）基类的责任。如果一个派生类需要大量的置换掉基类的行为，那么这个类就不应该是这个基类的派生类"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7cestpaw0",
+                                                                                    "created": 1592480840917,
+                                                                                    "text": "只有在分类学角度上有意义时，才可以使用继承"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3k7d9alifs0",
+                                                                    "created": 1592480907296,
+                                                                    "text": "补充"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3k7ed6udcg0",
+                                                                            "created": 1592480994140,
+                                                                            "text": "如果语义上存在着明确的\"Is-A\"关系，并且这种关系是稳定的、不变的，则考虑使用继承"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3k7ed6ucrs0",
+                                                                            "created": 1592480994140,
+                                                                            "text": "如果没有\"Is-A\"关系，或者这种关系是可变的，使用组合"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3k7ed6v77s0",
+                                                                            "created": 1592480994141,
+                                                                            "text": "另外一个就是只有两个类满足里氏替换原则的时候，才可能是\"Is-A\" 关系。也就是说，如果两个类是\"Has-A\"关系，但是设计成了继承，那么肯定违反里氏替换原则"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3k7es0899c0",
+                                                                            "created": 1592481026392,
+                                                                            "text": "错误的使用继承而不是组合/聚合的一个常见原因是错误的把\"Has-A\"当成了\"Is-A\" "
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7f9zf8pk0",
+                                                                                    "created": 1592481065525,
+                                                                                    "text": "\"Is-A\"代表一个类是另外一个类的一种"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3k7fd8hid40",
+                                                                                    "created": 1592481072603,
+                                                                                    "text": "\"Has-A\"代表一个类是另外一个类的一个角色，而不是另外一个类的特殊种类"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

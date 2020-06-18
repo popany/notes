@@ -483,3 +483,9 @@ To run the script with parameters, for example, you want to pass the employee nu
 - Recomplie View
 
       ALTER VIEW customer_ro COMPILE;
+
+- [查看当前正在执行的sql](https://blog.csdn.net/qq_33301113/article/details/54766751)
+
+- [强制终止在执行的sql](https://blog.csdn.net/qq6412110/article/details/91360366)
+
+- [死锁查询及处理](https://blog.csdn.net/rznice/article/details/6683905)
