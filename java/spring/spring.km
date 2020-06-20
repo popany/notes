@@ -1,0 +1,1166 @@
+{
+    "root": {
+        "data": {
+            "id": "c3lxrbrzg9c0",
+            "created": 1592656918613,
+            "text": "Spring"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3lxrn4ideo0",
+                    "created": 1592656943315,
+                    "text": "Java Spring框架入门教程"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3lxrxxu8io0",
+                            "created": 1592656966857,
+                            "text": "Spring框架概述",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3lxs9kpwnc0",
+                                    "created": 1592656992184,
+                                    "text": "一个开源的轻量级的 Java 开发框架"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lxunrhjr40",
+                                            "created": 1592657179797,
+                                            "text": "是分层的 Java SE/EE full-stack 轻量级开源框架"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lxsmbhyg00",
+                                    "created": 1592657019925,
+                                    "text": "两大核心"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lxssl2jtc0",
+                                            "created": 1592657033564,
+                                            "text": "控制反转（IoC）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3lxstr76z40",
+                                            "created": 1592657036112,
+                                            "text": "面向切面（AOP）"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lxtboaui80",
+                                    "created": 1592657075119,
+                                    "text": "通过声明式方式灵活地进行事务的管理"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lxv08kto00",
+                                    "created": 1592657206952,
+                                    "text": "使用基本的 JavaBean 完成以前只可能由 EJB 完成的工作，取代了 EJB 臃肿和低效的开发模式"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lxvjv000w0",
+                                    "created": 1592657249666,
+                                    "text": "服务器端三层体系架构"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lxvudrar40",
+                                            "created": 1592657272568,
+                                            "text": "表现层（web）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3lxvzabm140",
+                                            "created": 1592657283245,
+                                            "text": "逻辑层（service）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3lxw3ecpjs0",
+                                            "created": 1592657292195,
+                                            "text": "持久层（dao）"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3lxwp5k9gg0",
+                            "created": 1592657339553,
+                            "text": "Spring好处",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3lxwrfhhoo0",
+                                    "created": 1592657344507,
+                                    "text": "方便解耦，简化开发"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lxxb8llvs0",
+                                            "created": 1592657387626,
+                                            "text": "Spring 就是一个大工厂，可以将所有对象的创建和依赖关系的维护交给 Spring 管理"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lxxiphjdc0",
+                                    "created": 1592657403884,
+                                    "text": "方便集成各种优秀框架"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lxxo065gg0",
+                                            "created": 1592657415414,
+                                            "text": "Spring 不排斥各种优秀的开源框架，其内部提供了对各种优秀框架（如 Struts2、Hibernate、MyBatis 等）的直接支持"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lxxvij6u80",
+                                    "created": 1592657431762,
+                                    "text": "降低 Java EE API 的使用难度"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lxy1wsstk0",
+                                            "created": 1592657445686,
+                                            "text": "Spring 对 Java EE 开发中非常难用的一些 API（JDBC、JavaMail、远程调用等）都提供了封装，使这些 API 应用的难度大大降低"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lxy7svqa80",
+                                    "created": 1592657458509,
+                                    "text": "方便程序的测试"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lxybr4u4w0",
+                                            "created": 1592657467111,
+                                            "text": "Spring 支持 JUnit4，可以通过注解方便地测试 Spring 程序"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lxyiij9uo0",
+                                    "created": 1592657481828,
+                                    "text": "AOP 编程的支持"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lxymzwxy80",
+                                            "created": 1592657491586,
+                                            "text": "Spring 提供面向切面编程，可以方便地实现对程序进行权限拦截和运行监控等功能"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lxyof82uo0",
+                                    "created": 1592657494689,
+                                    "text": "声明式事务的支持"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lxywosvqw0",
+                                            "created": 1592657512682,
+                                            "text": "只需要通过配置就可以完成对事务的管理，而无须手动编程"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3lxz9gzwr40",
+                            "created": 1592657540508,
+                            "text": "Spring体系结构"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3ly0333jgg0",
+                                    "created": 1592657604972,
+                                    "text": "模块",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3ly093q2fk0",
+                                            "created": 1592657618070,
+                                            "text": "Data Access/Integration（数据访问／集成）",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ly0jbdkew0",
+                                                    "created": 1592657640301,
+                                                    "text": " JDBC 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly0okwlc80",
+                                                            "created": 1592657651761,
+                                                            "text": "提供了一个 JDBC 的抽象层，大幅度减少了在开发过程中对数据库操作的编码"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly0wjzk7c0",
+                                                    "created": 1592657669119,
+                                                    "text": " ORM 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly10jdw9k0",
+                                                            "created": 1592657677790,
+                                                            "text": "对流行的对象关系映射 API，包括 JPA、JDO、Hibernate和 iBatis 提供了的集成层"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly178awdc0",
+                                                    "created": 1592657692357,
+                                                    "text": " OXM 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly1iz93dk0",
+                                                            "created": 1592657717932,
+                                                            "text": "提供了一个支持对象/XML 映射的抽象层实现，如 JAXB、Castor、XMLBeans、JiBX 和 XStream"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly1kf3vj40",
+                                                    "created": 1592657721067,
+                                                    "text": " JMS 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly1ox8l7k0",
+                                                            "created": 1592657730871,
+                                                            "text": "指 Java消息服务，包含的功能为生产和消费的信息"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly1zo5szk0",
+                                                    "created": 1592657754266,
+                                                    "text": "Transactions 事务模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly23n02tc0",
+                                                            "created": 1592657762903,
+                                                            "text": "支持编程和声明式事务管理实现特殊接口类，并为所有的 POJO"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ly26i6yco0",
+                                            "created": 1592657769143,
+                                            "text": "Web",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ly2rizqo00",
+                                                    "created": 1592657814904,
+                                                    "text": "Web 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly2zw20go0",
+                                                            "created": 1592657833108,
+                                                            "text": "提供了基本的 Web 开发集成特性，例如多文件上传功能、使用的 Servlet 监听器的 IoC 容器初始化以及 Web 应用上下文"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly35w2umw0",
+                                                    "created": 1592657846170,
+                                                    "text": " Servlet模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly39megtc0",
+                                                            "created": 1592657854292,
+                                                            "text": "包括 Spring 模型—视图—控制器（MVC）实现 Web 应用程序"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly3n52e5c0",
+                                                    "created": 1592657883719,
+                                                    "text": "Struts 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly3qxiv9k0",
+                                                            "created": 1592657891970,
+                                                            "text": "包含支持类内的 Spring 应用程序，集成了经典的 Struts Web 层"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly3v0babk0",
+                                                    "created": 1592657900845,
+                                                    "text": " Portlet 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly3zovf7c0",
+                                                            "created": 1592657911038,
+                                                            "text": "提供了在 Portlet 环境中使用 MV C实现，类似 Web-Servlet 模块的功能"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ly4c6jfps0",
+                                            "created": 1592657938227,
+                                            "text": "Core Container（核心容器）",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ly4gg2kbc0",
+                                                    "created": 1592657947511,
+                                                    "text": "Beans 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly4nievtc0",
+                                                            "created": 1592657962890,
+                                                            "text": "提供了 BeanFactory，是工厂模式的经典实现，Spring 将管理对象称为 Bean"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly4hg30sw0",
+                                                    "created": 1592657949688,
+                                                    "text": "Core 核心模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly4zd3w2w0",
+                                                            "created": 1592657988690,
+                                                            "text": "提供了 Spring 框架的基本组成部分，包括 IoC 和 DI 功能"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly54157fs0",
+                                                    "created": 1592657998851,
+                                                    "text": " Context 上下文模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly58v86rs0",
+                                                            "created": 1592658009377,
+                                                            "text": "建立在核心和 Beans 模块的基础之上，它是访问定义和配置任何对象的媒介。ApplicationContext 接口是上下文模块的焦点"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly5emxd5c0",
+                                                    "created": 1592658021936,
+                                                    "text": "Expression Language 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly5jjuzw00",
+                                                            "created": 1592658032634,
+                                                            "text": "是运行时查询和操作对象图的强大的表达式语言"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ly5x750zs0",
+                                            "created": 1592658062340,
+                                            "text": "其他模块",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ly610fsbc0",
+                                                    "created": 1592658070642,
+                                                    "text": " AOP 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly65l8mig0",
+                                                            "created": 1592658080607,
+                                                            "text": "提供了面向切面编程实现，允许定义方法拦截器和切入点，将代码按照功能进行分离，以降低耦合性"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly69cs7tk0",
+                                                    "created": 1592658088803,
+                                                    "text": " Aspects 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly6end7hs0",
+                                                            "created": 1592658100327,
+                                                            "text": "提供与 AspectJ 的集成，是一个功能强大且成熟的面向切面编程（AOP）框架"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly6is2tk80",
+                                                    "created": 1592658109319,
+                                                    "text": " Instrumentation 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly6mgwti80",
+                                                            "created": 1592658117351,
+                                                            "text": "提供了类工具的支持和类加载器的实现，可以在特定的应用服务器中使用"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ly6qogl9k0",
+                                                    "created": 1592658126514,
+                                                    "text": " Test 模块"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ly6uvtfaw0",
+                                                            "created": 1592658135666,
+                                                            "text": "支持 Spring 组件，使用 JUnit 或 TestNG 框架的测试"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3ly7k5mi2o0",
+                            "created": 1592658190679,
+                            "text": "Spring目录结构和基础JAR包",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3ly7vqp6bk0",
+                                    "created": 1592658215898,
+                                    "text": "目录"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3ly7z4bnh40",
+                                            "created": 1592658223252,
+                                            "text": "docs"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ly82hd0u00",
+                                                    "created": 1592658230570,
+                                                    "text": "包含 Spring 的 API 文档和开发规范"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ly85t35vc0",
+                                            "created": 1592658237810,
+                                            "text": "libs"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ly9z0txgo0",
+                                                    "created": 1592658379769,
+                                                    "text": "JAR包"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lya7dca0g0",
+                                                            "created": 1592658397940,
+                                                            "text": "spring-core-3.2.13.RELEASE.jar"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lyagqmk8w0",
+                                                                    "created": 1592658418334,
+                                                                    "text": "包含 Spring 框架基本的核心工具类，Spring 其他组件都要用到这个包中的类，是其他组件的基本核心。"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lyakbvu8w0",
+                                                            "created": 1592658426150,
+                                                            "text": "spring-beans-3.2.13.RELEASE.jar"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lyapc4l400",
+                                                                    "created": 1592658437048,
+                                                                    "text": "所有应用都要用到的，它包含访问配置文件、创建和管理 bean 以及进行 Inversion of Control（IoC）或者 Dependency Injection（DI）操作相关的所有类。"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lyastmdm00",
+                                                            "created": 1592658444636,
+                                                            "text": "spring-context-3.2.13.RELEASE.jar"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lyazsu7rk0",
+                                                                    "created": 1592658459827,
+                                                                    "text": "Spring 提供在基础 IoC 功能上的扩展服务，此外还提供许多企业级服务的支持，如邮件服务、任务调度、JNDI 定位、EJB 集成、远程访问、缓存以及各种视图层框架的封装等"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lyb6ndoew0",
+                                                            "created": 1592658474734,
+                                                            "text": "spring-expression-3.2.13.RELEASE.jar"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lyb6swi480",
+                                                                    "created": 1592658475068,
+                                                                    "text": "定义了 Spring 的表达式语言"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lya5001vc0",
+                                                    "created": 1592658392779,
+                                                    "text": "源码包"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ly8dwobb40",
+                                            "created": 1592658255441,
+                                            "text": "schema"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ly8j9719c0",
+                                                    "created": 1592658267082,
+                                                    "text": "包含开发所需要的 schema 文件，在这些文件中定义了 Spring 相关配置文件的约束"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lybs0fg8g0",
+                                    "created": 1592658521235,
+                                    "text": "第三方JAR包"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lyc5yb3fk0",
+                                            "created": 1592658551582,
+                                            "text": "commons.logging"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3lyc7iau3k0",
+                                                    "created": 1592658554968,
+                                                    "text": "处理日志信息"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lycooutls0",
+                                    "created": 1592658592369,
+                                    "text": "使用方法"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lycreap0w0",
+                                            "created": 1592658598261,
+                                            "text": "使用 Spring 框架时，只需将 Spring 的四个基础包以及 commons-logging-1.2.jar 包复制到项目的 lib 目录，并发布到类路径中即可"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3lyddvcvb40",
+                            "created": 1592658647182,
+                            "text": "Spring IoC容器",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3lydmytt200",
+                                    "created": 1592658666983,
+                                    "text": "IoC(控制反转)",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lyekmyo8o0",
+                                            "created": 1592658740276,
+                                            "text": "IoC 是指在程序开发中，实例的创建不再由调用者管理，而是由 Spring 容器创建"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3lyevnc1nk0",
+                                            "created": 1592658764243,
+                                            "text": "Spring 容器会负责控制程序之间的关系，而不是由程序代码直接控制"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3lyfjmr1eg0",
+                                                    "created": 1592658816451,
+                                                    "text": "控制权由程序代码转移到了 Spring 容器中，控制权发生了反转"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lyh9n04rk0",
+                                    "created": 1592658951427,
+                                    "text": "Spring 提供两种 IoC 容器",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lyhmgkoy00",
+                                            "created": 1592658979336,
+                                            "text": "BeanFactory ",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3lyhv6x4ig0",
+                                                    "created": 1592658998343,
+                                                    "text": "基础类型的 IoC 容器"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lyi0vvedc0",
+                                                    "created": 1592659010736,
+                                                    "text": "由 org.springframework.beans.facytory.BeanFactory 接口定义"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lyjn56z8o0",
+                                                    "created": 1592659137553,
+                                                    "text": "BeanFactory 就是一个管理 Bean 的工厂"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lyjxafxo00",
+                                                            "created": 1592659159638,
+                                                            "text": "主要负责初始化各种 Bean，并调用它们的生命周期方法"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lykh02i8w0",
+                                                    "created": 1592659202547,
+                                                    "text": "BeanFactory 接口有多个实现类"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lykpzq76g0",
+                                                            "created": 1592659222117,
+                                                            "text": "最常见的是 org.springframework.beans.factory.xml.XmlBeanFactory"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lykvdfmxc0",
+                                                                    "created": 1592659233830,
+                                                                    "text": "根据 XML 配置文件中的定义装配 Bean "
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lyl8bjdcg0",
+                                                    "created": 1592659262013,
+                                                    "text": "创建 BeanFactory 实例"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lyls9skf40",
+                                                            "created": 1592659305443,
+                                                            "text": "需要提供 Spring 所管理容器的详细配置信息"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lylyh6ebs0",
+                                                                    "created": 1592659318951,
+                                                                    "text": "通常采用 XML 文件形式管理"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lym00gze00",
+                                                            "created": 1592659322294,
+                                                            "text": "示例"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lym7kl5qo0",
+                                                                    "created": 1592659338749,
+                                                                    "text": "BeanFactory beanFactory = new XmlBeanFactory(new FileSystemResource(\"D://applicationContext.xml\"));"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3lyhnk5qqg0",
+                                            "created": 1592658981730,
+                                            "text": "ApplicationContext",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3lymquchvc0",
+                                                    "created": 1592659380697,
+                                                    "text": "是 BeanFactory 的子接口",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lymun3tgg0",
+                                                            "created": 1592659388966,
+                                                            "text": "也被称为应用上下文"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lyn3egq200",
+                                                            "created": 1592659408035,
+                                                            "text": "全路径为 org.springframework.context.ApplicationContext"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lynq3w1200",
+                                                            "created": 1592659457461,
+                                                            "text": "不仅提供了 BeanFactory 的所有功能，还添加了对 i18n（国际化）、资源访问、事件传播等方面的良好支持"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lynyxiyu80",
+                                                    "created": 1592659476667,
+                                                    "text": "两个常用的实现类",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lyo41av9k0",
+                                                            "created": 1592659487780,
+                                                            "text": "ClassPathXmlApplicationContext"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lyob1k0s80",
+                                                                    "created": 1592659503032,
+                                                                    "text": "从类路径 ClassPath 中寻找指定的 XML 配置文件"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lyog7om800",
+                                                                    "created": 1592659514287,
+                                                                    "text": "装载完成 ApplicationContext 的实例化工作"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lyooab6nk0",
+                                                                    "created": 1592659531860,
+                                                                    "text": "示例"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3lyop7kkm80",
+                                                                            "created": 1592659533871,
+                                                                            "text": "ApplicationContext applicationContext = new ClassPathXmlApplicationContext(String configLocation);"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3lyowhbeg00",
+                                                                                    "created": 1592659549698,
+                                                                                    "text": "configLocation 参数用于指定 Spring 配置文件的名称和位置，如 applicationContext.xml"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lyp4hdun40",
+                                                            "created": 1592659567116,
+                                                            "text": "FileSystemXmlApplicationContext"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lypcw0e400",
+                                                                    "created": 1592659585415,
+                                                                    "text": "从指定的文件系统路径中寻找指定的 XML 配置文件",
+                                                                    "expandState": "expand"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3lyqafjcd40",
+                                                                            "created": 1592659658429,
+                                                                            "text": "不再从类路径中读取配置文件，而是通过参数指定配置文件的位置，它可以获取类路径之外的资源，如“F：/workspaces/applicationContext.xml”"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lypdwyiow0",
+                                                                    "created": 1592659587649,
+                                                                    "text": "装载完成 ApplicationContext 的实例化工作"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lypnb4zo80",
+                                                                    "created": 1592659608097,
+                                                                    "text": "示例"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3lypovg0d40",
+                                                                            "created": 1592659611502,
+                                                                            "text": "ApplicationContext applicationContext = new FileSystemXmlApplicationContext(String configLocation);"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3lys2lb9ow0",
+                                            "created": 1592659798093,
+                                            "text": "对比"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3lys3m5sk00",
+                                                    "created": 1592659800321,
+                                                    "text": "共性"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lysh3a0p40",
+                                                            "created": 1592659829654,
+                                                            "text": "BeanFactory 和 ApplicationContext 都是通过 XML 配置文件加载 Bean 的"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lysli371s0",
+                                                    "created": 1592659839257,
+                                                    "text": "区别"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lysti9e9c0",
+                                                            "created": 1592659856681,
+                                                            "text": "如果 Bean 的某一个属性没有注入，则使用 BeanFacotry 加载后，在第一次调用 getBean() 方法时会抛出异常，而 ApplicationContext 则在初始化时自检，这样有利于检查所依赖的属性是否注入"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3lyt625p480",
+                                            "created": 1592659884006,
+                                            "text": "选择"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3lyt8uln400",
+                                                    "created": 1592659890079,
+                                                    "text": "在实际开发中，通常都选择使用 ApplicationContext，而只有在系统资源较少时，才考虑使用 BeanFactory"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3lytq4lma80",
+                            "created": 1592659927689,
+                            "text": "第一个Spring程序"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

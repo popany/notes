@@ -1,0 +1,538 @@
+{
+    "root": {
+        "data": {
+            "id": "c3kp6xobke00",
+            "created": 1592531191797,
+            "text": "spring boot"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3kp70lnb740",
+                    "created": 1592531198166,
+                    "text": "Spring Boot框架入门教程（快速学习版）",
+                    "hyperlink": "http://c.biancheng.net/spring_boot/",
+                    "hyperlinkTitle": ""
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3lmyeuj1js0",
+                            "created": 1592626441637,
+                            "text": "Spring Boot概述",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3lmyg2wzi00",
+                                    "created": 1592626444321,
+                                    "text": "用来简化 Spring 的搭建和开发过程的全新框架"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lmz1e7e4g0",
+                                            "created": 1592626490716,
+                                            "text": "去除了大量的 xml 配置文件"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3lmz225xtk0",
+                                            "created": 1592626492165,
+                                            "text": "简化了复杂的依赖管理"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3lmz86236o0",
+                                            "created": 1592626505461,
+                                            "text": "配合各种 starter 使用，基本上可以做到自动化配置"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3lmzes1qm80",
+                                            "created": 1592626519852,
+                                            "text": "Spring 可以做的事情，现在用 Spring boot 都可以做"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3lmzssje740",
+                            "created": 1592626550356,
+                            "text": "微服务",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3ln4ijsnlc0",
+                                    "created": 1592626919881,
+                                    "text": "两种服务化治理方式比较",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3ln2nolba80",
+                                            "created": 1592626774326,
+                                            "text": "微服务",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ln5xgz5b40",
+                                                    "created": 1592627030726,
+                                                    "text": "要点 ",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ln0hjx9go0",
+                                                            "created": 1592626604255,
+                                                            "text": "服务化思路的一种最佳实践方向"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ln0vm8krc0",
+                                                            "created": 1592626634870,
+                                                            "text": "遵循 SOA 的思路"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ln18qhhzc0",
+                                                            "created": 1592626663425,
+                                                            "text": "强调功能趋向单一，服务单元小型化和微型化"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ln65psb540",
+                                                    "created": 1592627048673,
+                                                    "text": "场景"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ln9edbtww0",
+                                                            "created": 1592627302603,
+                                                            "text": "将项目按照要开发的功能拆分为不同的项目"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ln9fg0stc0",
+                                                            "created": 1592627304943,
+                                                            "text": "负责不同功能的研发人员在自己的代码项目上进行开发"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lx3mb48so0",
+                                                    "created": 1592655060798,
+                                                    "text": "收益"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lx3pmiijc0",
+                                                            "created": 1592655068017,
+                                                            "text": "可以帮助我们应对飙升的系统复杂度"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lx3r1509k0",
+                                                            "created": 1592655071078,
+                                                            "text": "可以帮助我们进行更大范围的扩展"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lx49bn2qo0",
+                                                                    "created": 1592655110895,
+                                                                    "text": "开发阶段项目并行开发的扩展"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lx4atgdzk0",
+                                                                    "created": 1592655114149,
+                                                                    "text": "交付阶段并行交付的扩展"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lx4f3slfk0",
+                                                                    "created": 1592655123482,
+                                                                    "text": "组织结构和组织能力的扩展"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ln4rrnn000",
+                                            "created": 1592626939947,
+                                            "text": "Monolith"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ln67o8h9s0",
+                                                    "created": 1592627052933,
+                                                    "text": "要点",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ln58y4cw00",
+                                                            "created": 1592626977343,
+                                                            "text": "将很多功能从开发到交付都打包成一个很大的服务单元（一般称为 Monolith）"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ln5u9v1540",
+                                                    "created": 1592627023765,
+                                                    "text": "场景"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ln6irmi000",
+                                                            "created": 1592627077082,
+                                                            "text": "团队不大，软件复杂度不高"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lx5v2r6qo0",
+                                    "created": 1592655236612,
+                                    "text": "微服务的好处 ",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lx8ofofns0",
+                                            "created": 1592655457248,
+                                            "text": "独立",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3lx7utwrm00",
+                                                    "created": 1592655392805,
+                                                    "text": "开发阶段的独立",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lxb0b4mig0",
+                                                            "created": 1592655639823,
+                                                            "text": "方式",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lx6sqhmgo0",
+                                                                    "created": 1592655309880,
+                                                                    "text": "每个微服务基本上都是各自独立的项目（project）"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lx7eq4ylc0",
+                                                                    "created": 1592655357748,
+                                                                    "text": "对应各自独立项目的研发团队基本上也是独立对应"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lxb4nn3o00",
+                                                            "created": 1592655649286,
+                                                            "text": "好处",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lxatsc4ko0",
+                                                                    "created": 1592655625626,
+                                                                    "text": "保证了微服务的研发可以高效进行"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lxbcednp40",
+                                                    "created": 1592655666141,
+                                                    "text": "交付阶段的独立"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lxbf36awg0",
+                                                            "created": 1592655671993,
+                                                            "text": "方式"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lxbrx2s280",
+                                                                    "created": 1592655699923,
+                                                                    "text": "各个微服务独立交付"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3lxce04qqg0",
+                                                                            "created": 1592655747997,
+                                                                            "text": "使得每个微服务从开发到交付整条链路上都是独立进行"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lxbfwo9wg0",
+                                                            "created": 1592655673777,
+                                                            "text": "好处"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lxcq63gvc0",
+                                                                    "created": 1592655774479,
+                                                                    "text": "大大加快了微服务的迭代和交付效率"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lxda98ffs0",
+                                                    "created": 1592655818204,
+                                                    "text": "运行期间的独立"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3lxdiked280",
+                                                            "created": 1592655836294,
+                                                            "text": "好处"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lxeaqjgo80",
+                                                                    "created": 1592655897615,
+                                                                    "text": "可扩展性"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3lxeg32j6o0",
+                                                                            "created": 1592655909256,
+                                                                            "text": "快速地添加服务集群的实例"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3lxf2ky2go0",
+                                                                                    "created": 1592655958226,
+                                                                                    "text": "提升整个微服务集群的服务能力"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3lxghawps80",
+                                                                    "created": 1592656068635,
+                                                                    "text": "隔离性"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3lxgrh5rps0",
+                                                                            "created": 1592656090781,
+                                                                            "text": "任何一个或者多个微服务的失败都将只影响自己或者少量其他微服务，而不会大面积地波及整个服务运行体系"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3lxh1t7r6w0",
+                                            "created": 1592656113278,
+                                            "text": "多语言生态"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3lxisnryeo0",
+                                                    "created": 1592656250086,
+                                                    "text": "可以基于不同的计算机语言生态构建微服务"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3lxk7vdba80",
+                                    "created": 1592656361561,
+                                    "text": "微服务带来的挑战"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3lxo3ntvao0",
+                                            "created": 1592656665855,
+                                            "text": "无法通过个性化的生产模式来支撑整个微服务的交付链路和研发体系"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3lxoueiy740",
+                                            "created": 1592656724066,
+                                            "text": "通过标准化"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3lxp2t0dr40",
+                                                    "created": 1592656742356,
+                                                    "text": "可以重复使用开发阶段打造的一系列环境和工具支持"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lxp9ouin40",
+                                                    "created": 1592656757341,
+                                                    "text": "可以复用支持整个微服务交付链路的各项基础设施"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lxpfgcwrs0",
+                                                    "created": 1592656769889,
+                                                    "text": "可以减少采购差异导致的成本上升，同时更加高效地利用硬件资源"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3lxpl44uog0",
+                                                    "created": 1592656782210,
+                                                    "text": "可以用标准的协议和格式来治理和维护数量庞大的微服务"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3lxqfmwd0o0",
+                            "created": 1592656848648,
+                            "text": "Spring框架"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3lxr33prjc0",
+                                    "created": 1592656899731,
+                                    "text": "起源"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
