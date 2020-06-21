@@ -10,7 +10,8 @@
                 "data": {
                     "id": "c3lxrn4ideo0",
                     "created": 1592656943315,
-                    "text": "Java Spring框架入门教程"
+                    "text": "Java Spring框架入门教程",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -1153,6 +1154,2249 @@
                             "id": "c3lytq4lma80",
                             "created": 1592659927689,
                             "text": "第一个Spring程序"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3m18p5c5hk0",
+                            "created": 1592666743239,
+                            "text": "Spring DI（依赖注入）的实现方式",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3m19fw5v400",
+                                    "created": 1592666801457,
+                                    "text": "概念",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3m1aakars00",
+                                            "created": 1592666868220,
+                                            "text": "控制反转"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3m1ahk53ww0",
+                                                    "created": 1592666883448,
+                                                    "text": "当某个 Java实例需要另一个 Java 实例时，传统的方法是由调用者创建被调用者的实例（例如，使用 new 关键字获得被调用者实例），而使用 Spring框架后，被调用者的实例不再由调用者创建，而是由 Spring 容器创建，这称为控制反转"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3m19y3u71k0",
+                                            "created": 1592666841104,
+                                            "text": "依赖注入",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3m1bc0i8kw0",
+                                                    "created": 1592666949741,
+                                                    "text": "Spring 容器在创建被调用者的实例时，会自动将调用者需要的对象实例注入给调用者，这样，调用者通过 Spring 容器获得被调用者实例，这称为依赖注入"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3m197wwwqg0",
+                                                    "created": 1592666784089,
+                                                    "text": "依赖注入（Dependency Injection，DI）和控制反转含义相同，它们是从两个角度描述的同一个概念"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3m1cd8gpsg0",
+                                    "created": 1592667030763,
+                                    "text": "两种实现方式",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3m1cuqs6ds0",
+                                            "created": 1592667068876,
+                                            "text": "属性 setter 注入"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3m1djqznio0",
+                                                    "created": 1592667123309,
+                                                    "text": "指 IoC 容器使用 setter 方法注入被依赖的实例"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3m1dzpnw880",
+                                                    "created": 1592667158057,
+                                                    "text": "通过调用无参构造器或无参 static 工厂方法实例化 bean 后，调用该 bean 的 setter 方法，即可实现基于 setter 的 DI"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3m1cvw5hqw0",
+                                            "created": 1592667071378,
+                                            "text": "构造方法注入"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3m1dimvj5c0",
+                                                    "created": 1592667120883,
+                                                    "text": "指 IoC 容器使用构造方法注入被依赖的实例"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3m1eczsrts0",
+                                                    "created": 1592667186968,
+                                                    "text": "基于构造器的 DI 通过调用带参数的构造方法实现，每个参数代表一个依赖"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3m2b3aaqsg0",
+                            "created": 1592669751852,
+                            "text": "Spring Bean的配置及常用属性",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3m2c4acce80",
+                                    "created": 1592669832396,
+                                    "text": "Bean概念",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3m2cmu9e0o0",
+                                            "created": 1592669872782,
+                                            "text": "Spring 容器可以被看作一个大工厂"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3m2d041hbk0",
+                                            "created": 1592669901672,
+                                            "text": "Spring 容器中的 Bean 就相当于该工厂的产品"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3m2d9ve3k00",
+                                                    "created": 1592669922917,
+                                                    "text": "如果希望这个大工厂能够生产和管理 Bean"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3m2djd8p5k0",
+                                                            "created": 1592669943587,
+                                                            "text": "需要告诉容器需要哪些 Bean"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3m2dp3lwc00",
+                                                            "created": 1592669956065,
+                                                            "text": "以及需要以何种方式将这些 Bean 装配到一起"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3m2dyi54ew0",
+                                    "created": 1592669976535,
+                                    "text": "Spring 配置文件支持两种格式",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3m2e5b61o80",
+                                            "created": 1592669991351,
+                                            "text": " XML 文件格式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3m2fyqtge00",
+                                                    "created": 1592670133788,
+                                                    "text": "根元素是 <beans>"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3m2g56cm6g0",
+                                                            "created": 1592670147788,
+                                                            "text": "包含多个 <bean> 子元素"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3m2ggqgp6o0",
+                                                                    "created": 1592670172949,
+                                                                    "text": "每一个 <bean> 子元素定义了一个 Bean"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3m2gm2h6zk0",
+                                                                    "created": 1592670184559,
+                                                                    "text": "并描述了该 Bean 如何被装配到 Spring 容器中"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mmsewzr0w0",
+                                                                    "created": 1592727531558,
+                                                                    "text": "<bean>元素的常用属性"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mmsxa226o0",
+                                                                            "created": 1592727571530,
+                                                                            "text": "id"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3mmt113so00",
+                                                                                    "created": 1592727579696,
+                                                                                    "text": "是一个 Bean 的唯一标识符，Spring 容器对 Bean 的配置和管理都通过该属性完成"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mmtdsbsfs0",
+                                                                            "created": 1592727607463,
+                                                                            "text": "name"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3mmtekvbbk0",
+                                                                                    "created": 1592727609189,
+                                                                                    "text": "Spring 容器同样可以通过此属性对容器中的 Bean 进行配置和管理，name 属性中可以为 Bean 指定多个名称，每个名称之间用逗号或分号隔开"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mmtnr5c600",
+                                                                            "created": 1592727629160,
+                                                                            "text": "class"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3mmtokxby00",
+                                                                                    "created": 1592727630960,
+                                                                                    "text": "该属性指定了 Bean 的具体实现类，它必须是一个完整的类名，使用类的全限定名"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mmtwi68ow0",
+                                                                            "created": 1592727648208,
+                                                                            "text": "scope "
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3mmtz4vsv40",
+                                                                                    "created": 1592727653935,
+                                                                                    "text": "用于设定 Bean 实例的作用域，其属性值有 singleton（单例）、prototype（原型）、request、session 和 global Session。其默认值是 singleton"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mmui06v6o0",
+                                                                            "created": 1592727695010,
+                                                                            "text": "constructor-arg"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3mmulhykuo0",
+                                                                                    "created": 1592727702615,
+                                                                                    "text": "<bean>元素的子元素，可以使用此元素传入构造参数进行实例化。该元素的 index 属性指定构造参数的序号（从 0 开始），type 属性指定构造参数的类型"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mmutd0kuw0",
+                                                                            "created": 1592727719730,
+                                                                            "text": "property"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3mmv7adtnk0",
+                                                                                    "created": 1592727750046,
+                                                                                    "text": "<bean>元素的子元素，用于调用 Bean 实例中的 Set 方法完成属性赋值，从而完成依赖注入。该元素的 name 属性指定 Bean 实例中的相应属性名"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mmve5ssb40",
+                                                                            "created": 1592727765006,
+                                                                            "text": "ref"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3mmvukbegw0",
+                                                                                    "created": 1592727800713,
+                                                                                    "text": "<property> 和 <constructor-arg> 等元素的子元索，该元素中的 bean 属性用于指定对 Bean 工厂中某个 Bean 实例的引用"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mmvzokhn40",
+                                                                            "created": 1592727811854,
+                                                                            "text": "value"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3mmyd761wg0",
+                                                                                    "created": 1592727998005,
+                                                                                    "text": "<property> 和 <constractor-arg> 等元素的子元素，用于直接指定一个常量值"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mmyer5r6o0",
+                                                                            "created": 1592728001390,
+                                                                            "text": "list"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3mmylwi4zs0",
+                                                                                    "created": 1592728016951,
+                                                                                    "text": "用于封装 List 或数组类型的依赖注入"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mmyrgtcoo0",
+                                                                            "created": 1592728029063,
+                                                                            "text": "set"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3mmyu7zbyg0",
+                                                                                    "created": 1592728035059,
+                                                                                    "text": "用于封装 Set 类型属性的依赖注入"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mmyz09py80",
+                                                                            "created": 1592728045477,
+                                                                            "text": "map"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3mmz2340gg0",
+                                                                                    "created": 1592728052179,
+                                                                                    "text": "用于封装 Map 类型属性的依赖注入"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mmz52rjig0",
+                                                                            "created": 1592728058688,
+                                                                            "text": "entry"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3mmz8kkw540",
+                                                                                    "created": 1592728066296,
+                                                                                    "text": "<map> 元素的子元素，用于设置一个键值对。其 key 属性指定字符串类型的键值，ref 或 value 子元素指定其值"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3m2e6abar40",
+                                            "created": 1592669993476,
+                                            "text": "Properties 文件格式"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mn0ac68uw0",
+                            "created": 1592728148505,
+                            "text": "Spring实例化Bean的三种方法",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mn1i2rm3s0",
+                                    "created": 1592728243715,
+                                    "text": "构造器实例化"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mn37wq27s0",
+                                            "created": 1592728378310,
+                                            "text": "描述"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mn3bkdhz40",
+                                                    "created": 1592728386271,
+                                                    "text": "Spring 容器通过 Bean 对应的类中默认的构造函数实例化 Bean"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mn20qw4vc0",
+                                    "created": 1592728284356,
+                                    "text": "静态工厂方式实例化"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mn6vz3ei00",
+                                            "created": 1592728665789,
+                                            "text": "描述"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mn6x7pyy80",
+                                                    "created": 1592728668487,
+                                                    "text": "需要提供一个静态工厂方法创建 Bean 的实例"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mn24xjs9k0",
+                                    "created": 1592728293466,
+                                    "text": "实例工厂方式实例化"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mn7ufujr40",
+                                            "created": 1592728740812,
+                                            "text": "描述"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mn8dn01go0",
+                                                    "created": 1592728782604,
+                                                    "text": "工厂类不再使用静态方法创建 Bean 的实例，而是直接在成员方法中创建 Bean 的实例"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mn9kjm90w0",
+                            "created": 1592728876001,
+                            "text": "Spring中Bean的作用域",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mn9u1z5yo0",
+                                    "created": 1592728896702,
+                                    "text": "作用域的种类",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mn9z4lve80",
+                                            "created": 1592728907746,
+                                            "text": "singleton"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mn9zy6wn40",
+                                                    "created": 1592728909534,
+                                                    "text": "单例模式，使用 singleton 定义的 Bean 在 Spring 容器中只有一个实例，这也是 Bean 默认的作用域"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mnbwjsdpc0",
+                                                    "created": 1592729058861,
+                                                    "text": "要点"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mnbzmejk00",
+                                                            "created": 1592729065549,
+                                                            "text": "singleton 是 Spring 容器默认的作用域"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mnc7ggpww0",
+                                                            "created": 1592729082604,
+                                                            "text": "当一个 Bean 的作用域为 singleton 时，Spring 容器中只会存在一个共享的 Bean 实例，并且所有对 Bean 的请求，只要 id 与该 Bean 定义相匹配，就只会返回 Bean 的同一个实例"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mncty510g0",
+                                                            "created": 1592729131562,
+                                                            "text": "通常情况下，这种单例模式对于无会话状态的 Bean（如 DAO 层、Service 层）来说，是最理想的选择"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mna8y47go0",
+                                            "created": 1592728929120,
+                                            "text": "prototype"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mna9wu09c0",
+                                                    "created": 1592728931219,
+                                                    "text": "原型模式，每次通过 Spring 容器获取 prototype 定义的 Bean 时，容器都将创建一个新的 Bean 实例"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mndiyjxc00",
+                                                    "created": 1592729186007,
+                                                    "text": "要点"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mne29tdrc0",
+                                                            "created": 1592729228047,
+                                                            "text": "对需要保持会话状态的 Bean（如 Struts2 的 Action 类）应该使用 prototype 作用域"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnapjhtnk0",
+                                            "created": 1592728965241,
+                                            "text": "request"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mnat5pnu00",
+                                                    "created": 1592728973115,
+                                                    "text": "在一次 HTTP 请求中，容器会返回该 Bean 的同一个实例。而对不同的 HTTP 请求，会返回不同的实例，该作用域仅在当前 HTTP Request 内有效"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnayaxes00",
+                                            "created": 1592728984314,
+                                            "text": "session"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mnb1a3i7s0",
+                                                    "created": 1592728990795,
+                                                    "text": "在一次 HTTP Session 中，容器会返回该 Bean 的同一个实例。而对不同的 HTTP 请求，会返回不同的实例，该作用域仅在当前 HTTP Session 内有效"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnbbfu6140",
+                                            "created": 1592729012910,
+                                            "text": "global Session"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mnbfmlur40",
+                                                    "created": 1592729022026,
+                                                    "text": "在一个全局的 HTTP Session 中，容器会返回该 Bean 的同一个实例。该作用域仅在使用 portlet context 时有效"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mnf3fyytk0",
+                            "created": 1592729308960,
+                            "text": "Spring Bean的生命周期",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mng4d8qrk0",
+                                    "created": 1592729389336,
+                                    "text": "举例"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mng74zcgo0",
+                                            "created": 1592729395367,
+                                            "text": "singleton"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mngglnv9c0",
+                                                    "created": 1592729415966,
+                                                    "text": "Spring 容器可以管理 singleton 作用域 Bean 的生命周期，在此作用域下，Spring 能够精确地知道该 Bean 何时被创建，何时初始化完成，以及何时被销毁"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mngp6i3p40",
+                                            "created": 1592729434641,
+                                            "text": "prototype "
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mngu3idv40",
+                                                    "created": 1592729445344,
+                                                    "text": "Spring 只负责创建，当容器创建了 Bean 的实例后，Bean 的实例就交给客户端代码管理，Spring 容器将不再跟踪其生命周期"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mnh5dm6f40",
+                                    "created": 1592729469899,
+                                    "text": "Spring 生命周期的意义"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mnhc10ag00",
+                                            "created": 1592729484375,
+                                            "text": "可以利用 Bean 在其存活期间的指定时刻完成一些相关操作"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mnhrqbes00",
+                                                    "created": 1592729518557,
+                                                    "text": "一般情况下，会在 Bean 被初始化后和被销毁前执行一些相关操作"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mnj6q76vk0",
+                                    "created": 1592729629565,
+                                    "text": "Bean 生命周期的执行过程"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mnj9ziy3c0",
+                                            "created": 1592729636660,
+                                            "text": "根据配置情况调用 Bean 构造方法或工厂方法实例化 Bean"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnjk0chk80",
+                                            "created": 1592729658477,
+                                            "text": "利用依赖注入完成 Bean 中所有属性值的配置注入"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnjqnq4co0",
+                                            "created": 1592729672952,
+                                            "text": "如果 Bean 实现了 BeanNameAware 接口，则 Spring 调用 Bean 的 setBeanName() 方法传入当前 Bean 的 id 值"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnjvnmrgw0",
+                                            "created": 1592729683830,
+                                            "text": "如果 Bean 实现了 BeanFactoryAware 接口，则 Spring 调用 setBeanFactory() 方法传入当前工厂实例的引用"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnk0yjtq00",
+                                            "created": 1592729695374,
+                                            "text": "如果 Bean 实现了 ApplicationContextAware 接口，则 Spring 调用 setApplicationContext() 方法传入当前 ApplicationContext 实例的引用"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnk7st9o00",
+                                            "created": 1592729710264,
+                                            "text": "如果 BeanPostProcessor 和 Bean 关联，则 Spring 将调用该接口的预初始化方法 postProcessBeforeInitialzation() 对 Bean 进行加工操作，此处非常重要，Spring 的 AOP 就是利用它实现的"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnkgpr6ow0",
+                                            "created": 1592729729671,
+                                            "text": "如果 Bean 实现了 InitializingBean 接口，则 Spring 将调用 afterPropertiesSet() 方法"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnklojtk80",
+                                            "created": 1592729740482,
+                                            "text": "如果在配置文件中通过 init-method 属性指定了初始化方法，则调用该初始化方法"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnkvo3uuw0",
+                                            "created": 1592729762223,
+                                            "text": "如果 BeanPostProcessor 和 Bean 关联，则 Spring 将调用该接口的初始化方法 postProcessAfterInitialization()。此时，Bean 已经可以被应用系统使用了"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnkx1d5d40",
+                                            "created": 1592729765201,
+                                            "text": "如果在 <bean> 中指定了该 Bean 的作用范围为 scope=\"singleton\"，则将该 Bean 放入 Spring IoC 的缓存池中，将触发 Spring 对该 Bean 的生命周期管理；如果在 <bean> 中指定了该 Bean 的作用范围为 scope=\"prototype\"，则将该 Bean 交给调用者，调用者管理该 Bean 的生命周期，Spring 不再管理该 Bean"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnlgstork0",
+                                            "created": 1592729808220,
+                                            "text": "如果 Bean 实现了 DisposableBean 接口，则 Spring 会调用 destory() 方法将 Spring 中的 Bean 销毁；如果在配置文件中通过 destory-method 属性指定了 Bean 的销毁方法，则 Spring 将调用该方法对 Bean 进行销毁"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mnm75o2a00",
+                            "created": 1592729865593,
+                            "text": "Spring基于XML装配Bean",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mnmsqiwcw0",
+                                    "created": 1592729912567,
+                                    "text": "Spring 基于 XML 的装配通常采用两种实现方式"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mnmyhnifc0",
+                                            "created": 1592729925091,
+                                            "text": "设值注入（Setter Injection）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mno1s2tog0",
+                                                    "created": 1592730010616,
+                                                    "text": "过程"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mno2va7go0",
+                                                            "created": 1592730012987,
+                                                            "text": "调用默认的构造方法实例化 Bean 对象"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mno3onuy80",
+                                                            "created": 1592730014763,
+                                                            "text": "通过 Java 的反射机制调用 setXxx() 方法进行属性的注入"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mnojhg6ao0",
+                                                    "created": 1592730049155,
+                                                    "text": "要求"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mnolf8tzc0",
+                                                            "created": 1592730053376,
+                                                            "text": "Bean 的对应类必须满足"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mnop7fsjs0",
+                                                                    "created": 1592730061611,
+                                                                    "text": "必须提供一个默认的无参构造方法"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mnopxf6740",
+                                                                    "created": 1592730063182,
+                                                                    "text": "必须为需要注入的属性提供对应的 setter 方法"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mnpnu9am80",
+                                                    "created": 1592730137001,
+                                                    "text": "配置"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mnppl0tq80",
+                                                            "created": 1592730140796,
+                                                            "text": "使用 <bean> 元素的子元素 <property> 元素为每个属性注入值"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnmz24no80",
+                                            "created": 1592729926329,
+                                            "text": "构造注入（Constructor Injection）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mnq0ynmv40",
+                                                    "created": 1592730165565,
+                                                    "text": "配置"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mnq1skaww0",
+                                                            "created": 1592730167374,
+                                                            "text": "使用 <constructor-arg> 标签定义构造方法的参数，可以使用其 value 属性（或子元素）设置该参数的值"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mnr3rcxx40",
+                            "created": 1592730250019,
+                            "text": "Spring基于Annotation装配Bean",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mnrpd1vew0",
+                                    "created": 1592730297043,
+                                    "text": "常用注解"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mnrs0z9t40",
+                                            "created": 1592730302843,
+                                            "text": "@Component"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mnsm3ni200",
+                                                    "created": 1592730368308,
+                                                    "text": "可以使用此注解描述 Spring 中的 Bean，但它是一个泛化的概念，仅仅表示一个组件（Bean），并且可以作用在任何层次。使用时只需将该注解标注在相应类上即可"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnssikgrk0",
+                                            "created": 1592730382271,
+                                            "text": "@Repository"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mnsxuix480",
+                                                    "created": 1592730393878,
+                                                    "text": "用于将数据访问层（DAO层）的类标识为 Spring 中的 Bean，其功能与 @Component 相同"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnta6bdsg0",
+                                            "created": 1592730420712,
+                                            "text": "@Service"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mntgqe63k0",
+                                                    "created": 1592730434987,
+                                                    "text": "通常作用在业务层（Service 层），用于将业务层的类标识为 Spring 中的 Bean，其功能与 @Component 相同"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mntpac1c00",
+                                            "created": 1592730453607,
+                                            "text": "@Controller"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mntthe9c80",
+                                                    "created": 1592730462741,
+                                                    "text": "通常作用在控制层（如 Struts2 的 Action），用于将控制层的类标识为 Spring 中的 Bean，其功能与 @Component 相同"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnu6m82j40",
+                                            "created": 1592730491331,
+                                            "text": "@Autowired"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mnuapzmjc0",
+                                                    "created": 1592730500266,
+                                                    "text": "用于对 Bean 的属性变量、属性的 Set 方法及构造函数进行标注，配合对应的注解处理器完成 Bean 的自动配置工作。默认按照 Bean 的类型进行装配"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnugjvats0",
+                                            "created": 1592730512956,
+                                            "text": "@Resource"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mnuns4ke00",
+                                                    "created": 1592730528693,
+                                                    "text": "其作用与 Autowired 一样。其区别在于 @Autowired 默认按照 Bean 类型装配，而 @Resource 默认按照 Bean 实例名称进行装配"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mnusetvfk0",
+                                            "created": 1592730538773,
+                                            "text": "@Qualifier"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mnuxvjvmw0",
+                                                    "created": 1592730550668,
+                                                    "text": "与 @Autowired 注解配合使用，会将默认的按 Bean 类型装配修改为按 Bean 的实例名称装配，Bean 的实例名称由 @Qualifier 注解的参数指定"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mnx3wgggo0",
+                            "created": 1592730720512,
+                            "text": "Spring自动装配Bean",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mo1aqwjz40",
+                                    "created": 1592731048870,
+                                    "text": "描述",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mnxdpbp7c0",
+                                            "created": 1592730741848,
+                                            "text": "除了使用 XML 和 Annotation 的方式装配 Bean 以外，还有一种常用的装配方式——自动装配"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mo17470dc0",
+                                    "created": 1592731040967,
+                                    "text": "方法"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mo1956in40",
+                                            "created": 1592731045380,
+                                            "text": "配置 <bean> 元素的 autowire 属性"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mo1hc69940",
+                                                    "created": 1592731063217,
+                                                    "text": "byName"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mo1lwb9s00",
+                                                            "created": 1592731073142,
+                                                            "text": "根据 Property 的 name 自动装配，如果一个 Bean 的 name 和另一个 Bean 中的 Property 的 name 相同，则自动装配这个 Bean 到 Property 中"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mo1n50z8w0",
+                                                    "created": 1592731075846,
+                                                    "text": "byType"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mo1pstwko0",
+                                                            "created": 1592731081638,
+                                                            "text": "根据 Property 的数据类型（Type）自动装配，如果一个 Bean 的数据类型兼容另一个 Bean 中 Property 的数据类型，则自动装配"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mo1v9wcmo0",
+                                                    "created": 1592731093554,
+                                                    "text": "constructor"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mo1y2xzy80",
+                                                            "created": 1592731099664,
+                                                            "text": "根据构造方法的参数的数据类型，进行 byType 模式的自动装配"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mo24gbs7c0",
+                                                    "created": 1592731113534,
+                                                    "text": "autodetect"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mo29neo280",
+                                                            "created": 1592731124846,
+                                                            "text": "如果发现默认的构造方法，则用 constructor 模式，否则用 byType 模式"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mo2d5wa8w0",
+                                                    "created": 1592731132494,
+                                                    "text": "no"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mo2drqfns0",
+                                                            "created": 1592731133815,
+                                                            "text": "默认情况下，不使用自动装配，Bean 依赖必须通过 ref 元素定义"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mo37swd480",
+                            "created": 1592731199189,
+                            "text": "Spring AOP（面向切面编程）",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mo6dgo0gw0",
+                                    "created": 1592731446602,
+                                    "text": "描述",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mo3p5u0ps0",
+                                            "created": 1592731236976,
+                                            "text": "Spring AOP 是基于 AOP 编程模式的一个框架，它的使用有效减少了系统间的重复代码，达到了模块间的松耦合目的"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mo6vgsj2w0",
+                                            "created": 1592731485792,
+                                            "text": "AOP 的全称是“Aspect Oriented Programming”，即面向切面编程，它将业务逻辑的各个部分进行隔离，使开发人员在编写业务逻辑时可以专心于核心业务，从而提高了开发效率"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mo77qi42o0",
+                                            "created": 1592731512501,
+                                            "text": "AOP 采取横向抽取机制，取代了传统纵向继承体系的重复性代码，其应用主要体现在事务处理、日志管理、权限控制、异常处理等方面"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mo7ek3wxs0",
+                                    "created": 1592731527351,
+                                    "text": "两个 AOP 框架"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mo7moaxi00",
+                                            "created": 1592731545019,
+                                            "text": "Spring AOP"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mo7wsw9280",
+                                                    "created": 1592731567065,
+                                                    "text": "纯 Java 实现，不需要专门的编译过程和类加载器，在运行期间通过代理方式向目标类植入增强的代码"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mo7nhzzoo0",
+                                            "created": 1592731546815,
+                                            "text": "AspectJ"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mo881ucm80",
+                                                    "created": 1592731591550,
+                                                    "text": "基于 Java 语言的 AOP 框架"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mo8d3oilk0",
+                                                    "created": 1592731602545,
+                                                    "text": "从 Spring 2.0 开始，Spring AOP 引入了对 AspectJ 的支持"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mo8hey7r40",
+                                                    "created": 1592731611934,
+                                                    "text": "AspectJ 扩展了 Java 语言，提供了一个专门的编译器，在编译时提供横向代码的植入"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mo8o3z6uo0",
+                                    "created": 1592731626508,
+                                    "text": "术语"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mo8pd2nvc0",
+                                            "created": 1592731629235,
+                                            "text": "Joinpoint（连接点）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mo8zx7reg0",
+                                                    "created": 1592731652220,
+                                                    "text": "指那些被拦截到的点，在 Spring 中，可以被动态代理拦截目标类的方法"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mo90nkvpk0",
+                                            "created": 1592731653815,
+                                            "text": "Pointcut（切入点）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mo9booafs0",
+                                                    "created": 1592731677825,
+                                                    "text": "指要对哪些 Joinpoint 进行拦截，即被拦截的连接点"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mo9lchioo0",
+                                            "created": 1592731698856,
+                                            "text": "Advice（通知）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mo9oqh59k0",
+                                                    "created": 1592731706233,
+                                                    "text": "指拦截到 Joinpoint 之后要做的事情，即对切入点增强的内容"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mo9tzlh2o0",
+                                            "created": 1592731717668,
+                                            "text": "Target（目标）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mo9xib7680",
+                                                    "created": 1592731725330,
+                                                    "text": "指代理的目标对象"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3moa11om5k0",
+                                            "created": 1592731733032,
+                                            "text": "Weaving（植入）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3moa4fz8gw0",
+                                                    "created": 1592731740426,
+                                                    "text": "指把增强代码应用到目标上，生成代理对象的过程"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3moa89im8o0",
+                                            "created": 1592731748743,
+                                            "text": "Proxy（代理）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3moaby4hwg0",
+                                                    "created": 1592731756761,
+                                                    "text": "指生成的代理对象"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3moafbruc00",
+                                            "created": 1592731764117,
+                                            "text": "Aspect（切面）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3moag812eo0",
+                                                    "created": 1592731766067,
+                                                    "text": "切入点和通知的结合"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3moeyyrm9k0",
+                            "created": 1592732120323,
+                            "text": "Spring JDK动态代理",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3moklsa4yw0",
+                                    "created": 1592732561817,
+                                    "text": "JDK 动态代理是通过 JDK 中的 java.lang.reflect.Proxy 类实现的"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mola384680",
+                            "created": 1592732614722,
+                            "text": "Spring CGLlB动态代理",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3moll6d2g80",
+                                    "created": 1592732638856,
+                                    "text": "描述"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3molmfia000",
+                                            "created": 1592732641586,
+                                            "text": "JDK 动态代理使用起来非常简单，但是它也有一定的局限性，这是因为 JDK 动态代理必须要实现一个或多个接口，如果不希望实现接口，则可以使用 CGLIB 代理"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3molxax3x40",
+                                    "created": 1592732665253,
+                                    "text": "CGLIB（Code Generation Library）"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3momatcfu80",
+                                            "created": 1592732694665,
+                                            "text": "是一个高性能开源的代码生成包，它被许多 AOP 框架所使用，其底层是通过使用一个小而快的字节码处理框架 ASM（Java 字节码操控框架）转换字节码并生成新的类。因此 CGLIB 要依赖于 ASM 的包"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3momvd8oi00",
+                            "created": 1592732739404,
+                            "text": "Spring通知类型及使用ProxyFactoryBean创建AOP代理",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3monik0opk0",
+                                    "created": 1592732789880,
+                                    "text": "Spring 通知类型"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3monxb36ww0",
+                                            "created": 1592732821991,
+                                            "text": "通知（Advice）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3monyo9bzs0",
+                                                    "created": 1592732824965,
+                                                    "text": "就是对目标切入点进行增强的内容"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3moojdwrkw0",
+                                            "created": 1592732870051,
+                                            "text": "Spring 通知的 5 种类型"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mooqa2ddc0",
+                                                    "created": 1592732885056,
+                                                    "text": "org.springframework.aop.MethodBeforeAdvice（前置通知）"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mooww1l2w0",
+                                                            "created": 1592732899446,
+                                                            "text": "在方法之前自动执行的通知称为前置通知，可以应用于权限管理等功能"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mop2bnrxc0",
+                                                    "created": 1592732911274,
+                                                    "text": "org.springframework.aop.AfterReturningAdvice（后置通知）"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mop6kn4hc0",
+                                                            "created": 1592732920524,
+                                                            "text": "在方法之后自动执行的通知称为后置通知，可以应用于关闭流、上传文件、删除临时文件等功能"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mopbpchqg0",
+                                                    "created": 1592732931693,
+                                                    "text": "org.aopalliance.intercept.MethodInterceptor（环绕通知）"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mopcaqqbs0",
+                                                            "created": 1592732932986,
+                                                            "text": "在方法前后自动执行的通知称为环绕通知，可以应用于日志、事务管理等功能"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mopktwb9s0",
+                                                    "created": 1592732951559,
+                                                    "text": "org.springframework.aop.ThrowsAdvice（异常通知）"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mopouyhds0",
+                                                            "created": 1592732960330,
+                                                            "text": "在方法抛出异常时自动执行的通知称为异常通知，可以应用于处理异常记录日志等功能"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mops3si3k0",
+                                                    "created": 1592732967395,
+                                                    "text": "org.springframework.aop.IntroductionInterceptor（引介通知）"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mopw40oxc0",
+                                                            "created": 1592732976116,
+                                                            "text": "在目标类中添加一些新的方法和属性，可以应用于修改旧版本程序（增强类）"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mor7b9ai80",
+                            "created": 1592733078862,
+                            "text": "Spring使用AspectJ开发AOP：基于XML和基于Annotation"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3mot1zi0740",
+                            "created": 1592733223995,
+                            "text": "Spring JDBCTemplate简介",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3motjd5xbc0",
+                                    "created": 1592733261827,
+                                    "text": "JDBCTemplate 类",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3motoncg9c0",
+                                            "created": 1592733273327,
+                                            "text": "Spring 对 JDBC 支持的核心"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mottx8ufs0",
+                                            "created": 1592733284809,
+                                            "text": "提供了所有对数据库操作功能的支持"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mouiht1tc0",
+                                    "created": 1592733338295,
+                                    "text": "Spring 框架提供的JDBC支持主要由四个包组成",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mouq5pac00",
+                                            "created": 1592733354977,
+                                            "text": "core（核心包）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3movaal15s0",
+                                                    "created": 1592733398808,
+                                                    "text": "org.springframework.jdbc.core.JdbcTemplate"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3moutl2ixs0",
+                                            "created": 1592733362437,
+                                            "text": "object（对象包）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mouwpg61c0",
+                                            "created": 1592733369232,
+                                            "text": "dataSource（数据源包）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mov05k43k0",
+                                            "created": 1592733376737,
+                                            "text": "support（支持包）"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mox0ftpig0",
+                            "created": 1592733534086,
+                            "text": "Spring事务管理接口",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3moxg15i140",
+                                    "created": 1592733568027,
+                                    "text": "Spring 的事务管理",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3moxlhsegw0",
+                                            "created": 1592733579917,
+                                            "text": "基于 AOP 实现"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3moxpyhg4o0",
+                                                    "created": 1592733589634,
+                                                    "text": "AOP 以方法为单位"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mozhx14yo0",
+                                    "created": 1592733728860,
+                                    "text": "Spring 的事务属",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mozm3vllc0",
+                                            "created": 1592733737981,
+                                            "text": "传播行为"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mozmjf2ag0",
+                                            "created": 1592733738920,
+                                            "text": "隔离级别"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mozqrefmo0",
+                                            "created": 1592733748110,
+                                            "text": "只读和超时"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mp1w7mns80",
+                                    "created": 1592733916704,
+                                    "text": "三个核心接口",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mp25k16uw0",
+                                            "created": 1592733937045,
+                                            "text": "PlatformTransactionManager"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mp3e6pvf40",
+                                                    "created": 1592734034195,
+                                                    "text": "Spring 提供的平台事务管理器"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mp3jy0m6w0",
+                                                    "created": 1592734046730,
+                                                    "text": "提供了三个事务操作方法"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp3tbpkug0",
+                                                            "created": 1592734067149,
+                                                            "text": "TransactionStatus getTransaction（TransactionDefinition definition）"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp3wzrrg00",
+                                                                    "created": 1592734075134,
+                                                                    "text": "用于获取事务状态信息"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp41ccja80",
+                                                            "created": 1592734084601,
+                                                            "text": "void commit（TransactionStatus status）"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp4a0h99s0",
+                                                                    "created": 1592734103475,
+                                                                    "text": "用于提交事务"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp41x6yuo0",
+                                                            "created": 1592734085862,
+                                                            "text": "void rollback（TransactionStatus status）"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp4filx0g0",
+                                                                    "created": 1592734115455,
+                                                                    "text": "用于回滚事务"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mp291luf40",
+                                            "created": 1592733944638,
+                                            "text": "TransactionDefinition",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mp5zywrps0",
+                                                    "created": 1592734238340,
+                                                    "text": "事务定义（描述）的对象，它提供了事务相关信息获取的方法"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mp64n7mpk0",
+                                                    "created": 1592734248517,
+                                                    "text": "五个操作"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp693a0rs0",
+                                                            "created": 1592734258196,
+                                                            "text": "String getName()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp6bpt3xc0",
+                                                                    "created": 1592734263911,
+                                                                    "text": "获取事务对象名称"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp6fwj0m80",
+                                                            "created": 1592734273025,
+                                                            "text": " int getIsolationLevel()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp6gwedsg0",
+                                                                    "created": 1592734275194,
+                                                                    "text": "获取事务的隔离级别"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp6ldlk2o0",
+                                                            "created": 1592734284941,
+                                                            "text": "int getPropagationBehavior()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp6pnnvx40",
+                                                                    "created": 1592734294257,
+                                                                    "text": "获取事务的传播行为"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp6vxbvww0",
+                                                            "created": 1592734307902,
+                                                            "text": " int getTimeout()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp6zebag00",
+                                                                    "created": 1592734315459,
+                                                                    "text": "获取事务的超时时间"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp72k07280",
+                                                            "created": 1592734322334,
+                                                            "text": " boolean isReadOnly()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp75ep9xc0",
+                                                                    "created": 1592734328543,
+                                                                    "text": "获取事务是否只读"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mp2dggsyw0",
+                                            "created": 1592733954243,
+                                            "text": "TransactionStatus",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mp7qeqgd40",
+                                                    "created": 1592734374258,
+                                                    "text": "事务的状态"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp80cpcfc0",
+                                                            "created": 1592734395903,
+                                                            "text": "描述了某一时间点上事务的状态信息"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mp83oju5s0",
+                                                    "created": 1592734403149,
+                                                    "text": "六个操作"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp86wedfs0",
+                                                            "created": 1592734410154,
+                                                            "text": "void flush()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp8u8s4800",
+                                                                    "created": 1592734460969,
+                                                                    "text": "刷新事务"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp87hxgg00",
+                                                            "created": 1592734411456,
+                                                            "text": "boolean hasSavepoint()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp8x58tk80",
+                                                                    "created": 1592734467286,
+                                                                    "text": "获取是否存在保存点"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp8avb4yo0",
+                                                            "created": 1592734418796,
+                                                            "text": "boolean isCompleted()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp8ztoql40",
+                                                                    "created": 1592734473117,
+                                                                    "text": "获取事务是否完成"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp8gu96ls0",
+                                                            "created": 1592734431793,
+                                                            "text": "boolean isNewTransaction()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp92hoc3k0",
+                                                                    "created": 1592734478921,
+                                                                    "text": "获取是否是新事务"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp8jxarpk0",
+                                                            "created": 1592734438507,
+                                                            "text": "boolean isRollbackOnly()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp957lel40",
+                                                                    "created": 1592734484842,
+                                                                    "text": "获取是否回滚"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mp8o020f40",
+                                                            "created": 1592734447381,
+                                                            "text": "void setRollbackOnly()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mp97rijbs0",
+                                                                    "created": 1592734490400,
+                                                                    "text": "设置事务回滚"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mpa812nhk0",
+                            "created": 1592734569342,
+                            "text": "Spring声明式事务管理（基于XML方式实现）"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3mpal2jayg0",
+                            "created": 1592734597729,
+                            "text": "Spring声明式事务管理（基于Annotation注解方式实现）"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3mpb3sib4o0",
+                            "created": 1592734638481,
+                            "text": "SSH框架（Struts2+Spring+Hibernate）搭建整合详细步骤"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3mpcqti1eg0",
+                            "created": 1592734766971,
+                            "text": "测试SSH框架分层整合及验证事务是否有效"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3mpd37hysg0",
+                            "created": 1592734793939,
+                            "text": "SSM（Spring+Spring MVC+MyBatis）框架整合搭建详细步骤"
                         },
                         "children": []
                     }
