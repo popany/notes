@@ -515,18 +515,1171 @@
                         "data": {
                             "id": "c3lxqfmwd0o0",
                             "created": 1592656848648,
-                            "text": "Spring框架"
+                            "text": "Spring框架",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
                                 "data": {
                                     "id": "c3lxr33prjc0",
                                     "created": 1592656899731,
-                                    "text": "起源"
+                                    "text": "Spring 框架是构建高效 Java 研发体系的一种最佳实践"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mpfv64bz40",
+                                    "created": 1592735011534,
+                                    "text": "Spring IoC",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mpgxvr8aw0",
+                                            "created": 1592735095802,
+                                            "text": "IoC 两种方式",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mph19308o0",
+                                                    "created": 1592735103138,
+                                                    "text": "DI（Dependency Injection）"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mph8ej9lc0",
+                                                    "created": 1592735118705,
+                                                    "text": "DL (Dependency Lookup)"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpicci44w0",
+                                            "created": 1592735205654,
+                                            "text": "Spring IoC 容器的依赖注入可以分为两个阶段",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mpishbwtc0",
+                                                    "created": 1592735240774,
+                                                    "text": "收集和注册"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mpj65wnjs0",
+                                                            "created": 1592735270558,
+                                                            "text": "构建和收集 bean 定义"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mpjjqcnjs0",
+                                                            "created": 1592735300093,
+                                                            "text": "这一阶段工作完成后，我们可以先暂且认为 IoC 容器中充斥着一个个独立的 bean，它们之间没有任何关系"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mpivlil3c0",
+                                                    "created": 1592735247557,
+                                                    "text": "分析和组装"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mpk0fzz4g0",
+                                                            "created": 1592735336472,
+                                                            "text": "分析已经在 IoC 容器之中的 bean，然后根据它们之间的依赖关系先后组装它们"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mpkclzw1s0",
+                                                            "created": 1592735362956,
+                                                            "text": "如果 IoC 容器发现某个 bean 依赖另一个 bean，它就会将这另一个 bean 注入给依赖它的那个 bean，直到所有 bean 的依赖都注入完成，所有 bean 都“整装待发”，整个 IoC 容器的工作即算完成"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mpklx80aw0",
+                                                            "created": 1592735383226,
+                                                            "text": "分析和组装的依据"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mpku7mmw00",
+                                                                    "created": 1592735401269,
+                                                                    "text": "Spring 框架最早是通过 XML 配置文件的形式来描述 bean 与 bean 之间的关系的，随着 Java 业界研发技术和理念的转变，基于 Java 代码和 Annotation 元信息的描述方式也日渐兴盛（比如 @Autowired 和 @Inject），但不管使用哪种方式，都只是为了简化绑定逻辑描述的各种“表象”，最终都是为本阶段的最终目的服务"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mplg2dbuw0",
+                                    "created": 1592735448841,
+                                    "text": "Spring JavaConfig和常见Annotation",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mpmbn2dgw0",
+                                            "created": 1592735517572,
+                                            "text": "JavaConfig 项目",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mpm66svjs0",
+                                                    "created": 1592735505705,
+                                                    "text": "基于 Java 代码和 Annotation 元信息的依赖关系绑定描述方式"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mpmn0yy8w0",
+                                                    "created": 1592735542358,
+                                                    "text": "基于 JavaConfig 方式的依赖关系绑定描述基本上映射了最早的基于 XML 的配置方式"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpohz9xfk0",
+                                            "created": 1592735688100,
+                                            "text": "基于 JavaConfig 的配置方式",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mponnot4g0",
+                                                    "created": 1592735700460,
+                                                    "text": "任何一个标注了 @Configuration 的 Java 类定义都是一个 JavaConfig 配置类"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mpp2p7bvc0",
+                                                    "created": 1592735733203,
+                                                    "text": "任何一个标注了 @Bean 的方法，其返回值将作为一个 bean 定义注册到 Spring 的 IoC 容器，方法名将默认成为该 bean 定义的 id"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mpr76osyo0",
+                            "created": 1592735899696,
+                            "text": "SpringBoot是什么？SpringBoot的优缺点有哪些？",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mps2vvq0g0",
+                                    "created": 1592735968699,
+                                    "text": "Spring Boot 核心功能",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mpsij3tk00",
+                                            "created": 1592736002755,
+                                            "text": "独立运行的 Spring 项目"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mpsp972480",
+                                                    "created": 1592736017393,
+                                                    "text": "Spring Boot 可以以 jar 包的形式独立运行，运行一个 Spring Boot 项目只需通过 java–jar xx.jar 来运行"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpstp18kg0",
+                                            "created": 1592736027058,
+                                            "text": "内嵌 Servlet 容器"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mpsz870i80",
+                                                    "created": 1592736039101,
+                                                    "text": "Spring Boot 可选择内嵌 Tomcat、Jetty 或者 Undertow，这样我们无须以 war 包形式部署项目"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpt3gjup40",
+                                            "created": 1592736048313,
+                                            "text": "提供 starter 简化 Maven 配置"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mptgegzk80",
+                                                    "created": 1592736076486,
+                                                    "text": "Spring 提供了一系列的 starter pom 来简化 Maven 的依赖加载，例如，当你使用了spring-boot-starter-web 时，会自动加入如图 1 所示的依赖包"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mptk1an1c0",
+                                            "created": 1592736084396,
+                                            "text": "自动配置 Spring"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mptsuq1cw0",
+                                                    "created": 1592736103590,
+                                                    "text": "Spring Boot 会根据在类路径中的 jar 包、类，为 jar 包里的类自动配置 Bean，这样会极大地减少我们要使用的配置。当然，Spring Boot 只是考虑了大多数的开发场景，并不是所有的场景，若在实际开发中我们需要自动配置 Bean，而 Spring Boot 没有提供支持，则可以自定义自动配置"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mptzrcxuw0",
+                                            "created": 1592736118624,
+                                            "text": "准生产的应用监控"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mpu3buu5s0",
+                                                    "created": 1592736126393,
+                                                    "text": "Spring Boot 提供基于 http、ssh、telnet 对运行时的项目进行监控"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpu8aqmzk0",
+                                            "created": 1592736137210,
+                                            "text": "无代码生成和 xml 配置"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mpui2w3xs0",
+                                                    "created": 1592736158503,
+                                                    "text": "Spring Boot 的神奇的不是借助于代码生成来实现的，而是通过条件注解来实现的，这是 Spring 4.x 提供的新特性。Spring 4.x 提倡使用 Java 配置和注解配置组合，而 Spring Boot 不需要任何 xml 配置即可实现 Spring 的所有配置"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mpurijnrk0",
+                                    "created": 1592736179041,
+                                    "text": "Spring Boot的优缺点",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mpuvu50zs0",
+                                            "created": 1592736188449,
+                                            "text": "优点"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mpux12tbc0",
+                                                    "created": 1592736191045,
+                                                    "text": "快速构建项目"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mpv1xnj540",
+                                                    "created": 1592736201722,
+                                                    "text": "对主流开发框架的无配置集成"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mpv5p5nmo0",
+                                                    "created": 1592736209915,
+                                                    "text": "项目可独立运行，无须外部依赖Servlet容器"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mpv9o306g0",
+                                                    "created": 1592736218559,
+                                                    "text": "提供运行时的应用监控"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mpvd5q8480",
+                                                    "created": 1592736226155,
+                                                    "text": "极大地提高了开发、部署效率"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mpvh0b6cg0",
+                                                    "created": 1592736234534,
+                                                    "text": "与云计算的天然集成"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpvonbh3c0",
+                                            "created": 1592736251163,
+                                            "text": "缺点"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mpvs5dj4w0",
+                                                    "created": 1592736258785,
+                                                    "text": " 版本迭代速度很快，一些模块改动很大"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mpvsqwtmw0",
+                                                    "created": 1592736260089,
+                                                    "text": "由于不用自己做配置，报错时很难定位"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mpw1xfvjc0",
+                                                    "created": 1592736280073,
+                                                    "text": "网上现成的解决方案比较少"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mpwgf90ag0",
+                            "created": 1592736311625,
+                            "text": "SpringBoot快速搭建",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mqetwqg2g0",
+                                    "created": 1592737751536,
+                                    "text": "SpringBoot 是 Spring 框架对“约定优先于配置（Convention Over Configuration）”理念的最佳实践的产物"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mqf6dq2p40",
+                                    "created": 1592737778684,
+                                    "text": "一个典型的 SpringBoot 应用本质上其实就是一个基于 Spring 框架的应用"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mqutqlgnc0",
+                                    "created": 1592739004991,
+                                    "text": "快速搭建 SpringBoot 应用",
+                                    "hyperlink": "https://start.spring.io/",
+                                    "hyperlinkTitle": ""
                                 },
                                 "children": []
                             }
                         ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mpxh6ayu80",
+                            "created": 1592736391625,
+                            "text": "SpringBoot中@SpringBootApplication注解的三体结构解析",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mpxu4l9740",
+                                    "created": 1592736419820,
+                                    "text": "@SpringBootApplication 是一个“三体”结构，实际上它是一个复合 Annotation"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mpy0a8tfk0",
+                                            "created": 1592736433222,
+                                            "text": "@Target(ElementType.TYPE)"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpy0a9kfc0",
+                                            "created": 1592736433224,
+                                            "text": "@Retention(RetentionPolicy.RUNTIME)"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpy0aa7540",
+                                            "created": 1592736433225,
+                                            "text": "@Documented"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpy0aafaw0",
+                                            "created": 1592736433225,
+                                            "text": "@Inherited"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpy0aazyw0",
+                                            "created": 1592736433226,
+                                            "text": "@Configuration"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpy0aaydk0",
+                                            "created": 1592736433226,
+                                            "text": "@EnableAutoConfiguration"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpy0ablug0",
+                                            "created": 1592736433227,
+                                            "text": "@ComponentScanpublic"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpy0abc2w0",
+                                            "created": 1592736433228,
+                                            "text": "@interface"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mpza7fvm00",
+                                    "created": 1592736533185,
+                                    "text": "对于 SpringBoot 应用来说，重要的只有三个 Annotation"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mpznu4saw0",
+                                            "created": 1592736562855,
+                                            "text": "@Configuration"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mq0lala680",
+                                                    "created": 1592736635684,
+                                                    "text": "就是 JavaConfig 形式的 Spring IoC 容器的配置类使用的那个 @Configuration"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpznu5mu80",
+                                            "created": 1592736562856,
+                                            "text": "@EnableAutoConfiguration"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mq1ybhmx40",
+                                                    "created": 1592736742401,
+                                                    "text": "复合 Annotation"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mq22tz1fs0",
+                                                            "created": 1592736752225,
+                                                            "text": "@Target(ElementType.TYPE)"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mq22u02280",
+                                                            "created": 1592736752227,
+                                                            "text": "@Retention(RetentionPolicy.RUNTIME)"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mq22u0cy80",
+                                                            "created": 1592736752228,
+                                                            "text": "@Documented"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mq22u11u80",
+                                                            "created": 1592736752229,
+                                                            "text": "@Inherited"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mq22u0xcw0",
+                                                            "created": 1592736752229,
+                                                            "text": "@AutoConfigurationPackage"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mq22u21e80",
+                                                            "created": 1592736752230,
+                                                            "text": "@Import(EnableAutoConfigurationImportSelector.class)"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mq3vo0i4g0",
+                                                    "created": 1592736893356,
+                                                    "text": "其中，最关键的要属 @Import（EnableAutoConfigurationImportSelector.class），借助 EnableAutoConfigurationImportSelector，@EnableAutoConfiguration 可以帮助 SpringBoot 应用将所有符合条件的 @Configuration 配置都加载到当前 SpringBoot 创建并使用的 IoC 容器"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mq44m6pu00",
+                                                    "created": 1592736912837,
+                                                    "text": "借助于 Spring 框架原有的一个工具类：SpringFactoriesLoader 的支持，@EnableAutoConfiguration 可以“智能”地自动配置功效才得以大功告成"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mpznu65yw0",
+                                            "created": 1592736562857,
+                                            "text": "@ComponentScan"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mqah8s4f40",
+                                                    "created": 1592737410509,
+                                                    "text": "@ComponentScan 的功能其实就是自动扫描并加载符合条件的组件或 bean 定义，最终将这些 bean 定义加载到容器中。加载 bean 定义到 Spring 的 IoC 容器，我们可以手工单个注册，不一定非要通过批量的自动扫描完成，所以说 @ComponentScan 是可有可无的"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mqb3j0gvc0",
+                            "created": 1592737459017,
+                            "text": "SpringApplication.run执行流程详解",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mqbcgc6iw0",
+                                    "created": 1592737478446,
+                                    "text": "SpringApplication 将一个典型的 Spring 应用启动的流程“模板化”",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mqx6zo87s0",
+                                            "created": 1592739190566,
+                                            "text": "SpringApplication 在合适的流程结点开放了一系列不同类型的扩展点，我们可以通过这些扩展点对 SpringBoot 程序的启动和关闭过程进行扩展"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mqytmkk340",
+                                    "created": 1592739318204,
+                                    "text": "深入探索 SpringApplication 执行流程",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mqz3lkujc0",
+                                            "created": 1592739339912,
+                                            "text": " SpringApplication 的静态 run 方法"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mqzh4rbcg0",
+                                                    "created": 1592739369370,
+                                                    "text": "这个方法里面首先需要创建一个 SpringApplication 对象实例"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mqzvz3tow0",
+                                                            "created": 1592739401680,
+                                                            "text": "SpringApplication 实例初始化"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3mr0dk2nhc0",
+                                                                    "created": 1592739439953,
+                                                                    "text": "根据 classpath 里面是否存在某个特征类（org.springframework.web.context.ConfigurableWebApplicationContext）"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mr0mdpuhc0",
+                                                                            "created": 1592739459160,
+                                                                            "text": "决定是否应该创建一个为 Web 应用使用的 ApplicationContext 类型"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3mr0nxdzko0",
+                                                                            "created": 1592739462526,
+                                                                            "text": "还是应该创建一个标准 Standalone 应用使用的 ApplicationContext 类型"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mr13vjv340",
+                                                            "created": 1592739497243,
+                                                            "text": "使用 SpringFactoriesLoader 在应用的 classpath 中查找并加载所有可用的 ApplicationContextInitializer"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mr1b8w51k0",
+                                                            "created": 1592739513288,
+                                                            "text": "使用 SpringFactoriesLoader 在应用的 classpath 中查找并加载所有可用的 ApplicationListener"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mr1g6q3480",
+                                                            "created": 1592739524040,
+                                                            "text": "推断并设置 main 方法的定义类"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mqzlusdy00",
+                                                    "created": 1592739379651,
+                                                    "text": "然后调用这个创建好的 SpringApplication 的实例 run 方法"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mr2qtrqkg0",
+                                            "created": 1592739625566,
+                                            "text": "执行 run 方法的逻辑"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mr3u3yk940",
+                                                    "created": 1592739711077,
+                                                    "text": "遍历执行所有通过 SpringFactoriesLoader 可以查找到并加载的 SpringApplicationRunListener，调用它们的 started() 方法"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mr45eci680",
+                                            "created": 1592739735649,
+                                            "text": "创建并配置当前 SpringBoot 应用将要使用的 Environment（包括配置要使用的 PropertySource 以及 Profile）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mr4de9s740",
+                                            "created": 1592739753059,
+                                            "text": "遍历调用所有 SpringApplicationRunListener 的 environmentPrepared() 的方法"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mr4ro8gwg0",
+                                            "created": 1592739784136,
+                                            "text": "如果 SpringApplication的showBanner 属性被设置为 true，则打印 banner（SpringBoot 1.3.x版本，这里应该是基于 Banner.Mode 决定 banner 的打印行为）"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mr55cth400",
+                                            "created": 1592739813921,
+                                            "text": "根据用户是否明确设置了applicationContextClass 类型以及初始化阶段的推断结果，决定该为当前 SpringBoot 应用创建什么类型的 ApplicationContext 并创建完成，然后根据条件决定是否添加 ShutdownHook，决定是否使用自定义的 BeanNameGenerator，决定是否使用自定义的 ResourceLoader，当然，最重要的，将之前准备好的 Environment 设置给创建好的 ApplicationContext 使用"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mr5ff9hew0",
+                                            "created": 1592739835837,
+                                            "text": "ApplicationContext 创建好之后，SpringApplication 会再次借助 Spring-FactoriesLoader，查找并加载 classpath 中所有可用的 ApplicationContext-Initializer，然后遍历调用这些 ApplicationContextInitializer 的 initialize（applicationContext）方法来对已经创建好的 ApplicationContext 进行进一步的处理"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mr5mrmmhk0",
+                                            "created": 1592739851822,
+                                            "text": "遍历调用所有 SpringApplicationRunListener 的 contextPrepared()"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mr5wcs9qw0",
+                                            "created": 1592739872692,
+                                            "text": "最核心的一步，将之前通过 @EnableAutoConfiguration 获取的所有配置以及其他形式的 IoC 容器配置加载到已经准备完毕的 ApplicationContext"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mr64ey8o00",
+                                            "created": 1592739890237,
+                                            "text": "遍历调用所有 SpringApplicationRunListener 的 contextLoaded() 方法"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mr6ab5x7c0",
+                                            "created": 1592739903069,
+                                            "text": "调用 ApplicationContext 的 refresh() 方法"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mr6g31wbs0",
+                                            "created": 1592739915639,
+                                            "text": "查找当前 ApplicationContext 中是否注册有 CommandLineRunner，如果有，则遍历执行它们"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3mr6nshuds0",
+                                            "created": 1592739932415,
+                                            "text": "正常情况下，遍历执行 SpringApplicationRunListener 的 finished() "
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mr7bs9jg80",
+                                    "created": 1592739984644,
+                                    "text": "SpringApplicationRunListener",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mr88xfuw00",
+                                            "created": 1592740056791,
+                                            "text": "概述",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3mr7o3bxeg0",
+                                                    "created": 1592740011434,
+                                                    "text": "是一个只有 SpringBoot 应用的 main 方法执行过程中接收不同执行时点事件通知的监听者"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mr87da1dk0",
+                                                    "created": 1592740053395,
+                                                    "text": "对于我们来说，基本没什么常见的场景需要自己实现一个 SpringApplicationRunListener"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3mr8ty8fd40",
+                                                    "created": 1592740102551,
+                                                    "text": "即使 SpringBoot 默认也只是实现了一个 org.spring-framework.boot.context.event.EventPublishingRunListener"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mr8zr1c1k0",
+                                                            "created": 1592740115177,
+                                                            "text": "用于在 SpringBoot 启动的不同时点发布不同的应用事件类型（ApplicationEvent）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3mr93yhs5s0",
+                                                            "created": 1592740124335,
+                                                            "text": "如果有哪些 ApplicationListener 对这些应用事件感兴趣，则可以接收并处理"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mrawxyrhs0",
+                                    "created": 1592740265794,
+                                    "text": "ApplicationListener",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mu3kpqdz40",
+                                            "created": 1592748153955,
+                                            "text": "ApplicationListener 其实是老面孔，属于 Spring 框架对 Java 中实现的监听者模式的一种框架实现，这里唯一值得着重强调的是，对于初次接触 SpringBoot，但对 Spring 框架本身又没有过多接触的开发者来说，可能会将这个名字与 SpringApplicationRunListener 混淆"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mu4ma44y80",
+                                    "created": 1592748235728,
+                                    "text": "ApplicationContextInitializer"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mu4rnnemg0",
+                                            "created": 1592748247431,
+                                            "text": "ApplicationContextInitializer 也是 Spring 框架原有的概念，这个类的主要目的就是在 ConfigurableApplicationContext 类型（或者子类型）的 ApplicationContext 做 refresh 之前，允许我们对 ConfigurableApplicationContext 的实例做进一步的设置或者处理"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mu53a4nw80",
+                                    "created": 1592748272734,
+                                    "text": "CommandLineRunner"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mu58kgek00",
+                                            "created": 1592748284243,
+                                            "text": "CommandLineRunner 是很好的扩展接口，不是 Spring 框架原有的“宝贝”，它属于 SpringBoot 应用特定的回调扩展接口"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mu73ny2e80",
+                            "created": 1592748430298,
+                            "text": "Spring Boot的自动配置",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mu7l4gclk0",
+                                    "created": 1592748468302,
+                                    "text": "基于条件的自动配置"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mu7wm53kw0",
+                                            "created": 1592748493316,
+                                            "text": "基于条件的自动配置来源于 Spring 框架中“基于条件的配置”这一特性"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mu8j9a6140",
+                                    "created": 1592748542604,
+                                    "text": "调整自动配置的顺序"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3mu95drsfc0",
+                                            "created": 1592748590765,
+                                            "text": "在实现自动配置的过程中，除了可以提供基于条件的配置，我们还可以对当前要提供的配置或者组件的加载顺序进行相应调整，从而让这些配置或者组件之间的依赖分析和组装可以顺利完成"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mu9hda1m00",
+                            "created": 1592748616857,
+                            "text": "Spring-Boot-Starter常用依赖模块详解",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mua8lt8m80",
+                                    "created": 1592748676146,
+                                    "text": "SpringBoot 微框架从两个主要层面影响 Spring 社区的开发者们"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3muahzvveo0",
+                                            "created": 1592748696588,
+                                            "text": " 基于 Spring 框架的“约定优先于配置（COC）”理念以及最佳实践之路"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3muasfhypk0",
+                                            "created": 1592748719300,
+                                            "text": " 提供了针对日常企业应用研发各种场景的 spring-boot-starter 自动配置依赖模块，如此多“开箱即用”的依赖模块，使得开发各种场景的 Spring 应用更加快速和高效"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mucnuck3k0",
+                                    "created": 1592748866042,
+                                    "text": "SpringBoot 提供的这些“开箱即用”的依赖模块都约定以 spring-boot-starter- 作为命名的前缀，并且皆位于 org.springframework.boot 包或者命名空间下（虽然 SpringBoot 的官方参考文档中提到不建议大家使用 spring-boot-starter- 来命名自己写的类似的自动配置依赖模块，但实际上，配合不同的 groupId，这不应该是什么问题）"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mwhusm6880",
+                            "created": 1592754915215,
+                            "text": "spring-boot-starter-logging和spring-boot-starter-web",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mwiellqug0",
+                                    "created": 1592754958327,
+                                    "text": "应用日志和spring-boot-starter-logging"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3mwk0ucrtk0",
+                                    "created": 1592755085109,
+                                    "text": "快速 Web 应用开发与 spring-boot-starter-web"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mwl8iw9mo0",
+                            "created": 1592755180195,
+                            "text": "spring-boot-starter-web和快速Web应用开发"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3mwlsruuio0",
+                            "created": 1592755224272,
+                            "text": "spring-boot-starter-jdbc与数据访问",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3mwmh14y280",
+                                    "created": 1592755277076,
+                                    "text": "若想 SpringBoot 为我们自动配置数据访问的基础设施，那么，我们需要直接或者间接地依赖 spring-jdbc，一旦 spring-jdbc 位于我们 SpringBoot 应用的 classpath，即会触发数据访问相关的自动配置行为，最简单的做法就是把 spring-boot-starter-jdbc 加为应用的依赖"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3mwow2ji140",
+                            "created": 1592755466541,
+                            "text": "spring-boot-starter-aop及其使用场景说明"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3mwptuotwo0",
+                            "created": 1592755540077,
+                            "text": "spring-boot-starter-security与应用安全"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3mwq7t65fk0",
+                            "created": 1592755570460,
+                            "text": "spring-boot-starter-actuator与应用监控"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3mwqpuchxc0",
+                            "created": 1592755609713,
+                            "text": "创建基于Dubbo框架的SpringBoot微服务"
+                        },
+                        "children": []
                     }
                 ]
             }

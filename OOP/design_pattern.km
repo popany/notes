@@ -1,0 +1,24 @@
+{
+    "root": {
+        "data": {
+            "id": "c3mui12z4d40",
+            "created": 1592749286682,
+            "text": "Design Pattern"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3muibdck080",
+                    "created": 1592749309078,
+                    "text": "Java设计模式：23种设计模式全面解析",
+                    "hyperlink": "http://c.biancheng.net/design_pattern/",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
