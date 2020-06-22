@@ -1,0 +1,371 @@
+{
+    "root": {
+        "data": {
+            "id": "c3nhucde1yo0",
+            "created": 1592815137155,
+            "text": "vscode"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3nhue8vx6g0",
+                    "created": 1592815141236,
+                    "text": "java"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3nhv8u4f740",
+                            "created": 1592815207823,
+                            "text": "运行环境搭建"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3nhvb0yv7k0",
+                                    "created": 1592815212591,
+                                    "text": "插件安装"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3nhwcpw7kw0",
+                                            "created": 1592815294639,
+                                            "text": "Language Support for Java(TM) by Red Hat"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3nhx9vqw0g0",
+                                            "created": 1592815366827,
+                                            "text": "Debugger for Java"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3nhxb2t3o80",
+                                            "created": 1592815369431,
+                                            "text": "Java Test Runner"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3nhxwyhwc80",
+                                            "created": 1592815417059,
+                                            "text": "Maven for Java"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3ni5bkp0ds0",
+                            "created": 1592815997425,
+                            "text": "java程序开发"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3ni5llc7ls0",
+                                    "created": 1592816019232,
+                                    "text": "不创建项目"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3nplrhanag0",
+                                            "created": 1592837033644,
+                                            "text": "编辑 *.java 文件"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3nplwclok80",
+                                            "created": 1592837044244,
+                                            "text": "F5 运行"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3ni62y6jcw0",
+                                    "created": 1592816057015,
+                                    "text": "手动创建项目",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3npmb5hank0",
+                                            "created": 1592837076466,
+                                            "text": "创建目录"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3npmpn4so00",
+                                                    "created": 1592837108008,
+                                                    "text": "src"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3npmupjy1s0",
+                                                    "created": 1592837119038,
+                                                    "text": "target"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3npmlsrcew0",
+                                            "created": 1592837099641,
+                                            "text": "创建文件"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3npo3vw89s0",
+                                                    "created": 1592837217377,
+                                                    "text": ".project"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3npollhx080",
+                                                            "created": 1592837255930,
+                                                            "text": "vscode会识别该项目为eclipse项目"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3npo7ntf7s0",
+                                                    "created": 1592837225596,
+                                                    "text": ".classpath"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3npp1b1srk0",
+                                                            "created": 1592837290127,
+                                                            "text": "配置了源码目录以及编译输出目录等"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3nppatsk0o0",
+                                                            "created": 1592837310851,
+                                                            "text": "对于外部导入的包，也是配置在.classpath文件中的，只要添加一行（或多行）配置：\n<classpathentry kind=\"lib\" path=\"lib的地址\"/>"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3npqbvxp3s0",
+                                            "created": 1592837391522,
+                                            "text": "launch.json文件说明"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3npqr7mpgo0",
+                                                    "created": 1592837424881,
+                                                    "text": "cwd"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3npqx143fs0",
+                                                            "created": 1592837437547,
+                                                            "text": "配置javac命令运行的根目录，这里应指定编译后的.class文件所在的根目录"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3npr2lrndk0",
+                                                    "created": 1592837449680,
+                                                    "text": "sourcePaths"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3nprbto34g0",
+                                                            "created": 1592837469749,
+                                                            "text": "配置源码目录，classPaths配置编译后的.class目录"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3nprfjpa600",
+                                                    "created": 1592837477853,
+                                                    "text": "mainClass"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3nprl2pzcg0",
+                                                            "created": 1592837489887,
+                                                            "text": "配置要运行的主类文件"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3nprm8rixk0",
+                                                    "created": 1592837492430,
+                                                    "text": "args"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3nprsd9ko80",
+                                                            "created": 1592837505762,
+                                                            "text": "是运行class文件需要添加的参数，根据需要配置即可"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3ni69ovfm00",
+                                    "created": 1592816071689,
+                                    "text": "使用 Maven 创建项目",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3npudedy3s0",
+                                            "created": 1592837708271,
+                                            "text": "安装 maven",
+                                            "hyperlink": null,
+                                            "hyperlinkTitle": null
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3nq3ssu7og0",
+                                                    "created": 1592838447074,
+                                                    "text": "download",
+                                                    "hyperlink": "http://maven.apache.org/download.cgi",
+                                                    "hyperlinkTitle": ""
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3nq3xqc4tk0",
+                                                    "created": 1592838457807,
+                                                    "text": "install",
+                                                    "hyperlink": "http://maven.apache.org/install.html",
+                                                    "hyperlinkTitle": ""
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3nqowfmxeg0",
+                                                    "created": 1592840100630,
+                                                    "text": "配置"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3nqoy13m9c0",
+                                                            "created": 1592840104105,
+                                                            "text": "MAVEN_HOME"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3nqqlr561k0",
+                                                                    "created": 1592840234110,
+                                                                    "text": "C:\\Program Files\\apache-maven-3.6.3"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3nqrhyaosw0",
+                                                            "created": 1592840304199,
+                                                            "text": "配置MAVEN镜像路径为阿里镜像"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3nqrjh9lvs0",
+                                                                    "created": 1592840307523,
+                                                                    "text": "编辑 %MAVEN_HOME%\\conf\\settings.xml"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3nq5megl4w0",
+                                            "created": 1592838589872,
+                                            "text": "Ctrl + Shift + P"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3nr94pbmeo0",
+                                                    "created": 1592841685914,
+                                                    "text": "Maven: Create Maven Project"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

@@ -33,7 +33,7 @@
 
 ## Library
 
-[Awesome C++](https://cpp.libhunt.com/), A curated list of awesome C/C++ frameworks, libraries, resources, and shiny things 
+[Awesome C++](https://cpp.libhunt.com/), A curated list of awesome C/C++ frameworks, libraries, resources, and shiny things
 
 ### Database Access Library
 
