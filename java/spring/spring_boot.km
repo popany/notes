@@ -12,7 +12,8 @@
                     "created": 1592531198166,
                     "text": "Spring Boot框架入门教程（快速学习版）",
                     "hyperlink": "http://c.biancheng.net/spring_boot/",
-                    "hyperlinkTitle": ""
+                    "hyperlinkTitle": "",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -1685,7 +1686,7 @@
             }
         ]
     },
-    "template": "default",
+    "template": "right",
     "theme": "fresh-blue",
     "version": "1.4.43"
 }

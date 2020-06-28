@@ -1,0 +1,39 @@
+{
+    "root": {
+        "data": {
+            "id": "c3scu5pj5rc0",
+            "created": 1593308816885,
+            "text": "Big Data"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3scu9t6r6w0",
+                    "created": 1593308825813,
+                    "text": "framework"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3scwmmpgaw0",
+                            "created": 1593309010448,
+                            "text": "Flink"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3scwno1d680",
+                            "created": 1593309012705,
+                            "text": "Spark"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

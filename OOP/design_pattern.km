@@ -12,7 +12,11 @@
                     "created": 1592749309078,
                     "text": "Java设计模式：23种设计模式全面解析",
                     "hyperlink": "http://c.biancheng.net/design_pattern/",
-                    "hyperlinkTitle": ""
+                    "hyperlinkTitle": "",
+                    "layout_mind_offset": {
+                        "x": -22.00000062584877,
+                        "y": 0
+                    }
                 },
                 "children": [
                     {
@@ -227,7 +231,7 @@
                             "id": "c3mxyq5sifs0",
                             "created": 1592759058429,
                             "text": "GoF 的 23 种设计模式的分类和功能",
-                            "expandState": "collapse"
+                            "expandState": "expand"
                         },
                         "children": [
                             {
@@ -242,7 +246,8 @@
                                         "data": {
                                             "id": "c3mxz2eqqtc0",
                                             "created": 1592759085091,
-                                            "text": "根据目的来分"
+                                            "text": "根据目的来分",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -302,7 +307,8 @@
                                         "data": {
                                             "id": "c3mxzbkwq5c0",
                                             "created": 1592759105055,
-                                            "text": "根据作用范围来分"
+                                            "text": "根据作用范围来分",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -352,6 +358,1296 @@
                             "text": "UML中的类图及类图之间的关系"
                         },
                         "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3ok0vvlgeo0",
+                            "created": 1592922851976,
+                            "text": "面向对象设计原则",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3ok0wvvrb40",
+                                    "created": 1592922854170,
+                                    "text": "开闭原则"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3ok149rbz40",
+                                    "created": 1592922870246,
+                                    "text": "里氏替换原则"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3ok1bjpe000",
+                                    "created": 1592922886085,
+                                    "text": "依赖倒置原则"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3ok1gjezmg0",
+                                    "created": 1592922896952,
+                                    "text": "单一职责原则"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3ok1kmvnxc0",
+                                    "created": 1592922905868,
+                                    "text": "接口隔离原则"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3ok1r7zfdk0",
+                                    "created": 1592922920205,
+                                    "text": "合成复用原则"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3ok2nvjlu00",
+                            "created": 1592922991287,
+                            "text": "创建型模式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3ok34qbekw0",
+                                    "created": 1592923027976,
+                                    "text": "作用"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3ok3sxm8dc0",
+                                            "created": 1592923080660,
+                                            "text": "将对象的创建与使用分离"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ok4374bmw0",
+                                            "created": 1592923103003,
+                                            "text": "降低系统的耦合度"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ok46raxnk0",
+                                                    "created": 1592923110753,
+                                                    "text": "使用者不需要关注对象的创建细节"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3ok35uuoq00",
+                                    "created": 1592923030427,
+                                    "text": "分类"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3ok4jjdfxc0",
+                                            "created": 1592923138572,
+                                            "text": "单例（Singleton）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ok4pm7kkg0",
+                                                    "created": 1592923151804,
+                                                    "text": "某个类只能生成一个实例，该类提供了一个全局访问点供外部获取该实例，其拓展是有限多例模式"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ok4kfbo4g0",
+                                            "created": 1592923140504,
+                                            "text": " 原型（Prototype）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ok52fqq000",
+                                                    "created": 1592923179711,
+                                                    "text": "将一个对象作为原型，通过对其进行复制而克隆出多个和原型类似的新实例"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ok58dhlr40",
+                                            "created": 1592923192636,
+                                            "text": "工厂方法（FactoryMethod）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ok5j5mja00",
+                                                    "created": 1592923216105,
+                                                    "text": "定义一个用于创建产品的接口，由子类决定生产什么产品"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ok5oqm1vc0",
+                                            "created": 1592923228258,
+                                            "text": " 抽象工厂（AbstractFactory）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ok5ty19ag0",
+                                                    "created": 1592923239591,
+                                                    "text": "提供一个创建产品族的接口，其每个子类可以生产一系列相关的产品"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ok62t9mfk0",
+                                            "created": 1592923258893,
+                                            "text": "建造者（Builder）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ok6c1prw00",
+                                                    "created": 1592923278995,
+                                                    "text": "将一个复杂对象分解成多个相对简单的部分，然后根据不同需要分别创建它们，最后构建成该复杂对象"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3ok6wowgrc0",
+                            "created": 1592923323933,
+                            "text": "结构型模式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3ok70mp4o80",
+                                    "created": 1592923332507,
+                                    "text": "作用"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3ok84cf5q80",
+                                            "created": 1592923418957,
+                                            "text": "将类或对象按某种布局组成更大的结构"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3ok74b91kw0",
+                                    "created": 1592923340522,
+                                    "text": "分类"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3ok8zxk2kg0",
+                                            "created": 1592923487715,
+                                            "text": " 代理（Proxy）模式",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okk8wvguo0",
+                                                    "created": 1592924369271,
+                                                    "text": "概要",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3oka8zg6140",
+                                                            "created": 1592923585784,
+                                                            "text": "为某对象提供一种代理以控制对该对象的访问。即客户端通过代理间接地访问该对象，从而限制、增强或修改该对象的一些特性"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3okj1pony00",
+                                                    "created": 1592924275234,
+                                                    "text": "用法"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3okj3ezcns0",
+                                                            "created": 1592924278940,
+                                                            "text": "访问对象不适合或者不能直接引用目标对象，代理对象作为访问对象和目标对象之间的中介"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3oklurp62g0",
+                                                    "created": 1592924495211,
+                                                    "text": "优缺点",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3okk39ww3k0",
+                                                            "created": 1592924356999,
+                                                            "text": "优点"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3okklcarls0",
+                                                                    "created": 1592924396324,
+                                                                    "text": "保护目标对象"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3okkm3rys00",
+                                                                    "created": 1592924397986,
+                                                                    "text": "扩展目标对象的功能"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3okkpvh8e80",
+                                                                    "created": 1592924406191,
+                                                                    "text": "将客户端与目标对象分离"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3okl6dtimw0",
+                                                            "created": 1592924442129,
+                                                            "text": "缺点"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3okl95prk00",
+                                                                    "created": 1592924448169,
+                                                                    "text": "影响性能"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3oklluwbao0",
+                                                                    "created": 1592924475813,
+                                                                    "text": "增加系统复杂度"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3okmoby98w0",
+                                                    "created": 1592924559562,
+                                                    "text": "实现"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3okmp9ua8o0",
+                                                            "created": 1592924561611,
+                                                            "text": "Subject 类"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3okq69x32o0",
+                                                                    "created": 1592924833714,
+                                                                    "text": "抽象类"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3oksqozakg0",
+                                                                    "created": 1592925034888,
+                                                                    "text": "声明真实类与代理类实现的方法"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3okph58ne00",
+                                                            "created": 1592924779011,
+                                                            "text": "Real Subject 类"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3oks2bwzdk0",
+                                                                    "created": 1592924981856,
+                                                                    "text": "代理类内部引用"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3okpm48luw0",
+                                                            "created": 1592924789835,
+                                                            "text": "Proxy 类"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3okt0g376o0",
+                                                                    "created": 1592925056120,
+                                                                    "text": "定义与真实类相同的接口"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3oktcabme80",
+                                                                    "created": 1592925081891,
+                                                                    "text": "内部含有对真实类的引用"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3oktr4tg9k0",
+                                                                    "created": 1592925114210,
+                                                                    "text": "可以访问、控制或扩展真实类的功能"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ok90inauw0",
+                                            "created": 1592923488990,
+                                            "text": " 适配器（Adapter）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3oli6z86fk0",
+                                                    "created": 1592927029441,
+                                                    "text": "概要",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3okan4olww0",
+                                                            "created": 1592923616576,
+                                                            "text": "将一个类的接口转换成客户希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的那些类能一起工作"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3oli7wjtvk0",
+                                                    "created": 1592927031456,
+                                                    "text": "用法"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3olmof19n40",
+                                                            "created": 1592927380859,
+                                                            "text": "使已实现的类的接口兼容新系统的接口规范"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3olojeqtuo0",
+                                                    "created": 1592927526685,
+                                                    "text": "优缺点"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3olokm8k7c0",
+                                                            "created": 1592927529315,
+                                                            "text": "优点",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3olq9ak4ig0",
+                                                                    "created": 1592927661393,
+                                                                    "text": "客户端通过适配器可以透明地调用目标接口"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3olpdao3yo0",
+                                                                    "created": 1592927591742,
+                                                                    "text": "复用了现存的类"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3olq19qel40",
+                                                                    "created": 1592927643929,
+                                                                    "text": "将目标类和适配者类解耦，解决了目标类和适配者类接口不一致的问题"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ololj9r480",
+                                                            "created": 1592927531313,
+                                                            "text": "缺点"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3olqqshhao0",
+                                                                    "created": 1592927699482,
+                                                                    "text": "对类适配器来说，更换适配器的实现过程比较复杂"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3olrfqpjmo0",
+                                                    "created": 1592927753794,
+                                                    "text": "实现"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3olua7ktnk0",
+                                                            "created": 1592927976846,
+                                                            "text": "Target 类"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3oluhmulpc0",
+                                                                    "created": 1592927993007,
+                                                                    "text": "当前系统业务所期待的接口，可以是抽象类或接口"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3olumf9kpk0",
+                                                            "created": 1592928003432,
+                                                            "text": "Adaptee 类"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3olv24f39s0",
+                                                                    "created": 1592928037605,
+                                                                    "text": "现存组件库中的组件接口"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3olvahke800",
+                                                            "created": 1592928055814,
+                                                            "text": "Adapter 类"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3olvywk5kw0",
+                                                                    "created": 1592928108963,
+                                                                    "text": "继承或引用适配者的对象"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3olw738pdk0",
+                                                                    "created": 1592928126782,
+                                                                    "text": "把适配者接口转换成目标接口"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ok97n1ns00",
+                                            "created": 1592923504494,
+                                            "text": " 桥接（Bridge）模式",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3oly2gev0w0",
+                                                    "created": 1592928273423,
+                                                    "text": "概要",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3okavbilrc0",
+                                                            "created": 1592923634403,
+                                                            "text": "将抽象与实现分离，使它们可以独立变化。它是用组合关系代替继承关系来实现的，从而降低了抽象和实现这两个可变维度的耦合度"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3olypba3480",
+                                                    "created": 1592928323178,
+                                                    "text": "优缺点"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3olyqmoxjk0",
+                                                            "created": 1592928326045,
+                                                            "text": "优点"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3olz00g28o0",
+                                                                    "created": 1592928346468,
+                                                                    "text": "抽象与实现分离"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3olz0rynvk0",
+                                                                            "created": 1592928348132,
+                                                                            "text": "扩展能力强"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3olza1w8zc0",
+                                                                    "created": 1592928368323,
+                                                                    "text": "实现细节对客户透明"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3olyuviiqg0",
+                                                            "created": 1592928335286,
+                                                            "text": "缺点"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3olzk7jkd40",
+                                                                    "created": 1592928390433,
+                                                                    "text": "由于聚合关系建立在抽象层，要求开发者针对抽象化进行设计与编程，这增加了系统的理解与设计难度"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3om0eo6ur40",
+                                                    "created": 1592928456743,
+                                                    "text": "实现"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3om33kkjy00",
+                                                            "created": 1592928667672,
+                                                            "text": "Abstraction 类"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3om34zdpsw0",
+                                                                    "created": 1592928670744,
+                                                                    "text": "抽象类"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3om36rxm740",
+                                                                    "created": 1592928674647,
+                                                                    "text": "包含对 Implementor 的引用"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3om4y6xwyo0",
+                                                            "created": 1592928812692,
+                                                            "text": "Refined Abstraction 类"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3om5xkyffc0",
+                                                                    "created": 1592928889727,
+                                                                    "text": "Abstraction 的子类"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3om60okblc0",
+                                                                    "created": 1592928896475,
+                                                                    "text": "通过组合关系调用 Implementor 中的业务方法"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3om7qpm37k0",
+                                                            "created": 1592929031499,
+                                                            "text": "Implementor 接口"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3om825un8g0",
+                                                                    "created": 1592929056426,
+                                                                    "text": "定义业务接口, 供 Refined Abstraction 调用"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3om8ryqwdk0",
+                                                            "created": 1592929112592,
+                                                            "text": "Concrete Implementor 类"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3om8tohidc0",
+                                                                    "created": 1592929116325,
+                                                                    "text": "Implementor 接口的具体实现"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3omgou5dmo0",
+                                                    "created": 1592929732697,
+                                                    "text": "应用场景"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3omgrf6ws00",
+                                                            "created": 1592929738323,
+                                                            "text": "当一个类存在两个独立变化的维度，且这两个维度都需要进行扩展时"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3omgwlcjvk0",
+                                                            "created": 1592929749579,
+                                                            "text": "当一个系统不希望使用继承或因为多层次继承导致系统类的个数急剧增加时"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3omh1ktmbk0",
+                                                            "created": 1592929760432,
+                                                            "text": "当一个系统需要在构件的抽象化角色和具体化角色之间增加更多的灵活性时"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ok9cyxixk0",
+                                            "created": 1592923516096,
+                                            "text": "装饰（Decorator）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3omjagm4fs0",
+                                                    "created": 1592929936496,
+                                                    "text": "概述",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3okb0j71ew0",
+                                                            "created": 1592923645752,
+                                                            "text": "动态地给对象增加一些职责，即增加其额外的功能"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3omjlzyyw00",
+                                                    "created": 1592929961611,
+                                                    "text": "定义"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3omjmwg9lk0",
+                                                            "created": 1592929963575,
+                                                            "text": "指在不改变现有对象结构的情况下，动态地给该对象增加一些职责（即增加其额外功能）的模式，它属于对象结构型模式"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3omkvhmmcg0",
+                                                    "created": 1592930060634,
+                                                    "text": "优缺点"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3omkx30bls0",
+                                                            "created": 1592930064105,
+                                                            "text": "优点"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3omlbbno0o0",
+                                                                    "created": 1592930095102,
+                                                                    "text": "采用装饰模式扩展对象的功能比采用继承方式更加灵活"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3omlj8clg80",
+                                                                    "created": 1592930112316,
+                                                                    "text": "可以设计出多个不同的具体装饰类，创造出多个不同行为的组合"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3omky6era00",
+                                                            "created": 1592930066486,
+                                                            "text": "缺点"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3omlqa17o00",
+                                                                    "created": 1592930127655,
+                                                                    "text": "装饰模式增加了许多子类，如果过度使用会使程序变得很复杂"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ommbd6i1c0",
+                                                    "created": 1592930173558,
+                                                    "text": "结构"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3omnriq1hc0",
+                                                            "created": 1592930287086,
+                                                            "text": "Component 接口"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3omoqg7ee80",
+                                                                    "created": 1592930363121,
+                                                                    "text": "用于规范准备接收附加责任的对象"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ompbfetug0",
+                                                            "created": 1592930408786,
+                                                            "text": "Concrete Component 类"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3ompg5azww0",
+                                                                    "created": 1592930419058,
+                                                                    "text": "实现 Component"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ompvgafb40",
+                                                            "created": 1592930452374,
+                                                            "text": "Decorator 类"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3omq98rfg00",
+                                                                    "created": 1592930482394,
+                                                                    "text": "继承  Component"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3omqf6o9dc0",
+                                                                    "created": 1592930495328,
+                                                                    "text": "包含 Concrete Component"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3omr4na2iw0",
+                                                            "created": 1592930550752,
+                                                            "text": "Concrete Decorator 类"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3omrkj8dts0",
+                                                                    "created": 1592930585336,
+                                                                    "text": "实现 Decorator 中的相关方法"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3oms88a0w80",
+                                                                    "created": 1592930636916,
+                                                                    "text": "给 Concrete Component 对象添加附加的责任"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ok9jgzd800",
+                                            "created": 1592923530248,
+                                            "text": "外观（Facade）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okb5k5lmg0",
+                                                    "created": 1592923656694,
+                                                    "text": "为多个复杂的子系统提供一个一致的接口，使这些子系统更加容易被访问"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ok9q80ycg0",
+                                            "created": 1592923544944,
+                                            "text": "享元（Flyweight）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okb9y3kqg0",
+                                                    "created": 1592923666244,
+                                                    "text": "运用共享技术来有效地支持大量细粒度对象的复用"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ok9u3cdxs0",
+                                            "created": 1592923553368,
+                                            "text": "组合（Composite）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okbeww3og0",
+                                                    "created": 1592923677055,
+                                                    "text": "将对象组合成树状层次结构，使用户对单个对象和组合对象具有一致的访问性"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3okbvwbihk0",
+                            "created": 1592923714025,
+                            "text": "行为型模式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3okca39ot40",
+                                    "created": 1592923744921,
+                                    "text": "作用"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3okcey6iig0",
+                                            "created": 1592923755497,
+                                            "text": "用于描述程序在运行时复杂的流程控制"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3okcyrtm600",
+                                            "created": 1592923798648,
+                                            "text": "描述多个类或对象之间怎样相互协作共同完成单个对象都无法单独完成的任务"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3okd2tme2o0",
+                                            "created": 1592923807464,
+                                            "text": "涉及算法与对象间职责的分配"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3okcb2uqsg0",
+                                    "created": 1592923747072,
+                                    "text": "分类"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3okdlofas80",
+                                            "created": 1592923848509,
+                                            "text": "模板方法（Template Method）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okdr5n9so0",
+                                                    "created": 1592923860434,
+                                                    "text": "定义一个操作中的算法骨架，将算法的一些步骤延迟到子类中，使得子类在可以不改变该算法结构的情况下重定义该算法的某些特定步骤"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3okdtie99s0",
+                                            "created": 1592923865558,
+                                            "text": "策略（Strategy）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3oke5mmhg80",
+                                                    "created": 1592923891935,
+                                                    "text": "定义了一系列算法，并将每个算法封装起来，使它们可以相互替换，且算法的改变不会影响使用算法的客户"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3oke6tmkvk0",
+                                            "created": 1592923894536,
+                                            "text": " 命令（Command）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okeiby2xs0",
+                                                    "created": 1592923919588,
+                                                    "text": "将一个请求封装为一个对象，使发出请求的责任和执行请求的责任分割开"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3okel161200",
+                                            "created": 1592923925466,
+                                            "text": "职责链（Chain of Responsibility）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okes3plk00",
+                                                    "created": 1592923940858,
+                                                    "text": "把请求从链中的一个对象传到下一个对象，直到请求被响应为止。通过这种方式去除对象之间的耦合"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3okewj4cgo0",
+                                            "created": 1592923950497,
+                                            "text": " 状态（State）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okf15ioc00",
+                                                    "created": 1592923960558,
+                                                    "text": "允许一个对象在其内部状态发生改变时改变其行为能力"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3okfbblkio0",
+                                            "created": 1592923982694,
+                                            "text": "观察者（Observer）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okfhxs13k0",
+                                                    "created": 1592923997095,
+                                                    "text": "多个对象间存在一对多关系，当一个对象发生改变时，把这种改变通知给其他多个对象，从而影响其他对象的行为"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3okfmpf9nk0",
+                                            "created": 1592924007474,
+                                            "text": "中介者（Mediator）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okfs4i3n40",
+                                                    "created": 1592924019270,
+                                                    "text": "定义一个中介对象来简化原有对象之间的交互关系，降低系统中对象间的耦合度，使原有对象之间不必相互了解"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3okg00ssfc0",
+                                            "created": 1592924036460,
+                                            "text": "迭代器（Iterator）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okg4cic0w0",
+                                                    "created": 1592924045875,
+                                                    "text": "提供一种方法来顺序访问聚合对象中的一系列数据，而不暴露聚合对象的内部表示"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3okgb6fy2o0",
+                                            "created": 1592924060746,
+                                            "text": "访问者（Visitor）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okgethkv40",
+                                                    "created": 1592924068670,
+                                                    "text": "在不改变集合元素的前提下，为一个集合中的每个元素提供多种访问方式，即每个元素有多个访问者对象访问"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3okgjvh9mo0",
+                                            "created": 1592924079674,
+                                            "text": "备忘录（Memento）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okgn0sg4g0",
+                                                    "created": 1592924086525,
+                                                    "text": "在不破坏封装性的前提下，获取并保存一个对象的内部状态，以便以后恢复它"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3okgs7h0u80",
+                                            "created": 1592924097813,
+                                            "text": "解释器（Interpreter）模式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3okgszwiao0",
+                                                    "created": 1592924099533,
+                                                    "text": "提供如何定义语言的文法，以及对语言句子的解释方法，即解释器"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             }
