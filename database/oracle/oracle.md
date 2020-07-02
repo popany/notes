@@ -33,6 +33,10 @@
   - [Cases](#cases)
     - [`DROP TABLESPACE`](#drop-tablespace)
   - [sql](#sql)
+    - [查询锁表](#查询锁表)
+    - [查看当前正在执行的sql](#查看当前正在执行的sql)
+    - [计算时间差](#计算时间差)
+    - [创建存储过程](#创建存储过程)
 
 ## Oracle Database XE
 
@@ -484,8 +488,51 @@ To run the script with parameters, for example, you want to pass the employee nu
 
       ALTER VIEW customer_ro COMPILE;
 
-- [查看当前正在执行的sql](https://blog.csdn.net/qq_33301113/article/details/54766751)
-
 - [强制终止在执行的sql](https://blog.csdn.net/qq6412110/article/details/91360366)
 
 - [死锁查询及处理](https://blog.csdn.net/rznice/article/details/6683905)
+
+### 查询锁表
+
+    SELECT object_name, machine, s.sid, s.serial#
+    FROM gv$locked_object l, dba_objects o, gv$session s
+    WHERE l.object_id　= o.object_id
+    AND l.session_id = s.sid;
+
+### [查看当前正在执行的sql](https://blog.csdn.net/qq_33301113/article/details/54766751)
+
+    select a.program, b.spid, c.sql_text,c.SQL_ID
+    from v$session a, v$process b, v$sqlarea c
+    where a.paddr = b.addr
+    and a.sql_hash_value = c.hash_value
+    and a.username is not null;
+
+### 计算时间差
+
+    select ROUND(TO_NUMBER(to_date(to_char(sysdate,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') - to_date('2020-06-29 20:00:00','yyyy-MM-dd hh24:mi:ss'))*24*60*60) from dual
+
+### [创建存储过程](http://www.hechaku.com/Oracle/oracle_pl_others.html)
+
+    CREATE OR REPLACE PROCEDURE SP_TEST_WAIT
+    (
+      SECONDS IN INT,
+      RETURN_CODE OUT INT,
+      RETURN_MSG OUT CHAR
+    ) IS
+      V_ELAPSED NUMBER := 0;
+      V_STARTTIME DATE;
+      V_CURRENTTIME DATE;
+
+    BEGIN
+
+      SELECT TO_DATE(TO_CHAR(SYSDATE,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') into V_STARTTIME FROM DUAL;
+  
+      WHILE V_ELAPSED < SECONDS LOOP
+        SELECT TO_DATE(TO_CHAR(SYSDATE,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') into V_CURRENTTIME FROM DUAL;
+        V_ELAPSED := ROUND(TO_NUMBER(V_CURRENTTIME - V_STARTTIME)*24*60*60);
+
+      END LOOP;
+
+      RETURN_CODE := 0;
+      RETURN_MSG := TO_CHAR(V_STARTTIME, 'yyyy-MM-dd hh24:mi:ss') || ' - ' || TO_CHAR(V_CURRENTTIME, 'yyyy-MM-dd hh24:mi:ss');
+    END;

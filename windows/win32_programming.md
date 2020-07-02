@@ -8,6 +8,8 @@
     - [Sourcepack (indexing PDB files with source archive file)](#sourcepack-indexing-pdb-files-with-source-archive-file)
     - [Pdb Files: The Glue Between The Binary File And Source Code](#pdb-files-the-glue-between-the-binary-file-and-source-code)
     - [microsoft-pdb](#microsoft-pdb)
+    - [Generating Crash Dumps](#generating-crash-dumps)
+      - [ProcDump](#procdump)
   - [Library](#library)
     - [Static library](#static-library)
       - [What is inside .lib file of Static library, Statically linked dynamic library and dynamically linked dynamic library?](#what-is-inside-lib-file-of-static-library-statically-linked-dynamic-library-and-dynamically-linked-dynamic-library)
@@ -34,6 +36,12 @@ The Microsoft Debug Interface Access Software Development Kit (DIA SDK) provides
 ### [Pdb Files: The Glue Between The Binary File And Source Code](https://vineelkovvuri.com/posts/pdb-files-the-glue-between-the-binary-file-and-source-code/)
 
 ### [microsoft-pdb](https://github.com/Microsoft/microsoft-pdb)
+
+### Generating Crash Dumps
+
+#### [ProcDump](https://docs.microsoft.com/en-us/sysinternals/downloads/procdump)
+
+    procdump.exe -ma [Process ID]
 
 ## Library
 

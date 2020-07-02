@@ -1,9 +1,9 @@
 # docker
 
 - [docker](#docker)
-  - [教程](#%e6%95%99%e7%a8%8b)
-    - [Docker入门实践（精讲版）](#docker%e5%85%a5%e9%97%a8%e5%ae%9e%e8%b7%b5%e7%b2%be%e8%ae%b2%e7%89%88)
-  - [网络](#%e7%bd%91%e7%bb%9c)
+  - [教程](#教程)
+    - [Docker入门实践（精讲版）](#docker入门实践精讲版)
+  - [网络](#网络)
   - [networking](#networking)
     - [Use host networking](#use-host-networking)
     - [Networking using the host network](#networking-using-the-host-network)
@@ -25,6 +25,7 @@
     - [run a centos container](#run-a-centos-container)
       - [Run a centos container in Docker Desktop](#run-a-centos-container-in-docker-desktop)
       - [Publish container port 8080 to the host port 8081](#publish-container-port-8080-to-the-host-port-8081)
+    - [Override CMD when running a docker image](#override-cmd-when-running-a-docker-image)
     - [Copy files/folders between a container and the local filesystem](#copy-filesfolders-between-a-container-and-the-local-filesystem)
     - [Commit a container and change ENTRYPOINT](#commit-a-container-and-change-entrypoint)
     - [Move Docker container to another host](#move-docker-container-to-another-host)
@@ -189,6 +190,10 @@ To remove all unused volumes and free up space:
 #### Publish container port 8080 to the host port 8081
 
     docker run -d --name test -p 8081:8080 -v vol_a:/app -ti centos
+
+### Override CMD when running a docker image
+
+    docker run -it --entrypoint=/bin/bash $IMAGE -i
 
 ### Copy files/folders between a container and the local filesystem
 

@@ -1,0 +1,44 @@
+{
+    "root": {
+        "data": {
+            "id": "c3vw9k6k0e00",
+            "created": 1593668304810,
+            "text": "DBMS(Database Management System)"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3vwa2cyul40",
+                    "created": 1593668344380,
+                    "text": "Database Management System Tutorial",
+                    "hyperlink": "https://www.tutorialspoint.com/dbms/index.htm",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3vwatsq9o00",
+                    "created": 1593668404106,
+                    "text": "Relational Data Model in DBMS: Concepts, Constraints, Example",
+                    "hyperlink": "https://www.guru99.com/relational-data-model-dbms.html",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3vwe1lyx400",
+                    "created": 1593668656204,
+                    "text": "What is a Database Model",
+                    "hyperlink": "https://www.lucidchart.com/pages/database-diagram/database-models",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

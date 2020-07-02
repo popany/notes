@@ -421,7 +421,7 @@
                             "id": "c2y6nm62gew0",
                             "created": 1590244578805,
                             "text": "交易所",
-                            "expandState": "expand"
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -489,7 +489,8 @@
                                                                                 "data": {
                                                                                     "id": "c3oyojxtxq00",
                                                                                     "created": 1592964202268,
-                                                                                    "text": "行情接口 mktdt00.txt"
+                                                                                    "text": "行情接口 mktdt00.txt",
+                                                                                    "expandState": "collapse"
                                                                                 },
                                                                                 "children": [
                                                                                     {

@@ -6,6 +6,8 @@
   - [alias](#alias)
   - [prompt](#prompt)
   - [basic](#basic)
+    - [`set`](#set)
+      - [`set -e -x -u`](#set--e--x--u)
     - [list file](#list-file)
       - [list full-path recursively](#list-full-path-recursively)
     - [cp](#cp)
@@ -18,7 +20,7 @@
     - [`icov`](#icov)
     - [`sed`](#sed)
       - [Use sed to extract substring](#use-sed-to-extract-substring)
-      - [Replace "\r\n" with "\n"](#replace-%22rn%22-with-%22n%22)
+      - [Replace "\r\n" with "\n"](#replace-rn-with-n)
     - [`grep`](#grep)
     - [`tar`](#tar)
     - [`zip`](#zip)
@@ -75,6 +77,18 @@ Filename of the shell script:
     export PS1="[\u@\h \W]\$(git_branch)\$ "
 
 ## basic
+
+### `set`
+
+#### `set -e -x -u`
+
+    -e  Exit immediately if a command exits with a non-zero status.
+
+    -x  Print commands and their arguments as they are executed.
+
+    -u  Treat unset variables as an error when substituting.
+
+    Using + rather than - causes these flags to be turned off.    
 
 ### list file
 
