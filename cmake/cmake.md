@@ -11,6 +11,9 @@
   - [Install](#install)
     - [Install from source](#install-from-source)
     - [Install by command](#install-by-command)
+  - [Practice](#practice)
+    - [`include(GNUInstallDirs)`](#includegnuinstalldirs)
+    - [`find_package(Threads REQUIRED)`](#find_packagethreads-required)
 
 [CMake Useful Variables](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Useful-Variables)  
 
@@ -137,3 +140,27 @@
     sh cmake-linux.sh -- --skip-license --prefix=/usr
 
     rm cmake-linux.sh
+
+## Practice
+
+### `include(GNUInstallDirs)`
+
+Module `GNUInstallDirs` provides conventions commonly used in GNU-compatible projects.
+
+By including `GNUInstallDirs` a set of variables, which contain installation directories for various artifacts, are provided.
+
+### `find_package(Threads REQUIRED)`
+
+`find_package(Threads)` calls a CMake module that first, searches the file system for the appropriate threads package for this platform, and then sets the `CMAKE_THREAD_LIBS_INIT` variable (and some other variables as well)
+
+- Example 1
+
+      find_package(Threads)
+      add_executable(test test.cpp)
+      target_link_libraries(test ${CMAKE_THREAD_LIBS_INIT})
+
+- Example 2
+
+      find_package(Threads)
+      add_executable(test test.cpp)
+      target_link_libraries(test Threads::Threads)

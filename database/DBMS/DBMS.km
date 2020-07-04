@@ -14,7 +14,757 @@
                     "hyperlink": "https://www.tutorialspoint.com/dbms/index.htm",
                     "hyperlinkTitle": ""
                 },
-                "children": []
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3wsse1x5mg0",
+                            "created": 1593760055905,
+                            "text": "Overview",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3wstl77c5k0",
+                                    "created": 1593760149826,
+                                    "text": "Glossary",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3wsty8b3z40",
+                                            "created": 1593760178191,
+                                            "text": "Database Management System or DBMS",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wtncm7k940",
+                                                    "created": 1593762482068,
+                                                    "text": "in short refers to the technology of storing and retrieving usersí data with utmost efficiency along with appropriate security measures"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3wt6e8nyvc0",
+                                                    "created": 1593761153412,
+                                                    "text": "stores data in such a way that it becomes easier to retrieve, manipulate, and produce information"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wt459mxxc0",
+                                            "created": 1593760977151,
+                                            "text": "Database",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wt4f4vxtc0",
+                                                    "created": 1593760998632,
+                                                    "text": "a collection of related data"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wt4gj5fnc0",
+                                            "created": 1593761001671,
+                                            "text": "Data",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wt4n2oimw0",
+                                                    "created": 1593761015912,
+                                                    "text": "a collection of facts and figures that can be processed to produce information"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3wt5af23a80",
+                                                    "created": 1593761066727,
+                                                    "text": "aids in producing information"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wt5eek6080",
+                                                            "created": 1593761075404,
+                                                            "text": "which is based on facts"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wt5hap5e00",
+                                                            "created": 1593761081701,
+                                                            "text": "Example"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3wt5nlnr3s0",
+                                                                    "created": 1593761095424,
+                                                                    "text": "if we have data about marks obtained by all students, we can then conclude about toppers and average marks"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3wsugpg5ag0",
+                                    "created": 1593760218410,
+                                    "text": "DBMS's characteristics",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3wsusv8sdc0",
+                                            "created": 1593760244882,
+                                            "text": "Real-world entity",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wsuzfzan40",
+                                                    "created": 1593760259196,
+                                                    "text": "A modern DBMS is more realistic and uses real-world entities to design its architecture"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3wsvfbf9m80",
+                                                    "created": 1593760293749,
+                                                    "text": "It uses the behavior and attributes too"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3wsvj55zx40",
+                                                    "created": 1593760302078,
+                                                    "text": "Example"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wsvvcgly80",
+                                                            "created": 1593760328641,
+                                                            "text": "a school database may use students as an entity and their age as an attribute"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wsw4pslpc0",
+                                            "created": 1593760349038,
+                                            "text": "Relation-based tables",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wswdu8dts0",
+                                                    "created": 1593760368897,
+                                                    "text": "DBMS allows entities and relations among them to form tables"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3wswi56hk00",
+                                                    "created": 1593760378266,
+                                                    "text": "A user can understand the architecture of a database just by looking at the table names"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wswpqi75k0",
+                                            "created": 1593760394793,
+                                            "text": "Isolation of data and application",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wsx1o6kxs0",
+                                                    "created": 1593760420774,
+                                                    "text": "A database system is entirely different than its data"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wsxxdzmgw0",
+                                                            "created": 1593760489815,
+                                                            "text": "A database is an active entity"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wsxy1hvaw0",
+                                                            "created": 1593760491236,
+                                                            "text": "data is said to be passive"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3wsyi00hbc0",
+                                                                    "created": 1593760534682,
+                                                                    "text": "on which the database works and organizes"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wsyqojdow0",
+                                                            "created": 1593760553579,
+                                                            "text": "DBMS also stores metadata"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3wsz0esteo0",
+                                                                    "created": 1593760574758,
+                                                                    "text": "which is data about data, to ease its own process"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wszbxfla00",
+                                            "created": 1593760599830,
+                                            "text": "Less redundancy",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wszllk7wo0",
+                                                    "created": 1593760620880,
+                                                    "text": "DBMS follows the rules of normalization"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wszteolns0",
+                                                            "created": 1593760637878,
+                                                            "text": "splits a relation when any of its attributes is having redundancy in values"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wt0dy3sgo0",
+                                                            "created": 1593760682588,
+                                                            "text": "Normalization is a mathematically rich and scientific process that reduces data redundancy"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wt0na8gqg0",
+                                            "created": 1593760702912,
+                                            "text": "Consistency",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wt0vjcbaw0",
+                                                    "created": 1593760720877,
+                                                    "text": "Consistency is a state where every relation in a database remains consistent"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wt16u2a3k0",
+                                                            "created": 1593760745470,
+                                                            "text": "There exist methods and techniques, which can detect attempt of leaving database in inconsistent state"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wt1fmxjkw0",
+                                            "created": 1593760764630,
+                                            "text": "Query Language",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wt1lop5r40",
+                                                    "created": 1593760777798,
+                                                    "text": "DBMS is equipped with query language, which makes it more efficient to retrieve and manipulate data"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wt1sn31gg0",
+                                                            "created": 1593760792937,
+                                                            "text": "A user can apply as many and as different filtering options as required to retrieve a set of data"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wt6smg7ps0",
+                                            "created": 1593761184720,
+                                            "text": "ACID Properties",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wt73lgd400",
+                                                    "created": 1593761208604,
+                                                    "text": "DBMS follows the concepts of",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wt768z6c80",
+                                                            "created": 1593761214380,
+                                                            "text": "Atomicity"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wt774oii80",
+                                                            "created": 1593761216297,
+                                                            "text": "Consistency"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wt79nls5k0",
+                                                            "created": 1593761221795,
+                                                            "text": "Isolation"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wt7d2j4hs0",
+                                                            "created": 1593761229228,
+                                                            "text": "Durability "
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wt7yl3vgo0",
+                                            "created": 1593761276064,
+                                            "text": "Multiuser and Concurrent Access",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wt8f75mt40",
+                                                    "created": 1593761312225,
+                                                    "text": "DBMS supports multi-user environment and allows them to access and manipulate data in parallel"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wt8jotb0o0",
+                                            "created": 1593761322000,
+                                            "text": "Multiple views",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wt8pvjx9k0",
+                                                    "created": 1593761335468,
+                                                    "text": "DBMS offers multiple views for different users"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wt97135ew0",
+                                                            "created": 1593761372808,
+                                                            "text": "This feature enables the users to have a concentrate view of the database according to their requirements"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wt8y6hke00",
+                                                            "created": 1593761353544,
+                                                            "text": "Example"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3wt8zdviiw0",
+                                                                    "created": 1593761356167,
+                                                                    "text": "A user who is in the Sales department will have a different view of database than a person working in the Production department"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wt9fp94io0",
+                                            "created": 1593761391684,
+                                            "text": "Security",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wt9sffr3s0",
+                                                    "created": 1593761419388,
+                                                    "text": "Features like multiple views offer security to some extent where users are unable to access data of other users and departments"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3wt9tdsisg0",
+                                                    "created": 1593761421466,
+                                                    "text": "DBMS offers methods to impose constraints while entering data into the database and retrieving the same at a later stage"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3wta2op83k0",
+                                                    "created": 1593761441716,
+                                                    "text": "DBMS offers many different levels of security features, which enables multiple users to have different views with different features"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3wtqek25fs0",
+                                    "created": 1593762721384,
+                                    "text": "Users of a DBMS",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3wtqtczopc0",
+                                            "created": 1593762753608,
+                                            "text": "DBMS has users with different rights and permissions who use it for different purposes"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wtr0u12xs0",
+                                            "created": 1593762769876,
+                                            "text": "Some users retrieve data and some back it up"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wtr69i8cw0",
+                                            "created": 1593762781696,
+                                            "text": "The users of a DBMS can be broadly categorized as"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wtrdc9wuw0",
+                                                    "created": 1593762797100,
+                                                    "text": "Administrators"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wtrr456i00",
+                                                            "created": 1593762827084,
+                                                            "text": "Administrators maintain the DBMS and are responsible for administrating the database"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3wtruymheo0",
+                                                    "created": 1593762835457,
+                                                    "text": "Designers"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wts1zi9fs0",
+                                                            "created": 1593762850748,
+                                                            "text": "Designers are the group of people who actually work on the designing part of the database"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wts2r6a940",
+                                                            "created": 1593762852421,
+                                                            "text": "They keep a close watch on what data should be kept and in what format"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wts7to00w0",
+                                                            "created": 1593762863456,
+                                                            "text": "They identify and design the whole set of entities, relations, constraints, and views"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3wtsheebds0",
+                                                    "created": 1593762884300,
+                                                    "text": "End Users"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wtso0oim80",
+                                                            "created": 1593762898708,
+                                                            "text": "End users are those who actually reap the benefits of having a DBMS"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3wttbjqty00",
+                            "created": 1593762949927,
+                            "text": "Architecture"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3wtxkfl7xc0",
+                                    "created": 1593763282723,
+                                    "text": "3-tier Architecture"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3wtyj5kdi00",
+                                            "created": 1593763358305,
+                                            "text": "summary",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wtxx29r940",
+                                                    "created": 1593763310216,
+                                                    "text": "A 3-tier architecture separates its tiers from each other based on the complexity of the users and how they use the data present in the database"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3wtxyeqr7s0",
+                                                    "created": 1593763313147,
+                                                    "text": "It is the most widely used architecture to design a DBMS"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3wty90nazc0",
+                                            "created": 1593763336239,
+                                            "text": "3-tier"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3wtz8gcr280",
+                                                    "created": 1593763413376,
+                                                    "text": "Database (Data) Tier"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wtzqmssjs0",
+                                                            "created": 1593763452948,
+                                                            "text": "At this tier, the database resides along with its query processing languages"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wu01lgkgw0",
+                                                            "created": 1593763476812,
+                                                            "text": "We also have the relations that define the data and their constraints at this level"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3wu05pv43k0",
+                                                    "created": 1593763485785,
+                                                    "text": "Application (Middle) Tier"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wu0rvsys80",
+                                                            "created": 1593763534034,
+                                                            "text": "At this tier reside the application server and the programs that access the database"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wu173o72o0",
+                                                            "created": 1593763567161,
+                                                            "text": "For a user, this application tier presents an abstracted view of the database"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3wu1f575280",
+                                                                    "created": 1593763584668,
+                                                                    "text": "End-users are unaware of any existence of the database beyond the application"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3wu1oefizk0",
+                                                                    "created": 1593763604817,
+                                                                    "text": "At the other end, the database tier is not aware of any other user beyond the application tier"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3wu1undrjs0",
+                                                    "created": 1593763618419,
+                                                    "text": "User (Presentation) Tier"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wu21o5ug80",
+                                                            "created": 1593763633704,
+                                                            "text": "End-users operate on this tier and they know nothing about any existence of the database beyond this layer"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3wu28wyptc0",
+                                                            "created": 1593763649473,
+                                                            "text": "At this layer, multiple views of the database can be provided by the application"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3wu2cvwtxs0",
+                                                                    "created": 1593763658117,
+                                                                    "text": "All views are generated by applications that reside in the application tier"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "data": {

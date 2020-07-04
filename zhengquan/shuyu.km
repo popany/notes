@@ -11,7 +11,7 @@
                     "id": "c2y6lvq40qo0",
                     "created": 1590244442880,
                     "text": "概念",
-                    "expandState": "collapse"
+                    "expandState": "expand"
                 },
                 "children": [
                     {
@@ -136,7 +136,7 @@
                                 "x": 24,
                                 "y": -164
                             },
-                            "expandState": "expand"
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -230,7 +230,8 @@
                         "data": {
                             "id": "c2ypuii40ns0",
                             "created": 1590298720463,
-                            "text": "买一/卖一"
+                            "text": "买一/卖一",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -273,7 +274,8 @@
                         "data": {
                             "id": "c2yq1qkjda00",
                             "created": 1590299286574,
-                            "text": "逐笔成交"
+                            "text": "逐笔成交",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -368,7 +370,8 @@
                         "data": {
                             "id": "c2yqgykmp3k0",
                             "created": 1590300479456,
-                            "text": "分笔/分时成交"
+                            "text": "分笔/分时成交",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -402,9 +405,394 @@
                         "data": {
                             "id": "c2yrxx63kiw0",
                             "created": 1590304629701,
-                            "text": "集合竞价"
+                            "text": "集合竞价",
+                            "expandState": "collapse"
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3vwx3hbvio0",
+                                    "created": 1593670149196,
+                                    "text": "所谓集合竞价就是"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3vwyr5u0tk0",
+                                            "created": 1593670279108,
+                                            "text": "在当天还没有成交价的时候",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3vwyiugmbk0",
+                                                    "created": 1593670261006,
+                                                    "text": "你可根据前一天的收盘价和对当日股市的预测来输入股票价格"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3vwz0cm2n40",
+                                                            "created": 1593670299109,
+                                                            "text": "而在这段时间里输入计算机主机的所有价格都是平等的"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3vwzoxkxao0",
+                                                                    "created": 1593670352620,
+                                                                    "text": "不需要按照时间优先和价格优先的原则交易"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3vwzku4f2g0",
+                                                            "created": 1593670343703,
+                                                            "text": "而是按最大成交量的原则来定出股票的价位"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3vx039qisg0",
+                                                                    "created": 1593670383830,
+                                                                    "text": "这个价位就被称为集合竞价的价位"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3vx08o6kqo0",
+                                                                    "created": 1593670395587,
+                                                                    "text": "而这个过程被称为集合竞价"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3vx0joz3mw0",
+                                    "created": 1593670419580,
+                                    "text": "集合竞价最大成交量原则"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3vx31sv7200",
+                                            "created": 1593670615725,
+                                            "text": "集合定价由电脑交易处理系统对全部申报按照价格优先、时间优先的原则排序，并在此基础上，找出一个基准价格，使它同时能满足"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3vx3d43byo0",
+                                                    "created": 1593670640349,
+                                                    "text": "成交量最大"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3vx3h6mw6g0",
+                                                    "created": 1593670649210,
+                                                    "text": "高于基准价格的买入申报和低于基准价格的卖出申报全部满足（成交）"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3vx3kswfm00",
+                                                    "created": 1593670657086,
+                                                    "text": "与基准价格相同的买卖双方中有一方申报全部满足（成交）"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3vx47tkl480",
+                                            "created": 1593670707193,
+                                            "text": "说明"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3vx4h60zf40",
+                                                    "created": 1593670727537,
+                                                    "text": "集合竞价方式下价格优先、时间优先原则体现在电脑主机将所有的买入和卖出申报按价格由高到低排出序列，同一价格下的申报原则按电脑主机接受的先后顺序排序"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3vx4u7pf4g0",
+                                                    "created": 1593670755937,
+                                                    "text": "集合竞价过程中，若产生一个以上的基准价格，即有一个以上的价格同时满足集合竞价的3个条件时，沪市选取这几个基准价格的中间价格为成交价格，深市则选取离前收盘价最近的价格为成交价格"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3vx5ctrm1s0",
+                                    "created": 1593670796453,
+                                    "text": "集合竞价时间"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3vx8tf221c0",
+                                            "created": 1593671067661,
+                                            "text": "上海"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3vx8uhevbc0",
+                                                    "created": 1593671069980,
+                                                    "text": "09:15 - 09:25"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3vx99pcvrc0",
+                                            "created": 1593671103112,
+                                            "text": "深圳"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3vx9br7gps0",
+                                                    "created": 1593671107578,
+                                                    "text": "开盘集合竞价"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3vx8uhevbc0",
+                                                            "created": 1593671069980,
+                                                            "text": "09:15 - 09:25"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3vx9dokwpc0",
+                                                    "created": 1593671111773,
+                                                    "text": "收盘集合竞价"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3vx8uhevbc0",
+                                                            "created": 1593671069980,
+                                                            "text": "14:57 - 15:00"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3vx9zz2bds0",
+                                            "created": 1593671160296,
+                                            "text": "说明"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3vxa10xtfs0",
+                                                    "created": 1593671162586,
+                                                    "text": "每个交易日9:25至9:30，交易主机只接受申报，但不对买卖申报或撤销申报作处理。交易所认为必要时，可以调整接受申报时间"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3vxc3l7dcg0",
+                                    "created": 1593671324893,
+                                    "text": "集合竞价的作用"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3vxc7eoivc0",
+                                            "created": 1593671333206,
+                                            "text": "产生股票的开盘价"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3vxci0q1ow0",
+                                                    "created": 1593671356306,
+                                                    "text": "沪深交易所每个交易日9:15—9:25的集合竞价期间，电脑自动撮合系统只存储每一笔申报，并且进行模拟撮合而不实际成交"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3vxcmzeewg0",
+                                                    "created": 1593671367110,
+                                                    "text": "至9:25时，电脑系统将根据已输入的所有买卖申报按集合竞价的规则产生一个开盘价"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3vxcuggqls0",
+                                                    "created": 1593671383380,
+                                                    "text": "按照最新交易规则：9:15—9:25，即时行情显示内容包括证券代码、证券简称、前收盘价格、虚拟开盘参考价格、虚拟匹配量和虚拟匹配后剩余量"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3vxddvcjt40",
+                                    "created": 1593671425638,
+                                    "text": "集合竞价的规则"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3vxdqx1u5s0",
+                                            "created": 1593671454040,
+                                            "text": "9:15—9:20这五分钟开放式集合竞价可以委托买进和卖出的单子，你看到的匹配成交量可能是虚假的，因这5分钟是可以撤单"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3vxdwal11k0",
+                                            "created": 1593671465742,
+                                            "text": "9:20—9:25这五分钟开放式集合竞价可以委托买进和卖出的单子，但不能撤单"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3vxe8bnlcw0",
+                                            "created": 1593671491928,
+                                            "text": "9点25分才是集合竞价期间唯一一次真正的成交，所以会显示成交笔数。卖出股票的资金9:25就能到账，马上就可以使用"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3vxeny49w80",
+                                            "created": 1593671525938,
+                                            "text": "9:25—9:30这五分钟不叫集合竞价时间，电脑这五分钟可接收买和卖委托，也可接收撤单，这五分钟电脑不处理，如果你进的委托价格估计能成交，那么你的撤单是排在后面来不及的"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3vxfbi4q140",
+                                            "created": 1593671577214,
+                                            "text": "尾盘14:57—15:00的最后三分钟也是集合竞价的，不可撤单，形成最终收盘价。成交规则和开盘很相似"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3vxlyj5e8o0",
+                            "created": 1593672097527,
+                            "text": "连续竞价",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3vxm5vkfc00",
+                                    "created": 1593672113515,
+                                    "text": "连续竞价时间"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3vxmmhlhhc0",
+                                            "created": 1593672149675,
+                                            "text": "上海"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3vxmr4hlxs0",
+                                                    "created": 1593672159767,
+                                                    "text": "09:30 - 11:30"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3vxmxjnkew0",
+                                                    "created": 1593672173744,
+                                                    "text": "13:00 - 15:00"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3vxmnqyjiw0",
+                                            "created": 1593672152418,
+                                            "text": "深圳"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3vxmr4hlxs0",
+                                                    "created": 1593672159767,
+                                                    "text": "09:30 - 11:30"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3vxmxjnkew0",
+                                                    "created": 1593672173744,
+                                                    "text": "13:00 - 14:56"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             },

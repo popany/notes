@@ -1,0 +1,123 @@
+{
+    "root": {
+        "data": {
+            "id": "c3nie0d1ixs0",
+            "created": 1592816678296,
+            "text": "Pattern-Oriented Software Architecture",
+            "expandState": "expand"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3nien2gmqg0",
+                    "created": 1592816727722,
+                    "text": "Patterns for Concurrent and Networked Objects, Volume 2  "
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3niff0qb680",
+                            "created": 1592816788567,
+                            "text": "Chapter 1 - Concurrent and Networked Objects"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3niff0qkkw0",
+                            "created": 1592816788567,
+                            "text": "Chapter 2 - Service Access and Configuration Patterns"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3niff0q2dk0",
+                            "created": 1592816788567,
+                            "text": "Chapter 3 - Event Handling Patterns"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3nifjipt4w0",
+                                    "created": 1592816798362,
+                                    "text": "Overview"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3nig60fmow0",
+                                            "created": 1592816847322,
+                                            "text": "This chapter presents four patterns that describe how to initiate, receive, demultiplex,\ndispatch, and process events in networked systems: Reactor, Proactor, Asynchronous\nCompletion Token, and Acceptor-Connector  "
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3nii774ph40",
+                                    "created": 1592817006632,
+                                    "text": "four patterns"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3niibpx32w0",
+                                            "created": 1592817016475,
+                                            "text": "Reactor pattern  "
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3niff0qsmo0",
+                            "created": 1592816788568,
+                            "text": "Chapter 4 - Synchronization Patterns"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3niff0qq400",
+                            "created": 1592816788568,
+                            "text": "Chapter 5 - Concurrency Patterns"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3niff0qsfs0",
+                            "created": 1592816788568,
+                            "text": "Chapter 6 - Weaving the Patterns Together"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3niff0r3000",
+                            "created": 1592816788568,
+                            "text": "Chapter 7 - The Past, Present, and Future of Patterns"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3niff0razc0",
+                            "created": 1592816788569,
+                            "text": "Chapter 8 - Concluding Remarks"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
