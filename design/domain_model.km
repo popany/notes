@@ -1,0 +1,24 @@
+{
+    "root": {
+        "data": {
+            "id": "c3z7u9o3kdc0",
+            "created": 1594005639653,
+            "text": "Domain Model"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3z7vvnf6ps0",
+                    "created": 1594005765865,
+                    "text": "领域驱动设计(DDD:Domain-Driven Design)",
+                    "hyperlink": "https://www.jdon.com/ddd.html",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

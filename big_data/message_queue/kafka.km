@@ -1,0 +1,24 @@
+{
+    "root": {
+        "data": {
+            "id": "c3z8fwyni280",
+            "created": 1594007336004,
+            "text": "kafka"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3z8g1zv2yg0",
+                    "created": 1594007346961,
+                    "text": "Documentation",
+                    "hyperlink": "https://kafka.apache.org/documentation/",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

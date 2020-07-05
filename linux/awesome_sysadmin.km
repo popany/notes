@@ -1,0 +1,15 @@
+{
+    "root": {
+        "data": {
+            "id": "c3zadtkh7o80",
+            "created": 1594012814108,
+            "text": "Awesome Sysadmin",
+            "hyperlink": "https://github.com/kahun/awesome-sysadmin",
+            "hyperlinkTitle": ""
+        },
+        "children": []
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

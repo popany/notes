@@ -1,0 +1,24 @@
+{
+    "root": {
+        "data": {
+            "id": "c3zb68ud2mw0",
+            "created": 1594015041554,
+            "text": "elasticsearch"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3zb6uzjxqw0",
+                    "created": 1594015089758,
+                    "text": "github",
+                    "hyperlink": "https://github.com/elastic/elasticsearch",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

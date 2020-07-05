@@ -1,7 +1,8 @@
-#gpg
+# gpg
 
-- [Cases](#cases)
-  - [Verify Notepad++ Installer](#verify-notepad-installer)
+- [gpg](#gpg)
+  - [Cases](#cases)
+    - [Verify Notepad++ Installer](#verify-notepad-installer)
 
 ## Cases
 

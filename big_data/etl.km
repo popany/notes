@@ -1,0 +1,434 @@
+{
+    "root": {
+        "data": {
+            "id": "c3nd3brwemg0",
+            "created": 1592801735583,
+            "text": "ETL",
+            "expandState": "expand"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3nd42i3e540",
+                    "created": 1592801793763,
+                    "text": "调度系统"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3nd45jr7p40",
+                            "created": 1592801800394,
+                            "text": "Apache Airflow"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3nd4pe2h200",
+                            "created": 1592801843586,
+                            "text": "数据平台之任务调度系统",
+                            "hyperlink": "https://zhuanlan.zhihu.com/p/72008180",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3nd5ovss6w0",
+                            "created": 1592801920845,
+                            "text": "awesome-workflow-engines",
+                            "hyperlink": "https://github.com/meirwah/awesome-workflow-engines",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3nd66pj9u00",
+                            "created": 1592801959649,
+                            "text": "Awesome Pipeline",
+                            "hyperlink": "https://github.com/pditommaso/awesome-pipeline",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3nd73069ag0",
+                            "created": 1592802029949,
+                            "text": "基于DAG的分布式任务调度平台-Maat",
+                            "hyperlink": "https://yq.aliyun.com/articles/609299",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c3z92bmhstc0",
+                    "created": 1594009091933,
+                    "text": "数据平台之任务调度系统",
+                    "layout_right_offset": {
+                        "x": -3,
+                        "y": -47
+                    },
+                    "hyperlink": "https://zhuanlan.zhihu.com/p/72008180",
+                    "hyperlinkTitle": ""
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3z93j1q8go0",
+                            "created": 1594009186455,
+                            "text": "任务调度系统功能"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3z93pidmbc0",
+                                    "created": 1594009200523,
+                                    "text": "负责任务何时运行"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3z93q3kfsg0",
+                                    "created": 1594009201804,
+                                    "text": "负责任务何时结束"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3z941vlwq80",
+                                    "created": 1594009227444,
+                                    "text": "处理任务之间的依赖关系"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3z9nlr8rmw0",
+                            "created": 1594010759635,
+                            "text": "开源的任务调度系统"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3z9p9p2w680",
+                                    "created": 1594010890111,
+                                    "text": "国内",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3z9ofejzmw0",
+                                            "created": 1594010824171,
+                                            "text": "TBSchedule"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3z9oiiwbk80",
+                                            "created": 1594010830964,
+                                            "text": "Easy Scheduler"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3z9omewyag0",
+                                            "created": 1594010839430,
+                                            "text": "Lhotse"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3z9oquvc7c0",
+                                            "created": 1594010849102,
+                                            "text": "elastic-job"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3z9oted2jc0",
+                                            "created": 1594010854635,
+                                            "text": "Saturn"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3z9p8jantc0",
+                                    "created": 1594010887585,
+                                    "text": "awesome-pipeline",
+                                    "hyperlink": "https://github.com/pditommaso/awesome-pipeline",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3z9pqe7uvk0",
+                                    "created": 1594010926460,
+                                    "text": "awesome-workflow-engines",
+                                    "hyperlink": "https://github.com/meirwah/awesome-workflow-engines",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3z9q3ndbm80",
+                            "created": 1594010955311,
+                            "text": "架构分类"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3z9qblnjf40",
+                                    "created": 1594010972622,
+                                    "text": "定时分片类作业调度系统"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3z9qwuuk0w0",
+                                            "created": 1594011018890,
+                                            "text": "典型例子"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3z9r14q2lk0",
+                                                    "created": 1594011028194,
+                                                    "text": "Elastic-Job"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3z9r202hcw0",
+                                                    "created": 1594011030090,
+                                                    "text": "Easy Scheduler"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3z9qcbe6zc0",
+                                    "created": 1594010974178,
+                                    "text": "DAG工作流类调度系统"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3z9rdcklcw0",
+                                            "created": 1594011054790,
+                                            "text": "Apache Airflow"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3z9rfy22eo0",
+                                            "created": 1594011060443,
+                                            "text": "Oozie"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3z9riowifk0",
+                                            "created": 1594011066420,
+                                            "text": "Azkaban"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c3z9tdirfpc0",
+                    "created": 1594011211893,
+                    "text": "数据平台作业调度系统详解－理论篇",
+                    "hyperlink": "https://blog.csdn.net/colorant/article/details/75090158",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3z9us4bmnk0",
+                    "created": 1594011322036,
+                    "text": "Hadoop - 任务调度系统比较",
+                    "hyperlink": "https://www.cnblogs.com/smartloli/p/4964741.html",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3z9y4h0kuw0",
+                    "created": 1594011584017,
+                    "text": "分布式定时任务调度系统技术选型",
+                    "hyperlink": "https://www.cnblogs.com/davidwang456/p/9057839.html",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3zakgfzcoo0",
+                    "created": 1594013334088,
+                    "text": "分布式定时任务调度框架选型",
+                    "hyperlink": "https://www.cnblogs.com/ssslinppp/p/12485273.html",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3z9p8jantc0",
+                    "created": 1594010887585,
+                    "text": "awesome-pipeline",
+                    "hyperlink": "https://github.com/pditommaso/awesome-pipeline",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3z9pqe7uvk0",
+                    "created": 1594010926460,
+                    "text": "awesome-workflow-engines",
+                    "hyperlink": "https://github.com/meirwah/awesome-workflow-engines",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3za9mplfq80",
+                    "created": 1594012485724,
+                    "text": "Awesome Streaming",
+                    "hyperlink": "https://github.com/manuzhang/awesome-streaming",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3zab6lr56g0",
+                    "created": 1594012607391,
+                    "text": "awesome-etl",
+                    "hyperlink": "https://github.com/pawl/awesome-etl",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3zaektkjxs0",
+                    "created": 1594012873431,
+                    "text": "Computational Data Analysis Workflow Systems",
+                    "hyperlink": "https://github.com/common-workflow-language/common-workflow-language/wiki/Existing-Workflow-systems",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3zarl2icso0",
+                    "created": 1594013892706,
+                    "text": "scheduler"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3zaro2qprs0",
+                            "created": 1594013899250,
+                            "text": "light-task-scheduler",
+                            "hyperlink": "https://github.com/ltsopensource/light-task-scheduler",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3zauks84800",
+                            "created": 1594014127177,
+                            "text": "xxl-job",
+                            "hyperlink": "https://github.com/xuxueli/xxl-job",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3zazp668uo0",
+                            "created": 1594014528548,
+                            "text": "elastic-job ",
+                            "hyperlink": "https://gitee.com/elasticjob/elastic-job",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3zb0ur2yf40",
+                            "created": 1594014619060,
+                            "text": "azkaban",
+                            "hyperlink": "https://github.com/azkaban/azkaban",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3zb2743zrk0",
+                            "created": 1594014724334,
+                            "text": "Saturn",
+                            "hyperlink": "https://github.com/vipshop/Saturn",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c3zav0qp3pk0",
+                            "created": 1594014161913,
+                            "text": "dolphinscheduler",
+                            "hyperlink": "https://github.com/apache/incubator-dolphinscheduler",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
