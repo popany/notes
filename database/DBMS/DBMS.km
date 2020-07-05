@@ -614,7 +614,8 @@
                         "data": {
                             "id": "c3wttbjqty00",
                             "created": 1593762949927,
-                            "text": "Architecture"
+                            "text": "Architecture",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -757,6 +758,1147 @@
                                                         ]
                                                     }
                                                 ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3yecpfbtxk0",
+                            "created": 1593922451209,
+                            "text": "Data Models",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3yedqtygog0",
+                                    "created": 1593922532634,
+                                    "text": "definition",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3yee30lyi00",
+                                            "created": 1593922559158,
+                                            "text": "Data models define how the logical structure of a database is modeled"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3yeecjnzfs0",
+                                            "created": 1593922579901,
+                                            "text": "Data Models are fundamental entities to introduce abstraction in a DBMS"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3yeehjr97c0",
+                                            "created": 1593922590791,
+                                            "text": "Data models define how data is connected to each other and how they are processed and stored inside the system"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3yeetk33wo0",
+                                    "created": 1593922616932,
+                                    "text": "Entity-Relationship Model",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3yefhx1jm80",
+                                            "created": 1593922669958,
+                                            "text": "Entity-Relationship (ER) Model is based on the notion of real-world entities and relationships among them"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3yeg8jlo740",
+                                            "created": 1593922727918,
+                                            "text": "While formulating real-world scenario into the database model, the ER Model creates entity set, relationship set, general attributes and constraints"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3yeghx6xo80",
+                                            "created": 1593922748331,
+                                            "text": "ER Model is best used for the conceptual design of a database"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3yegrsx0a00",
+                                            "created": 1593922769841,
+                                            "text": "ER Model is based on"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3yehat8p9c0",
+                                                    "created": 1593922811219,
+                                                    "text": "Entities and their attributes"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yehg3ffq00",
+                                                    "created": 1593922822719,
+                                                    "text": "Relationships among entities"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3yehmfbr340",
+                                            "created": 1593922836499,
+                                            "text": "concepts "
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3yehs6ty740",
+                                                    "created": 1593922849046,
+                                                    "text": "Entity"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yei5tarco0",
+                                                            "created": 1593922878703,
+                                                            "text": "An entity in an ER Model is a real-world entity having properties called attributes"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yeib3g38g0",
+                                                    "created": 1593922890200,
+                                                    "text": "attribute"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yeij3rm740",
+                                                            "created": 1593922907634,
+                                                            "text": "Every attribute is defined by its set of values called domain"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yej03fw140",
+                                                                    "created": 1593922944620,
+                                                                    "text": "Example"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yej74714g0",
+                                                                            "created": 1593922959903,
+                                                                            "text": "in a school database, a student is considered as an entity. Student has various attributes like name, age, class, etc."
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yejim1rw80",
+                                                    "created": 1593922984927,
+                                                    "text": "Relationship"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yejrtfep40",
+                                                            "created": 1593923004965,
+                                                            "text": "The logical association among entities is called relationship"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yekcxh4t40",
+                                                            "created": 1593923050921,
+                                                            "text": "Relationships are mapped with entities in various ways"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yekzqu0wo0",
+                                                            "created": 1593923100586,
+                                                            "text": "Mapping cardinalities define the number of association between two entities"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yel5lr1ds0",
+                                                                    "created": 1593923113339,
+                                                                    "text": "Mapping cardinalities"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yel8wc7aw0",
+                                                                            "created": 1593923120509,
+                                                                            "text": "one to one"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yel9omysw0",
+                                                                            "created": 1593923122221,
+                                                                            "text": "one to many"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yelgc4v540",
+                                                                            "created": 1593923136702,
+                                                                            "text": "many to one"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yelj8veww0",
+                                                                            "created": 1593923143035,
+                                                                            "text": "many to many"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3yem710ey80",
+                                    "created": 1593923194803,
+                                    "text": "Relational Model"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3yemnzdkqg0",
+                                            "created": 1593923231709,
+                                            "text": "The most popular data model in DBMS is the Relational Model"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3yemszc9eg0",
+                                                    "created": 1593923242591,
+                                                    "text": "It is more scientific a model than others"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yen07dcio0",
+                                                    "created": 1593923258314,
+                                                    "text": "This model is based on first-order predicate logic and defines a table as an n-ary relation"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3yenqs1we80",
+                                            "created": 1593923316161,
+                                            "text": "The main highlights of this model"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3yenw9k0x40",
+                                                    "created": 1593923328103,
+                                                    "text": "Data is stored in tables called relations"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yenx2jsa00",
+                                                    "created": 1593923329856,
+                                                    "text": "Relations can be normalized"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yeo1fgfeo0",
+                                                    "created": 1593923339344,
+                                                    "text": "In normalized relations, values saved are atomic values"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yeo6mv7zk0",
+                                                    "created": 1593923350676,
+                                                    "text": "Each row in a relation contains a unique value"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yeono8lgo0",
+                                                    "created": 1593923387764,
+                                                    "text": "Each column in a relation contains values from a same domain"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3yepb5emeo0",
+                            "created": 1593923438868,
+                            "text": "Data Schemas",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3ykso0qtsg0",
+                                    "created": 1593940628636,
+                                    "text": "Database Schema",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3yepove81c0",
+                                            "created": 1593923468738,
+                                            "text": "A database schema is the skeleton structure that represents the logical view of the entire database"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3yeqa76k680",
+                                                    "created": 1593923515163,
+                                                    "text": "defines how the data is organized and how the relations among them are associated"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yeqgiuky00",
+                                                    "created": 1593923528929,
+                                                    "text": "formulates all the constraints that are to be applied on the data"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ykphgkf1s0",
+                                            "created": 1593940379263,
+                                            "text": "A database schema defines its entities and the relationship among them"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ykq2dh02o0",
+                                            "created": 1593940424788,
+                                            "text": "A database schema can be divided broadly into two categories"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3ykqt2x69s0",
+                                                    "created": 1593940482923,
+                                                    "text": "Physical Database Schema"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ykroln5cw0",
+                                                            "created": 1593940551536,
+                                                            "text": "This schema pertains to the actual storage of data and its form of storage like files, indices, etc"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3ykrpkc9o00",
+                                                            "created": 1593940553634,
+                                                            "text": "It defines how the data will be stored in a secondary storage"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3ykqtzlkhc0",
+                                                    "created": 1593940484899,
+                                                    "text": "Logical Database Schema"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yks1sn1z40",
+                                                            "created": 1593940580257,
+                                                            "text": "This schema defines all the logical constraints that need to be applied on the data stored"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yks6wfyzk0",
+                                                            "created": 1593940591371,
+                                                            "text": "It defines tables, views, and integrity constraints"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3ykt0o1b800",
+                                    "created": 1593940656166,
+                                    "text": "Database Instance"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3yku1msju80",
+                                            "created": 1593940736632,
+                                            "text": "A database instance is a state of operational database with data at any given time"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ykucyra540",
+                                            "created": 1593940761301,
+                                            "text": "It contains a snapshot of the database"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ykugqq2tk0",
+                                            "created": 1593940769521,
+                                            "text": "Database instances tend to change with time"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3ykupk0qgo0",
+                                            "created": 1593940788707,
+                                            "text": "A DBMS ensures that its every instance (state) is in a valid state, by diligently following all the validations, constraints, and conditions that the database designers have imposed"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3ykvfmlnso0",
+                            "created": 1593940845459,
+                            "text": "Data Independence",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3yqx07nbi80",
+                                    "created": 1593957895291,
+                                    "text": "A database system normally contains a lot of data in addition to users' data"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3yqzuv80g00",
+                                            "created": 1593958118748,
+                                            "text": "Example"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3yr05a27n40",
+                                                    "created": 1593958141413,
+                                                    "text": "it stores data about data, known as metadata"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yr0aaffg00",
+                                                            "created": 1593958152320,
+                                                            "text": "to locate and retrieve data easily"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yr0h239nc0",
+                                                            "created": 1593958167053,
+                                                            "text": "It is rather difficult to modify or update a set of metadata once it is stored in the database"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yr1gcgip40",
+                                                                    "created": 1593958243867,
+                                                                    "text": "But as a DBMS expands, it needs to change over time to satisfy the requirements of the users"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yr1l3ifpc0",
+                                                                    "created": 1593958254210,
+                                                                    "text": "If the entire data is dependent, it would become a tedious and highly complex job"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yr23jwkp40",
+                                                                    "created": 1593958294383,
+                                                                    "text": "Metadata itself follows a layered architecture, so that when we change data at one layer, it does not affect the data at another level. This data is independent but mapped to each other"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3yr2jw9waw0",
+                                    "created": 1593958329960,
+                                    "text": "Logical Data Independence"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3yr2xnxprk0",
+                                            "created": 1593958359931,
+                                            "text": "Logical data is data about database"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3yr31sg5v40",
+                                                    "created": 1593958368911,
+                                                    "text": "it stores information about how data is managed inside"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yr34ayals0",
+                                                            "created": 1593958374383,
+                                                            "text": "Example"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yr3dgt6mg0",
+                                                                    "created": 1593958394328,
+                                                                    "text": "a table (relation) stored in the database and all its constraints, applied on that relation"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3yr4qjrrz40",
+                                            "created": 1593958501170,
+                                            "text": "Logical data independence is a kind of mechanism, which liberalizes itself from actual data stored on the disk"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3yr4x34lns0",
+                                    "created": 1593958515401,
+                                    "text": "Physical Data Independence"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3yr5l2estk0",
+                                            "created": 1593958567600,
+                                            "text": "Physical data independence is the power to change the physical data without impacting the schema or logical data"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3yr5m2v43k0",
+                                            "created": 1593958569804,
+                                            "text": "Example"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3yr6aqop5s0",
+                                                    "created": 1593958623488,
+                                                    "text": "in case we want to change or upgrade the storage system itself − suppose we want to replace hard-disks with SSD − it should not have any impact on the logical data or schemas"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3yr78me3xk0",
+                            "created": 1593958697238,
+                            "text": "ER Model",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3yr6qpff9c0",
+                                    "created": 1593958658240,
+                                    "text": "Basic Concepts",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3yr8338mbc0",
+                                            "created": 1593958763561,
+                                            "text": "The ER model defines the conceptual view of a database",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3yr8hzt3ug0",
+                                                    "created": 1593958796005,
+                                                    "text": "It works around real-world entities and the associations among them"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yr8nkf07c0",
+                                                    "created": 1593958808135,
+                                                    "text": "At view level, the ER model is considered a good option for designing databases"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3yr9f9v05s0",
+                                            "created": 1593958868447,
+                                            "text": "Entity"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3yra8vei200",
+                                                    "created": 1593958932876,
+                                                    "text": "An entity can be a real-world object"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yranpwmc80",
+                                                            "created": 1593958965195,
+                                                            "text": "either animate or inanimate, that can be easily identifiable"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yrbwy2s8g0",
+                                                    "created": 1593959063644,
+                                                    "text": "An entity set is a collection of similar types of entities"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yrc1w3cjk0",
+                                                            "created": 1593959074408,
+                                                            "text": "An entity set may contain entities with attribute sharing similar values"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3yrluj49g00",
+                                            "created": 1593959842028,
+                                            "text": "Attributes",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3yrccf89eo0",
+                                                    "created": 1593959097333,
+                                                    "text": "Types of Attributes",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yrclja5w00",
+                                                            "created": 1593959117170,
+                                                            "text": "Entities are represented by means of their properties, called attributes"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yrctjhpnc0",
+                                                                    "created": 1593959134596,
+                                                                    "text": "All attributes have values"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yre2mvcps0",
+                                                                            "created": 1593959232756,
+                                                                            "text": "Example"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3yre680vuw0",
+                                                                                    "created": 1593959240565,
+                                                                                    "text": "a student entity may have name, class, and age as attributes"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yrekyx4mg0",
+                                                                    "created": 1593959272667,
+                                                                    "text": "There exists a domain or range of values that can be assigned to attributes",
+                                                                    "expandState": "expand"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrcwn7rug0",
+                                                                            "created": 1593959141352,
+                                                                            "text": "Example"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3yrdd7h8tc0",
+                                                                                    "created": 1593959177406,
+                                                                                    "text": "a student's name cannot be a numeric value. It has to be alphabetic. A student's age cannot be negative, etc."
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yrexshpvs0",
+                                                            "created": 1593959300576,
+                                                            "text": "Types of Attributes"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yrf338hr40",
+                                                                    "created": 1593959312110,
+                                                                    "text": "Simple attribute"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrfc5merc0",
+                                                                            "created": 1593959331845,
+                                                                            "text": "Simple attributes are atomic values, which cannot be divided further"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrfihgqyw0",
+                                                                            "created": 1593959345622,
+                                                                            "text": "Example"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3yrfki65c80",
+                                                                                    "created": 1593959350018,
+                                                                                    "text": "a student's phone number is an atomic value of 10 digits"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yrg1fk0ps0",
+                                                                    "created": 1593959386865,
+                                                                    "text": "Composite attribute"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrg8ilimg0",
+                                                                            "created": 1593959402287,
+                                                                            "text": "Composite attributes are made of more than one simple attribute"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrgb76r4o0",
+                                                                            "created": 1593959408127,
+                                                                            "text": "Example"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3yrgt3pcnk0",
+                                                                                    "created": 1593959447098,
+                                                                                    "text": "a student's complete name may have first_name and last_name"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yrh4r0g9c0",
+                                                                    "created": 1593959472452,
+                                                                    "text": "Derived attribute"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrhf6qs7k0",
+                                                                            "created": 1593959495171,
+                                                                            "text": "Derived attributes are the attributes that do not exist in the physical database, but their values are derived from other attributes present in the database"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrhpd22xc0",
+                                                                            "created": 1593959517321,
+                                                                            "text": "Example",
+                                                                            "expandState": "expand"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3yrhqs0auo0",
+                                                                                    "created": 1593959520402,
+                                                                                    "text": "average_salary in a department should not be saved directly in the database, instead it can be derived"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3yrhwnep1c0",
+                                                                                    "created": 1593959533184,
+                                                                                    "text": "age can be derived from data_of_birth"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yri86gf7s0",
+                                                                    "created": 1593959558281,
+                                                                    "text": "Single-value attribute"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrie0mqkg0",
+                                                                            "created": 1593959570989,
+                                                                            "text": "Single-value attributes contain single value"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yriii6e1c0",
+                                                                            "created": 1593959580757,
+                                                                            "text": "Example"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3yrijpsaww0",
+                                                                                    "created": 1593959583394,
+                                                                                    "text": "Social_Security_Number"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yriv8rqew0",
+                                                                    "created": 1593959608487,
+                                                                    "text": "Multi-value attribute"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yriwi53bs0",
+                                                                            "created": 1593959611230,
+                                                                            "text": "Multi-value attributes may contain more than one values"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrj1cxdr40",
+                                                                            "created": 1593959621799,
+                                                                            "text": "Example"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c3yrjd37f940",
+                                                                                    "created": 1593959647332,
+                                                                                    "text": "a person can have more than one phone number, email_address, etc"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yrjluzgzc0",
+                                                                    "created": 1593959666426,
+                                                                    "text": "These attribute types can come together in a way like"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrjtt13ts0",
+                                                                            "created": 1593959683722,
+                                                                            "text": "simple single-valued attributes"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrjubxgts0",
+                                                                            "created": 1593959684865,
+                                                                            "text": "simple multi-valued attributes"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrjxhamxk0",
+                                                                            "created": 1593959691720,
+                                                                            "text": "composite single-valued attributes"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c3yrk18ctsw0",
+                                                                            "created": 1593959699886,
+                                                                            "text": "composite multi-valued attributes"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yrmi537hc0",
+                                                    "created": 1593959893423,
+                                                    "text": "Entity-Set and Keys"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yrn1akdr40",
+                                                            "created": 1593959935113,
+                                                            "text": "Key is an attribute or collection of attributes that uniquely identifies an entity among entity set"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yrnc7v5680",
+                                                            "created": 1593959958894,
+                                                            "text": "Super Key"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yrnhd1klc0",
+                                                                    "created": 1593959970091,
+                                                                    "text": "A set of attributes (one or more) that collectively identifies an entity in an entity set"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yro4e7n880",
+                                                            "created": 1593960020229,
+                                                            "text": "Candidate Key"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yrodcl99k0",
+                                                                    "created": 1593960039721,
+                                                                    "text": "A minimal super key is called a candidate key. An entity set may have more than one candidate key"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yroiw8t9k0",
+                                                            "created": 1593960051793,
+                                                            "text": "Primary Key"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c3yrowrv9ig0",
+                                                                    "created": 1593960082003,
+                                                                    "text": "A primary key is one of the candidate keys chosen by the database designer to uniquely identify the entity set"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3yrlkccnxc0",
+                                            "created": 1593959819851,
+                                            "text": "Relationship"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3yrpgxwaf40",
+                                                    "created": 1593960125903,
+                                                    "text": "The association among entities is called a relationship"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3yrqnxs16w0",
+                                                            "created": 1593960219498,
+                                                            "text": "an employee works_at a department, a student enrolls in a course. Here, Works_at and Enrolls are called relationships"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3yrrb3yqjk0",
+                                                    "created": 1593960269938,
+                                                    "text": "Relationship Set"
+                                                },
+                                                "children": []
                                             }
                                         ]
                                     }

@@ -16,7 +16,8 @@
                     "layout_mind_offset": {
                         "x": -22.00000062584877,
                         "y": 0
-                    }
+                    },
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -421,7 +422,8 @@
                         "data": {
                             "id": "c3ok2nvjlu00",
                             "created": 1592922991287,
-                            "text": "创建型模式"
+                            "text": "创建型模式",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -558,7 +560,8 @@
                         "data": {
                             "id": "c3ok6wowgrc0",
                             "created": 1592923323933,
-                            "text": "结构型模式"
+                            "text": "结构型模式",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -590,7 +593,7 @@
                                             "id": "c3ok8zxk2kg0",
                                             "created": 1592923487715,
                                             "text": " 代理（Proxy）模式",
-                                            "expandState": "expand"
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -786,7 +789,8 @@
                                         "data": {
                                             "id": "c3ok90inauw0",
                                             "created": 1592923488990,
-                                            "text": " 适配器（Adapter）模式"
+                                            "text": " 适配器（Adapter）模式",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -959,7 +963,7 @@
                                             "id": "c3ok97n1ns00",
                                             "created": 1592923504494,
                                             "text": " 桥接（Bridge）模式",
-                                            "expandState": "expand"
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -1172,7 +1176,8 @@
                                         "data": {
                                             "id": "c3ok9cyxixk0",
                                             "created": 1592923516096,
-                                            "text": "装饰（Decorator）模式"
+                                            "text": "装饰（Decorator）模式",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -1415,7 +1420,8 @@
                         "data": {
                             "id": "c3okbvwbihk0",
                             "created": 1592923714025,
-                            "text": "行为型模式"
+                            "text": "行为型模式",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -1650,10 +1656,342 @@
                         ]
                     }
                 ]
+            },
+            {
+                "data": {
+                    "id": "c3z5kkb5t9c0",
+                    "created": 1593999236954,
+                    "text": "设计模式整理",
+                    "expandState": "collapse"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3z5run0fko0",
+                            "created": 1593999807987,
+                            "text": "桥接模式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3z5xhljdo00",
+                                    "created": 1594000249785,
+                                    "text": "总结",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3z5sg7i3800",
+                                            "created": 1593999854939,
+                                            "text": "如果一个类有多个变化维度, 使用继承方式重写每个维度的不同实现会造成类爆炸问题"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3z5utjxkm00",
+                                            "created": 1594000040717,
+                                            "text": "使用组合方式将多个维度分离, 使其独立变化, 减少耦合"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3z5x1zn3vc0",
+                                    "created": 1594000215809,
+                                    "text": "案例"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3z5xsx6z740",
+                                            "created": 1594000274434,
+                                            "text": "设计模式系列·类爆炸之 Bridge 模式",
+                                            "hyperlink": "https://segmentfault.com/a/1190000009061946",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3z5ykzg4h40",
+                            "created": 1594000335520,
+                            "text": "代理模式 v.s. 装饰器模式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3z6yvxkdzs0",
+                                    "created": 1594003180461,
+                                    "text": "相同"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3z6z13e2f40",
+                                            "created": 1594003191697,
+                                            "text": "对装饰器模式来说, 装饰者(decorator)和被装饰者(decoratee)都实现同一个接口"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3z6zd22k8w0",
+                                            "created": 1594003217739,
+                                            "text": "对代理模式来说, 代理类(proxy class)和真实处理的类(real class)都实现同一个接口"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3z6zw26a6g0",
+                                            "created": 1594003259104,
+                                            "text": "不论使用哪一个模式, 都可以很容易地在真实对象的方法前面或者后面加上自定义的方法"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3z6ywygmo00",
+                                    "created": 1594003182692,
+                                    "text": "差别"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3z79wmwr0w0",
+                                            "created": 1594004043999,
+                                            "text": "关注点不同",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3z70s539qo0",
+                                                    "created": 1594003328937,
+                                                    "text": "装饰器模式关注于在一个对象上动态的添加方法"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3z70wgh4io0",
+                                                    "created": 1594003338333,
+                                                    "text": "代理模式关注于控制对对象的访问",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3z71cl7u880",
+                                                            "created": 1594003373448,
+                                                            "text": "代理类(proxy class)隐藏对象的具体信息"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3z7afx3wl40",
+                                            "created": 1594004085975,
+                                            "text": "使用方式不同",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c3z73sg2bfk0",
+                                                    "created": 1594003564694,
+                                                    "text": "当使用装饰器模 式的时候，我们通常的做法是将原始对象作为一个参数传给装饰者的构造器",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3z72ln9pew0",
+                                                            "created": 1594003471527,
+                                                            "text": "装饰者能够在运行时递归地被构造"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c3z731ujknk0",
+                                                    "created": 1594003506796,
+                                                    "text": "当使用代理模式时，通常在代理类中创建真实对象的实例",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c3z71z72uao0",
+                                                            "created": 1594003422659,
+                                                            "text": "代理和真实对象之间的的关系通常在编译时就已经确定了"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3z7ewbxu3k0",
+                            "created": 1594004435157,
+                            "text": "外观模式 v.s. 中介者模式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3z7genhefc0",
+                                    "created": 1594004553401,
+                                    "text": "外观模式是对子系统提供统一的接口，中介者模式是用一个中介对象来封装一系列同事对象的交互行为"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3z7gfg8nuo0",
+                                    "created": 1594004555140,
+                                    "text": "外观模式协议是单向，中介者模式协议是双向"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3z7gmivx4w0",
+                                    "created": 1594004570537,
+                                    "text": "外观模式所有的请求处理都委托给子系统完成，而中介者模式则由中心协调同事类和中心本身共同完成业务"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3z7gpt78k80",
+                            "created": 1594004577692,
+                            "text": "外观模式 v.s. 代理模式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3z7h0s2mgw0",
+                                    "created": 1594004601568,
+                                    "text": "代理模式中的代理角色和真实角色都继承于同一类。而外观模式是多个类的集合"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3z7hbe3tu00",
+                                    "created": 1594004624668,
+                                    "text": "代理角色与真实角色接口相同，功能一致，代理角色实现的是真实角色的功能。外观者模式的子系统功能不同，根据用户不同需要与外观类统一配置"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3z7hfc0lgg0",
+                            "created": 1594004633249,
+                            "text": "代理模式 v.s. 中介者模式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3z7hp5jdsw0",
+                                    "created": 1594004654625,
+                                    "text": "代理模式是一对一，一个代理只能代表一个对象。中介者模式则是多对多，中介者的功能多样，客户也可以多个"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c3z7hpw626o0",
+                                    "created": 1594004656235,
+                                    "text": "对于代理模式，只能代理一方。如果PB是A的代理，那么C可以通过PB访问A，但是A不能通过PB访问B。对于中介者模式而言，A可以通过中介访问B，B也可以通过中介访问A"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3z6oekuasg0",
+                            "created": 1594002359045,
+                            "text": "类爆炸问题"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3z7435e7yg0",
+                                    "created": 1594003587993,
+                                    "text": "原因",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3z6qsfta480",
+                                            "created": 1594002545944,
+                                            "text": "使用继承方式重写类的不同维度的功能时, 由于不同维度间的功能独立变化, 每种功能组合都需要实现一个派生类, 使得派生类数量几何增长"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c3z6rxwrj400",
+                                    "created": 1594002636217,
+                                    "text": "解决方法"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c3z6sb58u3s0",
+                                            "created": 1594002665028,
+                                            "text": "桥接模式"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c3z6sd88ka00",
+                                            "created": 1594002669563,
+                                            "text": "装饰器模式"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
-    "template": "default",
+    "template": "right",
     "theme": "fresh-blue",
     "version": "1.4.43"
 }

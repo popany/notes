@@ -1,0 +1,24 @@
+{
+    "root": {
+        "data": {
+            "id": "c3z51o2bakg0",
+            "created": 1593997756207,
+            "text": "CI/CD"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3z5ajbnorc0",
+                    "created": 1593998451165,
+                    "text": "CI/CD是什么？如何理解持续集成、持续交付和持续部署",
+                    "hyperlink": "https://www.redhat.com/zh/topics/devops/what-is-ci-cd",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
