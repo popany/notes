@@ -34,7 +34,8 @@
                                         "data": {
                                             "id": "c3sthkc703s0",
                                             "created": 1593355788865,
-                                            "text": "一个分布式系统不可能同时满足三种要求"
+                                            "text": "一个分布式系统不可能同时满足三种要求",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -137,7 +138,8 @@
                                         "data": {
                                             "id": "c3stq67phcg0",
                                             "created": 1593356463396,
-                                            "text": "三种要求只能满足两种的情况"
+                                            "text": "三种要求只能满足两种的情况",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -950,6 +952,16 @@
                         "children": []
                     }
                 ]
+            },
+            {
+                "data": {
+                    "id": "c3zof8rnwpk0",
+                    "created": 1594052421098,
+                    "text": "github",
+                    "hyperlink": "https://github.com/apache/zookeeper",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
             },
             {
                 "data": {

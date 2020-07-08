@@ -24,10 +24,37 @@
                         "children": []
                     }
                 ]
+            },
+            {
+                "data": {
+                    "id": "c3zz5b1e66g0",
+                    "created": 1594082674607,
+                    "text": "JDBC"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c41drams6ao0",
+                            "created": 1594225453230,
+                            "text": "JDBC快速入门教程",
+                            "hyperlink": "https://www.yiibai.com/jdbc/jdbc_quick_guide.html",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c41ds422nt40",
+                    "created": 1594225517282,
+                    "text": "java 注解"
+                },
+                "children": []
             }
         ]
     },
-    "template": "default",
+    "template": "right",
     "theme": "fresh-blue",
     "version": "1.4.43"
 }

@@ -29,6 +29,7 @@
     - [Copy files/folders between a container and the local filesystem](#copy-filesfolders-between-a-container-and-the-local-filesystem)
     - [Commit a container and change ENTRYPOINT](#commit-a-container-and-change-entrypoint)
     - [Move Docker container to another host](#move-docker-container-to-another-host)
+    - [Remove the volumes associated with the container](#remove-the-volumes-associated-with-the-container)
       - [Export and import containers](#export-and-import-containers)
       - [Container image migration](#container-image-migration)
   - [Troubleshooting](#troubleshooting)
@@ -206,6 +207,10 @@ To remove all unused volumes and free up space:
     docker commit --change='ENTRYPOINT ["/bin/bash"]' <container-name> <image-name>
 
 ### [Move Docker container to another host](https://bobcares.com/blog/move-docker-container-to-another-host/)
+
+### Remove the volumes associated with the container
+
+    docker rm -v <container>
 
 #### Export and import containers
 
