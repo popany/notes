@@ -9,3 +9,6 @@ design/pattern/design_pattern.km
 distributed_system/message_queue/kafka.km
 elasticsearch/elasticsearch.km
 java/netty.md
+socket.km
+tools.km
+elf.km
