@@ -4,6 +4,7 @@
   - [Syntax](#syntax)
     - [Sleep](#sleep)
   - [C++ Unit Test](#c-unit-test)
+    - [cmocka](#cmocka)
     - [mockcpp](#mockcpp)
   - [Library](#library)
     - [Database Access Library](#database-access-library)
@@ -19,13 +20,15 @@
 
 [Mocking free function](https://stackoverflow.com/questions/28392277/mocking-free-function)
 
-[cmocka](https://cmocka.org/)
-
 [Unit testing with mock objects in C](https://lwn.net/Articles/558106/)
 
 [CppUTest unit testing and mocking framework for C/C++](https://cpputest.github.io/manual.html)
 
 [FakeIt FakeIt is a simple mocking framework for C++.](https://github.com/eranpeer/FakeIt)
+
+### [cmocka](https://cmocka.org/)
+
+cmocka is an elegant unit testing framework for C with support for mock objects. It only requires the standard C library, works on a range of computing platforms (including embedded) and with different compilers
 
 ### mockcpp
 

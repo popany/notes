@@ -809,7 +809,7 @@
                             "id": "c2y6nm62gew0",
                             "created": 1590244578805,
                             "text": "交易所",
-                            "expandState": "collapse"
+                            "expandState": "expand"
                         },
                         "children": [
                             {
@@ -2530,7 +2530,7 @@
                                                                     "id": "c2y42fs4aug0",
                                                                     "created": 1590237277034,
                                                                     "text": "深圳证券交易所STEP行情数据接口规范（Ver1.06）",
-                                                                    "expandState": "collapse"
+                                                                    "expandState": "expand"
                                                                 },
                                                                 "children": [
                                                                     {
@@ -2563,7 +2563,7 @@
                                                                                     "id": "c2y4a75cenc0",
                                                                                     "created": 1590237885155,
                                                                                     "text": "术语",
-                                                                                    "expandState": "collapse"
+                                                                                    "expandState": "expand"
                                                                                 },
                                                                                 "children": [
                                                                                     {
@@ -2578,7 +2578,8 @@
                                                                                                 "data": {
                                                                                                     "id": "c2y4auz48xc0",
                                                                                                     "created": 1590237937022,
-                                                                                                    "text": "别名"
+                                                                                                    "text": "别名",
+                                                                                                    "expandState": "collapse"
                                                                                                 },
                                                                                                 "children": [
                                                                                                     {
@@ -2603,7 +2604,8 @@
                                                                                                 "data": {
                                                                                                     "id": "c2y4bgxmfqw0",
                                                                                                     "created": 1590237984821,
-                                                                                                    "text": "释义"
+                                                                                                    "text": "释义",
+                                                                                                    "expandState": "collapse"
                                                                                                 },
                                                                                                 "children": [
                                                                                                     {
@@ -2620,7 +2622,8 @@
                                                                                                 "data": {
                                                                                                     "id": "c2y4bpxv3940",
                                                                                                     "created": 1590238004426,
-                                                                                                    "text": "分类"
+                                                                                                    "text": "分类",
+                                                                                                    "expandState": "collapse"
                                                                                                 },
                                                                                                 "children": [
                                                                                                     {
@@ -2689,7 +2692,8 @@
                                                                                                 "data": {
                                                                                                     "id": "c2y4d6xuovk0",
                                                                                                     "created": 1590238119795,
-                                                                                                    "text": "别名"
+                                                                                                    "text": "别名",
+                                                                                                    "expandState": "collapse"
                                                                                                 },
                                                                                                 "children": [
                                                                                                     {
@@ -2714,7 +2718,8 @@
                                                                                                 "data": {
                                                                                                     "id": "c2y4dn6czcg0",
                                                                                                     "created": 1590238155139,
-                                                                                                    "text": "释义"
+                                                                                                    "text": "释义",
+                                                                                                    "expandState": "collapse"
                                                                                                 },
                                                                                                 "children": [
                                                                                                     {
@@ -2731,7 +2736,8 @@
                                                                                                 "data": {
                                                                                                     "id": "c2y4kxk1ydk0",
                                                                                                     "created": 1590238726283,
-                                                                                                    "text": "补充说明"
+                                                                                                    "text": "补充说明",
+                                                                                                    "expandState": "collapse"
                                                                                                 },
                                                                                                 "children": [
                                                                                                     {
@@ -2751,7 +2757,7 @@
                                                                                             "id": "c2y4dxu8s8w0",
                                                                                             "created": 1590238178350,
                                                                                             "text": "STEP",
-                                                                                            "expandState": "collapse"
+                                                                                            "expandState": "expand"
                                                                                         },
                                                                                         "children": [
                                                                                             {
@@ -2796,7 +2802,7 @@
                                                                                             "id": "c2y4ekv3lls0",
                                                                                             "created": 1590238228468,
                                                                                             "text": "FIX",
-                                                                                            "expandState": "collapse"
+                                                                                            "expandState": "expand"
                                                                                         },
                                                                                         "children": [
                                                                                             {
@@ -2840,7 +2846,7 @@
                                                                                             "id": "c2y4fp9zn5c0",
                                                                                             "created": 1590238316439,
                                                                                             "text": "FAST",
-                                                                                            "expandState": "collapse"
+                                                                                            "expandState": "expand"
                                                                                         },
                                                                                         "children": [
                                                                                             {
@@ -2886,7 +2892,7 @@
                                                                                     "id": "c2y4h5zdxgg0",
                                                                                     "created": 1590238431168,
                                                                                     "text": "前言",
-                                                                                    "expandState": "collapse"
+                                                                                    "expandState": "expand"
                                                                                 },
                                                                                 "children": [
                                                                                     {
@@ -2912,7 +2918,7 @@
                                                                                             "id": "c2y4iqguins0",
                                                                                             "created": 1590238554123,
                                                                                             "text": "参考规范",
-                                                                                            "expandState": "collapse"
+                                                                                            "expandState": "expand"
                                                                                         },
                                                                                         "children": [
                                                                                             {
@@ -3251,7 +3257,7 @@
                                                                                     "id": "c2y4ycw0mo00",
                                                                                     "created": 1590239778392,
                                                                                     "text": "服务说明",
-                                                                                    "expandState": "collapse"
+                                                                                    "expandState": "expand"
                                                                                 },
                                                                                 "children": [
                                                                                     {
@@ -3259,7 +3265,7 @@
                                                                                             "id": "c2y4yxu83ko0",
                                                                                             "created": 1590239823996,
                                                                                             "text": "交易行情数据类别",
-                                                                                            "expandState": "collapse"
+                                                                                            "expandState": "expand"
                                                                                         },
                                                                                         "children": [
                                                                                             {
@@ -3683,7 +3689,7 @@
                                                                                                             "id": "c2y5trpvp5s0",
                                                                                                             "created": 1590242239962,
                                                                                                             "text": "行情快照消息 ",
-                                                                                                            "expandState": "collapse"
+                                                                                                            "expandState": "expand"
                                                                                                         },
                                                                                                         "children": [
                                                                                                             {
@@ -7351,7 +7357,7 @@
                                                                                             "id": "c2y6q2y9dxs0",
                                                                                             "created": 1590244772066,
                                                                                             "text": "快照行情接收",
-                                                                                            "expandState": "collapse"
+                                                                                            "expandState": "expand"
                                                                                         },
                                                                                         "children": [
                                                                                             {
@@ -7403,7 +7409,7 @@
                                                                                             "id": "c2y7dfqa49k0",
                                                                                             "created": 1590246602258,
                                                                                             "text": "逐笔行情接收",
-                                                                                            "expandState": "collapse"
+                                                                                            "expandState": "expand"
                                                                                         },
                                                                                         "children": [
                                                                                             {
@@ -7657,14 +7663,15 @@
                                                                                     "id": "c2y7ptjr6400",
                                                                                     "created": 1590247572708,
                                                                                     "text": "消息定义",
-                                                                                    "expandState": "collapse"
+                                                                                    "expandState": "expand"
                                                                                 },
                                                                                 "children": [
                                                                                     {
                                                                                         "data": {
                                                                                             "id": "c2y7qlxv2co0",
                                                                                             "created": 1590247634511,
-                                                                                            "text": "消息结构 - 概述"
+                                                                                            "text": "消息结构 - 概述",
+                                                                                            "expandState": "expand"
                                                                                         },
                                                                                         "children": [
                                                                                             {
@@ -7672,7 +7679,7 @@
                                                                                                     "id": "c2y7r0j8tpc0",
                                                                                                     "created": 1590247666279,
                                                                                                     "text": "STEP消息",
-                                                                                                    "expandState": "collapse"
+                                                                                                    "expandState": "expand"
                                                                                                 },
                                                                                                 "children": [
                                                                                                     {
@@ -7724,7 +7731,7 @@
                                                                                             "id": "c2y7w637s480",
                                                                                             "created": 1590248070191,
                                                                                             "text": "公共消息",
-                                                                                            "expandState": "collapse"
+                                                                                            "expandState": "expand"
                                                                                         },
                                                                                         "children": [
                                                                                             {
@@ -7732,14 +7739,15 @@
                                                                                                     "id": "c2y7z2uma3s0",
                                                                                                     "created": 1590248298234,
                                                                                                     "text": "频道心跳",
-                                                                                                    "expandState": "expand"
+                                                                                                    "expandState": "collapse"
                                                                                                 },
                                                                                                 "children": [
                                                                                                     {
                                                                                                         "data": {
                                                                                                             "id": "c2y7whdfs6w0",
                                                                                                             "created": 1590248094754,
-                                                                                                            "text": "STEP消息结构"
+                                                                                                            "text": "STEP消息结构",
+                                                                                                            "expandState": "collapse"
                                                                                                         },
                                                                                                         "children": [
                                                                                                             {
@@ -8082,7 +8090,7 @@
                                                                                                     "id": "c2y8m1gv0vs0",
                                                                                                     "created": 1590250097601,
                                                                                                     "text": "快照行情频道统计",
-                                                                                                    "expandState": "expand"
+                                                                                                    "expandState": "collapse"
                                                                                                 },
                                                                                                 "children": [
                                                                                                     {
@@ -8090,7 +8098,7 @@
                                                                                                             "id": "c2y7whdfs6w0",
                                                                                                             "created": 1590248094754,
                                                                                                             "text": "STEP消息结构",
-                                                                                                            "expandState": "collapse"
+                                                                                                            "expandState": "expand"
                                                                                                         },
                                                                                                         "children": [
                                                                                                             {
@@ -8268,7 +8276,8 @@
                                                                                                 "data": {
                                                                                                     "id": "c2y8zqp6rko0",
                                                                                                     "created": 1590251171258,
-                                                                                                    "text": "业务拒绝消息"
+                                                                                                    "text": "业务拒绝消息",
+                                                                                                    "expandState": "collapse"
                                                                                                 },
                                                                                                 "children": [
                                                                                                     {
@@ -8330,7 +8339,8 @@
                                                                                         "data": {
                                                                                             "id": "c2y92w00g2o0",
                                                                                             "created": 1590251417889,
-                                                                                            "text": "实时行情"
+                                                                                            "text": "实时行情",
+                                                                                            "expandState": "expand"
                                                                                         },
                                                                                         "children": [
                                                                                             {
