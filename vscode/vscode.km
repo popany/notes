@@ -10,7 +10,8 @@
                 "data": {
                     "id": "c3nhue8vx6g0",
                     "created": 1592815141236,
-                    "text": "java"
+                    "text": "java",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -362,10 +363,79 @@
                         ]
                     }
                 ]
+            },
+            {
+                "data": {
+                    "id": "c42nrt6p7t40",
+                    "created": 1594355264672,
+                    "text": "插件",
+                    "layout_mind_offset": {
+                        "x": 422,
+                        "y": 81
+                    }
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c42ntfx14880",
+                            "created": 1594355392518,
+                            "text": "Beautify"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c42nti2wpr40",
+                            "created": 1594355397227,
+                            "text": "Draw.io Integration"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c42nulgxri80",
+                            "created": 1594355482970,
+                            "text": "vscode-mindmap"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c42nu7yt5e00",
+                            "created": 1594355453575,
+                            "text": "Remote Development"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c42nuw55jhs0",
+                            "created": 1594355506202,
+                            "text": "GitLens"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c42nv36vt080",
+                            "created": 1594355521544,
+                            "text": "Git Graph"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c42nvhz8r8w0",
+                            "created": 1594355553734,
+                            "text": "Bracket Pair Colorizer"
+                        },
+                        "children": []
+                    }
+                ]
             }
         ]
     },
-    "template": "default",
+    "template": "right",
     "theme": "fresh-blue",
     "version": "1.4.43"
 }

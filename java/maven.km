@@ -4897,10 +4897,36 @@
                         ]
                     }
                 ]
+            },
+            {
+                "data": {
+                    "id": "c45axgtcwnc0",
+                    "created": 1594623713371,
+                    "text": "使用"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c45axpvswrc0",
+                            "created": 1594623733109,
+                            "text": "安装jar包到本地库"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c45axxmxl7c0",
+                                    "created": 1594623749987,
+                                    "text": "mvn install:install-file -Dfile=E:\\softwares\\zookeeper-3.4.10\\zookeeper-3.4.10.jar -DgroupId=org.apache.zookeeper -DartifactId=zookeeper -Dversion=3.4.10 -Dpackaging=jar"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
-    "template": "default",
+    "template": "right",
     "theme": "fresh-blue",
     "version": "1.4.43"
 }

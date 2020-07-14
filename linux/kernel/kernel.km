@@ -1,0 +1,228 @@
+{
+    "root": {
+        "data": {
+            "id": "c41fr6iulhk0",
+            "created": 1594231086505,
+            "text": "kernel",
+            "hyperlink": "https://www.kernel.org/",
+            "hyperlinkTitle": ""
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c43fhkx3row0",
+                    "created": 1594433454114,
+                    "text": "souce code",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c41frvjpgcw0",
+                            "created": 1594231140977,
+                            "text": "repositories",
+                            "hyperlink": "https://git.kernel.org/",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c41g3xm34vs0",
+                            "created": 1594232085845,
+                            "text": "github",
+                            "hyperlink": "https://github.com/torvalds/linux",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c43vmuromnk0",
+                    "created": 1594479005133,
+                    "text": "LWN.NET"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c43vn50fz0w0",
+                            "created": 1594479027431,
+                            "text": "Kernel index",
+                            "hyperlink": "https://lwn.net/Kernel/Index/",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c43vnq8kzm80",
+                                    "created": 1594479073635,
+                                    "text": "System calls",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c43fi22uwiw0",
+                                            "created": 1594433491467,
+                                            "text": "Anatomy of a system call, part 1",
+                                            "hyperlink": "https://lwn.net/Articles/604287/",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c43fjwqlwjs0",
+                                                    "created": 1594433636571,
+                                                    "text": "System calls are the primary mechanism by which user-space programs interact with the Linux kernel"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c43flkdgrdc0",
+                                                    "created": 1594433766383,
+                                                    "text": "System calls differ from regular function calls"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c43fmfkdtzc0",
+                                                            "created": 1594433834281,
+                                                            "text": "the code being called is in the kernel"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c43fmxbo2nk0",
+                                                            "created": 1594433872937,
+                                                            "text": "Special instructions are needed to make the processor perform a transition to ring 0 (privileged mode)"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c43fnekktds0",
+                                                            "created": 1594433910481,
+                                                            "text": "the kernel code being invoked is identified by a syscall number, rather than by a function address"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c43unzl2s2g0",
+                                                    "created": 1594476272873,
+                                                    "text": "Defining a syscall with SYSCALL_DEFINEn()"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c43urek6ltc0",
+                                                            "created": 1594476540562,
+                                                            "text": "SYSCALL_DEFINEn() macros are the standard way for kernel code to define a system call",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c43urp8ztyo0",
+                                                                    "created": 1594476563830,
+                                                                    "text": "the n suffix indicates the argument countthe n suffix indicates the argument count"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c43uye9tpeo0",
+                                                            "created": 1594477088485,
+                                                            "text": "SYSCALL_METADATA()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c43uyubcjxk0",
+                                                                    "created": 1594477123405,
+                                                                    "text": "builds a collection of metadata about the system call for tracing purposesbuilds"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c43uzbfjb1c0",
+                                                            "created": 1594477160664,
+                                                            "text": "__SYSCALL_DEFINEx()"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c43uzh3wqg80",
+                                                                    "created": 1594477173023,
+                                                                    "text": "holds the system call implementation"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c43w5banvgw0",
+                                                    "created": 1594480451664,
+                                                    "text": "Syscall table entries"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c43ueq3f3i00",
+                                            "created": 1594475546936,
+                                            "text": "Anatomy of a system call, part 2",
+                                            "hyperlink": "https://lwn.net/Articles/604515/",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c43vesxa51k0",
+                    "created": 1594478374205,
+                    "text": "KernelNewbies",
+                    "hyperlink": "https://kernelnewbies.org/",
+                    "hyperlinkTitle": ""
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c43vf33wwig0",
+                            "created": 1594478396374,
+                            "text": "FAQ",
+                            "hyperlink": "https://kernelnewbies.org/FAQ",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
