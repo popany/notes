@@ -816,7 +816,8 @@
                                 "data": {
                                     "id": "c2y3tynsjhc0",
                                     "created": 1590236612853,
-                                    "text": "上海"
+                                    "text": "上海",
+                                    "expandState": "expand"
                                 },
                                 "children": [
                                     {
@@ -847,7 +848,8 @@
                                                         "data": {
                                                             "id": "c3oyk4exrrc0",
                                                             "created": 1592963855017,
-                                                            "text": "文档名"
+                                                            "text": "文档名",
+                                                            "expandState": "expand"
                                                         },
                                                         "children": [
                                                             {
@@ -878,7 +880,7 @@
                                                                                     "id": "c3oyojxtxq00",
                                                                                     "created": 1592964202268,
                                                                                     "text": "行情接口 mktdt00.txt",
-                                                                                    "expandState": "collapse"
+                                                                                    "expandState": "expand"
                                                                                 },
                                                                                 "children": [
                                                                                     {
@@ -886,7 +888,7 @@
                                                                                             "id": "c3oyoy24b6o0",
                                                                                             "created": 1592964233003,
                                                                                             "text": "说明",
-                                                                                            "expandState": "expand"
+                                                                                            "expandState": "collapse"
                                                                                         },
                                                                                         "children": [
                                                                                             {
@@ -919,7 +921,7 @@
                                                                                                     "id": "c3oyra7vals0",
                                                                                                     "created": 1592964416200,
                                                                                                     "text": "文件头",
-                                                                                                    "expandState": "expand"
+                                                                                                    "expandState": "collapse"
                                                                                                 },
                                                                                                 "children": [
                                                                                                     {
@@ -1290,7 +1292,8 @@
                                                                                                 "data": {
                                                                                                     "id": "c3oyrbaus2w0",
                                                                                                     "created": 1592964418557,
-                                                                                                    "text": "文件体"
+                                                                                                    "text": "文件体",
+                                                                                                    "expandState": "collapse"
                                                                                                 },
                                                                                                 "children": [
                                                                                                     {
@@ -2450,6 +2453,57 @@
                                                                         ]
                                                                     }
                                                                 ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c46swq3162o0",
+                                                                    "created": 1594775995117,
+                                                                    "text": "IS105上海证券交易所综合业务平台市场参与者接口规格说明书1.44版_20191121"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c46swwr19e00",
+                                                                            "created": 1594776009629,
+                                                                            "text": "行情文件接口mktdt01.txt"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c46sxx442bc0",
+                                                                    "created": 1594776088784,
+                                                                    "text": "IS113 上海证券交易所股票期权市场参与者接口规格说明书1.2版本_20191106"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c46sxy8vma00",
+                                                                            "created": 1594776091249,
+                                                                            "text": "期权行情文件接口mktdt03.txt"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c46stbl1hvs0",
+                                                                    "created": 1594775728462,
+                                                                    "text": "IS117上海证券交易所港股通市场参与者接口规格说明书(港股交易)1.05版_20191206"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c46su9ldsnk0",
+                                                                            "created": 1594775802493,
+                                                                            "text": "港股实时行情mktdt04.txt"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
                                                             }
                                                         ]
                                                     }
@@ -2463,7 +2517,8 @@
                                 "data": {
                                     "id": "c2y3u6662zc0",
                                     "created": 1590236629202,
-                                    "text": "深圳"
+                                    "text": "深圳",
+                                    "expandState": "expand"
                                 },
                                 "children": [
                                     {
@@ -2478,7 +2533,8 @@
                                                 "data": {
                                                     "id": "c2y3xy1xsow0",
                                                     "created": 1590236924989,
-                                                    "text": "数据接口"
+                                                    "text": "数据接口",
+                                                    "expandState": "collapse"
                                                 },
                                                 "children": [
                                                     {
@@ -8416,6 +8472,178 @@
                                                                                     "id": "c2y47oz78hs0",
                                                                                     "created": 1590237688874,
                                                                                     "text": "2019-04-19"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c46t59b2ci00",
+                                    "created": 1594776663875,
+                                    "text": "新三板"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c46t5gsvxzk0",
+                                            "created": 1594776680190,
+                                            "text": "官方资料"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c46t5kkf8uo0",
+                                                    "created": 1594776688386,
+                                                    "text": "数据接口"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c46t5mboya80",
+                                                            "created": 1594776692211,
+                                                            "text": "全国中小企业股份转让系统交易支持平台数据接口规范（V1.43）"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c46tcygpiy00",
+                                                                    "created": 1594777267185,
+                                                                    "text": "证券行情库NQHQ.DBF"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c46tdnvj5600",
+                                                                    "created": 1594777322501,
+                                                                    "text": "信息公告文件"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c46tebqwpmg0",
+                                                                            "created": 1594777374464,
+                                                                            "text": "XXyymmdd.nnn"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c46teqdtpko0",
+                                                                                    "created": 1594777406325,
+                                                                                    "text": "全国股转公司信息公告"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c46teu0ests0",
+                                                                            "created": 1594777414221,
+                                                                            "text": "GSyymmdd.nnn"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c46texdqll40",
+                                                                                    "created": 1594777421557,
+                                                                                    "text": "挂牌公司、两网公司及退市公司信息"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c46tf3hka140",
+                                                                            "created": 1594777434849,
+                                                                            "text": "GGyymmdd.nnn"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c46tf6ogv0w0",
+                                                                                    "created": 1594777441797,
+                                                                                    "text": "全国股转公司紧急公告"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c46tf9s4gpc0",
+                                                                            "created": 1594777448548,
+                                                                            "text": "QSyymmdd.nnn"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c46tfdm1rk80",
+                                                                                    "created": 1594777456888,
+                                                                                    "text": "主办券商信息"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c46tfi3x21k0",
+                                                                            "created": 1594777466676,
+                                                                            "text": "QTyymmdd.nnn"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c46tfmpwzd40",
+                                                                                    "created": 1594777476713,
+                                                                                    "text": "其他公告"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c46tfs3q9s80",
+                                                                            "created": 1594777488432,
+                                                                            "text": "FCyymmdd.nnn"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c46tfvdxbbk0",
+                                                                                    "created": 1594777495579,
+                                                                                    "text": "分层信息"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c46tfyw0vfk0",
+                                                                            "created": 1594777503204,
+                                                                            "text": "LTyymmdd.nnn"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c46tg1sl8ds0",
+                                                                                    "created": 1594777509526,
+                                                                                    "text": "临时停牌"
                                                                                 },
                                                                                 "children": []
                                                                             }
