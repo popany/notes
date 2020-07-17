@@ -838,8 +838,18 @@
                                                         "data": {
                                                             "id": "c3oyjhcuz740",
                                                             "created": 1592963804826,
-                                                            "text": "网址",
+                                                            "text": "上海证券交易所",
                                                             "hyperlink": "http://www.sse.com.cn/services/tradingservice/tradingtech/technical/data/",
+                                                            "hyperlinkTitle": ""
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c48tsytjbc00",
+                                                            "created": 1594981641701,
+                                                            "text": "上证所信息网络有限公司",
+                                                            "hyperlink": "https://www.sseinfo.com/services/assortment/document/",
                                                             "hyperlinkTitle": ""
                                                         },
                                                         "children": []
@@ -8498,14 +8508,18 @@
                                         "data": {
                                             "id": "c46t5gsvxzk0",
                                             "created": 1594776680190,
-                                            "text": "官方资料"
+                                            "text": "官网",
+                                            "hyperlink": "http://www.neeq.com.cn/",
+                                            "hyperlinkTitle": ""
                                         },
                                         "children": [
                                             {
                                                 "data": {
                                                     "id": "c46t5kkf8uo0",
                                                     "created": 1594776688386,
-                                                    "text": "数据接口"
+                                                    "text": "技术专区",
+                                                    "hyperlink": "http://www.neeq.com.cn/rule/Tech_area.html",
+                                                    "hyperlinkTitle": ""
                                                 },
                                                 "children": [
                                                     {

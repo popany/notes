@@ -19,6 +19,7 @@
     - [DbProviderFactory](#dbproviderfactory)
   - [Dynamic Programming in the .NET Framework](#dynamic-programming-in-the-net-framework)
     - [Reflection in .NET](#reflection-in-net)
+      - [Viewing Type Information](#viewing-type-information)
     - [Emitting Dynamic Methods and Assemblies](#emitting-dynamic-methods-and-assemblies)
   - [others](#others)
   - [Debug](#debug)
@@ -291,6 +292,10 @@ When you declare a public destructor, the compiler generates the code so that th
 ## [Dynamic Programming in the .NET Framework](https://docs.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/)
 
 ### [Reflection in .NET](https://docs.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/reflection)
+
+#### [Viewing Type Information](https://docs.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/viewing-type-information)
+
+
 
 ### [Emitting Dynamic Methods and Assemblies](https://docs.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/emitting-dynamic-methods-and-assemblies)
 
