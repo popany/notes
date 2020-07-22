@@ -4895,6 +4895,2387 @@
                                 ]
                             }
                         ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d3dly4e8w0",
+                            "created": 1595414889143,
+                            "text": "Maven 构建生命周期",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d3e1l1sps0",
+                                    "created": 1595414923181,
+                                    "text": "典型的 Maven 构建（build）生命周期",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d3e81i1p40",
+                                            "created": 1595414937237,
+                                            "text": "验证 validate"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d3eax705c0",
+                                                    "created": 1595414943507,
+                                                    "text": "验证项目是否正确且所有必须信息是可用的"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d3eeg7st40",
+                                            "created": 1595414951187,
+                                            "text": "编译 compile"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d3eh9962g0",
+                                                    "created": 1595414957297,
+                                                    "text": "源代码编译在此阶段完成"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d3ejr9yx40",
+                                            "created": 1595414962740,
+                                            "text": "测试 Test"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d3emfwkzk0",
+                                                    "created": 1595414968583,
+                                                    "text": "使用适当的单元测试框架（例如JUnit）运行测试"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d3et2irqg0",
+                                            "created": 1595414983011,
+                                            "text": "包装 package"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d3evgeau80",
+                                                    "created": 1595414988203,
+                                                    "text": "创建JAR/WAR包如在 pom.xml 中定义提及的包"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d3f0shptc0",
+                                            "created": 1595414999819,
+                                            "text": "检查 verify"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d3f3kzx0g0",
+                                                    "created": 1595415005896,
+                                                    "text": "对集成测试的结果进行检查，以保证质量达标"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d3f8n3w400",
+                                            "created": 1595415016907,
+                                            "text": "安装 install"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d3fb8j4880",
+                                                    "created": 1595415022556,
+                                                    "text": "安装打包的项目到本地仓库，以供其他项目使用"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d3feuz9280",
+                                            "created": 1595415030444,
+                                            "text": "部署 deploy"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d3fk2i0cw0",
+                                                    "created": 1595415041783,
+                                                    "text": "拷贝最终的工程包到远程仓库中，以共享给其他开发人员和工程"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d4qf2xjwo0",
+                                    "created": 1595418714041,
+                                    "text": "构建阶段由插件目标构成",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d4qlfgl200",
+                                            "created": 1595418727859,
+                                            "text": "一个插件目标代表一个特定的任务（比构建阶段更为精细），这有助于项目的构建和管理"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4qp0lde00",
+                                            "created": 1595418735667,
+                                            "text": "这些目标可能被绑定到多个阶段或者无绑定"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4qtl10480",
+                                            "created": 1595418745610,
+                                            "text": "不绑定到任何构建阶段的目标可以在构建生命周期之外通过直接调用执行"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4qxqaoso0",
+                                            "created": 1595418754635,
+                                            "text": "这些目标的执行顺序取决于调用目标和构建阶段的顺序"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d4e63j57s0",
+                                    "created": 1595417754116,
+                                    "text": "Maven 的三种标准生命周期",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d4emb2bhc0",
+                                            "created": 1595417789400,
+                                            "text": "clean",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d4f052e6g0",
+                                                    "created": 1595417819512,
+                                                    "text": "项目清理的处理"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d4hwcjkkg0",
+                                                    "created": 1595418046350,
+                                                    "text": "包含阶段"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4ib2wm000",
+                                                            "created": 1595418078419,
+                                                            "text": "pre-clean"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d4idjji1c0",
+                                                                    "created": 1595418083778,
+                                                                    "text": "执行一些需要在clean之前完成的工作"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4igi7cqg0",
+                                                            "created": 1595418090227,
+                                                            "text": "clean"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d4iitunyg0",
+                                                                    "created": 1595418095285,
+                                                                    "text": "移除所有上一次构建生成的文件"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4ilhqpew0",
+                                                            "created": 1595418101083,
+                                                            "text": "post-clean"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d4io3e4lc0",
+                                                                    "created": 1595418106746,
+                                                                    "text": "执行一些需要在clean之后立刻完成的工作"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d4k45nje00",
+                                                    "created": 1595418220076,
+                                                    "text": "可以通过在 clean 生命周期的任何阶段定义目标来修改这部分的操作行为"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d4iz92bvk0",
+                                                    "created": 1595418131034,
+                                                    "text": "注",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4iwyfzsg0",
+                                                            "created": 1595418126038,
+                                                            "text": "运行某个阶段的时候，它之前的所有阶段都会被运行",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d4j8hu51s0",
+                                                                    "created": 1595418151155,
+                                                                    "text": "执行 mvn clean 将运行 pre-clean, clean"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d4jf0f0q00",
+                                                                    "created": 1595418165339,
+                                                                    "text": "执行 mvn post-clean 将运行 pre-clean, clean, post-clean"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4eufa2cg0",
+                                            "created": 1595417807069,
+                                            "text": "default(或 build)",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d4fa44wh40",
+                                                    "created": 1595417841224,
+                                                    "text": "项目部署的处理"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d4m53vvuo0",
+                                                    "created": 1595418378874,
+                                                    "text": "包含阶段",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4mziha880",
+                                                            "created": 1595418445060,
+                                                            "text": "validate（校验）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4n3at0nk0",
+                                                            "created": 1595418453304,
+                                                            "text": "initialize（初始化）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4n5r4h400",
+                                                            "created": 1595418458643,
+                                                            "text": "generate-sources（生成源代码）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4n8a8t280",
+                                                            "created": 1595418464153,
+                                                            "text": "process-sources（处理源代码）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4nakmb1k0",
+                                                            "created": 1595418469134,
+                                                            "text": "generate-resources（生成资源文件）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4nd4wors0",
+                                                            "created": 1595418474714,
+                                                            "text": "process-resources （处理资源文件）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4ng2usx40",
+                                                            "created": 1595418481120,
+                                                            "text": "compile（编译）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4nigx8340",
+                                                            "created": 1595418486324,
+                                                            "text": "process-classes（处理类文件）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4nl3aew00",
+                                                            "created": 1595418492030,
+                                                            "text": "generate-test-sources（生成测试源代码）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4nnhw8bk0",
+                                                            "created": 1595418497267,
+                                                            "text": "process-test-sources（处理测试源代码）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4nq9hsso0",
+                                                            "created": 1595418503289,
+                                                            "text": "generate-test-resources（生成测试资源文件）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4ntda19k0",
+                                                            "created": 1595418510049,
+                                                            "text": "process-test-resources（处理测试资源文件）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4nw0a5eg0",
+                                                            "created": 1595418515793,
+                                                            "text": "test-compile（编译测试源码）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4nydl8e00",
+                                                            "created": 1595418520951,
+                                                            "text": "process-test-classes（处理测试类文件）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4o0jfnnc0",
+                                                            "created": 1595418525658,
+                                                            "text": "test（测试）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4o2v1ac80",
+                                                            "created": 1595418530713,
+                                                            "text": "prepare-package（准备打包）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4o5b19v40",
+                                                            "created": 1595418536034,
+                                                            "text": "package（打包）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4o7gms4g0",
+                                                            "created": 1595418540727,
+                                                            "text": "pre-integration-test（集成测试前）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4o9pf1p40",
+                                                            "created": 1595418545611,
+                                                            "text": "integration-test（集成测试）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4oc7e1a80",
+                                                            "created": 1595418551051,
+                                                            "text": "post-integration-test（集成测试后）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4oemky9k0",
+                                                            "created": 1595418556324,
+                                                            "text": "verify （验证）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4ohn04200",
+                                                            "created": 1595418562879,
+                                                            "text": "install（安装）"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4ojp1sh40",
+                                                            "created": 1595418567357,
+                                                            "text": "deploy（部署）"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d4oxaex9c0",
+                                                    "created": 1595418596947,
+                                                    "text": "注"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4oyfqlm80",
+                                                            "created": 1595418599445,
+                                                            "text": "当一个阶段通过 Maven 命令调用时，例如 mvn compile，只有该阶段之前以及包括该阶段在内的所有阶段会被执行"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4pflu1480",
+                                                            "created": 1595418636819,
+                                                            "text": "不同的 maven 目标将根据打包的类型（JAR / WAR / EAR），被绑定到不同的 Maven 生命周期阶段"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4fcjg55k0",
+                                            "created": 1595417846503,
+                                            "text": "site",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d4ff1lmrk0",
+                                                    "created": 1595417851954,
+                                                    "text": "项目站点文档创建的处理"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d4s7hj6so0",
+                                                    "created": 1595418854238,
+                                                    "text": "包含阶段"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4sa8rq0w0",
+                                                            "created": 1595418860238,
+                                                            "text": "pre-site"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d4sctqizs0",
+                                                                    "created": 1595418865859,
+                                                                    "text": "执行一些需要在生成站点文档之前完成的工作"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4shkgcao0",
+                                                            "created": 1595418876182,
+                                                            "text": "site"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d4skmy7z40",
+                                                                    "created": 1595418882863,
+                                                                    "text": "生成项目的站点文档"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4sl9iefs0",
+                                                            "created": 1595418884227,
+                                                            "text": "post-site"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d4sq3ojds0",
+                                                                    "created": 1595418894759,
+                                                                    "text": "执行一些需要在生成站点文档之后完成的工作，并且为部署做准备"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4sufdmu80",
+                                                            "created": 1595418904173,
+                                                            "text": "site-deploy"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d4sx4623s0",
+                                                                    "created": 1595418910026,
+                                                                    "text": "将生成的站点文档部署到特定的服务器上"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d4tifknvc0",
+                            "created": 1595418956428,
+                            "text": "Maven 构建配置文件",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d4tp5u1sw0",
+                                    "created": 1595418971076,
+                                    "text": "构建配置文件是一系列的配置项的值，可以用来设置或者覆盖 Maven 构建默认值",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d4u0w91og0",
+                                            "created": 1595418996618,
+                                            "text": "使用构建配置文件，你可以为不同的环境，比如说生产环境（Production）和开发（Development）环境，定制构建方式"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4u7xok000",
+                                            "created": 1595419011942,
+                                            "text": "配置文件在 pom.xml 文件中使用 activeProfiles 或者 profiles 元素指定，并且可以通过各种方式触发"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4uir7bpk0",
+                                            "created": 1595419035495,
+                                            "text": "配置文件在构建时修改 POM，并且用来给参数设定不同的目标环境（比如说，开发（Development）、测试（Testing）和生产环境（Production）中数据库服务器的地址）"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d4uq8mzo00",
+                                    "created": 1595419051787,
+                                    "text": "构建配置文件的类型",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d4uuaut6o0",
+                                            "created": 1595419060628,
+                                            "text": "项目级（Per Project）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d4uxfhhso0",
+                                                    "created": 1595419067438,
+                                                    "text": "定义在项目的POM文件pom.xml中"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4v0xdats0",
+                                            "created": 1595419075050,
+                                            "text": "用户级 （Per User）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d4v31fq4o0",
+                                                    "created": 1595419079650,
+                                                    "text": "定义在Maven的设置xml文件中 (%USER_HOME%/.m2/settings.xml)"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4v5cjuv40",
+                                            "created": 1595419084675,
+                                            "text": "全局（Global）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d4v7sfmbs0",
+                                                    "created": 1595419089989,
+                                                    "text": "定义在 Maven 全局的设置 xml 文件中 (%M2_HOME%/conf/settings.xml)"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d4w5pgafc0",
+                                    "created": 1595419163819,
+                                    "text": "配置文件激活"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d4wclyjqw0",
+                                            "created": 1595419178846,
+                                            "text": "激活方式",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d4wgv41uo0",
+                                                    "created": 1595419188106,
+                                                    "text": "使用命令控制台输入显式激活"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d4wjnl6yo0",
+                                                    "created": 1595419194182,
+                                                    "text": "通过 maven 设置"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d4wlyhhkg0",
+                                                    "created": 1595419199194,
+                                                    "text": "基于环境变量（用户或者系统变量）"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d4wo37ens0",
+                                                    "created": 1595419203833,
+                                                    "text": "操作系统设置（比如说，Windows系列）"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d4wqqelmg0",
+                                                    "created": 1595419209590,
+                                                    "text": "文件的存在或者缺失"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d4xfaje200",
+                            "created": 1595419263050,
+                            "text": "Maven 仓库",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d4xj4qry00",
+                                    "created": 1595419271406,
+                                    "text": "在 Maven 的术语中，仓库是一个位置（place）",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d4xpcc4js0",
+                                            "created": 1595419284926,
+                                            "text": "Maven 仓库是项目中依赖的第三方库，这个库所在的位置叫做仓库"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4xuiyvvk0",
+                                            "created": 1595419296211,
+                                            "text": "在 Maven 中，任何一个依赖、插件或者项目构建的输出，都可以称之为构件"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4xztcefk0",
+                                            "created": 1595419307722,
+                                            "text": "Maven 仓库能帮助我们管理构件（主要是JAR），它就是放置所有JAR文件（WAR，ZIP，POM等等）的地方"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d4y3cnc880",
+                                    "created": 1595419315420,
+                                    "text": "Maven 仓库的三种类型",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d4y6inoww0",
+                                            "created": 1595419322314,
+                                            "text": "本地（local）",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d4ytxv9xc0",
+                                                    "created": 1595419373299,
+                                                    "text": "运行 Maven 的时候，Maven 所需要的任何构件都是直接从本地仓库获取的"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4yyr1z000",
+                                                            "created": 1595419383771,
+                                                            "text": "如果本地仓库没有，它会首先尝试从远程仓库下载构件至本地仓库，然后再使用本地仓库的构件"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4yj62x3k0",
+                                            "created": 1595419349851,
+                                            "text": "中央（central）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d4za0rxqo0",
+                                                    "created": 1595419408304,
+                                                    "text": "Maven 中央仓库是由 Maven 社区提供的仓库，其中包含了大量常用的库",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4zf7suzk0",
+                                                            "created": 1595419419612,
+                                                            "text": "这个仓库由 Maven 社区管理"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4zjzlcu80",
+                                                            "created": 1595419430000,
+                                                            "text": "不需要配置"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d4zrlmkww0",
+                                                            "created": 1595419446570,
+                                                            "text": "需要通过网络才能访问"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d4ykywfps0",
+                                            "created": 1595419353771,
+                                            "text": "远程（remote）"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d502cff3k0",
+                                                    "created": 1595419469958,
+                                                    "text": "开发人员自己定制仓库，包含了所需要的代码库或者其他工程中用到的 jar 文件"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d50a0m4g00",
+                                    "created": 1595419486658,
+                                    "text": "Maven 依赖搜索顺序",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d50hpcleo0",
+                                            "created": 1595419503391,
+                                            "text": "步骤 1 "
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d50ksj3s00",
+                                                    "created": 1595419510114,
+                                                    "text": "在本地仓库中搜索，如果找不到，执行步骤 2，如果找到了则执行其他操作"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d50n9hz4w0",
+                                            "created": 1595419515494,
+                                            "text": "步骤 2"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d50ndeb540",
+                                                    "created": 1595419515729,
+                                                    "text": "在中央仓库中搜索，如果找不到，并且有一个或多个远程仓库已经设置，则执行步骤 4，如果找到了则下载到本地仓库中以备将来引用"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d511gjep40",
+                                            "created": 1595419546394,
+                                            "text": "步骤 3 "
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d516oetjk0",
+                                                    "created": 1595419557754,
+                                                    "text": "如果远程仓库没有被设置，Maven 将简单的停滞处理并抛出错误（无法找到依赖的文件）"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d51au1zk80",
+                                            "created": 1595419566802,
+                                            "text": "步骤 4"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d51drii540",
+                                                    "created": 1595419573179,
+                                                    "text": "在一个或多个远程仓库中搜索依赖的文件，如果找到则下载到本地仓库以备将来引用，否则 Maven 将停止处理并抛出错误（无法找到依赖的文件）"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d51tczm5k0",
+                            "created": 1595419607129,
+                            "text": "Maven 插件",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d52dyqv2w0",
+                                    "created": 1595419651981,
+                                    "text": "每个生命周期中都包含着一系列的阶段(phase)",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d52kpgdzs0",
+                                            "created": 1595419666656,
+                                            "text": "这些 phase 就相当于 Maven 提供的统一的接口"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d52npnuns0",
+                                            "created": 1595419673199,
+                                            "text": "这些 phase 的实现由 Maven 的插件来完成"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d52tsph8o0",
+                                            "created": 1595419686444,
+                                            "text": "比如"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d52uxu5og0",
+                                                    "created": 1595419688931,
+                                                    "text": "mvn clean，clean 对应的就是 Clean 生命周期中的 clean 阶段"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d531x3m8g0",
+                                                    "created": 1595419704124,
+                                                    "text": "clean 的具体操作是由 maven-clean-plugin 来实现的"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d537mnjhs0",
+                                    "created": 1595419716553,
+                                    "text": "Maven 生命周期的每一个阶段的具体实现都是由 Maven 插件实现的",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d53gzglwg0",
+                                            "created": 1595419736918,
+                                            "text": "Maven 实际上是一个依赖插件执行的框架，每个任务实际上是由插件完成"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d53q7jz4w0",
+                                    "created": 1595419756999,
+                                    "text": "Maven 插件通常被用来",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d53udtj6o0",
+                                            "created": 1595419766085,
+                                            "text": "创建 jar 文件"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d53wpx0sw0",
+                                            "created": 1595419771170,
+                                            "text": "创建 war 文件"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d53yo2qso0",
+                                            "created": 1595419775412,
+                                            "text": "编译代码文件"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d541v1vq80",
+                                            "created": 1595419782364,
+                                            "text": "代码单元测试"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d543t6iw00",
+                                            "created": 1595419786605,
+                                            "text": "创建工程文档"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5464hlzk0",
+                                            "created": 1595419791642,
+                                            "text": "创建工程报告"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d54fgqfog0",
+                                    "created": 1595419811973,
+                                    "text": "插件类型",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d54k14xy80",
+                                            "created": 1595419821914,
+                                            "text": "Build plugins"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d54pab2dk0",
+                                                    "created": 1595419833353,
+                                                    "text": "在构建时执行，并在 pom.xml 的 元素中配置"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d54rp20gw0",
+                                            "created": 1595419838598,
+                                            "text": "Reporting plugins"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d54tp106o0",
+                                                    "created": 1595419842950,
+                                                    "text": "在网站生成过程中执行，并在 pom.xml 的 元素中配置"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d5505po3c0",
+                                    "created": 1595419857019,
+                                    "text": "常用插件",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d552779ew0",
+                                            "created": 1595419861463,
+                                            "text": "clean"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d555xifuo0",
+                                                    "created": 1595419869584,
+                                                    "text": "构建之后清理目标文件。删除目标目录"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5585urps0",
+                                            "created": 1595419874442,
+                                            "text": "compiler"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d55acx4qg0",
+                                                    "created": 1595419879224,
+                                                    "text": "编译 Java 源文件"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d55cry2v40",
+                                            "created": 1595419884485,
+                                            "text": "surefile"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d55ezvj080",
+                                                    "created": 1595419889318,
+                                                    "text": "运行 JUnit 单元测试。创建测试报告"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d55imr1zk0",
+                                            "created": 1595419897232,
+                                            "text": "jar"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d55mm1bk00",
+                                                    "created": 1595419905896,
+                                                    "text": "从当前工程中构建 JAR 文件"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d55q21ucg0",
+                                            "created": 1595419913394,
+                                            "text": "war"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d55veax2o0",
+                                                    "created": 1595419925019,
+                                                    "text": "从当前工程中构建 WAR 文件"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d55xo1m200",
+                                            "created": 1595419929962,
+                                            "text": "javadoc"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d560dstnc0",
+                                                    "created": 1595419935873,
+                                                    "text": "为工程生成 Javadoc"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d562j5eag0",
+                                            "created": 1595419940550,
+                                            "text": "antrun"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d567himgg0",
+                                                    "created": 1595419951335,
+                                                    "text": "从构建过程的任意一个阶段中运行一个 ant 任务的集合"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d56vu6uvk0",
+                                    "created": 1595420004344,
+                                    "text": "概念",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5705mj940",
+                                            "created": 1595420013743,
+                                            "text": "插件是在 pom.xml 中使用 plugins 元素定义的"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d57659v880",
+                                            "created": 1595420026782,
+                                            "text": "每个插件可以有多个目标"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d57davw4o0",
+                                            "created": 1595420042359,
+                                            "text": "可以定义阶段，插件会使用它的 phase 元素开始处理"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d57itvylc0",
+                                            "created": 1595420054392,
+                                            "text": "可以通过绑定到插件的目标的方式来配置要执行的任务"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d57ugc9cg0",
+                                            "created": 1595420079695,
+                                            "text": "Maven 将下载本地仓库中获取不到的插件，并开始处理"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d5880dwgw0",
+                            "created": 1595420109204,
+                            "text": "Maven 构建 Java 项目",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d5anb7zl40",
+                                    "created": 1595420299239,
+                                    "text": "Maven 使用原型 archetype 插件创建项目"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d5b0jexyg0",
+                                    "created": 1595420328033,
+                                    "text": "创建一个简单的 Java 应用",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5b3zm6uw0",
+                                            "created": 1595420335543,
+                                            "text": "使用 maven-archetype-quickstart 插件",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d5bb97hn40",
+                                                    "created": 1595420351360,
+                                                    "text": "mvn archetype:generate \"-DgroupId=com.companyname.bank\" \"-DartifactId=consumerBanking\" \"-DarchetypeArtifactId=maven-archetype-quickstart\" \"-DinteractiveMode=false\""
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d5bwr8s600",
+                                                    "created": 1595420398163,
+                                                    "text": "参数说明",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5c23g5go0",
+                                                            "created": 1595420409785,
+                                                            "text": "-DgourpId"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5c4cfvsw0",
+                                                                    "created": 1595420414683,
+                                                                    "text": "组织名，公司网址的反写 + 项目名称"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5c7adha00",
+                                                            "created": 1595420421088,
+                                                            "text": "-DartifactId"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5c99weqg0",
+                                                                    "created": 1595420425413,
+                                                                    "text": "项目名-模块名"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5cbxa22o0",
+                                                            "created": 1595420431180,
+                                                            "text": "-DarchetypeArtifactId"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5cezpxsg0",
+                                                                    "created": 1595420437858,
+                                                                    "text": "指定 ArchetypeId，maven-archetype-quickstart，创建一个简单的 Java 应用"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5ciikr340",
+                                                            "created": 1595420445528,
+                                                            "text": "-DinteractiveMode"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5clh62vs0",
+                                                                    "created": 1595420451974,
+                                                                    "text": "是否使用交互模式"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d5d1pehwg0",
+                                                    "created": 1595420487300,
+                                                    "text": "生成的文件夹说明",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5d9mukrs0",
+                                                            "created": 1595420504560,
+                                                            "text": "consumerBanking"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5dbz9rk00",
+                                                                    "created": 1595420509665,
+                                                                    "text": "包含 src 文件夹和 pom.xml"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5dfn6a0g0",
+                                                            "created": 1595420517640,
+                                                            "text": "src/main/java"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5dr34w6w0",
+                                                                    "created": 1595420542550,
+                                                                    "text": "java 代码文件在包结构下（com/companyName/bank）"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5e5efhpk0",
+                                                            "created": 1595420573708,
+                                                            "text": "src/main/test"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5e8gzfkw0",
+                                                                    "created": 1595420580393,
+                                                                    "text": "测试代码文件在包结构下（com/companyName/bank）"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5ecae33c0",
+                                                            "created": 1595420588701,
+                                                            "text": "src/main/resources"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5ef6ok280",
+                                                                    "created": 1595420595007,
+                                                                    "text": "包含了 图片 / 属性 文件（在上面的例子中，我们需要手动创建这个结构）"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d5eukxq400",
+                            "created": 1595420628521,
+                            "text": "Maven 构建 & 项目测试",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d5feunpgg0",
+                                    "created": 1595420672644,
+                                    "text": "mvn clean package",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5fl39khs0",
+                                            "created": 1595420686226,
+                                            "text": "清理目标目录（clean），然后打包项目构建的输出为 jar（package）文件"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5fr0qtmo0",
+                                            "created": 1595420699134,
+                                            "text": "打包好的 jar 文件可以在 consumerBanking\\target 中获得，名称为 consumerBanking-1.0-SNAPSHOT.jar"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5fu5irtk0",
+                                            "created": 1595420705953,
+                                            "text": "测试报告存放在 consumerBanking\\target\\surefire-reports 文件夹中"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5fy7d0nk0",
+                                            "created": 1595420714771,
+                                            "text": "Maven 编译源码文件，以及测试源码文件"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5g1d6iv40",
+                                            "created": 1595420721654,
+                                            "text": "接着 Maven 运行测试用例"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5g3gu14o0",
+                                            "created": 1595420726228,
+                                            "text": "最后 Maven 创建项目包"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d5gcxyecw0",
+                            "created": 1595420746854,
+                            "text": "Maven 引入外部依赖",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d5gk57z8g0",
+                                    "created": 1595420762531,
+                                    "text": "pom.xml 的 dependencies 列表列出了我们的项目需要构建的所有外部依赖项",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5h19u1w00",
+                                            "created": 1595420799815,
+                                            "text": "要添加依赖项，我们一般是先在 src 文件夹下添加 lib 文件夹，然后将你工程需要的 jar 文件复制到 lib 文件夹下"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5h7iis4w0",
+                                            "created": 1595420813401,
+                                            "text": "然后添加以下依赖到 pom.xml 文件中"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d5ho221sw0",
+                            "created": 1595420849411,
+                            "text": "Maven 项目模板",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d5hsncbwg0",
+                                    "created": 1595420859405,
+                                    "text": "Maven 使用 archetype(原型) 来创建自定义的项目结构，形成 Maven 项目模板"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d5hyj3hcw0",
+                                    "created": 1595420872209,
+                                    "text": "什么是 archetype"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5i612q940",
+                                            "created": 1595420888534,
+                                            "text": "archetype 也就是原型，是一个 Maven 插件，准确说是一个项目模板，它的任务是根据模板创建一个项目结构"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d5imv23dc0",
+                                    "created": 1595420925175,
+                                    "text": "使用项目模板"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5ip1hikg0",
+                                            "created": 1595420929918,
+                                            "text": "mvn archetype:generate"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d5j2k0w9s0",
+                            "created": 1595420959337,
+                            "text": "Maven 项目文档"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d5jbu0pvc0",
+                                    "created": 1595420979532,
+                                    "text": "生成文档"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5jedtnyw0",
+                                            "created": 1595420985083,
+                                            "text": "mvn site"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d5jmk1zcw0",
+                            "created": 1595421002874,
+                            "text": "Maven 快照(SNAPSHOT)",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d5k20p64w0",
+                                    "created": 1595421036532,
+                                    "text": "什么是快照",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5k8u4vfk0",
+                                            "created": 1595421051373,
+                                            "text": "快照是一种特殊的版本，指定了某个当前的开发进度的副本"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5kdnsoyw0",
+                                            "created": 1595421061874,
+                                            "text": "不同于常规的版本，Maven 每次构建都会在远程仓库中检查新的快照"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d5kjlw3fc0",
+                                    "created": 1595421074819,
+                                    "text": "项目快照 vs 版本",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5ksr29cw0",
+                                            "created": 1595421094723,
+                                            "text": "对于版本，如果 Maven 以前下载过指定的版本文件，比如说 data-service:1.0，Maven 将不会再从仓库下载新的可用的 1.0 文件。若要下载更新的代码，data-service 的版本需要升到1.1"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5kwit9m80",
+                                            "created": 1595421102931,
+                                            "text": "快照的情况下，每次 app-ui 团队构建他们的项目时，Maven 将自动获取最新的快照(data-service:1.0-SNAPSHOT)"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d5la1acc80",
+                            "created": 1595421132346,
+                            "text": "Maven 自动化构建",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d5lxzl33k0",
+                                    "created": 1595421184486,
+                                    "text": "在一个项目成功构建完成后，其相关的依赖工程即开始构建，这样可以保证其依赖项目的稳定"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d5ma37ua00",
+                                    "created": 1595421210827,
+                                    "text": "使用持续集成（CI） 服务器，比如 Hudson，来自行管理构建自动化"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d5mlzvb5c0",
+                            "created": 1595421236746,
+                            "text": "Maven 依赖管理",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d5mul0o2o0",
+                                    "created": 1595421255439,
+                                    "text": "可传递性依赖发现",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5n8z7kjc0",
+                                            "created": 1595421286772,
+                                            "text": "Maven 通过读取项目文件（pom.xml），找出它们项目之间的依赖关系"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5ndihho80",
+                                            "created": 1595421296645,
+                                            "text": "我们需要做的只是在每个项目的 pom 中定义好直接的依赖关系"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5nj5f80o0",
+                                            "created": 1595421308916,
+                                            "text": "通过可传递性的依赖，所有被包含的库的图形会快速的增长"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5np6a04g0",
+                                            "created": 1595421322028,
+                                            "text": "当有重复库时，可能出现的情形将会持续上升"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d5nsac1800",
+                                                    "created": 1595421328804,
+                                                    "text": "Maven 提供一些功能来控制可传递的依赖的程度",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5nxlt3c00",
+                                                            "created": 1595421340381,
+                                                            "text": "依赖调节"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5o3u14zc0",
+                                                                    "created": 1595421353939,
+                                                                    "text": "决定当多个手动创建的版本同时出现时，哪个依赖版本将会被使用"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4d5oi26rj40",
+                                                                            "created": 1595421384907,
+                                                                            "text": "如果两个依赖版本在依赖树里的深度是一样的时候，第一个被声明的依赖将会被使用"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5ob4cu140",
+                                                            "created": 1595421369801,
+                                                            "text": "依赖管理"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5om9v4ig0",
+                                                                    "created": 1595421394079,
+                                                                    "text": "直接的指定手动创建的某个版本被使用"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5p4kw45s0",
+                                                            "created": 1595421433928,
+                                                            "text": "依赖范围"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5p79yhfs0",
+                                                                    "created": 1595421439797,
+                                                                    "text": "包含在构建过程每个阶段的依赖"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5p9sn6rc0",
+                                                            "created": 1595421445280,
+                                                            "text": "依赖排除"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5pfs4ihs0",
+                                                                    "created": 1595421458310,
+                                                                    "text": "任何可传递的依赖都可以通过 \"exclusion\" 元素被排除在外"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5pi49fa00",
+                                                            "created": 1595421463397,
+                                                            "text": "依赖可选"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5pkqnci00",
+                                                                    "created": 1595421469104,
+                                                                    "text": "任何可传递的依赖可以被标记为可选的，通过使用 \"optional\" 元素"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d5pqvg0ag0",
+                                    "created": 1595421482455,
+                                    "text": "依赖范围",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5px4c48g0",
+                                            "created": 1595421496053,
+                                            "text": "编译阶段"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d5q6svkmw0",
+                                                    "created": 1595421517128,
+                                                    "text": "该范围表明相关依赖是只在项目的类路径下有效"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5q9mt7w80",
+                                            "created": 1595421523292,
+                                            "text": "供应阶段"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d5qe3rgv40",
+                                                    "created": 1595421533024,
+                                                    "text": "该范围表明相关依赖是由运行时的 JDK 或者 网络服务器提供的"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5qi3z7io0",
+                                            "created": 1595421541744,
+                                            "text": "运行阶段"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d5qkgja1s0",
+                                                    "created": 1595421546857,
+                                                    "text": "该范围表明相关依赖在编译阶段不是必须的，但是在执行阶段是必须的"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5qn0ssfc0",
+                                            "created": 1595421552436,
+                                            "text": "测试阶段"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d5qpzuvo00",
+                                                    "created": 1595421558909,
+                                                    "text": "该范围表明相关依赖只在测试编译阶段和执行阶段"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5qt5oils0",
+                                            "created": 1595421565792,
+                                            "text": "系统阶段"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d5qvdkr080",
+                                                    "created": 1595421570623,
+                                                    "text": "该范围表明你需要提供一个系统路径"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5qycwhr40",
+                                            "created": 1595421577112,
+                                            "text": "导入阶段"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d5r19pzo80",
+                                                    "created": 1595421583450,
+                                                    "text": "该范围只在依赖是一个 pom 里定义的依赖时使用"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d5r6xwfvc0",
+                                    "created": 1595421595796,
+                                    "text": "依赖管理",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5rslbgd40",
+                                            "created": 1595421642925,
+                                            "text": "通常情况下，在一个共通的项目下，有一系列的项目"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d5rxeuebs0",
+                                                    "created": 1595421653417,
+                                                    "text": "在这种情况下，我们可以创建一个公共依赖的 pom 文件，该 pom 包含所有的公共的依赖关系，我们称其为其他子项目 pom 的 pom 父"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d5taclq400",
+                            "created": 1595421759944,
+                            "text": "Maven 自动化部署",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d5tn8udr40",
+                                    "created": 1595421788015,
+                                    "text": "部署过程包括",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5tuztwsg0",
+                                            "created": 1595421804884,
+                                            "text": "将项目代码提交到 SVN 或者代码库中并打上标签"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5u3d00z40",
+                                            "created": 1595421823095,
+                                            "text": "从 SVN 上下载完整的源代码"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5u67axt40",
+                                            "created": 1595421829280,
+                                            "text": "构建应用"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5u97gjeo0",
+                                            "created": 1595421835820,
+                                            "text": "存储构建输出的 WAR 或者 EAR 文件到一个常用的网络位置下"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5udihxiw0",
+                                            "created": 1595421845195,
+                                            "text": "从网络上获取文件并且部署文件到生产站点上"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5ugcxh340",
+                                            "created": 1595421851388,
+                                            "text": "更新文档并且更新应用的版本号"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4d5uq7mkyg0",
+                                    "created": 1595421872836,
+                                    "text": "解决方案",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5utitye80",
+                                            "created": 1595421880043,
+                                            "text": "使用 Maven 构建和发布项目"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5uxoo2p40",
+                                            "created": 1595421889104,
+                                            "text": "使用 SubVersion， 源码仓库来管理源代码"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4d5v387yzc0",
+                                            "created": 1595421901171,
+                                            "text": "使用远程仓库管理软件（Jfrog或者Nexus） 来管理项目二进制文件"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d5vmkr6zk0",
+                            "created": 1595421943286,
+                            "text": "Maven Web 应用",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4d5vr1fus80",
+                                    "created": 1595421953002,
+                                    "text": "创建 Web 应用"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4d5vvhbpeo0",
+                                            "created": 1595421962670,
+                                            "text": "可以使用 maven-archetype-webapp 插件来创建一个简单的 Java web 应用"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4d5vz6dcc00",
+                                                    "created": 1595421970715,
+                                                    "text": "mvn archetype:generate -DgroupId=com.companyname.automobile -DartifactId=trucks -DarchetypeArtifactId=maven-archetype-webapp  -DinteractiveMode=false"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4d5w57xc600",
+                                                    "created": 1595421983870,
+                                                    "text": "目录结构"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5wblb2ao0",
+                                                            "created": 1595421997739,
+                                                            "text": "trucks"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5wdu514w0",
+                                                                    "created": 1595422002627,
+                                                                    "text": "包含 src 文件夹和 pom.xml 文件"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5wg8tnhs0",
+                                                            "created": 1595422007868,
+                                                            "text": "src/main/webapp"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5wiwqmfs0",
+                                                                    "created": 1595422013668,
+                                                                    "text": "包含 index.jsp 文件和 WEB-INF 文件夹"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5wlzj7540",
+                                                            "created": 1595422020367,
+                                                            "text": "src/main/webapp/WEB-INF"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5wnznjbs0",
+                                                                    "created": 1595422024728,
+                                                                    "text": "包含 web.xml 文件"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4d5wqzpzf40",
+                                                            "created": 1595422031263,
+                                                            "text": "src/main/resources"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4d5wtjuod40",
+                                                                    "created": 1595422036834,
+                                                                    "text": "包含图片、properties资源文件"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4d5xbpn3c00",
+                            "created": 1595422076366,
+                            "text": "Maven Eclipse",
+                            "hyperlink": "https://www.runoob.com/maven/maven-eclipse.html",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
                     }
                 ]
             },
@@ -4902,14 +7283,16 @@
                 "data": {
                     "id": "c45axgtcwnc0",
                     "created": 1594623713371,
-                    "text": "使用"
+                    "text": "使用",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
                         "data": {
                             "id": "c45axpvswrc0",
                             "created": 1594623733109,
-                            "text": "安装jar包到本地库"
+                            "text": "安装jar包到本地库",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {

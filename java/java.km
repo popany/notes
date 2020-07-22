@@ -770,6 +770,207 @@
                                     "hyperlinkTitle": ""
                                 },
                                 "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c4b71pwngv40",
+                                    "created": 1595222121918,
+                                    "text": "JDBC Statements, PreparedStatement和CallableStatement语句",
+                                    "hyperlink": "https://www.yiibai.com/jdbc/jdbc-statements.html",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c4b6ow9y8vs0",
+                                    "created": 1595221117048,
+                                    "text": "JDBC结果集",
+                                    "hyperlink": "https://www.yiibai.com/jdbc/jdbc-result-sets.html",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4b6tmbp8go0",
+                                            "created": 1595221487207,
+                                            "text": "ResultSet对象维护指向结果集中当前行的游标"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4b6ttzh90g0",
+                                                    "created": 1595221503882,
+                                                    "text": "术语“结果集”是指包含在ResultSet对象中的行和列数据"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4b6u51vo2o0",
+                                            "created": 1595221527972,
+                                            "text": "ResultSet接口的方法可以分为三类"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4b6u875n3c0",
+                                                    "created": 1595221534822,
+                                                    "text": "浏览方法"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4b6ub20vvk0",
+                                                            "created": 1595221541042,
+                                                            "text": "用于移动光标"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4b6ueq70nk0",
+                                                    "created": 1595221549034,
+                                                    "text": "获取方法"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4b6uhkr7nc0",
+                                                            "created": 1595221555235,
+                                                            "text": "用于查看光标指向的当前行的列中的数据"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4b6ukooweg0",
+                                                    "created": 1595221562003,
+                                                    "text": "更新方法"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4b6unz7ow80",
+                                                            "created": 1595221569170,
+                                                            "text": "用于更新当前行的列中的数据。 然后在基础数据库中更新数据"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4b6vnpi6k00",
+                                            "created": 1595221646947,
+                                            "text": "ResultSet类型"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4b6vsf3la80",
+                                                    "created": 1595221657202,
+                                                    "text": "ResultSet.TYPE_FORWARD_ONLY"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4b6vvr5sco0",
+                                                            "created": 1595221664461,
+                                                            "text": "光标只能在结果集中向前移动"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4b6w5t6q140",
+                                                    "created": 1595221686352,
+                                                    "text": "ResultSet.TYPE_SCROLL_INSENSITIVE"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4b6w6ten8w0",
+                                                            "created": 1595221688542,
+                                                            "text": "光标可以向前和向后滚动，结果集对创建结果集后发生的数据库所做的更改不敏感"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4b6weyxuds0",
+                                                    "created": 1595221706291,
+                                                    "text": "ResultSet.TYPE_SCROLL_SENSITIVE"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4b6wjv6asg0",
+                                                            "created": 1595221716947,
+                                                            "text": "光标可以向前和向后滚动，结果集对创建结果集之后发生的其他数据库的更改敏感"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4b6wvol8cw0",
+                                            "created": 1595221742670,
+                                            "text": "ResultSet的并发性"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4b6x56q3nk0",
+                                                    "created": 1595221763358,
+                                                    "text": "ResultSet.CONCUR_READ_ONLY"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4b6xa2696g0",
+                                                            "created": 1595221773966,
+                                                            "text": "创建只读结果集，这是默认值"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4b6x8p5h2g0",
+                                                    "created": 1595221771002,
+                                                    "text": "ResultSet.CONCUR_UPDATABLE"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4b6xixewyo0",
+                                                            "created": 1595221793270,
+                                                            "text": "创建可更新的结果集"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     }

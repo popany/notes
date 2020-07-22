@@ -20,7 +20,11 @@
     - [List Files](#list-files)
     - [Display the contents of child directories](#display-the-contents-of-child-directories)
     - [ForEach loop](#foreach-loop)
-  - [Count the files in a folder](#count-the-files-in-a-folder)
+  - [File](#file)
+    - [Count the files in a folder](#count-the-files-in-a-folder)
+    - [Get timestamp of file](#get-timestamp-of-file)
+  - [Date Time](#date-time)
+    - [Standard DateTime Format patterns for PowerShell](#standard-datetime-format-patterns-for-powershell)
   - [Check if string is in list of strings](#check-if-string-is-in-list-of-strings)
   - [Run .ps1 from cmd](#run-ps1-from-cmd)
   - [Gaining administrator privileges in PowerShell](#gaining-administrator-privileges-in-powershell)
@@ -174,7 +178,9 @@ with `Where-Object`
        $_.FullName
     }
 
-## Count the files in a folder
+## File
+
+### Count the files in a folder
 
     (Get-ChildItem | Measure-Object).Count
 
@@ -183,6 +189,16 @@ with `Where-Object`
     (Get-ChildItem -File | Measure-Object).Count
 
     (Get-ChildItem -Recurse | Measure-Object).Count
+
+### Get timestamp of file
+
+    ((Get-Item foo.txt).CreationTime.ToString("yyyy-MM-dd HH:mm:ss.fff"))
+    ((Get-Item foo.txt).LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss.fff"))
+    ((Get-Item foo.txt).LastAccessTime.ToString("yyyy-MM-dd HH:mm:ss.fff"))
+
+## Date Time
+
+### [Standard DateTime Format patterns for PowerShell](https://ss64.com/ps/syntax-dateformats.html)
 
 ## [Check if string is in list of strings](https://stackoverflow.com/questions/47096341/check-if-string-is-in-list-of-strings)
 
