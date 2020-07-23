@@ -1,0 +1,203 @@
+{
+    "root": {
+        "data": {
+            "id": "c4dosjd3lk00",
+            "created": 1595475302289,
+            "text": "win32 programming"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c4dosqbgcvs0",
+                    "created": 1595475317427,
+                    "text": "Programming reference for the Win32 API",
+                    "hyperlink": "https://docs.microsoft.com/en-us/windows/win32/api/",
+                    "hyperlinkTitle": ""
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4dot7mgr8w0",
+                            "created": 1595475355098,
+                            "text": "System Services",
+                            "hyperlink": "https://docs.microsoft.com/en-us/windows/win32/api/_base/",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4douyjy24g0",
+                                    "created": 1595475492083,
+                                    "text": "memoryapi.h header",
+                                    "hyperlink": "https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4dowcc9esg0",
+                                            "created": 1595475600457,
+                                            "text": "FlushViewOfFile function",
+                                            "hyperlink": "https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-flushviewoffile",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4dowlfh1pc0",
+                                                    "created": 1595475620243,
+                                                    "text": "Writes to the disk a byte range within a mapped view of a file"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4dows07pyg0",
+                                                    "created": 1595475634558,
+                                                    "text": "Remarks"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4doxhxuxgg0",
+                                                            "created": 1595475691011,
+                                                            "text": "Flushing a range of a mapped view initiates writing of dirty pages within that range to the disk"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4doxrizou00",
+                                                                    "created": 1595475711880,
+                                                                    "text": "Dirty pages are those whose contents have changed since the file view was mapped"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4doxyjofzs0",
+                                                            "created": 1595475727160,
+                                                            "text": "The FlushViewOfFile function does not flush the file metadata"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4doym54u6o0",
+                                                                    "created": 1595475778523,
+                                                                    "text": "and it does not wait to return until the changes are flushed from the underlying hardware disk cache and physically written to disk"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4doyxc8o5k0",
+                                                            "created": 1595475802897,
+                                                            "text": "To flush all the dirty pages plus the metadata for the file and ensure that they are physically written to disk"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4doyxhnx7k0",
+                                                                    "created": 1595475803225,
+                                                                    "text": "call FlushViewOfFile and then call the FlushFileBuffers function"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4dozeicr0o0",
+                                                            "created": 1595475840272,
+                                                            "text": "When flushing a memory-mapped file over a network"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4dozko77ps0",
+                                                                    "created": 1595475853686,
+                                                                    "text": "FlushViewOfFile guarantees that the data has been written from the local computer"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4dozo07pjs0",
+                                                                    "created": 1595475860943,
+                                                                    "text": "but not that the data resides on the remote computer"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4dp11cy5ls0",
+                                                                    "created": 1595475968375,
+                                                                    "text": "The server can cache the data on the remote side"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4dp1d6c6fk0",
+                                                                            "created": 1595475994097,
+                                                                            "text": "Therefore, FlushViewOfFile can return before the data has been physically written to disk"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4dp1sexwm80",
+                                                            "created": 1595476027269,
+                                                            "text": "When modifying a file through a mapped view"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4dp1wht4mo0",
+                                                                    "created": 1595476036149,
+                                                                    "text": "the last modification timestamp may not be updated automatically"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4dp21jl9fs0",
+                                                                    "created": 1595476047141,
+                                                                    "text": "If required, the caller should use SetFileTime to set the timestamp"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4dovxhlwog0",
+                                    "created": 1595475568129,
+                                    "text": "minidumpapiset.h header",
+                                    "hyperlink": "https://docs.microsoft.com/en-us/windows/win32/api/minidumpapiset/",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

@@ -11,7 +11,7 @@
                     "id": "c2y6lvq40qo0",
                     "created": 1590244442880,
                     "text": "概念",
-                    "expandState": "expand"
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -1021,7 +1021,8 @@
                                                                                         "data": {
                                                                                             "id": "c4byojhvs680",
                                                                                             "created": 1595300080307,
-                                                                                            "text": "实时文件 mktdt01.txt"
+                                                                                            "text": "实时文件 mktdt01.txt",
+                                                                                            "expandState": "expand"
                                                                                         },
                                                                                         "children": [
                                                                                             {
@@ -1154,7 +1155,7 @@
                                                                                                                 "data": {
                                                                                                                     "id": "c4bz9ai1xow0",
                                                                                                                     "created": 1595301706374,
-                                                                                                                    "text": "集合竞价阶段每 15 秒更新一次数据，连续竞价阶段每秒两次"
+                                                                                                                    "text": "集合竞价阶段每 15 秒更新一次数据，连续竞价阶段每秒2次"
                                                                                                                 },
                                                                                                                 "children": []
                                                                                                             }
@@ -9105,6 +9106,204 @@
                                                                     "text": "5秒"
                                                                 },
                                                                 "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4dw32fnzy80",
+                                            "created": 1595495875214,
+                                            "text": "行情文件刷新方式"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4dw37y7rdc0",
+                                                    "created": 1595495887220,
+                                                    "text": "上海行情"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4dw3ezac940",
+                                                            "created": 1595495902522,
+                                                            "text": "mktdt00.txt"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4dw3gz8b480",
+                                                                    "created": 1595495906872,
+                                                                    "text": "刷新频率"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4dw4q5yens0",
+                                                                            "created": 1595496005234,
+                                                                            "text": "交易阶段"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4dw4zz4mco0",
+                                                                                    "created": 1595496026589,
+                                                                                    "text": "3秒"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4dw4x1jnyo0",
+                                                                            "created": 1595496020205,
+                                                                            "text": "11:30:00~13:00:00"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4dw58rna340",
+                                                                                    "created": 1595496045727,
+                                                                                    "text": "1分"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4dw5geq8vc0",
+                                                                                    "created": 1595496062361,
+                                                                                    "text": "行情信息不更新"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4dw5othak80",
+                                                                    "created": 1595496080667,
+                                                                    "text": "文件内容"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4dw5szs7uo0",
+                                                                            "created": 1595496089755,
+                                                                            "text": "每次刷新均会更新文件头中的时间戳"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4dw5zvzrc00",
+                                                                    "created": 1595496104763,
+                                                                    "text": "文件修改时间"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4dw6a00igw0",
+                                                                            "created": 1595496126774,
+                                                                            "text": "不同网关有所差异"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4dw6nrn0080",
+                                                            "created": 1595496156743,
+                                                            "text": "mktdt01.txt"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4dw6r2nuz40",
+                                                                    "created": 1595496163940,
+                                                                    "text": "刷新频率"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4dw7h6u90g0",
+                                                                            "created": 1595496220789,
+                                                                            "text": "5秒"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4dw7ltxac80",
+                                                            "created": 1595496230892,
+                                                            "text": "mktdt03.txt"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4dw7ouv2ls0",
+                                                                    "created": 1595496237479,
+                                                                    "text": "刷新频率"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4dw7sbdwfs0",
+                                                                            "created": 1595496245008,
+                                                                            "text": "0.5秒增量刷新"
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4dw7w4hsc80",
+                                                                            "created": 1595496253299,
+                                                                            "text": "30秒全量刷新"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4dw871llqo0",
+                                                            "created": 1595496277068,
+                                                            "text": "mktdt04.txt"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4dw89h19xk0",
+                                                                    "created": 1595496282355,
+                                                                    "text": "刷新频率"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4dw8ca2sqw0",
+                                                                            "created": 1595496288465,
+                                                                            "text": "5秒"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
                                                             }
                                                         ]
                                                     }
