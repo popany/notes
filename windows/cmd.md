@@ -34,6 +34,6 @@
     set toFilePrefix=%2
 
     :loop
-    copy %fromFilePath% %toFilePrefix%-%date:~0,4%%date:~5,2%%date:~8,2%-%time:~0,2%%time:~3,2%%time:~6,2%-%time:~9,2%
+    copy %fromFilePath% "%toFilePrefix%-%date:~0,4%%date:~5,2%%date:~8,2%-%time:~0,2%%time:~3,2%%time:~6,2%-%time:~9,2%"
     timeout /T 10
     goto loop

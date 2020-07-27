@@ -1,0 +1,956 @@
+{
+    "root": {
+        "data": {
+            "id": "c4h7xkbl8c80",
+            "created": 1595833977154,
+            "text": "JDBC"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c41drams6ao0",
+                    "created": 1594225453230,
+                    "text": "JDBC快速入门教程",
+                    "hyperlink": "https://www.yiibai.com/jdbc/jdbc_quick_guide.html",
+                    "hyperlinkTitle": ""
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c45chve0yu80",
+                            "created": 1594628133488,
+                            "text": "概览",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c45chxfrvxs0",
+                                    "created": 1594628137948,
+                                    "text": "JDBC是什么?",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c45ciyq277c0",
+                                            "created": 1594628219111,
+                                            "text": "JDBC API"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45cj4eqz8o0",
+                                                    "created": 1594628231487,
+                                                    "text": "是一个Java API",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c45cjm1bmsg0",
+                                                            "created": 1594628269858,
+                                                            "text": "可以访问任何类型表列数据"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c45cjr99iow0",
+                                                                    "created": 1594628281222,
+                                                                    "text": "特别是存储在关系数据库中的数据"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c45cjywxck00",
+                                                            "created": 1594628297890,
+                                                            "text": "JDBC代表Java数据库连接"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c45cklxrra80",
+                                                    "created": 1594628348007,
+                                                    "text": "常用场景"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c45ckrhai2w0",
+                                                            "created": 1594628360071,
+                                                            "text": "连接到数据库"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c45ckvwz6zc0",
+                                                            "created": 1594628369727,
+                                                            "text": "创建SQL或MySQL语句"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c45cl01avbk0",
+                                                            "created": 1594628378695,
+                                                            "text": "在数据库中执行SQL或MySQL查询"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c45cl3u68eo0",
+                                                            "created": 1594628386971,
+                                                            "text": "查看和修改数据库中的数据记录"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c45clanayg00",
+                                    "created": 1594628401794,
+                                    "text": "使用JDBC前提条件",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c45clk1vqlc0",
+                                            "created": 1594628422266,
+                                            "text": "编程知识 ",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45clgv91i80",
+                                                    "created": 1594628415335,
+                                                    "text": "JAVA核心编程"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c45clune8bc0",
+                                                    "created": 1594628445335,
+                                                    "text": "SQL语句或一种数据库系统"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c45cm1pqyww0",
+                                                            "created": 1594628460715,
+                                                            "text": "(如：MySQL,Oracle数据库)"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c45cmd4neh40",
+                                    "created": 1594628485560,
+                                    "text": "JDBC环境设置",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c45cmim1xc00",
+                                            "created": 1594628497496,
+                                            "text": "JAVA(JDK)安装"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45cmolh5iw0",
+                                            "created": 1594628510522,
+                                            "text": "数据库系统的安装"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c45cmxaqavs0",
+                                    "created": 1594628529463,
+                                    "text": "创建JDBC应用程序",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c45cn8nzfcg0",
+                                            "created": 1594628554209,
+                                            "text": "以Java连接MySQL为例",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45cnfnylsw0",
+                                                    "created": 1594628569446,
+                                                    "text": "导入包"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c45co2vr04o0",
+                                                            "created": 1594628619982,
+                                                            "text": "import java.sql.*;"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c45coa8s0ls0",
+                                                    "created": 1594628636008,
+                                                    "text": "注册JDBC驱动程序"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c45cof2ykbk0",
+                                                            "created": 1594628646540,
+                                                            "text": "Class.forName(\"com.mysql.jdbc.Driver\");"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c45cou8tq5c0",
+                                                    "created": 1594628679546,
+                                                    "text": "打开一个连接"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c45coyydl480",
+                                                            "created": 1594628689798,
+                                                            "text": "DriverManager.getConnection()"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c45cp6lfboo0",
+                                                    "created": 1594628706430,
+                                                    "text": "执行一个查询"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c45cpuqwfig0",
+                                                            "created": 1594628759003,
+                                                            "text": "使用一个类型为Statement或PreparedStatement的对象，并提交一个SQL语句到数据库执行查询",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c45cqb6lqkw0",
+                                                                    "created": 1594628794781,
+                                                                    "text": "stmt = conn.createStatement();",
+                                                                    "expandState": "expand"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c45cr9iyj1s0",
+                                                                    "created": 1594628869539,
+                                                                    "text": "String sql = \"SELECT id, first, last, age FROM Employees\";"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c45cqnizcio0",
+                                                                    "created": 1594628821651,
+                                                                    "text": "ResultSet rs = stmt.executeQuery(sql);"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c45crrnoqnc0",
+                                                    "created": 1594628909007,
+                                                    "text": "从结果集中提取数据"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c45cs0vfzew0",
+                                                            "created": 1594628929067,
+                                                            "text": "使用适当的ResultSet.getXXX()方法来检索的数据结果"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c45csbdq9o00",
+                                                                    "created": 1594628951941,
+                                                                    "text": "int id  = rs.getInt(\"id\");"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c45csitd0lc0",
+                                                    "created": 1594628968123,
+                                                    "text": "清理环境资源"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c45cszkz8800",
+                                                            "created": 1594629004622,
+                                                            "text": "rs.close();"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c45cszkzhvc0",
+                                                            "created": 1594629004622,
+                                                            "text": "stmt.close();"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c45cszkze5k0",
+                                                            "created": 1594629004622,
+                                                            "text": "conn.close();"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c45ctlgou1s0",
+                                    "created": 1594629052252,
+                                    "text": "第一个JDBC程序实例",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c45cvvfynu80",
+                                            "created": 1594629230704,
+                                            "text": "可以使用以下代码作为模板来编写JDBC代码"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45cvyl2nmo0",
+                                                    "created": 1594629237543,
+                                                    "text": "略"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c45cw6z71k00",
+                                    "created": 1594629255811,
+                                    "text": "SQLException中的方法",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c45cwhfwn340",
+                                            "created": 1594629278590,
+                                            "text": "getErrorCode()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45cwlvjiww0",
+                                                    "created": 1594629288242,
+                                                    "text": "获取与异常关联的错误代码"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45cz523mmw0",
+                                            "created": 1594629486726,
+                                            "text": "getMessage()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45czgr4o2w0",
+                                                    "created": 1594629512184,
+                                                    "text": "获取JDBC驱动程序的错误处理错误消息，或获取Oracle错误代码和数据库的错误消息"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45czr0tpew0",
+                                            "created": 1594629534538,
+                                            "text": "getSQLState()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45czy2fkbk0",
+                                                    "created": 1594629549873,
+                                                    "text": "获取XOPEN SQLSTATE字符串"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c45d04uxfbs0",
+                                                    "created": 1594629564656,
+                                                    "text": "对于JDBC驱动程序错误，从该方法返回的可能是无用的信息"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c45d0aamxrs0",
+                                                    "created": 1594629576490,
+                                                    "text": "对于一个数据库错误，返回一个五位的XOPEN SQLSTATE代码"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c45d0elfcrk0",
+                                                    "created": 1594629585850,
+                                                    "text": "这种方法可以返回null"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45d0ocd35c0",
+                                            "created": 1594629607069,
+                                            "text": "getNextException()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45d0w1lsnk0",
+                                                    "created": 1594629623833,
+                                                    "text": "获取异常链中的下一个Exception对象"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45d1frsrrc0",
+                                            "created": 1594629666776,
+                                            "text": "printStackTrace()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45d1k1jnmg0",
+                                                    "created": 1594629676072,
+                                                    "text": "打印当前的异常，或也可以抛出，并回溯到标准错误流"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45d26li5mo0",
+                                            "created": 1594629725168,
+                                            "text": "printStackTrace(PrintStream s)"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45d29z42gg0",
+                                                    "created": 1594629732522,
+                                                    "text": "打印此抛出对象及其回溯到指定的打印流"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45d2di8ymw0",
+                                            "created": 1594629740209,
+                                            "text": "printStackTrace(PrintWriter w)"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45d2hmytm80",
+                                                    "created": 1594629749201,
+                                                    "text": "打印此抛出对象及其回溯到指定打印写入流"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c45d3idzsqo0",
+                                    "created": 1594629829200,
+                                    "text": "JDBC数据类型"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c45d4ft6kso0",
+                                    "created": 1594629901952,
+                                    "text": "JDBC批量处理",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c45d4o6si9c0",
+                                            "created": 1594629920189,
+                                            "text": "批处理允许执行一个批处理组相关的SQL语句，并将其一次提交到数据库中执行"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45d51xsoq80",
+                                                    "created": 1594629950120,
+                                                    "text": "当几个SQL语句一次发送到数据库中时，可以减少通信开销，从而提高性能"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45d5ox5zg00",
+                                            "created": 1594630000148,
+                                            "text": "DatabaseMetaData.supportsBatchUpdates()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45d6lfkj740",
+                                                    "created": 1594630070918,
+                                                    "text": "用于确定目标数据库支持批量更新",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c45d5sbfh5k0",
+                                                            "created": 1594630007541,
+                                                            "text": "如果JDBC驱动程序支持此功能，则该方法返回true"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45d6897rfk0",
+                                            "created": 1594630042236,
+                                            "text": "addBatch()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45d782ky4w0",
+                                                    "created": 1594630120199,
+                                                    "text": "在PreparedStatement和CallableStatementis类中用于添加单个语句的批处理的声明"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45d7oom7800",
+                                            "created": 1594630156359,
+                                            "text": "executeBatch()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45d7x16dog0",
+                                                    "created": 1594630174533,
+                                                    "text": "返回一个整数数组，每个数组元素的表示为相应的更新语句的更新计数"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45d8bncdsg0",
+                                            "created": 1594630206349,
+                                            "text": "clearBatch()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45d8gpgqf40",
+                                                    "created": 1594630217361,
+                                                    "text": "删除addBatch()方法添加的所有语句"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c45d8predco0",
+                                    "created": 1594630237069,
+                                    "text": "JDBC数据流"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c45d959pn1k0",
+                                            "created": 1594630270828,
+                                            "text": "PreparedStatement对象有能力使用提供参数数据的输入和输出流"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45d9g6gwrc0",
+                                                    "created": 1594630294576,
+                                                    "text": "可以将整个文件到数据库中，可容纳较大的值，如CLOB和BLOB数据类型的列"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45d9oojisw0",
+                                            "created": 1594630313083,
+                                            "text": "setAsciiStream()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45d9th0eww0",
+                                                    "created": 1594630323512,
+                                                    "text": "用于提供大的ASCII数据值"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45d9xxt3go0",
+                                            "created": 1594630333235,
+                                            "text": "setCharacterStream()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45da2296q80",
+                                                    "created": 1594630342211,
+                                                    "text": "用于提供大的UNICODE数据值"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c45da658xig0",
+                                            "created": 1594630351099,
+                                            "text": "setBinaryStream()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c45daaa84940",
+                                                    "created": 1594630360107,
+                                                    "text": "用于提供大的二进制数据值"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c45dbo5hz800",
+                            "created": 1594630468660,
+                            "text": "JDBC是什么？",
+                            "hyperlink": "https://www.yiibai.com/jdbc/jdbc-introduction.html",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c4b71pwngv40",
+                            "created": 1595222121918,
+                            "text": "JDBC Statements, PreparedStatement和CallableStatement语句",
+                            "hyperlink": "https://www.yiibai.com/jdbc/jdbc-statements.html",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c4b6ow9y8vs0",
+                            "created": 1595221117048,
+                            "text": "JDBC结果集",
+                            "hyperlink": "https://www.yiibai.com/jdbc/jdbc-result-sets.html",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4b6tmbp8go0",
+                                    "created": 1595221487207,
+                                    "text": "ResultSet对象维护指向结果集中当前行的游标"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4b6ttzh90g0",
+                                            "created": 1595221503882,
+                                            "text": "术语“结果集”是指包含在ResultSet对象中的行和列数据"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4b6u51vo2o0",
+                                    "created": 1595221527972,
+                                    "text": "ResultSet接口的方法可以分为三类"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4b6u875n3c0",
+                                            "created": 1595221534822,
+                                            "text": "浏览方法"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4b6ub20vvk0",
+                                                    "created": 1595221541042,
+                                                    "text": "用于移动光标"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4b6ueq70nk0",
+                                            "created": 1595221549034,
+                                            "text": "获取方法"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4b6uhkr7nc0",
+                                                    "created": 1595221555235,
+                                                    "text": "用于查看光标指向的当前行的列中的数据"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4b6ukooweg0",
+                                            "created": 1595221562003,
+                                            "text": "更新方法"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4b6unz7ow80",
+                                                    "created": 1595221569170,
+                                                    "text": "用于更新当前行的列中的数据。 然后在基础数据库中更新数据"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4b6vnpi6k00",
+                                    "created": 1595221646947,
+                                    "text": "ResultSet类型"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4b6vsf3la80",
+                                            "created": 1595221657202,
+                                            "text": "ResultSet.TYPE_FORWARD_ONLY"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4b6vvr5sco0",
+                                                    "created": 1595221664461,
+                                                    "text": "光标只能在结果集中向前移动"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4b6w5t6q140",
+                                            "created": 1595221686352,
+                                            "text": "ResultSet.TYPE_SCROLL_INSENSITIVE"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4b6w6ten8w0",
+                                                    "created": 1595221688542,
+                                                    "text": "光标可以向前和向后滚动，结果集对创建结果集后发生的数据库所做的更改不敏感"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4b6weyxuds0",
+                                            "created": 1595221706291,
+                                            "text": "ResultSet.TYPE_SCROLL_SENSITIVE"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4b6wjv6asg0",
+                                                    "created": 1595221716947,
+                                                    "text": "光标可以向前和向后滚动，结果集对创建结果集之后发生的其他数据库的更改敏感"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4b6wvol8cw0",
+                                    "created": 1595221742670,
+                                    "text": "ResultSet的并发性"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4b6x56q3nk0",
+                                            "created": 1595221763358,
+                                            "text": "ResultSet.CONCUR_READ_ONLY"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4b6xa2696g0",
+                                                    "created": 1595221773966,
+                                                    "text": "创建只读结果集，这是默认值"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4b6x8p5h2g0",
+                                            "created": 1595221771002,
+                                            "text": "ResultSet.CONCUR_UPDATABLE"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4b6xixewyo0",
+                                                    "created": 1595221793270,
+                                                    "text": "创建可更新的结果集"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

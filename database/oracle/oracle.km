@@ -38,6 +38,527 @@
                     "text": "ORACLE_SID "
                 },
                 "children": []
+            },
+            {
+                "data": {
+                    "id": "c4h8v554u1c0",
+                    "created": 1595836608493,
+                    "text": "sql"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4h8v60npps0",
+                            "created": 1595836610399,
+                            "text": "create user"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c4h8wd1o3vk0",
+                            "created": 1595836704062,
+                            "text": "show tablespace"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c4h94z84moo0",
+                            "created": 1595837379255,
+                            "text": "tablespace"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4h9epvyqps0",
+                                    "created": 1595838142570,
+                                    "text": "CREATE TABLESPACE",
+                                    "hyperlink": "https://www.oracletutorial.com/oracle-administration/oracle-create-tablespace/",
+                                    "hyperlinkTitle": "",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4h9ez4jx9c0",
+                                            "created": 1595838162680,
+                                            "text": "CREATE TABLESPACE tbs1\nDATAFILE 'tbs1.dbf'\nSIZE 1m;",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4h9jf21jnc0",
+                                                    "created": 1595838510814,
+                                                    "text": "First, specify the name of the tablespace after the CREATE TABLESPACE keywords. In this example, the tablespace name is tbs1."
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h9jg2ibag0",
+                                                    "created": 1595838513019,
+                                                    "text": "Second, specify the path to the data file of the tablespace in the DATAFILE clause. In this case, it is tbs1.dbf. Note that you can use the datafile full path"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h9jnut5ko0",
+                                                    "created": 1595838529968,
+                                                    "text": "Third, specify the size of the tablespace in the SIZE clause. In this example, 1m stands for 1MB, which is quite small"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4h9pwi3njc0",
+                                            "created": 1595839018975,
+                                            "text": "CREATE TABLESPACE tbs1\n   DATAFILE 'tbs1.dbf'   SIZE 1m\n   AUTOEXTEND 20m;"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4hbe5cnk4g0",
+                                            "created": 1595843740087,
+                                            "text": "CREATE TABLESPACE tbs1\nDATAFILE 'tbs1.dbf' SIZE 10m\nAUTOEXTEND ON\nNOLOGGING\nEXTENT MANAGEMENT LOCAL;"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4h9rgm271c0",
+                                            "created": 1595839141114,
+                                            "text": "related",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4h9kwohq0w0",
+                                                    "created": 1595838627541,
+                                                    "text": "show tablespace",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9l0u3hpc0",
+                                                            "created": 1595838636587,
+                                                            "text": "SELECT \ntablespace_name, \nfile_name, \nbytes / 1024/ 1024  MB\nFROM\ndba_data_files;"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h9myjmuwo0",
+                                                    "created": 1595838788329,
+                                                    "text": "create table explicitly specify the tablespace",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9n4n9g280",
+                                                            "created": 1595838801609,
+                                                            "text": "CREATE TABLE table_name(\n   ...\n) \nTABLESPACE tablespace_name;"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h9nprn4s80",
+                                                    "created": 1595838847586,
+                                                    "text": "check the free space",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9nuw34xk0",
+                                                            "created": 1595838858739,
+                                                            "text": "SELECT \n   tablespace_name, \n   bytes / 1024 / 1024 MB\nFROM \n   dba_free_space\nWHERE \n   tablespace_name = 'TBS1';"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h9o9tci880",
+                                                    "created": 1595838891225,
+                                                    "text": "resize tablespace"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9ooj2ktc0",
+                                                            "created": 1595838923255,
+                                                            "text": "ALTER DATABASE\nDATAFILE 'tbs1.dbf' \nRESIZE 10m;"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4h95189hgo0",
+                                    "created": 1595837383617,
+                                    "text": "DROP TABLESPACE",
+                                    "hyperlink": "https://www.oracletutorial.com/oracle-administration/oracle-drop-tablespace",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4h97luutug0",
+                                            "created": 1595837585247,
+                                            "text": "DROP TABLESPACE tablespace_name\n[INCLUDING CONTENTS [AND | KEEP] DATAFILES]\n[CASCADE CONSTRAINTS];",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4h987mwokg0",
+                                                    "created": 1595837632655,
+                                                    "text": "First, specify the name of the tablespace that you want to drop after the DROP TABLESPACE keywords"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h98b8z6uo0",
+                                                    "created": 1595837640520,
+                                                    "text": "Second, use the INCLUDE CONTENTS to delete all contents of the tablespace. If the tablespace has any objects, you must use this option to remove the tablespace. Any attempt to remove a tablespace that has objects without specifying the INCLUDING CONTENTS option will result in an error"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h98kh9kjk0",
+                                                    "created": 1595837660612,
+                                                    "text": "Third, use AND DATAFILES option to instruct Oracle to delete the datafiles of the tablespace and KEEP DATAFILES option to leave the datafiles untouched"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h98o9ibyg0",
+                                                    "created": 1595837668851,
+                                                    "text": "Fourth, if the tablespace that has objects such as tables whose primary keys are referenced by referential integrity constraints from tables outside the tablespace, you must use the CASCADE CONSTRAINTS option to drop these constraints. If you omit the CASCACDE CONSTRAINTS clause in such situations, Oracle returns an error and does not remove the tablespace"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4h9qily2uo0",
+                                    "created": 1595839067097,
+                                    "text": "Extend Tablespace",
+                                    "hyperlink": "https://www.oracletutorial.com/oracle-administration/oracle-extend-tablespace/",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4h9t9xd5w00",
+                            "created": 1595839283289,
+                            "text": "user"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4h9tazitao0",
+                                    "created": 1595839285596,
+                                    "text": "CREATE USER",
+                                    "hyperlink": "https://www.oracletutorial.com/oracle-administration/oracle-create-user/",
+                                    "hyperlinkTitle": "",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4h9u8z4m740",
+                                            "created": 1595839359583,
+                                            "text": " CREATE USER username\n IDENTIFIED BY password\n [DEFAULT TABLESPACE tablespace]\n [QUOTA {size | UNLIMITED} ON tablespace]\n [PROFILE profile]\n [PASSWORD EXPIRE]\n [ACCOUNT {LOCK | UNLOCK}];"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4h9upy6ens0",
+                                                    "created": 1595839396531,
+                                                    "text": "CREATE USER username"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9utjirzk0",
+                                                            "created": 1595839404351,
+                                                            "text": "Specify the name of the user to be created"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h9uz45nyo0",
+                                                    "created": 1595839416483,
+                                                    "text": "IDENTIFIED BY password"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9v2u2kpc0",
+                                                            "created": 1595839424580,
+                                                            "text": "Specify a password for the local user to use to log on to the database. Note that you can create an external or global user, which is not covered in this tutorial"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h9v76kuls0",
+                                                    "created": 1595839434044,
+                                                    "text": "DEFAULT TABLESPACE"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9vdoa24w0",
+                                                            "created": 1595839448175,
+                                                            "text": "Specify the tablespace of the objects such as tables and views that the user will create"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9vpd0bc00",
+                                                            "created": 1595839473615,
+                                                            "text": "If you skip this clause, the user’s objects will be stored in the database default tablespace if available, typically it is USERS tablespace; or the SYSTEM tablespace in case there is no database default tablespace."
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h9w2f3sc80",
+                                                    "created": 1595839502040,
+                                                    "text": "QUOTA"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9w775yw00",
+                                                            "created": 1595839512444,
+                                                            "text": "Specify the maximum of space in the tablespace that the user can use. You can have multiple QUOTA clauses, each for a tablespace"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9wcjcbj40",
+                                                            "created": 1595839524064,
+                                                            "text": "Use UNLIMITED if you don’t want to restrict the size in the tablespace that user can use"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h9wllvcg80",
+                                                    "created": 1595839543808,
+                                                    "text": "PROFILE profile"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9wqdp1740",
+                                                            "created": 1595839554197,
+                                                            "text": "A user profile limits the database resources or password that the user cannot exceed. You can assign a profile to a newly created user. If you skip this clause, Oracle will assign the DEFAULT profile to the user"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h9wwusuw00",
+                                                    "created": 1595839568292,
+                                                    "text": "PASSWORD EXPIRE"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9x12mf6o0",
+                                                            "created": 1595839577472,
+                                                            "text": "Use the PASSWORD EXPIRE if you want to force the user to change the password for the first time the user logs in to the database"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4h9x5bat340",
+                                                    "created": 1595839586704,
+                                                    "text": "ACCOUNT {LOCK | UNLOCK}"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9x9h1yt40",
+                                                            "created": 1595839595759,
+                                                            "text": "Use ACCOUNT LOCK if you want to lock user and disable access. On the other hand, specify ACCOUNT UNLOCK to unlock user and enable access"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9xrbpync0",
+                                                            "created": 1595839634619,
+                                                            "text": "To execute the CREATE USER statement, you must have the CREATE USER system privilege. Once you create the new user, the privilege domain of the user will be empty. Therefore, if you want to the user to be able to login to the database, you should grant the CREATE SESSION system privilege to the user"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4hbvqk76sw0",
+                                            "created": 1595845118446,
+                                            "text": "CREATE USER test\nIDENTIFIED BY \"test\"\nDEFAULT TABLESPACE tbs1\nTEMPORARY TABLESPACE TEMP\nPROFILE DEFAULT"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4h9yc6nchk0",
+                                            "created": 1595839680024,
+                                            "text": "related"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4h9ydj6slk0",
+                                                    "created": 1595839682960,
+                                                    "text": "list of users with the OPEN status",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4h9z4izb680",
+                                                            "created": 1595839741720,
+                                                            "text": "SELECT \nusername, \ndefault_tablespace, \nprofile, \nauthentication_type\nFROM\ndba_users\nWHERE \naccount_status = 'OPEN';"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4hdprojdxs0",
+                                    "created": 1595850292920,
+                                    "text": "GRANT",
+                                    "hyperlink": "https://www.oracletutorial.com/oracle-administration/oracle-grant/",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4hdq7nfox40",
+                                            "created": 1595850327682,
+                                            "text": "GRANT CREATE SESSION TO john;"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4hdqkmogqo0",
+                                                    "created": 1595850355934,
+                                                    "text": "Use the GRANT statement to provide the user john the CREATE SESSION system privilege to enable the user to log in the Oracle database"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c4hbsvvm3r40",
+                    "created": 1595844894928,
+                    "text": "error code"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4hbsxb578g0",
+                            "created": 1595844898044,
+                            "text": "ORA-65096"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4hbsyez1lc0",
+                                    "created": 1595844900452,
+                                    "text": "公用用户名或角色名无效"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c4hbt2vtqlk0",
+                                    "created": 1595844910178,
+                                    "text": "solution",
+                                    "hyperlink": "https://blog.csdn.net/github_38358734/article/details/78842638",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4hbt5bi5200",
+                                            "created": 1595844915480,
+                                            "text": "alter session set \"_ORACLE_SCRIPT\"=true;"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },

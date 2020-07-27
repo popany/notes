@@ -13,7 +13,7 @@
                     "text": "maven菜鸟教程",
                     "hyperlink": "https://www.runoob.com/maven/maven-tutorial.html",
                     "hyperlinkTitle": "",
-                    "expandState": "expand",
+                    "expandState": "collapse",
                     "layout_mind_offset": {
                         "x": 0,
                         "y": -23.333333333333314
@@ -7281,25 +7281,62 @@
             },
             {
                 "data": {
-                    "id": "c45axgtcwnc0",
-                    "created": 1594623713371,
-                    "text": "使用",
-                    "expandState": "collapse"
+                    "id": "c4hd9wk0kkg0",
+                    "created": 1595849049704,
+                    "text": "配置"
                 },
                 "children": [
                     {
                         "data": {
-                            "id": "c45axpvswrc0",
-                            "created": 1594623733109,
-                            "text": "安装jar包到本地库",
-                            "expandState": "collapse"
+                            "id": "c4hda0f7rm80",
+                            "created": 1595849058121,
+                            "text": "仓库配置"
                         },
                         "children": [
                             {
                                 "data": {
-                                    "id": "c45axxmxl7c0",
-                                    "created": 1594623749987,
-                                    "text": "mvn install:install-file -Dfile=E:\\softwares\\zookeeper-3.4.10\\zookeeper-3.4.10.jar -DgroupId=org.apache.zookeeper -DartifactId=zookeeper -Dversion=3.4.10 -Dpackaging=jar"
+                                    "id": "c4hda38irtc0",
+                                    "created": 1595849064246,
+                                    "text": "maven配置多个中央仓库",
+                                    "hyperlink": "https://blog.csdn.net/weixin_39734304/article/details/80602648",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c4hczsk63fc0",
+                    "created": 1595848257364,
+                    "text": "package",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4hd08ldfz40",
+                            "created": 1595848292266,
+                            "text": "ojdbc6"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4hd09bi67c0",
+                                    "created": 1595848293846,
+                                    "text": "11.2.0.4",
+                                    "hyperlink": "https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc6/11.2.0.4",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c4hdda7utdk0",
+                                    "created": 1595849314536,
+                                    "text": "mvn install:install-file -Dfile=ojdbc6-11.2.0.4.jar -DgroupId=com.oracle.database.jdbc -DartifactId=ojdbc6 -Dversion=11.2.0.4 -Dpackaging=jar"
                                 },
                                 "children": []
                             }

@@ -5,18 +5,7 @@
             "created": 1592667464709,
             "text": "socket"
         },
-        "children": [
-            {
-                "data": {
-                    "id": "c3m1i40efq80",
-                    "created": 1592667480870,
-                    "text": "socket编程入门：1天玩转socket通信技术",
-                    "hyperlink": "http://c.biancheng.net/socket/",
-                    "hyperlinkTitle": ""
-                },
-                "children": []
-            }
-        ]
+        "children": []
     },
     "template": "default",
     "theme": "fresh-blue",

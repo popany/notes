@@ -1,0 +1,133 @@
+{
+    "root": {
+        "data": {
+            "id": "c4h1303wjs00",
+            "created": 1595814655569,
+            "text": "gradle"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c4h13azl9qo0",
+                    "created": 1595814679253,
+                    "text": "Gradle 教程",
+                    "hyperlink": "https://www.w3cschool.cn/gradle/",
+                    "hyperlinkTitle": ""
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4h14wyxwz40",
+                            "created": 1595814805467,
+                            "text": "Gradle 简介",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4h15gkstk00",
+                                    "created": 1595814848147,
+                                    "text": "基于 JVM 的富有突破性构建工具"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c4h15ow00xc0",
+                                    "created": 1595814866239,
+                                    "text": "提供了",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4h15sz4gk00",
+                                            "created": 1595814875135,
+                                            "text": "一个像 ant 一样，通用的灵活的构建工具"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4h15xdtqn40",
+                                            "created": 1595814884731,
+                                            "text": "一种可切换的，像 maven 一样的基于约定约定优于配置的构建框架"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4h160t7m3k0",
+                                            "created": 1595814892192,
+                                            "text": "强大的多工程构建支持"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4h163k1vsg0",
+                                            "created": 1595814898168,
+                                            "text": "强大的依赖管理(基于 ApacheIvy)"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4h168mm7yo0",
+                                            "created": 1595814909207,
+                                            "text": "对已有的 maven 和 ivy 仓库的全面支持"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4h16djn2q00",
+                                            "created": 1595814919911,
+                                            "text": "支持传递性依赖管理，而不需要远程仓库或者 pom.xml 或者 ivy 配置文件"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4h16hddk8o0",
+                                            "created": 1595814928239,
+                                            "text": "ant 式的任务和构建是 gradle 的第一公民"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4h16lichf40",
+                                            "created": 1595814937247,
+                                            "text": "基于 groovy，其 build 脚本使用 groovy dsl 编写"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4h16oglfug0",
+                                            "created": 1595814943671,
+                                            "text": "具有广泛的领域模型支持你的构建"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4h172m3ivk0",
+                            "created": 1595814974479,
+                            "text": "Gradle 概述"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
