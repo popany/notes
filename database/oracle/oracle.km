@@ -195,7 +195,8 @@
                                                 "data": {
                                                     "id": "c4h9o9tci880",
                                                     "created": 1595838891225,
-                                                    "text": "resize tablespace"
+                                                    "text": "resize tablespace",
+                                                    "expandState": "expand"
                                                 },
                                                 "children": [
                                                     {
@@ -203,6 +204,40 @@
                                                             "id": "c4h9ooj2ktc0",
                                                             "created": 1595838923255,
                                                             "text": "ALTER DATABASE\nDATAFILE 'tbs1.dbf' \nRESIZE 10m;"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4iar5qxzfc0",
+                                                    "created": 1595943498532,
+                                                    "text": "user privilege",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4iaquh51kg0",
+                                                            "created": 1595943473994,
+                                                            "text": "ALTER USER c##user01 QUOTA UNLIMITED ON users;"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4iarxgmncg0",
+                                                            "created": 1595943558858,
+                                                            "text": "ALTER USER c##user01 QUOTA 5M ON users;"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4ias2bbt4o0",
+                                                            "created": 1595943569421,
+                                                            "text": "grant unlimited tablespace to c##user01;"
                                                         },
                                                         "children": []
                                                     }
@@ -504,6 +539,282 @@
                                                     "id": "c4hdqkmogqo0",
                                                     "created": 1595850355934,
                                                     "text": "Use the GRANT statement to provide the user john the CREATE SESSION system privilege to enable the user to log in the Oracle database"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4i5jrhk2ns0",
+                                            "created": 1595928813390,
+                                            "text": "GRANT {system_privileges | object_privileges } \nTO user \n[WITH ADMIN OPTION]"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4i5k6scop40",
+                                                    "created": 1595928846695,
+                                                    "text": "First, specify the system or object privileges that you want to assign to a user after the GRANT keyword"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5ke1wb3c0",
+                                                            "created": 1595928862509,
+                                                            "text": "If you assign more than one privilege, you use a comma-separated list of privileges"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4i5kmnpxy00",
+                                                    "created": 1595928881243,
+                                                    "text": "Second, specify the user that receives the privileges after the TO keyword"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4i5l9vxwgw0",
+                                                    "created": 1595928931806,
+                                                    "text": "Third, optionally use the WITH ADMIN OPTION if you want the user to be able to perform the following"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5lslkmjc0",
+                                                            "created": 1595928972538,
+                                                            "text": "Grant / revoke the privilege to / from another user"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5lwvrh9c0",
+                                                            "created": 1595928981862,
+                                                            "text": "Alter the privilege to change the authorization needed to access it"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5m0zwcco0",
+                                                            "created": 1595928990819,
+                                                            "text": "Drop the privilege"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4i5p1kqfdc0",
+                                            "created": 1595929227171,
+                                            "text": "two main types of privileges"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4i5pjq9dns0",
+                                                    "created": 1595929266687,
+                                                    "text": "System privileges",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5ptahcqg0",
+                                                            "created": 1595929287501,
+                                                            "text": "CREATE SESSION"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5ptah8dc0",
+                                                            "created": 1595929287501,
+                                                            "text": "CREATE TABLE"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5ptai1rk0",
+                                                            "created": 1595929287502,
+                                                            "text": "CREATE VIEW"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5ptahyvk0",
+                                                            "created": 1595929287502,
+                                                            "text": "CREATE PROCEDURE"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5ptai1uo0",
+                                                            "created": 1595929287502,
+                                                            "text": "SYSDBA"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5ptahl7k0",
+                                                            "created": 1595929287502,
+                                                            "text": "SYSOPER"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4i5q6w6r9s0",
+                                                    "created": 1595929317112,
+                                                    "text": "Object privileges"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5q9365kw0",
+                                                            "created": 1595929321888,
+                                                            "text": "INSERT"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5q936l0g0",
+                                                            "created": 1595929321888,
+                                                            "text": "UPDATE"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5q936im00",
+                                                            "created": 1595929321888,
+                                                            "text": "DELETE"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5q936p140",
+                                                            "created": 1595929321888,
+                                                            "text": "INDEX"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5q9370vs0",
+                                                            "created": 1595929321889,
+                                                            "text": "EXECUTE"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4i5omymlvk0",
+                                            "created": 1595929195359,
+                                            "text": "examples",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4i5mmswxc80",
+                                                    "created": 1595929038286,
+                                                    "text": "shows the privileges of the current user"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5myk1cxs0",
+                                                            "created": 1595929063870,
+                                                            "text": "SELECT * FROM session_privs;"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4i5qnwi0j40",
+                                                    "created": 1595929354136,
+                                                    "text": "GRANT CREATE TABLE TO john;"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4i5r0g4ndk0",
+                                                    "created": 1595929381444,
+                                                    "text": "change the quota of the user john on the USERS tablespace"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5r2pfj6o0",
+                                                            "created": 1595929386360,
+                                                            "text": "ALTER USER john QUOTA UNLIMITED ON USERS;"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4i5rke0beg0",
+                                                    "created": 1595929424852,
+                                                    "text": "GRANT CREATE TABLE TO john WITH ADMIN OPTION;"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4i5rqr6mi80",
+                                                            "created": 1595929438709,
+                                                            "text": "Now, the user john can grant the CREATE TABLE system privilege to another user e.g. jack"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4i5s8g1gns0",
+                                                    "created": 1595929477217,
+                                                    "text": "GRANT SELECT ANY TABLE TO jack;"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4i5seobawo0",
+                                                    "created": 1595929490778,
+                                                    "text": "GRANT SELECT ON ot.t2 TO john;"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4i5sj962lk0",
+                                                    "created": 1595929500746,
+                                                    "text": "GRANT INSERT, UPDATE ON ot.t2 TO john;"
                                                 },
                                                 "children": []
                                             }

@@ -8,6 +8,16 @@
         "children": [
             {
                 "data": {
+                    "id": "c4i4f8gshbc0",
+                    "created": 1595925637419,
+                    "text": "java 菜鸟教程",
+                    "hyperlink": "https://www.runoob.com/java/java-tutorial.html",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
                     "id": "c3gyn0eyeag0",
                     "created": 1592151601751,
                     "text": "JMS"
@@ -32,6 +42,34 @@
                     "text": "java 注解"
                 },
                 "children": []
+            },
+            {
+                "data": {
+                    "id": "c4i2xw8ckcg0",
+                    "created": 1595921457486,
+                    "text": "repositories"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4i2y7509kg0",
+                            "created": 1595921481229,
+                            "text": "JCommander"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4i2yem4f3c0",
+                                    "created": 1595921497501,
+                                    "text": "使用JCommander开发命令行交互(CLI)式JAVA程序",
+                                    "hyperlink": "https://cloud.tencent.com/developer/article/1366912",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },

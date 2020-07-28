@@ -12,7 +12,8 @@
                     "created": 1594225453230,
                     "text": "JDBC快速入门教程",
                     "hyperlink": "https://www.yiibai.com/jdbc/jdbc_quick_guide.html",
-                    "hyperlinkTitle": ""
+                    "hyperlinkTitle": "",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -761,14 +762,16 @@
                             "created": 1595221117048,
                             "text": "JDBC结果集",
                             "hyperlink": "https://www.yiibai.com/jdbc/jdbc-result-sets.html",
-                            "hyperlinkTitle": ""
+                            "hyperlinkTitle": "",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
                                 "data": {
                                     "id": "c4b6tmbp8go0",
                                     "created": 1595221487207,
-                                    "text": "ResultSet对象维护指向结果集中当前行的游标"
+                                    "text": "ResultSet对象维护指向结果集中当前行的游标",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -785,7 +788,8 @@
                                 "data": {
                                     "id": "c4b6u51vo2o0",
                                     "created": 1595221527972,
-                                    "text": "ResultSet接口的方法可以分为三类"
+                                    "text": "ResultSet接口的方法可以分为三类",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -845,7 +849,8 @@
                                 "data": {
                                     "id": "c4b6vnpi6k00",
                                     "created": 1595221646947,
-                                    "text": "ResultSet类型"
+                                    "text": "ResultSet类型",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -905,7 +910,8 @@
                                 "data": {
                                     "id": "c4b6wvol8cw0",
                                     "created": 1595221742670,
-                                    "text": "ResultSet的并发性"
+                                    "text": "ResultSet的并发性",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -947,10 +953,20 @@
                         ]
                     }
                 ]
+            },
+            {
+                "data": {
+                    "id": "c4i800tdn3k0",
+                    "created": 1595935729743,
+                    "text": "JDBC 指南",
+                    "hyperlink": "https://www.w3cschool.cn/jdbc/",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
             }
         ]
     },
-    "template": "default",
+    "template": "right",
     "theme": "fresh-blue",
     "version": "1.4.43"
 }
