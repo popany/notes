@@ -7343,6 +7343,147 @@
                         ]
                     }
                 ]
+            },
+            {
+                "data": {
+                    "id": "c4iq452vcls0",
+                    "created": 1595986832459,
+                    "text": "plugin"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4iq57itq5c0",
+                            "created": 1595986916141,
+                            "text": "Apache Maven JAR Plugin",
+                            "hyperlink": "https://maven.apache.org/plugins/maven-jar-plugin/",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4iqb5jkjc80",
+                                    "created": 1595987382018,
+                                    "text": "Manifest customization",
+                                    "hyperlink": "https://maven.apache.org/plugins/maven-jar-plugin/examples/manifest-customization.html",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4iqi1bmyo80",
+                                            "created": 1595987921380,
+                                            "text": "Apache Maven Archiver",
+                                            "hyperlink": "http://maven.apache.org/shared/maven-archiver/index.html",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4iqjp2e3dc0",
+                            "created": 1595988051428,
+                            "text": "Apache Maven Assembly Plugin",
+                            "hyperlink": "https://maven.apache.org/plugins/maven-assembly-plugin/",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4iqk9cj1540",
+                                    "created": 1595988095576,
+                                    "text": "Introduction"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4iqkhc67ug0",
+                                            "created": 1595988112969,
+                                            "text": "The Assembly Plugin for Maven enables developers to combine project output into a single distributable archive that also contains dependencies, modules, site documentation, and other files"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4iql2q8a8o0",
+                                    "created": 1595988159532,
+                                    "text": "What is an Assembly?"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4iql82lp2g0",
+                                            "created": 1595988171164,
+                                            "text": "An \"assembly\" is a group of files, directories, and dependencies that are assembled into an archive format and distributed"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4iqounlgww0",
+                                    "created": 1595988455415,
+                                    "text": "assembly descriptor",
+                                    "hyperlink": "https://maven.apache.org/plugins/maven-assembly-plugin/assembly.html",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c4ir1c9wiuo0",
+                    "created": 1595989434139,
+                    "text": "案例"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4ir1ehfbf40",
+                            "created": 1595989438947,
+                            "text": "配置 main class",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4ir1t9p8800",
+                                    "created": 1595989471132,
+                                    "text": "<plugin>\n  <artifactId>maven-jar-plugin</artifactId>\n  <version>3.0.2</version>\n  <configuration>\n\t<archive>\n\t  <manifest>\n\t    <addClasspath>true</addClasspath>\n\t    <classpathPrefix>lib/</classpathPrefix>\n\t    <mainClass>org.example.App</mainClass>\n\t  </manifest>\n\t</archive>\n  </configuration>\n</plugin>"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4irxn0q0d40",
+                            "created": 1595991965182,
+                            "text": "打包依赖并配置 main class",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4iryede54w0",
+                                    "created": 1595992024721,
+                                    "text": "<plugin>\n  <artifactId>maven-assembly-plugin</artifactId>\n  <configuration>\n\t<archive>\n\t  <manifest>\n\t    <mainClass>org.example.App</mainClass>\n\t  </manifest>\n\t</archive>\n\t<descriptorRefs>\n\t  <descriptorRef>jar-with-dependencies</descriptorRef>\n\t</descriptorRefs>\n  </configuration>\n  <executions>\n\t<execution>\n\t  <id>make-assembly</id>\n\t  <phase>package</phase>\n\t  <goals>\n\t    <goal>single</goal>\n\t  </goals>\n\t</execution>\n  </executions>\n</plugin>"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
