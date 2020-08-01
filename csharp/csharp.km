@@ -1454,7 +1454,25 @@
                             "hyperlink": "https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings",
                             "hyperlinkTitle": ""
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4kjmakzrvs0",
+                                    "created": 1596171627138,
+                                    "text": "demo"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4kjmc4woeg0",
+                                            "created": 1596171630518,
+                                            "text": "\"yyyy-MM-dd HH:mm:ss.fff\""
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
@@ -1463,6 +1481,316 @@
                     "id": "c4alz4n5vyo0",
                     "created": 1595162675595,
                     "text": "Handling and raising events"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c4jxn7on9eo0",
+                    "created": 1596109634774,
+                    "text": "System.IO",
+                    "hyperlink": "https://docs.microsoft.com/en-us/dotnet/api/system.io?view=netframework-4.5",
+                    "hyperlinkTitle": ""
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4jxn7on9eo0",
+                            "created": 1596109634774,
+                            "text": "FileSystemWatcher Class",
+                            "hyperlink": "https://docs.microsoft.com/en-us/dotnet/api/system.io.filesystemwatcher?view=netframework-4.5",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4jxtv7wnw80",
+                                    "created": 1596110156190,
+                                    "text": "Listens to the file system change notifications and raises events when a directory, or file in a directory, changes"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c4jxuh9zobk0",
+                                    "created": 1596110204205,
+                                    "text": "Remarks",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4jxukwt0zc0",
+                                            "created": 1596110212115,
+                                            "text": "You can create a component to watch files on a local computer, a network drive, or a remote computer"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4jxvl9t3gg0",
+                                            "created": 1596110291265,
+                                            "text": "The Windows operating system notifies your component of file changes in a buffer created by the FileSystemWatcher"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4jxvzqi0bk0",
+                                                    "created": 1596110322749,
+                                                    "text": "If there are many changes in a short time, the buffer can overflow"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4jxw9sal400",
+                                                    "created": 1596110344626,
+                                                    "text": "This causes the component to lose track of changes in the directory, and it will only provide blanket notification"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4jxwnv88000",
+                                                    "created": 1596110375278,
+                                                    "text": "To avoid a buffer overflow, use the NotifyFilter and IncludeSubdirectories properties so you can filter out unwanted change notifications"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4jxy94tal40",
+                                    "created": 1596110499934,
+                                    "text": "Copying and moving folders"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4jxygxyl4o0",
+                                            "created": 1596110516934,
+                                            "text": "The operating system and FileSystemWatcher object interpret a cut-and-paste action or a move action as a rename action for a folder and its contents"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4jxyymiwbs0",
+                                            "created": 1596110555425,
+                                            "text": "If you cut and paste a folder with files into a folder being watched, the FileSystemWatcher object reports only the folder as new, but not its contents because they are essentially only renamed"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4jxzgak4fc0",
+                                    "created": 1596110593883,
+                                    "text": "Events and Buffer Sizes"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4jxzzs541c0",
+                                            "created": 1596110636305,
+                                            "text": "Note that several factors can affect which file system change events are raised, as described by the following"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4jy07oju4g0",
+                                                    "created": 1596110653502,
+                                                    "text": "Common file system operations might raise more than one event"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4jy0fczuz40",
+                                                            "created": 1596110670218,
+                                                            "text": "For example, when a file is moved from one directory to another, several OnChanged and some OnCreated and OnDeleted events might be raised"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4jy10zc7400",
+                                                    "created": 1596110717281,
+                                                    "text": "The FileSystemWatcher can watch disks as long as they are not switched or removed"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4jy1qmbd7k0",
+                                            "created": 1596110773090,
+                                            "text": "Note that a FileSystemWatcher may miss an event when the buffer size is exceeded. To avoid missing events, follow these guidelines"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4jy1wvpay80",
+                                                    "created": 1596110786719,
+                                                    "text": "Increase the buffer size by setting the InternalBufferSize property"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4jy27hq5e80",
+                                                    "created": 1596110809818,
+                                                    "text": "Avoid watching files with long file names, because a long file name contributes to filling up the buffer. Consider renaming these files using shorter names"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4jy2dy51r40",
+                                                    "created": 1596110823871,
+                                                    "text": "Keep your event handling code as short as possible"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c4kgyvaijio0",
+                    "created": 1596164149257,
+                    "text": "Asynchronous programming",
+                    "hyperlink": "https://docs.microsoft.com/en-us/dotnet/csharp/async",
+                    "hyperlinkTitle": ""
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4kh2hcnzlc0",
+                            "created": 1596164432368,
+                            "text": "C# has a language-level asynchronous programming model, which allows for easily writing asynchronous code, without having to juggle callbacks or conform to a library that supports asynchrony. It follows what is known as the Task-based Asynchronous Pattern (TAP)"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c4kh3hy1law0",
+                            "created": 1596164512025,
+                            "text": "Overview of the asynchronous model"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4kh3t8ppxk0",
+                                    "created": 1596164536615,
+                                    "text": "The core of async programming is the Task and Task<T> objects, which model asynchronous operations. They are supported by the async and await keywords"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c4kh3wgxsds0",
+                                    "created": 1596164543642,
+                                    "text": "The model is fairly simple in most cases"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4kh46phjhk0",
+                                            "created": 1596164565927,
+                                            "text": "For I/O-bound code, you await an operation that returns a Task or Task<T> inside of an async method"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4kh4ek1jfc0",
+                                            "created": 1596164583012,
+                                            "text": "For CPU-bound code, you await an operation that is started on a background thread with the Task.Run method"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4kh4ox71bk0",
+                                    "created": 1596164605575,
+                                    "text": "The await keyword is where the magic happens"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4kh5j1zmds0",
+                                            "created": 1596164671169,
+                                            "text": "It yields control to the caller of the method that performed await, and it ultimately allows a UI to be responsive or a service to be elastic"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c4kh0h84dm00",
+                    "created": 1596164275365,
+                    "text": "Asynchronous programming patterns",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4kgztxo6mg0",
+                            "created": 1596164224667,
+                            "text": "Task-based asynchronous pattern",
+                            "hyperlink": "https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c4kh0q6xru80",
+                            "created": 1596164294885,
+                            "text": "Event-based Asynchronous Pattern (EAP)",
+                            "hyperlink": "https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/event-based-asynchronous-pattern-eap",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c4kh0v87gog0",
+                            "created": 1596164305845,
+                            "text": "Asynchronous Programming Model (APM)",
+                            "hyperlink": "https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/asynchronous-programming-model-apm",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c4kh9st1ejs0",
+                    "created": 1596165005852,
+                    "text": "Parallel Processing, Concurrency, and Async Programming in .NET",
+                    "hyperlink": "https://docs.microsoft.com/en-us/dotnet/standard/parallel-processing-and-concurrency",
+                    "hyperlinkTitle": ""
                 },
                 "children": []
             }
