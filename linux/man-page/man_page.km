@@ -34,10 +34,215 @@
                         "children": []
                     }
                 ]
+            },
+            {
+                "data": {
+                    "id": "c4micxxou8g0",
+                    "created": 1596371193133,
+                    "text": "man7"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4midaohx080",
+                            "created": 1596371220875,
+                            "text": "epoll(7)",
+                            "hyperlink": "https://man7.org/linux/man-pages/man7/epoll.7.html",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4midvy8h5s0",
+                                    "created": 1596371267176,
+                                    "text": "DESCRIPTION"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4mie1ubiyo0",
+                                            "created": 1596371280000,
+                                            "text": "The epoll API performs a similar task to poll(2)"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4mieec629s0",
+                                                    "created": 1596371307201,
+                                                    "text": "monitoring multiple file descriptors to see if I/O is possible on any of them"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4mieuoa8mg0",
+                                                    "created": 1596371342762,
+                                                    "text": "The epoll API can be used either as an edge-triggered or a level-triggered interface and scales well to large numbers of watched file descriptors"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4mifvldqlc0",
+                                            "created": 1596371423128,
+                                            "text": "The central concept of the epoll API is the epoll instance, an in-kernel data structure which, from a user-space perspective, can be considered as a container for two lists"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4migrlp4y00",
+                                                    "created": 1596371492804,
+                                                    "text": "The interest list (sometimes also called the epoll set)",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4migx588400",
+                                                            "created": 1596371504869,
+                                                            "text": "the set of file descriptors that the process has registered an interest in monitoring"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4miiabhnag0",
+                                                    "created": 1596371611910,
+                                                    "text": "The ready list"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4miih5co1k0",
+                                                            "created": 1596371626776,
+                                                            "text": "the set of file descriptors that are \"ready\" for I/O"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4miiob9r4w0",
+                                                            "created": 1596371642371,
+                                                            "text": "The ready list is a subset of (or, more precisely, a set of references to) the file descriptors in the interest list"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4miivi3z1k0",
+                                                            "created": 1596371658022,
+                                                            "text": "The ready list is dynamically populated by the kernel as a result of I/O activity on those file descriptors"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4mijec8vuo0",
+                                            "created": 1596371699027,
+                                            "text": "The following system calls are provided to create and manage an epoll instance"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4mik276a0g0",
+                                                    "created": 1596371750963,
+                                                    "text": "epoll_create(2)",
+                                                    "hyperlink": "https://man7.org/linux/man-pages/man2/epoll_create.2.html",
+                                                    "hyperlinkTitle": ""
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4mikgb2f5s0",
+                                                            "created": 1596371781673,
+                                                            "text": "creates a new epoll instance and returns a file descriptor referring to that instance"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4mikrtk7s00",
+                                                            "created": 1596371806736,
+                                                            "text": "The more recent epoll_create1(2) extends the functionality of epoll_create(2)"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4mili1x4w80",
+                                                    "created": 1596371863838,
+                                                    "text": "epoll_ctl(2)",
+                                                    "hyperlink": "https://man7.org/linux/man-pages/man2/epoll_ctl.2.html",
+                                                    "hyperlinkTitle": ""
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4milvjvfpk0",
+                                                            "created": 1596371893221,
+                                                            "text": "Interest in particular file descriptors is then registered via epoll_ctl(2)"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4mim53alrc0",
+                                                                    "created": 1596371913987,
+                                                                    "text": "which adds items to the interest list of the epoll instance"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4mimsvkjnc0",
+                                                    "created": 1596371965762,
+                                                    "text": "epoll_wait(2)",
+                                                    "hyperlink": "https://man7.org/linux/man-pages/man2/epoll_wait.2.html",
+                                                    "hyperlinkTitle": ""
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4min6agos00",
+                                                            "created": 1596371994961,
+                                                            "text": "waits for I/O events, blocking the calling thread if no events are currently available"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4mino3tf4w0",
+                                                            "created": 1596372033741,
+                                                            "text": "This system call can be thought of as fetching items from the ready list of the epoll instance"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
-    "template": "default",
+    "template": "right",
     "theme": "fresh-blue",
     "version": "1.4.43"
 }
