@@ -1,4 +1,4 @@
-<mxfile host="4fde16de-dcf0-44cf-a71c-1d18ed5ba73f" modified="2020-08-02T13:13:18.497Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.47.3 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="dloE0Acl_Wm5qgRLEwvh" version="13.1.3">
+<mxfile host="4fde16de-dcf0-44cf-a71c-1d18ed5ba73f" modified="2020-08-02T13:45:47.567Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.47.3 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="ux-ltEe5n30ErkAgpYKU" version="13.1.3">
     <diagram id="6hGFLwfOUW9BJ-s0fimq" name="Page-1">
         <mxGraphModel dx="1157" dy="1786" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -574,6 +574,9 @@
                 <mxCell id="235" value="ep_poll" style="html=1;" vertex="1" parent="1">
                     <mxGeometry x="1020" y="2240" width="150" height="30" as="geometry"/>
                 </mxCell>
+                <mxCell id="255" value="__add_wait_queue_exclusive(&amp;amp;ep-&amp;gt;wq, &amp;amp;wait)" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1340" y="2530" width="280" height="30" as="geometry"/>
+                </mxCell>
                 <mxCell id="232" value="Implement the event wait interface for the eventpoll file. &lt;br&gt;It is the kernel&amp;nbsp;part of the user space epoll_wait(2)" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" vertex="1" parent="1">
                     <mxGeometry x="1095" y="2130" width="320" height="70" as="geometry"/>
                 </mxCell>
@@ -583,11 +586,20 @@
                 <mxCell id="249" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;" edge="1" parent="1" source="246" target="248">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
+                <mxCell id="254" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="246" target="253">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="257" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="246" target="255">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="246" value="!ep_events_available(ep)" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
                     <mxGeometry x="1170" y="2320" width="100" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="248" value="ep_events_available:&lt;br&gt;&lt;br&gt;Checks if ready events might be available&lt;br&gt;&lt;br&gt;return !list_empty(&amp;amp;ep-&amp;gt;rdllist) || ep-&amp;gt;ovflist !=EP_UNACTIVE_PTR" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" vertex="1" parent="1">
                     <mxGeometry x="1590" y="2320" width="380" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="253" value="&quot;We don't have any available event to return to the caller&quot;&lt;br&gt;&quot;We need to sleep here, and we will be wake up by&amp;nbsp;ep_poll_callback() when events will become available&quot;" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1340" y="2450" width="590" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
