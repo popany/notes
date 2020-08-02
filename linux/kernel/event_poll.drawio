@@ -1,22 +1,9 @@
-<mxfile host="4fde16de-dcf0-44cf-a71c-1d18ed5ba73f" modified="2020-08-02T12:07:40.129Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.47.3 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="rEhHjIuJvYcL_K0TzUT2" version="13.1.3">
+<mxfile host="4fde16de-dcf0-44cf-a71c-1d18ed5ba73f" modified="2020-08-02T12:23:49.278Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.47.3 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="fYB-DEXqngCVl1k4nFUh" version="13.1.3">
     <diagram id="6hGFLwfOUW9BJ-s0fimq" name="Page-1">
-        <mxGraphModel dx="2314" dy="2403" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1157" dy="1786" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="71" target="20">
-                    <mxGeometry relative="1" as="geometry">
-                        <Array as="points">
-                            <mxPoint x="800" y="1595"/>
-                            <mxPoint x="800" y="741"/>
-                        </Array>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="96" value="list head of" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="77">
-                    <mxGeometry x="-0.3179" y="4" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
-                    </mxGeometry>
-                </mxCell>
                 <mxCell id="6" value="struct epitem" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
                     <mxGeometry x="840" y="520" width="210" height="286" as="geometry">
                         <mxRectangle x="100" y="96" width="100" height="26" as="alternateBounds"/>
@@ -70,15 +57,15 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="87" value="ep_insert" style="html=1;" vertex="1" parent="1">
-                    <mxGeometry x="870" y="-560" width="150" height="30" as="geometry"/>
+                    <mxGeometry x="870" y="-464" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="90" target="87">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="90" value="epoll_ctl" style="html=1;" vertex="1" parent="1">
-                    <mxGeometry x="532" y="-610" width="150" height="30" as="geometry"/>
+                <mxCell id="90" value="EPOLL_CTL_ADD" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="-520" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="93" value="point to" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="19" target="31">
+                <mxCell id="93" value="assigned in ep_insert" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="19" target="31">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="514" y="715"/>
@@ -123,9 +110,9 @@
                 <mxCell id="113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="101" target="54">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="114" value="point to" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="113">
+                <mxCell id="114" value="assigned in ep_insert" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="113">
                     <mxGeometry x="-0.3771" relative="1" as="geometry">
-                        <mxPoint as="offset"/>
+                        <mxPoint x="-5" y="60" as="offset"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="31" value="struct eventpoll" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
@@ -549,6 +536,19 @@
                 </mxCell>
                 <mxCell id="216" value="&lt;span style=&quot;text-align: center&quot;&gt;Drop the &quot;ready&quot; file inside the ready list&lt;/span&gt;" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" vertex="1" parent="1">
                     <mxGeometry x="1670" y="185" width="250" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="222" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="20" target="71">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="800" y="741"/>
+                            <mxPoint x="800" y="1595"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="223" value="add to list in ep_insert" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="222">
+                    <mxGeometry x="0.7433" y="-3" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
