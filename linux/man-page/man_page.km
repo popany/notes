@@ -15,13 +15,1558 @@
                 "children": [
                     {
                         "data": {
+                            "id": "c4rk8lom3qg0",
+                            "created": 1596884295009,
+                            "text": "open(2)",
+                            "hyperlink": "https://man7.org/linux/man-pages/man2/open.2.html",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c4rk316xjl40",
+                            "created": 1596883858584,
+                            "text": "epoll_create(2)",
+                            "hyperlink": "https://man7.org/linux/man-pages/man2/epoll_create.2.html",
+                            "hyperlinkTitle": "",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4rk3bcyoco0",
+                                    "created": 1596883880716,
+                                    "text": "NAME"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rk3gh2caw0",
+                                            "created": 1596883891848,
+                                            "text": "epoll_create, epoll_create1 - open an epoll file descriptor"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rk3yt6xeo0",
+                                    "created": 1596883931763,
+                                    "text": "DESCRIPTION",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rk4d1qh600",
+                                            "created": 1596883962755,
+                                            "text": "int epoll_create(int size);"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rk4q7cvq00",
+                                                    "created": 1596883991393,
+                                                    "text": "creates a new epoll(7) instance"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rk4vuwkc80",
+                                                    "created": 1596884003701,
+                                                    "text": "the size argument is ignored"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rk4zhkp5s0",
+                                                            "created": 1596884011602,
+                                                            "text": "but must be greater than zero"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rk5j8w8mo0",
+                                                    "created": 1596884054613,
+                                                    "text": "returns a file descriptor referring to the new epoll instance"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rk61az2000",
+                                            "created": 1596884093920,
+                                            "text": "int epoll_create1(int flags);"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rk75tfiuw0",
+                                                    "created": 1596884182108,
+                                                    "text": "flags"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rk77nn85s0",
+                                                            "created": 1596884186112,
+                                                            "text": "0"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rk7cekhz40",
+                                                                    "created": 1596884196447,
+                                                                    "text": "same as epoll_create()"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rk788p5400",
+                                                            "created": 1596884187385,
+                                                            "text": "EPOLL_CLOEXEC"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rk7b6jvfk0",
+                                                                    "created": 1596884193785,
+                                                                    "text": "Set the close-on-exec (FD_CLOEXEC) flag on the new file descriptor"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4rk7ye48k00",
+                                                                            "created": 1596884244309,
+                                                                            "text": "See the description of the O_CLOEXEC flag in open(2) for reasons why this may be useful"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rkaao607k0",
+                                    "created": 1596884427766,
+                                    "text": "RETURN VALUE",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rkamm7tlk0",
+                                            "created": 1596884453769,
+                                            "text": "On success"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rkanjmpu80",
+                                                    "created": 1596884455790,
+                                                    "text": "return a file descriptor (a nonnegative integer)"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rkaxjejc80",
+                                            "created": 1596884477544,
+                                            "text": "On error"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rkb2hn7ag0",
+                                                    "created": 1596884488321,
+                                                    "text": "-1 is returned, and errno is set to indicate the error"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rkbgxvbvc0",
+                                    "created": 1596884519777,
+                                    "text": "ERRORS",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rkbk7s2n40",
+                                            "created": 1596884526907,
+                                            "text": "EINVAL"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rkbp1h6bk0",
+                                                    "created": 1596884537410,
+                                                    "text": "size is not positive"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rkbuoeubc0",
+                                            "created": 1596884549681,
+                                            "text": "EINVAL"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rkbyx1g9s0",
+                                                    "created": 1596884558909,
+                                                    "text": "(epoll_create1()) Invalid value specified in flags"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rkc8klmjc0",
+                                            "created": 1596884579925,
+                                            "text": "EMFILE"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rkccy04e00",
+                                                    "created": 1596884589443,
+                                                    "text": "The per-user limit on the number of epoll instances imposed by /proc/sys/fs/epoll/max_user_instances was encountered.  See epoll(7) for further details"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rkcrd0p8w0",
+                                            "created": 1596884620825,
+                                            "text": "EMFILE"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rkcvz3u7k0",
+                                                    "created": 1596884630868,
+                                                    "text": "The per-process limit on the number of open file descriptors has been reached"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rkd58hapc0",
+                                            "created": 1596884651026,
+                                            "text": "ENFILE"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rkdb7cc5s0",
+                                                    "created": 1596884664018,
+                                                    "text": "The system-wide limit on the total number of open files has been reached"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rkdgtr3xc0",
+                                            "created": 1596884676257,
+                                            "text": "ENOMEM"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rkdktal280",
+                                                    "created": 1596884684936,
+                                                    "text": "There was insufficient memory to create the kernel object"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rkdwqw3m00",
+                                    "created": 1596884710912,
+                                    "text": "NOTES",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rke75a5k80",
+                                            "created": 1596884733550,
+                                            "text": "In the initial epoll_create() implementation, the size argument informed the kernel of the number of file descriptors that the caller expected to add to the epoll instance",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rkea35mco0",
+                                                    "created": 1596884739952,
+                                                    "text": "The kernel used this information as a hint for the amount of space to initially allocate in internal data structures describing events"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rkfoht54w0",
+                                            "created": 1596884849677,
+                                            "text": "Nowadays, this hint is no longer required (the kernel dynamically sizes the required data structures without needing the hint), but size must still be greater than zero, in order to ensure backward compatibility when new epoll applications are run on older kernels"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
                             "id": "c4lj3wyi6340",
                             "created": 1596271746881,
                             "text": "epoll_ctl(2)",
                             "hyperlink": "https://man7.org/linux/man-pages/man2/epoll_ctl.2.html",
-                            "hyperlinkTitle": ""
+                            "hyperlinkTitle": "",
+                            "expandState": "collapse"
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4rkghuk22o0",
+                                    "created": 1596884913575,
+                                    "text": "NAME"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rkgr3rq340",
+                                            "created": 1596884933723,
+                                            "text": "epoll_ctl - control interface for an epoll file descriptor"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rkic69tkg0",
+                                    "created": 1596885057951,
+                                    "text": "SYNOPSIS",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rkihi20t40",
+                                            "created": 1596885069547,
+                                            "text": "#include <sys/epoll.h>"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rkinca5og0",
+                                            "created": 1596885082259,
+                                            "text": "int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rkgw62vuw0",
+                                    "created": 1596884944746,
+                                    "text": "DESCRIPTION",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rkhd4ame80",
+                                            "created": 1596884981644,
+                                            "text": "This system call is used to add, modify, or remove entries in the interest list of the epoll(7) instance referred to by the file descriptor epfd.  It requests that the operation op be performed for the target file descriptor, fd"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rkj66mmx40",
+                                            "created": 1596885123276,
+                                            "text": "op argument",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rkjcpbkzk0",
+                                                    "created": 1596885137467,
+                                                    "text": "EPOLL_CTL_ADD",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkjhywsuw0",
+                                                            "created": 1596885148931,
+                                                            "text": "Add an entry to the interest list of the epoll file descriptor, epfd"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkk7z5lgw0",
+                                                            "created": 1596885205542,
+                                                            "text": "The entry includes the file descriptor, fd, a reference to the corresponding open file description (see epoll(7) and open(2)), and the settings specified in event"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rkkqh7t400",
+                                                    "created": 1596885245816,
+                                                    "text": "EPOLL_CTL_MOD",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkkx812vc0",
+                                                            "created": 1596885260498,
+                                                            "text": "Change the settings associated with fd in the interest list to the new settings specified in event"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rkl5bf6m80",
+                                                    "created": 1596885278117,
+                                                    "text": "EPOLL_CTL_DEL",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rklbrg2hc0",
+                                                            "created": 1596885292147,
+                                                            "text": "Remove (deregister) the target file descriptor fd from the interest list"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rklksfzds0",
+                                                            "created": 1596885311798,
+                                                            "text": "The event argument is ignored and can be NULL (but see BUGS below)"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rkn833yn40",
+                                            "created": 1596885440873,
+                                            "text": "struct",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rkmk3l17s0",
+                                                    "created": 1596885388659,
+                                                    "text": "struct epoll_event",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkmt9hmxk0",
+                                                            "created": 1596885408607,
+                                                            "text": "uint32_t     events;",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rkn0z2pls0",
+                                                                    "created": 1596885425392,
+                                                                    "text": "/* Epoll events */"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rkpe27meg0",
+                                                                    "created": 1596885610608,
+                                                                    "text": "a bit mask composed by ORing together zero or more of the following available event types"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkmxdznpc0",
+                                                            "created": 1596885417587,
+                                                            "text": "epoll_data_t data;"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rkn4ka7mw0",
+                                                                    "created": 1596885433205,
+                                                                    "text": "/* User data variable */"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rkooi2kd40",
+                                                                    "created": 1596885554971,
+                                                                    "text": "specifies data that the kernel should save and then return (via epoll_wait(2)) when this file descriptor becomes ready"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rknmvocf40",
+                                                    "created": 1596885473075,
+                                                    "text": "union epoll_data",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rknr62lbs0",
+                                                            "created": 1596885482411,
+                                                            "text": "void        *ptr;"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rknuh2q3s0",
+                                                            "created": 1596885489607,
+                                                            "text": "int          fd;"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rko33uenk0",
+                                                            "created": 1596885508398,
+                                                            "text": "uint32_t     u32;"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rknxrk7w80",
+                                                            "created": 1596885496771,
+                                                            "text": "uint64_t     u64;"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rkq2l5i000",
+                                            "created": 1596885663996,
+                                            "text": "event types",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rkq57oz0g0",
+                                                    "created": 1596885669713,
+                                                    "text": "EPOLLIN",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkqdoyfdk0",
+                                                            "created": 1596885688171,
+                                                            "text": "The associated file is available for read(2) operations"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rkqhsobqo0",
+                                                    "created": 1596885697103,
+                                                    "text": "EPOLLOUT",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkqlyic0g0",
+                                                            "created": 1596885706162,
+                                                            "text": "The associated file is available for write(2) operations"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rkr1fj3js0",
+                                                    "created": 1596885739843,
+                                                    "text": "EPOLLRDHUP",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkr55vwkg0",
+                                                            "created": 1596885747967,
+                                                            "text": "Stream socket peer closed connection, or shut down writing half of connection"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkrhpu44o0",
+                                                            "created": 1596885775296,
+                                                            "text": "(This flag is especially useful for writing simple code to detect peer shutdown when using edge-triggered monitoring.)"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rksaswufc0",
+                                                    "created": 1596885838608,
+                                                    "text": "EPOLLPRI",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rksekdnz40",
+                                                            "created": 1596885846799,
+                                                            "text": "There is an exceptional condition on the file descriptor.  See the discussion of POLLPRI in poll(2)"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rksqxldwg0",
+                                                    "created": 1596885873719,
+                                                    "text": "EPOLLERR",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkszn9rs80",
+                                                            "created": 1596885892686,
+                                                            "text": "Error condition happened on the associated file descriptor"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkt3nrkfc0",
+                                                            "created": 1596885901423,
+                                                            "text": "This event is also reported for the write end of a pipe when the read end has been closed"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rktej6pk00",
+                                                            "created": 1596885925091,
+                                                            "text": "epoll_wait(2) will always report for this event; it is not necessary to set it in events when calling epoll_ctl()"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rkts0pr4o0",
+                                                    "created": 1596885954449,
+                                                    "text": "EPOLLHUP",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rktvo72sg0",
+                                                            "created": 1596885962399,
+                                                            "text": "Hang up happened on the associated file descriptor"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rku2rgbgw0",
+                                                            "created": 1596885977834,
+                                                            "text": "epoll_wait(2) will always wait for this event; it is not nec              essary to set it in events when calling epoll_ctl()"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkv0ycd6o0",
+                                                            "created": 1596886052261,
+                                                            "text": "Note that when reading from a channel such as a pipe or a stream socket, this event merely indicates that the peer closed its end of the channel.  Subsequent reads from the channel will return 0 (end of file) only after all outstanding data in the channel has been consumed"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rkvnzc3uo0",
+                                                    "created": 1596886102387,
+                                                    "text": "EPOLLET",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkwb2tco80",
+                                                            "created": 1596886152663,
+                                                            "text": "Requests edge-triggered notification for the associated file descriptor"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkwhraamw0",
+                                                            "created": 1596886167204,
+                                                            "text": "The default behavior for epoll is level-triggered"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkwoy4k4g0",
+                                                            "created": 1596886182855,
+                                                            "text": "See epoll(7) for more detailed information about edge-triggered and level-triggered notification"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkx00spvk0",
+                                                            "created": 1596886206961,
+                                                            "text": "This flag is an input flag for the event.events field when calling epoll_ctl(); it is never returned by epoll_wait(2)"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rkxef9vm80",
+                                                    "created": 1596886238311,
+                                                    "text": "EPOLLONESHOT",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkxlbomsg0",
+                                                            "created": 1596886253332,
+                                                            "text": "Requests one-shot notification for the associated file descriptor"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkxuey6x40",
+                                                            "created": 1596886273120,
+                                                            "text": "This means that after an event notified for the file descriptor by epoll_wait(2), the file descriptor is disabled in the interest list and no other events will be reported by the epoll interface"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkyct9ogw0",
+                                                            "created": 1596886313168,
+                                                            "text": "The user must call epoll_ctl() with EPOLL_CTL_MOD to rearm the file descriptor with a new event mask"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkypen6x40",
+                                                            "created": 1596886340582,
+                                                            "text": "This flag is an input flag for the event.events field when calling epoll_ctl(); it is never returned by epoll_wait(2)"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rkz8axyco0",
+                                                    "created": 1596886381717,
+                                                    "text": "EPOLLWAKEUP",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkzod6rd40",
+                                                            "created": 1596886416681,
+                                                            "text": "If EPOLLONESHOT and EPOLLET are clear and the process has the CAP_BLOCK_SUSPEND capability, ensure that the system does not enter \"suspend\" or \"hibernate\" while this event is pending or being processed"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rl0amg1gw0",
+                                                            "created": 1596886465130,
+                                                            "text": "The event is considered as being \"processed\" from the time when it is returned by a call to epoll_wait(2) until the next call to epoll_wait(2) on the same epoll(7) file descriptor, the closure of that file descriptor, the removal of the event file descriptor with EPOLL_CTL_DEL, or the clearing of EPOLLWAKEUP for the event file descriptor with EPOLL_CTL_MOD.  See also BUGS"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkypen6x40",
+                                                            "created": 1596886340582,
+                                                            "text": "This flag is an input flag for the event.events field when calling epoll_ctl(); it is never returned by epoll_wait(2)"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rl19iquww0",
+                                                    "created": 1596886541094,
+                                                    "text": "EPOLLEXCLUSIVE",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rl6pwvxqg0",
+                                                            "created": 1596886968598,
+                                                            "text": "Sets an exclusive wakeup mode for the epoll file descriptor that is being attached to the target file descriptor, fd"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rl7cxe0nc0",
+                                                            "created": 1596887018695,
+                                                            "text": "When a wakeup event occurs and multiple epoll file descriptors are attached to the same target file using EPOLLEXCLUSIVE, one or more of the epoll file descriptors will receive an event with epoll_wait(2)"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rl8rhqq740",
+                                                            "created": 1596887128764,
+                                                            "text": "The default in this scenario (when EPOLLEXCLUSIVE is not set) is for all epoll file descriptors to receive an event"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rl9ahrhbk0",
+                                                            "created": 1596887170124,
+                                                            "text": "EPOLLEXCLUSIVE is thus useful for avoiding thundering herd problems in certain scenarios"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rla7k4zw80",
+                                                                    "created": 1596887242102,
+                                                                    "text": "If the same file descriptor is in multiple epoll instances, some with the EPOLLEXCLUSIVE flag, and others without"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4rlaqe3msg0",
+                                                                            "created": 1596887283096,
+                                                                            "text": "then events will be provided to all epoll instances that did not specify EPOLLEXCLUSIVE, and at least one of the epoll instances that did specify EPOLLEXCLUSIVE"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rlbdziy8w0",
+                                                            "created": 1596887334457,
+                                                            "text": "The following values may be specified in conjunction with EPOLLEXCLUSIVE: EPOLLIN, EPOLLOUT, EPOLLWAKEUP, and EPOLLET. EPOLLHUP and EPOLLERR can also be specified, but this is not required: as usual, these events are always reported if they occur, regardless of whether they are specified in events. Attempts to specify other values in events yield the error EINVAL"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rlcbnbfb40",
+                                                            "created": 1596887407730,
+                                                            "text": "EPOLLEXCLUSIVE may be used only in an EPOLL_CTL_ADD operation; attempts to employ it with EPOLL_CTL_MOD yield an error"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rlcr5tjkg0",
+                                                                    "created": 1596887441500,
+                                                                    "text": "If EPOLLEXCLUSIVE has been set using epoll_ctl(), then a subsequent EPOLL_CTL_MOD on the same epfd, fd pair yields an error"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rldeu211k0",
+                                                                    "created": 1596887493032,
+                                                                    "text": "A call to epoll_ctl() that specifies EPOLLEXCLUSIVE in events and specifies the target file descriptor fd as an epoll instance will likewise fail.  The error in all of these cases is EINVAL"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rkypen6x40",
+                                                            "created": 1596886340582,
+                                                            "text": "This flag is an input flag for the event.events field when calling epoll_ctl(); it is never returned by epoll_wait(2)"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rlfafbu1k0",
+                                    "created": 1596887640162,
+                                    "text": "RETURN VALUE"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rlfex4z5c0",
+                                            "created": 1596887649947,
+                                            "text": "When successful, epoll_ctl() returns zero"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlfl82kdc0",
+                                            "created": 1596887663668,
+                                            "text": "When an error occurs, epoll_ctl() returns -1 and errno is set appropriately"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rlfy10mps0",
+                                    "created": 1596887691540,
+                                    "text": "ERRORS",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rlg130w2g0",
+                                            "created": 1596887698191,
+                                            "text": "EBADF"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlg5b5k6w0",
+                                                    "created": 1596887707390,
+                                                    "text": "epfd or fd is not a valid file descriptor"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlgbrcug00",
+                                            "created": 1596887721430,
+                                            "text": "EEXIST"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlghakm740",
+                                                    "created": 1596887733476,
+                                                    "text": "op was EPOLL_CTL_ADD, and the supplied file descriptor fd is already registered with this epoll instance"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlgsgqom80",
+                                            "created": 1596887757794,
+                                            "text": "EINVAL"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlh3de6b40",
+                                                    "created": 1596887781536,
+                                                    "text": "epfd is not an epoll file descriptor, or fd is the same as epfd, or the requested operation op is not supported by this interface"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlhgpe5480",
+                                            "created": 1596887810560,
+                                            "text": "EINVAL"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlhm17lls0",
+                                                    "created": 1596887822158,
+                                                    "text": "An invalid event type was specified along with EPOLLEXCLUSIVE in events"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlhysjl600",
+                                            "created": 1596887849932,
+                                            "text": "EINVAL"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlicfxyeg0",
+                                                    "created": 1596887879645,
+                                                    "text": "op was EPOLL_CTL_MOD and events included EPOLLEXCLUSIVE"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlil3o8hs0",
+                                            "created": 1596887898495,
+                                            "text": "EINVAL"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlip1ktso0",
+                                                    "created": 1596887907075,
+                                                    "text": "op was EPOLL_CTL_MOD and the EPOLLEXCLUSIVE flag has previously been applied to this epfd, fd pair"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlixz4x400",
+                                            "created": 1596887926518,
+                                            "text": "EINVAL"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlj1mov5s0",
+                                                    "created": 1596887934473,
+                                                    "text": "EPOLLEXCLUSIVE was specified in event and fd refers to an epoll instance"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlj8uayfc0",
+                                            "created": 1596887950171,
+                                            "text": "ELOOP"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlkc8lh3k0",
+                                                    "created": 1596888035930,
+                                                    "text": "fd refers to an epoll instance and this EPOLL_CTL_ADD operation would result in a circular loop of epoll instances monitoring one another"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlkql2z7k0",
+                                            "created": 1596888067159,
+                                            "text": "ENOENT"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlku7qets0",
+                                                    "created": 1596888075059,
+                                                    "text": "op was EPOLL_CTL_MOD or EPOLL_CTL_DEL, and fd is not registered with this epoll instance"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlkzmy1zc0",
+                                            "created": 1596888086863,
+                                            "text": "ENOMEM"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rll62lc2w0",
+                                                    "created": 1596888100870,
+                                                    "text": "There was insufficient memory to handle the requested op control operation"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlli456eg0",
+                                            "created": 1596888127085,
+                                            "text": "ENOSPC"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rllm9u1hs0",
+                                                    "created": 1596888136136,
+                                                    "text": "The limit imposed by /proc/sys/fs/epoll/max_user_watches was encountered while trying to register (EPOLL_CTL_ADD) a new file descriptor on an epoll instance.  See epoll(7) for further details"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlly739gg0",
+                                            "created": 1596888162092,
+                                            "text": "EPERM"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlm3rcki80",
+                                                    "created": 1596888174201,
+                                                    "text": "The target file fd does not support epoll.  This error can occur if fd refers to, for example, a regular file or a directory"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4rlo9bvv8g0",
+                            "created": 1596888343055,
+                            "text": "epoll_wait(2)",
+                            "hyperlink": "https://man7.org/linux/man-pages/man2/epoll_wait.2.html",
+                            "hyperlinkTitle": "",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4rlok4ifa80",
+                                    "created": 1596888366553,
+                                    "text": "NAME"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rlons6jsg0",
+                                            "created": 1596888374515,
+                                            "text": "epoll_wait,  epoll_pwait  -  wait  for  an I/O event on an epoll file descriptor"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rloyawhk80",
+                                    "created": 1596888397415,
+                                    "text": "SYNOPSIS",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rlp1tcjc80",
+                                            "created": 1596888405061,
+                                            "text": "int epoll_wait(int epfd, struct epoll_event *events,  int maxevents, int timeout);"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlpiwkco00",
+                                            "created": 1596888442260,
+                                            "text": "int epoll_pwait(int epfd, struct epoll_event *events, int maxevents, int timeout, const sigset_t *sigmask);"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rlq7pqsmo0",
+                                    "created": 1596888496267,
+                                    "text": "DESCRIPTION",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rlqkj7dao0",
+                                            "created": 1596888524170,
+                                            "text": "The epoll_wait() system call waits for events on the epoll(7) instance referred to by the file descriptor epfd"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlr0ljyr40",
+                                            "created": 1596888559141,
+                                            "text": "The buffer pointed to by events is used to return information from the ready list about file descriptors in the interest list that have some events available"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlrvxf5pc0",
+                                                    "created": 1596888627339,
+                                                    "text": "Up to maxevents are returned by epoll_wait(). The maxevents argument must be greater than zero"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlr3f6z4o0",
+                                            "created": 1596888565287,
+                                            "text": "The timeout argument specifies the number of milliseconds that epoll_wait() will block.  Time is measured against the CLOCK_MONOTONIC clock"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlthehfl40",
+                                            "created": 1596888752447,
+                                            "text": "A call to epoll_wait() will block until either"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rltloskbs0",
+                                                    "created": 1596888761777,
+                                                    "text": "A call to epoll_wait() will block until either"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rltn5ap0g0",
+                                                    "created": 1596888764952,
+                                                    "text": "the call is interrupted by a signal handler"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rltvlz1ds0",
+                                                    "created": 1596888783375,
+                                                    "text": "the timeout expires"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rluh5a7b40",
+                                            "created": 1596888830255,
+                                            "text": "Note that the timeout interval will be rounded up to the system clock granularity, and kernel scheduling delays mean that the blocking interval may overrun by a small amount.  Specifying a timeout of -1 causes epoll_wait() to block indefinitely, while specifying a timeout equal to zero cause epoll_wait() to return immediately, even if no events are available"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlukgjkrs0",
+                                            "created": 1596888837466,
+                                            "text": "epoll_pwait()"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlvgp76og0",
+                                                    "created": 1596888907646,
+                                                    "text": "The relationship between epoll_wait() and epoll_pwait() is analogous to the relationship between select(2) and pselect(2)"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rlw04dfzs0",
+                                                            "created": 1596888949923,
+                                                            "text": "like pselect(2), epoll_pwait() allows an application to safely wait until either a file descriptor becomes ready or until a signal is caught"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rlwzcq4ew0",
+                                    "created": 1596889026615,
+                                    "text": "RETURN VALUE",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rlx4e9x480",
+                                            "created": 1596889037593,
+                                            "text": "When successful"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlx5ekrd40",
+                                                    "created": 1596889039788,
+                                                    "text": "epoll_wait() returns the number of file descriptors ready for the requested I/O"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rlxhypvpk0",
+                                                    "created": 1596889067127,
+                                                    "text": "or zero if no file descriptor became       ready during the requested timeout milliseconds"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlxt5wac80",
+                                            "created": 1596889091506,
+                                            "text": "When an error       occurs"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rly2lcuzk0",
+                                                    "created": 1596889112032,
+                                                    "text": "epoll_wait() returns -1 and errno is set appropriately"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rlydyjpbs0",
+                                    "created": 1596889136774,
+                                    "text": "ERRORS",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rlyhg6jg00",
+                                            "created": 1596889144370,
+                                            "text": "EBADF"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlykjjhs00",
+                                                    "created": 1596889151104,
+                                                    "text": "epfd is not a valid file descriptor"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlyms4l9s0",
+                                            "created": 1596889155977,
+                                            "text": "EFAULT"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlyuwcsyw0",
+                                                    "created": 1596889173647,
+                                                    "text": "The memory area pointed to by events is not accessible with              write permissions"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rlz1fvexs0",
+                                            "created": 1596889187887,
+                                            "text": "EINTR"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rlzy3oqvk0",
+                                                    "created": 1596889258984,
+                                                    "text": "The call was interrupted by a signal handler before either (1)              any of the requested events occurred or (2) the timeout              expired; see signal(7)"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rm0779mv40",
+                                            "created": 1596889278792,
+                                            "text": "EINVAL"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rm0b6we3c0",
+                                                    "created": 1596889287477,
+                                                    "text": "epfd is not an epoll file descriptor, or maxevents is less              than or equal to zero"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4rm0y1a91s0",
+                                    "created": 1596889337203,
+                                    "text": "NOTES",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4rm137a9rk0",
+                                            "created": 1596889348450,
+                                            "text": "While one thread is blocked in a call to epoll_wait(), it is possible       for another thread to add a file descriptor to the waited-upon epoll       instance.  If the new file descriptor becomes ready, it will cause       the epoll_wait() call to unblock"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rm28agu5c0",
+                                            "created": 1596889437890,
+                                            "text": "If more than maxevents file descriptors are ready when epoll_wait()       is called, then successive epoll_wait() calls will round robin       through the set of ready file descriptors.  This behavior helps avoid       starvation scenarios, where a process fails to notice that additional       file descriptors are ready because it focuses on a set of file       descriptors that are already known to be ready"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rm2wh2r2o0",
+                                            "created": 1596889490533,
+                                            "text": "Note that it is possible to call epoll_wait() on an epoll instance       whose interest list is currently empty (or whose interest list       becomes empty because file descriptors are closed or removed from the       interest in another thread).  The call will block until some file       descriptor is later added to the interest list (in another thread)       and that file descriptor becomes ready"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
                     },
                     {
                         "data": {
@@ -48,7 +1593,8 @@
                             "created": 1596371220875,
                             "text": "epoll(7)",
                             "hyperlink": "https://man7.org/linux/man-pages/man7/epoll.7.html",
-                            "hyperlinkTitle": ""
+                            "hyperlinkTitle": "",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -60,49 +1606,24 @@
                                 "children": [
                                     {
                                         "data": {
-                                            "id": "c4mie1ubiyo0",
-                                            "created": 1596371280000,
-                                            "text": "The epoll API performs a similar task to poll(2)"
+                                            "id": "c4rf9ej3d7k0",
+                                            "created": 1596870252253,
+                                            "text": "function",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
                                                 "data": {
-                                                    "id": "c4mieec629s0",
-                                                    "created": 1596371307201,
-                                                    "text": "monitoring multiple file descriptors to see if I/O is possible on any of them"
-                                                },
-                                                "children": []
-                                            },
-                                            {
-                                                "data": {
-                                                    "id": "c4mieuoa8mg0",
-                                                    "created": 1596371342762,
-                                                    "text": "The epoll API can be used either as an edge-triggered or a level-triggered interface and scales well to large numbers of watched file descriptors"
-                                                },
-                                                "children": []
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "data": {
-                                            "id": "c4mifvldqlc0",
-                                            "created": 1596371423128,
-                                            "text": "The central concept of the epoll API is the epoll instance, an in-kernel data structure which, from a user-space perspective, can be considered as a container for two lists"
-                                        },
-                                        "children": [
-                                            {
-                                                "data": {
-                                                    "id": "c4migrlp4y00",
-                                                    "created": 1596371492804,
-                                                    "text": "The interest list (sometimes also called the epoll set)",
-                                                    "expandState": "expand"
+                                                    "id": "c4rf9h1i95s0",
+                                                    "created": 1596870257720,
+                                                    "text": "monitor multiple file descriptors"
                                                 },
                                                 "children": [
                                                     {
                                                         "data": {
-                                                            "id": "c4migx588400",
-                                                            "created": 1596371504869,
-                                                            "text": "the set of file descriptors that the process has registered an interest in monitoring"
+                                                            "id": "c4rf9tqsy6g0",
+                                                            "created": 1596870285371,
+                                                            "text": "to see if I/O is possible"
                                                         },
                                                         "children": []
                                                     }
@@ -110,34 +1631,35 @@
                                             },
                                             {
                                                 "data": {
-                                                    "id": "c4miiabhnag0",
-                                                    "created": 1596371611910,
-                                                    "text": "The ready list"
+                                                    "id": "c4rfa4qlyfc0",
+                                                    "created": 1596870309303,
+                                                    "text": "v.s. poll(2)"
                                                 },
                                                 "children": [
                                                     {
                                                         "data": {
-                                                            "id": "c4miih5co1k0",
-                                                            "created": 1596371626776,
-                                                            "text": "the set of file descriptors that are \"ready\" for I/O"
+                                                            "id": "c4rfabal3pc0",
+                                                            "created": 1596870323572,
+                                                            "text": "epoll API"
                                                         },
-                                                        "children": []
-                                                    },
-                                                    {
-                                                        "data": {
-                                                            "id": "c4miiob9r4w0",
-                                                            "created": 1596371642371,
-                                                            "text": "The ready list is a subset of (or, more precisely, a set of references to) the file descriptors in the interest list"
-                                                        },
-                                                        "children": []
-                                                    },
-                                                    {
-                                                        "data": {
-                                                            "id": "c4miivi3z1k0",
-                                                            "created": 1596371658022,
-                                                            "text": "The ready list is dynamically populated by the kernel as a result of I/O activity on those file descriptors"
-                                                        },
-                                                        "children": []
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rfaqt0y200",
+                                                                    "created": 1596870357339,
+                                                                    "text": "can be used either as an edge-triggered or a level-triggered interface"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rfaxueeuo0",
+                                                                    "created": 1596870372659,
+                                                                    "text": "scales well to large numbers of watched file descriptors"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
                                                     }
                                                 ]
                                             }
@@ -147,7 +1669,8 @@
                                         "data": {
                                             "id": "c4mijec8vuo0",
                                             "created": 1596371699027,
-                                            "text": "The following system calls are provided to create and manage an epoll instance"
+                                            "text": "system calls",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -163,7 +1686,15 @@
                                                         "data": {
                                                             "id": "c4mikgb2f5s0",
                                                             "created": 1596371781673,
-                                                            "text": "creates a new epoll instance and returns a file descriptor referring to that instance"
+                                                            "text": "creates a new epoll instance"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rfd1o0bjs0",
+                                                            "created": 1596870537708,
+                                                            "text": "returns a file descriptor"
                                                         },
                                                         "children": []
                                                     },
@@ -171,9 +1702,18 @@
                                                         "data": {
                                                             "id": "c4mikrtk7s00",
                                                             "created": 1596371806736,
-                                                            "text": "The more recent epoll_create1(2) extends the functionality of epoll_create(2)"
+                                                            "text": "epoll_create1(2)"
                                                         },
-                                                        "children": []
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rfkcbu1gg0",
+                                                                    "created": 1596871109466,
+                                                                    "text": " extends the functionality of epoll_create(2)"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
                                                     }
                                                 ]
                                             },
@@ -188,20 +1728,11 @@
                                                 "children": [
                                                     {
                                                         "data": {
-                                                            "id": "c4milvjvfpk0",
-                                                            "created": 1596371893221,
-                                                            "text": "Interest in particular file descriptors is then registered via epoll_ctl(2)"
+                                                            "id": "c4rfks3p2480",
+                                                            "created": 1596871143802,
+                                                            "text": "adds items to the interest list of the epoll instance"
                                                         },
-                                                        "children": [
-                                                            {
-                                                                "data": {
-                                                                    "id": "c4mim53alrc0",
-                                                                    "created": 1596371913987,
-                                                                    "text": "which adds items to the interest list of the epoll instance"
-                                                                },
-                                                                "children": []
-                                                            }
-                                                        ]
+                                                        "children": []
                                                     }
                                                 ]
                                             },
@@ -211,22 +1742,952 @@
                                                     "created": 1596371965762,
                                                     "text": "epoll_wait(2)",
                                                     "hyperlink": "https://man7.org/linux/man-pages/man2/epoll_wait.2.html",
-                                                    "hyperlinkTitle": ""
+                                                    "hyperlinkTitle": "",
+                                                    "expandState": "expand"
                                                 },
                                                 "children": [
                                                     {
                                                         "data": {
                                                             "id": "c4min6agos00",
                                                             "created": 1596371994961,
-                                                            "text": "waits for I/O events, blocking the calling thread if no events are currently available"
+                                                            "text": "waits for I/O events"
                                                         },
                                                         "children": []
                                                     },
                                                     {
                                                         "data": {
+                                                            "id": "c4rfl97ycqo0",
+                                                            "created": 1596871181065,
+                                                            "text": "blocking the calling thread"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rflcf6ppc0",
+                                                                    "created": 1596871188033,
+                                                                    "text": "if no events are currently available"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
                                                             "id": "c4mino3tf4w0",
                                                             "created": 1596372033741,
-                                                            "text": "This system call can be thought of as fetching items from the ready list of the epoll instance"
+                                                            "text": "fetching items from the ready list of the epoll instance"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rfmuvqy0o0",
+                                            "created": 1596871306580,
+                                            "text": "Level-triggered and edge-triggered",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rfqdfu00g0",
+                                                    "created": 1596871582069,
+                                                    "text": "edge-triggered (ET)",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rfsl8ott40",
+                                                            "created": 1596871755780,
+                                                            "text": "delivers events only when"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rfslz6xfc0",
+                                                                    "created": 1596871757383,
+                                                                    "text": "   changes occur on the monitored file descriptor"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rg5r1trn40",
+                                                            "created": 1596872787160,
+                                                            "text": "how to use"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rg6oy958o0",
+                                                                    "created": 1596872860954,
+                                                                    "text": "with nonblocking file descriptors"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rg6pogop40",
+                                                                    "created": 1596872862539,
+                                                                    "text": "waiting for an event only after read(2) or write(2) return EAGAIN"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rgmaubdyw0",
+                                                            "created": 1596874084068,
+                                                            "text": "provides a useful optimization for avoiding \"thundering herd\" wake-ups"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rgpur0oi80",
+                                                                    "created": 1596874362497,
+                                                                    "text": "scenario"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4rhi2okln40",
+                                                                            "created": 1596876573960,
+                                                                            "text": "multiple threads or processes"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4rhiio1mn40",
+                                                                                    "created": 1596876608756,
+                                                                                    "text": "blocked in epoll_wait(2)",
+                                                                                    "expandState": "expand"
+                                                                                },
+                                                                                "children": [
+                                                                                    {
+                                                                                        "data": {
+                                                                                            "id": "c4rhkqzyfa00",
+                                                                                            "created": 1596876783619,
+                                                                                            "text": "waiting on the same epoll file descriptor"
+                                                                                        },
+                                                                                        "children": []
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4rhl0lpm140",
+                                                                            "created": 1596876804526,
+                                                                            "text": "a file descriptor"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4rhlazodnk0",
+                                                                                    "created": 1596876827138,
+                                                                                    "text": "in the interest list"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4rhlhlm42o0",
+                                                                                    "created": 1596876841525,
+                                                                                    "text": "marked for edge-triggered (EPOLLET) notification"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4rhlrau1p40",
+                                                                                    "created": 1596876862641,
+                                                                                    "text": "becomes ready"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4rhm6ibork0",
+                                                                            "created": 1596876895746,
+                                                                            "text": "just one of the threads (or processes)"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4rhml2z7ds0",
+                                                                                    "created": 1596876927470,
+                                                                                    "text": " awoken from epoll_wait(2)"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rfqecwljk0",
+                                                    "created": 1596871584069,
+                                                    "text": "level-triggered (LT)",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rg7pf0b9k0",
+                                                            "created": 1596872940332,
+                                                            "text": "is simply a faster poll(2), and can be used wherever the latter is used since it shares the same semantics"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rga88qguo0",
+                                                    "created": 1596873138040,
+                                                    "text": "EPOLLONESHOT flag",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rgc77oa0g0",
+                                                            "created": 1596873292527,
+                                                            "text": "tell epoll to disable the associated file descriptor",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rgh2rici80",
+                                                                    "created": 1596873674663,
+                                                                    "text": "after the receipt of an event with epoll_wait(2)"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rghyu92e80",
+                                                            "created": 1596873744486,
+                                                            "text": "it is the caller's responsibility to rearm the file descriptor"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rgifbz8ig0",
+                                                                    "created": 1596873780387,
+                                                                    "text": "using epoll_ctl(2) with EPOLL_CTL_MOD"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rhp7ilbls0",
+                                            "created": 1596877133031,
+                                            "text": "   Interaction with autosleep",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rhrfiu13s0",
+                                                    "created": 1596877307188,
+                                                    "text": "scenario",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rhrot80p40",
+                                                            "created": 1596877327408,
+                                                            "text": "the system is in autosleep mode via /sys/power/autosleep"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rhs28z8io0",
+                                                            "created": 1596877356659,
+                                                            "text": "an event happens which wakes the device from sleep"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rhpx2cauo0",
+                                                    "created": 1596877188645,
+                                                    "text": "EPOLLWAKEUP flag",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rhsztclaw0",
+                                                            "created": 1596877429724,
+                                                            "text": "To keep the device awake until the event has been processed"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rhtwmdh0g0",
+                                                            "created": 1596877501136,
+                                                            "text": "the system will be kept awake",
+                                                            "expandState": "collapse"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rhu72nrpk0",
+                                                                    "created": 1596877523889,
+                                                                    "text": "from the moment the event is queued"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rhugcvq0g0",
+                                                                    "created": 1596877544098,
+                                                                    "text": "through the epoll_wait(2) call"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4rhv08veo80",
+                                                                            "created": 1596877587391,
+                                                                            "text": "which returns the event"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rhv4wfxi80",
+                                                                    "created": 1596877597523,
+                                                                    "text": "until the subsequent epoll_wait(2) call"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rhvgohw9s0",
+                                                                    "created": 1596877623164,
+                                                                    "text": "If the event should keep the system awake beyond that time"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4rhvrnckeg0",
+                                                                            "created": 1596877647039,
+                                                                            "text": "a separate wake_lock should be taken before the second epoll_wait(2) call"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rhy54j8ww0",
+                                            "created": 1596877833105,
+                                            "text": "/proc interfaces",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rhye5ue4g0",
+                                                    "created": 1596877852775,
+                                                    "text": "limit the amount of kernel memory consumed by epoll"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rhyn9z6z40",
+                                                            "created": 1596877872617,
+                                                            "text": "/proc/sys/fs/epoll/max_user_watches"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rhz1qzdn40",
+                                                                    "created": 1596877904120,
+                                                                    "text": "specifies a limit on the total number of file descriptors"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4rhzh33m3s0",
+                                                                            "created": 1596877937504,
+                                                                            "text": "that a user can register across all epoll instances on the system"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4rhzwc63fc0",
+                                            "created": 1596877970704,
+                                            "text": "Example for suggested usage",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4ri15ydob40",
+                                                    "created": 1596878070002,
+                                                    "text": "level-triggered usage"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4ri1aafgew0",
+                                                            "created": 1596878079438,
+                                                            "text": "have the same semantics as poll(2)"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4ri1fw75u80",
+                                                    "created": 1596878091638,
+                                                    "text": "edge-triggered usage",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4ri95ttilc0",
+                                                            "created": 1596878696640,
+                                                            "text": "for performance reasons",
+                                                            "expandState": "collapse"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4ri9lklc200",
+                                                                    "created": 1596878730910,
+                                                                    "text": "add the file descriptor inside the epoll interface (EPOLL_CTL_ADD) once by specifying (EPOLLIN|EPOLLOUT)"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4riablyyq00",
+                                                                    "created": 1596878787590,
+                                                                    "text": "to avoid continuously switching between EPOLLIN and EPOLLOUT calling epoll_ctl(2) with EPOLL_CTL_MOD"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4ri1xb5q6o0",
+                                                            "created": 1596878129548,
+                                                            "text": "example",
+                                                            "expandState": "collapse"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4ri22yfxa80",
+                                                                    "created": 1596878141840,
+                                                                    "text": "listener is a nonblocking socket"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4ri2bz4fzk0",
+                                                                    "created": 1596878161472,
+                                                                    "text": "function do_use_fd()"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4ri2mojqao0",
+                                                                            "created": 1596878184777,
+                                                                            "text": "uses the new ready file descriptor"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4ri2zn46jc0",
+                                                                                    "created": 1596878212989,
+                                                                                    "text": "until EAGAIN is returned by either read(2) or write(2)"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4ri37g2j0g0",
+                                                                    "created": 1596878229977,
+                                                                    "text": "event-driven state machine"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4ri3nnmwnc0",
+                                                                            "created": 1596878265263,
+                                                                            "text": "record its current state",
+                                                                            "expandState": "expand"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4ri3fizzeo0",
+                                                                                    "created": 1596878247568,
+                                                                                    "text": "after having received EAGAIN"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4ri451vw9s0",
+                                                                            "created": 1596878303130,
+                                                                            "text": "so that"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4ri4gxmkgw0",
+                                                                                    "created": 1596878328994,
+                                                                                    "text": "at the next call to do_use_fd()"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4ri4pwd8qg0",
+                                                                                    "created": 1596878348509,
+                                                                                    "text": "it will continue to read(2) or write(2)"
+                                                                                },
+                                                                                "children": [
+                                                                                    {
+                                                                                        "data": {
+                                                                                            "id": "c4ri4vp7rco0",
+                                                                                            "created": 1596878361137,
+                                                                                            "text": "from where it stopped before"
+                                                                                        },
+                                                                                        "children": []
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4ricffse9k0",
+                                            "created": 1596878952652,
+                                            "text": "Questions and answers",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4ricor68tc0",
+                                                    "created": 1596878972931,
+                                                    "text": "What is the key used to distinguish the file descriptors registered in an interest list?",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rid7ecigo0",
+                                                            "created": 1596879013514,
+                                                            "text": "The key is the combination of the file descriptor number and the open file description"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4riei8rn9c0",
+                                                    "created": 1596879115487,
+                                                    "text": "What happens if you register the same file descriptor on an epoll instance twice?",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rieq7oiyw0",
+                                                            "created": 1596879132834,
+                                                            "text": "You will probably get EEXIST"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rieysxxoo0",
+                                                            "created": 1596879151534,
+                                                            "text": "However, it is possible to add a duplicate (dup(2), dup2(2), fcntl(2) F_DUPFD) file descriptor to the same epoll instance"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rig80804g0",
+                                                    "created": 1596879249930,
+                                                    "text": "Can two epoll instances wait for the same file descriptor?  If so, are events reported to both epoll file descriptors?",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rihb3l8y80",
+                                                            "created": 1596879335028,
+                                                            "text": "Yes, and events would be reported to both"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rihea9o680",
+                                                            "created": 1596879341962,
+                                                            "text": "However, careful programming may be needed to do this correctly"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rihuprkeo0",
+                                                    "created": 1596879377728,
+                                                    "text": "Is the epoll file descriptor itself poll/epoll/selectable?",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rihzke0bk0",
+                                                            "created": 1596879388286,
+                                                            "text": "Yes"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rii0bxgsg0",
+                                                            "created": 1596879389952,
+                                                            "text": "If an epoll file descriptor has events waiting, then it will indicate as being readable"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4riih2q4n40",
+                                                    "created": 1596879426400,
+                                                    "text": "What happens if one attempts to put an epoll file descriptor into its own file descriptor set?",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4riimpfjtc0",
+                                                            "created": 1596879438657,
+                                                            "text": "The epoll_ctl(2) call fails (EINVAL)"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4riis539880",
+                                                            "created": 1596879450488,
+                                                            "text": "However, you can add an epoll file descriptor inside another epoll file descriptor set"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rijcdhm9c0",
+                                                    "created": 1596879494531,
+                                                    "text": "Can I send an epoll file descriptor over a UNIX domain socket to another process?",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rijo163rc0",
+                                                            "created": 1596879519908,
+                                                            "text": "Yes, but it does not make sense to do this, since the receiving process would not have copies of the file descriptors in the interest list"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rik2fbr7c0",
+                                                    "created": 1596879551239,
+                                                    "text": "Will closing a file descriptor cause it to be removed from all epoll interest lists?",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rikbg66o00",
+                                                            "created": 1596879570881,
+                                                            "text": "Yes, but be aware of the following point"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rikqffbhc0",
+                                                                    "created": 1596879603488,
+                                                                    "text": "A file descriptor is a reference to an open file description (see open(2))"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4ril0dqels0",
+                                                                    "created": 1596879625153,
+                                                                    "text": "Whenever a file descriptor is duplicated via dup(2), dup2(2), fcntl(2) F_DUPFD, or fork(2), a new file descriptor referring to the same open file description is created"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4rilvpadts0",
+                                                                    "created": 1596879693332,
+                                                                    "text": "An open file description continues to exist until all file descriptors referring to it have been closed"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rimbjjpwg0",
+                                                            "created": 1596879727814,
+                                                            "text": "A file descriptor is removed from an interest list only after all the file descriptors referring to the underlying open file description have been closed"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rin7k48vs0",
+                                                            "created": 1596879797505,
+                                                            "text": "This means that even after a file descriptor that is part of an interest list has been closed, events may be reported for that file descriptor if other file descriptors referring to the same underlying file description remain open"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rio2fxaxc0",
+                                                            "created": 1596879864732,
+                                                            "text": "To prevent this happening, the file descriptor must be explicitly removed from the interest list (using epoll_ctl(2) EPOLL_CTL_DEL) before it is duplicated"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4riojng10g0",
+                                                            "created": 1596879902192,
+                                                            "text": "Alternatively, the application must ensure that all file descriptors are closed (which may be difficult if file descriptors were duplicated behind the scenes by library functions that used dup(2) or fork(2))"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4riq7b5xpc0",
+                                                    "created": 1596880032056,
+                                                    "text": "If more than one event occurs between epoll_wait(2) calls, are they combined or reported separately?",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4riqd3m5f40",
+                                                            "created": 1596880044660,
+                                                            "text": "They will be combined"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4riqvw4la00",
+                                                    "created": 1596880085566,
+                                                    "text": "Does an operation on a file descriptor affect the already collected but not yet reported events?",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rir67saqo0",
+                                                            "created": 1596880108039,
+                                                            "text": "You can do two operations on an existing file descriptor.  Remove would be meaningless for this case.  Modify will reread available I/O"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4ris5d9gnc0",
+                                                    "created": 1596880184558,
+                                                    "text": "Do I need to continuously read/write a file descriptor until EAGAIN when using the EPOLLET flag (edge-triggered behavior)?",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4ritiy7mxc0",
+                                                            "created": 1596880292487,
+                                                            "text": "Receiving an event from epoll_wait(2) should suggest to you that such file descriptor is ready for the requested I/O operation. You must consider it ready until the next (nonblocking) read/write yields EAGAIN.  When and how you will use the file descriptor is entirely up to you"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4riuh6s8bc0",
+                                                            "created": 1596880367016,
+                                                            "text": "For packet/token-oriented files (e.g., datagram socket, terminal in canonical mode), the only way to detect the end of the read/write I/O space is to continue to read/write until EAGAIN"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rixd3cs7k0",
+                                                            "created": 1596880593194,
+                                                            "text": "For stream-oriented files (e.g., pipe, FIFO, stream socket), the condition that the read/write I/O space is exhausted can also be detected by checking the amount of data read from / written to the target file descriptor.  For example, if you call read(2) by asking to read a certain amount of data and read(2) returns a lower number of bytes, you can be sure of having exhausted the read I/O space for the file descriptor.  The same is true when writing using write(2).  (Avoid this latter technique if you cannot guarantee that the monitored file descriptor always refers to a stream-oriented file.)"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4riza3srg00",
+                                            "created": 1596880743419,
+                                            "text": "   Possible pitfalls and ways to avoid them",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4rizho65qg0",
+                                                    "created": 1596880759888,
+                                                    "text": "Starvation (edge-triggered)",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rj0hu8gjk0",
+                                                            "created": 1596880838619,
+                                                            "text": "If there is a large amount of I/O space, it is possible that by trying to drain it the other files will not get processed causing starvation.  (This problem is not specific to epoll.)"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rj1xjvcc00",
+                                                            "created": 1596880951185,
+                                                            "text": "The solution is to maintain a ready list and mark the file descriptor as ready in its associated data structure, thereby allowing the application to remember which files need to be processed but still round robin amongst all the ready files.  This also supports ignoring subsequent events you receive for file descriptors that are already ready"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4rjywrgluo0",
+                                                    "created": 1596883535484,
+                                                    "text": "If using an event cache...",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rjzf4e4dk0",
+                                                            "created": 1596883575448,
+                                                            "text": " If you use an event cache or store all the file descriptors returned from epoll_wait(2), then make sure to provide a way to mark its closure dynamically (i.e., caused by a previous event's processing)"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rk0aspwnk0",
+                                                            "created": 1596883644400,
+                                                            "text": "Suppose you receive 100 events from epoll_wait(2), and in event #47 a condition causes event #13 to be closed.  If you remove the structure and close(2) the file descriptor for event #13, then your event cache might still say there are events waiting for that file descriptor causing confusion"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4rk0zza2kg0",
+                                                            "created": 1596883699216,
+                                                            "text": "One solution for this is to call, during the processing of event 47, epoll_ctl(EPOLL_CTL_DEL) to delete file descriptor 13 and close(2), then mark its associated data structure as removed and link it to a cleanup list.  If you find another event for file descriptor 13 in your batch processing, you will discover the file descriptor had been previously removed and there will be no confusion"
                                                         },
                                                         "children": []
                                                     }
