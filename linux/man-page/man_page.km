@@ -1601,7 +1601,8 @@
                                 "data": {
                                     "id": "c4midvy8h5s0",
                                     "created": 1596371267176,
-                                    "text": "DESCRIPTION"
+                                    "text": "DESCRIPTION",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -1820,7 +1821,8 @@
                                                         "data": {
                                                             "id": "c4rg5r1trn40",
                                                             "created": 1596872787160,
-                                                            "text": "how to use"
+                                                            "text": "how to use",
+                                                            "expandState": "collapse"
                                                         },
                                                         "children": [
                                                             {
@@ -1845,7 +1847,8 @@
                                                         "data": {
                                                             "id": "c4rgmaubdyw0",
                                                             "created": 1596874084068,
-                                                            "text": "provides a useful optimization for avoiding \"thundering herd\" wake-ups"
+                                                            "text": "provides a useful optimization for avoiding \"thundering herd\" wake-ups",
+                                                            "expandState": "collapse"
                                                         },
                                                         "children": [
                                                             {

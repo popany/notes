@@ -1,4 +1,4 @@
-<mxfile host="27bbbaa7-6217-49ba-a1f6-996d056a3876" modified="2020-08-09T10:48:39.314Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.47.3 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="YNjc2OLgPfmoeHF3_9xL" version="13.1.3">
+<mxfile host="27bbbaa7-6217-49ba-a1f6-996d056a3876" modified="2020-08-09T12:56:48.518Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.47.3 Chrome/78.0.3904.130 Electron/7.3.2 Safari/537.36" etag="Gv2Ywx-fmeiWEolttfXw" version="13.1.3">
     <diagram id="6hGFLwfOUW9BJ-s0fimq" name="Page-1">
         <mxGraphModel dx="1157" dy="1786" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -208,12 +208,15 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="119" value="ep_ptable_queue_proc" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2570" y="220" width="180" height="30" as="geometry"/>
+                    <mxGeometry x="2570" y="240" width="180" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="124" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" parent="1" source="121" target="123" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="128" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="121" target="126" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="517" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="121" target="516">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="121" value="ep_item_poll" style="html=1;" parent="1" vertex="1">
@@ -280,7 +283,7 @@
                 <mxCell id="155" value="tcp_poll - net/ipv4/tcp.c" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="1890" y="55" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="162" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="157" target="161" edge="1">
+                <mxCell id="511" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="157" target="508">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="157" value="sock_poll_wait - include/net/sock.h" style="html=1;" parent="1" vertex="1">
@@ -293,7 +296,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="161" value="poll_wait(filp, &amp;amp;sock-&amp;gt;wq-&amp;gt;wait, p)&amp;nbsp;- include/linux/poll.h" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2240" y="150" width="330" height="30" as="geometry"/>
+                    <mxGeometry x="2290" y="190" width="330" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="182" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="178" target="175" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
@@ -311,13 +314,13 @@
                         <Array as="points">
                             <mxPoint x="3420" y="792"/>
                             <mxPoint x="3420" y="80"/>
-                            <mxPoint x="2405" y="80"/>
+                            <mxPoint x="2455" y="80"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="185" value="passed as parameter" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="184" vertex="1" connectable="0">
                     <mxGeometry x="0.9387" y="-3" relative="1" as="geometry">
-                        <mxPoint x="158" y="-16.849999999999987" as="offset"/>
+                        <mxPoint x="3" y="16.150000000000013" as="offset"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="188" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="179" target="51" edge="1">
@@ -361,7 +364,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="198" value="This is the callback that is used to add our wait queue to the&amp;nbsp;target file wakeup lists" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" parent="1" vertex="1">
-                    <mxGeometry x="2830" y="215" width="270" height="40" as="geometry"/>
+                    <mxGeometry x="2830" y="235" width="270" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="201" value="" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="129" target="23" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
@@ -440,11 +443,20 @@
                 <mxCell id="265" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="261" target="264" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
+                <mxCell id="495" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="261" target="326">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="2610" y="2630" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="1710" y="3096"/>
+                            <mxPoint x="1710" y="2604"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
                 <mxCell id="261" value="ep_send_events" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="1520" y="3088" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="232" value="Implement the event wait interface for the eventpoll file. &lt;br&gt;It is the kernel&amp;nbsp;part of the user space epoll_wait(2)" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" parent="1" vertex="1">
-                    <mxGeometry x="1085" y="2863" width="320" height="70" as="geometry"/>
+                    <mxGeometry x="1081" y="2879.5" width="320" height="37" as="geometry"/>
                 </mxCell>
                 <mxCell id="243" value="Retrieves ready events, and delivers them to the caller supplied&lt;br&gt;event buffer" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" parent="1" vertex="1">
                     <mxGeometry x="1241" y="2969.5" width="369" height="37" as="geometry"/>
@@ -577,13 +589,14 @@
                         <mxPoint x="-101" y="-43" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="327" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="1" source="291" target="326" edge="1">
+                <mxCell id="327" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="291" target="326" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="1416" y="3690"/>
                             <mxPoint x="670" y="3690"/>
                             <mxPoint x="670" y="2604"/>
                         </Array>
+                        <mxPoint x="2680" y="2580" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="54" value="struct file" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
@@ -673,8 +686,7 @@
                 <mxCell id="270" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="266" target="246" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="1210" y="3443"/>
-                            <mxPoint x="1416" y="3443"/>
+                            <mxPoint x="1210" y="3483"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -746,8 +758,7 @@
                 <mxCell id="303" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="300" target="246" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="1630" y="3443"/>
-                            <mxPoint x="1416" y="3443"/>
+                            <mxPoint x="1630" y="3483"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -838,7 +849,7 @@
                 <mxCell id="329" value="ep_scan_ready_list" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="2890" y="2649" width="150" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="368" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;" parent="1" source="365" target="333" edge="1">
+                <mxCell id="368" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;dashed=1;" parent="1" source="365" target="333" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="365" value="call the callback function" style="html=1;" parent="1" vertex="1">
@@ -863,7 +874,10 @@
                     <mxGeometry x="3045" y="3093.5" width="215" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="388" value="wake_up_locked(&amp;amp;ep-&amp;gt;wq)" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3230" y="3188" width="215" height="30" as="geometry"/>
+                    <mxGeometry x="3240" y="3188" width="215" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="496" value="ep_poll_safewake(&amp;amp;ep-&amp;gt;poll_wait)" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="3240" y="3240" width="215" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="363" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" parent="1" source="358" target="362" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -871,14 +885,17 @@
                 <mxCell id="358" value="list_splice_init(&amp;amp;ep-&amp;gt;rdllist, &amp;amp;txlist);&lt;br&gt;" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="3045" y="2724" width="205" height="35" as="geometry"/>
                 </mxCell>
-                <mxCell id="335" value="callback" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="333" target="329" edge="1">
+                <mxCell id="335" value="passed as callback" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="333" target="329" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="501" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="333" target="500">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="333" value="ep_send_events_proc" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3900" y="2649" width="150" height="30" as="geometry"/>
+                    <mxGeometry x="4080" y="2649" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="337" value="schedule_hrtimeout_range - sleep until timeout&lt;br&gt;&lt;br&gt;Returns 0 when the timer has expired.&lt;br&gt;&lt;div&gt;If the task was woken before the&amp;nbsp;&lt;span&gt;timer expired by a signal (only possible in state TASK_INTERRUPTIBLE) or&amp;nbsp;&lt;/span&gt;&lt;span&gt;by an explicit wakeup, it returns -EINTR.&lt;/span&gt;&lt;/div&gt;" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" parent="1" vertex="1">
-                    <mxGeometry x="2430" y="3790.5" width="449" height="85" as="geometry"/>
+                    <mxGeometry x="2440" y="3790.5" width="449" height="85" as="geometry"/>
                 </mxCell>
                 <mxCell id="344" value="true" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="341" target="343" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -886,12 +903,12 @@
                 <mxCell id="350" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="341" target="349" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="364" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;entryX=0;entryY=0;entryDx=480;entryDy=32;entryPerimeter=0;" parent="1" source="341" target="397" edge="1">
+                <mxCell id="364" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;dashed=1;entryX=0;entryY=0;entryDx=480;entryDy=14;entryPerimeter=0;" parent="1" source="341" target="397" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="3690" y="2110" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="4180" y="466"/>
-                            <mxPoint x="4180" y="2822"/>
+                            <mxPoint x="4020" y="466"/>
+                            <mxPoint x="4020" y="2814"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -940,16 +957,24 @@
                     <mxGeometry x="3020" y="2540" width="420" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="373" value="During the time we spent inside the &quot;sproc&quot; callback, some&amp;nbsp;other events might have been queued by the poll callback.&amp;nbsp;We re-insert them inside the main ready-list here." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" parent="1" vertex="1">
-                    <mxGeometry x="3340" y="2903" width="360" height="70" as="geometry"/>
+                    <mxGeometry x="3340" y="2914.5" width="360" height="47" as="geometry"/>
                 </mxCell>
                 <mxCell id="379" value="We need to set back ep-&amp;gt;ovflist to EP_UNACTIVE_PTR, so that after&amp;nbsp;releasing the lock, events will be queued in the normal way inside&amp;nbsp;ep-&amp;gt;rdllist." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" parent="1" vertex="1">
-                    <mxGeometry x="3340" y="2999" width="360" height="70" as="geometry"/>
+                    <mxGeometry x="3340" y="3008.5" width="360" height="51" as="geometry"/>
                 </mxCell>
                 <mxCell id="384" value="Quickly re-inject items left on &quot;txlist&quot;." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" parent="1" vertex="1">
-                    <mxGeometry x="3340" y="3088" width="280" height="41" as="geometry"/>
+                    <mxGeometry x="3340" y="3092.5" width="280" height="32" as="geometry"/>
                 </mxCell>
                 <mxCell id="390" value="false" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="386" target="388" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="498" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="386" target="496">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="3210" y="3203"/>
+                            <mxPoint x="3210" y="3255"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="386" value="list_empty(&amp;amp;ep-&amp;gt;rdllist)" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="3045" y="3153" width="100" height="100" as="geometry"/>
@@ -964,7 +989,7 @@
                     <mxGeometry x="3045" y="2800" width="150" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="397" value="set ep-&amp;gt;ovflist to NULL so that events&amp;nbsp;happening while looping w/out locks, are not lost." style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" parent="1" vertex="1">
-                    <mxGeometry x="3340" y="2790" width="480" height="50" as="geometry"/>
+                    <mxGeometry x="3340" y="2800" width="480" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="407" value="true" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="400" target="403" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -1058,7 +1083,7 @@
                     <mxGeometry y="52" width="230" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="448" value="sock = filp-&amp;gt;private_data&lt;br&gt;sock-&amp;gt;wq-&amp;gt;wait - wait_queue_head_t&lt;br&gt;p -&amp;nbsp;poll_table*" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" vertex="1" parent="1">
-                    <mxGeometry x="2277" y="270" width="256" height="50" as="geometry"/>
+                    <mxGeometry x="2327" y="280" width="256" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="483" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="451" target="47">
                     <mxGeometry relative="1" as="geometry"/>
@@ -1172,6 +1197,114 @@
                 </mxCell>
                 <mxCell id="183" value="+ struct rcu_head&#9;&#9;rcu" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="178" vertex="1">
                     <mxGeometry y="104" width="190" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="505" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="500" target="504">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="500" value="pop first epitem in txlist" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="4240" y="2706.5" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="507" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="504" target="506">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="519" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="504" target="518">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="504" value="get current event bits" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="4240" y="2770" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="521" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="518" target="520">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="518" value="copy struct&amp;nbsp;epoll_event to user space" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="4205" y="2833" width="220" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="528" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;" edge="1" parent="1" source="525" target="524">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="529" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="525" target="500">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="4730" y="2956"/>
+                            <mxPoint x="4730" y="2722"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="525" value="epi-&amp;gt;event.events &amp;amp;= EP_PRIVATE_BITS" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="4425" y="2948" width="255" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="535" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="531" target="500">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="4730" y="3101"/>
+                            <mxPoint x="4730" y="2722"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="531" value="list_add_tail(&amp;amp;epi-&amp;gt;rdllink, &amp;amp;ep-&amp;gt;rdllist)" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="4425" y="3093.5" width="255" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="515" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="506" target="512">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1781.60009765625" y="90" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="4960" y="2440"/>
+                            <mxPoint x="2339" y="2440"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="506" value="call ep_item_poll with&amp;nbsp;poll_table_struct::_qproc = NULL" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" vertex="1" parent="1">
+                    <mxGeometry x="4790" y="2773.25" width="320" height="23.5" as="geometry"/>
+                </mxCell>
+                <mxCell id="509" value="false" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="508" target="161">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="2260" y="205"/>
+                            <mxPoint x="2260" y="205"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="514" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;" edge="1" parent="1" source="508" target="512">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="508" value="poll_does_not_wait(p)" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="2140" y="155" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="512" value="p == NULL || p-&amp;gt;_qproc == NULL" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" vertex="1" parent="1">
+                    <mxGeometry x="2227" y="375" width="223" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="516" value="return vfs_poll(...) &amp;amp;&amp;nbsp;epi-&amp;gt;event.events" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1210" y="85" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="523" value="false" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="520" target="522">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="527" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="520" target="525">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="520" value="epi-&amp;gt;event.events &amp;amp; EPOLLONESHOT" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="4265" y="2913" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="533" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="522" target="531">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="536" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="522" target="500">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="4315" y="3200"/>
+                            <mxPoint x="4730" y="3200"/>
+                            <mxPoint x="4730" y="2722"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="522" value="epi-&amp;gt;event.events &amp;amp; EPOLLET" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="4265" y="3058.5" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="524" value="&lt;span style=&quot;color: rgb(51 , 51 , 51) ; font-family: , &amp;#34;stheiti&amp;#34; , &amp;#34;hei&amp;#34; , &amp;#34;heiti sc&amp;#34; , &amp;#34;microsoft yahei&amp;#34; , &amp;#34;arial&amp;#34; , sans-serif ; background-color: rgb(255 , 255 , 255)&quot;&gt;This means that after an event notified for the file descriptor by epoll_wait(2), the file descriptor is disabled in the interest list and no other events will be reported by the epoll interface&lt;br&gt;&lt;br&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(51 , 51 , 51) ; font-family: , &amp;#34;stheiti&amp;#34; , &amp;#34;hei&amp;#34; , &amp;#34;heiti sc&amp;#34; , &amp;#34;microsoft yahei&amp;#34; , &amp;#34;arial&amp;#34; , sans-serif ; background-color: rgb(255 , 255 , 255)&quot;&gt;EP_PRIVATE_BITS is a set of flag that never returned by epoll_wait(2)&lt;/span&gt;&lt;span style=&quot;color: rgb(51 , 51 , 51) ; font-family: , &amp;#34;stheiti&amp;#34; , &amp;#34;hei&amp;#34; , &amp;#34;heiti sc&amp;#34; , &amp;#34;microsoft yahei&amp;#34; , &amp;#34;arial&amp;#34; , sans-serif ; background-color: rgb(255 , 255 , 255)&quot;&gt;&lt;br&gt;&lt;/span&gt;" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" vertex="1" parent="1">
+                    <mxGeometry x="4790" y="2931.5" width="530" height="63" as="geometry"/>
+                </mxCell>
+                <mxCell id="537" value="If this file has been added with Level&amp;nbsp;Trigger mode, we need to insert back inside&amp;nbsp;the ready list, so that the next call to&amp;nbsp;epoll_wait() will check again the events&amp;nbsp;availability" style="shape=note;whiteSpace=wrap;html=1;size=14;verticalAlign=top;align=left;spacingTop=-6;" vertex="1" parent="1">
+                    <mxGeometry x="4790" y="3058.5" width="360" height="70" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
