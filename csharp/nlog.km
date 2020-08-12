@@ -1,0 +1,73 @@
+{
+    "root": {
+        "data": {
+            "id": "c4uzkw62j6o0",
+            "created": 1597232254721,
+            "text": "NLog",
+            "expandState": "expand"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c4szicqho280",
+                    "created": 1597028935779,
+                    "text": "NLog Tutorial - The essential guide for logging from C#",
+                    "hyperlink": "https://blog.elmah.io/nlog-tutorial-the-essential-guide-for-logging-from-csharp/",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c4uzo6y6d4g0",
+                    "created": 1597232513281,
+                    "text": "wiki",
+                    "hyperlink": "https://github.com/nlog/NLog/wiki",
+                    "hyperlinkTitle": ""
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4uzom32edk0",
+                            "created": 1597232546228,
+                            "text": "File target",
+                            "hyperlink": "https://github.com/nlog/NLog/wiki/File-target",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4uzxf7u6xs0",
+                                    "created": 1597233236557,
+                                    "text": "Archival Options"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4uzxioz6lc0",
+                                            "created": 1597233244124,
+                                            "text": "maxArchiveFiles"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4uzxlpfb6w0",
+                                                    "created": 1597233250681,
+                                                    "text": "Maximum number of archive files that should be kept. If maxArchiveFiles is less or equal to 0, old files aren't deleted"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
