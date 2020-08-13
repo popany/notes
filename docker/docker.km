@@ -15,10 +15,20 @@
                     "hyperlinkTitle": ""
                 },
                 "children": []
+            },
+            {
+                "data": {
+                    "id": "c4vpqdb2hdk0",
+                    "created": 1597306032707,
+                    "text": "Overview of Docker Compose",
+                    "hyperlink": "https://docs.docker.com/compose/",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
             }
         ]
     },
-    "template": "default",
+    "template": "right",
     "theme": "fresh-blue",
     "version": "1.4.43"
 }

@@ -10,7 +10,8 @@
                 "data": {
                     "id": "c3zz4jkafyw0",
                     "created": 1594082614799,
-                    "text": "Database Access"
+                    "text": "Database Access",
+                    "expandState": "expand"
                 },
                 "children": [
                     {
@@ -541,7 +542,8 @@
                                                     "created": 1595089595153,
                                                     "text": "DbDataRecord",
                                                     "hyperlink": "https://docs.microsoft.com/en-us/dotnet/api/system.data.common.dbdatarecord?view=netframework-4.5",
-                                                    "hyperlinkTitle": ""
+                                                    "hyperlinkTitle": "",
+                                                    "expandState": "expand"
                                                 },
                                                 "children": [
                                                     {

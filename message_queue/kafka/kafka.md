@@ -46,7 +46,7 @@
     -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://10.254.2.16:9092 \
     -d wurstmeister/kafka
 
-注 10.254.2.16 为 windows host ip
+注 10.254.2.16 为 docker host ip
 
 ##### 生产消息
 
