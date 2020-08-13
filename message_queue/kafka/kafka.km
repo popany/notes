@@ -43,16 +43,6 @@
                             "hyperlinkTitle": ""
                         },
                         "children": []
-                    },
-                    {
-                        "data": {
-                            "id": "c4uu88ku19c0",
-                            "created": 1597217157452,
-                            "text": "Kafka Docker部署",
-                            "hyperlink": "https://www.jianshu.com/p/bacc8eb03c4b",
-                            "hyperlinkTitle": ""
-                        },
-                        "children": []
                     }
                 ]
             }

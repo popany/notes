@@ -1485,33 +1485,177 @@
                                 "children": [
                                     {
                                         "data": {
-                                            "id": "c4t422nwcfc0",
-                                            "created": 1597041765577,
-                                            "text": "Getting Started with ODP.NET Core",
-                                            "hyperlink": "https://www.oracle.com/webfolder/technetwork/tutorials/obe/db/dotnet/ODPNET_Core_get_started/index.html",
-                                            "hyperlinkTitle": ""
+                                            "id": "c4v3ac7qlko0",
+                                            "created": 1597242712084,
+                                            "text": "Synopsis",
+                                            "expandState": "expand"
                                         },
-                                        "children": []
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4v39nt67ew0",
+                                                    "created": 1597242658961,
+                                                    "text": "Oracle Data Provider for .NET (ODP.NET) features optimized ADO.NET data access to the Oracle database"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4v3cf3ytn40",
+                                                    "created": 1597242875115,
+                                                    "text": "There are three driver types"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4v3cllwkso0",
+                                                            "created": 1597242889260,
+                                                            "text": "ODP.NET, Managed Driver"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4v3ddk00co0",
+                                                                    "created": 1597242950095,
+                                                                    "text": "100% .NET code"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4v3cptyxe00",
+                                                            "created": 1597242898455,
+                                                            "text": "ODP.NET, Unmanaged Driver"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4v3dp23r3c0",
+                                                                    "created": 1597242975134,
+                                                                    "text": "contains more features than the managed driver"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4v3dw3s2oo0",
+                                                                            "created": 1597242990473,
+                                                                            "text": "since it can access functionality built into the Oracle Database Client"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4v3czzvwio0",
+                                                            "created": 1597242920581,
+                                                            "text": "ODP.NET Core"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4v3e2swnx40",
+                                                                    "created": 1597243005053,
+                                                                    "text": "designed for multi-platform .NET Core applications"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4vg5qxcm8g0",
+                                            "created": 1597279026716,
+                                            "text": "ODP.NET Core"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4vg5wuirdk0",
+                                                    "created": 1597279039606,
+                                                    "text": "Getting Started with ODP.NET Core",
+                                                    "hyperlink": "https://www.oracle.com/webfolder/technetwork/tutorials/obe/db/dotnet/ODPNET_Core_get_started/index.html",
+                                                    "hyperlinkTitle": ""
+                                                },
+                                                "children": []
+                                            }
+                                        ]
                                     },
                                     {
                                         "data": {
                                             "id": "c4ta3hfyp680",
                                             "created": 1597058802772,
-                                            "text": "Documentation",
+                                            "text": "Oracle Data Access Components Documentation",
                                             "hyperlink": "https://docs.oracle.com/en/database/oracle/oracle-data-access-components/19.3/",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4vg7gb0i0o0",
+                                                    "created": 1597279160326,
+                                                    "text": "Data Provider for .NET Developer's Guide",
+                                                    "hyperlink": "https://docs.oracle.com/en/database/oracle/oracle-data-access-components/19.3/odpnt/index.html",
+                                                    "hyperlinkTitle": ""
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4ta43od4bc0",
+                                            "created": 1597058851170,
+                                            "text": "GitHub - Oracle .NET Sample Code Repository",
+                                            "hyperlink": "https://github.com/oracle/dotnet-db-samples",
                                             "hyperlinkTitle": ""
                                         },
                                         "children": []
                                     },
                                     {
                                         "data": {
-                                            "id": "c4ta43od4bc0",
-                                            "created": 1597058851170,
-                                            "text": "Oracle .NET Code Sample Respository",
-                                            "hyperlink": "https://github.com/oracle/dotnet-db-samples",
-                                            "hyperlinkTitle": ""
+                                            "id": "c4v3gaocf740",
+                                            "created": 1597243178920,
+                                            "text": "Technical Articles"
                                         },
-                                        "children": []
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4v3gw0efu00",
+                                                    "created": 1597243225361,
+                                                    "text": "Use array binding to reduce network round-trips and increase performance",
+                                                    "hyperlink": "https://blogs.oracle.com/oraclemagazine/put-your-arrays-in-a-bind",
+                                                    "hyperlinkTitle": ""
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4v3iiaxs1s0",
+                                                            "created": 1597243352252,
+                                                            "text": "Rather than having the application send a single row of data to the database at a time"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4v3ir7e59c0",
+                                                                    "created": 1597243371629,
+                                                                    "text": "it can use array binding to send the data in batches of rows"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
                                     }
                                 ]
                             },
