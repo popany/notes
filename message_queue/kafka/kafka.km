@@ -18,13 +18,581 @@
             },
             {
                 "data": {
-                    "id": "c4h6npguxyo0",
-                    "created": 1595830383605,
-                    "text": "Apache Kafka Tutorial",
-                    "hyperlink": "https://www.tutorialspoint.com/apache_kafka/index.htm",
-                    "hyperlinkTitle": ""
+                    "id": "c4wl3anxwp40",
+                    "created": 1597394500096,
+                    "text": "tutorial",
+                    "expandState": "expand"
                 },
-                "children": []
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4h6npguxyo0",
+                            "created": 1595830383605,
+                            "text": "tutorialspoint",
+                            "hyperlink": "https://www.tutorialspoint.com/apache_kafka/index.htm",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4wi7gab9jc0",
+                                    "created": 1597386362460,
+                                    "text": "Introduction",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4wi8u2tqqo0",
+                                            "created": 1597386470846,
+                                            "text": "two main challenges of big data",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4wi91dmwi00",
+                                                    "created": 1597386486737,
+                                                    "text": "collect large volume of data"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4wi967p5940",
+                                                    "created": 1597386497262,
+                                                    "text": "analyze the collected data"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4wia94bus80",
+                                            "created": 1597386581953,
+                                            "text": "What is a Messaging System?",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4wiagoq2hk0",
+                                                    "created": 1597386598424,
+                                                    "text": "responsible for transferring data from one application to another",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wiape3ppc0",
+                                                            "created": 1597386617373,
+                                                            "text": "so the applications can focus on data, but not worry about how to share it"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4wibcxnxpc0",
+                                                    "created": 1597386668621,
+                                                    "text": "Two types of messaging patterns"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wibml5hig0",
+                                                            "created": 1597386689633,
+                                                            "text": "point to point"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wic7rnsps0",
+                                                                    "created": 1597386735739,
+                                                                    "text": "messages are persisted in a queue"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wick1pcrc0",
+                                                                    "created": 1597386762467,
+                                                                    "text": "One or more consumers can consume the messages in the queue",
+                                                                    "expandState": "expand"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4wicq78ta00",
+                                                                            "created": 1597386775863,
+                                                                            "text": "but a particular message can be consumed by a maximum of one consumer only"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wicwd2h340",
+                                                                    "created": 1597386789276,
+                                                                    "text": "Once a consumer reads a message in the queue, it disappears from that queue"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wibq3i5x40",
+                                                            "created": 1597386697273,
+                                                            "text": "publish-subscribe"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wie20gdg80",
+                                                                    "created": 1597386879938,
+                                                                    "text": "messages are persisted in a topic"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wiebg0csw0",
+                                                                    "created": 1597386900470,
+                                                                    "text": "consumers can subscribe to one or more topic"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4wieiesfoo0",
+                                                                            "created": 1597386915633,
+                                                                            "text": "and consume all the messages in that topic"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wiepmbaw00",
+                                                                    "created": 1597386931326,
+                                                                    "text": "message producers are called publishers and message consumers are called subscribers"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4wif25eyxs0",
+                                            "created": 1597386958602,
+                                            "text": "What is Kafka?",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4wifee9ez40",
+                                                    "created": 1597386985258,
+                                                    "text": "a distributed publish-subscribe messaging system"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4wifmjbav40",
+                                                    "created": 1597387002978,
+                                                    "text": "a robust queue that can handle a high volume of data and enables you to pass messages from one end-point to another"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4wig35hdww0",
+                                                    "created": 1597387039148,
+                                                    "text": "Benefits",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wigbwg15s0",
+                                                            "created": 1597387058192,
+                                                            "text": "Reliability"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wigeaefls0",
+                                                            "created": 1597387063389,
+                                                            "text": "Scalability"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wighcsgaw0",
+                                                            "created": 1597387070064,
+                                                            "text": "Durability"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wignomh5s0",
+                                                            "created": 1597387083840,
+                                                            "text": "Performance"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4wih3m74oo0",
+                                                    "created": 1597387118522,
+                                                    "text": "Use Cases",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wihcs88dc0",
+                                                            "created": 1597387138478,
+                                                            "text": "Metrics"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wihhxzcgw0",
+                                                                    "created": 1597387149710,
+                                                                    "text": "Kafka is often used for operational monitoring data"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wiibs2z680",
+                                                            "created": 1597387214656,
+                                                            "text": "Log Aggregation Solution"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wiin9d0280",
+                                                                    "created": 1597387239646,
+                                                                    "text": "Kafka can be used across an organization to collect logs from multiple services and make them available in a standard format to multiple consumers"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wiiz2dkxk0",
+                                                            "created": 1597387265345,
+                                                            "text": "Stream Processing"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wij35dk6o0",
+                                                                    "created": 1597387274233,
+                                                                    "text": "Popular frameworks such as Storm and Spark Streaming read data from a topic, processes it, and write processed data to a new topic where it becomes available for users and applications"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4wij96aap40",
+                                                    "created": 1597387287349,
+                                                    "text": "Need for Kafka"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4wikdpo49s0",
+                                    "created": 1597387375592,
+                                    "text": "Fundamentals",
+                                    "hyperlink": null,
+                                    "hyperlinkTitle": null
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4wil18ze340",
+                                            "created": 1597387426826,
+                                            "text": "terminologies"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4winmllayw0",
+                                                    "created": 1597387630029,
+                                                    "text": "Topics"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4winpwle9k0",
+                                                            "created": 1597387637225,
+                                                            "text": "A stream of messages"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wisyoue9s0",
+                                                                    "created": 1597388048168,
+                                                                    "text": "belonging to a particular category"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4winx6dwq80",
+                                                            "created": 1597387653054,
+                                                            "text": "Topics are split into partitions"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wio2qhhg00",
+                                                                    "created": 1597387665154,
+                                                                    "text": "For each topic"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4witnc8noo0",
+                                                                            "created": 1597388101826,
+                                                                            "text": "Kafka keeps a mini-mum of one partition"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wio9glew00",
+                                                                    "created": 1597387679793,
+                                                                    "text": "Each partition"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4witxq8o5c0",
+                                                                            "created": 1597388124440,
+                                                                            "text": "contains messages in an immutable ordered sequence"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wiohdm25k0",
+                                                                    "created": 1597387697027,
+                                                                    "text": "A partition is implemented"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4wiu7ku98o0",
+                                                                            "created": 1597388145881,
+                                                                            "text": "as a set of segment files of equal sizes"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4wiopptkb40",
+                                                    "created": 1597387715179,
+                                                    "text": "Partition"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wiov23xrc0",
+                                                            "created": 1597387726806,
+                                                            "text": "Topics may have many partitions, so it can handle an arbitrary amount of data"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4wiuolvpnc0",
+                                                    "created": 1597388182949,
+                                                    "text": "Partition offset"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wiussy4gw0",
+                                                            "created": 1597388192084,
+                                                            "text": "Each partitioned message has a unique sequence id called as offset"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4wiv2nxh6g0",
+                                                    "created": 1597388213548,
+                                                    "text": "Replicas of partition"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wiv73r1xk0",
+                                                            "created": 1597388223212,
+                                                            "text": "Replicas are nothing but backups of a partition"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wiv85bxls0",
+                                                            "created": 1597388225484,
+                                                            "text": "Replicas are never read or write data. They are used to prevent data loss"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4wivixoa480",
+                                                    "created": 1597388248966,
+                                                    "text": "Brokers",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wivodx8280",
+                                                            "created": 1597388260832,
+                                                            "text": "Brokers are simple system responsible for maintaining the pub-lished data"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wivvpmbjs0",
+                                                                    "created": 1597388276777,
+                                                                    "text": "Each broker may have zero or more partitions per topic"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wiw6g8s8o0",
+                                                            "created": 1597388300155,
+                                                            "text": "Assume, if there are N partitions in a topic and N number of brokers, each broker will have one partition"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wiwdoergg0",
+                                                            "created": 1597388315886,
+                                                            "text": "Assume if there are N partitions in a topic and more than N brokers (n + m)"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wiwt664yw0",
+                                                                    "created": 1597388349612,
+                                                                    "text": "the first N broker will have one partition"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wiwy37en40",
+                                                                    "created": 1597388360316,
+                                                                    "text": "and the next M broker will not have any partition for that particular topic"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wix7ja7xs0",
+                                                            "created": 1597388380880,
+                                                            "text": "Assume if there are N partitions in a topic and less than N brokers (n-m)"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4wixj6mhz40",
+                                                                    "created": 1597388406236,
+                                                                    "text": "each broker will have one or more partition sharing among them"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c4wl3lcr1zc0",
+                            "created": 1597394523364,
+                            "text": "TutorialKart",
+                            "hyperlink": "https://www.tutorialkart.com/apache-kafka-tutorial/",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c4wl67wvqig0",
+                            "created": 1597394729199,
+                            "text": "javatpoint",
+                            "hyperlink": "https://www.javatpoint.com/apache-kafka",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    }
+                ]
             },
             {
                 "data": {
