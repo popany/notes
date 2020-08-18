@@ -1595,6 +1595,27 @@
                                     },
                                     {
                                         "data": {
+                                            "id": "c5040jfq18g0",
+                                            "created": 1597752565056,
+                                            "text": "Oracle Data Access Components - .NET Downloads",
+                                            "hyperlink": "https://www.oracle.com/database/technologies/net-downloads.html",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c504npcy5eg0",
+                                                    "created": 1597754380325,
+                                                    "text": "ODAC Developer Downloads - Oracle Universal Installer",
+                                                    "hyperlink": "https://www.oracle.com/database/technologies/dotnet-odacdev-downloads.html",
+                                                    "hyperlinkTitle": ""
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
                                             "id": "c4ta43od4bc0",
                                             "created": 1597058851170,
                                             "text": "GitHub - Oracle .NET Sample Code Repository",
@@ -1668,6 +1689,87 @@
                                             "hyperlinkTitle": ""
                                         },
                                         "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c505xajfc4w0",
+                                            "created": 1597757952816,
+                                            "text": "Two Ways To Insert Bulk Data Into Oracle Database Using C#",
+                                            "hyperlink": "https://www.c-sharpcorner.com/article/two-ways-to-insert-bulk-data-into-oracle-database-using-c-sharp/",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c503qzv8sc80",
+                                    "created": 1597751817182,
+                                    "text": "Troubleshooting"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c503rrkfss80",
+                                            "created": 1597751877478,
+                                            "text": "The provider is not compatible with the version of Oracle client",
+                                            "hyperlink": "https://stackoverflow.com/questions/659341/the-provider-is-not-compatible-with-the-version-of-oracle-client",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c503sn7u6qg0",
+                                                    "created": 1597751946373,
+                                                    "text": "you simply need to grab all the appropriate DLL's from the same downloaded version of ODP.Net and put them in the same folder as your Exe file, because ODP.Net is fussy about not mixing version numbers"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c503tdg5ci00",
+                                            "created": 1597752003472,
+                                            "text": "Oracle.DataAccess.dll Providers and dll not compatible",
+                                            "hyperlink": "https://stackoverflow.com/questions/35516039/oracle-dataaccess-dll-providers-and-dll-not-compatible",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c503tnjajhs0",
+                                                    "created": 1597752025430,
+                                                    "text": "ODP.NET (i.e. Oracle.DataAccess.dll) requires an Oracle Client installation. The stand-alone DLL does not work"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c503txzge3k0",
+                                                    "created": 1597752048175,
+                                                    "text": "The architecture (i.e. 32 vs. 64 bit) of Oracle.DataAccess.dll must match the architecture of the installed Oracle Client and the architecture of your application"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c503u6qxf7c0",
+                                                    "created": 1597752067251,
+                                                    "text": "The version (e.g. 2.x or 4.x of Oracle.DataAccess.dll) must match the .NET compile target of your application. If you compile on target 2.0, 3.0 or 3.5 you must install version 2.x. For compile target 4 or above you must install version 4.x"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c503u9hn5080",
+                                                    "created": 1597752073219,
+                                                    "text": "The version (e.g. x.111, x.112, x.121, etc.) should match the version of installed Oracle Client"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
                                     }
                                 ]
                             }
