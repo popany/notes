@@ -1,0 +1,331 @@
+{
+    "root": {
+        "data": {
+            "id": "c3nie0d1ixs0",
+            "created": 1592816678296,
+            "text": "Pattern-Oriented Software Architecture, Volume 2, Patterns for Concurrent and Networked Objects",
+            "expandState": "expand"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c3niff0qb680",
+                    "created": 1592816788567,
+                    "text": "Chapter 1 - Concurrent and Networked Objects"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4z2ycmb4yo0",
+                            "created": 1597648012422,
+                            "text": "1.1 Motivation  "
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c4z2yjxpz740",
+                            "created": 1597648028350,
+                            "text": "1.2 Challenges of Concurrent and Networked Software  "
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4z2ynt45sw0",
+                                    "created": 1597648036778,
+                                    "text": "Challenge 1: Service Access and Configuration  "
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4z2z4964ig0",
+                                            "created": 1597648072578,
+                                            "text": "Service Access and Configuration Patterns  "
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4z2zcs04m80",
+                                                    "created": 1597648091131,
+                                                    "text": "Wrapper Facade  "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4z2zht27z40",
+                                                    "created": 1597648102078,
+                                                    "text": "Component Configurator  "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4z2zln8ug80",
+                                                    "created": 1597648110434,
+                                                    "text": "Interceptor  "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4z2zmavsm80",
+                                                    "created": 1597648111863,
+                                                    "text": "Extension Interface  "
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4z2zuajiag0",
+                                    "created": 1597648129257,
+                                    "text": "Challenge 2: Event Handling  "
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4z30491l8g0",
+                                            "created": 1597648150934,
+                                            "text": "Event Handling Patterns  "
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4z307gk4bk0",
+                                                    "created": 1597648157919,
+                                                    "text": "Reactor  "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4z307yumm00",
+                                                    "created": 1597648159025,
+                                                    "text": "Proactor  "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4z30agucgw0",
+                                                    "created": 1597648164466,
+                                                    "text": "Asynchronous Completion Token  "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4z30dn60gw0",
+                                                    "created": 1597648171379,
+                                                    "text": "Acceptor-Connector  "
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4z30p0inig0",
+                                    "created": 1597648196131,
+                                    "text": "Challenge 3: Concurrency  "
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4z30v5s1f40",
+                                            "created": 1597648209510,
+                                            "text": "Concurrency Patterns  "
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4z30yvmrfs0",
+                                                    "created": 1597648217603,
+                                                    "text": "Active Object"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4z313xbpxs0",
+                                                    "created": 1597648228590,
+                                                    "text": "Monitor Object "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4z317pxdcw0",
+                                                    "created": 1597648236849,
+                                                    "text": "Half-Sync/Half-Async  "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4z31b9ji5s0",
+                                                    "created": 1597648244566,
+                                                    "text": "Leader/Followers  "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4z31bzgc9s0",
+                                                    "created": 1597648246133,
+                                                    "text": "Thread-Specific Storage  "
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c4z31ixphww0",
+                                    "created": 1597648261265,
+                                    "text": "Challenge 4: Synchronization  "
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4z338el1wg0",
+                                            "created": 1597648395069,
+                                            "text": "Scoped Locking  "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4z339115i80",
+                                            "created": 1597648396426,
+                                            "text": "Strategized Locking  "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4z33cq6r8o0",
+                                            "created": 1597648404477,
+                                            "text": "Thread-Safe Interface  "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4z33fp5s3s0",
+                                            "created": 1597648410946,
+                                            "text": "Double-Checked Locking Optimization  "
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c3niff0qkkw0",
+                    "created": 1592816788567,
+                    "text": "Chapter 2 - Service Access and Configuration Patterns"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3niff0q2dk0",
+                    "created": 1592816788567,
+                    "text": "Chapter 3 - Event Handling Patterns"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c3nifjipt4w0",
+                            "created": 1592816798362,
+                            "text": "Overview"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3nig60fmow0",
+                                    "created": 1592816847322,
+                                    "text": "This chapter presents four patterns that describe how to initiate, receive, demultiplex,\ndispatch, and process events in networked systems: Reactor, Proactor, Asynchronous\nCompletion Token, and Acceptor-Connector  "
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c3nii774ph40",
+                            "created": 1592817006632,
+                            "text": "four patterns"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c3niibpx32w0",
+                                    "created": 1592817016475,
+                                    "text": "Reactor pattern  "
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c3niff0qsmo0",
+                    "created": 1592816788568,
+                    "text": "Chapter 4 - Synchronization Patterns"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3niff0qq400",
+                    "created": 1592816788568,
+                    "text": "Chapter 5 - Concurrency Patterns"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3niff0qsfs0",
+                    "created": 1592816788568,
+                    "text": "Chapter 6 - Weaving the Patterns Together"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3niff0r3000",
+                    "created": 1592816788568,
+                    "text": "Chapter 7 - The Past, Present, and Future of Patterns"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "c3niff0razc0",
+                    "created": 1592816788569,
+                    "text": "Chapter 8 - Concluding Remarks"
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

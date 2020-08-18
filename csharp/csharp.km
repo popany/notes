@@ -1458,25 +1458,6 @@
                         "children": [
                             {
                                 "data": {
-                                    "id": "c4t3r3ol6xs0",
-                                    "created": 1597040905790,
-                                    "text": "Oracle.ManagedDataAccess"
-                                },
-                                "children": [
-                                    {
-                                        "data": {
-                                            "id": "c4t3xse1t5s0",
-                                            "created": 1597041429757,
-                                            "text": "Data Provider for .NET Developer's Guide",
-                                            "hyperlink": "https://docs.oracle.com/cd/B28359_01/win.111/b28375/OracleConnectionStringBuilderClass.htm",
-                                            "hyperlinkTitle": ""
-                                        },
-                                        "children": []
-                                    }
-                                ]
-                            },
-                            {
-                                "data": {
                                     "id": "c4ta1xl0tcg0",
                                     "created": 1597058681179,
                                     "text": "Oracle Data Provider for .NET",

@@ -1,0 +1,651 @@
+{
+    "root": {
+        "data": {
+            "id": "c3nie0d1ixs0",
+            "created": 1592816678296,
+            "text": "Pattern-Oriented Software Architecture, Volume 1, A System of Patterns",
+            "expandState": "expand"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c4amgbm1tcw0",
+                    "created": 1595164022956,
+                    "text": "Chapter 2 - Architectural Patterns"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4amgq5d21k0",
+                            "created": 1595164054599,
+                            "text": "2.2 From Mud to Structure  "
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c4amgzwp76o0",
+                                    "created": 1595164075843,
+                                    "text": "Pipes and Filters  "
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c4amhw6sgcw0",
+                                            "created": 1595164146110,
+                                            "text": "The Pipes and Filters architectural pattern provides a structure for systems that process a stream of data  ",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4amic734so0",
+                                                    "created": 1595164180956,
+                                                    "text": "Each processing step is encapsulated in a filter component  "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4amj0t2q880",
+                                                    "created": 1595164234529,
+                                                    "text": "Data is passed through pipes between adjacent filters  "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4amj9qm1540",
+                                                    "created": 1595164253971,
+                                                    "text": "Recombining filters allows you to build families of related systems  "
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4aml4fa9540",
+                                            "created": 1595164399130,
+                                            "text": "Context",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4amlp35om00",
+                                                    "created": 1595164444110,
+                                                    "text": "Processing data streams"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4amm2ovcq80",
+                                            "created": 1595164473721,
+                                            "text": "Problem ",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4ammdtw2740",
+                                                    "created": 1595164497969,
+                                                    "text": "Imagine you are building a system that must process or transform a stream of input data "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4ammqbos680",
+                                                    "created": 1595164525166,
+                                                    "text": "Implementing such a system as a single component may not be feasible for several reasons ",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4amn1p748w0",
+                                                            "created": 1595164549928,
+                                                            "text": "the system has to be built by several developers "
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4amnfefolc0",
+                                                            "created": 1595164579752,
+                                                            "text": "the global system task decomposes naturally into several processing stages  "
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4amntydm1k0",
+                                                            "created": 1595164611433,
+                                                            "text": "and the requirements are likely to change "
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4amp5n69400",
+                                                    "created": 1595164715242,
+                                                    "text": "You therefore plan for future flexibility by exchanging or reordering the processing steps  ",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4amplj4h680",
+                                                            "created": 1595164749825,
+                                                            "text": "By incorporating such flexibility, it is possible to build a family of systems using existing processing components  "
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4amqj0b4qo0",
+                                                    "created": 1595164822697,
+                                                    "text": "The design of the system-especially the interconnection of processing steps-has to consider the followingforces ",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4amqunj3hc0",
+                                                            "created": 1595164848046,
+                                                            "text": "Future system enhancements should be possible by exchanging processing steps or by recombination of steps, even by users "
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4amrh0pp0w0",
+                                                            "created": 1595164896732,
+                                                            "text": "Small processing steps are easier to reuse in different contexts than large components "
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4amrrcji3k0",
+                                                            "created": 1595164919216,
+                                                            "text": "Non-adjacent processing steps do not share information "
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4ams5azh4o0",
+                                                            "created": 1595164949596,
+                                                            "text": "Different sources of input data exist, such as a network connection or a hardware sensor providing temperature readings, for example "
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4amtegbzpc0",
+                                                            "created": 1595165047875,
+                                                            "text": "It should be possible to present or store final results in various ways "
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4amtzj3kzs0",
+                                                            "created": 1595165093755,
+                                                            "text": "Explicit storage of intermediate results for further processing in files clutters directories and is error-prone, if done by users "
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4amuf6kdc80",
+                                                            "created": 1595165127825,
+                                                            "text": "You may not want to rule out multi-processing the steps, for example running them in parallel or quasi-parallel"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4amvbns5340",
+                                                    "created": 1595165198523,
+                                                    "text": "Whether a separation into processing steps is feasible strongly depends on the application domain and the problem to be solved",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4amvqma0i80",
+                                                            "created": 1595165231084,
+                                                            "text": "For example, an interactive, event-driven system does not split into sequential stages"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4amwx1ma2o0",
+                                            "created": 1595165323437,
+                                            "text": "Solution",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4an23xn4js0",
+                                                    "created": 1595165730254,
+                                                    "text": "The Pipes and Filters architectural pattern divides the task of a system into several sequential processing steps "
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4an2eyj3q00",
+                                                            "created": 1595165754253,
+                                                            "text": "These steps are connected by the data flow through the system-the output data of a step is the input to the subsequent step  "
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4an2xy9n3k0",
+                                                    "created": 1595165795596,
+                                                    "text": "Each processing step is implemented by a filter component"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4an3mtanc00",
+                                                            "created": 1595165849715,
+                                                            "text": "A filter consumes and delivers data incrementally-in contrast to consuming all its input before producing any output-to achieve low latency and enable real parallel processing "
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4an44vnvmw0",
+                                                    "created": 1595165889040,
+                                                    "text": "The input to the system is provided by a data source such as a text file "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4an4bc4tlk0",
+                                                    "created": 1595165903096,
+                                                    "text": "The output flows into a data sink such as a file, terminal, animation program and so on "
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4an4qadejc0",
+                                                    "created": 1595165935642,
+                                                    "text": "The data source, the filters and the data sink are connected sequentially by pipes "
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4an4wxvn0g0",
+                                                            "created": 1595165950124,
+                                                            "text": "Each pipe implements the data flow between adjacent processing steps "
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4an57da1aw0",
+                                                            "created": 1595165972823,
+                                                            "text": "The sequence of filters combined by pipes is called a processing pipeline "
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c4an77mr7mo0",
+                                            "created": 1595166130124,
+                                            "text": "Structure"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c4apwdw7ejs0",
+                                                    "created": 1595173745080,
+                                                    "text": "Filter",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4apmu6b0cg0",
+                                                            "created": 1595172996878,
+                                                            "text": "Filter components are the processing units of the pipeline "
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4apn4nyy400",
+                                                                    "created": 1595173019714,
+                                                                    "text": "A filter enriches, refines or transforms its input data "
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4apnvsqdu80",
+                                                                            "created": 1595173078776,
+                                                                            "text": "It enriches data by computing and adding information "
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4apo4nnjls0",
+                                                                            "created": 1595173098059,
+                                                                            "text": "refines data by concentrating or extracting information "
+                                                                        },
+                                                                        "children": []
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4apoed8m6o0",
+                                                                            "created": 1595173119197,
+                                                                            "text": "transforms data by delivering the data in some other representation"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4apopwm1k80",
+                                                            "created": 1595173144313,
+                                                            "text": "The activity of a filter can be triggered by several events"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4app0s396w0",
+                                                                    "created": 1595173167984,
+                                                                    "text": "The subsequent pipeline element pulls output data from the filter ",
+                                                                    "expandState": "expand"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4apqadv1io0",
+                                                                            "created": 1595173267256,
+                                                                            "text": "passive filters "
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4app7u5wnk0",
+                                                                    "created": 1595173183347,
+                                                                    "text": "The previous pipeline element pushes new input data to the filter ",
+                                                                    "expandState": "expand"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4apqadv1io0",
+                                                                            "created": 1595173267256,
+                                                                            "text": "passive filters "
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4appezg14g0",
+                                                                    "created": 1595173198904,
+                                                                    "text": "Most commonly,the filter is active in a loop, pulling its input from and pushing its output down the pipeline "
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c4aps2wkq9c0",
+                                                                            "created": 1595173407701,
+                                                                            "text": "active filter "
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4aptocqsgg0",
+                                                            "created": 1595173532755,
+                                                            "text": "passive filters"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4apu3atbe80",
+                                                                    "created": 1595173565291,
+                                                                    "text": "A passive filter component is activated by being called either as a function (pull) or as a procedure (push)"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4aps2wkq9c0",
+                                                            "created": 1595173407701,
+                                                            "text": "active filter "
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4apslmm1lk0",
+                                                                    "created": 1595173448458,
+                                                                    "text": "An active filter starts processing on its own as a separate program or thread "
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4apv2vsqww0",
+                                                    "created": 1595173642747,
+                                                    "text": "Pipe",
+                                                    "expandState": "expand"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4apy1hb6yo0",
+                                                            "created": 1595173874786,
+                                                            "text": "denote the connections",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4apyyrb7c00",
+                                                                    "created": 1595173947225,
+                                                                    "text": "between filters"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4apy8lcwyo0",
+                                                                    "created": 1595173890270,
+                                                                    "text": "between the data source and the first filter "
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4apyg6j1bc0",
+                                                                    "created": 1595173906786,
+                                                                    "text": "and between the last filter and the data sink  "
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4apyovuvqo0",
+                                                            "created": 1595173925732,
+                                                            "text": "If two active components are joined, the pipe synchronizes them "
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4apzeb2zfs0",
+                                                                    "created": 1595173981072,
+                                                                    "text": "This synchronization is done with a first-in- first-out buffer "
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4aq006o7go0",
+                                                            "created": 1595174028695,
+                                                            "text": "If activity is controlled by one of the adjacent filters, the pipe can be implemented by a direct call from the active to the passive component "
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4aq0g0509s0",
+                                                                    "created": 1595174063128,
+                                                                    "text": "Direct calls make filter recombination harder, however "
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4aq4yqwu6g0",
+                                                    "created": 1595174417386,
+                                                    "text": "Data source"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4aq56mz5g00",
+                                                            "created": 1595174434562,
+                                                            "text": "represents the input to the system "
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4aq5e29f5s0",
+                                                            "created": 1595174450724,
+                                                            "text": "provides a sequence of data values of the same structure or type "
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4aq5n2w4ds0",
+                                                            "created": 1595174470353,
+                                                            "text": "Examples  "
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4aq5rwvpvs0",
+                                                                    "created": 1595174480873,
+                                                                    "text": "a file consisting of lines of text "
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c4aq5ygypb40",
+                                                                    "created": 1595174495148,
+                                                                    "text": "a sensor delivering a sequence of numbers "
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4aq6icpzy80",
+                                                            "created": 1595174538428,
+                                                            "text": "The data source of a pipeline can either actively push the data values to the first processing stage, or passively provide data when the first filter pulls  "
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c4aqdwhax5c0",
+                                                    "created": 1595175117729,
+                                                    "text": "Data sink "
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c4aqee5xos00",
+                                                            "created": 1595175156223,
+                                                            "text": "collects the results from the end of the pipeline "
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4aqez1mels0",
+                                                            "created": 1595175201675,
+                                                            "text": "An active data sink pulls results out of the preceding processing stage, while a passive one allows the preceding filter to push or write the results into it "
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
