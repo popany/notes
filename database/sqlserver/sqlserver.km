@@ -1,0 +1,87 @@
+{
+    "root": {
+        "data": {
+            "id": "c50kscf9nog0",
+            "created": 1597799881746,
+            "text": "sqlserver"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c50lg7m8mzs0",
+                    "created": 1597801752024,
+                    "text": "glossary",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c50kvpxg2mw0",
+                            "created": 1597800146236,
+                            "text": "Initial Catalog",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c50kx1ul4kw0",
+                                    "created": 1597800250549,
+                                    "text": "What is the meaning of Initial Catalog in a Sql Server database connection string?",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c50kvww8zoo0",
+                                            "created": 1597800161401,
+                                            "text": "Initial Catalog is the name of the database to be used by the connection string, which is located on the server that was specified in the Data Source part of the connection string"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c50kvxiy7fs0",
+                                            "created": 1597800162774,
+                                            "text": "If there are multiple databases on the server that you have permissions to use in Data Source then you have to specify the Initial Catalog to help it distinguish between which one you want"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c50kwy6uwz40",
+                                            "created": 1597800242584,
+                                            "text": "If however, there is only one database on the server specified in the Data Source, then you don't need to specify the Initial Catalog"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c50l06rhlso0",
+                                    "created": 1597800496338,
+                                    "text": "SqlConnectionStringBuilder.InitialCatalog Property",
+                                    "hyperlink": "https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.initialcatalog?view=netframework-4.5",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c50l0pu47140",
+                                            "created": 1597800537856,
+                                            "text": "Gets or sets the name of the database associated with the connection"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

@@ -10,7 +10,8 @@
                 "data": {
                     "id": "c30frd0c90g0",
                     "created": 1590473382227,
-                    "text": "数据库名"
+                    "text": "数据库名",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -43,7 +44,8 @@
                 "data": {
                     "id": "c4h8v554u1c0",
                     "created": 1595836608493,
-                    "text": "sql"
+                    "text": "sql",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -66,7 +68,8 @@
                         "data": {
                             "id": "c4h94z84moo0",
                             "created": 1595837379255,
-                            "text": "tablespace"
+                            "text": "tablespace",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -76,7 +79,7 @@
                                     "text": "CREATE TABLESPACE",
                                     "hyperlink": "https://www.oracletutorial.com/oracle-administration/oracle-create-tablespace/",
                                     "hyperlinkTitle": "",
-                                    "expandState": "expand"
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -84,7 +87,7 @@
                                             "id": "c4h9ez4jx9c0",
                                             "created": 1595838162680,
                                             "text": "CREATE TABLESPACE tbs1\nDATAFILE 'tbs1.dbf'\nSIZE 1m;",
-                                            "expandState": "expand"
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -134,7 +137,7 @@
                                             "id": "c4h9rgm271c0",
                                             "created": 1595839141114,
                                             "text": "related",
-                                            "expandState": "expand"
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -253,7 +256,8 @@
                                     "created": 1595837383617,
                                     "text": "DROP TABLESPACE",
                                     "hyperlink": "https://www.oracletutorial.com/oracle-administration/oracle-drop-tablespace",
-                                    "hyperlinkTitle": ""
+                                    "hyperlinkTitle": "",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -316,7 +320,8 @@
                         "data": {
                             "id": "c4h9t9xd5w00",
                             "created": 1595839283289,
-                            "text": "user"
+                            "text": "user",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -326,14 +331,15 @@
                                     "text": "CREATE USER",
                                     "hyperlink": "https://www.oracletutorial.com/oracle-administration/oracle-create-user/",
                                     "hyperlinkTitle": "",
-                                    "expandState": "expand"
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
                                         "data": {
                                             "id": "c4h9u8z4m740",
                                             "created": 1595839359583,
-                                            "text": " CREATE USER username\n IDENTIFIED BY password\n [DEFAULT TABLESPACE tablespace]\n [QUOTA {size | UNLIMITED} ON tablespace]\n [PROFILE profile]\n [PASSWORD EXPIRE]\n [ACCOUNT {LOCK | UNLOCK}];"
+                                            "text": " CREATE USER username\n IDENTIFIED BY password\n [DEFAULT TABLESPACE tablespace]\n [QUOTA {size | UNLIMITED} ON tablespace]\n [PROFILE profile]\n [PASSWORD EXPIRE]\n [ACCOUNT {LOCK | UNLOCK}];",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -493,7 +499,8 @@
                                         "data": {
                                             "id": "c4h9yc6nchk0",
                                             "created": 1595839680024,
-                                            "text": "related"
+                                            "text": "related",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -524,14 +531,16 @@
                                     "created": 1595850292920,
                                     "text": "GRANT",
                                     "hyperlink": "https://www.oracletutorial.com/oracle-administration/oracle-grant/",
-                                    "hyperlinkTitle": ""
+                                    "hyperlinkTitle": "",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
                                         "data": {
                                             "id": "c4hdq7nfox40",
                                             "created": 1595850327682,
-                                            "text": "GRANT CREATE SESSION TO john;"
+                                            "text": "GRANT CREATE SESSION TO john;",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -548,7 +557,8 @@
                                         "data": {
                                             "id": "c4i5jrhk2ns0",
                                             "created": 1595928813390,
-                                            "text": "GRANT {system_privileges | object_privileges } \nTO user \n[WITH ADMIN OPTION]"
+                                            "text": "GRANT {system_privileges | object_privileges } \nTO user \n[WITH ADMIN OPTION]",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -615,7 +625,8 @@
                                         "data": {
                                             "id": "c4i5p1kqfdc0",
                                             "created": 1595929227171,
-                                            "text": "two main types of privileges"
+                                            "text": "two main types of privileges",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -732,7 +743,7 @@
                                             "id": "c4i5omymlvk0",
                                             "created": 1595929195359,
                                             "text": "examples",
-                                            "expandState": "expand"
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -830,14 +841,16 @@
                 "data": {
                     "id": "c4hbsvvm3r40",
                     "created": 1595844894928,
-                    "text": "error code"
+                    "text": "error code",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
                         "data": {
                             "id": "c4hbsxb578g0",
                             "created": 1595844898044,
-                            "text": "ORA-65096"
+                            "text": "ORA-65096",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -868,6 +881,45 @@
                                 ]
                             }
                         ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c50l9kgy8ww0",
+                    "created": 1597801231453,
+                    "text": "install",
+                    "expandState": "collapse"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c50l9ton0y80",
+                            "created": 1597801251509,
+                            "text": "Oracle Software Downloads",
+                            "hyperlink": "https://www.oracle.com/downloads/",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c50ty59s5fk0",
+                    "created": 1597825726351,
+                    "text": "practise"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c50ty88dlao0",
+                            "created": 1597825732797,
+                            "text": "How to check the maximum number of allowed connections to an Oracle database?",
+                            "hyperlink": "https://stackoverflow.com/questions/162255/how-to-check-the-maximum-number-of-allowed-connections-to-an-oracle-database",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
                     }
                 ]
             }

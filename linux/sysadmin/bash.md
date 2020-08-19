@@ -26,6 +26,7 @@
     - [`zip`](#zip)
     - [`unzip`](#unzip)
     - [Count lines of code](#count-lines-of-code)
+  - [`jq`](#jq)
   - [CentOS](#centos)
     - [Check CentOS version](#check-centos-version)
     - [`yum`](#yum)
@@ -209,6 +210,12 @@ Extract to a directory
 ### Count lines of code
 
     find ./src -name '*.c'|xargs wc -l
+
+## `jq`
+
+    docker inspect zookeeper|jq '.[].NetworkSettings.Networks.kafka.IPAddress'
+
+    docker manifest inspect -v library/tomcat:latest | jq .[].Platform
 
 ## CentOS
 

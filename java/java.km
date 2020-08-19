@@ -39,9 +39,20 @@
                 "data": {
                     "id": "c41ds422nt40",
                     "created": 1594225517282,
-                    "text": "java 注解"
+                    "text": "Java Annotations"
                 },
-                "children": []
+                "children": [
+                    {
+                        "data": {
+                            "id": "c50ko0y0tk00",
+                            "created": 1597799543302,
+                            "text": "javatpoint tutorial",
+                            "hyperlink": "https://www.javatpoint.com/java-annotation",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    }
+                ]
             },
             {
                 "data": {

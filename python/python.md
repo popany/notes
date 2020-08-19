@@ -3,6 +3,7 @@
 - [Python](#python)
   - [Basic](#basic)
     - [format print list](#format-print-list)
+    - [get/set environment virable](#getset-environment-virable)
   - [regular expression](#regular-expression)
     - [replace](#replace)
   - [HTTP](#http)
@@ -25,6 +26,12 @@
 
     a = [1, 2, 3, 4, 5]
     print(*a, sep = "\n")
+
+### get/set environment virable
+
+    import os
+    path = os.getenv("PATH")
+    os.environ['path'] = 'C:\\tmp;' + os.environ['path']
 
 ## regular expression
 
