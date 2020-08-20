@@ -334,14 +334,16 @@
                                     "created": 1597387375592,
                                     "text": "Fundamentals",
                                     "hyperlink": null,
-                                    "hyperlinkTitle": null
+                                    "hyperlinkTitle": null,
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
                                         "data": {
                                             "id": "c4wil18ze340",
                                             "created": 1597387426826,
-                                            "text": "terminologies"
+                                            "text": "terminologies",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -355,7 +357,8 @@
                                                         "data": {
                                                             "id": "c4winpwle9k0",
                                                             "created": 1597387637225,
-                                                            "text": "A stream of messages"
+                                                            "text": "A stream of messages",
+                                                            "expandState": "collapse"
                                                         },
                                                         "children": [
                                                             {
@@ -372,21 +375,23 @@
                                                         "data": {
                                                             "id": "c4winx6dwq80",
                                                             "created": 1597387653054,
-                                                            "text": "Topics are split into partitions"
+                                                            "text": "Topics are split into partitions",
+                                                            "expandState": "collapse"
                                                         },
                                                         "children": [
                                                             {
                                                                 "data": {
                                                                     "id": "c4wio2qhhg00",
                                                                     "created": 1597387665154,
-                                                                    "text": "For each topic"
+                                                                    "text": "For each topic Kafka keeps",
+                                                                    "expandState": "collapse"
                                                                 },
                                                                 "children": [
                                                                     {
                                                                         "data": {
                                                                             "id": "c4witnc8noo0",
                                                                             "created": 1597388101826,
-                                                                            "text": "Kafka keeps a mini-mum of one partition"
+                                                                            "text": "a mini-mum of one partition"
                                                                         },
                                                                         "children": []
                                                                     }
@@ -396,14 +401,15 @@
                                                                 "data": {
                                                                     "id": "c4wio9glew00",
                                                                     "created": 1597387679793,
-                                                                    "text": "Each partition"
+                                                                    "text": "Each partition contains",
+                                                                    "expandState": "collapse"
                                                                 },
                                                                 "children": [
                                                                     {
                                                                         "data": {
                                                                             "id": "c4witxq8o5c0",
                                                                             "created": 1597388124440,
-                                                                            "text": "contains messages in an immutable ordered sequence"
+                                                                            "text": "messages in an immutable ordered sequence"
                                                                         },
                                                                         "children": []
                                                                     }
@@ -413,14 +419,15 @@
                                                                 "data": {
                                                                     "id": "c4wiohdm25k0",
                                                                     "created": 1597387697027,
-                                                                    "text": "A partition is implemented"
+                                                                    "text": "A partition is implemented as",
+                                                                    "expandState": "collapse"
                                                                 },
                                                                 "children": [
                                                                     {
                                                                         "data": {
                                                                             "id": "c4wiu7ku98o0",
                                                                             "created": 1597388145881,
-                                                                            "text": "as a set of segment files of equal sizes"
+                                                                            "text": "a set of segment files of equal sizes"
                                                                         },
                                                                         "children": []
                                                                     }
@@ -441,7 +448,7 @@
                                                         "data": {
                                                             "id": "c4wiov23xrc0",
                                                             "created": 1597387726806,
-                                                            "text": "Topics may have many partitions, so it can handle an arbitrary amount of data"
+                                                            "text": "Topics may have many partitions"
                                                         },
                                                         "children": []
                                                     }
@@ -458,9 +465,19 @@
                                                         "data": {
                                                             "id": "c4wiussy4gw0",
                                                             "created": 1597388192084,
-                                                            "text": "Each partitioned message has a unique sequence id called as offset"
+                                                            "text": "Each partitioned message has",
+                                                            "expandState": "collapse"
                                                         },
-                                                        "children": []
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51m18jufk80",
+                                                                    "created": 1597904959660,
+                                                                    "text": "a unique sequence id called as offset"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
                                                     }
                                                 ]
                                             },
@@ -468,24 +485,45 @@
                                                 "data": {
                                                     "id": "c4wiv2nxh6g0",
                                                     "created": 1597388213548,
-                                                    "text": "Replicas of partition"
+                                                    "text": "Replicas of partition",
+                                                    "expandState": "collapse"
                                                 },
                                                 "children": [
                                                     {
                                                         "data": {
                                                             "id": "c4wiv73r1xk0",
                                                             "created": 1597388223212,
-                                                            "text": "Replicas are nothing but backups of a partition"
+                                                            "text": "Replicas are nothing but",
+                                                            "expandState": "collapse"
                                                         },
-                                                        "children": []
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51m1eh2oo00",
+                                                                    "created": 1597904972553,
+                                                                    "text": "backups of a partition"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
                                                     },
                                                     {
                                                         "data": {
                                                             "id": "c4wiv85bxls0",
                                                             "created": 1597388225484,
-                                                            "text": "Replicas are never read or write data. They are used to prevent data loss"
+                                                            "text": "Replicas are never read or write data",
+                                                            "expandState": "collapse"
                                                         },
-                                                        "children": []
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51m1jdp36o0",
+                                                                    "created": 1597904983233,
+                                                                    "text": "They are used to prevent data loss"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
                                                     }
                                                 ]
                                             },
@@ -494,21 +532,40 @@
                                                     "id": "c4wivixoa480",
                                                     "created": 1597388248966,
                                                     "text": "Brokers",
-                                                    "expandState": "expand"
+                                                    "expandState": "collapse"
                                                 },
                                                 "children": [
                                                     {
                                                         "data": {
                                                             "id": "c4wivodx8280",
                                                             "created": 1597388260832,
-                                                            "text": "Brokers are simple system responsible for maintaining the pub-lished data"
+                                                            "text": "Brokers are simple system responsible for",
+                                                            "expandState": "collapse"
                                                         },
                                                         "children": [
                                                             {
                                                                 "data": {
-                                                                    "id": "c4wivvpmbjs0",
-                                                                    "created": 1597388276777,
-                                                                    "text": "Each broker may have zero or more partitions per topic"
+                                                                    "id": "c51m25rzsnk0",
+                                                                    "created": 1597905031987,
+                                                                    "text": " maintaining the published data"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c4wivvpmbjs0",
+                                                            "created": 1597388276777,
+                                                            "text": "Each broker may have",
+                                                            "expandState": "collapse"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51m2k3pgm00",
+                                                                    "created": 1597905063170,
+                                                                    "text": "zero or more partitions per topic"
                                                                 },
                                                                 "children": []
                                                             }
@@ -518,30 +575,230 @@
                                                         "data": {
                                                             "id": "c4wiw6g8s8o0",
                                                             "created": 1597388300155,
-                                                            "text": "Assume, if there are N partitions in a topic and N number of brokers, each broker will have one partition"
+                                                            "text": "Assume",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51m2vx0b7c0",
+                                                                    "created": 1597905088886,
+                                                                    "text": "if there are N partitions in a topic",
+                                                                    "expandState": "collapse"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c51m34ei7w80",
+                                                                            "created": 1597905107358,
+                                                                            "text": "and N number of brokers"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c51m3ccoa1k0",
+                                                                                    "created": 1597905124662,
+                                                                                    "text": "each broker will have one partition"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c51m3l032d40",
+                                                                            "created": 1597905143492,
+                                                                            "text": "and more than N brokers (n + m)",
+                                                                            "expandState": "expand"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4wiwt664yw0",
+                                                                                    "created": 1597388349612,
+                                                                                    "text": "the first N broker will have one partition"
+                                                                                },
+                                                                                "children": []
+                                                                            },
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4wiwy37en40",
+                                                                                    "created": 1597388360316,
+                                                                                    "text": "and the next M broker will not have any partition for that particular topic"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c51m42x5s2o0",
+                                                                            "created": 1597905182497,
+                                                                            "text": "and less than N brokers (n-m)",
+                                                                            "expandState": "expand"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c4wixj6mhz40",
+                                                                                    "created": 1597388406236,
+                                                                                    "text": "each broker will have one or more partition sharing among them"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c51m6b57gvk0",
+                                                    "created": 1597905357126,
+                                                    "text": "Kafka Cluster",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c51m6hswjc80",
+                                                            "created": 1597905371620,
+                                                            "text": "Kafka's having more than one broker"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c51m71l8i4o0",
+                                                    "created": 1597905414692,
+                                                    "text": "Producers",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c51m7bxmfzk0",
+                                                            "created": 1597905437208,
+                                                            "text": "publisher of messages"
                                                         },
                                                         "children": []
                                                     },
                                                     {
                                                         "data": {
-                                                            "id": "c4wiwdoergg0",
-                                                            "created": 1597388315886,
-                                                            "text": "Assume if there are N partitions in a topic and more than N brokers (n + m)"
+                                                            "id": "c51m7ow3coo0",
+                                                            "created": 1597905465414,
+                                                            "text": "Every time a producer publishes a message to a broker, the broker simply"
                                                         },
                                                         "children": [
                                                             {
                                                                 "data": {
-                                                                    "id": "c4wiwt664yw0",
-                                                                    "created": 1597388349612,
-                                                                    "text": "the first N broker will have one partition"
+                                                                    "id": "c51m7yi9dv40",
+                                                                    "created": 1597905486346,
+                                                                    "text": "appends the message to the last segment file",
+                                                                    "expandState": "expand"
                                                                 },
-                                                                "children": []
-                                                            },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c51m8bdy2wg0",
+                                                                            "created": 1597905514383,
+                                                                            "text": "Actually"
+                                                                        },
+                                                                        "children": [
+                                                                            {
+                                                                                "data": {
+                                                                                    "id": "c51m8jfgd9c0",
+                                                                                    "created": 1597905531888,
+                                                                                    "text": "the message will be appended to a partition"
+                                                                                },
+                                                                                "children": []
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c51m8pw4ulc0",
+                                                            "created": 1597905545958,
+                                                            "text": "Producer can also send messages to a partition of their choice"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c51m8t2nloo0",
+                                                    "created": 1597905552882,
+                                                    "text": "Consumers",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c51m93h9ops0",
+                                                            "created": 1597905575534,
+                                                            "text": "read data from brokers"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c51m9f88x540",
+                                                            "created": 1597905601110,
+                                                            "text": "Consumers subscribes to one or more topics",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
                                                             {
                                                                 "data": {
-                                                                    "id": "c4wiwy37en40",
-                                                                    "created": 1597388360316,
-                                                                    "text": "and the next M broker will not have any partition for that particular topic"
+                                                                    "id": "c51m9qoqaq80",
+                                                                    "created": 1597905626051,
+                                                                    "text": "and consume published messages"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c51m9yvae080",
+                                                                            "created": 1597905643862,
+                                                                            "text": "by pulling data from the brokers"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c51maahv2c80",
+                                                    "created": 1597905669171,
+                                                    "text": "Leader",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c51mag6982g0",
+                                                            "created": 1597905681531,
+                                                            "text": "the node responsible for all reads and writes"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51majew56o0",
+                                                                    "created": 1597905688583,
+                                                                    "text": "for the given partition"
                                                                 },
                                                                 "children": []
                                                             }
@@ -549,20 +806,232 @@
                                                     },
                                                     {
                                                         "data": {
-                                                            "id": "c4wix7ja7xs0",
-                                                            "created": 1597388380880,
-                                                            "text": "Assume if there are N partitions in a topic and less than N brokers (n-m)"
+                                                            "id": "c51maosd6js0",
+                                                            "created": 1597905700281,
+                                                            "text": "Every partition has one server acting as a leader"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c51mbg3voj40",
+                                                    "created": 1597905759751,
+                                                    "text": "Follower",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c51mbroizvk0",
+                                                            "created": 1597905784944,
+                                                            "text": "Node which follows leader instructions"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c51mbxp511k0",
+                                                            "created": 1597905798041,
+                                                            "text": "If the leader fails",
+                                                            "expandState": "collapse"
                                                         },
                                                         "children": [
                                                             {
                                                                 "data": {
-                                                                    "id": "c4wixj6mhz40",
-                                                                    "created": 1597388406236,
-                                                                    "text": "each broker will have one or more partition sharing among them"
+                                                                    "id": "c51mc3pwffs0",
+                                                                    "created": 1597905811148,
+                                                                    "text": "one of the follower will automatically become the new leader"
                                                                 },
                                                                 "children": []
                                                             }
                                                         ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c51mc9kj12o0",
+                                                            "created": 1597905823884,
+                                                            "text": "A follower acts as normal consumer",
+                                                            "expandState": "collapse"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51mcdndzb40",
+                                                                    "created": 1597905832764,
+                                                                    "text": "pulls messages and up-dates its own data store"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c51mcw5t66g0",
+                                    "created": 1597905873060,
+                                    "text": "Cluster Architecture"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c51mi5qe6ow0",
+                                            "created": 1597906285716,
+                                            "text": "Components and Description"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c51mir1z6b40",
+                                                    "created": 1597906332129,
+                                                    "text": "Broker",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c51miy5xzi00",
+                                                            "created": 1597906347607,
+                                                            "text": "Kafka cluster typically consists of"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51mjfkzkbc0",
+                                                                    "created": 1597906385522,
+                                                                    "text": "multiple brokers",
+                                                                    "expandState": "expand"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c51mj1syz3k0",
+                                                                            "created": 1597906355529,
+                                                                            "text": "to maintain load balance"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c51mjb5yrs00",
+                                                            "created": 1597906375906,
+                                                            "text": "Kafka brokers are stateless"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51mjtqaim80",
+                                                                    "created": 1597906416317,
+                                                                    "text": "they use ZooKeeper for maintaining their cluster state"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c51mk3xcycg0",
+                                                            "created": 1597906438512,
+                                                            "text": "Kafka broker leader election"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51mk91jhlk0",
+                                                                    "created": 1597906449650,
+                                                                    "text": "can be done by ZooKeeper"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c51mkrgyya80",
+                                                    "created": 1597906489764,
+                                                    "text": "ZooKeeper",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c51mkv0xoso0",
+                                                            "created": 1597906497502,
+                                                            "text": "used for"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51mkyam5h40",
+                                                                    "created": 1597906504617,
+                                                                    "text": "managing and coordinating Kafka broker"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c51mloturmo0",
+                                                            "created": 1597906562377,
+                                                            "text": "notify producer and consumer about",
+                                                            "expandState": "expand"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51mlvqgasg0",
+                                                                    "created": 1597906577409,
+                                                                    "text": "the presence of any new broker in the Kafka system"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51mmfgjleo0",
+                                                                    "created": 1597906620345,
+                                                                    "text": "failure of the broker in the Kafka system"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c51mn9jt0lc0",
+                                                            "created": 1597906685846,
+                                                            "text": "per the notification received by the Zookeeper regarding"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c51mngl89ao0",
+                                                                    "created": 1597906701170,
+                                                                    "text": "presence or failure of the broker"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c51mnx44n4o0",
+                                                            "created": 1597906737141,
+                                                            "text": "producer and consumer takes decision and starts coordinating their task with some other broker"
+                                                        },
+                                                        "children": []
                                                     }
                                                 ]
                                             }

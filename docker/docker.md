@@ -1,14 +1,21 @@
 # docker
 
 - [docker](#docker)
+  - [Install & Update](#install--update)
+    - [Get Docker Engine - Community for CentOS](#get-docker-engine---community-for-centoshttpsdocsdockercominstalllinuxdocker-cecentos)
+      - [Uninstall old versions](#uninstall-old-versions)
+      - [Install Docker Engine - Community](#install-docker-engine---community)
+        - [Install using the repository](#install-using-the-repository)
+          - [Set up the repository](#set-up-the-repository)
+          - [Install Docker Engine - Community](#install-docker-engine---community-1)
   - [教程](#教程)
-    - [Docker入门实践（精讲版）](#docker入门实践精讲版)
-  - [网络](#网络)
+    - [Docker入门实践（精讲版）](#docker入门实践精讲版httpcbianchengnetdocker)
   - [networking](#networking)
-    - [Use host networking](#use-host-networking)
-    - [Networking using the host network](#networking-using-the-host-network)
+    - [docker 网络](#docker-网络)
+    - [Use host networking](#use-host-networkinghttpsdocsdockercomnetworkhost)
+    - [Networking using the host network](#networking-using-the-host-networkhttpsdocsdockercomnetworknetwork-tutorial-host)
   - [volume](#volume)
-    - [Use volumes](#use-volumes)
+    - [Use volumes](#use-volumeshttpsdocsdockercomstoragevolumes)
       - [Create and manage volumes](#create-and-manage-volumes)
         - [Create a volume](#create-a-volume)
         - [List volumes](#list-volumes)
@@ -21,58 +28,92 @@
       - [Remove volumes](#remove-volumes)
         - [Remove anonymous volumes](#remove-anonymous-volumes)
         - [Remove all volumes](#remove-all-volumes)
+  - [logging](#logging)
+    - [View logs for a container or service](#view-logs-for-a-container-or-servicehttpsdocsdockercomconfigcontainerslogging)
   - [cmd](#cmd)
     - [run a centos container](#run-a-centos-container)
       - [Run a centos container in Docker Desktop](#run-a-centos-container-in-docker-desktop)
       - [Publish container port 8080 to the host port 8081](#publish-container-port-8080-to-the-host-port-8081)
     - [Override CMD when running a docker image](#override-cmd-when-running-a-docker-image)
     - [Copy files/folders between a container and the local filesystem](#copy-filesfolders-between-a-container-and-the-local-filesystem)
-    - [Commit a container and change ENTRYPOINT](#commit-a-container-and-change-entrypoint)
-    - [Move Docker container to another host](#move-docker-container-to-another-host)
+    - [Commit a container and change ENTRYPOINT](#commit-a-container-and-change-entrypointhttpsstackoverflowcomquestions29015023docker-commit-created-images-and-entrypoint)
+    - [Move Docker container to another host](#move-docker-container-to-another-hosthttpsbobcarescomblogmove-docker-container-to-another-host)
     - [Remove the volumes associated with the container](#remove-the-volumes-associated-with-the-container)
       - [Export and import containers](#export-and-import-containers)
       - [Container image migration](#container-image-migration)
+    - [`docker logs`](#docker-logs)
   - [Troubleshooting](#troubleshooting)
-    - [Error pulling image : no matching manifest](#error-pulling-image--no-matching-manifest)
+    - [Error pulling image : no matching manifest](#error-pulling-image--no-matching-manifesthttpssuccessdockercomarticleerror-pulling-image-no-matching-manifest)
       - [Find the OS/Arch of you system](#find-the-osarch-of-you-system)
       - [Find the OS/Arch of the image you want to download](#find-the-osarch-of-the-image-you-want-to-download)
-  - [Docker Desktop for Windows](#docker-desktop-for-windows)
-    - [Logs and troubleshooting](#logs-and-troubleshooting)
-    - [Windows and containers](#windows-and-containers)
-    - [Get started with Docker for Windows](#get-started-with-docker-for-windows)
-      - [Switch between Windows and Linux containers](#switch-between-windows-and-linux-containers)
-    - [Get started: Prep Windows for containers](#get-started-prep-windows-for-containers)
-    - [Get started: Run your first Windows container](#get-started-run-your-first-windows-container)
-      - [Install a container base image](#install-a-container-base-image)
-      - [Run a Windows container](#run-a-windows-container)
-    - [Docker Engine on Windows](#docker-engine-on-windows)
-    - [Container Tools in Visual Studio](#container-tools-in-visual-studio)
-    - [Build and run your first Docker Windows Server container](#build-and-run-your-first-docker-windows-server-container)
-    - [.NET Framework Docker Samples](#net-framework-docker-samples)
-      - [Try a pre-built .NET Framework Docker Image](#try-a-pre-built-net-framework-docker-image)
-      - [Building .NET Framework Apps with Docker](#building-net-framework-apps-with-docker)
-      - [Related Docker Hub Repos](#related-docker-hub-repos)
-        - [.NET Framework](#net-framework)
-        - [.NET Core](#net-core)
-    - [Practice](#practice)
-  - [Install & Update](#install--update)
-    - [Get Docker Engine - Community for CentOS](#get-docker-engine---community-for-centos)
-      - [Uninstall old versions](#uninstall-old-versions)
-      - [Install Docker Engine - Community](#install-docker-engine---community)
-        - [Install using the repository](#install-using-the-repository)
-          - [Set up the repository](#set-up-the-repository)
-          - [Install Docker Engine - Community](#install-docker-engine---community-1)
   - [Q & A](#q--a)
-    - [Can Windows Containers be hosted on linux?](#can-windows-containers-be-hosted-on-linux)
-  - [Practice](#practice-1)
+    - [Can Windows Containers be hosted on linux?](#can-windows-containers-be-hosted-on-linuxhttpsstackoverflowcomquestions42158596can-windows-containers-be-hosted-on-linux)
+  - [Practice](#practice)
     - [ssh into a centos container](#ssh-into-a-centos-container)
       - [`/usr/sbin/sshd`](#usrsbinsshd)
+
+## Install & Update
+
+### [Get Docker Engine - Community for CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
+
+#### Uninstall old versions
+
+Older versions of Docker were called `docker` or `docker-engine`. If these are installed, uninstall them, along with associated dependencies.
+
+    yum remove docker \
+        docker-client \
+        docker-client-latest \
+        docker-common \
+        docker-latest \
+        docker-latest-logrotate \
+        docker-logrotate \
+        docker-engine
+
+It’s OK if yum reports that none of these packages are installed.
+
+The contents of `/var/lib/docker/`, including images, containers, volumes, and networks, are **preserved**. The Docker Engine - Community package is now called `docker-ce`.
+
+#### Install Docker Engine - Community
+
+##### Install using the repository
+
+###### Set up the repository
+
+- Install required packages. `yum-utils` provides the `yum-config-manager` utility, and `device-mapper-persistent-data` and `lvm2` are required by the `devicemapper` storage driver.
+
+    yum install -y yum-utils \
+        device-mapper-persistent-data \
+        lvm2
+
+- Use the following command to set up the stable repository.
+
+    yum-config-manager \
+        --add-repo \
+        https://download.docker.com/linux/centos/docker-ce.repo
+
+- Optional: Enable the nightly or test repositories.
+
+###### Install Docker Engine - Community
+
+- Install the latest version of Docker Engine - Community and containerd
+
+        yum install docker-ce docker-ce-cli containerd.io
+
+- Start Docker
+
+        systemctl start docker
+
+- Verify that Docker Engine - Community is installed correctly by running the hello-world image.
+
+        docker run hello-world
 
 ## 教程
 
 ### [Docker入门实践（精讲版）](http://c.biancheng.net/docker/)
 
-## 网络
+## networking
+
+### docker 网络
 
 [Docker：网络模式详解](https://www.cnblogs.com/zuxing/articles/8780661.html)
 
@@ -81,8 +122,6 @@
 [docker 网络配置](https://www.jianshu.com/p/d84cdfe2ea86)
 
 [Docker学习笔记：Docker 网络配置](http://www.docker.org.cn/dockerppt/111.html)
-
-## networking
 
 ### [Use host networking](https://docs.docker.com/network/host/)
 
@@ -176,6 +215,26 @@ To remove all unused volumes and free up space:
 
     docker volume prune
 
+## logging
+
+### [View logs for a container or service](https://docs.docker.com/config/containers/logging/)
+
+The `docker logs` command shows information logged by a running container. The `docker service logs` command shows information logged by all containers participating in a service. The information that is logged and the format of the log depends almost entirely on the container’s endpoint command.
+
+By default, `docker logs` or `docker service logs` shows the command’s output just as it would appear if you ran the command interactively in a terminal.
+
+In some cases, docker logs may not show useful information unless you take additional steps.
+
+- If you use a [logging driver](https://docs.docker.com/config/containers/logging/configure/) which sends logs to a file, an external host, a database, or another logging back-end, `docker logs` may not show useful information.
+
+- If your image runs a non-interactive process such as a web server or a database, that application may send its output to log files instead of `STDOUT` and `STDERR`.
+
+In the first case, your logs are processed in other ways and you may choose not to use `docker logs`. In the second case, the official `nginx` image shows one workaround, and the official Apache `httpd` image shows another.
+
+The official `nginx` image creates a symbolic link from `/var/log/nginx/access.log` to `/dev/stdout`, and creates another symbolic link from `/var/log/nginx/error.log` to `/dev/stderr`, overwriting the log files and causing logs to be sent to the relevant special device instead. See the [Dockerfile](https://github.com/nginxinc/docker-nginx/blob/8921999083def7ba43a06fabd5f80e4406651353/mainline/jessie/Dockerfile#L21-L23).
+
+The official `httpd` driver changes the httpd application’s configuration to write its normal output directly to `/proc/self/fd/1` (which is `STDOUT`) and its errors to `/proc/self/fd/2` (which is `STDERR`). See the [Dockerfile](https://github.com/docker-library/httpd/blob/b13054c7de5c74bbaa6d595dbe38969e6d4f860c/2.2/Dockerfile#L72-L75).
+
 ## cmd
 
 ### run a centos container
@@ -239,6 +298,10 @@ Load image in new host
 
     cat image-name.tar | docker load
 
+### `docker logs`
+
+This command is only functional for containers that are started with the json-file or journald logging driver.
+
 ## Troubleshooting
 
 ### [Error pulling image : no matching manifest](https://success.docker.com/article/error-pulling-image-no-matching-manifest)
@@ -250,140 +313,6 @@ Load image in new host
 #### Find the OS/Arch of the image you want to download
 
     docker manifest inspect -v library/tomcat:latest | jq .[].Platform
-
-## Docker Desktop for Windows
-
-### [Logs and troubleshooting](https://docs.docker.com/docker-for-windows/troubleshoot/)
-
-### [Windows and containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/)
-
-### [Get started with Docker for Windows](https://docs.docker.com/docker-for-windows/)
-
-#### Switch between Windows and Linux containers
-
-From the Docker Desktop menu, you can toggle which daemon (Linux or Windows) the Docker CLI talks to. Select **Switch to Windows containers** to use Windows containers, or select **Switch to Linux containers** to use Linux containers (the default).
-
-### [Get started: Prep Windows for containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/set-up-environment?tabs=Windows-10-Client)
-
-### [Get started: Run your first Windows container](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/run-your-first-container)
-
-#### Install a container base image
-
-    docker pull mcr.microsoft.com/windows/nanoserver:1903
-
-#### Run a Windows container
-
-1. Start a container with an interactive session from the nanoserver image
-
-    docker run -it mcr.microsoft.com/windows/nanoserver:1903 cmd.exe
-
-2. Create a simple ‘Hello World’ text file and then exit the container
-
-    echo "Hello World!" > Hello.txt
-    exit
-
-3. Get the container ID
-
-    docker ps -a
-
-4. Create a new 'HelloWorld' image
-
-    docker commit \<containerid\> helloworld
-
-5. Run the new container by using the docker run command with the --rm parameter that automatically removes the container once the command line (cmd.exe) stops.
-
-    docker run --rm helloworld cmd.exe /s /c type Hello.txt
-
-### [Docker Engine on Windows](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/configure-docker-daemon)
-
-### [Container Tools in Visual Studio](https://docs.microsoft.com/en-us/visualstudio/containers/overview?view=vs-2019)
-
-### [Build and run your first Docker Windows Server container](https://www.docker.com/blog/build-your-first-docker-windows-server-container/)
-
-### [.NET Framework Docker Samples](https://github.com/microsoft/dotnet-framework-docker/blob/master/samples/README.md)
-
-#### Try a pre-built .NET Framework Docker Image
-
-    docker run --rm mcr.microsoft.com/dotnet/framework/samples:dotnetapp
-
-#### Building .NET Framework Apps with Docker
-
-[NET Framework Console Docker Sample](https://github.com/microsoft/dotnet-framework-docker/blob/master/samples/dotnetapp/README.md) - This sample builds, tests, and runs the sample. It includes and builds multiple projects.
-
-#### Related Docker Hub Repos
-
-##### .NET Framework
-
-- [dotnet/framework/sdk](https://hub.docker.com/_/microsoft-dotnet-framework-sdk/): .NET Framework SDK
-- [dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/): ASP.NET Web Forms and MVC
-- [dotnet/framework/runtime](https://hub.docker.com/_/microsoft-dotnet-framework-runtime/): .NET Framework Runtime
-- [dotnet/framework/wcf](https://hub.docker.com/_/microsoft-dotnet-framework-wcf/): Windows Communication Foundation (WCF)
-- [dotnet/framework/samples](https://hub.docker.com/_/microsoft-dotnet-framework-samples/): .NET Framework, ASP.NET and WCF Samples
-
-##### .NET Core
-
-- [dotnet/core](https://hub.docker.com/_/microsoft-dotnet-core/): .NET Core
-- [dotnet/core/samples](https://hub.docker.com/_/microsoft-dotnet-core-samples/): .NET Core Samples
-- [dotnet/core-nightly](https://hub.docker.com/_/microsoft-dotnet-core-nightly/): .NET Core (Preview)
-
-### Practice
-
-
-
-## Install & Update
-
-### [Get Docker Engine - Community for CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
-
-#### Uninstall old versions
-
-Older versions of Docker were called `docker` or `docker-engine`. If these are installed, uninstall them, along with associated dependencies.
-
-    yum remove docker \
-        docker-client \
-        docker-client-latest \
-        docker-common \
-        docker-latest \
-        docker-latest-logrotate \
-        docker-logrotate \
-        docker-engine
-
-It’s OK if yum reports that none of these packages are installed.
-
-The contents of `/var/lib/docker/`, including images, containers, volumes, and networks, are **preserved**. The Docker Engine - Community package is now called `docker-ce`.
-
-#### Install Docker Engine - Community
-
-##### Install using the repository
-
-###### Set up the repository
-
-- Install required packages. `yum-utils` provides the `yum-config-manager` utility, and `device-mapper-persistent-data` and `lvm2` are required by the `devicemapper` storage driver.
-
-    yum install -y yum-utils \
-        device-mapper-persistent-data \
-        lvm2
-
-- Use the following command to set up the stable repository.
-
-    yum-config-manager \
-        --add-repo \
-        https://download.docker.com/linux/centos/docker-ce.repo
-
-- Optional: Enable the nightly or test repositories.
-
-###### Install Docker Engine - Community
-
-- Install the latest version of Docker Engine - Community and containerd
-
-        yum install docker-ce docker-ce-cli containerd.io
-
-- Start Docker
-
-        systemctl start docker
-
-- Verify that Docker Engine - Community is installed correctly by running the hello-world image.
-
-        docker run hello-world
 
 ## Q & A
 

@@ -21,6 +21,9 @@
     - [查看当前正在执行的sql](#查看当前正在执行的sql)
     - [计算时间差](#计算时间差)
     - [创建存储过程](#创建存储过程)
+    - [session](#session)
+      - [The number of sessions the database was configured to allow](#the-number-of-sessions-the-database-was-configured-to-allow)
+      - [The number of sessions currently active](#the-number-of-sessions-currently-active)
 
 ## [Oracle Network Configuration (listener.ora, tnsnames.ora, sqlnet.ora)](https://oracle-base.com/articles/misc/oracle-network-configuration)
 
@@ -269,3 +272,16 @@ To run the script with parameters, for example, you want to pass the employee nu
       RETURN_CODE := 0;
       RETURN_MSG := TO_CHAR(V_STARTTIME, 'yyyy-MM-dd hh24:mi:ss') || ' - ' || TO_CHAR(V_CURRENTTIME, 'yyyy-MM-dd hh24:mi:ss');
     END;
+
+### session
+
+#### The number of sessions the database was configured to allow
+
+    SELECT name, value 
+      FROM v$parameter
+      WHERE name = 'sessions'
+
+#### The number of sessions currently active
+
+    SELECT COUNT(*)
+      FROM v$session

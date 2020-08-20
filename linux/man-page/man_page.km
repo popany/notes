@@ -31,7 +31,177 @@
                             "hyperlink": "https://man7.org/linux/man-pages/man2/select.2.html",
                             "hyperlinkTitle": ""
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c50zkjr8ggo0",
+                                    "created": 1597841587443,
+                                    "text": "NAME"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c50zl2xt4vc0",
+                                            "created": 1597841629199,
+                                            "text": "select,  pselect, FD_CLR, FD_ISSET, FD_SET, FD_ZERO - synchronous I/O multiplexing"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c50zm9oidvk0",
+                                    "created": 1597841722239,
+                                    "text": "SYNOPSIS",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c50zmenydfc0",
+                                            "created": 1597841733089,
+                                            "text": "int select(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c50znaucz340",
+                                            "created": 1597841803133,
+                                            "text": "void FD_CLR(int fd, fd_set *set);"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c50znmau32g0",
+                                            "created": 1597841828074,
+                                            "text": "int  FD_ISSET(int fd, fd_set *set);"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c50znw6l9340",
+                                            "created": 1597841849585,
+                                            "text": "void FD_SET(int fd, fd_set *set);"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c50zo0z49s00",
+                                            "created": 1597841860017,
+                                            "text": "void FD_ZERO(fd_set *set);"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c50zo69es340",
+                                            "created": 1597841871523,
+                                            "text": "int pselect(int nfds, fd_set *readfds, fd_set *writefds,  fd_set *exceptfds, const struct timespec *timeout, const sigset_t *sigmask);"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c50zptfu5r40",
+                                    "created": 1597842000342,
+                                    "text": "DESCRIPTION",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c50zqqftwfk0",
+                                            "created": 1597842072176,
+                                            "text": "select() allows a program to monitor multiple file descriptors"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c50zqrdsfts0",
+                                                    "created": 1597842074229,
+                                                    "text": "waiting until one or more of the file descriptors become \"ready\" for some class of I/O operation (e.g., input possible)"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c50zs47sxnk0",
+                                            "created": 1597842180529,
+                                            "text": "select() can monitor only file descriptors numbers that are less than FD_SETSIZE"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c50zsjloznc0",
+                                            "created": 1597842214021,
+                                            "text": "File descriptor sets"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c50zu0dv05s0",
+                                                    "created": 1597842328917,
+                                                    "text": "principal arguments"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c50zu17q9uo0",
+                                                            "created": 1597842330723,
+                                                            "text": "three \"sets\" of file descriptors"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c50zvm3ztaw0",
+                                                    "created": 1597842454574,
+                                                    "text": "Upon return"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c50zvr5smio0",
+                                                            "created": 1597842465566,
+                                                            "text": "each of the file descriptor sets is modified in place to indicate which file descriptors are currently \"ready\""
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c50zw7uvmyo0",
+                                                            "created": 1597842501912,
+                                                            "text": "if using select() within a loop, the sets must be reinitialized before each call"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c50zwzd1cag0",
+                                                    "created": 1597842561783,
+                                                    "text": "The implementation of the fd_set arguments as value-result arguments is a design error that is avoided in poll(2) and epoll(7)"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
                     },
                     {
                         "data": {
