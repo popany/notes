@@ -8,13 +8,806 @@
         "children": [
             {
                 "data": {
-                    "id": "c4i4f8gshbc0",
-                    "created": 1595925637419,
-                    "text": "java 菜鸟教程",
-                    "hyperlink": "https://www.runoob.com/java/java-tutorial.html",
-                    "hyperlinkTitle": ""
+                    "id": "c52ioyllj2g0",
+                    "created": 1597997094255,
+                    "text": "tutorial",
+                    "expandState": "expand"
                 },
-                "children": []
+                "children": [
+                    {
+                        "data": {
+                            "id": "c4i4f8gshbc0",
+                            "created": 1595925637419,
+                            "text": "java 菜鸟教程",
+                            "hyperlink": "https://www.runoob.com/java/java-tutorial.html",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c50ko0y0tk00",
+                            "created": 1597799543302,
+                            "text": "javatpoint tutorial",
+                            "hyperlink": "https://www.javatpoint.com/java-tutorial",
+                            "hyperlinkTitle": "",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c52iq4z03jc0",
+                                    "created": 1597997186491,
+                                    "text": "Java Annotations",
+                                    "hyperlink": "https://www.javatpoint.com/java-annotation",
+                                    "hyperlinkTitle": "",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c52jix8u44g0",
+                                            "created": 1597999442232,
+                                            "text": "is a tag",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c52jk244q7c0",
+                                                    "created": 1597999531195,
+                                                    "text": "represents the metadata",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jk913log0",
+                                                            "created": 1597999546249,
+                                                            "text": "attached with",
+                                                            "expandState": "collapse"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52jkbdtdco0",
+                                                                    "created": 1597999551372,
+                                                                    "text": "class"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52jkc7l2p40",
+                                                                    "created": 1597999553172,
+                                                                    "text": "interface"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52jkf1y3gw0",
+                                                                    "created": 1597999559361,
+                                                                    "text": "methods"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52jkjtmsyo0",
+                                                                    "created": 1597999569743,
+                                                                    "text": "fields"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jkqgl8f40",
+                                                            "created": 1597999584191,
+                                                            "text": "indicate some additional information",
+                                                            "expandState": "collapse"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52jkwmnhlk0",
+                                                                    "created": 1597999597619,
+                                                                    "text": "can be used by",
+                                                                    "expandState": "collapse"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c52jl2txxmo0",
+                                                                            "created": 1597999611120,
+                                                                            "text": "java compiler and JVM"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c52jlxgz9h40",
+                                                    "created": 1597999677817,
+                                                    "text": "are used to",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jm0ybgu80",
+                                                            "created": 1597999685395,
+                                                            "text": "provide additional information"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c52jmmqf3ao0",
+                                                    "created": 1597999732807,
+                                                    "text": "is an alternative option for XML and Java marker interfaces"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c52jmvw0dg80",
+                                            "created": 1597999752736,
+                                            "text": "Built-In Java Annotations",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c52jn7029680",
+                                                    "created": 1597999776926,
+                                                    "text": "used in Java code",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jnfv9zio0",
+                                                            "created": 1597999796227,
+                                                            "text": "@Override"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jnfva2oo0",
+                                                            "created": 1597999796227,
+                                                            "text": "@SuppressWarnings"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jnfv9ypk0",
+                                                            "created": 1597999796227,
+                                                            "text": "@Deprecated"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c52jn7r3x0w0",
+                                                    "created": 1597999778561,
+                                                    "text": "used in other annotations",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jnq7gnmo0",
+                                                            "created": 1597999818732,
+                                                            "text": "@Target"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jnq7gu8o0",
+                                                            "created": 1597999818732,
+                                                            "text": "@Retention"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jnq7gwts0",
+                                                            "created": 1597999818732,
+                                                            "text": "@Inherited"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jnq7hevc0",
+                                                            "created": 1597999818733,
+                                                            "text": "@Documented"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c52jo3uh9hs0",
+                                            "created": 1597999848422,
+                                            "text": "Understanding Built-In Annotations",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c52joazbixs0",
+                                                    "created": 1597999863952,
+                                                    "text": "@Override",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52joyogt9k0",
+                                                            "created": 1597999915539,
+                                                            "text": "assures that the subclass method is overriding the parent class method"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jp3zzcfs0",
+                                                            "created": 1597999927119,
+                                                            "text": "If it is not so, compile time error occurs"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c52jrzi8owg0",
+                                                    "created": 1598000152431,
+                                                    "text": "@SuppressWarnings",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52js4hrfeg0",
+                                                            "created": 1598000163286,
+                                                            "text": "is used to suppress warnings issued by the compiler"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c52jsd6tgog0",
+                                                    "created": 1598000182216,
+                                                    "text": "@Deprecated",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jt5xpjfs0",
+                                                            "created": 1598000244792,
+                                                            "text": "marks that this method is deprecated so compiler prints warning"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c52jtqljd9c0",
+                                            "created": 1598000289768,
+                                            "text": "Java Custom Annotations",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c52ju2f5khc0",
+                                                    "created": 1598000315503,
+                                                    "text": "The @interface element",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52ju88g7lc0",
+                                                            "created": 1598000328159,
+                                                            "text": "is used to declare an annotation"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c52jxj4muds0",
+                                                    "created": 1598000586965,
+                                                    "text": "There are few points that should be remembered by the programmer",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jxpkpba00",
+                                                            "created": 1598000600998,
+                                                            "text": "Method should not have any throws clauses"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jy3ti26g0",
+                                                            "created": 1598000632004,
+                                                            "text": "Method should return one of the following: primitive data types, String, Class, enum or array of these data types"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jy7r5xwo0",
+                                                            "created": 1598000640570,
+                                                            "text": "Method should not have any parameter"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jygbxsqo0",
+                                                            "created": 1598000659241,
+                                                            "text": "We should attach @ just before interface keyword to define annotation"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jymnzz7c0",
+                                                            "created": 1598000673031,
+                                                            "text": "It may assign a default value to the method"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c52jz6kgcbk0",
+                                            "created": 1598000716352,
+                                            "text": "Types of Annotation",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c52jz9ya8gg0",
+                                                    "created": 1598000723718,
+                                                    "text": "Marker Annotation",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jzwplgjc0",
+                                                            "created": 1598000773259,
+                                                            "text": "annotation that has no method"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52jzxisynk0",
+                                                            "created": 1598000775025,
+                                                            "text": "The @Override and @Deprecated are marker annotations"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c52jzaje7jk0",
+                                                    "created": 1598000724995,
+                                                    "text": "Single-Value Annotation",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52k0ae4zb40",
+                                                            "created": 1598000803041,
+                                                            "text": "annotation that has one method"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52k0ikfnnk0",
+                                                            "created": 1598000820836,
+                                                            "text": "We can provide the default value also"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c52jzcx7ri80",
+                                                    "created": 1598000730184,
+                                                    "text": "Multi-Value Annotation",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52k14mpbnc0",
+                                                            "created": 1598000868863,
+                                                            "text": "Multi-Value Annotation"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52k1b190hc0",
+                                                            "created": 1598000882803,
+                                                            "text": "annotation that has more than one method"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c52k2vkz3u00",
+                                            "created": 1598001005895,
+                                            "text": "Built-in Annotations used in custom annotations in java",
+                                            "expandState": "collapse"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c52k34wqovs0",
+                                                    "created": 1598001026198,
+                                                    "text": "@Target",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52k3fagt880",
+                                                            "created": 1598001048796,
+                                                            "text": "is used to specify at which type, the annotation is used"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52k3o8lwbs0",
+                                                            "created": 1598001068274,
+                                                            "text": "java.lang.annotation.ElementType enum",
+                                                            "expandState": "collapse"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k5egpvvk0",
+                                                                    "created": 1598001203725,
+                                                                    "text": "TYPE"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k5f1ex540",
+                                                                    "created": 1598001204977,
+                                                                    "text": "FIELD"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k5iqrly80",
+                                                                    "created": 1598001213040,
+                                                                    "text": "METHOD"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k5phvyeg0",
+                                                                    "created": 1598001227740,
+                                                                    "text": "CONSTRUCTOR"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k5sur5fs0",
+                                                                    "created": 1598001235049,
+                                                                    "text": "LOCAL_VARIABLE"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k5vfwhls0",
+                                                                    "created": 1598001240681,
+                                                                    "text": "ANNOTATION_TYPE"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k5yfsktc0",
+                                                                    "created": 1598001247205,
+                                                                    "text": "PARAMETER"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c52k34wqljs0",
+                                                    "created": 1598001026198,
+                                                    "text": "@Retention",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52k6qtqvvs0",
+                                                            "created": 1598001308999,
+                                                            "text": "is used to specify to what level annotation will be available"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52k6yurl5s0",
+                                                            "created": 1598001326474,
+                                                            "text": "RetentionPolicy.SOURCE",
+                                                            "expandState": "collapse"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k7799dls0",
+                                                                    "created": 1598001344765,
+                                                                    "text": "refers to the source code"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k77znx2o0",
+                                                                    "created": 1598001346362,
+                                                                    "text": "discarded during compilation"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k7bx7k2o0",
+                                                                    "created": 1598001354920,
+                                                                    "text": "It will not be available in the compiled class"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52k8329y2w0",
+                                                            "created": 1598001414000,
+                                                            "text": "RetentionPolicy.CLASS",
+                                                            "expandState": "collapse"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k86ewwio0",
+                                                                    "created": 1598001421294,
+                                                                    "text": "refers to the .class file"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k86y51800",
+                                                                    "created": 1598001422457,
+                                                                    "text": "available to java compiler but not to JVM"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k8amc6a00",
+                                                                    "created": 1598001430451,
+                                                                    "text": "It is included in the class file"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52k8mcpehs0",
+                                                            "created": 1598001455989,
+                                                            "text": "RetentionPolicy.RUNTIME",
+                                                            "expandState": "collapse"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k8qx021s0",
+                                                                    "created": 1598001465924,
+                                                                    "text": "refers to the runtime"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c52k8rn319k0",
+                                                                    "created": 1598001467501,
+                                                                    "text": "available to java compiler and JVM"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c52k34wrgi00",
+                                                    "created": 1598001026199,
+                                                    "text": "@Inherited",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52kb4oq9i80",
+                                                            "created": 1598001652627,
+                                                            "text": "By default, annotations are not inherited to subclasses"
+                                                        },
+                                                        "children": []
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c52kb8t11j40",
+                                                            "created": 1598001661594,
+                                                            "text": "The @Inherited annotation marks the annotation to be inherited to subclasses"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c52k34wrebc0",
+                                                    "created": 1598001026199,
+                                                    "text": "@Documented",
+                                                    "expandState": "collapse"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c52kbgo8w6g0",
+                                                            "created": 1598001678719,
+                                                            "text": "Marks the annotation for inclusion in the documentation"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c537nls64rk0",
+                                    "created": 1598067515738,
+                                    "text": "Java Reflection"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c537nqfwko80",
+                                            "created": 1598067525880,
+                                            "text": "Reflection API",
+                                            "hyperlink": "https://www.javatpoint.com/java-reflection",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c537nx5ino00",
+                                            "created": 1598067540490,
+                                            "text": "newInstance() method",
+                                            "hyperlink": "https://www.javatpoint.com/new-instance()-method",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c537oletpag0",
+                                            "created": 1598067593295,
+                                            "text": "javap tool",
+                                            "hyperlink": "https://www.javatpoint.com/understanding-javap-tool",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c537p5aw8z40",
+                                            "created": 1598067636593,
+                                            "text": "creating javap tool",
+                                            "hyperlink": "https://www.javatpoint.com/creating-javap-tool",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c537pdcz38g0",
+                                            "created": 1598067654133,
+                                            "text": "creating appletviewer",
+                                            "hyperlink": "https://www.javatpoint.com/creating-appletviewer-tool",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c537pidtakg0",
+                                            "created": 1598067665068,
+                                            "text": "call private method",
+                                            "hyperlink": "https://www.javatpoint.com/how-to-call-private-method-from-another-class-in-java",
+                                            "hyperlinkTitle": ""
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             },
             {
                 "data": {
@@ -37,25 +830,6 @@
             },
             {
                 "data": {
-                    "id": "c41ds422nt40",
-                    "created": 1594225517282,
-                    "text": "Java Annotations"
-                },
-                "children": [
-                    {
-                        "data": {
-                            "id": "c50ko0y0tk00",
-                            "created": 1597799543302,
-                            "text": "javatpoint tutorial",
-                            "hyperlink": "https://www.javatpoint.com/java-annotation",
-                            "hyperlinkTitle": ""
-                        },
-                        "children": []
-                    }
-                ]
-            },
-            {
-                "data": {
                     "id": "c4i2xw8ckcg0",
                     "created": 1595921457486,
                     "text": "repositories"
@@ -65,7 +839,8 @@
                         "data": {
                             "id": "c4i2y7509kg0",
                             "created": 1595921481229,
-                            "text": "JCommander"
+                            "text": "JCommander",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {

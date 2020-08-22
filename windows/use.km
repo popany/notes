@@ -24,10 +24,36 @@
                         "children": []
                     }
                 ]
+            },
+            {
+                "data": {
+                    "id": "c52d63w4f1c0",
+                    "created": 1597981511307,
+                    "text": "ftp"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c52d69z2klk0",
+                            "created": 1597981524546,
+                            "text": "访问"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c52d6azufp40",
+                                    "created": 1597981526769,
+                                    "text": "ftp://username:password@hostname:port"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     },
-    "template": "default",
+    "template": "right",
     "theme": "fresh-blue",
     "version": "1.4.43"
 }

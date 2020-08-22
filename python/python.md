@@ -2,6 +2,8 @@
 
 - [Python](#python)
   - [Basic](#basic)
+    - [Iterate over files](#iterate-over-files)
+      - [`glob`](#glob)
     - [format print list](#format-print-list)
     - [get/set environment virable](#getset-environment-virable)
   - [regular expression](#regular-expression)
@@ -12,8 +14,6 @@
 
 ## Basic
 
-[How can I iterate over files in a given directory?](https://stackoverflow.com/questions/10377998/how-can-i-iterate-over-files-in-a-given-directory)
-
 [How to read a file line-by-line into a list?](https://stackoverflow.com/questions/3277503/how-to-read-a-file-line-by-line-into-a-list)
 
 [Argparse Tutorial](https://docs.python.org/3/howto/argparse.html)
@@ -21,6 +21,15 @@
 [Manually raising (throwing) an exception in Python](https://stackoverflow.com/questions/2052390/manually-raising-throwing-an-exception-in-python)
 
 [Accessing the index in 'for' loops?](https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops)
+
+### Iterate over files
+
+[How can I iterate over files in a given directory?](https://stackoverflow.com/questions/10377998/how-can-i-iterate-over-files-in-a-given-directory)
+
+#### [`glob`](https://docs.python.org/3/library/glob.html)
+
+    import glob
+    glob.glob('*.gif')
 
 ### format print list
 

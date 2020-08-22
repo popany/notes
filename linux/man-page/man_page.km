@@ -25,6 +25,63 @@
                     },
                     {
                         "data": {
+                            "id": "c53dnm8u8uo0",
+                            "created": 1598084443405,
+                            "text": "dup(2)",
+                            "hyperlink": "https://man7.org/linux/man-pages/man2/dup.2.html",
+                            "hyperlinkTitle": "",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c53dnwuitko0",
+                                    "created": 1598084466484,
+                                    "text": "DESCRIPTION",
+                                    "expandState": "collapse"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c53do5ddprk0",
+                                            "created": 1598084485039,
+                                            "text": "creates a copy of the file descriptor oldfd",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c53dodm1k2o0",
+                                                    "created": 1598084502977,
+                                                    "text": "using the lowest-numbered unused file descriptor for the new descriptor"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c53doz7614g0",
+                                            "created": 1598084549967,
+                                            "text": "the old and new file descriptors may be used interchangeably"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c53dp4xyo2o0",
+                                                    "created": 1598084562471,
+                                                    "text": "share file offset and file status flags"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
                             "id": "c4z450ci1ww0",
                             "created": 1597651355367,
                             "text": "select(2)",
@@ -119,16 +176,35 @@
                                         "data": {
                                             "id": "c50zqqftwfk0",
                                             "created": 1597842072176,
-                                            "text": "select() allows a program to monitor multiple file descriptors"
+                                            "text": "select() allows a program to monitor"
                                         },
                                         "children": [
                                             {
                                                 "data": {
-                                                    "id": "c50zqrdsfts0",
-                                                    "created": 1597842074229,
-                                                    "text": "waiting until one or more of the file descriptors become \"ready\" for some class of I/O operation (e.g., input possible)"
+                                                    "id": "c53d4fr8ozs0",
+                                                    "created": 1598082940361,
+                                                    "text": "multiple file descriptors",
+                                                    "expandState": "collapse"
                                                 },
-                                                "children": []
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c50zqrdsfts0",
+                                                            "created": 1597842074229,
+                                                            "text": "waiting until one or more of the file descriptors"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c53d51tg6og0",
+                                                                    "created": 1598082988385,
+                                                                    "text": "become \"ready\" for some class of I/O operation"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
                                             }
                                         ]
                                     },
@@ -136,22 +212,34 @@
                                         "data": {
                                             "id": "c50zs47sxnk0",
                                             "created": 1597842180529,
-                                            "text": "select() can monitor only file descriptors numbers that are less than FD_SETSIZE"
+                                            "text": "select() can monitor only",
+                                            "expandState": "collapse"
                                         },
-                                        "children": []
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c53d3z7b3q80",
+                                                    "created": 1598082904328,
+                                                    "text": "file descriptors numbers that are less than FD_SETSIZE"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
                                     },
                                     {
                                         "data": {
                                             "id": "c50zsjloznc0",
                                             "created": 1597842214021,
-                                            "text": "File descriptor sets"
+                                            "text": "File descriptor sets",
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
                                                 "data": {
                                                     "id": "c50zu0dv05s0",
                                                     "created": 1597842328917,
-                                                    "text": "principal arguments"
+                                                    "text": "principal arguments",
+                                                    "expandState": "collapse"
                                                 },
                                                 "children": [
                                                     {
@@ -168,24 +256,52 @@
                                                 "data": {
                                                     "id": "c50zvm3ztaw0",
                                                     "created": 1597842454574,
-                                                    "text": "Upon return"
+                                                    "text": "Upon return",
+                                                    "expandState": "collapse"
                                                 },
                                                 "children": [
                                                     {
                                                         "data": {
                                                             "id": "c50zvr5smio0",
                                                             "created": 1597842465566,
-                                                            "text": "each of the file descriptor sets is modified in place to indicate which file descriptors are currently \"ready\""
+                                                            "text": "each of the file descriptor sets is modified in place "
                                                         },
-                                                        "children": []
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c53cyz89flc0",
+                                                                    "created": 1598082512564,
+                                                                    "text": "to indicate"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "c53cz1xv3z40",
+                                                                            "created": 1598082518466,
+                                                                            "text": "which file descriptors are currently \"ready\""
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
                                                     },
                                                     {
                                                         "data": {
                                                             "id": "c50zw7uvmyo0",
                                                             "created": 1597842501912,
-                                                            "text": "if using select() within a loop, the sets must be reinitialized before each call"
+                                                            "text": "if using select() within a loop"
                                                         },
-                                                        "children": []
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c53cyotil1k0",
+                                                                    "created": 1598082489905,
+                                                                    "text": "the sets must be reinitialized before each call"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
                                                     }
                                                 ]
                                             },
@@ -193,9 +309,71 @@
                                                 "data": {
                                                     "id": "c50zwzd1cag0",
                                                     "created": 1597842561783,
-                                                    "text": "The implementation of the fd_set arguments as value-result arguments is a design error that is avoided in poll(2) and epoll(7)"
+                                                    "text": "The implementation of the fd_set arguments as value-result arguments",
+                                                    "expandState": "collapse"
                                                 },
-                                                "children": []
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c53d5xmjy740",
+                                                            "created": 1598083057624,
+                                                            "text": " is a design error"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c53d60vsllc0",
+                                                                    "created": 1598083064713,
+                                                                    "text": "that is avoided in poll(2) and epoll(7)"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c53d78mlzuw0",
+                                            "created": 1598083159936,
+                                            "text": "Arguments"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c53d7es2qzs0",
+                                                    "created": 1598083173328,
+                                                    "text": "readfds"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c53d7wjpmoo0",
+                                                            "created": 1598083212004,
+                                                            "text": "watched to see"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c53d7z9x0p40",
+                                                                    "created": 1598083217942,
+                                                                    "text": "ready for reading"
+                                                                },
+                                                                "children": []
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "c53d8d75i1s0",
+                                                                    "created": 1598083248250,
+                                                                    "text": "ready on end-of-file"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
                                             }
                                         ]
                                     }
@@ -621,7 +799,7 @@
                                             "id": "c4rkj66mmx40",
                                             "created": 1596885123276,
                                             "text": "op argument",
-                                            "expandState": "collapse"
+                                            "expandState": "expand"
                                         },
                                         "children": [
                                             {
@@ -701,7 +879,7 @@
                                             "id": "c4rkn833yn40",
                                             "created": 1596885440873,
                                             "text": "struct",
-                                            "expandState": "expand"
+                                            "expandState": "collapse"
                                         },
                                         "children": [
                                             {
@@ -1774,7 +1952,7 @@
                             "text": "epoll(7)",
                             "hyperlink": "https://man7.org/linux/man-pages/man7/epoll.7.html",
                             "hyperlinkTitle": "",
-                            "expandState": "collapse"
+                            "expandState": "expand"
                         },
                         "children": [
                             {
@@ -2673,7 +2851,8 @@
                                                         "data": {
                                                             "id": "c4rikbg66o00",
                                                             "created": 1596879570881,
-                                                            "text": "Yes, but be aware of the following point"
+                                                            "text": "Yes, but be aware of the following point",
+                                                            "expandState": "collapse"
                                                         },
                                                         "children": [
                                                             {
