@@ -1,0 +1,24 @@
+{
+    "root": {
+        "data": {
+            "id": "c56019s5lsw0",
+            "created": 1598350697705,
+            "text": "airflow"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c5601dgny3k0",
+                    "created": 1598350705717,
+                    "text": "github",
+                    "hyperlink": "https://github.com/apache/airflow",
+                    "hyperlinkTitle": ""
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

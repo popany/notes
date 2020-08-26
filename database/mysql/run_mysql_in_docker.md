@@ -1,6 +1,6 @@
-# MySQL
+# Run MySQL in Docker
 
-- [MySQL](#mysql)
+- [Run MySQL in Docker](#run-mysql-in-docker)
   - [Docker](#docker)
     - [Docker Image](#docker-image)
       - [How to use this image](#how-to-use-this-image)

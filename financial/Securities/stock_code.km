@@ -1,0 +1,699 @@
+{
+    "root": {
+        "data": {
+            "id": "c55ugn1we080",
+            "created": 1598334975395,
+            "text": "股票代码",
+            "hyperlink": "https://baike.baidu.com/item/%E8%82%A1%E7%A5%A8%E4%BB%A3%E7%A0%81/4474479",
+            "hyperlinkTitle": ""
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c55uhx235qo0",
+                    "created": 1598335075538,
+                    "text": "上交所"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c55uig8kj0g0",
+                            "created": 1598335117289,
+                            "text": "编码方式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c55uijpgcog0",
+                                    "created": 1598335124841,
+                                    "text": "6位数编码"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c55uipin0rk0",
+                                    "created": 1598335137489,
+                                    "text": "前3位为证券品种",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c55uj1un9wg0",
+                                            "created": 1598335164337,
+                                            "text": "001"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55uj8rffgg0",
+                                                    "created": 1598335179379,
+                                                    "text": "国债现货"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55uj6kr4u80",
+                                            "created": 1598335174622,
+                                            "text": "110/120"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55ujgxo6fk0",
+                                                    "created": 1598335197171,
+                                                    "text": "企业债券"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55ujlsqxhk0",
+                                            "created": 1598335207757,
+                                            "text": "129/100"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55ujoz94tk0",
+                                                    "created": 1598335214681,
+                                                    "text": "可转换债券"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55ujsz4nsw0",
+                                            "created": 1598335223381,
+                                            "text": "201"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55ujtovw800",
+                                                    "created": 1598335224938,
+                                                    "text": "国债回购"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55ujx4l1sg0",
+                                            "created": 1598335232418,
+                                            "text": "310"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55ujxzz1s80",
+                                                    "created": 1598335234316,
+                                                    "text": "国债期货"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55uk2kolxk0",
+                                            "created": 1598335244275,
+                                            "text": "500/550"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55uk4pejtc0",
+                                                    "created": 1598335248914,
+                                                    "text": "基金"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55uk7ev1540",
+                                            "created": 1598335254807,
+                                            "text": "600/601/603/605"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55uk87rzdc0",
+                                                    "created": 1598335256555,
+                                                    "text": "A股"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v5n2uof40",
+                                            "created": 1598336934557,
+                                            "text": "688"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v5o80g5c0",
+                                                    "created": 1598336937046,
+                                                    "text": "科创板"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55ukc4g34g0",
+                                            "created": 1598335265061,
+                                            "text": "700"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55ukdcn8ds0",
+                                                    "created": 1598335267734,
+                                                    "text": "配股"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55ukehdmxc0",
+                                            "created": 1598335270197,
+                                            "text": "710"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55ukgvmrg80",
+                                                    "created": 1598335275412,
+                                                    "text": "转配股"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55usu36ee80",
+                                            "created": 1598335931080,
+                                            "text": "701"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55usy0trns0",
+                                                    "created": 1598335939645,
+                                                    "text": "转配股再配股"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55ut694zy80",
+                                            "created": 1598335957562,
+                                            "text": "711"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55ut73dglk0",
+                                                    "created": 1598335959390,
+                                                    "text": "转配股再转配股"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55utjdxa200",
+                                            "created": 1598335986149,
+                                            "text": "720"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55utke13qg0",
+                                                    "created": 1598335988332,
+                                                    "text": "红利"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55utnaqrxc0",
+                                            "created": 1598335994664,
+                                            "text": "730"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55uto7gnfc0",
+                                                    "created": 1598335996642,
+                                                    "text": "新股申购"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55uttb25r40",
+                                            "created": 1598336007744,
+                                            "text": "735"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55utub09q80",
+                                                    "created": 1598336009917,
+                                                    "text": "新基金申购"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55utzaqaiw0",
+                                            "created": 1598336020785,
+                                            "text": "737"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55uu1jds8g0",
+                                                    "created": 1598336025661,
+                                                    "text": "新股配售"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55uu8l0gio0",
+                                            "created": 1598336040997,
+                                            "text": "900"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55uu9v2v0o0",
+                                                    "created": 1598336043783,
+                                                    "text": "B股"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c55ux1j6z540",
+                    "created": 1598336260742,
+                    "text": "深交所"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c55uzpec8aw0",
+                            "created": 1598336469420,
+                            "text": "编码方式"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c55uzrhp3m80",
+                                    "created": 1598336473977,
+                                    "text": "6位数编码"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c55uzv69wb40",
+                                    "created": 1598336481993,
+                                    "text": "前2位位证券类别"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c55v03i5x400",
+                                            "created": 1598336500126,
+                                            "text": "00"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v058w2aw0",
+                                                    "created": 1598336503919,
+                                                    "text": "A股证券"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "c55v4sgu3ww0",
+                                                    "created": 1598336867922,
+                                                    "text": "002"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "c55v4w9yz9k0",
+                                                            "created": 1598336876214,
+                                                            "text": "中小板股票"
+                                                        },
+                                                        "children": []
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v0i1ssvk0",
+                                            "created": 1598336531788,
+                                            "text": "03"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v0ivhcxc0",
+                                                    "created": 1598336533583,
+                                                    "text": "A股A2权证"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v0mjvtvs0",
+                                            "created": 1598336541589,
+                                            "text": "07"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v0n6xvts0",
+                                                    "created": 1598336542983,
+                                                    "text": "A股增发"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v0u4rmeo0",
+                                            "created": 1598336558089,
+                                            "text": "08"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v0w4kefk0",
+                                                    "created": 1598336562431,
+                                                    "text": "A股A1权证"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v1hq02dk0",
+                                            "created": 1598336609439,
+                                            "text": "09"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v1ikqis80",
+                                                    "created": 1598336611298,
+                                                    "text": "A股转配"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v1s3gsnc0",
+                                            "created": 1598336632021,
+                                            "text": "10"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v1t06aeg0",
+                                                    "created": 1598336633999,
+                                                    "text": "国债现货"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v1x2cffs0",
+                                            "created": 1598336642837,
+                                            "text": "11"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v1xkebf40",
+                                                    "created": 1598336643929,
+                                                    "text": "债券"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v26joujk0",
+                                            "created": 1598336663477,
+                                            "text": "12"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v2ancuq00",
+                                                    "created": 1598336672406,
+                                                    "text": "可转换债券"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v2fd5iww0",
+                                            "created": 1598336682673,
+                                            "text": "13"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v2gmpdg80",
+                                                    "created": 1598336685427,
+                                                    "text": "国债回购"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v2ozxvi80",
+                                            "created": 1598336703642,
+                                            "text": "17"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v2ptyp8o0",
+                                                    "created": 1598336705457,
+                                                    "text": "原有投资基金"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v2vn2gkg0",
+                                            "created": 1598336718101,
+                                            "text": "18"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v2w9xs600",
+                                                    "created": 1598336719484,
+                                                    "text": "证券投资基金"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v30r6bao0",
+                                            "created": 1598336729233,
+                                            "text": "20"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v31bmfb40",
+                                                    "created": 1598336730470,
+                                                    "text": "B股证券"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v36y860w0",
+                                            "created": 1598336742720,
+                                            "text": "27"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v37rjki00",
+                                                    "created": 1598336744493,
+                                                    "text": "B股增发"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v3cpqi280",
+                                            "created": 1598336755268,
+                                            "text": "28"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v3fqm8sw0",
+                                                    "created": 1598336761851,
+                                                    "text": "B股权证"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v3lri88w0",
+                                            "created": 1598336774966,
+                                            "text": "30"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v3mix1i80",
+                                                    "created": 1598336776623,
+                                                    "text": "创业版证券"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v3p4t2sw0",
+                                            "created": 1598336782300,
+                                            "text": "37"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v3z9d1xc0",
+                                                    "created": 1598336804343,
+                                                    "text": "创业版增发"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v438hnmw0",
+                                            "created": 1598336812998,
+                                            "text": "38"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v44aekpc0",
+                                                    "created": 1598336815290,
+                                                    "text": "创业版权证"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c55v46ai0i80",
+                                            "created": 1598336819650,
+                                            "text": "39"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c55v4a7w48o0",
+                                                    "created": 1598336828199,
+                                                    "text": "综合指数/成分指数"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
