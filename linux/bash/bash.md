@@ -35,6 +35,7 @@
       - [How to setup an SFTP server on CentOS 7](#how-to-setup-an-sftp-server-on-centos-7)
     - [firewall](#firewall)
       - [How to Configure Firewall in CentOS 7 and RHEL 7](#how-to-configure-firewall-in-centos-7-and-rhel-7)
+    - [set core dump file location](#set-core-dump-file-location)
   - [Ubuntu](#ubuntu)
     - [Check Ubuntu version](#check-ubuntu-version)
   - [GNU Binary Utilities](#gnu-binary-utilities)
@@ -274,7 +275,68 @@ restart `sshd`
 
 #### [How to Configure Firewall in CentOS 7 and RHEL 7](https://www.looklinux.com/how-to-configure-firewall-in-centos-7-and-rhel-7/)
 
+### set core dump file location
 
+[How to enable core dump for Applications on CentOS/RHEL](https://www.thegeekdiary.com/how-to-enable-core-dump-for-applications-on-centos-rhel/)
+
+1. Enable core file creation
+
+   - temporarily
+
+         # ulimit -S -c unlimited > /dev/null 2>&1
+
+   - permanently
+
+     Edit `/etc/security/limits.conf`
+
+         # vi /etc/security/limits.conf
+         * soft core unlimited
+
+     The '`*`' is used to enable coredump size to unlimited to all users
+
+2. Add the path of the core dump and file format of the core file
+
+   By default, the core file will be generated in the working directory of the running process
+
+       # vi /etc/sysctl.conf
+       kernel.core_pattern = /var/crash/core.%e.%p.%h.%t
+
+   `/var/crash` is the path and `core.%e.%p.%h.%t` is the file format, where:
+
+   `%e` – executable filename
+
+   `%p` – PID of dumped process
+
+   `%t` – time of dump (seconds since 0:00h, 1 Jan 1970)
+
+   `%h` – hostname (same as ’nodename’ returned by uname(2))
+
+3. Make sure processes have the correct permission for the configured directory (e.g. `/var/carsh/`)
+
+       # vi /etc/sysctl.conf
+       fs.suid_dumpable = 2
+
+   `0` – (default): traditional behaviour. Any process which has changed privilege levels or is execute only will not be dumped.
+
+   `1` – (debug): all processes dump core when possible. The core dump is owned by the current user and no security is applied. This is intended for system debugging situations only.
+
+   `2` – (suidsafe): any binary which normally not be dumped is dumped readable by root only. This allows the end-user to remove such a dump but not access it directly. For security reasons, core dumps in this mode will not overwrite one another or other files. This mode is appropriate when administrators are attempting to debug problems in a normal environment.
+
+   Load the settings using the sysctl command below after modifying `/etc/sysctl.conf`
+
+       # sysctl -p
+
+4. To collect core dumps from unsigned packages, set `OpenGPGCheck = no` in `/etc/abrt/abrt-action-save-package-data.conf`. To collect core dumps from unpackaged software, set `ProcessUnpackaged = yes` in `/etc/abrt/abrt-action-save-package-data.conf`
+
+5. Restart the abrtd daemon – as root – for the new settings to take effect
+
+       # service abrtd restart
+       # service abrt-ccpp restart
+
+   In CentOS/RHEL 7:
+
+       # systemctl start abrtd.service
+       # systemctl start abrt-ccpp.service
 
 ## Ubuntu
 

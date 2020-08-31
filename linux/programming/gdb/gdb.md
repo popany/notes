@@ -1,6 +1,11 @@
 # GDB
 
 - [GDB](#gdb)
+  - [Reference](#reference)
+    - [Beej's Quick Guide to GDB](#beejs-quick-guide-to-gdb)
+    - [GDB Command Reference](#gdb-command-reference)
+    - [How to open a source file in GDB TUI](#how-to-open-a-source-file-in-gdb-tui)
+    - [Step out of current function with GDB](#step-out-of-current-function-with-gdb)
   - [gdbserver](#gdbserver)
   - [Practice](#practice)
     - [Command](#command)
@@ -10,11 +15,15 @@
         - [Debug a running process](#debug-a-running-process)
         - [Pass arguments to executable](#pass-arguments-to-executable)
 
-[Beej's Quick Guide to GDB](https://beej.us/guide/bggdb/)
+## Reference
 
-[How to open a source file in GDB TUI](https://stackoverflow.com/questions/17342393/how-to-open-a-source-file-in-gdb-tui)
+### [Beej's Quick Guide to GDB](https://beej.us/guide/bggdb/)
 
-[Step out of current function with GDB](https://stackoverflow.com/questions/24712690/step-out-of-current-function-with-gdb)
+### [GDB Command Reference](https://visualgdb.com/gdbreference/commands/)
+
+### [How to open a source file in GDB TUI](https://stackoverflow.com/questions/17342393/how-to-open-a-source-file-in-gdb-tui)
+
+### [Step out of current function with GDB](https://stackoverflow.com/questions/24712690/step-out-of-current-function-with-gdb)
 
 ## gdbserver
 

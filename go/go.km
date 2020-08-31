@@ -1,0 +1,43 @@
+{
+    "root": {
+        "data": {
+            "id": "c5axwwg5wsw0",
+            "created": 1598852512788,
+            "text": "go"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "c5axwyo2c5k0",
+                    "created": 1598852517620,
+                    "text": "tutorial"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c5axx5r0wow0",
+                            "created": 1598852533037,
+                            "text": "tutorialspoint",
+                            "hyperlink": "https://www.tutorialspoint.com/go/index.htm",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "c5axxciuhqw0",
+                            "created": 1598852547779,
+                            "text": "javatpoint",
+                            "hyperlink": "https://www.javatpoint.com/go-tutorial",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

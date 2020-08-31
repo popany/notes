@@ -3,6 +3,8 @@
 - [C++](#c)
   - [Syntax](#syntax)
     - [Sleep](#sleep)
+    - [Variadic Template Function](#variadic-template-function)
+  - [Design Patterns](#design-patterns)
   - [C++ Unit Test](#c-unit-test)
     - [cmocka](#cmocka)
     - [mockcpp](#mockcpp)
@@ -15,6 +17,14 @@
 ### Sleep
 
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+### Variadic Template Function 
+
+[C++11 – Variadic Template Function | Tutorial & Examples](https://thispointer.com/c11-variadic-template-function-tutorial-examples/)
+
+## Design Patterns
+
+[C++ Singleton design pattern](https://stackoverflow.com/questions/1008019/c-singleton-design-pattern/1008289#1008289)
 
 ## C++ Unit Test
 

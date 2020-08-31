@@ -3273,6 +3273,16 @@
                                     "hyperlinkTitle": ""
                                 },
                                 "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "c57rrn678so0",
+                                    "created": 1598530494245,
+                                    "text": "quickfast",
+                                    "hyperlink": "https://github.com/objectcomputing/quickfast",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": []
                             }
                         ]
                     }

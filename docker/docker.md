@@ -2,20 +2,20 @@
 
 - [docker](#docker)
   - [Install & Update](#install--update)
-    - [Get Docker Engine - Community for CentOS](#get-docker-engine---community-for-centoshttpsdocsdockercominstalllinuxdocker-cecentos)
+    - [Get Docker Engine - Community for CentOS](#get-docker-engine---community-for-centos)
       - [Uninstall old versions](#uninstall-old-versions)
       - [Install Docker Engine - Community](#install-docker-engine---community)
         - [Install using the repository](#install-using-the-repository)
           - [Set up the repository](#set-up-the-repository)
           - [Install Docker Engine - Community](#install-docker-engine---community-1)
   - [教程](#教程)
-    - [Docker入门实践（精讲版）](#docker入门实践精讲版httpcbianchengnetdocker)
+    - [Docker入门实践（精讲版）](#docker入门实践精讲版)
   - [networking](#networking)
     - [docker 网络](#docker-网络)
-    - [Use host networking](#use-host-networkinghttpsdocsdockercomnetworkhost)
-    - [Networking using the host network](#networking-using-the-host-networkhttpsdocsdockercomnetworknetwork-tutorial-host)
+    - [Use host networking](#use-host-networking)
+    - [Networking using the host network](#networking-using-the-host-network)
   - [volume](#volume)
-    - [Use volumes](#use-volumeshttpsdocsdockercomstoragevolumes)
+    - [Use volumes](#use-volumes)
       - [Create and manage volumes](#create-and-manage-volumes)
         - [Create a volume](#create-a-volume)
         - [List volumes](#list-volumes)
@@ -29,28 +29,35 @@
         - [Remove anonymous volumes](#remove-anonymous-volumes)
         - [Remove all volumes](#remove-all-volumes)
   - [logging](#logging)
-    - [View logs for a container or service](#view-logs-for-a-container-or-servicehttpsdocsdockercomconfigcontainerslogging)
+    - [View logs for a container or service](#view-logs-for-a-container-or-service)
   - [cmd](#cmd)
     - [run a centos container](#run-a-centos-container)
       - [Run a centos container in Docker Desktop](#run-a-centos-container-in-docker-desktop)
       - [Publish container port 8080 to the host port 8081](#publish-container-port-8080-to-the-host-port-8081)
     - [Override CMD when running a docker image](#override-cmd-when-running-a-docker-image)
     - [Copy files/folders between a container and the local filesystem](#copy-filesfolders-between-a-container-and-the-local-filesystem)
-    - [Commit a container and change ENTRYPOINT](#commit-a-container-and-change-entrypointhttpsstackoverflowcomquestions29015023docker-commit-created-images-and-entrypoint)
-    - [Move Docker container to another host](#move-docker-container-to-another-hosthttpsbobcarescomblogmove-docker-container-to-another-host)
+    - [Commit a container and change ENTRYPOINT](#commit-a-container-and-change-entrypoint)
+    - [Move Docker container to another host](#move-docker-container-to-another-host)
     - [Remove the volumes associated with the container](#remove-the-volumes-associated-with-the-container)
       - [Export and import containers](#export-and-import-containers)
       - [Container image migration](#container-image-migration)
     - [`docker logs`](#docker-logs)
   - [Troubleshooting](#troubleshooting)
-    - [Error pulling image : no matching manifest](#error-pulling-image--no-matching-manifesthttpssuccessdockercomarticleerror-pulling-image-no-matching-manifest)
+    - [Error pulling image : no matching manifest](#error-pulling-image--no-matching-manifest)
       - [Find the OS/Arch of you system](#find-the-osarch-of-you-system)
       - [Find the OS/Arch of the image you want to download](#find-the-osarch-of-the-image-you-want-to-download)
   - [Q & A](#q--a)
-    - [Can Windows Containers be hosted on linux?](#can-windows-containers-be-hosted-on-linuxhttpsstackoverflowcomquestions42158596can-windows-containers-be-hosted-on-linux)
+    - [Can Windows Containers be hosted on linux?](#can-windows-containers-be-hosted-on-linux)
   - [Practice](#practice)
     - [ssh into a centos container](#ssh-into-a-centos-container)
       - [`/usr/sbin/sshd`](#usrsbinsshd)
+    - [How to get core file of segmentation fault process in Docker](#how-to-get-core-file-of-segmentation-fault-process-in-docker)
+      - [Configure to get core file](#configure-to-get-core-file)
+      - [Setting for the program](#setting-for-the-program)
+      - [Run container](#run-container)
+      - [After segmentation fault](#after-segmentation-fault)
+      - [After boot a container](#after-boot-a-container)
+    - [How to setting Core file size in Docker container?](#how-to-setting-core-file-size-in-docker-container)
 
 ## Install & Update
 
@@ -362,3 +369,53 @@ start `sshd`
 > If I ran sshd on different port 'sshd -p 5555 -d'. The key worked. Passwordless login ok. WTF?
 >
 > Then I disabled selinux (set SELINUX=disabled in /etc/selinux/config) and reboot. Passwordless login then worked ok.
+
+### [How to get core file of segmentation fault process in Docker](https://dev.to/mizutani/how-to-get-core-file-of-segmentation-fault-process-in-docker-22ii)
+
+#### Configure to get core file
+
+Run following commands in a start up script of docker container
+
+    echo '/tmp/core.%h.%e.%t' > /proc/sys/kernel/core_pattern
+    ulimit -c unlimited
+
+#### Setting for the program
+
+- Enable debug option if the program is compiled by yourself. Install debug symbol if it's from package manager
+
+- Do not delete source code in docker image
+
+#### Run container
+
+Use `--privileged` option when `docker run` to allow write permission for `/proc/sys/kernel/core_pattern`
+
+#### After segmentation fault
+
+- Check your container ID by `docker ps -a` command
+
+- Create docker image from the container by `docker commit`
+
+  - example
+
+    docker commit -m "coredump" 92b8935a7cd7 (92b8935a7cd7 is container ID）
+
+- `docker run -it <created image ID> sh` and boot a container in a state immediately after segmentation falut
+
+#### After boot a container
+
+- Install gdb if it hasn't been installed
+
+- Run `gdb /path/to/binary /path/to/corefile`
+
+- Enjoy debugging
+
+### [How to setting Core file size in Docker container?](https://stackoverflow.com/questions/28317487/how-to-setting-core-file-size-in-docker-container)
+
+You can set the limits on the container on docker run with the --ulimit flag.
+
+    docker run --ulimit core=<size> ...
+
+Note that "unlimited" is not a supported value since it is not actually a real value, but -1 is equivalent to it:
+
+    $ docker run -it --ulimit core=-1 ubuntu:18.04 sh -c 'ulimit -a | grep core'
+    coredump(blocks)     unlimited
