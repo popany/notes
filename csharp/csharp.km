@@ -1779,6 +1779,25 @@
             },
             {
                 "data": {
+                    "id": "c5bstusf3ls0",
+                    "created": 1598939728490,
+                    "text": "DataTable"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c5bstwr9gs80",
+                            "created": 1598939732774,
+                            "text": "Calculate Sum (Total) of DataTable Columns using C# and VB.Net",
+                            "hyperlink": "https://www.aspsnippets.com/Articles/Calculate-Sum-Total-of-DataTable-Columns-using-C-and-VBNet.aspx",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
                     "id": "c4tudipfs4g0",
                     "created": 1597116011362,
                     "text": "Data and modeling in .NET",

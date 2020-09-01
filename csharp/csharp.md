@@ -21,6 +21,7 @@
     - [Reflection in .NET](#reflection-in-net)
       - [Viewing Type Information](#viewing-type-information)
     - [Emitting Dynamic Methods and Assemblies](#emitting-dynamic-methods-and-assemblies)
+    - [Dynamically Create a Class at Runtime](#dynamically-create-a-class-at-runtime)
   - [others](#others)
   - [Debug](#debug)
     - [WinDbg command](#windbg-command)
@@ -148,41 +149,7 @@ Performs application-defined tasks associated with freeing, releasing, or resett
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### [GC Class](https://docs.microsoft.com/en-us/dotnet/api/system.gc?view=netframework-4.8)
-
-
 
 ## [Component Extensions for .NET and UWP](https://docs.microsoft.com/en-us/cpp/extensions/component-extensions-for-runtime-platforms?view=vs-2019)
 
@@ -263,28 +230,6 @@ If a class's destructor is not public, then it is only invoked when the referenc
 
 When you declare a public destructor, the compiler generates the code so that the ref class implements `Platform::IDisposable` and the destructor implements the `Dispose` method. `Platform::IDisposable` is the C++/CX projection of `Windows::Foundation::IClosable`. Never explicitly implement these interfaces.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Database
 
 ### DbProviderFactory
@@ -295,9 +240,9 @@ When you declare a public destructor, the compiler generates the code so that th
 
 #### [Viewing Type Information](https://docs.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/viewing-type-information)
 
-
-
 ### [Emitting Dynamic Methods and Assemblies](https://docs.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/emitting-dynamic-methods-and-assemblies)
+
+### [Dynamically Create a Class at Runtime](https://www.c-sharpcorner.com/UploadFile/87b416/dynamically-create-a-class-at-runtime/)
 
 ## others
 

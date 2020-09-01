@@ -24,6 +24,9 @@
     - [session](#session)
       - [The number of sessions the database was configured to allow](#the-number-of-sessions-the-database-was-configured-to-allow)
       - [The number of sessions currently active](#the-number-of-sessions-currently-active)
+    - [Merge Into](#merge-into)
+      - [oracle中merge into用法解析](#oracle中merge-into用法解析)
+      - [Oracle merge into 函数 (增量更新、全量更新)](#oracle-merge-into-函数-增量更新全量更新)
 
 ## [Oracle Network Configuration (listener.ora, tnsnames.ora, sqlnet.ora)](https://oracle-base.com/articles/misc/oracle-network-configuration)
 
@@ -285,3 +288,9 @@ To run the script with parameters, for example, you want to pass the employee nu
 
     SELECT COUNT(*)
       FROM v$session
+
+### Merge Into
+
+#### [oracle中merge into用法解析](https://blog.csdn.net/jeryjeryjery/article/details/70047022)
+
+#### [Oracle merge into 函数 (增量更新、全量更新)](https://blog.csdn.net/weixin_41922349/article/details/88052113)
