@@ -860,46 +860,6 @@ On some platforms, GDB provides a special process record and replay target that 
 
 When this target is in use, if the execution log includes the record for the next instruction, GDB will debug in replay mode. In the replay mode, the inferior does not really execute code instructions. Instead, all the events that normally happen during code execution are taken from the execution log. While code is not really executed in replay mode, the values of registers (including the program counter register) and the memory of the inferior are still changed as they normally would. Their contents are taken from the execution log.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## [9 Examining Source Files](https://sourceware.org/gdb/onlinedocs/gdb/Source.html)
 
 GDB can print parts of your program’s source, since the debugging information recorded in the program tells GDB what source files were used to build it.
@@ -908,11 +868,51 @@ GDB can print parts of your program’s source, since the debugging information 
 
 To print lines from a source file, use the `list` command (abbreviated `l`).
 
+- `list <linenum>`
+
+  Print lines centered around line number linenum in the current source file
+
+- `list <function>`
+
+   Print lines centered around the beginning of function function
+
 ### [9.2 Specifying a Location](https://sourceware.org/gdb/onlinedocs/gdb/Specify-Location.html)
+
+A linespec is a colon-separated list of source location parameters such as file name, function name, etc. Here are all the different ways of specifying a linespec:
+
+- linenum
+  
+   Specifies the line number linenum of the current source file
+
+- -offset / +offset
+  
+   Specifies the line offset lines before or after the current line
+
+- filename:linenum
+
+   Specifies the line linenum in the source file filename. If filename is a relative file name, then it will match any source file name with the same trailing components
+
+- function
+
+   Specifies the line that begins the body of the function function
+
+- filename:function
+
+   Specifies the line that begins the body of the function function in the file filename. You only need the file name with a function name to avoid ambiguity when there are identically named functions in different source files
 
 ### [9.3 Editing Source Files](https://sourceware.org/gdb/onlinedocs/gdb/Edit.html)
 
 ### [9.4 Searching Source Files](https://sourceware.org/gdb/onlinedocs/gdb/Search.html)
+
+There are two commands for searching through the **current source file** for a regular expression.
+
+- `forward-search <regexp>` / `search <regexp>`
+
+   The command 'forward-search regexp' checks each line, starting with the one following the last line listed, for a match for regexp. It lists the line that is found. You can use the synonym ‘search regexp’ or abbreviate the command name as fo
+
+- `reverse-search <regexp>`
+
+   The command ‘reverse-search regexp’ checks each line, starting with the one before the last line listed and going backward, for a match for regexp. It lists the line that is found. You can abbreviate this command as rev
 
 ### [9.5 Specifying Source Directories](https://sourceware.org/gdb/onlinedocs/gdb/Source-Path.html)
 
