@@ -839,10 +839,29 @@
             },
             {
                 "data": {
+                    "id": "c5eel7q33qw0",
+                    "created": 1599204235701,
+                    "text": "cursor"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c5eel9ypmq00",
+                            "created": 1599204240576,
+                            "text": "Troubleshooting Open Cursor Issues",
+                            "hyperlink": "https://docs.oracle.com/cd/E40329_01/admin.1112/e27149/cursor.htm#OMADM5352",
+                            "hyperlinkTitle": ""
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
                     "id": "c4hbsvvm3r40",
                     "created": 1595844894928,
                     "text": "error code",
-                    "expandState": "collapse"
+                    "expandState": "expand"
                 },
                 "children": [
                     {
@@ -920,6 +939,34 @@
                             "hyperlinkTitle": ""
                         },
                         "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "c5eeame8mzc0",
+                    "created": 1599203405631,
+                    "text": "工具"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "c5eeanytnj40",
+                            "created": 1599203409052,
+                            "text": "sqluldr2"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c5eeauyyzs80",
+                                    "created": 1599203424299,
+                                    "text": "sqluldr2超详细使用教程",
+                                    "hyperlink": "https://wenku.baidu.com/view/dfc7ebd7f01dc281e53af0a0.html",
+                                    "hyperlinkTitle": ""
+                                },
+                                "children": []
+                            }
+                        ]
                     }
                 ]
             }
