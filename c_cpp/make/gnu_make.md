@@ -30,6 +30,18 @@
     - [4.2 Rule Syntax](#42-rule-syntax)
     - [4.3 Types of Prerequisites](#43-types-of-prerequisites)
     - [4.4 Using Wildcard Characters in File Names](#44-using-wildcard-characters-in-file-names)
+      - [4.4.1 Wildcard Examples](#441-wildcard-examples)
+      - [4.4.2 Pitfalls of Using Wildcards](#442-pitfalls-of-using-wildcards)
+      - [4.4.3 The Function wildcard](#443-the-function-wildcard)
+    - [4.5 Searching Directories for Prerequisites](#45-searching-directories-for-prerequisites)
+      - [4.5.1 VPATH: Search Path for All Prerequisites](#451-vpath-search-path-for-all-prerequisites)
+      - [4.5.2 The vpath Directive](#452-the-vpath-directive)
+      - [4.5.3 How Directory Searches are Performed](#453-how-directory-searches-are-performed)
+      - [4.5.4 Writing Recipes with Directory Search](#454-writing-recipes-with-directory-search)
+      - [4.5.5 Directory Search and Implicit Rules](#455-directory-search-and-implicit-rules)
+      - [4.5.6 Directory Search for Link Libraries](#456-directory-search-for-link-libraries)
+    - [4.6 Phony Targets](#46-phony-targets)
+      - [4.7 Rules without Recipes or Prerequisites](#47-rules-without-recipes-or-prerequisites)
     - [10 Using Implicit Rules](#10-using-implicit-rules)
 
 ## [1 Overview of make](https://www.gnu.org/software/make/manual/html_node/Overview.html#Overview)
@@ -306,6 +318,309 @@ Consider an example where your targets are to be placed in a separate directory,
 Now the rule to create the objdir directory will be run, if needed, before any '.o' is built, but no '.o' will be built because the objdir directory timestamp changed.
 
 ### 4.4 Using Wildcard Characters in File Names
+
+A single file name can specify many files using wildcard characters. The wildcard characters in make are '\*', '?' and '[…]', the same as in the Bourne shell. For example, *.c specifies a list of all the files (in the working directory) whose names end in '.c'.
+
+The character `~` at the beginning of a file name also has special significance. If alone, or followed by a slash, it represents your home directory. For example ~/bin expands to /home/you/bin. If the `~` is followed by a word, the string represents the home directory of the user named by that word. For example ~john/bin expands to /home/john/bin. On systems which don’t have a home directory for each user (such as MS-DOS or MS-Windows), this functionality can be simulated by setting the environment variable HOME.
+
+Wildcard expansion is performed by make automatically in targets and in prerequisites. In recipes, the shell is responsible for wildcard expansion. In other contexts, wildcard expansion happens only if you request it explicitly with the wildcard function.
+
+The special significance of a wildcard character can be turned off by preceding it with a backslash. Thus, foo\*bar would refer to a specific file whose name consists of ‘foo’, an asterisk, and 'bar'.
+
+#### 4.4.1 Wildcard Examples
+
+Wildcards can be used in the recipe of a rule, where they are expanded by the shell. For example, here is a rule to delete all the object files:
+
+    clean:
+            rm -f *.o
+
+Wildcards are also useful in the prerequisites of a rule. With the following rule in the makefile, 'make print' will print all the '.c' files that have changed since the last time you printed them:
+
+    print: *.c
+            lpr -p $?
+            touch print
+
+This rule uses print as an empty target file; see [Empty Target Files to Record Events](https://www.gnu.org/software/make/manual/html_node/Empty-Targets.html#Empty-Targets). (The automatic variable '$?' is used to print only those files that have changed; see [Automatic Variables](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables).)
+
+Wildcard expansion does not happen when you define a variable. Thus, if you write this:
+
+    objects = *.o
+
+then the value of the variable objects is the actual string '*.o'. However, if you use the value of objects in a target or prerequisite, wildcard expansion will take place there. If you use the value of objects in a recipe, the shell may perform wildcard expansion when the recipe runs. To set objects to the expansion, instead use:
+
+    objects := $(wildcard *.o)
+
+#### 4.4.2 Pitfalls of Using Wildcards
+
+Now here is an example of a naive way of using wildcard expansion, that does not do what you would intend. Suppose you would like to say that the executable file foo is made from all the object files in the directory, and you write this:
+
+    objects = *.o
+
+    foo : $(objects)
+            cc -o foo $(CFLAGS) $(objects)
+
+The value of objects is the actual string '*.o'. Wildcard expansion happens in the rule for foo, so that each existing '.o' file becomes a prerequisite of foo and will be recompiled if necessary.
+
+But what if you delete all the '.o' files? When a wildcard matches no files, it is left as it is, so then foo will depend on the oddly-named file \*.o. Since no such file is likely to exist, make will give you an error saying it cannot figure out how to make \*.o. This is not what you want!
+
+Actually it is possible to obtain the desired result with wildcard expansion, but you need more sophisticated techniques, including the wildcard function and string substitution. See [The Function wildcard](https://www.gnu.org/software/make/manual/html_node/Wildcard-Pitfall.html).
+
+Microsoft operating systems (MS-DOS and MS-Windows) use backslashes to separate directories in pathnames, like so:
+
+    c:\foo\bar\baz.c
+
+This is equivalent to the Unix-style c:/foo/bar/baz.c (the c: part is the so-called drive letter). When make runs on these systems, it supports backslashes as well as the Unix-style forward slashes in pathnames. However, this support does not include the wildcard expansion, where backslash is a quote character. Therefore, you must use Unix-style slashes in these cases.
+
+#### 4.4.3 The Function wildcard
+
+Wildcard expansion happens automatically in rules. But wildcard expansion does not normally take place when a variable is set, or inside the arguments of a function. If you want to do wildcard expansion in such places, you need to use the wildcard function, like this:
+
+    $(wildcard pattern…)
+
+This string, used anywhere in a makefile, is replaced by a space-separated list of names of existing files that match one of the given file name patterns. If no existing file name matches a pattern, then that pattern is omitted from the output of the wildcard function.
+
+One use of the wildcard function is to get a list of all the C source files in a directory, like this:
+
+    $(wildcard *.c)
+
+We can change the list of C source files into a list of object files by replacing the '.c' suffix with '.o' in the result, like this:
+
+    $(patsubst %.c,%.o,$(wildcard *.c))
+
+Thus, a makefile to compile all C source files in the directory and then link them together could be written as follows:
+
+    objects := $(patsubst %.c,%.o,$(wildcard *.c))
+
+    foo : $(objects)
+            cc -o foo $(objects)
+
+(This takes advantage of the implicit rule for compiling C programs, so there is no need to write explicit rules for compiling the files. See [The Two Flavors of Variables](https://www.gnu.org/software/make/manual/html_node/Flavors.html#Flavors), for an explanation of ':=', which is a variant of '='.)
+
+### 4.5 Searching Directories for Prerequisites
+
+For large systems, it is often desirable to put sources in a separate directory from the binaries. The directory search features of make facilitate this by searching several directories automatically to find a prerequisite. When you redistribute the files among directories, you do not need to change the individual rules, just the search paths.
+
+#### 4.5.1 VPATH: Search Path for All Prerequisites
+
+The value of the make variable VPATH specifies a list of directories that make should search. Most often, the directories are expected to contain prerequisite files that are not in the current directory; however, make uses VPATH as a search list for both prerequisites and targets of rules.
+
+In the VPATH variable, directory names are separated by colons or blanks. The order in which directories are listed is the order followed by make in its search. (On MS-DOS and MS-Windows, semi-colons are used as separators of directory names in VPATH, since the colon can be used in the pathname itself, after the drive letter.)
+
+For example,
+
+    VPATH = src:../headers
+
+specifies a path containing two directories, src and ../headers, which make searches in that order.
+
+With this value of VPATH, the following rule,
+
+    foo.o : foo.c
+
+is interpreted as if it were written like this:
+
+    foo.o : src/foo.c
+
+assuming the file foo.c does not exist in the current directory but is found in the directory src.
+
+#### 4.5.2 The vpath Directive
+
+Similar to the VPATH variable, but more selective, is the vpath directive (note lower case), which allows you to specify a search path for a particular class of file names: those that match a particular pattern. Thus you can supply certain search directories for one class of file names and other directories (or none) for other file names.
+
+There are three forms of the vpath directive:
+
+- `vpath pattern directories`
+
+  Specify the search path directories for file names that match pattern.
+
+  The search path, directories, is a list of directories to be searched, separated by colons (semi-colons on MS-DOS and MS-Windows) or blanks, just like the search path used in the VPATH variable.
+
+- `vpath pattern`
+
+  Clear out the search path associated with pattern.
+
+- `vpath`
+
+  Clear all search paths previously specified with vpath directives.
+
+A vpath pattern is a string containing a '%' character. The string must match the file name of a prerequisite that is being searched for, the '%' character matching any sequence of zero or more characters (as in pattern rules; see [Defining and Redefining Pattern Rules](https://www.gnu.org/software/make/manual/html_node/Pattern-Rules.html#Pattern-Rules)). For example, %.h matches files that end in .h. (If there is no '%', the pattern must match the prerequisite exactly, which is not useful very often.)
+
+'%' characters in a vpath directive’s pattern can be quoted with preceding backslashes ('\'). Backslashes that would otherwise quote '%' characters can be quoted with more backslashes. Backslashes that quote '%' characters or other backslashes are removed from the pattern before it is compared to file names. Backslashes that are not in danger of quoting '%' characters go unmolested.
+
+When a prerequisite fails to exist in the current directory, if the pattern in a vpath directive matches the name of the prerequisite file, then the directories in that directive are searched just like (and before) the directories in the VPATH variable.
+
+For example,
+
+    vpath %.h ../headers
+
+tells make to look for any prerequisite whose name ends in .h in the directory ../headers if the file is not found in the current directory.
+
+If several vpath patterns match the prerequisite file’s name, then make processes each matching vpath directive one by one, searching all the directories mentioned in each directive. make handles multiple vpath directives in the order in which they appear in the makefile; multiple directives with the same pattern are independent of each other.
+
+Thus,
+
+    vpath %.c foo
+    vpath %   blish
+    vpath %.c bar
+
+will look for a file ending in ‘.c’ in foo, then blish, then bar, while
+
+    vpath %.c foo:bar
+    vpath %   blish
+
+will look for a file ending in ‘.c’ in foo, then bar, then blish.
+
+#### 4.5.3 How Directory Searches are Performed
+
+When a prerequisite is found through directory search, regardless of type (general or selective), the pathname located may not be the one that make actually provides you in the prerequisite list. Sometimes the path discovered through directory search is thrown away.
+
+The algorithm make uses to decide whether to keep or abandon a path found via directory search is as follows:
+
+1. If a target file does not exist at the path specified in the makefile, directory search is performed.
+
+2. If the directory search is successful, that path is kept and this file is tentatively stored as the target.
+
+3. All prerequisites of this target are examined using this same method.
+
+4. After processing the prerequisites, the target may or may not need to be rebuilt:
+
+   1. If the target does not need to be rebuilt, the path to the file found during directory search is used for any prerequisite lists which contain this target. In short, if make doesn’t need to rebuild the target then you use the path found via directory search.
+
+   2. If the target does need to be rebuilt (is out-of-date), the pathname found during directory search is thrown away, and the target is rebuilt using the file name specified in the makefile. In short, if make must rebuild, then the target is rebuilt locally, not in the directory found via directory search.
+
+This algorithm may seem complex, but in practice it is quite often exactly what you want.
+
+Other versions of make use a simpler algorithm: if the file does not exist, and it is found via directory search, then that pathname is always used whether or not the target needs to be built. Thus, if the target is rebuilt it is created at the pathname discovered during directory search.
+
+If, in fact, this is the behavior you want for some or all of your directories, you can use the GPATH variable to indicate this to make.
+
+GPATH has the same syntax and format as VPATH (that is, a space- or colon-delimited list of pathnames). If an out-of-date target is found by directory search in a directory that also appears in GPATH, then that pathname is not thrown away. The target is rebuilt using the expanded path.
+
+#### 4.5.4 Writing Recipes with Directory Search
+
+When a prerequisite is found in another directory through directory search, this cannot change the recipe of the rule; they will execute as written. Therefore, you must write the recipe with care so that it will look for the prerequisite in the directory where make finds it.
+
+This is done with the automatic variables such as '$^' (see [Automatic Variables](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables)). For instance, the value of '$^' is a list of all the prerequisites of the rule, including the names of the directories in which they were found, and the value of '$@' is the target. Thus:
+
+    foo.o : foo.c
+            cc -c $(CFLAGS) $^ -o $@
+
+(The variable CFLAGS exists so you can specify flags for C compilation by implicit rules; we use it here for consistency so it will affect all C compilations uniformly; see [Variables Used by Implicit Rules](https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html#Implicit-Variables).)
+
+Often the prerequisites include header files as well, which you do not want to mention in the recipe. The automatic variable ‘$<’ is just the first prerequisite:
+
+    VPATH = src:../headers
+    foo.o : foo.c defs.h hack.h
+            cc -c $(CFLAGS) $< -o $@
+
+#### 4.5.5 Directory Search and Implicit Rules
+
+The search through the directories specified in VPATH or with vpath also happens during consideration of implicit rules (see [Using Implicit Rules](https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html#Implicit-Rules)).
+
+For example, when a file foo.o has no explicit rule, make considers implicit rules, such as the built-in rule to compile foo.c if that file exists. If such a file is lacking in the current directory, the appropriate directories are searched for it. If foo.c exists (or is mentioned in the makefile) in any of the directories, the implicit rule for C compilation is applied.
+
+The recipes of implicit rules normally use automatic variables as a matter of necessity; consequently they will use the file names found by directory search with no extra effort.
+
+#### 4.5.6 Directory Search for Link Libraries
+
+Directory search applies in a special way to libraries used with the linker. This special feature comes into play when you write a prerequisite whose name is of the form '-lname'. (You can tell something strange is going on here because the prerequisite is normally the name of a file, and the file name of a library generally looks like libname.a, not like '-lname'.)
+
+When a prerequisite’s name has the form '-lname', make handles it specially by searching for the file libname.so, and, if it is not found, for the file libname.a in the current directory, in directories specified by matching vpath search paths and the VPATH search path, and then in the directories /lib, /usr/lib, and prefix/lib (normally /usr/local/lib, but MS-DOS/MS-Windows versions of make behave as if prefix is defined to be the root of the DJGPP installation tree).
+
+For example, if there is a /usr/lib/libcurses.a library on your system (and no /usr/lib/libcurses.so file), then
+
+    foo : foo.c -lcurses
+            cc $^ -o $@
+
+would cause the command 'cc foo.c /usr/lib/libcurses.a -o foo' to be executed when foo is older than foo.c or than /usr/lib/libcurses.a.
+
+Although the default set of files to be searched for is libname.so and libname.a, this is customizable via the .LIBPATTERNS variable. Each word in the value of this variable is a pattern string. When a prerequisite like '-lname' is seen, make will replace the percent in each pattern in the list with name and perform the above directory searches using each library file name.
+
+The default value for .LIBPATTERNS is 'lib%.so lib%.a', which provides the default behavior described above.
+
+You can turn off link library expansion completely by setting this variable to an empty value.
+
+### 4.6 Phony Targets
+
+A phony target is one that is not really the name of a file; rather it is just a name for a recipe to be executed when you make an explicit request. There are two reasons to use a phony target: to avoid a conflict with a file of the same name, and to improve performance.
+
+If you write a rule whose recipe will not create the target file, the recipe will be executed every time the target comes up for remaking. Here is an example:
+
+    clean:
+            rm *.o temp
+
+Because the rm command does not create a file named clean, probably no such file will ever exist. Therefore, the rm command will be executed every time you say 'make clean'.
+
+In this example, the clean target will not work properly if a file named clean is ever created in this directory. Since it has no prerequisites, clean would always be considered up to date and its recipe would not be executed. To avoid this problem you can explicitly declare the target to be phony by making it a prerequisite of the special target .PHONY (see [Special Built-in Target Names](https://www.gnu.org/software/make/manual/html_node/Special-Targets.html#Special-Targets)) as follows:
+
+    .PHONY: clean
+    clean:
+            rm *.o temp
+
+Once this is done, 'make clean' will run the recipe regardless of whether there is a file named clean.
+
+Phony targets are also useful in conjunction with recursive invocations of make (see Recursive Use of make). In this situation the makefile will often contain a variable which lists a number of sub-directories to be built. A simplistic way to handle this is to define one rule with a recipe that loops over the sub-directories, like this:
+
+    SUBDIRS = foo bar baz
+
+    subdirs:
+            for dir in $(SUBDIRS); do \
+              $(MAKE) -C $$dir; \
+            done
+
+There are problems with this method, however. First, any error detected in a sub-make is ignored by this rule, so it will continue to build the rest of the directories even when one fails. This can be overcome by adding shell commands to note the error and exit, but then it will do so even if make is invoked with the -k option, which is unfortunate. Second, and perhaps more importantly, you cannot take advantage of make’s ability to build targets in parallel (see [Parallel Execution](https://www.gnu.org/software/make/manual/html_node/Parallel.html#Parallel)), since there is only one rule.
+
+By declaring the sub-directories as .PHONY targets (you must do this as the sub-directory obviously always exists; otherwise it won’t be built) you can remove these problems:
+
+    SUBDIRS = foo bar baz
+
+    .PHONY: subdirs $(SUBDIRS)
+
+    subdirs: $(SUBDIRS)
+
+    $(SUBDIRS):
+            $(MAKE) -C $@
+
+    foo: baz
+
+Here we've also declared that the foo sub-directory cannot be built until after the baz sub-directory is complete; this kind of relationship declaration is particularly important when attempting parallel builds.
+
+The implicit rule search (see [Implicit Rules](https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html#Implicit-Rules)) is skipped for .PHONY targets. This is why declaring a target as .PHONY is good for performance, even if you are not worried about the actual file existing.
+
+A phony target should not be a prerequisite of a real target file; if it is, its recipe will be run every time make goes to update that file. As long as a phony target is never a prerequisite of a real target, the phony target recipe will be executed only when the phony target is a specified goal (see [Arguments to Specify the Goals](https://www.gnu.org/software/make/manual/html_node/Goals.html#Goals)).
+
+Phony targets can have prerequisites. When one directory contains multiple programs, it is most convenient to describe all of the programs in one makefile ./Makefile. Since the target remade by default will be the first one in the makefile, it is common to make this a phony target named 'all' and give it, as prerequisites, all the individual programs. For example:
+
+    all : prog1 prog2 prog3
+    .PHONY : all
+
+    prog1 : prog1.o utils.o
+            cc -o prog1 prog1.o utils.o
+
+    prog2 : prog2.o
+            cc -o prog2 prog2.o
+
+    prog3 : prog3.o sort.o utils.o
+            cc -o prog3 prog3.o sort.o utils.o
+
+Now you can say just 'make' to remake all three programs, or specify as arguments the ones to remake (as in 'make prog1 prog3'). Phoniness is not inherited: the prerequisites of a phony target are not themselves phony, unless explicitly declared to be so.
+
+When one phony target is a prerequisite of another, it serves as a subroutine of the other. For example, here ‘make cleanall’ will delete the object files, the difference files, and the file program:
+
+    .PHONY: cleanall cleanobj cleandiff
+
+    cleanall : cleanobj cleandiff
+            rm program
+
+    cleanobj :
+            rm *.o
+
+    cleandiff :
+            rm *.diff
+
+#### 4.7 Rules without Recipes or Prerequisites
+
+
+
 
 
 
