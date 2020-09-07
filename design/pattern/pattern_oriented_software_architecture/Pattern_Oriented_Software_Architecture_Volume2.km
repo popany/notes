@@ -26,14 +26,16 @@
                         "data": {
                             "id": "c4z2yjxpz740",
                             "created": 1597648028350,
-                            "text": "1.2 Challenges of Concurrent and Networked Software  "
+                            "text": "1.2 Challenges of Concurrent and Networked Software  ",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
                                 "data": {
                                     "id": "c4z2ynt45sw0",
                                     "created": 1597648036778,
-                                    "text": "Challenge 1: Service Access and Configuration  "
+                                    "text": "Challenge 1: Service Access and Configuration  ",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -83,7 +85,8 @@
                                 "data": {
                                     "id": "c4z2zuajiag0",
                                     "created": 1597648129257,
-                                    "text": "Challenge 2: Event Handling  "
+                                    "text": "Challenge 2: Event Handling  ",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -133,7 +136,8 @@
                                 "data": {
                                     "id": "c4z30p0inig0",
                                     "created": 1597648196131,
-                                    "text": "Challenge 3: Concurrency  "
+                                    "text": "Challenge 3: Concurrency  ",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -191,7 +195,8 @@
                                 "data": {
                                     "id": "c4z31ixphww0",
                                     "created": 1597648261265,
-                                    "text": "Challenge 4: Synchronization  "
+                                    "text": "Challenge 4: Synchronization  ",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
@@ -227,6 +232,23 @@
                                         "children": []
                                     }
                                 ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "c5gqlsqp1qg0",
+                            "created": 1599441254683,
+                            "text": "1.3 A Case Study: Designing a Concurrent Web Server "
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c5gqmifl0kw0",
+                                    "created": 1599441310607,
+                                    "text": "Overview of the JAWS Framework"
+                                },
+                                "children": []
                             }
                         ]
                     }
