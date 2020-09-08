@@ -239,7 +239,8 @@
                         "data": {
                             "id": "c5gqlsqp1qg0",
                             "created": 1599441254683,
-                            "text": "1.3 A Case Study: Designing a Concurrent Web Server "
+                            "text": "1.3 A Case Study: Designing a Concurrent Web Server ",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
@@ -248,9 +249,302 @@
                                     "created": 1599441310607,
                                     "text": "Overview of the JAWS Framework"
                                 },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c5hksag7xyo0",
+                                            "created": 1599526396714,
+                                            "text": "Event Dispatcher"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hksfkdaw00",
+                                            "created": 1599526407849,
+                                            "text": "Protocol Handler"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hksgf596w0",
+                                            "created": 1599526409709,
+                                            "text": "Cached Virtual Filesystem"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c5hktjzualc0",
+                                    "created": 1599526495855,
+                                    "text": "Applying Patterns to Resolve Common Design Challenges in JAWS "
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c5hktr1z7q80",
+                                            "created": 1599526511222,
+                                            "text": "Encapsulating low-level operating system APIs "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hktvsaa4w0",
+                                            "created": 1599526521520,
+                                            "text": "Decoupling event demultiplexing and connection management from protocol processing "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hktyqk3ts0",
+                                            "created": 1599526527946,
+                                            "text": "Scaling up server performance via multi-threading"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hku697sg80",
+                                            "created": 1599526544311,
+                                            "text": "Implementing a synchronized request queue  "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hkuazblaw0",
+                                            "created": 1599526554597,
+                                            "text": "Minimizing server threading overhead "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hkueko1e80",
+                                            "created": 1599526562418,
+                                            "text": "Using asynchronous I/O effectively "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hkui0y7og0",
+                                            "created": 1599526569933,
+                                            "text": "Enhancing server configurability "
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c5hkvt44w9s0",
+                                    "created": 1599526672434,
+                                    "text": "Encapsulating Low-level Operating System APIs  "
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c5hkw2vg3s00",
+                                            "created": 1599526693678,
+                                            "text": "Wrapper Facade patterm"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c5hkw8h4zog0",
+                                    "created": 1599526705872,
+                                    "text": "Decoupling Event Demultiplexing and Connection Management from Protocol Processing "
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c5hkx8mkimw0",
+                                            "created": 1599526784565,
+                                            "text": "Reactor pattern "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hkx9w002w0",
+                                            "created": 1599526787312,
+                                            "text": "Acceptor-Connector pattern"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c5hkxqmww9s0",
+                                    "created": 1599526823768,
+                                    "text": "Scaling Up Server Performance via Multi-threading "
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c5hky2u4vhc0",
+                                            "created": 1599526850326,
+                                            "text": "Half-Sync/Half-Async pattern "
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c5hkz7gvhgo0",
+                                    "created": 1599526938772,
+                                    "text": "Implementing a Synchronized Request Queue"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c5hkzm9nxqg0",
+                                            "created": 1599526970988,
+                                            "text": "Monitor Object pattern "
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c5hl0uuh0140",
+                                    "created": 1599527068024,
+                                    "text": "Minimizing Server Threading Overhead"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c5hl4i11nrk0",
+                                            "created": 1599527353580,
+                                            "text": "Leader/Followers pattern "
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c5hlan9xe9s0",
+                                    "created": 1599527835186,
+                                    "text": "Leveraging Asynchronous I/O Effectively"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c5hlcztsg5k0",
+                                            "created": 1599528019237,
+                                            "text": "Proactor pattern "
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c5hlf2ezw6o0",
+                                    "created": 1599528181601,
+                                    "text": "Enhancing Server Configurability"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c5hljh7nhyw0",
+                                            "created": 1599528527266,
+                                            "text": "Component Configurator pattern "
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c5hlktqfeag0",
+                                    "created": 1599528632886,
+                                    "text": "Other Patterns Used to Implement JAWS ",
+                                    "expandState": "expand"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c5hllrulpjk0",
+                                            "created": 1599528707149,
+                                            "text": "Thread-Safe Interface pattern"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hlm9z7hz40",
+                                            "created": 1599528746610,
+                                            "text": "Strategized Locking pattern"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hlmoe0v4o0",
+                                            "created": 1599528777981,
+                                            "text": "Scoped Locking C++ idiom "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hln9nvte00",
+                                            "created": 1599528824289,
+                                            "text": "Singleton pattern"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hlnibs67k0",
+                                            "created": 1599528843149,
+                                            "text": "State pattern "
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "c5hlnqt25co0",
+                                            "created": 1599528861608,
+                                            "text": "Strategy pattern "
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c5hlpj79feo0",
+                                    "created": 1599529001781,
+                                    "text": "The source for JAWS and ACE ",
+                                    "hyperlink": "http://www.posa.uci.edu/",
+                                    "hyperlinkTitle": ""
+                                },
                                 "children": []
                             }
                         ]
+                    },
+                    {
+                        "data": {
+                            "id": "c5hlpz627so0",
+                            "created": 1599529036536,
+                            "text": "1.4 Wrapping Up "
+                        },
+                        "children": []
                     }
                 ]
             },

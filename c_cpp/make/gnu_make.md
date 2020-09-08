@@ -41,7 +41,18 @@
       - [4.5.5 Directory Search and Implicit Rules](#455-directory-search-and-implicit-rules)
       - [4.5.6 Directory Search for Link Libraries](#456-directory-search-for-link-libraries)
     - [4.6 Phony Targets](#46-phony-targets)
-      - [4.7 Rules without Recipes or Prerequisites](#47-rules-without-recipes-or-prerequisites)
+    - [4.7 Rules without Recipes or Prerequisites](#47-rules-without-recipes-or-prerequisites)
+    - [4.8 Empty Target Files to Record Events](#48-empty-target-files-to-record-events)
+    - [4.9 Special Built-in Target Names](#49-special-built-in-target-names)
+    - [4.10 Multiple Targets in a Rule](#410-multiple-targets-in-a-rule)
+      - [Rules with Independent Targets](#rules-with-independent-targets)
+      - [Rules with Grouped Targets](#rules-with-grouped-targets)
+    - [4.11 Multiple Rules for One Target](#411-multiple-rules-for-one-target)
+    - [4.12 Static Pattern Rules](#412-static-pattern-rules)
+      - [4.12.1 Syntax of Static Pattern Rules](#4121-syntax-of-static-pattern-rules)
+      - [4.12.2 Static Pattern Rules versus Implicit Rules](#4122-static-pattern-rules-versus-implicit-rules)
+    - [4.13 Double-Colon Rules](#413-double-colon-rules)
+    - [4.14 Generating Prerequisites Automatically](#414-generating-prerequisites-automatically)
     - [10 Using Implicit Rules](#10-using-implicit-rules)
 
 ## [1 Overview of make](https://www.gnu.org/software/make/manual/html_node/Overview.html#Overview)
@@ -617,7 +628,208 @@ When one phony target is a prerequisite of another, it serves as a subroutine of
     cleandiff :
             rm *.diff
 
-#### 4.7 Rules without Recipes or Prerequisites
+### 4.7 Rules without Recipes or Prerequisites
+
+If a rule has no prerequisites or recipe, and the target of the rule is a nonexistent file, then make imagines this target to have been updated whenever its rule is run. This implies that all targets depending on this one will always have their recipe run.
+
+An example will illustrate this:
+
+    clean: FORCE
+            rm $(objects)
+    FORCE:
+
+Here the target 'FORCE' satisfies the special conditions, so the target clean that depends on it is forced to run its recipe. There is nothing special about the name 'FORCE', but that is one name commonly used this way.
+
+As you can see, using 'FORCE' this way has the same results as using '.PHONY: clean'.
+
+Using '.PHONY' is more explicit and more efficient. However, other versions of make do not support '.PHONY'; thus 'FORCE' appears in many makefiles. See Phony Targets.
+
+### 4.8 Empty Target Files to Record Events
+
+The empty target is a variant of the phony target; it is used to hold recipes for an action that you request explicitly from time to time. Unlike a phony target, this target file can really exist; but the file’s contents do not matter, and usually are empty.
+
+The purpose of the empty target file is to record, with its last-modification time, when the rule's recipe was last executed. It does so because one of the commands in the recipe is a touch command to update the target file.
+
+The empty target file should have some prerequisites (otherwise it doesn't make sense). When you ask to remake the empty target, the recipe is executed if any prerequisite is more recent than the target; in other words, if a prerequisite has changed since the last time you remade the target. Here is an example:
+
+    print: foo.c bar.c
+            lpr -p $?
+            touch print
+
+With this rule, 'make print' will execute the lpr command if either source file has changed since the last 'make print'. The automatic variable '$?' is used to print only those files that have changed (see [Automatic Variables](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables)).
+
+### [4.9 Special Built-in Target Names](https://www.gnu.org/software/make/manual/html_node/Special-Targets.html#Special-Targets)
+
+### 4.10 Multiple Targets in a Rule
+
+When an explicit rule has multiple targets they can be treated in one of two possible ways: as independent targets or as grouped targets. The manner in which they are treated is determined by the separator that appears after the list of targets.
+
+#### Rules with Independent Targets
+
+Rules that use the standard target separator, :, define independent targets. This is equivalent to writing the same rule once for each target, with duplicated prerequisites and recipes. Typically, the recipe would use automatic variables such as '$@' to specify which target is being built.
+
+- You want just prerequisites, no recipe. For example:
+
+      kbd.o command.o files.o: command.h
+
+  gives an additional prerequisite to each of the three object files mentioned. It is equivalent to writing:
+
+      kbd.o: command.h
+      command.o: command.h
+      files.o: command.h
+
+- Similar recipes work for all the targets. The automatic variable '$@' can be used to substitute the particular target to be remade into the commands (see Automatic Variables). For example:
+
+      bigoutput littleoutput : text.g
+              generate text.g -$(subst output,,$@) > $@
+
+  is equivalent to
+
+      bigoutput : text.g
+              generate text.g -big > bigoutput
+
+      littleoutput : text.g
+              generate text.g -little > littleoutput
+
+  Here we assume the hypothetical program generate makes two types of output, one if given '-big' and one if given '-little'. See [Functions for String Substitution and Analysis](https://www.gnu.org/software/make/manual/html_node/Text-Functions.html#Text-Functions), for an explanation of the subst function.
+
+Suppose you would like to vary the prerequisites according to the target, much as the variable '$@' allows you to vary the recipe. You cannot do this with multiple targets in an ordinary rule, but you can do it with a static pattern rule. See [Static Pattern Rules](https://www.gnu.org/software/make/manual/html_node/Static-Pattern.html#Static-Pattern).
+
+#### Rules with Grouped Targets
+
+If instead of independent targets you have a recipe that generates multiple files from a single invocation, you can express that relationship by declaring your rule to use grouped targets. A grouped target rule uses the separator &: (the '&' here is used to imply "all").
+
+When make builds any one of the grouped targets, it understands that all the other targets in the group are also created as a result of the invocation of the recipe. Furthermore, if only some of the grouped targets are out of date or missing make will realize that running the recipe will update all of the targets.
+
+As an example, this rule defines a grouped target:
+
+    foo bar biz &: baz boz
+            echo $^ > foo
+            echo $^ > bar
+            echo $^ > biz
+
+During the execution of a grouped target's recipe, the automatic variable '$@' is set to the name of the particular target in the group which triggered the rule. Caution must be used if relying on this variable in the recipe of a grouped target rule.
+
+Unlike independent targets, a grouped target rule must include a recipe. However, targets that are members of a grouped target may also appear in independent target rule definitions that do not have recipes.
+
+Each target may have only one recipe associated with it. If a grouped target appears in either an independent target rule or in another grouped target rule with a recipe, you will get a warning and the latter recipe will replace the former recipe. Additionally the target will be removed from the previous group and appear only in the new group.
+
+If you would like a target to appear in multiple groups, then you must use the double-colon grouped target separator, &:: when declaring all of the groups containing that target. Grouped double-colon targets are each considered independently, and each grouped double-colon rule's recipe is executed at most once, if at least one of its multiple targets requires updating.
+
+### 4.11 Multiple Rules for One Target
+
+One file can be the target of several rules. All the prerequisites mentioned in all the rules are merged into one list of prerequisites for the target. If the target is older than any prerequisite from any rule, the recipe is executed.
+
+There can only be one recipe to be executed for a file. If more than one rule gives a recipe for the same file, make uses the last one given and prints an error message. (As a special case, if the file’s name begins with a dot, no error message is printed. This odd behavior is only for compatibility with other implementations of make… you should avoid using it). Occasionally it is useful to have the same target invoke multiple recipes which are defined in different parts of your makefile; you can use double-colon rules (see [Double-Colon](https://www.gnu.org/software/make/manual/html_node/Double_002dColon.html#Double_002dColon)) for this.
+
+An extra rule with just prerequisites can be used to give a few extra prerequisites to many files at once. For example, makefiles often have a variable, such as objects, containing a list of all the compiler output files in the system being made. An easy way to say that all of them must be recompiled if config.h changes is to write the following:
+
+    objects = foo.o bar.o
+    foo.o : defs.h
+    bar.o : defs.h test.h
+    $(objects) : config.h
+
+This could be inserted or taken out without changing the rules that really specify how to make the object files, making it a convenient form to use if you wish to add the additional prerequisite intermittently.
+
+Another wrinkle is that the additional prerequisites could be specified with a variable that you set with a command line argument to make (see [Overriding Variables]()). For example,
+
+    extradeps=
+    $(objects) : $(extradeps)
+
+means that the command ‘make extradeps=foo.h’ will consider foo.h as a prerequisite of each object file, but plain ‘make’ will not.
+
+### 4.12 Static Pattern Rules
+
+Static pattern rules are rules which specify multiple targets and construct the prerequisite names for each target based on the target name. They are more general than ordinary rules with multiple targets because the targets do not have to have identical prerequisites. Their prerequisites must be analogous, but not necessarily identical.
+
+#### 4.12.1 Syntax of Static Pattern Rules
+
+Here is the syntax of a static pattern rule:
+
+    targets …: target-pattern: prereq-patterns …
+            recipe
+            …
+
+The targets list specifies the targets that the rule applies to. The targets can contain wildcard characters, just like the targets of ordinary rules (see [Using Wildcard Characters in File Names](https://www.gnu.org/software/make/manual/html_node/Wildcards.html#Wildcards)).
+
+The target-pattern and prereq-patterns say how to compute the prerequisites of each target. Each target is matched against the target-pattern to extract a part of the target name, called the stem. This stem is substituted into each of the prereq-patterns to make the prerequisite names (one from each prereq-pattern).
+
+Each pattern normally contains the character '%' just once. When the target-pattern matches a target, the '%' can match any part of the target name; this part is called the stem. The rest of the pattern must match exactly. For example, the target foo.o matches the pattern '%.o', with 'foo' as the stem. The targets foo.c and foo.out do not match that pattern.
+
+The prerequisite names for each target are made by substituting the stem for the '%' in each prerequisite pattern. For example, if one prerequisite pattern is %.c, then substitution of the stem 'foo' gives the prerequisite name foo.c. It is legitimate to write a prerequisite pattern that does not contain '%'; then this prerequisite is the same for all targets.
+
+'%' characters in pattern rules can be quoted with preceding backslashes ('\'). Backslashes that would otherwise quote '%' characters can be quoted with more backslashes. Backslashes that quote '%' characters or other backslashes are removed from the pattern before it is compared to file names or has a stem substituted into it. Backslashes that are not in danger of quoting '%' characters go unmolested. For example, the pattern the\%weird\\%pattern\\ has 'the%weird\' preceding the operative '%' character, and 'pattern\\' following it. The final two backslashes are left alone because they cannot affect any '%' character.
+
+Here is an example, which compiles each of foo.o and bar.o from the corresponding .c file:
+
+    objects = foo.o bar.o
+
+    all: $(objects)
+
+    $(objects): %.o: %.c
+            $(CC) -c $(CFLAGS) $< -o $@
+
+Here '$<' is the automatic variable that holds the name of the prerequisite and '$@' is the automatic variable that holds the name of the target; see [Automatic Variables](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables).
+
+Each target specified must match the target pattern; a warning is issued for each target that does not. If you have a list of files, only some of which will match the pattern, you can use the filter function to remove non-matching file names (see [Functions for String Substitution and Analysis](https://www.gnu.org/software/make/manual/html_node/Text-Functions.html#Text-Functions)):
+
+    files = foo.elc bar.o lose.o
+
+    $(filter %.o,$(files)): %.o: %.c
+            $(CC) -c $(CFLAGS) $< -o $@
+    $(filter %.elc,$(files)): %.elc: %.el
+            emacs -f batch-byte-compile $<
+
+In this example the result of '\$(filter %.o,\$(files))' is bar.o lose.o, and the first static pattern rule causes each of these object files to be updated by compiling the corresponding C source file. The result of '\$(filter %.elc,\$(files))' is foo.elc, so that file is made from foo.el.
+
+Another example shows how to use $* in static pattern rules:
+
+    bigoutput littleoutput : %output : text.g
+            generate text.g -$* > $@
+
+When the generate command is run, $* will expand to the stem, either 'big' or 'little'.
+
+#### 4.12.2 Static Pattern Rules versus Implicit Rules
+
+A static pattern rule has much in common with an implicit rule defined as a pattern rule (see [Defining and Redefining Pattern Rules](https://www.gnu.org/software/make/manual/html_node/Pattern-Rules.html#Pattern-Rules)). Both have a pattern for the target and patterns for constructing the names of prerequisites. The difference is in how make decides when the rule applies.
+
+An implicit rule can apply to any target that matches its pattern, but it does apply only when the target has no recipe otherwise specified, and only when the prerequisites can be found. If more than one implicit rule appears applicable, only one applies; the choice depends on the order of rules.
+
+By contrast, a static pattern rule applies to the precise list of targets that you specify in the rule. It cannot apply to any other target and it invariably does apply to each of the targets specified. If two conflicting rules apply, and both have recipes, that’s an error.
+
+The static pattern rule can be better than an implicit rule for these reasons:
+
+- You may wish to override the usual implicit rule for a few files whose names cannot be categorized syntactically but can be given in an explicit list.
+
+- If you cannot be sure of the precise contents of the directories you are using, you may not be sure which other irrelevant files might lead make to use the wrong implicit rule. The choice might depend on the order in which the implicit rule search is done. With static pattern rules, there is no uncertainty: each rule applies to precisely the targets specified.
+
+### [4.13 Double-Colon Rules](https://www.gnu.org/software/make/manual/html_node/Double_002dColon.html#Double_002dColon)
+
+Double-colon rules are explicit rules written with '::' instead of ':' after the target names. They are handled differently from ordinary rules when the same target appears in more than one rule. Pattern rules with double-colons have an entirely different meaning (see [Match-Anything Rules](https://www.gnu.org/software/make/manual/html_node/Match_002dAnything-Rules.html#Match_002dAnything-Rules)).
+
+When a target appears in multiple rules, all the rules must be the same type: all ordinary, or all double-colon. If they are double-colon, each of them is independent of the others. Each double-colon rule's recipe is executed if the target is older than any prerequisites of that rule. If there are no prerequisites for that rule, its recipe is always executed (even if the target already exists). This can result in executing none, any, or all of the double-colon rules.
+
+Double-colon rules with the same target are in fact completely separate from one another. Each double-colon rule is processed individually, just as rules with different targets are processed.
+
+The double-colon rules for a target are executed in the order they appear in the makefile. However, the cases where double-colon rules really make sense are those where the order of executing the recipes would not matter.
+
+Double-colon rules are somewhat obscure and not often very useful; they provide a mechanism for cases in which the method used to update a target differs depending on which prerequisite files caused the update, and such cases are rare.
+
+Each double-colon rule should specify a recipe; if it does not, an implicit rule will be used if one applies. See [Using Implicit Rules](https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html#Implicit-Rules).
+
+### [4.14 Generating Prerequisites Automatically](https://www.gnu.org/software/make/manual/html_node/Automatic-Prerequisites.html)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
