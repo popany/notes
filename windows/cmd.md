@@ -6,6 +6,7 @@
   - [`7z`](#7z)
   - [Demos](#demos)
     - [`copy_file.bat`](#copy_filebat)
+  - [How to Open an Elevated Command Prompt](#how-to-open-an-elevated-command-prompt)
 
 ## timestamp
 
@@ -37,3 +38,6 @@
     copy %fromFilePath% "%toFilePrefix%-%date:~0,4%%date:~5,2%%date:~8,2%-%time:~0,2%%time:~3,2%%time:~6,2%-%time:~9,2%"
     timeout /T 10
     goto loop
+
+## [How to Open an Elevated Command Prompt](https://www.lifewire.com/how-to-open-an-elevated-command-prompt-2618088)
+

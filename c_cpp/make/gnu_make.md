@@ -53,7 +53,28 @@
       - [4.12.2 Static Pattern Rules versus Implicit Rules](#4122-static-pattern-rules-versus-implicit-rules)
     - [4.13 Double-Colon Rules](#413-double-colon-rules)
     - [4.14 Generating Prerequisites Automatically](#414-generating-prerequisites-automatically)
-    - [10 Using Implicit Rules](#10-using-implicit-rules)
+  - [5 Writing Recipes in Rules](#5-writing-recipes-in-rules)
+    - [5.1 Recipe Syntax](#51-recipe-syntax)
+    - [5.1.1 Splitting Recipe Lines](#511-splitting-recipe-lines)
+      - [5.1.2 Using Variables in Recipes](#512-using-variables-in-recipes)
+    - [5.2 Recipe Echoing](#52-recipe-echoing)
+    - [5.3 Recipe Execution](#53-recipe-execution)
+      - [5.3.1 Using One Shell](#531-using-one-shell)
+      - [5.3.2 Choosing the Shell](#532-choosing-the-shell)
+    - [5.4 Parallel Execution](#54-parallel-execution)
+      - [5.4.1 Output During Parallel Execution](#541-output-during-parallel-execution)
+      - [5.4.2 Input During Parallel Execution](#542-input-during-parallel-execution)
+    - [5.5 Errors in Recipes](#55-errors-in-recipes)
+    - [5.6 Interrupting or Killing make](#56-interrupting-or-killing-make)
+    - [5.7 Recursive Use of make](#57-recursive-use-of-make)
+      - [5.7.1 How the MAKE Variable Works](#571-how-the-make-variable-works)
+      - [5.7.2 Communicating Variables to a Sub-make](#572-communicating-variables-to-a-sub-make)
+      - [5.7.3 Communicating Options to a Sub-make](#573-communicating-options-to-a-sub-make)
+      - [5.7.4 The ‘--print-directory’ Option](#574-the---print-directory-option)
+    - [5.8 Defining Canned Recipes](#58-defining-canned-recipes)
+    - [5.9 Using Empty Recipes](#59-using-empty-recipes)
+  - [6 How to Use Variables](#6-how-to-use-variables)
+  - [10 Using Implicit Rules](#10-using-implicit-rules)
 
 ## [1 Overview of make](https://www.gnu.org/software/make/manual/html_node/Overview.html#Overview)
 
@@ -819,6 +840,282 @@ Each double-colon rule should specify a recipe; if it does not, an implicit rule
 
 ### [4.14 Generating Prerequisites Automatically](https://www.gnu.org/software/make/manual/html_node/Automatic-Prerequisites.html)
 
+In the makefile for a program, many of the rules you need to write often say only that some object file depends on some header file. For example, if main.c uses defs.h via an #include, you would write:
+
+    main.o: defs.h
+
+You need this rule so that make knows that it must remake main.o whenever defs.h changes. You can see that for a large program you would have to write dozens of such rules in your makefile. And, **you must always be very careful to update the makefile every time you add or remove an #include**.
+
+To avoid this hassle, most modern C compilers can write these rules for you, by looking at the #include lines in the source files. Usually this is done with the '-M' option to the compiler. For example, the command:
+
+    cc -M main.c
+
+generates the output:
+
+    main.o : main.c defs.h
+
+Thus you no longer have to write all those rules yourself. The compiler will do it for you.
+
+Note that such a rule constitutes mentioning main.o in a makefile, so it can never be considered an intermediate file by implicit rule search. This means that make won’t ever remove the file after using it; see [Chains of Implicit Rules](https://www.gnu.org/software/make/manual/html_node/Chained-Rules.html#Chained-Rules).
+
+With old make programs, it was traditional practice to use this compiler feature to generate prerequisites on demand with a command like 'make depend'. That command would create a file depend containing all the automatically-generated prerequisites; then the makefile could use include to read them in (see [Include](https://www.gnu.org/software/make/manual/html_node/Include.html#Include)).
+
+In GNU make, the feature of remaking makefiles makes this practice obsolete—you need never tell make explicitly to regenerate the prerequisites, because it always regenerates any makefile that is out of date. See [Remaking Makefiles](https://www.gnu.org/software/make/manual/html_node/Remaking-Makefiles.html#Remaking-Makefiles).
+
+The practice we recommend for automatic prerequisite generation is to have one makefile corresponding to each source file. For each source file name.c there is a makefile name.d which lists what files the object file name.o depends on. That way only the source files that have changed need to be rescanned to produce the new prerequisites.
+
+Here is the pattern rule to generate a file of prerequisites (i.e., a makefile) called name.d from a C source file called name.c:
+
+    %.d: %.c
+            @set -e; rm -f $@; \
+            $(CC) -M $(CPPFLAGS) $< > $@.$$$$; \
+            sed 's,\($*\)\.o[ :]*,\1.o $@ : ,g' < $@.$$$$ > $@; \
+            rm -f $@.$$$$
+
+See [Pattern Rules](https://www.gnu.org/software/make/manual/html_node/Pattern-Rules.html#Pattern-Rules), for information on defining pattern rules. The '-e' flag to the shell causes it to exit immediately if the $(CC) command (or any other command) fails (exits with a nonzero status).
+
+With the GNU C compiler, you may wish to use the '-MM' flag instead of '-M'. This omits prerequisites on system header files. See Options Controlling the Preprocessor in Using GNU CC, for details.
+
+The purpose of the sed command is to translate (for example):
+
+    main.o : main.c defs.h
+
+into:
+
+    main.o main.d : main.c defs.h
+
+This makes each '.d' file depend on all the source and header files that the corresponding '.o' file depends on. make then knows it must regenerate the prerequisites whenever any of the source or header files changes.
+
+Once you've defined the rule to remake the '.d' files, you then use the include directive to read them all in. See Include. For example:
+
+    sources = foo.c bar.c
+
+    include $(sources:.c=.d)
+
+(This example uses a substitution variable reference to translate the list of source files 'foo.c bar.c' into a list of prerequisite makefiles, 'foo.d bar.d'. See [Substitution Refs](https://www.gnu.org/software/make/manual/html_node/Substitution-Refs.html#Substitution-Refs), for full information on substitution references.) Since the '.d' files are makefiles like any others, make will remake them as necessary with no further work from you. See [Remaking Makefiles](https://www.gnu.org/software/make/manual/html_node/Remaking-Makefiles.html#Remaking-Makefiles).
+
+Note that the '.d' files contain target definitions; you should be sure to place the include directive after the first, default goal in your makefiles or run the risk of having a random object file become the default goal. See [How Make Works](https://www.gnu.org/software/make/manual/html_node/How-Make-Works.html#How-Make-Works).
+
+## [5 Writing Recipes in Rules](https://www.gnu.org/software/make/manual/html_node/Recipes.html)
+
+The recipe of a rule consists of one or more shell command lines to be executed, one at a time, in the order they appear. Typically, the result of executing these commands is that the target of the rule is brought up to date.
+
+Users use many different shell programs, but recipes in makefiles are always interpreted by /bin/sh unless the makefile specifies otherwise. See [Recipe Execution](https://www.gnu.org/software/make/manual/html_node/Execution.html#Execution).
+
+### 5.1 Recipe Syntax
+
+Makefiles have the unusual property that there are really two distinct syntaxes in one file. Most of the makefile uses make syntax (see [Writing Makefiles](https://www.gnu.org/software/make/manual/html_node/Makefiles.html#Makefiles)). However, recipes are meant to be interpreted by the shell and so they are written using shell syntax. The make program **does not try to understand shell syntax**: it performs only a very few specific translations on the content of the recipe before handing it to the shell.
+
+Each line in the recipe must start with a tab (or the first character in the value of the .RECIPEPREFIX variable; see [Special Variables](https://www.gnu.org/software/make/manual/html_node/Special-Variables.html#Special-Variables)), except that the first recipe line may be attached to the target-and-prerequisites line with a semicolon in between. Any line in the makefile that begins with a tab and appears in a "rule context" (that is, after a rule has been started **until another rule or variable definition**) will be considered part of a recipe for that rule. Blank lines and lines of just comments may appear among the recipe lines; they are ignored.
+
+Some consequences of these rules include:
+
+- A blank line that begins with a tab is not blank: it’s an empty recipe (see [Empty Recipes](https://www.gnu.org/software/make/manual/html_node/Empty-Recipes.html#Empty-Recipes)).
+- A comment in a recipe is not a make comment; it will be passed to the shell as-is. Whether the shell treats it as a comment or not depends on your shell.
+- A variable definition in a “rule context” which is indented by a tab as the first character on the line, will be considered part of a recipe, not a make variable definition, and passed to the shell.
+- A conditional expression (ifdef, ifeq, etc. see [Syntax of Conditionals](https://www.gnu.org/software/make/manual/html_node/Conditional-Syntax.html#Conditional-Syntax)) in a "rule context" which is indented by a tab as the first character on the line, will be considered part of a recipe and be passed to the shell.
+
+### 5.1.1 Splitting Recipe Lines
+
+One of the few ways in which make does interpret recipes is checking for a backslash just before the newline. As in normal makefile syntax, a single logical recipe line can be split into multiple physical lines in the makefile by placing a backslash before each newline. A sequence of lines like this is considered a single recipe line, and one instance of the shell will be invoked to run it.
+
+However, in contrast to how they are treated in other places in a makefile (see [Splitting Long Lines](https://www.gnu.org/software/make/manual/html_node/Splitting-Lines.html#Splitting-Lines)), backslash/newline pairs are **not removed from the recipe**. Both the backslash and the newline characters are preserved and passed to the shell. How the backslash/newline is interpreted depends on your shell. If the first character of the next line after the backslash/newline is the recipe prefix character (a tab by default; see Special Variables), then that character (and only that character) is removed. Whitespace is never added to the recipe.
+
+For example, the recipe for the all target in this makefile:
+
+    all :
+        @echo no\
+    space
+        @echo no\
+        space
+        @echo one \
+        space
+        @echo one\
+         space
+
+consists of four separate shell commands where the output is:
+
+    nospace
+    nospace
+    one space
+    one space
+
+As a more complex example, this makefile:
+
+    all : ; @echo 'hello \
+            world' ; echo "hello \
+        world"
+
+will invoke one shell with a command of:
+
+    echo 'hello \
+    world' ; echo "hello \
+        world"
+
+which, according to shell quoting rules, will yield the following output:
+
+    hello \
+    world
+    hello     world
+
+Notice how the backslash/newline pair was removed inside the string quoted with double quotes ("…"), but not from the string quoted with single quotes ('…'). This is the way the default shell (/bin/sh) handles backslash/newline pairs. If you specify a different shell in your makefiles it may treat them differently.
+
+Sometimes you want to split a long line inside of single quotes, but you don’t want the backslash/newline to appear in the quoted content. This is often the case when passing scripts to languages such as Perl, where extraneous backslashes inside the script can change its meaning or even be a syntax error. One simple way of handling this is to place the quoted string, or even the entire command, into a make variable then use the variable in the recipe. In this situation the newline quoting rules for makefiles will be used, and the backslash/newline will be removed. If we rewrite our example above using this method:
+
+    HELLO = 'hello \
+    world'
+
+    all : ; @echo $(HELLO)
+
+we will get output like this:
+
+    hello world
+
+If you like, you can also use target-specific variables (see [Target-specific Variable Values](https://www.gnu.org/software/make/manual/html_node/Target_002dspecific.html#Target_002dspecific)) to obtain a tighter correspondence between the variable and the recipe that uses it.
+
+#### 5.1.2 Using Variables in Recipes
+
+The other way in which make processes recipes is by expanding any variable references in them (see [Basics of Variable References](https://www.gnu.org/software/make/manual/html_node/Reference.html#Reference)). This occurs after make has finished reading all the makefiles and the target is determined to be out of date; so, the recipes for targets which are not rebuilt are never expanded.
+
+Variable and function references in recipes have identical syntax and semantics to references elsewhere in the makefile. They also have the same quoting rules: if you want a dollar sign to appear in your recipe, you must double it ('$$'). For shells like the default shell, that use dollar signs to introduce variables, it’s important to keep clear in your mind whether the variable you want to reference is a make variable (use a single dollar sign) or a shell variable (use two dollar signs). For example:
+
+    LIST = one two three
+    all:
+            for i in $(LIST); do \
+                echo $$i; \
+            done
+
+results in the following command being passed to the shell:
+
+    for i in one two three; do \
+        echo $i; \
+    done
+
+which generates the expected result:
+
+    one
+    two
+    three
+
+### 5.2 Recipe Echoing
+
+Normally make prints each line of the recipe before it is executed. We call this echoing because it gives the appearance that you are typing the lines yourself.
+
+When a line starts with '@', the echoing of that line is suppressed. The '@' is discarded before the line is passed to the shell. Typically you would use this for a command whose only effect is to print something, such as an echo command to indicate progress through the makefile:
+
+    @echo About to make distribution files
+
+When make is given the flag '-n' or '--just-print' it only echoes most recipes, without executing them. See [Summary of Options](https://www.gnu.org/software/make/manual/html_node/Options-Summary.html#Options-Summary). In this case even the recipe lines starting with '@' are printed. This flag is useful for finding out which recipes make thinks are necessary without actually doing them.
+
+The '-s' or '--silent' flag to make prevents all echoing, as if all recipes started with '@'. A rule in the makefile for the special target .SILENT without prerequisites has the same effect (see [Special Built-in Target Names](https://www.gnu.org/software/make/manual/html_node/Special-Targets.html#Special-Targets)).
+
+### 5.3 Recipe Execution
+
+When it is time to execute recipes to update a target, they are executed by invoking a new sub-shell for each line of the recipe, unless the .ONESHELL special target is in effect (see [Using One Shell](https://www.gnu.org/software/make/manual/html_node/One-Shell.html#One-Shell)) (In practice, make may take shortcuts that do not affect the results.)
+
+Please note: this implies that setting shell variables and invoking shell commands such as cd that set a context local to each process will not affect the following lines in the recipe.2 If you want to use cd to affect the next statement, put both statements in a single recipe line. Then make will invoke one shell to run the entire line, and the shell will execute the statements in sequence. For example:
+
+    foo : bar/lose
+            cd $(<D) && gobble $(<F) > ../$@
+
+#### [5.3.1 Using One Shell](https://www.gnu.org/software/make/manual/html_node/One-Shell.html#One-Shell)
+
+#### [5.3.2 Choosing the Shell](https://www.gnu.org/software/make/manual/html_node/Choosing-the-Shell.html#Choosing-the-Shell)
+
+### [5.4 Parallel Execution](https://www.gnu.org/software/make/manual/html_node/Parallel.html#Parallel)
+
+GNU make knows how to execute several recipes at once. Normally, make will execute only one recipe at a time, waiting for it to finish before executing the next. However, the '-j' or '--jobs' option tells make to execute many recipes simultaneously. You can inhibit parallelism in a particular makefile with the .NOTPARALLEL pseudo-target (see [Special Built-in Target Names](https://www.gnu.org/software/make/manual/html_node/Special-Targets.html#Special-Targets)).
+
+If the '-j' option is followed by an integer, this is the number of recipes to execute at once; this is called the number of job slots. If there is nothing looking like an integer after the '-j' option, there is no limit on the number of job slots. The default number of job slots is one, which means serial execution (one thing at a time).
+
+Handling recursive make invocations raises issues for parallel execution. For more information on this, see [Communicating Options to a Sub-make](https://www.gnu.org/software/make/manual/html_node/Parallel.html#Parallel).
+
+If a recipe fails (is killed by a signal or exits with a nonzero status), and errors are not ignored for that recipe (see [Errors in Recipes](https://www.gnu.org/software/make/manual/html_node/Errors.html#Errors)), the remaining recipe lines to remake the same target will not be run. If a recipe fails and the '-k' or '--keep-going' option was not given (see [Summary of Options](https://www.gnu.org/software/make/manual/html_node/Options-Summary.html#Options-Summary)), make aborts execution. If make terminates for any reason (including a signal) with child processes running, it waits for them to finish before actually exiting.
+
+#### [5.4.1 Output During Parallel Execution](https://www.gnu.org/software/make/manual/html_node/Parallel-Output.html#Parallel-Output)
+
+#### [5.4.2 Input During Parallel Execution](https://www.gnu.org/software/make/manual/html_node/Parallel-Input.html#Parallel-Input)
+
+### 5.5 Errors in Recipes
+
+After each shell invocation returns, make looks at its exit status. If the shell completed successfully (the exit status is zero), the next line in the recipe is executed in a new shell; after the last line is finished, the rule is finished.
+
+If there is an error (the exit status is nonzero), make gives up on the current rule, and perhaps on all rules.
+
+To ignore errors in a recipe line, write a '-' at the beginning of the line's text (after the initial tab). The '-' is discarded before the line is passed to the shell for execution.
+
+For example,
+
+    clean:
+            -rm -f *.o
+
+This causes make to continue even if rm is unable to remove a file.
+
+When you run make with the '-i' or '--ignore-errors' flag, errors are ignored in all recipes of all rules. A rule in the makefile for the special target .IGNORE has the same effect, if there are no prerequisites. This is less flexible but sometimes useful.
+
+When errors are to be ignored, because of either a '-' or the '-i' flag, make treats an error return just like success, except that it prints out a message that tells you the status code the shell exited with, and says that the error has been ignored.
+
+When an error happens that make has not been told to ignore, it implies that the current target cannot be correctly remade, and neither can any other that depends on it either directly or indirectly. No further recipes will be executed for these targets, since their preconditions have not been achieved.
+
+Normally make gives up immediately in this circumstance, returning a nonzero status. However, if the '-k' or '--keep-going' flag is specified, make continues to consider the other prerequisites of the pending targets, remaking them if necessary, before it gives up and returns nonzero status. For example, after an error in compiling one object file, 'make -k' will continue compiling other object files even though it already knows that linking them will be impossible. See [Summary of Options](https://www.gnu.org/software/make/manual/html_node/Options-Summary.html#Options-Summary).
+
+The usual behavior assumes that your purpose is to get the specified targets up to date; once make learns that this is impossible, it might as well report the failure immediately. The '-k' option says that the real purpose is to test as many of the changes made in the program as possible, perhaps to find several independent problems so that you can correct them all before the next attempt to compile. This is why Emacs’ compile command passes the '-k' flag by default.
+
+Usually when a recipe line fails, if it has changed the target file at all, the file is corrupted and cannot be used—or at least it is not completely updated. Yet the file’s time stamp says that it is now up to date, so the next time make runs, it will not try to update that file. The situation is just the same as when the shell is killed by a signal; see [Interrupts](https://www.gnu.org/software/make/manual/html_node/Interrupts.html#Interrupts). So generally the right thing to do is to delete the target file if the recipe fails after beginning to change the file. make will do this if .DELETE_ON_ERROR appears as a target. This is almost always what you want make to do, but it is not historical practice; so for compatibility, you must explicitly request it.
+
+### [5.6 Interrupting or Killing make](https://www.gnu.org/software/make/manual/html_node/Interrupts.html#Interrupts)
+
+### [5.7 Recursive Use of make](https://www.gnu.org/software/make/manual/html_node/Recursion.html)
+
+Recursive use of make means using make as a command in a makefile. This technique is useful when you want separate makefiles for various subsystems that compose a larger system. For example, suppose you have a sub-directory subdir which has its own makefile, and you would like the containing directory’s makefile to run make on the sub-directory. You can do it by writing this:
+
+    subsystem:
+            cd subdir && $(MAKE)
+
+or, equivalently, this (see [Summary of Options](https://www.gnu.org/software/make/manual/html_node/Options-Summary.html#Options-Summary)):
+
+    subsystem:
+            $(MAKE) -C subdir
+
+You can write recursive make commands just by copying this example, but there are many things to know about how they work and why, and about how the sub-make relates to the top-level make. You may also find it useful to declare targets that invoke recursive make commands as '.PHONY' (for more discussion on when this is useful, see [Phony Targets](https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html#Phony-Targets)).
+
+For your convenience, when GNU make starts (after it has processed any -C options) it sets the variable CURDIR to the pathname of the current working directory. This value is never touched by make again: in particular note that if you include files from other directories the value of CURDIR does not change. The value has the same precedence it would have if it were set in the makefile (by default, an environment variable CURDIR will not override this value). Note that setting this variable has no impact on the operation of make (it does not cause make to change its working directory, for example).
+
+#### [5.7.1 How the MAKE Variable Works](https://www.gnu.org/software/make/manual/html_node/MAKE-Variable.html#MAKE-Variable)
+
+#### [5.7.2 Communicating Variables to a Sub-make](https://www.gnu.org/software/make/manual/html_node/Variables_002fRecursion.html#Variables_002fRecursion)
+
+#### [5.7.3 Communicating Options to a Sub-make](https://www.gnu.org/software/make/manual/html_node/Options_002fRecursion.html#Options_002fRecursion)
+
+#### [5.7.4 The ‘--print-directory’ Option](https://www.gnu.org/software/make/manual/html_node/_002dw-Option.html#g_t_002dw-Option)
+
+### [5.8 Defining Canned Recipes](https://www.gnu.org/software/make/manual/html_node/Canned-Recipes.html#Canned-Recipes)
+
+### [5.9 Using Empty Recipes](https://www.gnu.org/software/make/manual/html_node/Empty-Recipes.html#Empty-Recipes)
+
+It is sometimes useful to define recipes which do nothing. This is done simply by giving a recipe that consists of nothing but whitespace. For example:
+
+    target: ;
+
+defines an empty recipe for target. You could also use a line beginning with a recipe prefix character to define an empty recipe, but this would be confusing because such a line looks empty.
+
+You may be wondering why you would want to define a recipe that does nothing. One reason this is useful is to prevent a target from getting implicit recipes (from implicit rules or the .DEFAULT special target; see [Implicit Rules](https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html#Implicit-Rules) and see [Defining Last-Resort Default Rules](https://www.gnu.org/software/make/manual/html_node/Last-Resort.html#Last-Resort)).
+
+Empty recipes can also be used to avoid errors for targets that will be created as a side-effect of another recipe: if the target does not exist the empty recipe ensures that make won't complain that it doesn't know how to build the target, and make will assume the target is out of date.
+
+You may be inclined to define empty recipes for targets that are not actual files, but only exist so that their prerequisites can be remade. However, this is not the best way to do that, because the prerequisites may not be remade properly if the target file actually does exist. See [Phony Targets](https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html#Phony-Targets), for a better way to do this.
+
+## [6 How to Use Variables](https://www.gnu.org/software/make/manual/html_node/Using-Variables.html#Using-Variables)
+
+A variable is a name defined in a makefile to represent a string of text, called the variable’s value. These values are substituted by explicit request into targets, prerequisites, recipes, and other parts of the makefile. (In some other versions of make, variables are called macros.)
+
+Variables and functions in all parts of a makefile are **expanded when read**, except for in recipes, the right-hand sides of variable definitions using '=', and the bodies of variable definitions using the define directive.
+
+Variables can represent lists of file names, options to pass to compilers, programs to run, directories to look in for source files, directories to write output in, or anything else you can imagine.
+
+A variable name may be any sequence of characters not containing ':', '#', '=', or whitespace. However, variable names containing characters other than letters, numbers, and underscores should be considered carefully, as in some shells they cannot be passed through the environment to a sub-make (see [Communicating Variables to a Sub-make](https://www.gnu.org/software/make/manual/html_node/Variables_002fRecursion.html#Variables_002fRecursion)). Variable names beginning with '.' and an uppercase letter may be given special meaning in future versions of make.
+
+Variable names are case-sensitive. The names 'foo', 'FOO', and 'Foo' all refer to different variables.
 
 
 
@@ -842,7 +1139,12 @@ Each double-colon rule should specify a recipe; if it does not, an implicit rule
 
 
 
-### [10 Using Implicit Rules](https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html#Implicit-Rules)
+
+
+
+
+
+## [10 Using Implicit Rules](https://www.gnu.org/software/make/manual/html_node/Implicit-Rules.html#Implicit-Rules)
 
 
 

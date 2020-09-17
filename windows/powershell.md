@@ -36,6 +36,7 @@
       - [Set an Environment Variable scoped to the User](#set-an-environment-variable-scoped-to-the-user)
       - [Set an Environment Variable scoped to the Machine](#set-an-environment-variable-scoped-to-the-machine)
     - [Reload the path in PowerShell](#reload-the-path-in-powershell)
+  - [List Installed Software](#list-installed-software)
 
 ## `rm -rf`
 
@@ -247,3 +248,7 @@ Note: This command will probably fail unless you run PowerShell as an administra
 ### [Reload the path in PowerShell](https://stackoverflow.com/questions/17794507/reload-the-path-in-powershell)
 
     $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User") 
+
+## List Installed Software
+
+    Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate
