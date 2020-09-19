@@ -46,6 +46,18 @@ So, if we have two functions, function A and function B, how do we redirect exec
 
 Assume that function A is located at address 0×401000 and that function B is located at address 0×401800. What we do next is, we determine the required relative offset. There is a difference of 0×800 bytes between the two functions, and we want to jump from function A to function B, so we don’t have to worry about negative offsets yet.
 
+Now comes the tricky part, assume that we have already written our jump instruction at address 0×401000 (function A), and that the instruction is executed. What the CPU will do is the following; first it will add the length of the instruction to the Instruction Pointer [<sup>[3]</sup>](#3-instruction-pointer--program-counter---wikipedia) (or Program Counter), the length of the jump instruction is five bytes, as we’ve established earlier. After this, the relative offset is added (the four bytes, or 32bits value, located after the opcode) to the Instruction Pointer. In other words, the CPU calculates the new Instruction Pointer like the following.
+
+    instruction_pointer = instruction_pointer + 5 + relative_offset;
+
+Therefore, calculating the relative offset requires us to reverse the formula in the following way.
+
+    relative_offset = function_B - function_A - 5;
+
+We subtract five because that’s the length of the jump instruction which the CPU adds when executing this instruction, and function_A is subtracted from function_B because it’s a relative jump; the difference between the addresses of function_B and function_A is 0×800 bytes. (E.g. if we forget to subtract function_A, then the CPU will end up at the address 0×401800 + 0×401000 + 5, which is obviously not desired.)
+
+In assembly, redirecting function A to function B will look roughly like the following.
+
 
 
 
