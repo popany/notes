@@ -4,8 +4,9 @@
   - [Chapter 1: Concurrent and Networked Objects](#chapter-1-concurrent-and-networked-objects)
     - [1.1 Motivation](#11-motivation)
     - [1.2 Challenges of Concurrent and Networked Software](#12-challenges-of-concurrent-and-networked-software)
-    - [Challenge 1: Service Access and Configuration](#challenge-1-service-access-and-configuration)
-    - [Challenge 2: Event Handling](#challenge-2-event-handling)
+      - [Challenge 1: Service Access and Configuration](#challenge-1-service-access-and-configuration)
+      - [Challenge 2: Event Handling](#challenge-2-event-handling)
+      - [Challenge 3: Concurrency](#challenge-3-concurrency)
   - [Chapter 2: Service Access and Configuration Patterns](#chapter-2-service-access-and-configuration-patterns)
     - [Wrapper Facade](#wrapper-facade)
 
@@ -77,7 +78,7 @@ These topics are generally independent of specific application requirements, so 
 
 - Common accidental complexities associated with concurrent and networked systems include lack of **portable operating system APIs**, inadequate **debugging support** and lack of **tools for analyzing** concurrent and networked applications, widespread use of algorithmic--rather than object-oriented--**decomposition**, and continual **rediscovery and reinvention** of core concepts and common components.
 
-### Challenge 1: Service Access and Configuration
+#### Challenge 1: Service Access and Configuration
 
 Components in a stand-alone application can collaborate within a single address space by passing parameters via function calls and by accessing global variables. In contrast, components in networked applications can collaborate using:
 
@@ -136,7 +137,46 @@ However, configuring services into applications on-demand requires more than dyn
 
 Chapter 2, Service Access and Configuration Patterns, presents four patterns for designing effective programming APIs to access and configure services and components in standalone and networked software systems and applications. These patterns are **Wrapper Facade**, **Component Configurator**, **Interceptor**, and **Extension Interface**.
 
-### Challenge 2: Event Handling
+#### Challenge 2: Event Handling
+
+As systems become increasingly networked, software development techniques that support event-driven applications have become increasingly pervasive. Three characteristics differentiate event-driven applications from those with the traditional 'self-directed' flow of control:
+
+- Application behavior is triggered by external or internal events that occur asynchronously. Common sources of events include device drivers, I/O ports, sensors, keyboards or mice, signals, timers, or other asynchronous software components.
+
+- Most events must be handled promptly to prevent CPU starvation, improve perceived response time, and keep hardware devices with real-time constraints from failing or corrupting data.
+
+- Finite state machines may be needed to control event processing and
+detect illegal transitions, because event-driven applications generally have little or no control over the order in which events arrive.
+
+Therefore, event-driven applications are often structured as layered architectures with so-called 'inversion of control':
+
+- At the bottom layer are event sources, which detect and retrieve events from various hardware devices or low-level software device drivers that reside within an operating system.
+
+- At the next layer is an event demultiplexer, such as `select()`, which waits for events to arrive on the various event sources and then dispatches events to their corresponding event handler callbacks.
+
+- The event handlers, together with the application code, form yet another layer that performs application-specific processing in response to callbacks—hence the term 'inversion of control'.
+
+The separation of concerns in this event-driven architecture allows developers to concentrate on application layer functionality, rather than rewriting the event source and demultiplexer layers repeatedly for each new system or application.
+
+In many networked systems, applications communicate via peer-to-peer protocols, such as TCP/IP, and are implemented using the layered event-driven architecture outlined above. The events that are exchanged between peers in this architecture play four different roles:
+
+- PEER<sub>1</sub>, the client initiator application, invokes a send operation to pass a request event to PEER<sub>2</sub>, the service provider application. The event can contain data necessary for PEER<sub>1</sub> and PEER<sub>2</sub> to collaborate. For example, a PEER<sub>1</sub> request may contain a CONNECT event to initiate a bidirectional connection, or a DATA event to pass an operation and its parameters to be executed remotely at PEER<sub>2</sub>.
+
+- The PEER<sub>2</sub> service provider application is notified of the request event arrival via an indication event. PEER<sub>2</sub> can then invoke a receive operation to obtain and use the indication event data to perform its processing. The demultiplexing layer of PEER<sub>2</sub> often waits for a set of indication events to arrive from multiple peers.
+
+- After the PEER<sub>2</sub> service provider application finishes processing the indication event, it invokes a send operation to pass a response event to PEER<sub>1</sub>, acknowledging the original event and returning any results. For example, PEER<sub>2<sub> could acknowledge the CONNECT event as part of an initialization 'handshake', or it could acknowledge the DATA event in a reliable two-way remote method invocation.
+
+- The PEER<sub>1</sub> client initiator application is notified of a response event arrival via a completion event. At this point it can use a receive operation to obtain the results of the request event it sent to the PEER<sub>2</sub> service provider earlier.
+
+If after sending a request event the PEER<sub>1</sub> application blocks to receive the completion event containing PEER<sub>2</sub>'s response, it is termed a synchronous client. In contrast, if PEER<sub>1</sub> does not block after sending a request it is termed an asynchronous client. Asynchronous clients can receive completion events via asynchrony mechanisms, such as UNIX signal handlers or Win32 I/O completion ports.
+
+Traditional networked applications detect, demultiplex, and dispatch various types of control and data events using low-level operating system APIs, such as Sockets, select(), poll(), WaitForMultipleObjects(), and I/O completion ports. However, using these low-level APIs increases the accidental complexity of eventdriven programming. Programming with these low-level APIs also increases code duplication and maintenance effort by coupling the I/O and demultiplexing aspects of an application with its connection and concurrency mechanisms.
+
+Chapter 3, **Event Handling Patterns**, presents four patterns that describe how to initiate, receive, demultiplex, dispatch, and process various types of events effectively in networked software frameworks. The patterns are **Reactor**, **Proactor**, **Asynchronous Completion Token**, and **Acceptor-Connector**.
+
+#### Challenge 3: Concurrency
+
+
 
 
 
