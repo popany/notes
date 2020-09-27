@@ -28,7 +28,7 @@ All the above configuration metadata translates into a set of the following prop
 
 ## Spring Configuration Metadata
 
-Spring IoC container is totally decoupled from the format in which this configuration metadata is actually written. Following are the three important methods to provide configuration metadata to the Spring Container −
+Spring IoC container is totally decoupled from the format in which this configuration metadata is actually written. Following are the three important methods to provide **configuration metadata** to the Spring Container −
 
 - XML based configuration file.
 - Annotation-based configuration
