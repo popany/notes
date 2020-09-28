@@ -74,6 +74,8 @@
     - [5.8 Defining Canned Recipes](#58-defining-canned-recipes)
     - [5.9 Using Empty Recipes](#59-using-empty-recipes)
   - [6 How to Use Variables](#6-how-to-use-variables)
+    - [6.1 Basics of Variable References](#61-basics-of-variable-references)
+    - [6.2 The Two Flavors of Variables](#62-the-two-flavors-of-variables)
   - [10 Using Implicit Rules](#10-using-implicit-rules)
 
 ## [1 Overview of make](https://www.gnu.org/software/make/manual/html_node/Overview.html#Overview)
@@ -1117,6 +1119,33 @@ A variable name may be any sequence of characters not containing ':', '#', '=', 
 
 Variable names are case-sensitive. The names 'foo', 'FOO', and 'Foo' all refer to different variables.
 
+It is traditional to use upper case letters in variable names, but we recommend using lower case letters for variable names that serve internal purposes in the makefile, and reserving upper case for parameters that control implicit rules or for parameters that the user should override with command options (see [Overriding Variables](https://www.gnu.org/software/make/manual/html_node/Overriding.html#Overriding)).
+
+A few variables have names that are a single punctuation character or just a few characters. These are the automatic variables, and they have particular specialized uses. See [Automatic Variables](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables).
+
+### [6.1 Basics of Variable References](https://www.gnu.org/software/make/manual/html_node/Reference.html#Reference)
+
+To substitute a variable’s value, write a dollar sign followed by the name of the variable in parentheses or braces: either ‘$(foo)’ or ‘${foo}’ is a valid reference to the variable foo. This special significance of ‘$’ is why you must write ‘$$’ to have the effect of a single dollar sign in a file name or recipe.
+
+Variable references can be used in any context: targets, prerequisites, recipes, most directives, and new variable values. Here is an example of a common case, where a variable holds the names of all the object files in a program:
+
+    objects = program.o foo.o utils.o
+    program : $(objects)
+            cc -o program $(objects)
+
+    $(objects) : defs.h
+
+Variable references work by strict textual substitution. Thus, the rule
+
+    foo = c
+    prog.o : prog.$(foo)
+            $(foo)$(foo) -$(foo) prog.$(foo)
+
+could be used to compile a C program prog.c. Since **spaces before the variable value are ignored in variable assignments**, the value of foo is precisely ‘c’. (Don’t actually write your makefiles this way!)
+
+A dollar sign followed by a character other than a dollar sign, open-parenthesis or open-brace treats that single character as the variable name. Thus, **you could reference the variable x with ‘`$x`’**. However, this practice can lead to confusion (e.g., **‘$foo’ refers to the variable f followed by the string oo**) so we recommend using parentheses or braces around all variables, even single-letter variables, unless omitting them gives significant readability improvements. One place where readability is often improved is automatic variables (see [Automatic Variables](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables)).
+
+### [6.2 The Two Flavors of Variables](https://www.gnu.org/software/make/manual/html_node/Flavors.html#Flavors)
 
 
 
