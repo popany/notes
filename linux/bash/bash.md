@@ -44,6 +44,9 @@
   - [telnet](#telnet)
   - [curl](#curl)
     - [download file](#download-file)
+  - [`ssh`](#ssh)
+    - [`ssh-copy-id`](#ssh-copy-id)
+  - [`nc`](#nc)
 
 ## [Bash scripting cheatsheet](https://devhints.io/bash)
 
@@ -362,3 +365,25 @@ restart `sshd`
 ### download file
 
     curl -o localname.zip http://example.com/download/myfile.zip
+
+## `ssh`
+
+### `ssh-copy-id`
+
+Installs an [SSH key](https://www.ssh.com/ssh/key/) on a server as an authorized key
+
+    ssh-copy-id -i ~/.ssh/mykey user@host
+
+## `nc`
+
+CLIENT/SERVER MODEL
+
+- client/server model
+
+   server
+
+      nc -l 1234
+
+   client
+
+      nc 127.0.0.1 1234

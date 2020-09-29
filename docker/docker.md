@@ -42,6 +42,7 @@
       - [Export and import containers](#export-and-import-containers)
       - [Container image migration](#container-image-migration)
     - [`docker logs`](#docker-logs)
+    - [`docker inspect`](#docker-inspect)
   - [Troubleshooting](#troubleshooting)
     - [Error pulling image : no matching manifest](#error-pulling-image--no-matching-manifest)
       - [Find the OS/Arch of you system](#find-the-osarch-of-you-system)
@@ -308,6 +309,12 @@ Load image in new host
 ### `docker logs`
 
 This command is only functional for containers that are started with the json-file or journald logging driver.
+
+### `docker inspect`
+
+    docker inspect -f '{{json .NetworkSettings.Networks}}' foo|jq
+
+    docker inspect -f '{{json .Config}}' foo|jq
 
 ## Troubleshooting
 
