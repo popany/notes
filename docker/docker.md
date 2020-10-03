@@ -30,19 +30,6 @@
         - [Remove all volumes](#remove-all-volumes)
   - [logging](#logging)
     - [View logs for a container or service](#view-logs-for-a-container-or-service)
-  - [cmd](#cmd)
-    - [run a centos container](#run-a-centos-container)
-      - [Run a centos container in Docker Desktop](#run-a-centos-container-in-docker-desktop)
-      - [Publish container port 8080 to the host port 8081](#publish-container-port-8080-to-the-host-port-8081)
-    - [Override CMD when running a docker image](#override-cmd-when-running-a-docker-image)
-    - [Copy files/folders between a container and the local filesystem](#copy-filesfolders-between-a-container-and-the-local-filesystem)
-    - [Commit a container and change ENTRYPOINT](#commit-a-container-and-change-entrypoint)
-    - [Move Docker container to another host](#move-docker-container-to-another-host)
-    - [Remove the volumes associated with the container](#remove-the-volumes-associated-with-the-container)
-      - [Export and import containers](#export-and-import-containers)
-      - [Container image migration](#container-image-migration)
-    - [`docker logs`](#docker-logs)
-    - [`docker inspect`](#docker-inspect)
   - [Troubleshooting](#troubleshooting)
     - [Error pulling image : no matching manifest](#error-pulling-image--no-matching-manifest)
       - [Find the OS/Arch of you system](#find-the-osarch-of-you-system)
@@ -59,6 +46,26 @@
       - [After segmentation fault](#after-segmentation-fault)
       - [After boot a container](#after-boot-a-container)
     - [How to setting Core file size in Docker container?](#how-to-setting-core-file-size-in-docker-container)
+    - [Move Docker container to another host](#move-docker-container-to-another-host)
+      - [Export and import containers](#export-and-import-containers)
+      - [Container image migration](#container-image-migration)
+  - [cmd](#cmd)
+    - [`docker run`](#docker-run)
+      - [Run a centos container](#run-a-centos-container)
+        - [Run a centos container in Docker Desktop Wsl1](#run-a-centos-container-in-docker-desktop-wsl1)
+      - [Run a container and publish container port](#run-a-container-and-publish-container-port)
+        - [Publish container port 8080 to the host port 8081](#publish-container-port-8080-to-the-host-port-8081)
+        - [Binds port 8080 of the container to TCP port 80 on 127.0.0.1 of the host machine](#binds-port-8080-of-the-container-to-tcp-port-80-on-127001-of-the-host-machine)
+        - [Expose a range of continuous TCP ports](#expose-a-range-of-continuous-tcp-ports)
+      - [Override CMD when running a docker image](#override-cmd-when-running-a-docker-image)
+    - [`docker cp`](#docker-cp)
+      - [Copy files/folders between a container and the local filesystem](#copy-filesfolders-between-a-container-and-the-local-filesystem)
+    - [`docker commit`](#docker-commit)
+      - [Commit a container and change ENTRYPOINT](#commit-a-container-and-change-entrypoint)
+    - [`docker rm`](#docker-rm)
+      - [Remove the volumes associated with the container](#remove-the-volumes-associated-with-the-container)
+    - [`docker logs`](#docker-logs)
+    - [`docker inspect`](#docker-inspect)
 
 ## Install & Update
 
@@ -243,79 +250,6 @@ The official `nginx` image creates a symbolic link from `/var/log/nginx/access.l
 
 The official `httpd` driver changes the httpd application’s configuration to write its normal output directly to `/proc/self/fd/1` (which is `STDOUT`) and its errors to `/proc/self/fd/2` (which is `STDERR`). See the [Dockerfile](https://github.com/docker-library/httpd/blob/b13054c7de5c74bbaa6d595dbe38969e6d4f860c/2.2/Dockerfile#L72-L75).
 
-## cmd
-
-### run a centos container
-
-    docker volume create vol_a
-
-    docker run -d --name test --network host -v vol_a:/app -ti centos
-
-#### Run a centos container in Docker Desktop
-
-    docker run -d --name test --network host --mount type=bind,source="/c/test",target=/app -ti centos
-
-#### Publish container port 8080 to the host port 8081
-
-    docker run -d --name test -p 8081:8080 -v vol_a:/app -ti centos
-
-### Override CMD when running a docker image
-
-    docker run -it --entrypoint=/bin/bash $IMAGE -i
-
-### Copy files/folders between a container and the local filesystem
-
-    docker cp CONTAINER:SRC_PATH DEST_PATH
-
-    docker cp SRC_PATH CONTAINER:DEST_PATH
-
-### [Commit a container and change ENTRYPOINT](https://stackoverflow.com/questions/29015023/docker-commit-created-images-and-entrypoint)
-
-    docker commit --change='ENTRYPOINT ["/bin/bash"]' <container-name> <image-name>
-
-### [Move Docker container to another host](https://bobcares.com/blog/move-docker-container-to-another-host/)
-
-### Remove the volumes associated with the container
-
-    docker rm -v <container>
-
-#### Export and import containers
-
-Export:
-
-    docker export container-name | gzip > container-name.gz
-
-Import:
-
-    zcat container-name.gz | docker import - container-name
-
-The new container created in the new host can be accessed using `docker run` command.
-
-One **drawback** of export tool is that, it does not copy ports and variables, or the underlying data volume which contains the container data.
-
-This can lead to errors when trying to load the container in another host. In such cases, we opt for Docker image migration to move containers from one host to another.
-
-#### Container image migration
-
-Save the container's image
-
-    docker commit container-id image-name
-    docker save image-name > image-name.tar
-
-Load image in new host
-
-    cat image-name.tar | docker load
-
-### `docker logs`
-
-This command is only functional for containers that are started with the json-file or journald logging driver.
-
-### `docker inspect`
-
-    docker inspect -f '{{json .NetworkSettings.Networks}}' foo|jq
-
-    docker inspect -f '{{json .Config}}' foo|jq
-
 ## Troubleshooting
 
 ### [Error pulling image : no matching manifest](https://success.docker.com/article/error-pulling-image-no-matching-manifest)
@@ -426,3 +360,94 @@ Note that "unlimited" is not a supported value since it is not actually a real v
 
     $ docker run -it --ulimit core=-1 ubuntu:18.04 sh -c 'ulimit -a | grep core'
     coredump(blocks)     unlimited
+
+### [Move Docker container to another host](https://bobcares.com/blog/move-docker-container-to-another-host/)
+
+#### Export and import containers
+
+Export:
+
+    docker export container-name | gzip > container-name.gz
+
+Import:
+
+    zcat container-name.gz | docker import - container-name
+
+The new container created in the new host can be accessed using `docker run` command.
+
+One **drawback** of export tool is that, it does not copy ports and variables, or the underlying data volume which contains the container data.
+
+This can lead to errors when trying to load the container in another host. In such cases, we opt for Docker image migration to move containers from one host to another.
+
+#### Container image migration
+
+Save the container's image
+
+    docker commit container-id image-name
+    docker save image-name > image-name.tar
+
+Load image in new host
+
+    cat image-name.tar | docker load
+
+## cmd
+
+### `docker run`
+
+#### Run a centos container
+
+    docker volume create vol_a
+
+    docker run -d --name test --network host -v vol_a:/app -ti centos
+
+##### Run a centos container in Docker Desktop Wsl1
+
+    docker run -d --name test --network host --mount type=bind,source="/c/test",target=/app -ti centos
+
+#### Run a container and publish container port
+
+##### Publish container port 8080 to the host port 8081
+
+    docker run -d --name test -p 8081:8080 -v vol_a:/app -ti centos
+
+##### Binds port 8080 of the container to TCP port 80 on 127.0.0.1 of the host machine
+
+    docker run -p 127.0.0.1:80:8080/tcp ubuntu bash
+
+##### Expose a range of continuous TCP ports
+
+    docker run -it -p 7100-7120:7100-7120/tcp ubuntu bash
+
+#### Override CMD when running a docker image
+
+    docker run -it --entrypoint=/bin/bash $IMAGE -i
+
+### `docker cp`
+
+#### Copy files/folders between a container and the local filesystem
+
+    docker cp CONTAINER:SRC_PATH DEST_PATH
+
+    docker cp SRC_PATH CONTAINER:DEST_PATH
+
+### `docker commit`
+
+#### [Commit a container and change ENTRYPOINT](https://stackoverflow.com/questions/29015023/docker-commit-created-images-and-entrypoint)
+
+    docker commit --change='ENTRYPOINT ["/bin/bash"]' <container-name> <image-name>
+
+### `docker rm`
+
+#### Remove the volumes associated with the container
+
+    docker rm -v <container>
+
+### `docker logs`
+
+This command is only functional for containers that are started with the json-file or journald logging driver.
+
+### `docker inspect`
+
+    docker inspect -f '{{json .NetworkSettings.Networks}}' foo|jq
+
+    docker inspect -f '{{json .Config}}' foo|jq
