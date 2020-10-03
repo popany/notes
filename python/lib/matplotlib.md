@@ -15,6 +15,8 @@
 
 - [Legend guide](https://matplotlib.org/tutorials/intermediate/legend_guide.html)
 
+- [Matplotlib Examples: Displaying and Configuring Legends](https://queirozf.com/entries/matplotlib-examples-displaying-and-configuring-legends)
+
 ## Colors
 
 - [Choosing Colormaps in Matplotlib](https://matplotlib.org/tutorials/colors/colormaps.html#sphx-glr-tutorials-colors-colormaps-py)
