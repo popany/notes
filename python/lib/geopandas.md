@@ -5,6 +5,7 @@
     - [`GeoDataFrame.plot(self, *args, **kwargs)`](#geodataframeplotself-args-kwargs)
       - [Parameters](#parameters)
       - [Returns](#returns)
+  - [Managing Projections](#managing-projections)
   - [Q&A](#qa)
 
 ## [reference](https://geopandas.org/reference.html)
@@ -63,7 +64,7 @@ Generate a plot of a GeoDataFrame with matplotlib. If a column is specified, the
 
 - vmax: `None` or `float` (default None)
 
-- Maximum value of `cmap`. If None, the maximum data value in the column to be plotted is used.
+  Maximum value of `cmap`. If None, the maximum data value in the column to be plotted is used.
 
 - markersize: `str` or `float` or `sequence` (default None)
 
@@ -77,13 +78,13 @@ Generate a plot of a GeoDataFrame with matplotlib. If a column is specified, the
 
   Keyword arguments to pass to `matplotlib.pyplot.legend()` or `matplotlib.pyplot.colorbar()`. Additional accepted keywords when scheme is specified:
 
-    - fmt: string
+  - fmt: string
 
-      A formatting specification for the bin edges of the classes in the legend. For example, to have no decimals: {"fmt": "{:.0f}"}.
+    A formatting specification for the bin edges of the classes in the legend. For example, to have no decimals: {"fmt": "{:.0f}"}.
 
-    - labels: list-like
+  - labels: list-like
 
-      A list of legend labels to override the auto-generated labels. Needs to have the same number of elements as the number of classes (k).
+    A list of legend labels to override the auto-generated labels. Needs to have the same number of elements as the number of classes (k).
 
 - categories: list-like
 
@@ -109,7 +110,12 @@ Generate a plot of a GeoDataFrame with matplotlib. If a column is specified, the
 
   ax: matplotlib axes instance
 
+## [Managing Projections](https://geopandas.org/projections.html)
+
 ## Q&A
 
-[Customize Map Legends and Colors in Python using Matplotlib: GIS in Python](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/python-customize-map-legends-geopandas/)
+- [Customize Map Legends and Colors in Python using Matplotlib: GIS in Python](https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-vector-plots/python-customize-map-legends-geopandas/)
 
+- [Plotting Static Maps with geopandas](https://coderzcolumn.com/tutorials/data-science/plotting-static-maps-with-geopandas-working-with-geospatial-data)
+
+- [利用GeoPandas绘制专题图](https://my.oschina.net/jiangroubao/blog/4544740)

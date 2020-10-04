@@ -7,4 +7,3 @@ Learn how to configure, create, and manage an Azure VPN gateway. Create encrypte
 
 ## [Overview](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)
 
-
