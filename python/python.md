@@ -11,6 +11,7 @@
   - [HTTP](#http)
   - [JSON](#json)
   - [matplotlib](#matplotlib)
+  - [`datetime`](#datetime)
 
 ## Basic
 
@@ -83,3 +84,7 @@ show version
 [Gallery](https://matplotlib.org/gallery/index.html)
 
 [Writing numerical values on the plot with Matplotlib](https://stackoverflow.com/questions/6282058/writing-numerical-values-on-the-plot-with-matplotlib)
+
+## `datetime`
+
+[Python strftime - date without leading 0?](https://stackoverflow.com/questions/904928/python-strftime-date-without-leading-0)
