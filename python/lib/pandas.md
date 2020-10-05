@@ -12,3 +12,5 @@
 - [Get first element of Series without knowing the index](https://stackoverflow.com/questions/24273130/get-first-element-of-series-without-knowing-the-index)
 
 - [Pandas DataFrame – Maximum Value – max()](https://pythonexamples.org/pandas-dataframe-maximum-max/)
+
+- [pandas.Series.at](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.at.html)
