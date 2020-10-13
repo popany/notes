@@ -249,7 +249,7 @@ For Spring Boot version 1.5.9 use below configuration:
         public DatabaseProperties databaseProperties() {
             return new DatabaseProperties();
         }
-	
+
         @Bean
         public TomcatEmbeddedServletContainerFactory tomcatFactory() {
             return new TomcatEmbeddedServletContainerFactory() {

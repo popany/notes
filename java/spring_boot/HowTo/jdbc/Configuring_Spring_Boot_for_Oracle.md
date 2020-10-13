@@ -1,6 +1,6 @@
-# [Configuring Spring Boot for Oracle](Configuring Spring Boot for Oracle)
+# [Configuring Spring Boot for Oracle](https://springframework.guru/configuring-spring-boot-for-oracle/)
 
-- [Configuring Spring Boot for Oracle](#configuring-spring-boot-for-oracleconfiguring-spring-boot-for-oracle)
+- [Configuring Spring Boot for Oracle](#configuring-spring-boot-for-oracle)
   - [Oracle Database Driver](#oracle-database-driver)
   - [Spring Boot Configuration for Oracle](#spring-boot-configuration-for-oracle)
     - [Maven Dependency](#maven-dependency)
