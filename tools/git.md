@@ -21,6 +21,7 @@
   - [Config](#config)
     - [`autocrlf`](#autocrlf)
     - [safecrlf](#safecrlf)
+  - [Q&A](#qa)
 
 ## `git tag`
 
@@ -47,7 +48,7 @@
 ## `git clone`
 
     --branch <name>, -b <name>
-        Instead of pointing the newly created HEAD to the branch pointed to by the cloned repository’s HEAD, point to <name> branch instead. In a non-bare repository, this is the branch that will be checked out. --branch can also take tags and detaches the HEAD at that commit in the resulting repository.    
+        Instead of pointing the newly created HEAD to the branch pointed to by the cloned repositoryâ€™s HEAD, point to <name> branch instead. In a non-bare repository, this is the branch that will be checked out. --branch can also take tags and detaches the HEAD at that commit in the resulting repository.    
 
 ## `git diff`
 
@@ -63,17 +64,17 @@
 
 ## [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 
-It often happens that while working on one project, you need to **use another project from within it**. Perhaps it�s a library that a third party developed or that you�re developing separately and using in multiple parent projects. A **common issue** arises in these scenarios: you want to be able to treat the two projects as separate yet still be able to use one from within the other.
+It often happens that while working on one project, you need to **use another project from within it**. Perhaps it’s a library that a third party developed or that you’re developing separately and using in multiple parent projects. A **common issue** arises in these scenarios: you want to be able to treat the two projects as separate yet still be able to use one from within the other.
 
-Here�s an example. Suppose you�re developing a website and creating Atom feeds. Instead of writing your own Atom-generating code, you decide to use a library. You�re likely to have to either include this code from a shared library like a CPAN install or Ruby gem, or copy the source code into your own project tree. The issue with including the library is that it�s difficult to customize the library in any way and often more difficult to deploy it, because you need to make sure every client has that library available. The issue with copying the code into your own project is that any custom changes you make are difficult to merge when upstream changes become available.
+Here’s an example. Suppose you’re developing a website and creating Atom feeds. Instead of writing your own Atom-generating code, you decide to use a library. You’re likely to have to either include this code from a shared library like a CPAN install or Ruby gem, or copy the source code into your own project tree. The issue with including the library is that it’s difficult to customize the library in any way and often more difficult to deploy it, because you need to make sure every client has that library available. The issue with copying the code into your own project is that any custom changes you make are difficult to merge when upstream changes become available.
 
 Git addresses this issue using submodules. Submodules allow you to keep a Git repository **as a subdirectory** of another Git repository. This lets you clone another repository into your project and **keep your commits separate**.
 
 ### Starting with Submodules
 
-We�ll walk through developing a simple project that has been split up into a main project and a few sub-projects.
+We’ll walk through developing a simple project that has been split up into a main project and a few sub-projects.
 
-Let�s start by **adding an existing Git repository as a submodule** of the repository that we�re working on. To add a new submodule you use the git submodule add command with the **absolute or relative URL** of the project you would like to start tracking. In this example, we�ll add a library called �DbConnector�.
+Let’s start by **adding an existing Git repository as a submodule** of the repository that we’re working on. To add a new submodule you use the git submodule add command with the **absolute or relative URL** of the project you would like to start tracking. In this example, we’ll add a library called “DbConnector”.
 
     $ git submodule add https://github.com/chaconinc/DbConnector
     Cloning into 'DbConnector'...
@@ -83,9 +84,9 @@ Let�s start by **adding an existing Git repository as a submodule** of the repos
     Unpacking objects: 100% (11/11), done.
     Checking connectivity... done.
 
-By default, submodules will add the subproject into a directory named the same as the repository, in this case �DbConnector�. You can add a different path at the end of the command if you want it to go elsewhere.
+By default, submodules will add the subproject into a directory named the same as the repository, in this case “DbConnector”. You can add a different path at the end of the command if you want it to go elsewhere.
 
-If you run git status at this point, you�ll notice a few things.
+If you run git status at this point, you’ll notice a few things.
 
     $ git status
     On branch master
@@ -97,13 +98,13 @@ If you run git status at this point, you�ll notice a few things.
         new file:   .gitmodules
         new file:   DbConnector
 
-First you should notice the new `.gitmodules` file. This is a configuration file that stores the mapping between the project�s URL and the local subdirectory you�ve pulled it into:
+First you should notice the new `.gitmodules` file. This is a configuration file that stores the mapping between the project’s URL and the local subdirectory you’ve pulled it into:
 
     [submodule "DbConnector"]
         path = DbConnector
         url = https://github.com/chaconinc/DbConnector
 
-If you have multiple submodules, you�ll have multiple entries in this file. It�s important to note that this file is **version-controlled with your other files**, like your .gitignore file. It�s pushed and pulled with the rest of your project. **This is how other people who clone this project know where to get the submodule projects from**.
+If you have multiple submodules, you’ll have multiple entries in this file. It’s important to note that this file is **version-controlled with your other files**, like your .gitignore file. It’s pushed and pulled with the rest of your project. **This is how other people who clone this project know where to get the submodule projects from**.
 
 Note:  
 Since the URL in the `.gitmodules` file is what other people will first try to clone/fetch from, make sure to use a URL that they can access if possible. For example, if you use a different URL to push to than others would to pull from, use the one that others have access to. You can overwrite this value locally with `git config submodule.DbConnector.url PRIVATE_URL` for your own use. When applicable, a relative URL can be helpful.
@@ -119,7 +120,7 @@ The other listing in the `git status` output is the project folder entry. If you
     @@ -0,0 +1 @@
     +Subproject commit c3f01dc8862123d317dd46284b05b6892c7b29bc
 
-Although `DbConnector` is a subdirectory in your working directory, Git sees it as a submodule and **doesn�t track its contents** when you�re not in that directory. Instead, Git sees it as a particular commit from that repository.
+Although `DbConnector` is a subdirectory in your working directory, Git sees it as a submodule and **doesn’t track its contents** when you’re not in that directory. Instead, Git sees it as a particular commit from that repository.
 
 If you want a little nicer diff output, you can pass the `--submodule` option to `git diff`.
 
@@ -143,7 +144,7 @@ When you commit, you see something like this:
     create mode 100644 .gitmodules
     create mode 160000 DbConnector
 
-Notice the `160000` mode for the `DbConnector` entry. That is a special mode in Git that basically means you�re **recording a commit as a directory entry** rather than a subdirectory or a file.
+Notice the `160000` mode for the `DbConnector` entry. That is a special mode in Git that basically means you’re **recording a commit as a directory entry** rather than a subdirectory or a file.
 
 Lastly, push these changes:
 
@@ -151,7 +152,7 @@ Lastly, push these changes:
 
 ### Cloning a Project with Submodules
 
-Here we�ll clone a project with a submodule in it. When you clone such a project, by default you get the directories that contain submodules, but none of the files within them yet:
+Here we’ll clone a project with a submodule in it. When you clone such a project, by default you get the directories that contain submodules, but none of the files within them yet:
 
     $ git clone https://github.com/chaconinc/MainProject
     Cloning into 'MainProject'...
@@ -235,22 +236,26 @@ Initialize, fetch and checkout any nested submodules
 
 ### `autocrlf`
 
-    // ??????LF???????CRLF
+    // 提交时转换为LF，检出时转换为CRLF
     git config --global core.autocrlf true
 
-    // ??????LF???????
+    // 提交时转换为LF，检出时不转换
     git config --global core.autocrlf input
 
-    // ????????
+    // 提交检出均不转换
     git config --global core.autocrlf false
 
 ### safecrlf
 
-    // ??????????????
-    git config --global core.safecrlf true
-    
-    // ??????????????
-    git config --global core.safecrlf false
-    
-    // ?????????????????
+    #拒绝提交包含混合换行符的文件
+    git config --global core.safecrlf true   
+
+    #允许提交包含混合换行符的文件
+    git config --global core.safecrlf false   
+
+    #提交包含混合换行符的文件时给出警告
     git config --global core.safecrlf warn
+
+## Q&A
+
+- [git rm - fatal: pathspec did not match any files](https://stackoverflow.com/questions/25458306/git-rm-fatal-pathspec-did-not-match-any-files)
