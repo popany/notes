@@ -62,5 +62,18 @@ Normally, a partition can only support a single consumer in a group. This limit 
 
 ![fig6](./fig/Developing_a_Deeper_Understanding_of_Apache_Kafka_Architecture/fig6.png)
 
-Another scenario is to have a more consumers in a group than partitions, with certain consumers remaining idle. Kafka is able to failover to such idle consumers in cases where an active consumer dies, or when a new partition is added:
+Another scenario is to have a more consumers in a group than partitions, with certain consumers remaining idle. Kafka is able to **failover** to such idle consumers in cases where an active consumer dies, or when a new partition is added:
 
+![fig7](./fig/Developing_a_Deeper_Understanding_of_Apache_Kafka_Architecture/fig7.png)
+
+In this next example there are fewer consumers in a group that partitions, causing consumer A2 to be responsible for processing more messages than consumer A1:
+
+![fig8](./fig/Developing_a_Deeper_Understanding_of_Apache_Kafka_Architecture/fig8.png)
+
+Finally, this last example includes multiple consumer groups, with the result that every event from each partition gets broadcast to each group:
+
+![fig9](./fig/Developing_a_Deeper_Understanding_of_Apache_Kafka_Architecture/fig9.png)
+
+The Kafka protocol will dynamically perform the work of maintaining a consumer’s membership in its group. Any new instances that join the group will **automatically** take over partitions from other group members. And, any instances that die will have their partitions reassigned among the instances that persist.
+
+In understanding Kafka consumers from an architectural and resourcing standpoint, it’s critical to note that consumers and producers don’t run on Kafka brokers, but they do they require CPU and IO resources of their own. This is advantageous in offering the flexibility to run consumers however, wherever, and in whatever quantity is needed without concern for deployment to brokers or sharing their resources. However, a challenge remains in that the best method for deploying and resourcing consumers and producers must be thoroughly thought out. An optimal strategy might be to enlist scalable and elastic microservices for the task.
