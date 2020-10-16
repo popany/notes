@@ -908,7 +908,7 @@
                     "id": "c50l9kgy8ww0",
                     "created": 1597801231453,
                     "text": "install",
-                    "expandState": "collapse"
+                    "expandState": "expand"
                 },
                 "children": [
                     {
@@ -919,7 +919,39 @@
                             "hyperlink": "https://www.oracle.com/downloads/",
                             "hyperlinkTitle": ""
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c6dzq0dl3og0",
+                                    "created": 1602818453320,
+                                    "text": "Drivers and Utilities"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c6dzqcj1fqw0",
+                                            "created": 1602818479771,
+                                            "text": "Oracle Data Access Components for Windows (ODP.NET, ODBC, OLE DB, Dev Tools for Visual Studio)",
+                                            "hyperlink": "https://www.oracle.com/database/technologies/net-downloads.html",
+                                            "hyperlinkTitle": "",
+                                            "expandState": "expand"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "c6dzb54825c0",
+                                                    "created": 1602817288176,
+                                                    "text": "ODAC Developer Downloads",
+                                                    "hyperlink": "https://www.oracle.com/database/technologies/dotnet-odacdev-downloads.html",
+                                                    "hyperlinkTitle": ""
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
