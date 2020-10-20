@@ -1,23 +1,24 @@
 # Docker Desktop for Windows
 
 - [Docker Desktop for Windows](#docker-desktop-for-windows)
-  - [Logs and troubleshooting](#logs-and-troubleshootinghttpsdocsdockercomdocker-for-windowstroubleshoot)
-  - [Windows and containers](#windows-and-containershttpsdocsmicrosoftcomen-usvirtualizationwindowscontainersabout)
-  - [Get started with Docker for Windows](#get-started-with-docker-for-windowshttpsdocsdockercomdocker-for-windows)
+  - [Logs and troubleshooting](#logs-and-troubleshooting)
+  - [Windows and containers](#windows-and-containers)
+  - [Get started with Docker for Windows](#get-started-with-docker-for-windows)
     - [Switch between Windows and Linux containers](#switch-between-windows-and-linux-containers)
-  - [Get started: Prep Windows for containers](#get-started-prep-windows-for-containershttpsdocsmicrosoftcomen-usvirtualizationwindowscontainersquick-startset-up-environmenttabswindows-10-client)
-  - [Get started: Run your first Windows container](#get-started-run-your-first-windows-containerhttpsdocsmicrosoftcomen-usvirtualizationwindowscontainersquick-startrun-your-first-container)
+  - [Get started: Prep Windows for containers](#get-started-prep-windows-for-containers)
+  - [Get started: Run your first Windows container](#get-started-run-your-first-windows-container)
     - [Install a container base image](#install-a-container-base-image)
     - [Run a Windows container](#run-a-windows-container)
-  - [Docker Engine on Windows](#docker-engine-on-windowshttpsdocsmicrosoftcomen-usvirtualizationwindowscontainersmanage-dockerconfigure-docker-daemon)
-  - [Container Tools in Visual Studio](#container-tools-in-visual-studiohttpsdocsmicrosoftcomen-usvisualstudiocontainersoverviewviewvs-2019)
-  - [Build and run your first Docker Windows Server container](#build-and-run-your-first-docker-windows-server-containerhttpswwwdockercomblogbuild-your-first-docker-windows-server-container)
-  - [.NET Framework Docker Samples](#net-framework-docker-sampleshttpsgithubcommicrosoftdotnet-framework-dockerblobmastersamplesreadmemd)
+  - [Docker Engine on Windows](#docker-engine-on-windows)
+  - [Container Tools in Visual Studio](#container-tools-in-visual-studio)
+  - [Build and run your first Docker Windows Server container](#build-and-run-your-first-docker-windows-server-container)
+  - [.NET Framework Docker Samples](#net-framework-docker-samples)
     - [Try a pre-built .NET Framework Docker Image](#try-a-pre-built-net-framework-docker-image)
     - [Building .NET Framework Apps with Docker](#building-net-framework-apps-with-docker)
     - [Related Docker Hub Repos](#related-docker-hub-repos)
       - [.NET Framework](#net-framework)
       - [.NET Core](#net-core)
+  - [Q&A](#qa)
 
 ## [Logs and troubleshooting](https://docs.docker.com/docker-for-windows/troubleshoot/)
 
@@ -91,3 +92,8 @@ From the Docker Desktop menu, you can toggle which daemon (Linux or Windows) the
 - [dotnet/core](https://hub.docker.com/_/microsoft-dotnet-core/): .NET Core
 - [dotnet/core/samples](https://hub.docker.com/_/microsoft-dotnet-core-samples/): .NET Core Samples
 - [dotnet/core-nightly](https://hub.docker.com/_/microsoft-dotnet-core-nightly/): .NET Core (Preview)
+
+## Q&A
+
+[Kubernetes is stuck on starting after enabling it on Docker for Windows 10](https://github.com/docker/for-win/issues/5442)
+

@@ -48,7 +48,7 @@
       - [Figure 2.4. TCP state transition diagram](#figure-24-tcp-state-transition-diagram)
       - [Watching the Packets](#watching-the-packets)
       - [Figure 2.5. Packet exchange for TCP connection](#figure-25-packet-exchange-for-tcp-connection)
-    - [2.7 TIME_WAIT State](#27-timewait-state)
+    - [2.7 TIME_WAIT State](#27-time_wait-state)
     - [2.8 SCTP Association Establishment and Termination](#28-sctp-association-establishment-and-termination)
       - [Four-Way Handshake](#four-way-handshake)
       - [Figure 2.6. SCTP four-way handshake](#figure-26-sctp-four-way-handshake)
@@ -85,9 +85,9 @@
     - [3.3 Value-Result Arguments](#33-value-result-arguments)
     - [3.4 Byte Ordering Functions](#34-byte-ordering-functions)
     - [3.5 Byte Manipulation Functions](#35-byte-manipulation-functions)
-    - [3.6 inet_aton, inet_addr, and inet_ntoa Functions](#36-inetaton-inetaddr-and-inetntoa-functions)
-    - [3.7 inet_pton and inet_ntop Functions](#37-inetpton-and-inetntop-functions)
-    - [3.8 sock_ntop and Related Functions](#38-sockntop-and-related-functions)
+    - [3.6 inet_aton, inet_addr, and inet_ntoa Functions](#36-inet_aton-inet_addr-and-inet_ntoa-functions)
+    - [3.7 inet_pton and inet_ntop Functions](#37-inet_pton-and-inet_ntop-functions)
+    - [3.8 sock_ntop and Related Functions](#38-sock_ntop-and-related-functions)
     - [3.9 readn, writen, and readline Functions](#39-readn-writen-and-readline-functions)
     - [3.10 Summary](#310-summary)
   - [Chapter 4. Elementary TCP Sockets](#chapter-4-elementary-tcp-sockets)
@@ -109,12 +109,12 @@
       - [Create socket, bind server's well-known port](#create-socket-bind-servers-well-known-port)
       - [Wait for client connection to complete](#wait-for-client-connection-to-complete)
       - [Concurrent server](#concurrent-server)
-    - [5.3 TCP Echo Server: `str_echo` Function](#53-tcp-echo-server-strecho-function)
+    - [5.3 TCP Echo Server: `str_echo` Function](#53-tcp-echo-server-str_echo-function)
       - [Read a buffer and echo the buffer](#read-a-buffer-and-echo-the-buffer)
     - [5.4 TCP Echo Client: main Function](#54-tcp-echo-client-main-function)
       - [Create socket, fill in Internet socket address structure](#create-socket-fill-in-internet-socket-address-structure)
       - [Connect to server](#connect-to-server)
-    - [5.5 TCP Echo Client: `str_cli` Function](#55-tcp-echo-client-strcli-function)
+    - [5.5 TCP Echo Client: `str_cli` Function](#55-tcp-echo-client-str_cli-function)
       - [Read a line, write to server](#read-a-line-write-to-server)
       - [Read echoed line from server, write to standard output](#read-echoed-line-from-server-write-to-standard-output)
       - [Return to `main`](#return-to-main)
@@ -1274,3 +1274,4 @@ Using these definitions, the first four I/O models—blocking, nonblocking, I/O 
 
 
 
+TODO

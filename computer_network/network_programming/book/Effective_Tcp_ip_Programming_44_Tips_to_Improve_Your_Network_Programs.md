@@ -277,3 +277,9 @@ We are now in a position to look at an elementary server (Figure 1.5). Again, th
   We first read and print 1 byte from our client. Next, we send the single byte 2 back to our client and exit.
 
 ## 2 Basics
+
+
+
+
+
+TODO
