@@ -18,7 +18,6 @@
     - [Related Docker Hub Repos](#related-docker-hub-repos)
       - [.NET Framework](#net-framework)
       - [.NET Core](#net-core)
-  - [Q&A](#qa)
 
 ## [Logs and troubleshooting](https://docs.docker.com/docker-for-windows/troubleshoot/)
 
@@ -93,7 +92,4 @@ From the Docker Desktop menu, you can toggle which daemon (Linux or Windows) the
 - [dotnet/core/samples](https://hub.docker.com/_/microsoft-dotnet-core-samples/): .NET Core Samples
 - [dotnet/core-nightly](https://hub.docker.com/_/microsoft-dotnet-core-nightly/): .NET Core (Preview)
 
-## Q&A
-
-[Kubernetes is stuck on starting after enabling it on Docker for Windows 10](https://github.com/docker/for-win/issues/5442)
 

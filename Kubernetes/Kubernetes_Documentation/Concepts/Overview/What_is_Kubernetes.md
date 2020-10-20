@@ -13,7 +13,7 @@ The name Kubernetes originates from Greek, meaning helmsman or pilot. Google ope
 
 Let's take a look at why Kubernetes is so useful by going back in time.
 
-![fig1](./fig/container_evolution.svg)
+![fig1](./fig/What_is_Kubernetes/container_evolution.svg)
 
 **Traditional deployment era**: Early on, organizations ran applications on physical servers. There was no way to define resource boundaries for applications in a physical server, and this caused resource allocation issues. For example, if multiple applications run on a physical server, there can be instances where one application would take up most of the resources, and as a result, the other applications would underperform. A solution for this would be to run each application on a different physical server. But this did not scale as resources were underutilized, and it was expensive for organizations to maintain many physical servers.
 
