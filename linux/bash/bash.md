@@ -38,6 +38,9 @@
     - [set core dump file location](#set-core-dump-file-location)
   - [Ubuntu](#ubuntu)
     - [Check Ubuntu version](#check-ubuntu-version)
+    - [firewall](#firewall-1)
+      - [Allow the TCP port 8080](#allow-the-tcp-port-8080)
+      - [Block the UDP port 4444](#block-the-udp-port-4444)
   - [GNU Binary Utilities](#gnu-binary-utilities)
     - [readelf](#readelf)
     - [objcopy](#objcopy)
@@ -351,6 +354,16 @@ restart `sshd`
 
     # Ubuntu 16.04 or newer
     cat /etc/os-release
+
+### firewall
+
+#### Allow the TCP port 8080
+
+    ufw allow 8080/tcp
+
+#### Block the UDP port 4444
+
+    ufw deny 4444/udp
 
 ## [GNU Binary Utilities](https://sourceware.org/binutils/docs-2.34/binutils/index.html)
 
