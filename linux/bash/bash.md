@@ -35,6 +35,8 @@
       - [How to setup an SFTP server on CentOS 7](#how-to-setup-an-sftp-server-on-centos-7)
     - [firewall](#firewall)
       - [How to Configure Firewall in CentOS 7 and RHEL 7](#how-to-configure-firewall-in-centos-7-and-rhel-7)
+      - [How to Configure and Manage the Firewall on CentOS 8](#how-to-configure-and-manage-the-firewall-on-centos-8)
+      - [Opening a source port](#opening-a-source-port)
     - [set core dump file location](#set-core-dump-file-location)
   - [Ubuntu](#ubuntu)
     - [Check Ubuntu version](#check-ubuntu-version)
@@ -280,6 +282,13 @@ restart `sshd`
 ### firewall
 
 #### [How to Configure Firewall in CentOS 7 and RHEL 7](https://www.looklinux.com/how-to-configure-firewall-in-centos-7-and-rhel-7/)
+
+#### [How to Configure and Manage the Firewall on CentOS 8](https://linuxize.com/post/how-to-configure-and-manage-firewall-on-centos-8/)
+
+#### Opening a source port
+
+    firewall-cmd --zone=public --add-port=8080/tcp
+    firewall-cmd --runtime-to-permanent
 
 ### set core dump file location
 
