@@ -40,3 +40,11 @@ The lack of shared state is what makes each thread behave as it if was a single-
 
 Same-threaded basically means that data processing stays within the same thread, and that no threads in a same-threaded system share data concurrently. Sometimes this is also referred to just as no shared state concurrency, or separate state concurrency.
 
+
+
+
+
+
+
+
+TODO java
