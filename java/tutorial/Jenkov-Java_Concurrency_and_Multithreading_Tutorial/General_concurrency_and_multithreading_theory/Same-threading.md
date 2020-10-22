@@ -5,6 +5,13 @@
   - [Same-threading: Single-threading Scaled Out](#same-threading-single-threading-scaled-out)
     - [One Thread Per CPU](#one-thread-per-cpu)
   - [No Shared State](#no-shared-state)
+  - [Load Distribution](#load-distribution)
+    - [Single-threaded Microservices](#single-threaded-microservices)
+    - [Services With Sharded Data](#services-with-sharded-data)
+  - [Thread Communication](#thread-communication)
+  - [Simpler Concurrency Model](#simpler-concurrency-model)
+  - [Illustrations](#illustrations)
+  - [Thread Ops for Java](#thread-ops-for-java)
 
 Same-threading is a **concurrency model** where a single-threaded systems are scaled out to N single-threaded systems. The result is N single-threaded systems running in parallel.
 
@@ -40,11 +47,52 @@ The lack of shared state is what makes each thread behave as it if was a single-
 
 Same-threaded basically means that data processing stays within the same thread, and that no threads in a same-threaded system share data concurrently. Sometimes this is also referred to just as no shared state concurrency, or separate state concurrency.
 
+## Load Distribution
 
+Obviously, a same-threaded system needs to **share the work load** between the single-threaded instances running. If only one thread gets any work, the system would in effect be single-threaded.
 
+Exactly how you distribute the load over the different threads depend on the design of your system. I will cover a few in the following sections.
 
+### Single-threaded Microservices
 
+If your system consists of multiple microservices, each microservice can run in single-threaded mode. When you deploy multiple single-threaded microservices to the same machine, each microservice can run a single thread on a sigle CPU.
 
+Microservices **do not share any data** by nature, so microservices is a good use case for a same-threaded system.
 
+### Services With Sharded Data
 
-TODO java
+If your system does actually need to share data, or at least a database, you may be able to **shard the database**. Sharding means that the data is divided among multiple databases. The data is typically divided so that all data related to each other is located together in the same database. For instance, all data belonging to some "owner" entity will be inserted into the same database. Sharding is out of the scope of this tutorial, though, so you will have to search for tutorials about that topic.
+
+## Thread Communication
+
+If the threads in a same-threaded system need to communicate, they do so by **message passing**. If Thread A wants to send a message to Thread B, Thread A can do so by generating a message (a byte sequence). Thread B can then copy that message (byte sequence) and read it. By copying the message Thread B makes sure that Thread A cannot modify the message while Thread B reads it. Once copied, the message copy is inaccessible for Thread A.
+
+Thread communication via messaging is illustrated here:
+
+![fig5](./fig/Same-threading/same-threading-5.png)
+
+The thread communication can take place via queues, pipes, unix sockets, TCP sockets etc. Whatever fits your system.
+
+## Simpler Concurrency Model
+
+Each system running in its own thread in same-threaded system can be implemented as if it was single-threaded. This means that the internal concurrency model becomes much simpler than if the threads shared state. You do not have to worry about concurrent data structures and all the concurrency problems such data structures can result in.
+
+## Illustrations
+
+Here are illustrations of a single-threaded, multi-threaded and same-threaded system, so you can easier get an overview of the difference between them.
+
+The first illustration shows a single-threaded system.
+
+![fig1](./fig/Same-threading/same-threading-1.png)
+
+The second illustration shows a multi-threaded system where the threads share data.
+
+![fig2](./fig/Same-threading/same-threading-2.png)
+
+The third illustration shows a same-threaded system with 2 threads with separate data, communicating by passing messages to each other.
+
+![fig3](./fig/Same-threading/same-threading-3.png)
+
+## Thread Ops for Java
+
+Thread Ops for Java is an open source toolkit designed to help you implement separate state same-threaded systems more easily. Thread Ops contains tools for starting and stopping individual threads, as well as achieving some level of concurrency withing a single thread. In case you are interested in playing with same-threaded application designs, it might be interesting for you to give Thread Ops a look. You can read more about Thread Ops in my [Thread Ops for Java Tutorial](http://tutorials.jenkov.com/thread-ops-java/index.html).
