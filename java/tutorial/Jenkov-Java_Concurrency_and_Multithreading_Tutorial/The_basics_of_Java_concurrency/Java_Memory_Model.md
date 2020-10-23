@@ -167,14 +167,6 @@ However, the two increments have been carried out concurrently without proper sy
 
 This diagram illustrates an occurrence of the problem with race conditions as described above:
 
+![fig7](./fig/Java_Memory_Model/java-memory-model-7.png)
 
-
-
-
-
-
-
-
-
-
-TODO java
+To solve this problem you can use a [Java synchronized block](http://tutorials.jenkov.com/java-concurrency/synchronized.html). A synchronized block guarantees that only one thread can enter a given critical section of the code at any given time. **Synchronized blocks** also **guarantee** that all variables accessed inside the synchronized block will be **read in from main memory**, and when the thread exits the synchronized block, all updated variables will be **flushed back to main memory** again, **regardless of whether the variable is declared volatile or not**.
