@@ -1,0 +1,150 @@
+<mxfile host="65bd71144e" modified="2020-10-28T03:10:03.343Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" version="13.6.5" etag="OwVVFDgD-YNENt2FaMwj">
+    <diagram id="NH16gQL3mwwtfG8gKhs3" name="Page-1">
+        <mxGraphModel dx="1537" dy="1305" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="44" value="MDGW(行情网关)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="1125" width="100" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="44">
+                    <mxGeometry x="45" y="90" width="10" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="VSS(用户行情系统)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="90" width="100" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="2">
+                    <mxGeometry x="45" y="90" width="10" height="510" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="MDGW(行情网关)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="630" y="90" width="100" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="3">
+                    <mxGeometry x="45" y="120" width="10" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Logon" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1" target="8" parent="1" source="2">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="605" y="210" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="Logon" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;" edge="1" source="8" parent="1" target="2">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="605" y="286" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="VSS(用户行情系统)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="910" y="90" width="100" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="13">
+                    <mxGeometry x="45" y="90" width="10" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="MDGW(行情网关)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="1350" y="90" width="100" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="15">
+                    <mxGeometry x="45" y="120" width="10" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Logon" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1" target="20" parent="1" source="13">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1325" y="210" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="logout" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;" edge="1" source="20" parent="1" target="13">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1325" y="286" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="Logon" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1" target="15">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="960" y="360" as="sourcePoint"/>
+                        <mxPoint x="1040" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="VSS(用户行情系统)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="1625" y="90" width="100" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="25">
+                    <mxGeometry x="45" y="90" width="10" height="450" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="MDGW(行情网关)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="2065" y="90" width="100" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="27">
+                    <mxGeometry x="45" y="120" width="10" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Logon" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1" parent="1" source="25" target="28">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="2040" y="210" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="31" value="Logon" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1" target="27" source="25">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="1675" y="360" as="sourcePoint"/>
+                        <mxPoint x="1755" y="360" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="2015" y="490"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="33" value="timeout" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1620" y="420" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="&lt;h1&gt;登录成功&lt;/h1&gt;&lt;p&gt;&lt;span&gt;用户行情系统首先建立一个到行情网关 MDGW 的 TCP/IP 连接，然后发送一个Logon 消息给行情网关&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;如果行情网关验证用户行情系统有权登录，那么行情网关会返回 Logon 消息给用户行情系统，作为一个登录消息的确认，本次会话登录成功&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="340" y="-15" width="190" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="&lt;h1&gt;登录失败&lt;/h1&gt;&lt;p&gt;如果用户行情系统登录验证失败，那么行情网关会返回 Logout 消息给用户行情系统，本次会话登录失败&lt;/p&gt;&lt;p&gt;如果用户行情系统断线或收到行情网关的登出消息，也应该等待一段时间后再&lt;br/&gt;尝试下一次连接&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1090" y="-15" width="190" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="&lt;h1&gt;登录超时&lt;/h1&gt;&lt;p&gt;用户行情系统发送 Logon 消息后，如果对方没有在适当的时间间隔里作回应，则可以关闭连接，并在等待一段时间后再尝试下一次连接&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1820" y="-15" width="190" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="VSS(用户行情系统)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="1125" width="100" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="42">
+                    <mxGeometry x="45" y="90" width="10" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="Heartbeat" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="42" target="44">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="50" y="115" as="sourcePoint"/>
+                        <mxPoint x="410" y="115" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="48" value="&lt;h1&gt;心跳&lt;/h1&gt;&lt;p&gt;当一方没有接收到数据包的时间超过两倍的心跳间隔时，则可认为是数据链路发生故障，接收方可以断开此链接&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;当用户行情系统登录到行情网关时， 用户行情系统应在登录消息中指定心跳间隔&lt;/span&gt;&lt;span&gt;参数（秒为单位）&lt;/span&gt;&lt;/p&gt;&lt;p&gt;在一个心跳间隔时间内如果行情网关没有需要向用户行情系统发送的数据，那么行情网关会向用户行情系统发送一个心跳消息，以保证两条消息之间的时间间隔不会超过设定的心跳间隔；同样，用户行情系统也应该通过必要时发送心跳消息的方式来保证行情网关收到的连续两条消息之间的时间间隔不超过心跳间隔时间&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="235" y="940" width="400" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="Heartbeat" style="html=1;verticalAlign=bottom;endArrow=block;" edge="1" parent="1">
+                    <mxGeometry width="80" relative="1" as="geometry">
+                        <mxPoint x="686" y="1342" as="sourcePoint"/>
+                        <mxPoint x="180" y="1342" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="52" value="MDGW(行情网关)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="640" y="2075" width="100" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="52">
+                    <mxGeometry x="45" y="105" width="10" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="VSS(用户行情系统)" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="130" y="2075" width="100" height="740" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="54">
+                    <mxGeometry x="45" y="90" width="10" height="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="&lt;h1&gt;终止会话&lt;/h1&gt;&lt;p&gt;用户行情系统和行情网关方都能通过发送 Logout 消息要求终止会话。对方接收到Logout 消息请求后，会发送一条 Logout 消息回应。发起方收到登出回应后，终止连接。&lt;/p&gt;&lt;p&gt;&lt;br&gt;如果连接对方没有在适当的时间间隔里作回应，则可终止连接。&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="235" y="1890" width="400" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="Logout" style="html=1;verticalAlign=bottom;endArrow=block;entryX=0;entryY=0;" edge="1" target="59" parent="1" source="54">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="615" y="2180" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="61" value="Logout" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;exitX=0;exitY=0.95;" edge="1" source="59" parent="1" target="54">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="615" y="2256" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
