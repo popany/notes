@@ -4,6 +4,7 @@
   - [User Centre](#user-centre)
     - [Maven in 5 Minutes](#maven-in-5-minutes)
     - [Maven Getting Started Guide](#maven-getting-started-guide)
+      - [Introduction to the Dependency Mechanism](#introduction-to-the-dependency-mechanism)
     - [Maven Mini Guides](#maven-mini-guides)
       - [Using Modules](#using-modules)
         - [The Reactor](#the-reactor)
@@ -14,6 +15,8 @@
 ### [Maven in 5 Minutes](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
 
 ### [Maven Getting Started Guide](https://maven.apache.org/guides/getting-started/index.html)
+
+#### [Introduction to the Dependency Mechanism](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)
 
 ### [Maven Mini Guides](https://maven.apache.org/guides/mini/index.html)
 
