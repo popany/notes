@@ -47,10 +47,4 @@ The second method, which we refer to as `epoll2`, simply calls `epoll_ctl` twice
 
 The third method uses a new system call named `epoll_ctlv`. This system call is designed to reduce the overhead of multiple `epoll_ctl` system calls by aggregating several calls to `epoll_ctl` into one call to `epoll_ctlv`. This is achieved by passing an array of epoll events structures to `epoll_ctlv`, which then calls `epoll_ctl` for each element of the array. Events are generated in level-triggered fashion. This method is referred to in the figures and the remainder of the paper as `epollctlv`.
 
-
-
-
-
-
-
-TODO epoll
+...
