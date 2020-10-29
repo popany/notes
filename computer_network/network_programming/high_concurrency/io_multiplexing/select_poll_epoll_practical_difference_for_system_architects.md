@@ -1,0 +1,16 @@
+# [select / poll / epoll: practical difference for system architects](https://www.ulduzsoft.com/2014/01/select-poll-epoll-practical-difference-for-system-architects/)
+
+- [select / poll / epoll: practical difference for system architects](#select--poll--epoll-practical-difference-for-system-architects)
+
+
+
+
+
+
+
+
+
+
+
+
+TODO epoll
