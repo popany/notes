@@ -52,7 +52,7 @@ The next mandatory step is **registering the class as an auto-configuration cand
 
 If we want our auto-configuration class to have priority over other auto-configuration candidates, we can add the `@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)` annotation.
 
-Auto-configuration is designed using classes and beans marked with `@Conditional` annotations so that the auto-configuration or specific parts of it can be replaced.
+Auto-configuration is designed using **classes and beans** marked with `@Conditional` annotations so that the auto-configuration or specific parts of it can be replaced.
 
 Note that the **auto-configuration is only in effect if the auto-configured beans are not defined in the application**. If you define your bean, then the default one will be overridden.
 
@@ -165,3 +165,4 @@ If an application that uses the `MySQLAutoconfiguration` wishes to override the 
 
 
 
+TODO AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
