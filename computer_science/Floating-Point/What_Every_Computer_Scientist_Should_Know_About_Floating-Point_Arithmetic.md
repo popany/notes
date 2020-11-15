@@ -39,8 +39,11 @@ The IEEE standard goes further than just requiring the use of a guard digit. It 
 
 ## Floating-point Formats
 
+Several different representations of real numbers have been proposed, but by far the most widely used is the floating-point representation. Floating-point representations have a base $\beta$ (which is always assumed to be even) and a precision p. If $\beta = 10$ and $p = 3$, then the number $0.1$ is represented as $1.00 × 10^{-1}$. If $\beta = 2$ and $p = 24$, then the decimal number $0.1$ cannot be represented exactly, but is approximately $1.10011001100110011001101 × 2^{-4}$.
 
+In general, a floating-point number will be represented as $± d.dd... d × \beta^{e}$, where $d.dd... d$ is called the significand and has $p$ digits. More precisely $± d_{0} . d_{1} d_{2} ... d_{p-1} × \beta^{e}$ represents the number
 
+$$± (d_{0} + d_{1} \beta^{-1} + ... + d_{p-1} \beta^{-(p-1)}) \beta^{e}, (0 \leq d_{i} < \beta_{i})$$
 
 
 
