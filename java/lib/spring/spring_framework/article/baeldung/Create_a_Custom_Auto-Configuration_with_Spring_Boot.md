@@ -8,6 +8,11 @@
     - [3.2. Bean Conditions](#32-bean-conditions)
     - [3.3. Property Conditions](#33-property-conditions)
     - [3.4. Resource Conditions](#34-resource-conditions)
+    - [3.5. Custom Conditions](#35-custom-conditions)
+    - [3.6. Application Conditions](#36-application-conditions)
+  - [4. Testing the Auto-Configuration](#4-testing-the-auto-configuration)
+  - [5. Disabling Auto-Configuration Classes](#5-disabling-auto-configuration-classes)
+  - [6. Conclusions](#6-conclusions)
 
 ## 1. Overview
 
@@ -160,9 +165,129 @@ If an application that uses the `MySQLAutoconfiguration` wishes to override the 
 
 ### 3.4. Resource Conditions
 
+Adding the `@ConditionalOnResource` annotation means that the configuration will only be loaded when a specified resource is present.
 
+Let's define a method called `additionalProperties()` that will return a Properties object containing Hibernate-specific properties to be used by the `entityManagerFactory` bean, only if the resource file `mysql.properties` is present:
 
+    @ConditionalOnResource(resources = "classpath:mysql.properties")
+    @Conditional(HibernateCondition.class)
+    Properties additionalProperties() {
+        Properties hibernateProperties = new Properties();
+    
+        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", env.getProperty("mysql-hibernate.hbm2ddl.auto"));
+        hibernateProperties.setProperty("hibernate.dialect", env.getProperty("mysql-hibernate.dialect"));
+        hibernateProperties.setProperty("hibernate.show_sql", env.getProperty("mysql-hibernate.show_sql") != null ? env.getProperty("mysql-hibernate.show_sql") : "false");
+        return hibernateProperties;
+    }
 
+We can add the Hibernate specific properties to the `mysql.properties` file:
 
+    mysql-hibernate.dialect=org.hibernate.dialect.MySQLDialect
+    mysql-hibernate.show_sql=true
+    mysql-hibernate.hbm2ddl.auto=create-drop
 
-TODO AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+### 3.5. Custom Conditions
+
+If we don't want to use any of the conditions available in Spring Boot, we can also define custom conditions by extending the `SpringBootCondition` class and overriding the `getMatchOutcome()` method.
+
+Let's create a condition called `HibernateCondition` for our `additionalProperties()` method that will verify whether a `HibernateEntityManager` class is present on the classpath:
+
+    static class HibernateCondition extends SpringBootCondition {
+    
+        private static String[] CLASS_NAMES
+            = { "org.hibernate.ejb.HibernateEntityManager", 
+                "org.hibernate.jpa.HibernateEntityManager" };
+    
+        @Override
+        public ConditionOutcome getMatchOutcome(ConditionContext context, 
+            AnnotatedTypeMetadata metadata) {
+    
+            ConditionMessage.Builder message = ConditionMessage.forCondition("Hibernate");
+            return Arrays.stream(CLASS_NAMES)
+            .filter(className -> ClassUtils.isPresent(className, context.getClassLoader()))
+            .map(className -> ConditionOutcome
+                .match(message.found("class")
+                .items(Style.NORMAL, className)))
+            .findAny()
+            .orElseGet(() -> ConditionOutcome
+                .noMatch(message.didNotFind("class", "classes")
+                .items(Style.NORMAL, Arrays.asList(CLASS_NAMES))));
+        }
+    }
+
+Then we can add the condition to the `additionalProperties()` method:
+
+    @Conditional(HibernateCondition.class)
+    Properties additionalProperties() {
+        //...
+    }
+
+### 3.6. Application Conditions
+
+We can also specify that the configuration can be loaded only inside/outside a web context, by adding the `@ConditionalOnWebApplication` or `@ConditionalOnNotWebApplication` annotation.
+
+## 4. Testing the Auto-Configuration
+
+Let's create a very simple example to test our auto-configuration. We will create an entity class called `MyUser`, and a `MyUserRepository` interface using Spring Data:
+
+    @Entity
+    public class MyUser {
+        @Id
+        private String email;
+    
+        // standard constructor, getters, setters
+    }
+
+    public interface MyUserRepository extends JpaRepository<MyUser, String> { }
+
+To enable auto-configuration, we can use one of the `@SpringBootApplication` or `@EnableAutoConfiguration` annotations:
+
+    @SpringBootApplication
+    public class AutoconfigurationApplication {
+        public static void main(String[] args) {
+            SpringApplication.run(AutoconfigurationApplication.class, args);
+        }
+    }
+
+Next, let's write a `JUnit` test that saves a `MyUser` entity:
+
+    @RunWith(SpringJUnit4ClassRunner.class)
+    @SpringBootTest(classes = AutoconfigurationApplication.class)
+    @EnableJpaRepositories(basePackages = { "com.baeldung.autoconfiguration.example" })
+    public class AutoconfigurationTest {
+    
+        @Autowired
+        private MyUserRepository userRepository;
+    
+        @Test
+        public void whenSaveUser_thenOk() {
+            MyUser user = new MyUser("user@email.com");
+            userRepository.save(user);
+        }
+    }
+
+Since we have not defined our `DataSource` configuration, the application will use the auto-configuration we have created to connect to a MySQL database called `myDb`.
+
+The connection string contains the `createDatabaseIfNotExist=true` property, so the database does not need to exist. However, the user `mysqluser` or the one specified through the `mysql.user` property if it is present, needs to be created.
+
+We can check the application log to see that the MySQL data source is being used:
+
+    web - 2017-04-12 00:01:33,956 [main] INFO  o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: com.mysql.cj.jdbc.Driver
+
+## 5. Disabling Auto-Configuration Classes
+
+If we wanted to exclude the auto-configuration from being loaded, we could add the `@EnableAutoConfiguration` annotation with exclude or excludeName attribute to a configuration class:
+
+    @Configuration
+    @EnableAutoConfiguration(exclude={MySQLAutoconfiguration.class})
+    public class AutoconfigurationApplication {
+        //...
+    }
+
+Another option to disable specific auto-configurations is by setting the `spring.autoconfigure.exclude` property:
+
+    spring.autoconfigure.exclude=com.baeldung.autoconfiguration.MySQLAutoconfiguration
+
+## 6. Conclusions
+
+In this tutorial, we've shown how to create a custom Spring Boot auto-configuration. 
