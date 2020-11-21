@@ -17,6 +17,9 @@
     - [doPost() 方法](#dopost-方法)
     - [destroy() 方法](#destroy-方法)
     - [架构图](#架构图)
+  - [Servlet 实例](#servlet-实例)
+    - [Hello World 示例代码](#hello-world-示例代码)
+    - [编译 Servlet](#编译-servlet)
 
 Servlet 为创建基于 web 的应用程序提供了基于组件、独立于平台的方法，可以不受 CGI 程序的性能限制。Servlet 有权限访问所有的 Java API，包括访问企业级数据库的 JDBC API。
 
@@ -193,6 +196,51 @@ destroy() 方法只会被调用一次，在 Servlet 生命周期结束时被调�
 - 然后 Servlet 容器处理由多个线程产生的多个请求，每个线程执行一个单一的 Servlet 实例的 service() 方法。
 
 ![fig2](./fig/Servlet-LifeCycle.jpg)
+
+## [Servlet 实例](https://www.runoob.com/servlet/servlet-first-example.html)
+
+Servlet 是服务 HTTP 请求并实现 javax.servlet.Servlet 接口的 Java 类。Web 应用程序开发人员通常**编写 Servlet 来扩展 javax.servlet.http.HttpServlet**，并实现 Servlet 接口的抽象类专门用来处理 HTTP 请求。
+
+### Hello World 示例代码
+
+下面是 Servlet 输出 Hello World 的示例源代码：
+
+    // 导入必需的 java 库
+    import java.io.*;
+    import javax.servlet.*;
+    import javax.servlet.http.*;
+
+    // 扩展 HttpServlet 类
+    public class HelloWorld extends HttpServlet {
+    
+        private String message;
+
+        public void init() throws ServletException
+        {
+            // 执行必需的初始化
+            message = "Hello World";
+        }
+
+        public void doGet(HttpServletRequest request,
+                        HttpServletResponse response)
+                throws ServletException, IOException
+        {
+            // 设置响应内容类型
+            response.setContentType("text/html");
+
+            // 实际的逻辑是在这里
+            PrintWriter out = response.getWriter();
+            out.println("<h1>" + message + "</h1>");
+        }
+    
+        public void destroy()
+        {
+            // 什么也不做
+        }
+    }
+
+### 编译 Servlet
+
 
 
 

@@ -1,9 +1,146 @@
-<mxfile host="65bd71144e" modified="2020-11-18T14:39:04.646Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="Rz2zM9CByUtkjcZ0mLDX" version="13.6.5">
+<mxfile host="65bd71144e" modified="2020-11-20T07:40:22.993Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="4ETd8fIMhzKY81EhMkSZ" version="13.6.5">
     <diagram id="i6eAsQiDidNN2xdV9aTh" name="Page-1">
-        <mxGraphModel dx="1491" dy="615" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2067" dy="903" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
+                <mxCell id="310" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="820" y="2330" as="sourcePoint"/>
+                        <mxPoint x="970.5" y="2330" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="311" value="select()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="310">
+                    <mxGeometry x="0.5484" y="1" relative="1" as="geometry">
+                        <mxPoint x="-4" y="11" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="307" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="820" y="2382" as="sourcePoint"/>
+                        <mxPoint x="659" y="2382" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="308" value="handle_event()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="307">
+                    <mxGeometry x="-0.5982" y="-3" relative="1" as="geometry">
+                        <mxPoint x="-82" y="-8" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="303" value="" style="endArrow=classic;html=1;dashed=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="543.5" y="2290" as="sourcePoint"/>
+                        <mxPoint x="814" y="2290" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="298" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="813" y="2200" as="sourcePoint"/>
+                        <mxPoint x="659" y="2200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="299" value="get_handle()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="298">
+                    <mxGeometry x="-0.5982" y="-3" relative="1" as="geometry">
+                        <mxPoint x="-72" y="-7" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="295" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="700" y="2160" as="sourcePoint"/>
+                        <mxPoint x="810" y="2160" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="296" value="register_handler()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="295">
+                    <mxGeometry x="-0.5982" y="-3" relative="1" as="geometry">
+                        <mxPoint x="32" y="7" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="282" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="239">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="788" y="2105" as="sourcePoint"/>
+                        <mxPoint x="551" y="2105" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="283" value="handle_event()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="282">
+                    <mxGeometry x="0.2304" y="4" relative="1" as="geometry">
+                        <mxPoint x="-49" y="-15" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="279" value="" style="endArrow=classic;html=1;dashed=1;exitX=0.7;exitY=0.881;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="981" y="2075.002" as="sourcePoint"/>
+                        <mxPoint x="826" y="2075" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="272" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="820" y="2040" as="sourcePoint"/>
+                        <mxPoint x="970.5" y="2040" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="273" value="select()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="272">
+                    <mxGeometry x="0.5484" y="1" relative="1" as="geometry">
+                        <mxPoint x="-4" y="11" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="270" value="" style="endArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="379.5" y="2024.5" as="sourcePoint"/>
+                        <mxPoint x="813.5" y="2024.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="271" value="handle_events()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="270">
+                    <mxGeometry x="-0.5982" y="-3" relative="1" as="geometry">
+                        <mxPoint x="235.5" y="-13" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="263" value="" style="endArrow=classic;html=1;dashed=1;" edge="1" parent="1" source="239">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="788" y="1976" as="sourcePoint"/>
+                        <mxPoint x="551" y="1976" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="247" value="" style="endArrow=classic;html=1;entryX=0.5;entryY=0.01;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="590" y="1879" as="sourcePoint"/>
+                        <mxPoint x="814" y="1879.0100000000002" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="248" value="register_handler()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="247">
+                    <mxGeometry x="-0.5982" y="-3" relative="1" as="geometry">
+                        <mxPoint x="93" y="-14" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="290" value="" style="endArrow=classic;html=1;entryX=0.06;entryY=0.105;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="546.5" y="2149.95" as="sourcePoint"/>
+                        <mxPoint x="603" y="2149.95" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="291" value="create" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="290">
+                    <mxGeometry x="-0.5982" y="-3" relative="1" as="geometry">
+                        <mxPoint x="16" y="-13" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="256" value="" style="endArrow=classic;html=1;dashed=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="544" y="1936" as="sourcePoint"/>
+                        <mxPoint x="814.5" y="1936" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="252" value="" style="endArrow=classic;html=1;" edge="1" parent="1" source="239">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="789" y="1911" as="sourcePoint"/>
+                        <mxPoint x="556" y="1911" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="790" y="1911"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="253" value="get_handle()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="252">
+                    <mxGeometry x="-0.5982" y="-3" relative="1" as="geometry">
+                        <mxPoint x="-126.5" y="11" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
                 <mxCell id="29" value="dispatches" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" edge="1">
                     <mxGeometry x="0.7241" relative="1" as="geometry">
                         <mxPoint x="440" y="124" as="sourcePoint"/>
@@ -106,15 +243,15 @@
                     <mxGeometry y="52" width="170" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="61" value="&lt;h1&gt;Flow of control oscillates between the reactor and event handler&lt;/h1&gt;&lt;p&gt;&lt;span&gt;An application registers a concrete event handler with the reactor. At this point, the&amp;nbsp;&lt;/span&gt;&lt;span&gt;application also indicates the type of indication event(s) the event handler wants the&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;fontstyle0&quot;&gt;reactor to notify it about, when such event(s) occur on the associated handle.&lt;/span&gt;&lt;span&gt;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span class=&quot;fontstyle0&quot;&gt;The reactor instructs each event handler to provide its internal handle, in our example by invoking their &lt;/span&gt;&lt;span class=&quot;fontstyle2&quot;&gt;get_handle() &lt;/span&gt;&lt;span class=&quot;fontstyle0&quot;&gt;method. This handle identifies the source of indication events to the synchronous event demultiplexer and the operating system.&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;br style=&quot;line-height: normal&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;span class=&quot;fontstyle0&quot;&gt;After all event handlers are registered, the application starts the reactor's event loop, which we call &lt;/span&gt;&lt;span class=&quot;fontstyle2&quot;&gt;handle_events()&lt;/span&gt;&lt;span class=&quot;fontstyle0&quot;&gt;. At this point the reactor combines the handles from each registered event handler into a handle set. It then calls the synchronous event demultiplexer to wait for indication events to occur on the handle set.&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;br style=&quot;line-height: normal&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;span class=&quot;fontstyle0&quot;&gt;The synchronous event demultiplexer function returns to the reactor when one or more handles corresponding to event sources becomes 'ready', for example when a Socket becomes 'ready to read'.&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;br style=&quot;line-height: normal&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;span class=&quot;fontstyle0&quot;&gt;The reactor then uses the ready handles as 'keys' to locate the appropriate event handler(s) and dispatch the corresponding hook method(s). The type of indication event that occurred can be passed as a parameter to the hook method. This method can use this type information to perform any additional application-specific demultiplexing and dispatching operations.&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;br style=&quot;line-height: normal&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;span class=&quot;fontstyle0&quot;&gt;After the appropriate hook method within the event handler is dispatched, it processes the invoked service. This service can write the results of its processing, if any, to the handle associated with the event handler so that they can be returned to the client that originally requested the service.&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;br style=&quot;line-height: normal&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-180" y="90" width="420" height="510" as="geometry"/>
+                    <mxGeometry x="-240" y="100" width="500" height="510" as="geometry"/>
                 </mxCell>
-                <mxCell id="62" value=":Main Program" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
+                <mxCell id="62" value=": Main Program" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="320" y="500" width="100" height="380" as="geometry"/>
                 </mxCell>
                 <mxCell id="67" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="62" vertex="1">
                     <mxGeometry x="45" y="80" width="10" height="210" as="geometry"/>
                 </mxCell>
-                <mxCell id="63" value=":Concrete Event Handler" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
+                <mxCell id="63" value=": Concrete Event Handler" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="510" y="500" width="100" height="380" as="geometry"/>
                 </mxCell>
                 <mxCell id="75" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="63" vertex="1">
@@ -134,7 +271,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="64" value=":Reactor" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
+                <mxCell id="64" value=": Reactor" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="712" y="500" width="100" height="380" as="geometry"/>
                 </mxCell>
                 <mxCell id="69" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="64" vertex="1">
@@ -143,7 +280,7 @@
                 <mxCell id="81" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="64" vertex="1">
                     <mxGeometry x="45" y="220" width="10" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="65" value=":Synchronous Event Demultiplexer" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
+                <mxCell id="65" value=": Synchronous Event Demultiplexer" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="894" y="500" width="100" height="380" as="geometry"/>
                 </mxCell>
                 <mxCell id="85" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="65" vertex="1">
@@ -251,50 +388,289 @@
                         <mxPoint x="-21" y="-5" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="97" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Handle and Handle Set" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="97" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Handle and Handle Set" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1170" y="110" width="240" height="62" as="geometry"/>
                 </mxCell>
-                <mxCell id="114" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * A handle identifies a source of&lt;br&gt;indication events in an operating system&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * A handle can queue up indication&lt;br&gt;events&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * A handle set is a collection of handles" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="114" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * A handle identifies a source of&lt;br&gt;indication events in an operating system&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * A handle can queue up indication&lt;br&gt;events&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * A handle set is a collection of handles" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1170" y="172" width="240" height="149" as="geometry"/>
                 </mxCell>
-                <mxCell id="115" value="Collaborator" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="115" value="Collaborator" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1410" y="110" width="100" height="211" as="geometry"/>
                 </mxCell>
-                <mxCell id="119" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Synchronous Event Demultiplexer" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="119" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Synchronous Event Demultiplexer" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1580" y="110" width="240" height="62" as="geometry"/>
                 </mxCell>
-                <mxCell id="120" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Can block waiting for indication events&lt;br&gt;to occur on a handle set&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Indicates an operation can be initiated&lt;br&gt;on a handle without blocking" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="120" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Can block waiting for indication events&lt;br&gt;to occur on a handle set&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Indicates an operation can be initiated&lt;br&gt;on a handle without blocking" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1580" y="172" width="240" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="121" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Handle&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Handle set" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="121" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Handle&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Handle set" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1820" y="110" width="100" height="182" as="geometry"/>
                 </mxCell>
-                <mxCell id="122" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Event Handler" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="122" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Event Handler" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1170" y="364" width="240" height="62" as="geometry"/>
                 </mxCell>
-                <mxCell id="123" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Defines an interface for processing&amp;nbsp;&lt;br&gt;indication events that occur on handle" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="123" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Defines an interface for processing&amp;nbsp;&lt;br&gt;indication events that occur on handle" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1170" y="426" width="240" height="75" as="geometry"/>
                 </mxCell>
-                <mxCell id="124" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Handle" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="124" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Handle" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1410" y="364" width="100" height="137" as="geometry"/>
                 </mxCell>
-                <mxCell id="125" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Concrete Event Handler" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="125" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Concrete Event Handler" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1580" y="364" width="240" height="62" as="geometry"/>
                 </mxCell>
-                <mxCell id="126" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Processes indication events on a&lt;br&gt;handle in an application specific manner&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Defines an application service" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="126" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Processes indication events on a&lt;br&gt;handle in an application specific manner&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Defines an application service" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1580" y="426" width="240" height="105" as="geometry"/>
                 </mxCell>
-                <mxCell id="127" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Handle" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="127" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Handle" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1820" y="364" width="100" height="167" as="geometry"/>
                 </mxCell>
-                <mxCell id="128" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Reactor" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="128" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Reactor" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1170" y="594" width="240" height="62" as="geometry"/>
                 </mxCell>
-                <mxCell id="129" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Registers and removes event handlers&lt;br&gt;and their associated handles&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Manages a handle set&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Runs the application's event loop" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="129" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Registers and removes event handlers&lt;br&gt;and their associated handles&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Manages a handle set&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Runs the application's event loop" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1170" y="656" width="240" height="134" as="geometry"/>
                 </mxCell>
-                <mxCell id="130" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Handle Set&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Event Handlers&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Synchronous Event&lt;br&gt;Demultiplexer" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                <mxCell id="130" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Handle Set&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Event Handlers&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Synchronous Event&lt;br&gt;Demultiplexer" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1410" y="594" width="140" height="196" as="geometry"/>
+                </mxCell>
+                <mxCell id="131" value="&lt;h1&gt;Example: logging server, first scenario&lt;/h1&gt;&lt;span class=&quot;fontstyle0&quot;&gt;A client connects to the logging serve&lt;/span&gt;r:&lt;br style=&quot;line-height: normal&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;br&gt;*&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;fontstyle0&quot;&gt;The logging server first registers the logging acceptor with the reactor (1) to handle indication events corresponding to client connection requests. The logging server next invokes the event loop method of the reactor singleton (2).&lt;br&gt;&lt;/span&gt;&lt;br&gt;*&amp;nbsp;&lt;span class=&quot;fontstyle0&quot;&gt;The reactor singleton invokes the synchronous event demultiplexing &lt;/span&gt;&lt;span class=&quot;fontstyle2&quot;&gt;select()&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;fontstyle0&quot;&gt;operation to wait for connection indication events or logging data indication events to arrive (3). At this point, all further processing on the server is driven by the &lt;/span&gt;&lt;span class=&quot;fontstyle3&quot;&gt;reactive&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;fontstyle0&quot;&gt;demultiplexing and dispatching of event handlers.&lt;/span&gt; &lt;br&gt;&lt;br style=&quot;line-height: normal&quot;&gt;&lt;br&gt;*&amp;nbsp;&lt;span class=&quot;fontstyle0&quot;&gt;A client sends a connection request to the logging server (4), which causes the reactor singleton to dispatch the logging acceptor's &lt;/span&gt;&lt;span class=&quot;fontstyle2&quot;&gt;handle_event() &lt;/span&gt;&lt;span class=&quot;fontstyle0&quot;&gt;hook method (5) to&lt;br&gt;notify it that a new connection indication event has arrived.&lt;/span&gt; &lt;br&gt;&lt;br style=&quot;line-height: normal&quot;&gt;*&amp;nbsp;&lt;span class=&quot;fontstyle0&quot;&gt;The logging acceptor accepts the new connection (6) and creates a logging handler to service the new client (7)&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;br&gt;*&amp;nbsp;&lt;span class=&quot;fontstyle0&quot;&gt;The logging handler registers its socket handle with the reactor singleton (8) and instructs the reactor to notify it when the reactor receives an indication event signaling that the Socket is now 'ready for reading'.&lt;/span&gt;&amp;nbsp;&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="-240" y="1080" width="500" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="136" value="1 register_handler()" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="132" target="134" edge="1">
+                    <mxGeometry x="-0.1839" y="-25" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="138" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="132" target="133" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="145" value="6. accept()&lt;br&gt;7. create()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="138" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2109" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="132" value="Logging Acceptor" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="562" y="1140" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="139" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="133" target="134" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="144" value="8. register_handler()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="139" vertex="1" connectable="0">
+                    <mxGeometry x="-0.5667" relative="1" as="geometry">
+                        <mxPoint x="-15" y="15" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="133" value="Logging Handler A" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="714" y="1280" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="137" value="5. handle_event()" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" source="134" target="132" edge="1">
+                    <mxGeometry x="-0.1673" y="-26" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="134" value="Reactor" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="424" y="1280" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="141" value="&lt;span style=&quot;font-size: 12px&quot;&gt;2. handle_events()&lt;/span&gt;&lt;br style=&quot;font-size: 12px&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;3. select()&lt;/span&gt;" style="endArrow=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="134" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="584" y="1240" as="sourcePoint"/>
+                        <mxPoint x="479" y="1380" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="142" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="134" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="330" y="1305" as="sourcePoint"/>
+                        <mxPoint x="500" y="1190" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="143" value="4. connect()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="142" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2553" y="2" relative="1" as="geometry">
+                        <mxPoint x="5" y="-13" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="146" value="2. handle_event()" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="149" target="154" edge="1">
+                    <mxGeometry x="0.0058" y="-35" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="149" value="Logging Handler A" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="707" y="1565" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="153" value="5. return" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="154" target="149" edge="1">
+                    <mxGeometry x="-0.0058" y="-39" relative="1" as="geometry">
+                        <mxPoint y="1" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="154" value="Reactor" style="html=1;" parent="1" vertex="1">
+                    <mxGeometry x="424" y="1565" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="156" value="" style="endArrow=classic;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="154" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="330" y="1590" as="sourcePoint"/>
+                        <mxPoint x="500" y="1473" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="157" value="1. send()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="156" vertex="1" connectable="0">
+                    <mxGeometry x="-0.2553" y="2" relative="1" as="geometry">
+                        <mxPoint x="5" y="-13" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="158" value="&lt;h1&gt;Example: logging server, second scenario&lt;/h1&gt;&lt;span class=&quot;fontstyle0&quot;&gt;Steps performed by the reactive logging server to service a logging record:&lt;/span&gt;&lt;br style=&quot;line-height: normal&quot;&gt;&lt;span&gt;&amp;nbsp;&lt;br&gt;* A&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;fontstyle0&quot;&gt;client sends a logging record request (1), which causes the server's operating system to notify the reactor singleton that an indication event is pending on a handle it is&amp;nbsp;&lt;/span&gt;&lt;span class=&quot;fontstyle2&quot;&gt;select()&lt;/span&gt;&lt;span class=&quot;fontstyle0&quot;&gt;'ing on.&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;br&gt;*&amp;nbsp;&lt;span class=&quot;fontstyle0&quot;&gt;The reactor singleton dispatches the &lt;/span&gt;&lt;span class=&quot;fontstyle2&quot;&gt;handle_event() &lt;/span&gt;&lt;span class=&quot;fontstyle0&quot;&gt;method of the logging handler associated with this handle (2), to notify it that the new indication event is intended for it.&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;br&gt;*&amp;nbsp;&lt;span class=&quot;fontstyle0&quot;&gt;The logging handler reads the record from the Socket in a non-blocking manner (3). Steps 2 and 3 are repeated until the logging record has been completely received from the socket handle.&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;br&gt;*&amp;nbsp;&lt;span class=&quot;fontstyle0&quot;&gt;The logging handler processes the logging record and writes it to the standard output of the logging server (4), from which it can be redirected to the appropriate output device.&lt;/span&gt;&amp;nbsp;&amp;nbsp;&lt;br&gt;&lt;br&gt;*&amp;nbsp;&lt;span class=&quot;fontstyle0&quot;&gt;The logging handler returns control back to the reactor's event loop (5), which continues to wait for subsequent indication events.&lt;/span&gt;&amp;nbsp;&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="-240" y="1480" width="500" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="160" value="3. recv()" style="curved=1;endArrow=classic;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="149" target="149" edge="1">
+                    <mxGeometry x="-0.1787" y="-10" width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="860" y="1622" as="sourcePoint"/>
+                        <mxPoint x="800" y="1545" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="840" y="1572"/>
+                            <mxPoint x="840" y="1542"/>
+                            <mxPoint x="820" y="1532"/>
+                            <mxPoint x="790" y="1542"/>
+                        </Array>
+                        <mxPoint x="6" y="9" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="161" value="4. write()" style="endArrow=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="149" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="900" y="1632" as="sourcePoint"/>
+                        <mxPoint x="762" y="1662" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="230" value=": main()" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="1780" width="100" height="700" as="geometry"/>
+                </mxCell>
+                <mxCell id="231" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="230" vertex="1">
+                    <mxGeometry x="45" y="80" width="10" height="610" as="geometry"/>
+                </mxCell>
+                <mxCell id="232" value=": Logging Acceptor" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="496" y="1850" width="100" height="630" as="geometry"/>
+                </mxCell>
+                <mxCell id="233" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="232" vertex="1">
+                    <mxGeometry x="45" y="40" width="10" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="249" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="232">
+                    <mxGeometry x="49" y="59" width="10" height="29" as="geometry"/>
+                </mxCell>
+                <mxCell id="237" value="" style="endArrow=classic;html=1;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="385" y="1870" as="sourcePoint"/>
+                        <mxPoint x="495.5" y="1870" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="238" value="create" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="237" vertex="1" connectable="0">
+                    <mxGeometry x="-0.5982" y="-3" relative="1" as="geometry">
+                        <mxPoint x="3" y="-13" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="239" value=":Reactor" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
+                    <mxGeometry x="770" y="1780" width="100" height="700" as="geometry"/>
+                </mxCell>
+                <mxCell id="240" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="239" vertex="1">
+                    <mxGeometry x="45" y="98" width="10" height="101" as="geometry"/>
+                </mxCell>
+                <mxCell id="241" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" parent="239" vertex="1">
+                    <mxGeometry x="45" y="240" width="10" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="297" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="239">
+                    <mxGeometry x="41" y="378" width="10" height="112" as="geometry"/>
+                </mxCell>
+                <mxCell id="242" value=":Synchronous Event Demultiplexer" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="928" y="1780" width="100" height="700" as="geometry"/>
+                </mxCell>
+                <mxCell id="243" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="242">
+                    <mxGeometry x="45" y="258" width="10" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="245" value="ACCEPT&lt;br&gt;EVENT" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="619" y="1849" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="258" value="Handle" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="642" y="1936" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="265" value="" style="endArrow=classic;html=1;dashed=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="541" y="1987" as="sourcePoint"/>
+                        <mxPoint x="385" y="1987" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="274" value="Handles" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="850" y="2010" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="280" value="Handles" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="890" y="2075" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="281" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="1">
+                    <mxGeometry x="541" y="2100" width="10" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="285" value="ACCEPT&lt;br&gt;EVENT" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="646" y="2075" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="286" value=": Logging Handler" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="604" y="2130" width="100" height="350" as="geometry"/>
+                </mxCell>
+                <mxCell id="287" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="286">
+                    <mxGeometry x="45" y="69" width="10" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="306" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="286">
+                    <mxGeometry x="45" y="248" width="10" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="294" value="READ&lt;br&gt;EVENT" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="2130" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="300" value="" style="endArrow=classic;html=1;dashed=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="660" y="2225" as="sourcePoint"/>
+                        <mxPoint x="810.5" y="2224.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="301" value="Handle" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="701" y="2225" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="302" value="" style="endArrow=classic;html=1;dashed=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="811.25" y="2265" as="sourcePoint"/>
+                        <mxPoint x="551" y="2265" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="304" value="" style="endArrow=classic;html=1;entryX=1.16;entryY=0.607;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1053.4" y="2054" as="sourcePoint"/>
+                        <mxPoint x="983.9999999999999" y="2054.21" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="305" value="event" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="304">
+                    <mxGeometry x="-0.2797" y="-1" relative="1" as="geometry">
+                        <mxPoint x="-8" y="-7" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="309" value="" style="endArrow=classic;html=1;dashed=1;exitX=0.7;exitY=0.881;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="981" y="2365.002" as="sourcePoint"/>
+                        <mxPoint x="826" y="2365" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="312" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;" vertex="1" parent="1">
+                    <mxGeometry x="973" y="2328" width="10" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="313" value="Handles" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="850" y="2300" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="314" value="Handles" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="890" y="2365" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="315" value="" style="endArrow=classic;html=1;entryX=1.16;entryY=0.607;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="1053.4" y="2344" as="sourcePoint"/>
+                        <mxPoint x="984" y="2344.21" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="316" value="event" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="315">
+                    <mxGeometry x="-0.2797" y="-1" relative="1" as="geometry">
+                        <mxPoint x="-8" y="-7" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="317" value="READ&lt;br&gt;EVENT" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="747" y="2352" width="60" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
