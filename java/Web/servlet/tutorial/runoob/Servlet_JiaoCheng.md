@@ -20,6 +20,16 @@
   - [Servlet 实例](#servlet-实例)
     - [Hello World 示例代码](#hello-world-示例代码)
     - [编译 Servlet](#编译-servlet)
+    - [Servlet 部署](#servlet-部署)
+  - [Servlet 表单数据](#servlet-表单数据)
+    - [GET 方法](#get-方法)
+    - [POST 方法](#post-方法)
+    - [使用 Servlet 读取表单数据](#使用-servlet-读取表单数据)
+    - [使用 URL 的 GET 方法实例](#使用-url-的-get-方法实例)
+    - [使用表单的 GET 方法实例](#使用表单的-get-方法实例)
+    - [使用表单的 POST 方法实例](#使用表单的-post-方法实例)
+    - [将复选框数据传递到 Servlet 程序](#将复选框数据传递到-servlet-程序)
+    - [读取所有的表单参数](#读取所有的表单参数)
 
 Servlet 为创建基于 web 的应用程序提供了基于组件、独立于平台的方法，可以不受 CGI 程序的性能限制。Servlet 有权限访问所有的 Java API，包括访问企业级数据库的 JDBC API。
 
@@ -241,13 +251,475 @@ Servlet 是服务 HTTP 请求并实现 javax.servlet.Servlet 接口的 Java 类�
 
 ### 编译 Servlet
 
+让我们把上面的代码写在 HelloWorld.java 文件中，把这个文件放在 C:\ServletDevel（在 Windows 上）或 /usr/ServletDevel（在 UNIX 上）中，您还需要把这些目录添加到 CLASSPATH 中。
+
+假设您的环境已经正确地设置，进入 ServletDevel 目录，并编译 HelloWorld.java，如下所示：
+
+$ javac HelloWorld.java
+如果 Servlet 依赖于任何其他库，您必须在 CLASSPATH 中包含那些 JAR 文件。在这里，我只包含了 servlet-api.jar JAR 文件，因为我没有在 Hello World 程序中使用任何其他库。
+
+该命令行使用 Sun Microsystems Java 软件开发工具包（JDK）内置的 javac 编译器。为使该命令正常工作， PATH 环境变量需要设置 Java SDK 的路径。
+
+如果一切顺利，上面编译会在同一目录下生成 HelloWorld.class 文件。下一节将讲解已编译的 Servlet 如何部署在生产中。
+
+### Servlet 部署
+
+默认情况下，Servlet 应用程序位于路径 <Tomcat-installation-directory>/webapps/ROOT 下，且类文件放在 <Tomcat-installation-directory>/webapps/ROOT/WEB-INF/classes 中。
+
+如果您有一个完全合格的类名称 com.myorg.MyServlet，那么这个 Servlet 类必须位于 WEB-INF/classes/com/myorg/MyServlet.class 中。
+
+现在，让我们把 HelloWorld.class 复制到 <Tomcat-installation-directory>/webapps/ROOT/WEB-INF/classes 中，并在位于 <Tomcat-installation-directory>/webapps/ROOT/WEB-INF/ 的 web.xml 文件中创建以下条目：
+
+    <web-app>      
+        <servlet>
+            <servlet-name>HelloWorld</servlet-name>
+            <servlet-class>HelloWorld</servlet-class>
+        </servlet>
+
+        <servlet-mapping>
+            <servlet-name>HelloWorld</servlet-name>
+            <url-pattern>/HelloWorld</url-pattern>
+        </servlet-mapping>
+    </web-app>  
+
+上面的条目要被创建在 web.xml 文件中的 <web-app>...</web-app> 标签内。在该文件中可能已经有各种可用的条目，但不要在意。
+
+到这里，您基本上已经完成了，现在让我们使用 <Tomcat-installation-directory>\bin\startup.bat（在 Windows 上）或 <Tomcat-installation-directory>/bin/startup.sh（在 Linux/Solaris 等上）启动 tomcat 服务器，最后在浏览器的地址栏中输入 http://localhost:8080/HelloWorld。
+
+## [Servlet 表单数据](https://www.runoob.com/servlet/servlet-form-data.html)
+
+很多情况下，需要传递一些信息，从浏览器到 Web 服务器，最终到后台程序。浏览器使用两种方法可将这些信息传递到 Web 服务器，分别为 GET 方法和 POST 方法。
+
+### GET 方法
+
+GET 方法向页面请求发送已编码的用户信息。页面和已编码的信息中间用 ? 字符分隔，如下所示：
+
+http://www.test.com/hello?key1=value1&key2=value2
+
+GET 方法是默认的从浏览器向 Web 服务器传递信息的方法，它会产生一个很长的字符串，出现在浏览器的地址栏中。如果您要向服务器传递的是密码或其他的敏感信息，请不要使用 GET 方法。GET 方法有大小限制：请求字符串中最多只能有 1024 个字符。
+
+这些信息使用 QUERY_STRING 头传递，并可以通过 QUERY_STRING 环境变量访问，Servlet 使用 doGet() 方法处理这种类型的请求。
+
+### POST 方法
+
+另一个向后台程序传递信息的比较可靠的方法是 POST 方法。POST 方法打包信息的方式与 GET 方法基本相同，但是 POST 方法不是把信息作为 URL 中 ? 字符后的文本字符串进行发送，而是把这些信息作为一个单独的消息。消息以标准输出的形式传到后台程序，您可以解析和使用这些标准输出。Servlet 使用 doPost() 方法处理这种类型的请求。
+
+### 使用 Servlet 读取表单数据
+
+Servlet 处理表单数据，这些数据会根据不同的情况使用不同的方法自动解析：
+
+- getParameter()：您可以调用 request.getParameter() 方法来获取表单参数的值。
+- getParameterValues()：如果参数出现一次以上，则调用该方法，并返回多个值，例如复选框。
+- getParameterNames()：如果您想要得到当前请求中的所有参数的完整列表，则调用该方法。
+
+### 使用 URL 的 GET 方法实例
+
+下面是一个简单的 URL，将使用 GET 方法向 HelloForm 程序传递两个值。
+
+http://localhost:8080/TomcatTest/HelloForm?name=菜鸟教程&url=www.runoob.com
+
+下面是处理 Web 浏览器输入的 HelloForm.java Servlet 程序。我们将使用 getParameter() 方法，可以很容易地访问传递的信息：
+
+    package com.runoob.test;
+
+    import java.io.IOException;
+    import java.io.PrintWriter;
+
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+
+    /**
+    * Servlet implementation class HelloForm
+    */
+    @WebServlet("/HelloForm")
+    public class HelloForm extends HttpServlet {
+        private static final long serialVersionUID = 1L;
+        
+        /**
+        * @see HttpServlet#HttpServlet()
+        */
+        public HelloForm() {
+            super();
+            // TODO Auto-generated constructor stub
+        }
+
+        /**
+        * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+        */
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            // 设置响应内容类型
+            response.setContentType("text/html;charset=UTF-8");
+
+            PrintWriter out = response.getWriter();
+            String title = "使用 GET 方法读取表单数据";
+            // 处理中文
+            String name =new String(request.getParameter("name").getBytes("ISO-8859-1"),"UTF-8");
+            String docType = "<!DOCTYPE html> \n";
+            out.println(docType +
+                "<html>\n" +
+                "<head><title>" + title + "</title></head>\n" +
+                "<body bgcolor=\"#f0f0f0\">\n" +
+                "<h1 align=\"center\">" + title + "</h1>\n" +
+                "<ul>\n" +
+                "  <li><b>站点名</b>："
+                + name + "\n" +
+                "  <li><b>网址</b>："
+                + request.getParameter("url") + "\n" +
+                "</ul>\n" +
+                "</body></html>");
+        }
+        
+        // 处理 POST 方法请求的方法
+        public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            doGet(request, response);
+        }
+    }
+
+然后我们在 web.xml 文件中创建以下条目：
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <web-app>
+        <servlet>
+            <servlet-name>HelloForm</servlet-name>
+            <servlet-class>com.runoob.test.HelloForm</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>HelloForm</servlet-name>
+            <url-pattern>/TomcatTest/HelloForm</url-pattern>
+        </servlet-mapping>
+    </web-app>
+
+现在在浏览器的地址栏中输入 http://localhost:8080/TomcatTest/HelloForm?name=菜鸟教程&url=www.runoob.com ，并在触发上述命令之前确保已经启动 Tomcat 服务器。
+
+### 使用表单的 GET 方法实例
+
+下面是一个简单的实例，使用 HTML 表单和提交按钮传递两个值。我们将使用相同的 Servlet HelloForm 来处理输入。
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    </head>
+    <body>
+    <form action="HelloForm" method="GET">
+    网址名：<input type="text" name="name">
+    <br />
+    网址：<input type="text" name="url" />
+    <input type="submit" value="提交" />
+    </form>
+    </body>
+    </html>
+
+保存这个 HTML 到 hello.html 文件中，目录结构如下所示:
+
+![fig](./fig/hell-form.jpg)
+
+尝试输入网址名和网址 localhost:8080/TomcatTest/hello.html，然后点击"提交"按钮。
+
+### 使用表单的 POST 方法实例
+
+让我们对上面的 Servlet 做小小的修改，以便它可以处理 GET 和 POST 方法。下面的 HelloForm.java Servlet 程序使用 GET 和 POST 方法处理由 Web 浏览器给出的输入。
+
+---
+注意：如果表单提交的数据中有中文数据则需要转码：
+
+    String name =new String(request.getParameter("name").getBytes("ISO8859-1"),"UTF-8");
+---
+
+    package com.runoob.test;
+
+    import java.io.IOException;
+    import java.io.PrintWriter;
+
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+
+    /**
+    * Servlet implementation class HelloForm
+    */
+    @WebServlet("/HelloForm")
+    public class HelloForm extends HttpServlet {
+        private static final long serialVersionUID = 1L;
+        
+        /**
+        * @see HttpServlet#HttpServlet()
+        */
+        public HelloForm() {
+            super();
+            // TODO Auto-generated constructor stub
+        }
+
+        /**
+        * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+        */
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            // 设置响应内容类型
+            response.setContentType("text/html;charset=UTF-8");
+
+            PrintWriter out = response.getWriter();
+            String title = "使用 POST 方法读取表单数据";
+            // 处理中文
+            String name =new String(request.getParameter("name").getBytes("ISO8859-1"),"UTF-8");
+            String docType = "<!DOCTYPE html> \n";
+            out.println(docType +
+                "<html>\n" +
+                "<head><title>" + title + "</title></head>\n" +
+                "<body bgcolor=\"#f0f0f0\">\n" +
+                "<h1 align=\"center\">" + title + "</h1>\n" +
+                "<ul>\n" +
+                "  <li><b>站点名</b>："
+                + name + "\n" +
+                "  <li><b>网址</b>："
+                + request.getParameter("url") + "\n" +
+                "</ul>\n" +
+                "</body></html>");
+        }
+        
+        // 处理 POST 方法请求的方法
+        public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            doGet(request, response);
+        }
+    }
+
+现在，编译部署上述的 Servlet，并使用带有 POST 方法的 hello.html 进行测试，如下所示：
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    </head>
+    <body>
+    <form action="HelloForm" method="POST">
+    网址名：<input type="text" name="name">
+    <br />
+    网址：<input type="text" name="url" />
+    <input type="submit" value="提交" />
+    </form>
+    </body>
+    </html>
 
 
+尝试输入网址名和网址 localhost:8080/TomcatTest/hello.html，然后点击"提交"按钮。
 
+### 将复选框数据传递到 Servlet 程序
 
+当需要选择一个以上的选项时，则使用复选框。
 
+下面是一个 HTML 代码实例 checkbox.html，一个带有两个复选框的表单。
 
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    </head>
+    <body>
+    <form action="CheckBox" method="POST" target="_blank">
+    <input type="checkbox" name="runoob" checked="checked" /> 菜鸟教程
+    <input type="checkbox" name="google"  /> Google
+    <input type="checkbox" name="taobao" checked="checked" /> 淘宝
+    <input type="submit" value="选择站点" />
+    </form>
+    </body>
+    </html>
 
+下面是 CheckBox.java Servlet 程序，处理 Web 浏览器给出的复选框输入。
+
+    package com.runoob.test;
+
+    import java.io.IOException;
+    import java.io.PrintWriter;
+
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+
+    /**
+    * Servlet implementation class CheckBox
+    */
+    @WebServlet("/CheckBox")
+    public class CheckBox extends HttpServlet {
+        private static final long serialVersionUID = 1L;
+        
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            
+            // 设置响应内容类型
+            response.setContentType("text/html;charset=UTF-8");
+
+            PrintWriter out = response.getWriter();
+            String title = "读取复选框数据";
+            String docType = "<!DOCTYPE html> \n";
+                out.println(docType +
+                    "<html>\n" +
+                    "<head><title>" + title + "</title></head>\n" +
+                    "<body bgcolor=\"#f0f0f0\">\n" +
+                    "<h1 align=\"center\">" + title + "</h1>\n" +
+                    "<ul>\n" +
+                    "  <li><b>菜鸟按教程标识：</b>: "
+                    + request.getParameter("runoob") + "\n" +
+                    "  <li><b>Google 标识：</b>: "
+                    + request.getParameter("google") + "\n" +
+                    "  <li><b>淘宝标识：</b>: "
+                    + request.getParameter("taobao") + "\n" +
+                    "</ul>\n" +
+                    "</body></html>");
+        }
+        
+        // 处理 POST 方法请求的方法
+        public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            doGet(request, response);
+        }
+    }
+
+设置对应的 web.xml：
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <web-app>
+        <servlet>
+            <servlet-name>CheckBox</servlet-name>
+            <servlet-class>com.runoob.test.CheckBox</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>CheckBox</servlet-name>
+            <url-pattern>/TomcatTest/CheckBox</url-pattern>
+        </servlet-mapping>
+    </web-app>
+
+尝试输入网址名和网址 localhost:8080/TomcatTest/checkbox.html。
+
+### 读取所有的表单参数
+
+以下是通用的实例，使用 HttpServletRequest 的 getParameterNames() 方法读取所有可用的表单参数。该方法返回一个枚举，其中包含未指定顺序的参数名。
+
+一旦我们有一个枚举，我们可以以标准方式循环枚举，使用 hasMoreElements() 方法来确定何时停止，使用 nextElement() 方法来获取每个参数的名称。
+
+    import java.io.IOException;
+    import java.io.PrintWriter;
+    import java.util.Enumeration;
+
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+
+    /**
+    * Servlet implementation class ReadParams
+    */
+    @WebServlet("/ReadParams")
+    public class ReadParams extends HttpServlet {
+        private static final long serialVersionUID = 1L;
+        
+        /**
+        * @see HttpServlet#HttpServlet()
+        */
+        public ReadParams() {
+            super();
+            // TODO Auto-generated constructor stub
+        }
+
+        /**
+        * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+        */
+        protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            // 设置响应内容类型
+            response.setContentType("text/html;charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            String title = "读取所有的表单数据";
+            String docType =
+                "<!doctype html public \"-//w3c//dtd html 4.0 " +
+                "transitional//en\">\n";
+                out.println(docType +
+                "<html>\n" +
+                "<head><meta charset=\"utf-8\"><title>" + title + "</title></head>\n" +
+                "<body bgcolor=\"#f0f0f0\">\n" +
+                "<h1 align=\"center\">" + title + "</h1>\n" +
+                "<table width=\"100%\" border=\"1\" align=\"center\">\n" +
+                "<tr bgcolor=\"#949494\">\n" +
+                "<th>参数名称</th><th>参数值</th>\n"+
+                "</tr>\n");
+
+            Enumeration paramNames = request.getParameterNames();
+
+            while(paramNames.hasMoreElements()) {
+                String paramName = (String)paramNames.nextElement();
+                out.print("<tr><td>" + paramName + "</td>\n");
+                String[] paramValues =
+                request.getParameterValues(paramName);
+                // 读取单个值的数据
+                if (paramValues.length == 1) {
+                    String paramValue = paramValues[0];
+                    if (paramValue.length() == 0)
+                        out.println("<td><i>没有值</i></td>");
+                    else
+                        out.println("<td>" + paramValue + "</td>");
+                } else {
+                    // 读取多个值的数据
+                    out.println("<td><ul>");
+                    for(int i=0; i < paramValues.length; i++) {
+                    out.println("<li>" + paramValues[i]);
+                }
+                    out.println("</ul></td>");
+                }
+                out.print("</tr>");
+            }
+            out.println("\n</table>\n</body></html>");
+        }
+
+        /**
+        * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+        */
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            // TODO Auto-generated method stub
+            doGet(request, response);
+        }
+    }
+
+现在，通过下面的表单尝试上面的 Servlet：
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    </head>
+    <body>
+
+    <form action="ReadParams" method="POST" target="_blank">
+    <input type="checkbox" name="maths" checked="checked" /> 数学
+    <input type="checkbox" name="physics"  /> 物理
+    <input type="checkbox" name="chemistry" checked="checked" /> 化学
+    <input type="submit" value="选择学科" />
+    </form>
+
+    </body>
+    </html>
+
+设置相应的 web.xml:
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <web-app>
+        <servlet>
+            <servlet-name>ReadParams</servlet-name>
+            <servlet-class>com.runoob.test.ReadParams</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>ReadParams</servlet-name>
+            <url-pattern>/TomcatTest/ReadParams</url-pattern>
+        </servlet-mapping>
+    </web-app>
+
+现在使用上面的表单调用 Servlet, localhost:8080/TomcatTest/test.html
 
 
 
