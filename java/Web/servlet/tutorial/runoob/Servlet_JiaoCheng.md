@@ -255,7 +255,8 @@ Servlet 是服务 HTTP 请求并实现 javax.servlet.Servlet 接口的 Java 类�
 
 假设您的环境已经正确地设置，进入 ServletDevel 目录，并编译 HelloWorld.java，如下所示：
 
-$ javac HelloWorld.java
+    $ javac HelloWorld.java
+
 如果 Servlet 依赖于任何其他库，您必须在 CLASSPATH 中包含那些 JAR 文件。在这里，我只包含了 servlet-api.jar JAR 文件，因为我没有在 Hello World 程序中使用任何其他库。
 
 该命令行使用 Sun Microsystems Java 软件开发工具包（JDK）内置的 javac 编译器。为使该命令正常工作， PATH 环境变量需要设置 Java SDK 的路径。
