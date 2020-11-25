@@ -98,3 +98,5 @@ show version
 [How to Access Hive via Python?](https://stackoverflow.com/questions/21370431/how-to-access-hive-via-python)
 
 [Kerberos (hive/presto) access documentation](https://github.com/dropbox/PyHive/issues/174)
+
+[PyHive](https://pypi.org/project/PyHive/)
