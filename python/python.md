@@ -12,6 +12,8 @@
   - [JSON](#json)
   - [matplotlib](#matplotlib)
   - [`datetime`](#datetime)
+  - [HowTo](#howto)
+    - [Access Hive](#access-hive)
 
 ## Basic
 
@@ -88,3 +90,11 @@ show version
 ## `datetime`
 
 [Python strftime - date without leading 0?](https://stackoverflow.com/questions/904928/python-strftime-date-without-leading-0)
+
+## HowTo
+
+### Access Hive
+
+[How to Access Hive via Python?](https://stackoverflow.com/questions/21370431/how-to-access-hive-via-python)
+
+[Kerberos (hive/presto) access documentation](https://github.com/dropbox/PyHive/issues/174)
