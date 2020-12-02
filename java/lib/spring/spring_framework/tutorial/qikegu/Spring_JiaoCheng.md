@@ -50,6 +50,20 @@
     - [2. Setter方法注入](#2-setter方法注入)
     - [3. 字段注入](#3-字段注入)
     - [通过注解注入值](#通过注解注入值)
+  - [Bean Java配置](#bean-java配置)
+    - [1. 通过@Configuration注解创建Java配置类](#1-通过configuration注解创建java配置类)
+  - [2. 通过@Bean注解定义Bean](#2-通过bean注解定义bean)
+  - [3. 注入Bean依赖关系](#3-注入bean依赖关系)
+    - [4. 读取配置类](#4-读取配置类)
+    - [5. 通过Spring容器获取bean](#5-通过spring容器获取bean)
+  - [Spring 面向切面编程（AOP）](#spring-面向切面编程aop)
+    - [面向切面编程概念](#面向切面编程概念)
+      - [建议类型](#建议类型)
+    - [实现](#实现)
+      - [User类](#user类)
+      - [切面 – Logging](#切面--logging)
+      - [配置](#配置)
+      - [测试切面](#测试切面)
 
 Spring框架是Java EE开发中最流行的框架，已经成为JEE事实上的标准，全世界的开发人员都在使用Spring框架开发各种应用。随着Spring boot，Spring cloud新版本的不断推出，以及微服务的流行，Spring已经成为JEE开发“必修”项目。
 
@@ -1091,6 +1105,309 @@ Spring扫描所有带有`@Component`注解的类，将其注册为bean，然后S
             this.id = id;
         }
     }
+
+## [Bean Java配置](https://www.qikegu.com/docs/1817)
+
+前面介绍了Bean的XML配置方法，从Spring 3.0开始，可以使用java代码配置Bean，**替代XML配置**。
+
+Java配置与注解配置不同，Java配置是**把Java代码文件当作配置文件**，注解配置是在实际Java类中**使用注解设置依赖关系**。
+
+Java配置也会用到一些注解，主要有：`@Configuration`、`@ComponentScan`和`@Bean`。
+
+### 1. 通过@Configuration注解创建Java配置类
+
+`@Configuration`注解标注的类是配置类，用于配置Bean之间依赖关系。
+
+`@Import`注解允许从另一个配置Java/XML文件加载bean定义。
+
+示例：SpringConfig.java
+
+    package com.qikegu.demo.config;
+    import org.springframework.context.annotation.Configuration;
+    import org.springframework.context.annotation.ComponentScan;
+
+    @Configuration // 表明这是个Bean的Java配置类
+    public class SpringConfig {
+    }
+
+## 2. 通过@Bean注解定义Bean
+
+要定义一个Bean，可以通过：
+
+- 给一个方法加`@Bean`注解
+- 方法返回Bean实例
+
+Spring容器会注册这个Bean，并将方法名作为Bean ID。
+
+示例：SpringConfig.java
+
+    package com.qikegu.demo.config;
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.Configuration;
+
+    @Configuration 
+    public class SpringConfig {
+
+        // 定义 App Bean
+        @Bean(initMethod = "init", destroyMethod = "close" ) // 指定初始化回调，销毁回调
+        @Scope("prototype") // 设置Bean作用域
+        public App app() { // Bean ID = app
+            return new App(); // 返回App Bean
+        }
+    }
+
+## 3. 注入Bean依赖关系
+
+可以通过让一个Bean方法调用另一个Bean方法注入依赖项。
+
+示例：SpringConfig.java
+
+    package com.qikegu.demo.config;
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.Configuration;
+
+    @Configuration
+    public class SpringConfig {
+
+        // 定义 App Bean
+        @Bean
+        public App app() {
+            return new App(logger()); // 调用Bean方法logger()注入Logger Bean实例
+        }
+
+        /* @Bean
+        public App app() {
+            App app = new App();
+
+            Service[] services = {database(), logger(), mail()};
+            app.setServices(services);
+            app.setMainService(services[1]);
+            app.setId(1234);
+            return app;
+        } */
+
+        // 定义 Database Bean
+        @Bean
+        public Database database() {
+        return new Database();
+        }
+
+        // 定义 Logger Bean
+        @Bean
+        public Logger logger() {
+            return new Logger();
+        }
+
+        // 定义 Mail Bean
+        @Bean
+        public Mail mail() {
+            return new Mail();
+        }
+    }
+
+### 4. 读取配置类
+
+可以使用`AnnotationConfigApplicationContext`读取配置类。
+
+示例：Test.java
+
+    package com.qikegu.demo.config;
+    import org.springframework.context.ApplicationContext;
+    import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+    public class Test {
+        public static void main(String[] args) {
+            // 使用`AnnotationConfigApplicationContext`读取配置类
+            ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        }
+    }
+
+### 5. 通过Spring容器获取bean
+
+示例：
+
+    App app = context.getBean("app", App.class);
+
+## [Spring 面向切面编程（AOP）](https://www.qikegu.com/docs/1820)
+
+面向切面编程(Aspect Oriented Programming/AOP)是Spring框架核心技术之一。
+
+面向切面编程的主要作用是，在不修改源代码的情况下，可以给目标类打补丁，让其执行补丁中的代码。
+
+例如，用户类中有个登录方法，现在需要加用户登录日志。使用AOP就不需要修改用户登录方法，只需把日志代码注入到用户登录方法前后，让其执行。日志代码就是“**切面**”，插入代码的地方（用户类的登录方法）就是“**连接点**”。
+
+### 面向切面编程概念
+
+先介绍一些AOP的概念
+
+- 切面(Aspect) – 一些横跨多个类的公共模块，如日志、安全、事务等。简单地说，日志模块就是一个切面。
+- 连接点(Joint Point) – 目标类中插入代码的地方。连接点可以是方法、异常、字段，连接点处的切面代码会在方法执行、异常抛出、字段修改时触发执行。
+- 建议(Advice) – 在连接点插入的实际代码(即切面的方法)，有5种不同类型（后面介绍）。
+- 切点(Pointcut) – 定义了连接点的条件，一般通过正则表达式。例如，可以定义所有以loadUser开头的方法作为连接点，插入日志代码。
+
+#### 建议类型
+
+- before – 在方法之前运行建议（插入的代码）
+- after – 不管方法是否成功执行，在方法之后运行插入建议（插入的代码）
+- after-returning – 当方法执行成功，在方法之后运行建议（插入的代码）
+- after-throwing – 仅在方法抛出异常后运行建议（插入的代码）
+- around – 在方法被调用之前和之后运行建议（插入的代码）
+
+### 实现
+
+与Bean配置一样，切面也需要配置，然后由Spring容器加载。切面配置可以使用**XML**，或者使用**“AspectJ”语法**，“AspectJ”语法使用Java代码实现切面配置。
+
+为更深理解AOP，下面实现一个日志切面的例子，例子使用XML配置。
+
+#### User类
+
+一个简单的用户类，是日志切面插入的目标类。用户类实现了几个不同的方法，这些方法会作为连接点。
+
+User.java
+
+    public class User {
+        private Integer id;
+        private String name;
+    
+        public void setId(Integer id) {
+            this.id = id;
+        }
+    
+        public Integer getId() {
+            System.out.println("Id: " + id);
+            return id;
+        }
+    
+        public void setName(String name) {
+            this.name = name;
+        }
+    
+        public String getName() {
+            System.out.println("Name: " + name );
+            return name;
+        }
+    
+        public void printThrowException(){
+            System.out.println("Exception raised");
+            throw new IllegalArgumentException();
+        }
+    }
+
+#### 切面 – Logging
+
+日志切面类，定义了要插入目标类执行的方法。
+
+Logging.java
+
+    public class Logging {
+        public void beforeAdvice(){
+            System.out.println("Before Advice");
+        }
+
+        public void afterAdvice(){
+            System.out.println("After Advice");
+        }
+
+        public void afterReturningAdvice(Object retVal){
+            System.out.println("After Advice Executed Successfully ... Returning: " + retVal.toString() );
+        }
+
+        public void AfterThrowingAdvice(IllegalArgumentException ex){
+            System.out.println("There has been an exception when executing the advice: " + ex.toString());
+        }
+    }
+
+`retVal`是目标类连接点(方法)返回的值。例如，如果连接点是`User`类的`getName()`方法，该方法返回用户名称，那么`retVal`将被赋值用户名称。
+
+#### 配置
+
+本例使用XML配置切面。
+
+首先**定义切面类的Bean**，然后**切面定义中引用该Bean**。
+
+切面定义中，会**指明切点**、**插入的代码（建议）**，以及**插入的代码怎么执行**（建议类型）。
+
+下面的示例定义了一个名为`UserAllMethod`的切点，使用`expression="execution(* User.*(..))"`匹配User类中的所有方法作为连接点。
+
+如果想指定特定方法作为连接点，可使用`execution(* User.getName(..))`。
+
+示例：beans.xml
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xmlns:aop="http://www.springframework.org/schema/aop" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+    
+      <aop:config>
+        <!-- Aspect -->
+        <aop:aspect id="loggingAspect" ref="logging">
+    
+          <!-- Pointcut -->
+          <aop:pointcut id="UserAllMethods" expression="execution(* User.*(..))"/>
+    
+          <!-- Advice(s) -->
+          <aop:before pointcut-ref="UserAllMethods" method="beforeAdvice"/>
+          <aop:after pointcut-ref="UserAllMethods" method="afterAdvice"/>
+          <aop:after-returning pointcut-ref="UserAllMethods" returning="retVal" method="afterReturningAdvice"/>
+          <aop:after-throwing pointcut-ref="UserAllMethods" throwing="ex" method="AfterThrowingAdvice"/>
+        </aop:aspect>
+      </aop:config>
+    
+      <!-- The user bean -->
+      <bean id="user" class="User">
+          <property name="name" value="隔壁老王" />
+          <property name="id" value="99"/>
+      </bean>
+    
+      <!-- logging 切面定义 -->
+      <bean id="logging" class="Logging"/>
+    </beans>
+
+确保已经添加了依赖的JAR包，我们使用Maven，pom.xml中添加依赖：
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>${springframework.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.8.10</version>
+    </dependency>
+
+#### 测试切面
+
+在main类中调用用户类的方法，查看切面是否被执行：
+
+Test.java
+
+    import org.springframework.context.ApplicationContext;
+    import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+    public class Test {
+        public static void main(String[] args) {
+            ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+
+            User user = (User) context.getBean("user"); 
+            user.getName();
+            user.printThrowException();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
