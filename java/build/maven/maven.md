@@ -8,7 +8,7 @@
 
 #### 生成 idea 项目文件
 
-    mvn idea::idea
+    mvn idea:idea
 
 #### 清除 idea 项目文件
 

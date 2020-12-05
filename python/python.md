@@ -14,6 +14,7 @@
   - [`datetime`](#datetime)
   - [HowTo](#howto)
     - [Access Hive](#access-hive)
+  - [import](#import)
 
 ## Basic
 
@@ -100,3 +101,7 @@ show version
 [Kerberos (hive/presto) access documentation](https://github.com/dropbox/PyHive/issues/174)
 
 [PyHive](https://pypi.org/project/PyHive/)
+
+## import
+
+[How to import other Python files?](https://stackoverflow.com/questions/2349991/how-to-import-other-python-files)

@@ -64,6 +64,14 @@
       - [切面 – Logging](#切面--logging)
       - [配置](#配置)
       - [测试切面](#测试切面)
+  - [Spring 事件（1）- 内置事件](#spring-事件1--内置事件)
+    - [ApplicationContext 事件](#applicationcontext-事件)
+    - [监听ApplicationContext事件](#监听applicationcontext事件)
+  - [Spring 事件（2）- 自定义事件](#spring-事件2--自定义事件)
+    - [事件类](#事件类)
+    - [发送类](#发送类)
+    - [监听类](#监听类)
+    - [运行](#运行)
 
 Spring框架是Java EE开发中最流行的框架，已经成为JEE事实上的标准，全世界的开发人员都在使用Spring框架开发各种应用。随着Spring boot，Spring cloud新版本的不断推出，以及微服务的流行，Spring已经成为JEE开发“必修”项目。
 
@@ -1393,24 +1401,174 @@ Test.java
         }
     }
 
+## [Spring 事件（1）- 内置事件](https://www.qikegu.com/docs/1844)
 
+Spring中的事件是一个`ApplicationEvent`类的子类，由实现`ApplicationEventPublisherAware`接口的类发送，实现`ApplicationListener`接口的类监听。
 
+### ApplicationContext 事件
 
+Spring中已经定义了一组内置事件，这些事件由ApplicationContext容器发出。
 
+例如，`ContextStartedEvent`在`ApplicationContext`启动时发送，`ContextStoppedEvent`在`ApplicationContext`停止时发送。
 
+实现`ApplicationListener`的类可以监听事件。
 
+**Spring的事件是同步的(单线程的)，会被阻塞**。
 
+### 监听ApplicationContext事件
 
+要监听`ApplicationContext`事件，监听类应该实现`ApplicationListener`接口并重写`onApplicationEvent()`方法。
 
+ContextStartEventHandler.java
 
+    import org.springframework.context.ApplicationListener;
+    import org.springframework.context.event.ContextStartedEvent;
 
+    public class ContextStartEventHandler implements ApplicationListener<ContextStartedEvent>{
 
+        @Override
+        public void onApplicationEvent(ContextStartedEvent event) {
+            System.out.println("ApplicationContext 启动... ");
+        }
+    }
 
+Test.java
 
+    import org.springframework.context.ApplicationContext;
+    import org.springframework.context.ConfigurableApplicationContext;
+    import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+    public class Test {
+        public static void main(String[] args) {
+            // ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+            // fire the start event.
+            // ((ConfigurableApplicationContext) context).start();
 
+            ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+            // fire the start event.
+            context.start();
 
+            // ...
 
+        }
+    }
 
+在XML配置文件中，将该类为声明为Bean，以便Spring容器加载该Bean，并向其传送事件。
 
-TODO Spring 教程 xxxxxxxxxxxxxxxxx
+    <bean id="contextStartEventHandler" class="ContextStartEventHandler"></bean>
+
+## [Spring 事件（2）- 自定义事件](https://www.qikegu.com/docs/1845)
+
+除了内置事件，Spring中也可以使用自定义事件。
+
+怎样使用自定义事件:
+
+- 创建事件类 – 扩展`ApplicationEvent`类，创建事件类。
+- 创建发送类 – 发送类获取`ApplicationEventPublisher`实例发送事件。
+- 创建监听类 – 实现`ApplicationListener`接口，创建监听类。
+
+### 事件类
+
+事件类用于存储事件数据。下面创建一个简单的事件类。
+
+CustomEvent.java
+
+    import org.springframework.context.ApplicationEvent;
+
+    public class CustomEvent extends ApplicationEvent {
+
+        public CustomEvent(Object source, String message) {
+            super(source);
+        }
+
+        public String toString() {
+            return "我是自定义事件";
+        }
+    }
+
+### 发送类
+
+发送类创建事件对象并发送。
+
+要发送事件，这里介绍2种方法:
+
+1. 使用@autowired注解注入ApplicationEventPublisher实例
+
+   CustomEventPublisher.java
+
+       import org.springframework.beans.factory.annotation.Autowired;
+       import org.springframework.context.ApplicationEventPublisher;
+       
+       public class CustomEventPublisher {
+       
+           @Autowired
+           private ApplicationEventPublisher publisher;
+       
+           public void publish() {
+               CustomEvent event = new CustomEvent(this);
+               publisher.publishEvent(event);
+           }
+       }
+
+2. 发送类实现ApplicationEventPublisherAware接口，获取ApplicationEventPublisher实例。
+
+   CustomEventPublisher.java
+
+       import org.springframework.context.ApplicationEventPublisher;
+       import org.springframework.context.ApplicationEventPublisherAware;
+       
+       public class CustomEventPublisher implements ApplicationEventPublisherAware {
+       
+           private ApplicationEventPublisher publisher;
+       
+           // 必须重写这个方法获取ApplicationEventPublisher
+           public void setApplicationEventPublisher (ApplicationEventPublisher publisher){
+               this.publisher = publisher;
+           }
+       
+           public void publish() {
+               CustomEvent event = new CustomEvent(this);
+               publisher.publishEvent(event);
+           }
+       }
+
+如果发送类实现了`ApplicationEventPublisherAware`接口，发送类必须声明为bean，Spring容器将其标识为事件发送者。
+
+    <bean id="customEventPublisher" class="CustomEventPublisher"/>
+
+### 监听类
+
+监听类监听事件。监听类必须实现`ApplicationListener`接口，并且被定义为Bean以便Spring容器可以加载它。
+
+beans.xml
+
+    <bean id="customEventHandler" class="CustomEventHandler"/>
+
+CustomEventHandler.java
+
+    import org.springframework.context.ApplicationListener;
+
+    public class CustomEventHandler implements ApplicationListener<CustomEvent> { 
+        public void onApplicationEvent(CustomEvent event) {
+            System.out.println("收到事件：" + event.toString());
+        }
+    }
+
+### 运行
+
+测试自定义事件。
+
+Test.java
+
+    import org.springframework.context.ApplicationContext;
+    import org.springframework.context.ConfigurableApplicationContext;
+    import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+    public class Test {
+        public static void main(String[] args) {
+            ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+
+            CustomEventPublisher publisher = (CustomEventPublisher) context.getBean("customEventPublisher");
+            publisher.publish();
+        }
+    }
