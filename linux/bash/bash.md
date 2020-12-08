@@ -22,6 +22,8 @@
       - [Use sed to extract substring](#use-sed-to-extract-substring)
       - [Replace "\r\n" with "\n"](#replace-rn-with-n)
     - [`grep`](#grep)
+    - [`ps`](#ps)
+    - [`pwdx`](#pwdx)
     - [`tar`](#tar)
     - [`zip`](#zip)
     - [`unzip`](#unzip)
@@ -185,6 +187,18 @@ Print file name with output lines
 List only the names of matching files
 
     grep -l 'primary' *.c
+
+### `ps`
+
+Get environment variables of running process
+
+    ps eww <pid>
+
+### `pwdx`
+
+Find current working directory of a process
+
+    pwdx <PID>
 
 ### `tar`
 

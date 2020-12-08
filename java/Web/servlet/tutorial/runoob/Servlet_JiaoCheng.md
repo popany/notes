@@ -42,7 +42,7 @@
     - [过滤器的应用顺序](#过滤器的应用顺序)
     - [web.xml配置各节点说明](#webxml配置各节点说明)
   - [Servlet 异常处理](#servlet-异常处理)
-    - [Servlet Cookie 处理](#servlet-cookie-处理)
+  - [Servlet Cookie 处理](#servlet-cookie-处理)
 
 Servlet 为创建基于 web 的应用程序提供了基于组件、独立于平台的方法，可以不受 CGI 程序的性能限制。Servlet 有权限访问所有的 Java API，包括访问企业级数据库的 JDBC API。
 
@@ -752,6 +752,7 @@ Servlet 过滤器可以动态地拦截请求和响应，以变换或使用包含
 Servlet 过滤器是可用于 Servlet 编程的 Java 类，可以实现以下目的：
 
 -j在客户端的请求访问后端资源之前，拦截这些请求。
+
 - 在服务器的响应发送回客户端之前，处理这些响应。
 
 根据规范建议的各种类型的过滤器：
@@ -1012,7 +1013,7 @@ web.xml 中的 filter-mapping 元素的顺序决定了 Web 容器应用过滤器
 
 ...
 
-### [Servlet Cookie 处理](https://www.runoob.com/servlet/servlet-cookies-handling.html)
+## [Servlet Cookie 处理](https://www.runoob.com/servlet/servlet-cookies-handling.html)
 
 Cookie 是存储在客户端计算机上的文本文件，并保留了各种跟踪信息。Java Servlet 显然支持 HTTP Cookie。
 
