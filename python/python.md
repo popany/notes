@@ -8,6 +8,7 @@
     - [get/set environment virable](#getset-environment-virable)
   - [regular expression](#regular-expression)
     - [replace](#replace)
+  - [`mmap`](#mmap)
   - [HTTP](#http)
   - [JSON](#json)
   - [matplotlib](#matplotlib)
@@ -55,6 +56,10 @@
 ### replace
 
     re.sub(pattern, repl, string, count=0, flags=0)
+
+## `mmap`
+
+[mmap](https://docs.python.org/3/library/mmap.html) - Memory-mapped file support
 
 ## HTTP
 

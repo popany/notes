@@ -4,9 +4,12 @@
   - [timestamp](#timestamp)
   - [view all network shares](#view-all-network-shares)
   - [`7z`](#7z)
+  - [`wmic`](#wmic)
   - [Demos](#demos)
     - [`copy_file.bat`](#copy_filebat)
-  - [How to Open an Elevated Command Prompt](#how-to-open-an-elevated-command-prompt)
+  - [HowTo](#howto)
+    - [How to Open an Elevated Command Prompt](#how-to-open-an-elevated-command-prompt)
+    - [Windows CMD Batch, START and output redirection](#windows-cmd-batch-start-and-output-redirection)
 
 ## timestamp
 
@@ -26,6 +29,12 @@
 
     7z a -r -sdel foo.zip foo
 
+## `wmic`
+
+[View command line arguments for a running app](https://www.addictivetips.com/windows-tips/command-line-arguments-for-an-app-on-windows-10/)
+
+    wmic path Win32_Process where handle='22792' get Commandline /format:list
+
 ## Demos
 
 ### `copy_file.bat`
@@ -39,5 +48,11 @@
     timeout /T 10
     goto loop
 
-## [How to Open an Elevated Command Prompt](https://www.lifewire.com/how-to-open-an-elevated-command-prompt-2618088)
 
+## HowTo
+
+### [How to Open an Elevated Command Prompt](https://www.lifewire.com/how-to-open-an-elevated-command-prompt-2618088)
+
+### [Windows CMD Batch, START and output redirection](https://superuser.com/questions/338277/windows-cmd-batch-start-and-output-redirection)
+
+    start call delay.bat ^1^> log.txt ^2^>^&^1

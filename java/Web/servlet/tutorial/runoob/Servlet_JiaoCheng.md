@@ -31,8 +31,14 @@
     - [将复选框数据传递到 Servlet 程序](#将复选框数据传递到-servlet-程序)
     - [读取所有的表单参数](#读取所有的表单参数)
   - [Servlet 客户端 HTTP 请求](#servlet-客户端-http-请求)
+    - [读取 HTTP 头的方法](#读取-http-头的方法)
+    - [HTTP Header 请求实例](#http-header-请求实例)
   - [Servlet 服务器 HTTP 响应](#servlet-服务器-http-响应)
+    - [设置 HTTP 响应报头的方法](#设置-http-响应报头的方法)
+    - [HTTP Header 响应实例](#http-header-响应实例)
   - [Servlet HTTP 状态码](#servlet-http-状态码)
+    - [设置 HTTP 状态代码的方法](#设置-http-状态代码的方法)
+    - [HTTP 状态码实例](#http-状态码实例)
   - [Servlet 编写过滤器](#servlet-编写过滤器)
     - [Servlet 过滤器方法](#servlet-过滤器方法)
       - [FilterConfig 使用](#filterconfig-使用)
@@ -42,7 +48,22 @@
     - [过滤器的应用顺序](#过滤器的应用顺序)
     - [web.xml配置各节点说明](#webxml配置各节点说明)
   - [Servlet 异常处理](#servlet-异常处理)
+    - [web.xml 配置](#webxml-配置)
+    - [请求属性 - 错误/异常](#请求属性---错误异常)
+    - [Servlet 错误处理程序实例](#servlet-错误处理程序实例)
   - [Servlet Cookie 处理](#servlet-cookie-处理)
+    - [Cookie 剖析](#cookie-剖析)
+    - [Servlet Cookie 方法](#servlet-cookie-方法)
+    - [通过 Servlet 设置 Cookie](#通过-servlet-设置-cookie)
+      - [(1) 创建一个 Cookie 对象](#1-创建一个-cookie-对象)
+      - [(2) 设置最大生存周期](#2-设置最大生存周期)
+      - [(3) 发送 Cookie 到 HTTP 响应头](#3-发送-cookie-到-http-响应头)
+      - [实例](#实例)
+    - [通过 Servlet 读取 Cookie](#通过-servlet-读取-cookie)
+      - [实例](#实例-1)
+    - [通过 Servlet 删除 Cookie](#通过-servlet-删除-cookie)
+      - [实例](#实例-2)
+  - [Servlet Session 跟踪](#servlet-session-跟踪)
 
 Servlet 为创建基于 web 的应用程序提供了基于组件、独立于平台的方法，可以不受 CGI 程序的性能限制。Servlet 有权限访问所有的 Java API，包括访问企业级数据库的 JDBC API。
 
@@ -737,11 +758,408 @@ http://localhost:8080/TomcatTest/HelloForm?name=菜鸟教程&url=www.runoob.com
 
 ## [Servlet 客户端 HTTP 请求](https://www.runoob.com/servlet/servlet-client-request.html)
 
-...
+当浏览器请求网页时，它会向 Web 服务器发送特定信息，这些信息不能被直接读取，因为这些信息是作为 HTTP 请求的头的一部分进行传输的。您可以查看 [HTTP 协议](https://www.runoob.com/http/http-tutorial.html) 了解更多相关信息。
+
+以下是来自于浏览器端的重要头信息，您可以在 Web 编程中频繁使用：
+
+|||
+|-|-|
+头信息|描述
+Accept|这个头信息指定浏览器或其他客户端可以处理的 MIME 类型。值 image/png 或 image/jpeg 是最常见的两种可能值。
+Accept-Charset|这个头信息指定浏览器可以用来显示信息的字符集。例如 ISO-8859-1。
+Accept-Encoding|这个头信息指定浏览器知道如何处理的编码类型。值 gzip 或 compress 是最常见的两种可能值。
+Accept-Language|这个头信息指定客户端的首选语言，在这种情况下，Servlet 会产生多种语言的结果。例如，en、en-us、ru 等。
+Authorization|这个头信息用于客户端在访问受密码保护的网页时识别自己的身份。
+Connection|这个头信息指示客户端是否可以处理持久 HTTP 连接。持久连接允许客户端或其他浏览器通过单个请求来检索多个文件。值 Keep-Alive 意味着使用了持续连接。
+Content-Length|这个头信息只适用于 POST 请求，并给出 POST 数据的大小（以字节为单位）。
+Cookie|这个头信息把之前发送到浏览器的 cookies 返回到服务器。
+Host|这个头信息指定原始的 URL 中的主机和端口。
+If-Modified-Since|这个头信息表示只有当页面在指定的日期后已更改时，客户端想要的页面。如果没有新的结果可以使用，服务器会发送一个 304 代码，表示 Not Modified 头信息。
+If-Unmodified-Since|这个头信息是 If-Modified-Since 的对立面，它指定只有当文档早于指定日期时，操作才会成功。
+Referer|这个头信息指示所指向的 Web 页的 URL。例如，如果您在网页 1，点击一个链接到网页 2，当浏览器请求网页 2 时，网页 1 的 URL 就会包含在 Referer 头信息中。
+User-Agent|这个头信息识别发出请求的浏览器或其他客户端，并可以向不同类型的浏览器返回不同的内容。
+|||
+
+### 读取 HTTP 头的方法
+
+下面的方法可用在 Servlet 程序中读取 HTTP 头。这些方法通过 `HttpServletRequest` 对象可用。
+
+|||
+|-|-|
+序号|方法 & 描述
+1|`Cookie[] getCookies()` <br> 返回一个数组，包含客户端发送该请求的所有的 Cookie 对象。
+2|`Enumeration getAttributeNames()` <br> 返回一个枚举，包含提供给该请求可用的属性名称。
+3|`Enumeration getHeaderNames()` <br> 返回一个枚举，包含在该请求中包含的所有的头名。
+4|`Enumeration getParameterNames()` <br> 返回一个 String 对象的枚举，包含在该请求中包含的参数的名称。
+5|`HttpSession getSession()` <br> 返回与该请求关联的当前 session 会话，或者如果请求没有 session 会话，则创建一个。
+6|`HttpSession getSession(boolean create)` 返回与该请求关联的当前 HttpSession，或者如果没有当前会话，且创建是真的，则返回一个新的 session 会话。
+7|`Locale getLocale()` <br> 基于 Accept-Language 头，返回客户端接受内容的首选的区域设置。
+8|`Object getAttribute(String name)` <br> 以对象形式返回已命名属性的值，如果没有给定名称的属性存在，则返回 null。
+9|`ServletInputStream getInputStream()` <br> 使用 ServletInputStream，以二进制数据形式检索请求的主体。
+10|`String getAuthType()` 返回用于保护 Servlet 的身份验证方案的名称，例如，"BASIC" 或 "SSL"，如果JSP没有受到保护则返回 null。
+11|`String getCharacterEncoding()` <br> 返回请求主体中使用的字符编码的名称。
+12|`String getContentType()` <br> 返回请求主体的 MIME 类型，如果不知道类型则返回 null。
+13|`String getContextPath()` <br> 返回指示请求上下文的请求 URI 部分。
+14|`String getHeader(String name)` <br> 以字符串形式返回指定的请求头的值。
+15|`String getMethod()` <br> 返回请求的 HTTP 方法的名称，例如，GET、POST 或 PUT。
+16|`String getParameter(String name)` <br> 以字符串形式返回请求参数的值，或者如果参数不存在则返回 null。
+17|`String getPathInfo()` <br> 当请求发出时，返回与客户端发送的 URL 相关的任何额外的路径信息。
+18|`String getProtocol()` <br> 返回请求协议的名称和版本。
+19|`String getQueryString()` <br> 返回包含在路径后的请求 URL 中的查询字符串。
+20|`String getRemoteAddr()` <br> 返回发送请求的客户端的互联网协议（IP）地址。
+21|`String getRemoteHost()` <br> 返回发送请求的客户端的完全限定名称。
+22|`String getRemoteUser()` <br> 如果用户已通过身份验证，则返回发出请求的登录用户，或者如果用户未通过身份验证，则返回 null。
+23|`String getRequestURI()` <br> 从协议名称直到 HTTP 请求的第一行的查询字符串中，返回该请求的 URL 的一部分。
+24|`String getRequestedSessionId()` <br> 返回由客户端指定的 session 会话 ID。
+25|`String getServletPath()` <br> 返回调用 JSP 的请求的 URL 的一部分。
+26| `String[] getParameterValues(String name)` <br> 返回一个字符串对象的数组，包含所有给定的请求参数的值，如果参数不存在则返回 null。
+27|`boolean isSecure()` <br> 返回一个布尔值，指示请求是否使用安全通道，如 HTTPS。
+28|`int getContentLength()` <br> 以字节为单位返回请求主体的长度，并提供输入流，或者如果长度未知则返回 -1。
+29|`int getIntHeader(String name)` <br> 返回指定的请求头的值为一个 int 值。
+30|`int getServerPort()` <br> 返回接收到这个请求的端口号。
+31|`int getParameterMap()` <br> 将参数封装成 Map 类型。
+|||
+
+### HTTP Header 请求实例
+
+下面的实例使用 `HttpServletRequest` 的 `getHeaderNames()` 方法读取 HTTP 头信息。该方法返回一个枚举，包含与当前的 HTTP 请求相关的头信息。
+
+一旦我们有一个枚举，我们可以以标准方式循环枚举，使用 `hasMoreElements()` 方法来确定何时停止，使用 `nextElement()` 方法来获取每个参数的名称。
+
+    //导入必需的 java 库
+    import java.io.IOException;
+    import java.io.PrintWriter;
+    import java.util.Enumeration;
+
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+
+    @WebServlet("/DisplayHeader")
+
+    //扩展 HttpServlet 类
+    public class DisplayHeader extends HttpServlet {
+
+        // 处理 GET 方法请求的方法
+        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+        {
+            // 设置响应内容类型
+            response.setContentType("text/html;charset=UTF-8");
+
+            PrintWriter out = response.getWriter();
+            String title = "HTTP Header 请求实例 - 菜鸟教程实例";
+            String docType =
+                "<!DOCTYPE html> \n";
+                out.println(docType +
+                "<html>\n" +
+                "<head><meta charset=\"utf-8\"><title>" + title + "</title></head>\n"+
+                "<body bgcolor=\"#f0f0f0\">\n" +
+                "<h1 align=\"center\">" + title + "</h1>\n" +
+                "<table width=\"100%\" border=\"1\" align=\"center\">\n" +
+                "<tr bgcolor=\"#949494\">\n" +
+                "<th>Header 名称</th><th>Header 值</th>\n"+
+                "</tr>\n");
+
+            Enumeration headerNames = request.getHeaderNames();
+
+            while(headerNames.hasMoreElements()) {
+                String paramName = (String)headerNames.nextElement();
+                out.print("<tr><td>" + paramName + "</td>\n");
+                String paramValue = request.getHeader(paramName);
+                out.println("<td> " + paramValue + "</td></tr>\n");
+            }
+            out.println("</table>\n</body></html>");
+        }
+        // 处理 POST 方法请求的方法
+        public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            doGet(request, response);
+        }
+    }
+
+以上测试实例是位于 TomcatTest 项目下，对应的 web.xml 配置为：
+
+    <?xml version="1.0" encoding="UTF-8"?>  
+    <web-app>  
+      <servlet>  
+        <!-- 类名 -->  
+        <servlet-name>DisplayHeader</servlet-name>  
+        <!-- 所在的包 -->  
+        <servlet-class>com.runoob.test.DisplayHeader</servlet-class>  
+      </servlet>  
+      <servlet-mapping>  
+        <servlet-name>DisplayHeader</servlet-name>  
+        <!-- 访问的网址 -->  
+        <url-pattern>/TomcatTest/DisplayHeader</url-pattern>  
+      </servlet-mapping>  
+    </web-app>
 
 ## [Servlet 服务器 HTTP 响应](https://www.runoob.com/servlet/servlet-server-response.html)
 
+正如前面的章节中讨论的那样，当一个 Web 服务器响应一个 HTTP 请求时，响应通常包括一个状态行、一些响应报头、一个空行和文档。一个典型的响应如下所示：
+
+    HTTP/1.1 200 OK
+    Content-Type: text/html
+    Header2: ...
+    ...
+    HeaderN: ...
+      (Blank Line)
+    <!doctype ...>
+    <html>
+    <head>...</head>
+    <body>
+    ...
+    </body>
+    </html>
+
+状态行包括 HTTP 版本（在本例中为 HTTP/1.1）、一个状态码（在本例中为 200）和一个对应于状态码的短消息（在本例中为 OK）。
+
+下表总结了从 Web 服务器端返回到浏览器的最有用的 HTTP 1.1 响应报头，您会在 Web 编程中频繁地使用它们：
+
+|||
+|-|-|
+头信息|描述
+Allow|这个头信息指定服务器支持的请求方法（GET、POST 等）。
+Cache-Control|这个头信息指定响应文档在何种情况下可以安全地缓存。可能的值有：public、private 或 no-cache 等。Public 意味着文档是可缓存，Private 意味着文档是单个用户私用文档，且只能存储在私有（非共享）缓存中，no-cache 意味着文档不应被缓存。
+Connection|这个头信息指示浏览器是否使用持久 HTTP 连接。值 close 指示浏览器不使用持久 HTTP 连接，值 keep-alive 意味着使用持久连接。
+Content-Disposition|这个头信息可以让您请求浏览器要求用户以给定名称的文件把响应保存到磁盘。
+Content-Encoding|在传输过程中，这个头信息指定页面的编码方式。
+Content-Language|这个头信息表示文档编写所使用的语言。例如，en、en-us、ru 等。
+Content-Length|这个头信息指示响应中的字节数。只有当浏览器使用持久（keep-alive）HTTP 连接时才需要这些信息。
+Content-Type|这个头信息提供了响应文档的 MIME（Multipurpose Internet Mail Extension）类型。
+Expires|这个头信息指定内容过期的时间，在这之后内容不再被缓存。
+Last-Modified|这个头信息指示文档的最后修改时间。然后，客户端可以缓存文件，并在以后的请求中通过 If-Modified-Since 请求头信息提供一个日期。
+Location|这个头信息应被包含在所有的带有状态码的响应中。在 300s 内，这会通知浏览器文档的地址。浏览器会自动重新连接到这个位置，并获取新的文档。
+Refresh|这个头信息指定浏览器应该如何尽快请求更新的页面。您可以指定页面刷新的秒数。
+Retry-After|这个头信息可以与 503（Service Unavailable 服务不可用）响应配合使用，这会告诉客户端多久就可以重复它的请求。
+Set-Cookie|这个头信息指定一个与页面关联的 cookie。
+|||
+
+### 设置 HTTP 响应报头的方法
+
+下面的方法可用于在 Servlet 程序中设置 HTTP 响应报头。这些方法通过 HttpServletResponse 对象可用。
+
+|||
+|-|-|
+序号|方法 & 描述
+1|`String encodeRedirectURL(String url)` <br> 为 sendRedirect 方法中使用的指定的 URL 进行编码，或者如果编码不是必需的，则返回 URL 未改变。
+2|`String encodeURL(String url)` 对包含 session 会话 ID 的指定 URL 进行编码，或者如果编码不是必需的，则返回 URL 未改变。
+3|`boolean containsHeader(String name)` <br> 返回一个布尔值，指示是否已经设置已命名的响应报头。
+4|`boolean isCommitted()` <br> 返回一个布尔值，指示响应是否已经提交。
+5|`void addCookie(Cookie cookie)` <br> 把指定的 cookie 添加到响应。
+6|`void addDateHeader(String name, long date)` <br> 添加一个带有给定的名称和日期值的响应报头。
+7|`void addHeader(String name, String value)` <br> 添加一个带有给定的名称和值的响应报头。
+8|`void addIntHeader(String name, int value)` <br> 添加一个带有给定的名称和整数值的响应报头。
+9|`void flushBuffer()` <br> 强制任何在缓冲区中的内容被写入到客户端。
+10|`void reset()` <br> 清除缓冲区中存在的任何数据，包括状态码和头。
+11|`void resetBuffer()` <br> 清除响应中基础缓冲区的内容，不清除状态码和头。
+12|`void sendError(int sc)` <br> 使用指定的状态码发送错误响应到客户端，并清除缓冲区。
+13|`void sendError(int sc, String msg)` <br> 使用指定的状态发送错误响应到客户端。
+14|`void sendRedirect(String location)` <br> 使用指定的重定向位置 URL 发送临时重定向响应到客户端。
+15|`void setBufferSize(int size)` <br> 为响应主体设置首选的缓冲区大小。
+16|`void setCharacterEncoding(String charset)` <br> 设置被发送到客户端的响应的字符编码（MIME 字符集）例如，UTF-8。
+17|`void setContentLength(int len)` <br> 设置在 HTTP Servlet 响应中的内容主体的长度，该方法设置 HTTP Content-Length 头。
+18|`void setContentType(String type)` <br> 如果响应还未被提交，设置被发送到客户端的响应的内容类型。
+19|`void setDateHeader(String name, long date)` <br> 设置一个带有给定的名称和日期值的响应报头。
+20|`void setHeader(String name, String value)` <br> 设置一个带有给定的名称和值的响应报头。
+21|`void setIntHeader(String name, int value)` <br> 设置一个带有给定的名称和整数值的响应报头。
+22|`void setLocale(Locale loc)` <br> 如果响应还未被提交，设置响应的区域。
+23|`void setStatus(int sc)` <br> 为该响应设置状态码。
+|||
+
+### HTTP Header 响应实例
+
+您已经在前面的实例中看到 `setContentType()` 方法，下面的实例也使用了同样的方法，此外，我们会用 `setIntHeader()` 方法来设置 Refresh 头。
+
+    //导入必需的 java 库
+    import java.io.IOException;
+    import java.io.PrintWriter;
+    import java.text.SimpleDateFormat;
+    import java.util.Calendar;
+    import java.util.Date;
+
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+
+    @WebServlet("/Refresh")
+
+    //扩展 HttpServlet 类
+    public class Refresh extends HttpServlet {
+
+        // 处理 GET 方法请求的方法
+        public void doGet(HttpServletRequest request,
+                        HttpServletResponse response)
+                        throws ServletException, IOException
+        {
+            // 设置刷新自动加载时间为 5 秒
+            response.setIntHeader("Refresh", 5);
+            // 设置响应内容类型
+            response.setContentType("text/html;charset=UTF-8");
+         
+            //使用默认时区和语言环境获得一个日历  
+            Calendar cale = Calendar.getInstance();  
+            //将Calendar类型转换成Date类型  
+            Date tasktime=cale.getTime();  
+            //设置日期输出的格式  
+            SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+            //格式化输出  
+            String nowTime = df.format(tasktime);
+            PrintWriter out = response.getWriter();
+            String title = "自动刷新 Header 设置 - 菜鸟教程实例";
+            String docType =
+                "<!DOCTYPE html>\n";
+            out.println(docType +
+                "<html>\n" +
+                "<head><title>" + title + "</title></head>\n"+
+                "<body bgcolor=\"#f0f0f0\">\n" +
+                "<h1 align=\"center\">" + title + "</h1>\n" +
+                "<p>当前时间是：" + nowTime + "</p>\n");
+        }
+        // 处理 POST 方法请求的方法
+        public void doPost(HttpServletRequest request,
+                            HttpServletResponse response)
+                            throws ServletException, IOException {
+            doGet(request, response);
+        }
+    }
+
+以上测试实例是位于 TomcatTest 项目下，对应的 web.xml 配置为：
+
+    <?xml version="1.0" encoding="UTF-8"?>  
+    <web-app>  
+      <servlet>  
+         <!-- 类名 -->  
+        <servlet-name>Refresh</servlet-name>  
+        <!-- 所在的包 -->  
+        <servlet-class>com.runoob.test.Refresh</servlet-class>  
+      </servlet>  
+      <servlet-mapping>  
+        <servlet-name>Refresh</servlet-name>  
+        <!-- 访问的网址 -->  
+        <url-pattern>/TomcatTest/Refresh</url-pattern>  
+        </servlet-mapping>  
+    </web-app> 
+
 ## [Servlet HTTP 状态码](https://www.runoob.com/servlet/servlet-http-status-codes.html)
+
+HTTP 请求和 HTTP 响应消息的格式是类似的，结构如下：
+
+- 初始状态行 + 回车换行符（回车+换行）
+- 零个或多个标题行+回车换行符
+- 一个空白行，即回车换行符
+- 一个可选的消息主体，比如文件、查询数据或查询输出
+
+例如，服务器的响应头如下所示：
+
+    HTTP/1.1 200 OK
+    Content-Type: text/html
+    Header2: ...
+    ...
+    HeaderN: ...
+      (Blank Line)
+    <!doctype ...>
+    <html>
+    <head>...</head>
+    <body>
+    ...
+    </body>
+    </html>
+
+状态行包括 HTTP 版本（在本例中为 HTTP/1.1）、一个状态码（在本例中为 200）和一个对应于状态码的短消息（在本例中为 OK）。
+
+以下是可能从 Web 服务器返回的 HTTP 状态码和相关的信息列表：
+
+||||
+|-|-|-|
+代码|消息|描述
+100|Continue|只有请求的一部分已经被服务器接收，但只要它没有被拒绝，客户端应继续该请求。
+101|Switching Protocols|服务器切换协议。
+200|OK|请求成功。
+201|Created|该请求是完整的，并创建一个新的资源。
+202|Accepted|该请求被接受处理，但是该处理是不完整的。
+203|Non-authoritative Information
+204|No Content|
+205|Reset Content|
+206|Partial Content
+300|Multiple Choices|链接列表。用户可以选择一个链接，进入到该位置。最多五个地址。
+301|Moved Permanently|所请求的页面已经转移到一个新的 URL。
+302|Found|所请求的页面已经临时转移到一个新的 URL。
+303|See Other|所请求的页面可以在另一个不同的 URL 下被找到。
+304|Not Modified
+305|Use Proxy
+306|Unused|在以前的版本中使用该代码。现在已不再使用它，但代码仍被保留。
+307|Temporary Redirect|所请求的页面已经临时转移到一个新的 URL。
+400|Bad Request|服务器不理解请求。
+401|Unauthorized|所请求的页面需要用户名和密码。
+402|Payment Required|您还不能使用该代码。
+403|Forbidden|禁止访问所请求的页面。
+404|Not Found|服务器无法找到所请求的页面。.
+405|Method Not Allowed|在请求中指定的方法是不允许的。
+406|Not Acceptable|服务器只生成一个不被客户端接受的响应。
+407|Proxy Authentication Required|在请求送达之前，您必须使用代理服务器的验证。
+408|Request Timeout|请求需要的时间比服务器能够等待的时间长，超时。
+409|Conflict|请求因为冲突无法完成。
+410|Gone|所请求的页面不再可用。
+411|Length Required	"Content-Length"|未定义。服务器无法处理客户端发送的不带 Content-Length 的请求信息。
+412|Precondition Failed|请求中给出的先决条件被服务器评估为 false。
+413|Request Entity Too Large|服务器不接受该请求，因为请求实体过大。
+414|Request-url Too Long|服务器不接受该请求，因为 URL 太长。当您转换一个 "post" 请求为一个带有长的查询信息的 "get" 请求时发生。
+415|Unsupported Media Type|服务器不接受该请求，因为媒体类型不被支持。
+417|Expectation Failed
+500|Internal Server Error|未完成的请求。服务器遇到了一个意外的情况。
+501|Not Implemented|未完成的请求。服务器不支持所需的功能。
+502|Bad Gateway|未完成的请求。服务器从上游服务器收到无效响应。
+503|Service Unavailable|未完成的请求。服务器暂时超载或死机。
+504|Gateway Timeout|网关超时。
+505|HTTP Version Not Supported|服务器不支持"HTTP协议"版本。
+||||
+
+### 设置 HTTP 状态代码的方法
+
+下面的方法可用于在 Servlet 程序中设置 HTTP 状态码。这些方法通过 `HttpServletResponse` 对象可用。
+
+|||
+|-|-|
+序号|方法 & 描述
+1|`public void setStatus ( int statusCode )` <br> 该方法设置一个任意的状态码。setStatus 方法接受一个 int（状态码）作为参数。如果您的响应包含了一个特殊的状态码和文档，请确保在使用 PrintWriter 实际返回任何内容之前调用 setStatus。
+2|`public void sendRedirect(String url)` <br> 该方法生成一个 302 响应，连同一个带有新文档 URL 的 Location 头。
+3|`public void sendError(int code, String message)` <br> 该方法发送一个状态码（通常为 404），连同一个在 HTML 文档内部自动格式化并发送到客户端的短消息。
+|||
+
+### HTTP 状态码实例
+
+下面的例子把 407 错误代码发送到客户端浏览器，浏览器会显示 "Need authentication!!!" 消息。
+
+    // 导入必需的 java 库
+    import java.io.*;
+    import javax.servlet.*;
+    import javax.servlet.http.*;
+    import java.util.*;
+    import javax.servlet.annotation.WebServlet;
+
+    @WebServlet("/showError")
+    // 扩展 HttpServlet 类
+    public class showError extends HttpServlet {
+ 
+        // 处理 GET 方法请求的方法
+        public void doGet(HttpServletRequest request,
+                            HttpServletResponse response)
+                            throws ServletException, IOException
+        {
+            // 设置错误代码和原因
+            response.sendError(407, "Need authentication!!!" );
+        }
+        // 处理 POST 方法请求的方法
+        public void doPost(HttpServletRequest request,
+                            HttpServletResponse response)
+                            throws ServletException, IOException {
+            doGet(request, response);
+        }
+    }
 
 ## [Servlet 编写过滤器](https://www.runoob.com/servlet/servlet-writing-filters.html)
 
@@ -751,7 +1169,7 @@ Servlet 过滤器可以动态地拦截请求和响应，以变换或使用包含
 
 Servlet 过滤器是可用于 Servlet 编程的 Java 类，可以实现以下目的：
 
--j在客户端的请求访问后端资源之前，拦截这些请求。
+- 在客户端的请求访问后端资源之前，拦截这些请求。
 
 - 在服务器的响应发送回客户端之前，处理这些响应。
 
@@ -930,7 +1348,7 @@ Filter 的 init 方法中提供了一个 FilterConfig 对象。
 
 现在试着以常用的方式调用任何 Servlet，您将会看到在 Web 服务器中生成的日志。您也可以使用 Log4J 记录器来把上面的日志记录到一个单独的文件中。
 
-接下来我们访问这个实例地址 http://localhost:8080/TomcatTest/DisplayHeader, 然后在控制台看下输出内容，如下所示：
+接下来我们访问这个实例地址 <http://localhost:8080/TomcatTest/DisplayHeader>, 然后在控制台看下输出内容，如下所示：
 
 ### 使用多个过滤器
 
@@ -1011,7 +1429,173 @@ web.xml 中的 filter-mapping 元素的顺序决定了 Web 容器应用过滤器
 
 您必须在 web.xml 中使用 error-page 元素来指定对特定异常 或 HTTP 状态码 作出相应的 Servlet 调用。
 
-...
+### web.xml 配置
+
+假设，有一个 `ErrorHandler` 的 Servlet 在任何已定义的异常或错误出现时被调用。以下将是在 web.xml 中创建的项。
+
+    <!-- servlet 定义 -->
+    <servlet>
+            <servlet-name>ErrorHandler</servlet-name>
+            <servlet-class>ErrorHandler</servlet-class>
+    </servlet>
+    <!-- servlet 映射 -->
+    <servlet-mapping>
+            <servlet-name>ErrorHandler</servlet-name>
+            <url-pattern>/ErrorHandler</url-pattern>
+    </servlet-mapping>
+    
+    <!-- error-code 相关的错误页面 -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/ErrorHandler</location>
+    </error-page>
+    
+    <!-- exception-type 相关的错误页面 -->
+    <error-page>
+        <exception-type>
+              javax.servlet.ServletException
+        </exception-type >
+        <location>/ErrorHandler</location>
+    </error-page>
+    
+    <error-page>
+        <exception-type>java.io.IOException</exception-type >
+        <location>/ErrorHandler</location>
+    </error-page>
+
+如果您想对所有的异常有一个通用的错误处理程序，那么应该定义下面的 error-page，而不是为每个异常定义单独的 error-page 元素：
+
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type >
+        <location>/ErrorHandler</location>
+    </error-page>
+
+以下是关于上面的 web.xml 异常处理要注意的点：
+
+- Servlet ErrorHandler 与其他的 Servlet 的定义方式一样，且在 web.xml 中进行配置。
+- 如果有错误状态代码出现，不管为 404（Not Found 未找到）或 403（Forbidden 禁止），则会调用 ErrorHandler 的 Servlet。
+- 如果 Web 应用程序抛出 ServletException 或 IOException，那么 Web 容器会调用 ErrorHandler 的 Servlet。
+- 您可以定义不同的错误处理程序来处理不同类型的错误或异常。上面的实例是非常通用的，希望您能通过实例理解基本的概念。
+
+### 请求属性 - 错误/异常
+
+以下是错误处理的 Servlet 可以访问的请求属性列表，用来分析错误/异常的性质。
+
+|||
+|-|-|
+序号|属性 & 描述
+1|`javax.servlet.error.status_code` <br> 该属性给出状态码，状态码可被存储，并在存储为 java.lang.Integer 数据类型后可被分析。
+2|`javax.servlet.error.exception_type` <br> 该属性给出异常类型的信息，异常类型可被存储，并在存储为 java.lang.Class 数据类型后可被分析。
+3|`javax.servlet.error.message` <br> 该属性给出确切错误消息的信息，信息可被存储，并在存储为 java.lang.String 数据类型后可被分析。
+4|`javax.servlet.error.request_uri` <br> 该属性给出有关 URL 调用 Servlet 的信息，信息可被存储，并在存储为 java.lang.String 数据类型后可被分析。
+5|`javax.servlet.error.exception` <br> 该属性给出异常产生的信息，信息可被存储，并在存储为 java.lang.Throwable 数据类型后可被分析。
+6|`javax.servlet.error.servlet_name` <br> 该属性给出 Servlet 的名称，名称可被存储，并在存储为 java.lang.String 数据类型后可被分析。
+|||
+
+### Servlet 错误处理程序实例
+
+以下是 Servlet 实例，将应对任何您所定义的错误或异常发生时的错误处理程序。
+
+本实例让您对 Servlet 中的异常处理有基本的了解，您可以使用相同的概念编写更复杂的异常处理应用程序：
+
+    //导入必需的 java 库
+    import java.io.*;
+    import javax.servlet.*;
+    import javax.servlet.http.*;
+    import java.util.*;
+
+    //扩展 HttpServlet 类
+    public class ErrorHandler extends HttpServlet {
+
+        // 处理 GET 方法请求的方法
+        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+        {
+            Throwable throwable = (Throwable)
+            request.getAttribute("javax.servlet.error.exception");
+            Integer statusCode = (Integer)
+            request.getAttribute("javax.servlet.error.status_code");
+            String servletName = (String)
+            request.getAttribute("javax.servlet.error.servlet_name");
+            if (servletName == null){
+                servletName = "Unknown";
+            }
+            String requestUri = (String)
+            request.getAttribute("javax.servlet.error.request_uri");
+            if (requestUri == null){
+                requestUri = "Unknown";
+            }
+            // 设置响应内容类型
+            response.setContentType("text/html;charset=UTF-8");
+        
+            PrintWriter out = response.getWriter();
+            String title = "菜鸟教程 Error/Exception 信息";
+        
+            String docType = "<!DOCTYPE html>\n";
+            out.println(docType +
+                "<html>\n" +
+                "<head><title>" + title + "</title></head>\n" +
+                "<body bgcolor=\"#f0f0f0\">\n");
+            out.println("<h1>菜鸟教程异常信息实例演示</h1>");
+            if (throwable == null && statusCode == null){
+                out.println("<h2>错误信息丢失</h2>");
+                out.println("请返回 <a href=\"" + 
+                response.encodeURL("http://localhost:8080/") + 
+                    "\">主页</a>。");
+            }else if (statusCode != null) {
+                out.println("错误代码 : " + statusCode);
+            }else{
+                out.println("<h2>错误信息</h2>");
+                out.println("Servlet Name : " + servletName + 
+                            "</br></br>");
+                out.println("异常类型 : " + 
+                              throwable.getClass( ).getName( ) + 
+                              "</br></br>");
+                out.println("请求 URI: " + requestUri + 
+                              "<br><br>");
+                out.println("异常信息: " + 
+                                  throwable.getMessage( ));
+            }
+            out.println("</body>");
+            out.println("</html>");
+    }
+    // 处理 POST 方法请求的方法
+    public void doPost(HttpServletRequest request,
+                      HttpServletResponse response)
+        throws ServletException, IOException {
+        doGet(request, response);
+    }
+}
+
+以通常的方式编译 `ErrorHandler.java`，把您的类文件放入`<Tomcat-installation-directory>/webapps/ROOT/WEB-INF/classes` 中。
+
+让我们在 web.xml 文件中添加如下配置来处理异常：
+
+    <?xml version="1.0" encoding="UTF-8"?>  
+    <web-app>  
+    <servlet>
+            <servlet-name>ErrorHandler</servlet-name>
+            <servlet-class>com.runoob.test.ErrorHandler</servlet-class>
+    </servlet>
+    <!-- servlet mappings -->
+    <servlet-mapping>
+            <servlet-name>ErrorHandler</servlet-name>
+            <url-pattern>/TomcatTest/ErrorHandler</url-pattern>
+    </servlet-mapping>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/TomcatTest/ErrorHandler</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type >
+        <location>/ErrorHandler</location>
+    </error-page>
+    </web-app>  
+
+现在，尝试使用一个会产生异常的 Servlet，或者输入一个错误的 URL，这将触发 Web 容器调用 ErrorHandler 的 Servlet，并显示适当的消息。
 
 ## [Servlet Cookie 处理](https://www.runoob.com/servlet/servlet-cookies-handling.html)
 
@@ -1025,11 +1609,383 @@ Cookie 是存储在客户端计算机上的文本文件，并保留了各种跟�
 
 本章将向您讲解如何设置或重置 Cookie，如何访问它们，以及如何将它们删除。
 
+Servlet Cookie 处理需要对中文进行编码与解码，方法如下：
 
+    String   str   =   java.net.URLEncoder.encode("中文"，"UTF-8");            //编码
+    String   str   =   java.net.URLDecoder.decode("编码后的字符串","UTF-8");   // 解码
 
+### Cookie 剖析
 
+Cookie 通常设置在 HTTP 头信息中（虽然 JavaScript 也可以直接在浏览器上设置一个 Cookie）。设置 Cookie 的 Servlet 会发送如下的头信息：
 
+    HTTP/1.1 200 OK
+    Date: Fri, 04 Feb 2000 21:03:38 GMT
+    Server: Apache/1.3.9 (UNIX) PHP/4.0b3
+    Set-Cookie: name=xyz; expires=Friday, 04-Feb-07 22:03:38 GMT; 
+                     path=/; domain=runoob.com
+    Connection: close
+    Content-Type: text/html
 
+正如您所看到的，Set-Cookie 头包含了一个名称值对、一个 GMT 日期、一个路径和一个域。名称和值会被 URL 编码。expires 字段是一个指令，告诉浏览器在给定的时间和日期之后"忘记"该 Cookie。
+
+如果浏览器被配置为存储 Cookie，它将会保留此信息直到到期日期。如果用户的浏览器指向任何匹配该 Cookie 的路径和域的页面，它会重新发送 Cookie 到服务器。浏览器的头信息可能如下所示：
+
+    GET / HTTP/1.0
+    Connection: Keep-Alive
+    User-Agent: Mozilla/4.6 (X11; I; Linux 2.2.6-15apmac ppc)
+    Host: zink.demon.co.uk:1126
+    Accept: image/gif, */*
+    Accept-Encoding: gzip
+    Accept-Language: en
+    Accept-Charset: iso-8859-1,*,utf-8
+    Cookie: name=xyz
+
+Servlet 就能够通过请求方法 `request.getCookies()` 访问 Cookie，该方法将返回一个 Cookie 对象的数组。
+
+### Servlet Cookie 方法
+
+以下是在 Servlet 中操作 Cookie 时可使用的有用的方法列表。
+
+|||
+|-|-|
+序号|方法 & 描述
+1|`public void setDomain(String pattern)` <br> 该方法设置 cookie 适用的域，例如 runoob.com。
+2|`public String getDomain()` <br> 该方法获取 cookie 适用的域，例如 runoob.com。
+3|`public void setMaxAge(int expiry)` <br> 该方法设置 cookie 过期的时间（以秒为单位）。如果不这样设置，cookie 只会在当前 session 会话中持续有效。
+4|`public int getMaxAge()` <br> 该方法返回 cookie 的最大生存周期（以秒为单位），默认情况下，-1 表示 cookie 将持续下去，直到浏览器关闭。
+5|`public String getName()` <br> 该方法返回 cookie 的名称。名称在创建后不能改变。
+6|`public void setValue(String newValue)` <br> 该方法设置与 cookie 关联的值。
+7|`public String getValue()` <br> 该方法获取与 cookie 关联的值。
+8|`public void setPath(String uri)` <br> 该方法设置 cookie 适用的路径。如果您不指定路径，与当前页面相同目录下的（包括子目录下的）所有 URL 都会返回 cookie。
+9|`public String getPath()` <br> 该方法获取 cookie 适用的路径。
+10|`public void setSecure(boolean flag)` <br> 该方法设置布尔值，表示 cookie 是否应该只在加密的（即 SSL）连接上发送。
+11|`public void setComment(String purpose)` <br> 设置cookie的注释。该注释在浏览器向用户呈现 cookie 时非常有用。
+12|`public String getComment()` <br> 获取 cookie 的注释，如果 cookie 没有注释则返回 null。
+|||
+
+### 通过 Servlet 设置 Cookie
+
+通过 Servlet 设置 Cookie 包括三个步骤：
+
+#### (1) 创建一个 Cookie 对象
+
+您可以调用带有 cookie 名称和 cookie 值的 Cookie 构造函数，**cookie 名称和 cookie 值都是字符串**。
+
+    Cookie cookie = new Cookie("key","value");
+
+请记住，无论是名字还是值，都不应该包含空格或以下任何字符：
+
+    [ ] ( ) = , " / ? @ : ;
+
+#### (2) 设置最大生存周期
+
+您可以使用 `setMaxAge` 方法来指定 cookie 能够保持有效的时间（以秒为单位）。下面将设置一个最长有效期为 24 小时的 cookie。
+
+    cookie.setMaxAge(60*60*24); 
+
+#### (3) 发送 Cookie 到 HTTP 响应头
+
+您可以使用 `response.addCookie` 来添加 HTTP 响应头中的 Cookie，如下所示：
+
+    response.addCookie(cookie);
+
+#### 实例
+
+让我们修改我们的 表单数据实例，为名字和姓氏设置 Cookie。
+
+    package com.runoob.test;
+    
+    import java.io.IOException;
+    import java.io.PrintWriter;
+    import java.net.URLEncoder;
+    
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.Cookie;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+    
+    /**
+     * Servlet implementation class HelloServlet
+     */
+    @WebServlet("/HelloForm")
+    public class HelloForm extends HttpServlet {
+        private static final long serialVersionUID = 1L;
+           
+        /**
+         * @see HttpServlet#HttpServlet()
+         */
+        public HelloForm() {
+            super();
+            // TODO Auto-generated constructor stub
+        }
+    
+        /**
+         * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+         */
+        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+        {
+            // 为名字和姓氏创建 Cookie      
+            Cookie name = new Cookie("name",
+                    URLEncoder.encode(request.getParameter("name"), "UTF-8")); // 中文转码
+            Cookie url = new Cookie("url",
+                          request.getParameter("url"));
+            
+            // 为两个 Cookie 设置过期日期为 24 小时后
+            name.setMaxAge(60*60*24); 
+            url.setMaxAge(60*60*24); 
+            
+            // 在响应头中添加两个 Cookie
+            response.addCookie( name );
+            response.addCookie( url );
+            
+            // 设置响应内容类型
+            response.setContentType("text/html;charset=UTF-8");
+            
+            PrintWriter out = response.getWriter();
+            String title = "设置 Cookie 实例";
+            String docType = "<!DOCTYPE html>\n";
+            out.println(docType +
+                    "<html>\n" +
+                    "<head><title>" + title + "</title></head>\n" +
+                    "<body bgcolor=\"#f0f0f0\">\n" +
+                    "<h1 align=\"center\">" + title + "</h1>\n" +
+                    "<ul>\n" +
+                    "  <li><b>站点名：</b>："
+                    + request.getParameter("name") + "\n</li>" +
+                    "  <li><b>站点 URL：</b>："
+                    + request.getParameter("url") + "\n</li>" +
+                    "</ul>\n" +
+                    "</body></html>");
+            }
+    
+        /**
+         * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+         */
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            // TODO Auto-generated method stub
+            doGet(request, response);
+        }
+    
+    }
+
+编译上面的 Servlet HelloForm，并在 web.xml 文件中创建适当的条目:
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <web-app>
+      <servlet> 
+        <!-- 类名 -->  
+        <servlet-name>HelloForm</servlet-name>
+        <!-- 所在的包 -->
+        <servlet-class>com.runoob.test.HelloForm</servlet-class>
+      </servlet>
+      <servlet-mapping>
+        <servlet-name>HelloForm</servlet-name>
+        <!-- 访问的网址 -->
+        <url-pattern>/TomcatTest/HelloForm</url-pattern>
+      </servlet-mapping>
+    </web-app>最后尝试下面的 HTML 页面来调用 Servlet。
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    </head>
+    <body>
+    <form action="/TomcatTest/HelloForm" method="GET">
+    站点名 ：<input type="text" name="name">
+    <br />
+    站点 URL：<input type="text" name="url" /><br>
+    <input type="submit" value="提交" />
+    </form>
+    </body>
+    </html>
+
+保存上面的 HTML 内容到文件 /TomcatTest/test.html 中。
+
+### 通过 Servlet 读取 Cookie
+
+要读取 Cookie，您需要通过调用 HttpServletRequest 的 getCookies( ) 方法创建一个 javax.servlet.http.Cookie 对象的数组。然后循环遍历数组，并使用 getName() 和 getValue() 方法来访问每个 cookie 和关联的值。
+
+#### 实例
+
+让我们读取上面的实例中设置的 Cookie
+
+    package com.runoob.test;
+    
+    import java.io.IOException;
+    import java.io.PrintWriter;
+    import java.net.URLDecoder;
+    
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.Cookie;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+    
+    /**
+     * Servlet implementation class ReadCookies
+     */
+    @WebServlet("/ReadCookies")
+    public class ReadCookies extends HttpServlet {
+        private static final long serialVersionUID = 1L;
+           
+        /**
+         * @see HttpServlet#HttpServlet()
+         */
+        public ReadCookies() {
+            super();
+            // TODO Auto-generated constructor stub
+        }
+    
+        /**
+         * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+         */
+        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+        {
+            Cookie cookie = null;
+            Cookie[] cookies = null;
+            // 获取与该域相关的 Cookie 的数组
+            cookies = request.getCookies();
+             
+             // 设置响应内容类型
+             response.setContentType("text/html;charset=UTF-8");
+        
+             PrintWriter out = response.getWriter();
+             String title = "Delete Cookie Example";
+             String docType = "<!DOCTYPE html>\n";
+             out.println(docType +
+                       "<html>\n" +
+                       "<head><title>" + title + "</title></head>\n" +
+                       "<body bgcolor=\"#f0f0f0\">\n" );
+            if( cookies != null ){
+                out.println("<h2>Cookie 名称和值</h2>");
+                for (int i = 0; i < cookies.length; i++){
+                    cookie = cookies[i];
+                    if((cookie.getName( )).compareTo("name") == 0 ){
+                        cookie.setMaxAge(0);
+                        response.addCookie(cookie);
+                        out.print("已删除的 cookie：" + 
+                                     cookie.getName( ) + "<br/>");
+                   }
+                   out.print("名称：" + cookie.getName( ) + "，");
+                   out.print("值：" +  URLDecoder.decode(cookie.getValue(), "utf-8") +" <br/>");
+                }
+            }else{
+                 out.println(
+                   "<h2 class=\"tutheader\">No Cookie founds</h2>");
+            }
+            out.println("</body>");
+            out.println("</html>");
+        }
+    
+        /**
+         * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+         */
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            // TODO Auto-generated method stub
+            doGet(request, response);
+        }
+    
+    }
+
+编译上面的 Servlet ReadCookies，并在 web.xml 文件中创建适当的条目。
+
+### 通过 Servlet 删除 Cookie
+
+删除 Cookie 是非常简单的。如果您想删除一个 cookie，那么您只需要按照以下三个步骤进行：
+
+- 读取一个现有的 cookie，并把它存储在 Cookie 对象中。
+- 使用 `setMaxAge()` 方法设置 cookie 的年龄为零，来删除现有的 cookie。
+- 把这个 cookie 添加到响应头。
+
+#### 实例
+
+下面的例子将删除现有的名为 "url" 的 cookie，当您下次运行 ReadCookies 的 Servlet 时，它会返回 url 为 null。
+
+    package com.runoob.test;
+    
+    import java.io.IOException;
+    import java.io.PrintWriter;
+    
+    import javax.servlet.ServletException;
+    import javax.servlet.annotation.WebServlet;
+    import javax.servlet.http.Cookie;
+    import javax.servlet.http.HttpServlet;
+    import javax.servlet.http.HttpServletRequest;
+    import javax.servlet.http.HttpServletResponse;
+    
+    /**
+     * Servlet implementation class DeleteCookies
+     */
+    @WebServlet("/DeleteCookies")
+    public class DeleteCookies extends HttpServlet {
+        private static final long serialVersionUID = 1L;
+           
+        /**
+         * @see HttpServlet#HttpServlet()
+         */
+        public DeleteCookies() {
+            super();
+            // TODO Auto-generated constructor stub
+        }
+    
+        /**
+         * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+         */
+        public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+        {
+            Cookie cookie = null;
+            Cookie[] cookies = null;
+            // 获取与该域相关的 Cookie 的数组
+            cookies = request.getCookies();
+            
+                // 设置响应内容类型
+            response.setContentType("text/html;charset=UTF-8");
+       
+            PrintWriter out = response.getWriter();
+            String title = "删除 Cookie 实例";
+            String docType = "<!DOCTYPE html>\n";
+            out.println(docType +
+                      "<html>\n" +
+                      "<head><title>" + title + "</title></head>\n" +
+                      "<body bgcolor=\"#f0f0f0\">\n" );
+             if( cookies != null ){
+                out.println("<h2>Cookie 名称和值</h2>");
+                for (int i = 0; i < cookies.length; i++){
+                    cookie = cookies[i];
+                    if((cookie.getName( )).compareTo("url") == 0 ){
+                        cookie.setMaxAge(0);
+                        response.addCookie(cookie);
+                        out.print("已删除的 cookie：" + 
+                                    cookie.getName( ) + "<br/>");
+                    }
+                    out.print("名称：" + cookie.getName( ) + "，");
+                    out.print("值：" + cookie.getValue( )+" <br/>");
+               }
+            }else{
+                out.println(
+                "<h2 class=\"tutheader\">No Cookie founds</h2>");
+            }
+            out.println("</body>");
+            out.println("</html>");
+        }
+    
+        /**
+         * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+         */
+        protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            // TODO Auto-generated method stub
+            doGet(request, response);
+        }
+    
+    }
+
+编译上面的 Servlet DeleteCookies，并在 web.xml 文件中创建适当的条目。
+
+## [Servlet Session 跟踪](https://www.runoob.com/servlet/servlet-session-tracking.html)
 
 
 

@@ -23,6 +23,7 @@
       - [Replace "\r\n" with "\n"](#replace-rn-with-n)
     - [`grep`](#grep)
     - [`ps`](#ps)
+    - [`nohup`](#nohup)
     - [`pwdx`](#pwdx)
     - [`tar`](#tar)
     - [`zip`](#zip)
@@ -193,6 +194,10 @@ List only the names of matching files
 Get environment variables of running process
 
     ps eww <pid>
+
+### `nohup`
+
+The [nohup](https://www.computerhope.com/unix/unohup.htm) command executes another command, and instructs the system to continue running it even if the session is disconnected
 
 ### `pwdx`
 
