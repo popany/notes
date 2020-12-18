@@ -457,9 +457,9 @@ We start with defining lexer rules for our chat language. Remember that **lexer 
     SAYS                : S A Y S ;
     SHOUTS              : S H O U T S;
     WORD                : (LOWERCASE | UPPERCASE | '_')+ ;
-    WHITESPACE          : (' ' | 't') ;
-    NEWLINE             : ('r'? 'n' | 'r')+ ;
-    TEXT                : ~[])]+ ;
+    WHITESPACE          : (' ' | '\t') ;
+    NEWLINE             : ('\r'? '\n' | '\r')+ ;
+    TEXT                : ~[\])]+ ;
 
 In this example we use rules **fragments**: they are **reusable building blocks** for lexer rules. You define them and then you refer to them in lexer rules. If you define them but do not include them in lexer rules, they simply have no effect.
 
@@ -468,7 +468,7 @@ We define a fragment for the letters we want to use in keywords. Why is that? Be
     fragment DIGIT : [0-9] ;
     NUMBER         : DIGIT+ ([.,] DIGIT+)? ;
 
-The **TEXT** token shows how to capture everything, except for the characters that follow the tilde (‘~’). We are excluding the closing square bracket ‘]’, but since it is a character used to identify the end of a group of characters, we have to escape it by prefixing it with a backslash ”.
+The **TEXT** token shows how to capture everything, except for the characters that follow the tilde (‘~’). We are excluding the closing square bracket ‘]’, but since it is a character used to identify the end of a group of characters, we have to escape it by prefixing it with a backslash "\".
 
 The newlines rule is formulated that way because there are actually different ways in which operating systems indicate a newline, some include a `carriage return ('r')` others a `newline ('n')` character, or a combination of the two.
 
@@ -540,7 +540,7 @@ So it only sees the **TEXT** token. But if we put it at the end of the grammar, 
     [..]
     link                : TEXT TEXT ;
     [..]
-    TEXT                : ('['|'(') ~[])]+ (']'|')');
+    TEXT                : ('['|'(') ~[\])]+ (']'|')');
 
 We have changed the problematic token to make it include a preceding parenthesis or square bracket. Note that this isn’t exactly the same thing, because it would allow two series of parenthesis or square brackets. But it is a first step and we are learning here, after all.
 
@@ -619,9 +619,9 @@ In the previous sections we have seen how to build a grammar for a chat program 
     SAYS                : S A Y S ;
     SHOUTS              : S H O U T S ;
     WORD                : (LOWERCASE | UPPERCASE | '_')+ ;
-    WHITESPACE          : (' ' | 't')+ ;
-    NEWLINE             : ('r'? 'n' | 'r')+ ;
-    TEXT                : ('['|'(') ~[])]+ (']'|')');
+    WHITESPACE          : (' ' | '\t')+ ;
+    NEWLINE             : ('\r'? '\n' | '\r')+ ;
+    TEXT                : ('['|'(') ~[\])]+ (']'|')');
 
 We can create the corresponding Javascript parser simply by specifying the correct option with the ANTLR4 Java program.
 
@@ -846,7 +846,7 @@ We can use a particular feature of ANTLR called **semantic predicates**. As the 
 Technically, they are part of the larger group of actions, that allows to embed arbitrary code into the grammar. **The downside is that the grammar is no more language independent**, since the code in the action must be valid for the target language. For this reason, usually it’s considered a good idea to only use semantic predicates, when they can’t be avoided, and leave most of the code to the visitor/listener.
 
     link                : '[' TEXT ']' '(' TEXT ')';
-    TEXT                : {self._input.LA(-1) == ord('[') or self._input.LA(-1) == ord('(')}? ~[])]+ ;
+    TEXT                : {self._input.LA(-1) == ord('[') or self._input.LA(-1) == ord('(')}? ~[\])]+ ;
 
 We restored **link** to its original formulation, but we added a semantic predicate to the TEXT token, written inside curly brackets and followed by a question mark. We use `self._input.LA(-1)` to check the character before the current one, if this character is a square bracket or the open parenthesis, we activate the **TEXT** token. It’s important to repeat that this must be valid code in our target language, it’s going to end up in the generated Lexer or Parser, in our case in `ChatLexer.py`.
 
@@ -855,11 +855,11 @@ This matters not just for the syntax itself, but also because different targets 
 Let’s look at the equivalent form in other languages.
 
     // C#. Notice that is .La and not .LA
-    TEXT : {_input.La(-1) == '[' || _input.La(-1) == '('}? ~[])]+ ;
+    TEXT : {_input.La(-1) == '[' || _input.La(-1) == '('}? ~[\])]+ ;
     // Java
-    TEXT : {_input.LA(-1) == '[' || _input.LA(-1) == '('}? ~[])]+ ;
+    TEXT : {_input.LA(-1) == '[' || _input.LA(-1) == '('}? ~[\])]+ ;
     // Javascript
-    TEXT : {this._input.LA(-1) == '[' || this._input.LA(-1) == '('}? ~[])]+ ;
+    TEXT : {this._input.LA(-1) == '[' || this._input.LA(-1) == '('}? ~[\])]+ ;
 
 If you want to test for the preceding token, you can use the `_input.LT(-1)`, but you can **only do that for parser rules**. For example, if you want to enable the mention rule only if preceded by a **WHITESPACE** token.
 
