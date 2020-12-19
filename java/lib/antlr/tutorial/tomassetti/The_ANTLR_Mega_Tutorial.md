@@ -1086,19 +1086,19 @@ We look at the other side of a lexer grammar, so to speak.
     element     : (content | tag) ;
     tag         : '[' ID attribute? ']' element* '[' '/' ID ']' ;
 
-On the first line we define a `parser grammar`. Since the tokens we need are defined in the `lexer grammar`, we need to use an option to say to ANTLR where it can find them. This is not necessary in combined grammars, since the tokens are defined in the same file.
+On the first line we define a `parser grammar`. Since the tokens we need are defined in the `lexer grammar`, we need to use an **option** to say to ANTLR where it can find them. This is not necessary in combined grammars, since the tokens are defined in the same file.
 
-There are many other options available, in the [documentation](https://github.com/antlr/antlr4/blob/master/doc/options.md).
+There are many other **options** available, in the [documentation](https://github.com/antlr/antlr4/blob/master/doc/options.md).
 
 There is almost nothing else to add, except that we define a **content** rule so that we can manage more easily the text that we find later in the program.
 
-I just want to say that, as you can see, we don’t need to explicitly use the tokens every time (e.g., SLASH), but instead we can use the corresponding text (e.g., ‘/’).[
+I just want to say that, as you can see, **we don’t need to explicitly** use the tokens every time (e.g., SLASH), but instead we can use the corresponding text (e.g., ‘/’).[
 
-ANTLR will automatically transform the text in the corresponding token, but this can happen only if they are already defined. In short, it is as if we had written:
+ANTLR will **automatically transform** the text in the corresponding token, but this **can happen only if they are already defined**. In short, it is as if we had written:
 
     tag : OPEN ID attribute? CLOSE element* OPEN SLASH ID CLOSE ;
 
-But we could not have used the implicit way, if we hadn’t already explicitly defined them in the lexer grammar. Another way to look at this is: when we define a combined grammar, ANTLR defines for us all the tokens that we have not explicitly defined ourselves. When we need to use a separate lexer and a parser grammar, we have to define explicitly every token ourselves. Once we have done that, we can use them in every way we want.
+**But we could not have used the implicit way, if we hadn’t already explicitly defined them in the lexer grammar**. Another way to look at this is: when we define a combined grammar, ANTLR defines for us all the tokens that we have not explicitly defined ourselves. **When we need to use a separate lexer and a parser grammar, we have to define explicitly every token ourselves. Once we have done that, we can use them in every way we want**.
 
 Before moving to actual Java code, let’s see the AST for a sample input.
 
@@ -1183,7 +1183,7 @@ BBCode was created as a safety precaution, to make possible to disallow the use 
 
 The first version of our visitor prints all the text and ignore all the tags.
 
-You can see how to control the flow, either by calling `visitChildren`, or any other `visit*` function, and deciding what to return. We just need to override the methods that we want to change. Otherwise, the default implementation would just do like `visitContent`, on line 24, it will visit the children nodes and allow the visitor to continue. Just like for a listener, the argument is the proper context type. If you want to stop the visitor, just return null as on line 16.
+You can see how to control the flow, either by calling `visitChildren`, or any other `visit*` function, and deciding what to return. We just need to override the methods that we want to change. Otherwise, the default implementation would just do like `visitContent`, on line 24, it will visit the children nodes and allow the visitor to continue. Just like for a listener, the argument is the proper context type. **If you want to stop the visitor, just return null as on line 16**.
 
 ### 26. Joy and Pain of Transforming Code
 
