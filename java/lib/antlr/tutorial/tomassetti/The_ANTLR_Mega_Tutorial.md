@@ -1246,7 +1246,7 @@ Before looking at the main method, let’s look at the supporting ones. Foremost
         return text;        
     }
 
-`VisitTag` contains more code than every other method, because it can also contain other elements, including other tags that have to be managed themselves, and thus they cannot be simply printed. We save the content of the ID on line 7, of course we don’t need to check that the corresponding end tag matches, because the parser will ensure that, as long as the input is well formed.
+`VisitTag` contains more code than every other method, because it can also contain other elements, including other tags that have to be managed themselves, and thus they cannot be simply printed. We save the content of the ID on line 7, of course we **don’t need to check that the corresponding end tag matches**, because the parser will ensure that, as long as the input is well formed.
 
 The first complication starts with at lines 14-15: as it often happens when transforming a language in a different one, there isn’t a perfect correspondence between the two. While BBCode tries to be a smarter and safer replacement for HTML, Markdown wants to accomplish the same objective of HTML, to create a structured document. So BBCode has an underline tag, while Markdown does not.
 
