@@ -1070,7 +1070,7 @@ Looking at the first line you could notice a difference: we are defining a **lex
 
 On lines 3, 7 and 9 you will find basically all that you need to know about lexical modes. You define one or more tokens that can delimit the different modes and activate them.
 
-The default mode is already implicitly defined, if you need to define yours you simply use **mode** followed by a name. Other than for markup languages, `lexical modes` are typically used to deal with string interpolation. That is when a string literal can contain more than simple text, for instance arbitrary expressions.
+The **default mode is already implicitly defined**, if you need to define yours you simply use **mode** followed by a name. Other than for markup languages, `lexical modes` are typically used to deal with string interpolation. That is when a string literal can contain more than simple text, for instance arbitrary expressions.
 
 When we used combined grammar, we could define tokens implicitly: that is what happened when we used a string like '`=`' in a parser rule. Now that we are using separate lexer and parser grammars we cannot do that. That means that every single token has to be defined explicitly. So we have definitions like SLASH or EQUALS which typically could just be directly used in a parser rule. The concept is simple: **in the lexer grammar, we need to define all tokens, because they cannot be defined later in the parser grammar**.
 
