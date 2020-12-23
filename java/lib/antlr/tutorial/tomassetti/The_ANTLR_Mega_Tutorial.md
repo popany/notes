@@ -1583,11 +1583,11 @@ The first one is the **ANY** lexer rule. This is simply a rule in the following 
 
     ANY : . ;
 
-This is a catchall rule that should be put at the end of your grammar. It matches any character that didn’t find its place during the parsing. So creating this rule can help you during development, when your grammar has still many holes that could cause distracting error messages. It’s even useful during production, when it acts as a canary in the mines. If it shows up in your program you know that something is wrong.
+This is a catchall rule that should be put at the end of your grammar. It matches any character that didn’t find its place during the parsing. So creating this rule can help you **during development**, when your grammar has still many holes that could cause distracting error messages. It’s even useful during production, when it acts as a canary in the mines. If it shows up in your program you know that something is wrong.
 
 #### Channels
 
-There is also something that we haven’t talked about: `channels`. Their use case is usually handling comments. You don’t really want to check for comments inside every of your statements or expressions, so you usually throw them away with `-> skip`. But there are some cases where you may want to preserve them, for instance if you are translating a program in another language. When this happens you use channels. There is already one called HIDDEN that you can use, but you can declare more of them at the top of your lexer grammar.
+There is also something that we haven’t talked about: `channels`. Their use case is usually **handling comments**. You don’t really want to check for comments inside every of your statements or expressions, so you usually throw them away with `-> skip`. But there are some cases where you may want to preserve them, for instance if you are translating a program in another language. When this happens you use channels. There is already one called HIDDEN that you can use, but you can declare more of them at the top of your lexer grammar.
 
     channels { UNIQUENAME }
     // and you use them this way
@@ -1595,7 +1595,7 @@ There is also something that we haven’t talked about: `channels`. Their use ca
 
 #### Rule Element Labels
 
-There is another use of labels other than to distinguish among different cases of the same rule. They can be used to give a specific name, usually but not always of semantic value, to a common rule or parts of a rule. The format is label=rule, to be used inside another rule.
+There is another use of labels other than to **distinguish among different cases of the same rule**. They can be used to give a specific name, usually but not always of semantic value, to a common rule or parts of a rule. The format is `label=rule`, to be used inside another rule.
 
     expression : left=expression (ASTERISK|SLASH) right=expression ;
 

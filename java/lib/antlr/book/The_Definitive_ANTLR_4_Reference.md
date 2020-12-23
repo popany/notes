@@ -8,6 +8,8 @@
     - [2.2 Implementing Parsers](#22-implementing-parsers)
   - [CHAPTER 3 A Starter ANTLR Project](#chapter-3-a-starter-antlr-project)
   - [CHAPTER 4 A Quick Tour](#chapter-4-a-quick-tour)
+    - [4.1 Matching an Arithmetic Expression Language](#41-matching-an-arithmetic-expression-language)
+    - [4.2 Building a Calculator Using a Visitor](#42-building-a-calculator-using-a-visitor)
 
 ## CHAPTER 1 Meet ANTLR
 
@@ -86,4 +88,20 @@ The cool part about recursive-descent parsers is that the **call graph** traced 
 ## CHAPTER 3 A Starter ANTLR Project
 
 ## CHAPTER 4 A Quick Tour
+
+### 4.1 Matching an Arithmetic Expression Language
+
+### 4.2 Building a Calculator Using a Visitor
+
+
+
+
+
+
+
+
+
+
+
+
 
