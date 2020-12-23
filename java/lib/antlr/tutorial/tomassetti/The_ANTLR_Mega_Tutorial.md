@@ -1346,7 +1346,7 @@ So far we have written simple parser rules, now we are going to see one of the m
 
 An expression usually contains other expressions. For example the typical binary expression is composed of an expression on the left, an operator in the middle and another expression on the right. This can lead to ambiguities. Think, for example, at the expression `5 + 3 * 2`, for ANTLR this expression is ambiguous because there are two ways to parse it. It could either parse it as `5 + (3 * 2)` or `(5 +3) * 2`.
 
-Until this moment, we have avoided the problem simply because markup constructs surround the object on which they are applied. So there is not ambiguity in choosing which one to apply first: it’s the most external. Imagine if this expression was written as: 
+Until this moment, we have avoided the problem simply because markup constructs **surround the object** on which they are applied. So there is not ambiguity in choosing which one to apply first: it’s the most external. Imagine if this expression was written as:
 
     <add>
         <int>5</int>
@@ -1358,7 +1358,7 @@ Until this moment, we have avoided the problem simply because markup constructs 
 
 That would make obvious to ANTLR how to parse it.
 
-These types of rules are called `left-recursive rules`. You might say: just parse whatever comes first. The problem with that is semantic: the addition comes first, but we know that multiplications have precedence over additions. Traditionally, the way to solve this problem was to create a complex cascade of specific expressions like this:
+These types of rules are called `left-recursive rules`. You might say: **just parse whatever comes first**. The problem with that is semantic: the addition comes first, but we know that multiplications have precedence over additions. Traditionally, the way to solve this problem was to create a **complex cascade** of specific expressions like this:
 
     expression     : addition;
     addition       : multiplication ('+' multiplication)* ;
@@ -1372,7 +1372,7 @@ This way ANTLR would have known to search first for a number, then for multiplic
                | NUMBER
                ;
 
-In practice ANTLR consider the order in which we defined the alternatives to decide the precedence. By writing the rule in this way, we are telling to ANTLR that the multiplication takes precedence over the addition.
+In practice ANTLR consider the **order in which we defined the alternatives** to decide the **precedence**. By writing the rule in this way, we are telling to ANTLR that the **multiplication takes precedence over the addition**.
 
 ### 29. Parsing Spreadsheets
 
@@ -1406,11 +1406,11 @@ With all the knowledge you have acquired so far everything should be clear, exce
 
 ![fig9](./fig/antlr4_parse_tree_3.png)
 
-The parentheses come first because their only role is to give the user a way to override the precedence of operator, if they need to do so. This graphical representation of the AST should make it clear.
+The parentheses come first because their only role is to give the user a way to **override the precedence of operator**, if they need to do so. This graphical representation of the AST should make it clear.
 
 The **things on the right are labels**, they are used to **make ANTLR generate specific functions for the visitor or listener**. So there will be a `VisitFunctionExp`, a `VisitPowerExp`, etc. This makes possible to avoid the use of a giant visitor for the **expression** rule.
 
-The expression relative to exponentiation is different because there are two possible ways to act, to group them, when you meet two sequential expressions of the same type. The first one is to execute the one on the left first and then the one on the right, the second one is the inverse: this is called `associativity`. Usually the one that you want to use is `left-associativity`,  which is the default option. Nonetheless exponentiation is `right-associative`, so we have to signal this to ANTLR.
+The expression relative to exponentiation is different because there are two possible ways to act, to group them, when you meet two sequential expressions of the same type. The first one is to execute the one on the left first and then the one on the right, the second one is the inverse: this is called **`associativity`**. Usually the one that you want to use is `left-associativity`,  which is the default option. Nonetheless exponentiation is `right-associative`, so we have to signal this to ANTLR.
 
 **Another way to look at this is: if there are two expressions of the same type, which one has the precedence: the left one or the right one?** Again, an image is worth a thousand words.
 
@@ -1561,7 +1561,7 @@ The first test function is similar to the ones we have already seen; it checks t
 
 On line 25 we visit our test node and get the results, that we check on line 27. It’s all very simple because our visitor is simple, while unit testing should always be easy and made up of small parts it really can’t be easier than this.
 
-The only thing to pay attention to is related to the format of the number; it’s not a problem here, but look at line 59, where we test the result of a whole expression. There we need to make sure that the correct format is selected, because different countries use different symbols as the decimal mark.
+The only thing to pay attention to is related to the format of the number; it’s not a problem here, but look at line 59, where we test the result of a whole expression. There we need to make sure that the correct format is selected, because **different countries use different symbols as the decimal mark**.
 
 > There are some things that depend on the cultural context
 
