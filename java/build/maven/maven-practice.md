@@ -3,6 +3,7 @@
 - [maven practice](#maven-practice)
   - [Deploy WAR File to Tomcat](#deploy-war-file-to-tomcat)
   - [Official Examples](#official-examples)
+  - [maven-assembly-plugin doesn't add dependencies with system scope](#maven-assembly-plugin-doesnt-add-dependencies-with-system-scope)
 
 ## Deploy WAR File to Tomcat
 
@@ -19,3 +20,15 @@
 ## Official Examples
 
 [Adding and Filtering External Web Resources](http://maven.apache.org/plugins/maven-war-plugin/examples/adding-filtering-webresources.html)
+
+## [maven-assembly-plugin doesn't add dependencies with system scope](https://stackoverflow.com/questions/2588502/maven-assembly-plugin-doesnt-add-dependencies-with-system-scope)
+
+[Adding a custom jar as a maven dependency](https://blog.valdaris.com/post/custom-jar/)
+
+On maven 2.2:
+
+    mvn org.apache.maven.plugins:maven-install-plugin:2.3.1:install-file -Dfile=tools.jar -DgroupId=com.sun -DartifactId=tools -Dversion=1.8.0 -Dpackaging=jar -DlocalRepositoryPath=c:\tmp
+
+On maven 2.3 and onwards:
+
+    mvn install:install-file -Dfile=tools.jar -DgroupId=com.sun -DartifactId=tools -Dversion=1.8.0 -Dpackaging=jar -DlocalRepositoryPath=c:\tmp
