@@ -1,7 +1,7 @@
 # [stunnel](https://www.stunnel.org/)
 
 - [stunnel](#stunnel)
-  - [ stunnel TLS Proxy](#-stunnel-tls-proxy)
+  - [stunnel TLS Proxy](#stunnel-tls-proxy)
   - [Example](#example)
     - [Authentication](#authentication)
     - [Transparent SOCKS-based VPN configuration](#transparent-socks-based-vpn-configuration)
@@ -9,7 +9,7 @@
     - [Unix sample configuration file](#unix-sample-configuration-file)
   - [Other resources](#other-resources)
 
-## [ stunnel TLS Proxy](https://www.stunnel.org/static/stunnel.html)
+## [stunnel TLS Proxy](https://www.stunnel.org/static/stunnel.html)
 
 ## Example
 
