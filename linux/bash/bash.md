@@ -53,7 +53,9 @@
   - [curl](#curl)
     - [download file](#download-file)
   - [`ssh`](#ssh)
+    - [`ssh-keygen`](#ssh-keygen)
     - [`ssh-copy-id`](#ssh-copy-id)
+    - [ssh dynamic port forwarding](#ssh-dynamic-port-forwarding)
   - [`nc`](#nc)
 
 ## [Bash scripting cheatsheet](https://devhints.io/bash)
@@ -409,11 +411,23 @@ restart `sshd`
 
 ## `ssh`
 
+### `ssh-keygen`
+
+    ssh-keygen -t rsa -C "your.email@example.com" -b 4096
+
+    ssh-keygen -t rsa -C "your.email@example.com" -b 4096 -f ~/.ssh/id_rsa
+
 ### `ssh-copy-id`
 
 Installs an [SSH key](https://www.ssh.com/ssh/key/) on a server as an authorized key
 
-    ssh-copy-id -i ~/.ssh/mykey user@host
+    ssh-copy-id -i ~/.ssh/id_rsa user@host
+
+### ssh dynamic port forwarding
+
+    ssh -D local_port username@server.com
+
+    ssh -i ~/.ssh/id_rsa -D local_port username@server.com
 
 ## `nc`
 

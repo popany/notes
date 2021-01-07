@@ -539,9 +539,13 @@ Build the example using cmake:
     wget -q -O cmake-linux.sh https://github.com/Kitware/CMake/releases/download/v3.16.1/cmake-3.16.1-Linux-x86_64.sh
 
     sh cmake-linux.sh -- --skip-license --prefix=/usr
-    rm cmake-linux.sh
+    rm -f cmake-linux.sh
 
     yum install -y autoconf libtool pkg-config gcc-c++ make go
+
+    git clone git@github.com:grpc/grpc.git
+    git checkout v1.28.1
+    git submodule update --init
 
     mkdir -p "cmake/build"
     pushd "cmake/build"
