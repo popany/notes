@@ -22,16 +22,17 @@
     git checkout v1.34.0
     git submodule update --init
 
-    export GRPC_INSTALL_DIR=/usr1/lib
+    export GRPC_INSTALL_DIR=/usr1/grpc-debug
     mkdir -p $GRPC_INSTALL_DIR
 
     mkdir -p "cmake/build"
     pushd "cmake/build"
 
     cmake \
-      -DCMAKE_BUILD_TYPE=Release \
-      -DgRPC_INSTALL=ON \
       -DCMAKE_INSTALL_PREFIX=$GRPC_INSTALL_DIR \
+      -DCMAKE_BUILD_TYPE=Debug \
+      -DBUILD_SHARED_LIBS=ON \
+      -DgRPC_INSTALL=ON \
       -DgRPC_BUILD_TESTS=OFF \
       -DgRPC_SSL_PROVIDER=package \
       ../..
