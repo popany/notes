@@ -397,7 +397,6 @@ http://localhost:8080/TomcatTest/HelloForm?name=菜鸟教程&url=www.runoob.com
         */
         public HelloForm() {
             super();
-            // TODO Auto-generated constructor stub
         }
 
         /**
@@ -507,7 +506,6 @@ http://localhost:8080/TomcatTest/HelloForm?name=菜鸟教程&url=www.runoob.com
         */
         public HelloForm() {
             super();
-            // TODO Auto-generated constructor stub
         }
 
         /**
@@ -679,7 +677,6 @@ http://localhost:8080/TomcatTest/HelloForm?name=菜鸟教程&url=www.runoob.com
         */
         public ReadParams() {
             super();
-            // TODO Auto-generated constructor stub
         }
 
         /**
@@ -734,7 +731,6 @@ http://localhost:8080/TomcatTest/HelloForm?name=菜鸟教程&url=www.runoob.com
         * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
         */
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            // TODO Auto-generated method stub
             doGet(request, response);
         }
     }
@@ -1737,7 +1733,6 @@ Servlet 就能够通过请求方法 `request.getCookies()` 访问 Cookie，该�
          */
         public HelloForm() {
             super();
-            // TODO Auto-generated constructor stub
         }
     
         /**
@@ -1783,7 +1778,6 @@ Servlet 就能够通过请求方法 `request.getCookies()` 访问 Cookie，该�
          * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
          */
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            // TODO Auto-generated method stub
             doGet(request, response);
         }
     
@@ -1856,7 +1850,6 @@ Servlet 就能够通过请求方法 `request.getCookies()` 访问 Cookie，该�
          */
         public ReadCookies() {
             super();
-            // TODO Auto-generated constructor stub
         }
     
         /**
@@ -1904,7 +1897,6 @@ Servlet 就能够通过请求方法 `request.getCookies()` 访问 Cookie，该�
          * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
          */
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            // TODO Auto-generated method stub
             doGet(request, response);
         }
     
@@ -1948,7 +1940,6 @@ Servlet 就能够通过请求方法 `request.getCookies()` 访问 Cookie，该�
          */
         public DeleteCookies() {
             super();
-            // TODO Auto-generated constructor stub
         }
     
         /**
@@ -1996,7 +1987,6 @@ Servlet 就能够通过请求方法 `request.getCookies()` 访问 Cookie，该�
          * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
          */
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            // TODO Auto-generated method stub
             doGet(request, response);
         }
     
