@@ -10,23 +10,10 @@
   - [Troubleshooting](#troubleshooting)
     - [ORA-28040: No matching authentication protocol](#ora-28040-no-matching-authentication-protocol)
     - [ORA-01950: no privileges on tablespace 'USERS'](#ora-01950-no-privileges-on-tablespace-users)
-  - [sqlplus](#sqlplus)
-    - [Run Oracle SQL*PLUS Script from Command Line in Windows](#run-oracle-sqlplus-script-from-command-line-in-windows)
   - [Oracle SQL Glossary of Terms](#oracle-sql-glossary-of-terms)
   - [Oracle Database Reference](#oracle-database-reference)
   - [Cases](#cases)
     - [`DROP TABLESPACE`](#drop-tablespace)
-  - [sql](#sql)
-    - [查询锁表](#查询锁表)
-    - [查看当前正在执行的sql](#查看当前正在执行的sql)
-    - [计算时间差](#计算时间差)
-    - [创建存储过程](#创建存储过程)
-    - [session](#session)
-      - [The number of sessions the database was configured to allow](#the-number-of-sessions-the-database-was-configured-to-allow)
-      - [The number of sessions currently active](#the-number-of-sessions-currently-active)
-    - [Merge Into](#merge-into)
-      - [oracle中merge into用法解析](#oracle中merge-into用法解析)
-      - [Oracle merge into 函数 (增量更新、全量更新)](#oracle-merge-into-函数-增量更新全量更新)
 
 ## [Oracle Network Configuration (listener.ora, tnsnames.ora, sqlnet.ora)](https://oracle-base.com/articles/misc/oracle-network-configuration)
 
@@ -148,16 +135,6 @@ or
 
 as a DBA user (depending on how much space you need / want to grant).
 
-## sqlplus
-
-### Run Oracle SQL*PLUS Script from Command Line in Windows
-
-    sqlplus username/psw@orcl @your_script.sql
-
-To run the script with parameters, for example, you want to pass the employee number 7852 and the employee name SCOTT to the SQL script, below is the example:
-
-    sqlplus username/psw@orcl @extract_employees_record.sql 7852 SCOTT
-
 ## [Oracle SQL Glossary of Terms](https://www.databasestar.com/oracle-sql-glossary/)
 
 - SID
@@ -208,89 +185,3 @@ To run the script with parameters, for example, you want to pass the employee nu
       SQL> DROP TABLESPACE TS_WOLF INCLUDING CONTENTS AND DATAFILES;
 
       Tablespace dropped.
-
-## sql
-
-- Show INVALIDE Object
-
-      select OBJECT_NAME, OBJECT_TYPE, status from user_objects where status='INVALID';
-
-- Select object of a user
-
-    select object_name, object_type, owner, status from all_objects where owner='user_name';
-
-- Recompile Procedure
-
-      alter procedure MYPROC compile;
-
-- Recomplie View
-
-      ALTER VIEW customer_ro COMPILE;
-
-- [强制终止在执行的sql](https://blog.csdn.net/qq6412110/article/details/91360366)
-
-- [死锁查询及处理](https://blog.csdn.net/rznice/article/details/6683905)
-
-### 查询锁表
-
-    SELECT object_name, machine, s.sid, s.serial#
-    FROM gv$locked_object l, dba_objects o, gv$session s
-    WHERE l.object_id　= o.object_id
-    AND l.session_id = s.sid;
-
-### [查看当前正在执行的sql](https://blog.csdn.net/qq_33301113/article/details/54766751)
-
-    select a.program, b.spid, c.sql_text,c.SQL_ID
-    from v$session a, v$process b, v$sqlarea c
-    where a.paddr = b.addr
-    and a.sql_hash_value = c.hash_value
-    and a.username is not null;
-
-### 计算时间差
-
-    select ROUND(TO_NUMBER(to_date(to_char(sysdate,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') - to_date('2020-06-29 20:00:00','yyyy-MM-dd hh24:mi:ss'))*24*60*60) from dual
-
-### [创建存储过程](http://www.hechaku.com/Oracle/oracle_pl_others.html)
-
-    CREATE OR REPLACE PROCEDURE SP_TEST_WAIT
-    (
-      SECONDS IN INT,
-      RETURN_CODE OUT INT,
-      RETURN_MSG OUT CHAR
-    ) IS
-      V_ELAPSED NUMBER := 0;
-      V_STARTTIME DATE;
-      V_CURRENTTIME DATE;
-
-    BEGIN
-
-      SELECT TO_DATE(TO_CHAR(SYSDATE,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') into V_STARTTIME FROM DUAL;
-  
-      WHILE V_ELAPSED < SECONDS LOOP
-        SELECT TO_DATE(TO_CHAR(SYSDATE,'yyyy-MM-dd hh24:mi:ss'),'yyyy-MM-dd hh24:mi:ss') into V_CURRENTTIME FROM DUAL;
-        V_ELAPSED := ROUND(TO_NUMBER(V_CURRENTTIME - V_STARTTIME)*24*60*60);
-
-      END LOOP;
-
-      RETURN_CODE := 0;
-      RETURN_MSG := TO_CHAR(V_STARTTIME, 'yyyy-MM-dd hh24:mi:ss') || ' - ' || TO_CHAR(V_CURRENTTIME, 'yyyy-MM-dd hh24:mi:ss');
-    END;
-
-### session
-
-#### The number of sessions the database was configured to allow
-
-    SELECT name, value 
-      FROM v$parameter
-      WHERE name = 'sessions'
-
-#### The number of sessions currently active
-
-    SELECT COUNT(*)
-      FROM v$session
-
-### Merge Into
-
-#### [oracle中merge into用法解析](https://blog.csdn.net/jeryjeryjery/article/details/70047022)
-
-#### [Oracle merge into 函数 (增量更新、全量更新)](https://blog.csdn.net/weixin_41922349/article/details/88052113)
