@@ -3,6 +3,7 @@
 - [Introduction to gRPC](#introduction-to-grpc)
   - [Overview](#overview)
   - [Working with Protocol Buffers](#working-with-protocol-buffers)
+  - [Protocol buffer versions](#protocol-buffer-versions)
 
 This page introduces you to gRPC and protocol buffers. gRPC can use protocol buffers as both its Interface Definition Language (IDL) and as its underlying message interchange format. If you’re new to gRPC and/or protocol buffers, read this! If you just want to dive in and see gRPC in action first, [select a language](https://grpc.io/docs/languages/) and try its Quick start.
 
@@ -28,9 +29,31 @@ Then, once you’ve specified your data structures, you use the protocol buffer 
 
 You define gRPC services in ordinary proto files, with RPC method parameters and return types specified as protocol buffer messages:
 
+    // The greeter service definition.
+    service Greeter {
+      // Sends a greeting
+      rpc SayHello (HelloRequest) returns (HelloReply) {}
+    }
+    
+    // The request message containing the user's name.
+    message HelloRequest {
+      string name = 1;
+    }
+    
+    // The response message containing the greetings
+    message HelloReply {
+      string message = 1;
+    }
 
+gRPC uses `protoc` with a special gRPC plugin to generate code from your proto file: you get generated gRPC client and server code, as well as the regular protocol buffer code for populating, serializing, and retrieving your message types. You’ll see an example of this below.
 
+To learn more about protocol buffers, including how to install `protoc` with the gRPC plugin in your chosen language, see the [protocol buffers documentation](https://developers.google.com/protocol-buffers/docs/overview).
 
+## Protocol buffer versions
+
+While [protocol buffers](https://developers.google.com/protocol-buffers/docs/overview) have been available to open source users for some time, most examples from this site use protocol buffers version 3 (proto3), which has a slightly simplified syntax, some useful new features, and supports more languages. Proto3 is currently available in Java, C++, Dart, Python, Objective-C, C#, a lite-runtime (Android Java), Ruby, and JavaScript from the protocol buffers GitHub repo, as well as a Go language generator from the golang/protobuf GitHub repo, with more languages in development. You can find out more in the proto3 language guide and the reference documentation available for each language. The reference documentation also includes a formal specification for the .proto file format.
+
+In general, while you can use proto2 (the current default protocol buffers version), we recommend that you use proto3 with gRPC as it lets you use the full range of gRPC-supported languages, as well as avoiding compatibility issues with proto2 clients talking to proto3 servers and vice versa.
 
 
 

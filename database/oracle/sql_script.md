@@ -47,6 +47,22 @@
       - [View information about free space in tempfiles](#view-information-about-free-space-in-tempfiles)
   - [User](#user)
     - [Create user](#create-user)
+    - [CREATE USER statement](#create-user-statement)
+    - [DROP USER statement](#drop-user-statement)
+  - [Roles](#roles)
+    - [Create Role](#create-role)
+    - [Grant TABLE Privileges to Role](#grant-table-privileges-to-role)
+    - [Revoke Table Privileges from Role](#revoke-table-privileges-from-role)
+    - [Grant Function/Procedure Privileges to Role](#grant-functionprocedure-privileges-to-role)
+    - [Revoke Function/Procedure Privileges from Role](#revoke-functionprocedure-privileges-from-role)
+    - [Grant Role to User](#grant-role-to-user)
+    - [Revoke Role from User](#revoke-role-from-user)
+    - [Enable/Disable Role (Set Role Statement)](#enabledisable-role-set-role-statement)
+    - [Set role as DEFAULT Role](#set-role-as-default-role)
+    - [Drop Role](#drop-role)
+  - [Table](#table)
+    - [CREATE TABLE Statement](#create-table-statement)
+    - [ALTER TABLE statement](#alter-table-statement)
 
 ## object
 
@@ -286,3 +302,183 @@ Syntax:
 Example:
 
     CREATE USER john IDENTIFIED BY abcd1234;
+
+### [CREATE USER statement](https://www.techonthenet.com/oracle/users/create_user.php)
+
+Syntax:
+
+    CREATE USER user_name 
+      IDENTIFIED { BY password
+                 | EXTERNALLY [ AS 'certificate_DN' ]
+                 | GLOBALLY [ AS '[ directory_DN ]' ]
+                 }
+      [ DEFAULT TABLESPACE tablespace
+      | TEMPORARY TABLESPACE
+           { tablespace | tablespace_group }
+      | QUOTA integer [ K | M | G | T | P | E ]
+            | UNLIMITED }
+            ON tablespace
+        [ QUOTA integer [ K | M | G | T | P | E ]
+            | UNLIMITED }
+                ON tablespace
+        ]
+      | PROFILE profile_name
+      | PASSWORD EXPIRE
+      | ACCOUNT { LOCK | UNLOCK }
+         [ DEFAULT TABLESPACE tablespace
+         | TEMPORARY TABLESPACE
+             { tablespace | tablespace_group }
+         | QUOTA integer [ K | M | G | T | P | E ]
+               | UNLIMITED }
+               ON tablespace
+           [ QUOTA integer [ K | M | G | T | P | E ]
+               | UNLIMITED }
+               ON tablespace
+            ]
+         | PROFILE profile
+         | PASSWORD EXPIRE
+         | ACCOUNT { LOCK | UNLOCK } ]
+         ] ;
+
+Example:
+
+    CREATE USER smithj
+      IDENTIFIED BY pwd4smithj
+      DEFAULT TABLESPACE tbs_perm_01
+      TEMPORARY TABLESPACE tbs_temp_01
+      QUOTA 20M on tbs_perm_01;
+
+### [DROP USER statement](https://www.techonthenet.com/oracle/users/drop_user.php)
+
+Syntax:
+
+    DROP USER user_name [ CASCADE ];
+
+Example:
+
+    DROP USER smithj;
+
+    DROP USER smithj CASCADE;
+
+## [Roles](https://www.techonthenet.com/oracle/roles.php)
+
+### Create Role
+
+Syntax:
+
+    CREATE ROLE role_name
+    [ NOT IDENTIFIED | 
+    IDENTIFIED {BY password | USING [schema.] package | EXTERNALLY | GLOBALLY } ;
+
+Example:
+
+    CREATE ROLE test_role;
+
+    CREATE ROLE test_role
+    IDENTIFIED BY test123;
+
+### Grant TABLE Privileges to Role
+
+Syntax:
+
+    GRANT privileges ON object TO role_name
+
+Example:
+
+    GRANT select, insert, update, delete ON suppliers TO test_role;
+
+    GRANT all ON suppliers TO test_role;
+
+### Revoke Table Privileges from Role
+
+Syntax:
+
+    REVOKE privileges ON object FROM role_name;
+
+Example:
+
+    REVOKE delete ON suppliers FROM test_role;
+
+    REVOKE all ON suppliers FROM test_role;
+
+### Grant Function/Procedure Privileges to Role
+
+Syntax:
+
+    GRANT EXECUTE ON object TO role_name;
+
+Example:
+
+    GRANT execute ON Find_Value TO test_role;
+
+### Revoke Function/Procedure Privileges from Role
+
+Syntax:
+
+    REVOKE execute ON object FROM role_name;
+
+Example:
+
+    REVOKE execute ON Find_Value FROM test_role;
+
+### Grant Role to User
+
+Syntax:
+
+    GRANT role_name TO user_name;
+
+Example:
+
+    GRANT test_role TO smithj;
+
+### Revoke Role from User
+
+    Revoke test_role from smithj;
+
+### Enable/Disable Role (Set Role Statement)
+
+Syntax:
+
+    SET ROLE ( role_name [ IDENTIFIED BY password ] | ALL [EXCEPT role1, role2, ... ] | NONE );
+
+Example:
+
+    SET ROLE test_role IDENTIFIED BY test123;
+
+### Set role as DEFAULT Role
+
+Syntax:
+
+    ALTER USER user_name
+    DEFAULT ROLE
+    ( role_name | ALL [EXCEPT role1, role2, ... ] | NONE );
+
+Example:
+
+    ALTER USER smithj
+    DEFAULT ROLE
+    test_role;
+
+    ALTER USER smithj
+    DEFAULT ROLE
+    ALL;
+
+    ALTER USER smithj
+    DEFAULT ROLE
+    ALL EXCEPT test_role;
+
+### Drop Role
+
+Syntax:
+
+    DROP ROLE role_name;
+
+Example:
+
+    DROP ROLE test_role;
+
+## Table
+
+### [CREATE TABLE Statement](https://www.techonthenet.com/oracle/tables/create_table.php)
+
+### [ALTER TABLE statement](https://www.techonthenet.com/oracle/tables/alter_table.php)
