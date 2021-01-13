@@ -2,6 +2,7 @@
 
 - [Troubleshooting](#troubleshooting)
   - [ORA-65096](#ora-65096)
+  - [ORA-28014](#ora-28014)
 
 ## ORA-65096
 
@@ -9,5 +10,8 @@
 
     alter session set "_ORACLE_SCRIPT"=true;  
 
+## ORA-28014
 
+[cannot drop administrative users](https://oracledbwr.com/ora-28014-cannot-drop-administrative-users/)
 
+    alter session set "_oracle_script"=TRUE;
