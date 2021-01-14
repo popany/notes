@@ -1697,6 +1697,50 @@
                 "children": [
                     {
                         "data": {
+                            "id": "c8ihcojltcw0",
+                            "created": 1610586745514,
+                            "text": "建造者模式 v.s. 工厂模式",
+                            "expandState": "collapse"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "c8ihejzbdnk0",
+                                    "created": 1610586892308,
+                                    "text": "工厂模式"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c8ihen7gnig0",
+                                            "created": 1610586899331,
+                                            "text": "使用者无需关心对象内部构造"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "c8ihelkeznc0",
+                                    "created": 1610586895761,
+                                    "text": "建造者模式"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "c8ihivzkpoo0",
+                                            "created": 1610587231902,
+                                            "text": "使用者需要根据对象的组成细节进行定制"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
                             "id": "c3z5run0fko0",
                             "created": 1593999807987,
                             "text": "桥接模式",
