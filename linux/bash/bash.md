@@ -10,7 +10,8 @@
       - [`set -e -x -u`](#set--e--x--u)
     - [list file](#list-file)
       - [list full-path recursively](#list-full-path-recursively)
-    - [cp](#cp)
+    - [`find`](#find)
+    - [`cp`](#cp)
       - [copying a file without changing date stamp](#copying-a-file-without-changing-date-stamp)
     - [check the exit status](#check-the-exit-status)
     - [User](#user)
@@ -111,7 +112,11 @@ Filename of the shell script:
 
     find . -type f
 
-### cp
+### `find`
+
+    find ./ -name '<filename>' -exec cat {} \;
+
+### `cp`
 
 #### [copying a file without changing date stamp](https://www.unix.com/shell-programming-and-scripting/95917-copying-file-without-changing-date-stamp.html)
 

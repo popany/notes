@@ -39,13 +39,14 @@
   - [Practice](#practice)
     - [ssh into a centos container](#ssh-into-a-centos-container)
       - [`/usr/sbin/sshd`](#usrsbinsshd)
-    - [How to get core file of segmentation fault process in Docker](#how-to-get-core-file-of-segmentation-fault-process-in-docker)
-      - [Configure to get core file](#configure-to-get-core-file)
-      - [Setting for the program](#setting-for-the-program)
-      - [Run container](#run-container)
-      - [After segmentation fault](#after-segmentation-fault)
-      - [After boot a container](#after-boot-a-container)
-    - [How to setting Core file size in Docker container?](#how-to-setting-core-file-size-in-docker-container)
+    - [Core File](#core-file)
+      - [How to get core file of segmentation fault process in Docker](#how-to-get-core-file-of-segmentation-fault-process-in-docker)
+        - [Configure to get core file](#configure-to-get-core-file)
+        - [Setting for the program](#setting-for-the-program)
+        - [Run container](#run-container)
+        - [After segmentation fault](#after-segmentation-fault)
+        - [After boot a container](#after-boot-a-container)
+      - [How to setting Core file size in Docker container?](#how-to-setting-core-file-size-in-docker-container)
     - [Move Docker container to another host](#move-docker-container-to-another-host)
       - [Export and import containers](#export-and-import-containers)
       - [Container image migration](#container-image-migration)
@@ -311,26 +312,28 @@ start `sshd`
 >
 > Then I disabled selinux (set SELINUX=disabled in /etc/selinux/config) and reboot. Passwordless login then worked ok.
 
-### [How to get core file of segmentation fault process in Docker](https://dev.to/mizutani/how-to-get-core-file-of-segmentation-fault-process-in-docker-22ii)
+### Core File
 
-#### Configure to get core file
+#### [How to get core file of segmentation fault process in Docker](https://dev.to/mizutani/how-to-get-core-file-of-segmentation-fault-process-in-docker-22ii)
+
+##### Configure to get core file
 
 Run following commands in a start up script of docker container
 
     echo '/tmp/core.%h.%e.%t' > /proc/sys/kernel/core_pattern
     ulimit -c unlimited
 
-#### Setting for the program
+##### Setting for the program
 
 - Enable debug option if the program is compiled by yourself. Install debug symbol if it's from package manager
 
 - Do not delete source code in docker image
 
-#### Run container
+##### Run container
 
 Use `--privileged` option when `docker run` to allow write permission for `/proc/sys/kernel/core_pattern`
 
-#### After segmentation fault
+##### After segmentation fault
 
 - Check your container ID by `docker ps -a` command
 
@@ -342,7 +345,7 @@ Use `--privileged` option when `docker run` to allow write permission for `/proc
 
 - `docker run -it <created image ID> sh` and boot a container in a state immediately after segmentation falut
 
-#### After boot a container
+##### After boot a container
 
 - Install gdb if it hasn't been installed
 
@@ -350,7 +353,7 @@ Use `--privileged` option when `docker run` to allow write permission for `/proc
 
 - Enjoy debugging
 
-### [How to setting Core file size in Docker container?](https://stackoverflow.com/questions/28317487/how-to-setting-core-file-size-in-docker-container)
+#### [How to setting Core file size in Docker container?](https://stackoverflow.com/questions/28317487/how-to-setting-core-file-size-in-docker-container)
 
 You can set the limits on the container on docker run with the --ulimit flag.
 
