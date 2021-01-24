@@ -407,4 +407,3 @@ These `tcpdump` examples, tips and commands are intended to give you a base unde
 Combining `tcpdump` with Wireshark is a powerful combination, particularly when you wish to dig into full application layer sessions as the decoders can assemble the full stream. We recently did a major update to our [Wireshark Tutorial](https://hackertarget.com/wireshark-tutorial-and-cheat-sheet/).
 
 Thanks for reading, check out the `man` page for more detail and if you have any comments or suggestions please drop me a note using the contact form. Happy Packet Analysis!
-
