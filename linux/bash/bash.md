@@ -42,6 +42,7 @@
       - [How to Configure and Manage the Firewall on CentOS 8](#how-to-configure-and-manage-the-firewall-on-centos-8)
       - [Opening a source port](#opening-a-source-port)
     - [set core dump file location](#set-core-dump-file-location)
+    - [Increase swap memory](#increase-swap-memory)
   - [Ubuntu](#ubuntu)
     - [Check Ubuntu version](#check-ubuntu-version)
     - [firewall](#firewall-1)
@@ -114,7 +115,27 @@ Filename of the shell script:
 
 ### `find`
 
-    find ./ -name '<filename>' -exec cat {} \;
+List file or directory recursively
+
+    find .
+
+    find . -type f
+
+    find . -type d
+
+Execute command
+
+    find . -name '<filename>' -exec cat {} \;
+
+Loop over directories
+
+    find . -maxdepth 1 -mindepth 1 -type d -printf '%f\n'
+
+Exclude file name
+
+    find / -maxdepth 1 -mindepth 1 -type d ! -name 'mnt' -printf '%f\n'
+
+    find / -maxdepth 1 -mindepth 1 -type d ! -name 'mnt' -exec du -h -d0 {} \;
 
 ### `cp`
 
@@ -378,6 +399,18 @@ restart `sshd`
 
        # systemctl start abrtd.service
        # systemctl start abrt-ccpp.service
+
+### [Increase swap memory](https://www.vembu.com/blog/increase-swap-memory-centos-7/)
+
+    dd if=/dev/zero of=/root/vembuswap bs=1M count=1024
+    chmod 600 /root/vembuswap
+    mkswap /root/vembuswap
+    swapon /root/vembuswap
+    echo "/root/vembuswap swap swap defaults 0 0" >> /etc/fstab
+
+    # verify
+    swapon -s
+    free -m
 
 ## Ubuntu
 
