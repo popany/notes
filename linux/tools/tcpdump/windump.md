@@ -9,7 +9,9 @@
     - [Find IP and MAC addresses in Windows](#find-ip-and-mac-addresses-in-windows)
   - [Practice](#practice)
     - [Dump tcp package from host 172.23.75.51 and port 5555 to file test.pcap](#dump-tcp-package-from-host-172237551-and-port-5555-to-file-testpcap)
-      - [Get interface Index to 172.23.75.51](#get-interface-index-to-172237551)
+      - [Get guid of nic that can route to 172.23.75.51](#get-guid-of-nic-that-can-route-to-172237551)
+      - [Get interface number corresponds to the guid](#get-interface-number-corresponds-to-the-guid)
+      - [Call windump](#call-windump)
 
 ## references
 
@@ -31,9 +33,18 @@
 
 ### Dump tcp package from host 172.23.75.51 and port 5555 to file test.pcap
 
-#### Get interface Index to 172.23.75.51
+#### Get guid of nic that can route to 172.23.75.51
 
-    Find-NetRoute -RemoteIPAddress "172.23.75.51" | Select-Object InterfaceIndex -Last 1
+    set nic_guid $(wmic nic get MacAddress,GUID | FindStr $(Get-WmiObject win32_networkadapterconfiguration | Where IPAddress -Contains $(Find-NetRoute -RemoteIPAddress "172.23.75.51" | Select IPAddress -First 1 | Select -ExpandProperty IPAddress) | Select MacAddress -First 1 |Select -ExpandProperty MacAddress)|%{($_ -split "\s+")[0].trim("{}")})
 
+#### Get interface number corresponds to the guid
 
-    windump -i 6 -w sz_binary_w.pcap src host 10.243.141.127 and src port 9129 and tcp
+    set interface_number $(windump -D | FindStr $nic_guid | %{($_ -split "\.")[0]})
+
+#### Call windump
+
+    windump -i $interface_number -s 0 -w test.pcap src host 172.23.75.51 and src port 5555 and tcp
+
+- `-s 0`
+  
+  Setting **snaplen** to 0 means use the required length to catch whole packets
