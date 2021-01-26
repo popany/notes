@@ -87,6 +87,16 @@
     - [ARP/RARP Packets](#arprarp-packets)
     - [IPv4 Packets](#ipv4-packets)
     - [TCP Packets](#tcp-packets)
+      - [Capturing TCP packets with particular flag combinations (SYN-ACK, URG-ACK, etc.)](#capturing-tcp-packets-with-particular-flag-combinations-syn-ack-urg-ack-etc)
+    - [UDP Packets](#udp-packets)
+      - [UDP Name Server Requests](#udp-name-server-requests)
+      - [UDP Name Server Responses](#udp-name-server-responses)
+      - [SMB/CIFS decoding](#smbcifs-decoding)
+      - [NFS Requests and Replies](#nfs-requests-and-replies)
+      - [AFS Requests and Replies](#afs-requests-and-replies)
+    - [KIP AppleTalk (DDP in UDP)](#kip-appletalk-ddp-in-udp)
+  - [NBP packets](#nbp-packets)
+    - [ATP packet](#atp-packet)
 
 ## NAME
 
@@ -591,19 +601,347 @@ The general format of a TCP protocol line is:
 
     src > dst: Flags [tcpflags], seq data-seqno, ack ackno, win window, urg urgent, options [opts], length len
 
+- `Src` and `dst`
+  
+  are the source and destination IP addresses and ports.
+  
+- `Tcpflags`
+  
+  are some combination of `S` (SYN), `F` (FIN), `P` (PUSH), `R` (RST), `U` (URG), `W` (ECN CWR), `E` (ECN-Echo) or `.` (ACK), or `none` if no flags are set.
+  
+- `Data-seqno`
+  
+  describes the portion of sequence space covered by the data in this packet (see example below).
+  
+- `Ackno`
+  
+  is sequence number of the next data expected the other direction on this connection.
+  
+- `Window`
+  
+  is the number of bytes of receive buffer space available the other direction on this connection.
+  
+- `Urg`
+  
+  indicates there is `urgent` data in the packet.
+  
+- `Opts`
+  
+  are TCP options (e.g., `mss 1024`).
+  
+- `Len`
+  
+  is the length of payload data.
 
+`Iptype`, `Src`, `dst`, and `flags` are always present. The other fields depend on the contents of the packet's TCP protocol header and are output only if appropriate.
 
+Here is the opening portion of an rlogin from host `rtsg` to host `csam`.
 
+    IP rtsg.1023 > csam.login: Flags [S], seq 768512:768512, win 4096, opts [mss 1024]
+    IP csam.login > rtsg.1023: Flags [S.], seq, 947648:947648, ack 768513, win 4096, opts [mss 1024]
+    IP rtsg.1023 > csam.login: Flags [.], ack 1, win 4096
+    IP rtsg.1023 > csam.login: Flags [P.], seq 1:2, ack 1, win 4096, length 1
+    IP csam.login > rtsg.1023: Flags [.], ack 2, win 4096
+    IP rtsg.1023 > csam.login: Flags [P.], seq 2:21, ack 1, win 4096, length 19
+    IP csam.login > rtsg.1023: Flags [P.], seq 1:2, ack 21, win 4077, length 1
+    IP csam.login > rtsg.1023: Flags [P.], seq 2:3, ack 21, win 4077, urg 1, length 1
+    IP csam.login > rtsg.1023: Flags [P.], seq 3:4, ack 21, win 4077, urg 1, length 1
 
+The first line says that TCP port `1023` on `rtsg` sent a packet to port `login` on `csam`. The `S` indicates that the SYN flag was set. The packet sequence number was `768512` and it contained no data. (The notation is `first:last` which means 'sequence numbers first up to but not including last'.) There was no piggy-backed `ACK`, the available receive window was `4096` bytes and there was a max-segment-size option requesting an `MSS` of `1024` bytes.
 
+`Csam` replies with a similar packet except it includes a piggy-backed `ACK` for rtsg's `SYN`. `Rtsg` then `ACKs` `csam`'s `SYN`. The `.` means the `ACK` flag was set. The packet contained no data so there is no data sequence number or length. Note that the `ACK` sequence number is a small integer (`1`). The first time tcpdump sees a TCP 'conversation', it prints the sequence number from the packet. On subsequent packets of the conversation, the difference between the current packet's sequence number and this initial sequence number is printed. This means that sequence numbers after the first can be interpreted as relative byte positions in the conversation's data stream (with the first data byte each direction being `1`). `-S` will override this feature, causing the original sequence numbers to be output.
 
+On the 6th line, rtsg sends csam 19 bytes of data (bytes 2 through 20 in the `rtsg` → `csam` side of the conversation). The `PUSH` flag is set in the packet. On the 7th line, csam says it's received data sent by `rtsg` up to but not including byte `21`. Most of this data is apparently sitting in the socket buffer since `csam`'s receive window has gotten `19` bytes smaller. `Csam` also sends one byte of data to `rtsg` in this packet. On the 8th and 9th lines, `csam` sends two bytes of urgent, pushed data to `rtsg`.
 
+If the `snapshot` was small enough that `tcpdump` didn't capture the full TCP header, it interprets as much of the header as it can and then reports "[|tcp]" to indicate the remainder could not be interpreted. If the header contains a bogus option (one with a length that's either too small or beyond the end of the header), `tcpdump` reports it as "[bad opt]" and does not interpret any further options (since it's impossible to tell where they start). If the header length indicates options are present but the IP datagram length is not long enough for the options to actually be there, tcpdump reports it as "[bad hdr length]".
 
+#### Capturing TCP packets with particular flag combinations (SYN-ACK, URG-ACK, etc.)
 
+There are 8 bits in the control bits section of the TCP header:
 
+    CWR | ECE | URG | ACK | PSH | RST | SYN | FIN
 
+Let's assume that we want to watch packets used in establishing a TCP connection. Recall that TCP uses a 3-way handshake protocol when it initializes a new connection; the connection sequence with regard to the TCP control bits is
 
+1. Caller sends SYN
+2. Recipient responds with SYN, ACK
+3. Caller sends ACK
 
+Now we're interested in capturing packets that have only the `SYN` bit set (Step 1). Note that we don't want packets from step 2 (`SYN-ACK`), just a plain initial `SYN`. What we need is a correct filter expression for `tcpdump`.
 
+Recall the structure of a TCP header without options:
 
-TODO tcpdump tttttttttttttttttttttttttttttttttt
+     0                            15                              31
+    -----------------------------------------------------------------
+    |          source port          |       destination port        |
+    -----------------------------------------------------------------
+    |                        sequence number                        |
+    -----------------------------------------------------------------
+    |                     acknowledgment number                     |
+    -----------------------------------------------------------------
+    |  HL   | rsvd  |C|E|U|A|P|R|S|F|        window size            |
+    -----------------------------------------------------------------
+    |         TCP checksum          |       urgent pointer          |
+    -----------------------------------------------------------------
+
+A TCP header usually holds 20 octets of data, unless options are present. The first line of the graph contains octets 0 - 3, the second line shows octets 4 - 7 etc.
+
+Starting to count with 0, the relevant TCP control bits are contained in octet 13:
+
+     0             7|             15|             23|             31
+    ----------------|---------------|---------------|----------------
+    |  HL   | rsvd  |C|E|U|A|P|R|S|F|        window size            |
+    ----------------|---------------|---------------|----------------
+    |               |  13th octet   |               |               |
+
+Let's have a closer look at octet no. 13:
+
+                    |               |
+                    |---------------|
+                    |C|E|U|A|P|R|S|F|
+                    |---------------|
+                    |7   5   3     0|
+
+These are the TCP control bits we are interested in. We have numbered the bits in this octet from `0` to `7`, right to left, so the `PSH` bit is bit number `3`, while the `URG` bit is number `5`.
+
+Recall that we want to capture packets with only `SYN` set. Let's see what happens to octet `13` if a TCP datagram arrives with the SYN bit set in its header:
+
+                    |C|E|U|A|P|R|S|F|
+                    |---------------|
+                    |0 0 0 0 0 0 1 0|
+                    |---------------|
+                    |7 6 5 4 3 2 1 0|
+
+Looking at the control bits section we see that only bit number `1` (`SYN`) is set.
+
+Assuming that octet number 13 is an 8-bit unsigned integer in network byte order, the binary value of this octet is
+
+    00000010
+
+and its decimal representation is
+
+       7     6     5     4     3     2     1     0
+    0*2 + 0*2 + 0*2 + 0*2 + 0*2 + 0*2 + 1*2 + 0*2  =  2
+
+We're almost done, because now we know that if only `SYN` is set, the value of the `13`th octet in the TCP header, when interpreted as a 8-bit unsigned integer in network byte order, must be exactly 2.
+
+This relationship can be expressed as
+
+    tcp[13] == 2
+
+We can use this expression as the filter for `tcpdump` in order to watch packets which have only SYN set:
+
+    tcpdump -i xl0 tcp[13] == 2
+
+The expression says "let the 13th octet of a TCP datagram have the decimal value 2", which is exactly what we want.
+
+Now, let's assume that we need to capture `SYN` packets, but we don't care if `ACK` or any other TCP control bit is set at the same time. Let's see what happens to octet `13` when a TCP datagram with `SYN-ACK` set arrives:
+
+         |C|E|U|A|P|R|S|F|
+         |---------------|
+         |0 0 0 1 0 0 1 0|
+         |---------------|
+         |7 6 5 4 3 2 1 0|
+
+Now bits `1` and `4` are set in the `13`th octet. The binary value of octet `13` is
+
+     00010010
+
+which translates to decimal
+
+       7     6     5     4     3     2     1     0
+    0*2 + 0*2 + 0*2 + 1*2 + 0*2 + 0*2 + 1*2 + 0*2   = 18
+
+Now we can't just use `tcp[13] == 18` in the tcpdump filter expression, because that would select only those packets that have `SYN-ACK` set, but not those with only `SYN` set. Remember that we don't care if `ACK` or any other control bit is set as long as `SYN` is set.
+
+In order to achieve our goal, we need to logically `AND` the binary value of octet `13` with some other value to preserve the `SYN` bit. We know that we want `SYN` to be set in any case, so we'll logically `AND` the value in the `13`th octet with the binary value of a SYN:
+
+              00010010 SYN-ACK              00000010 SYN
+         AND  00000010 (we want SYN)   AND  00000010 (we want SYN)
+              --------                      --------
+         =    00000010                 =    00000010
+
+We see that this `AND` operation delivers the same result regardless whether `ACK` or another TCP control bit is set. The decimal representation of the `AND` value as well as the result of this operation is `2` (binary `00000010`), so we know that for packets with SYN set the following relation must hold true:
+
+    ( ( value of octet 13 ) AND ( 2 ) ) == ( 2 )
+
+This points us to the `tcpdump` filter expression
+
+         tcpdump -i xl0 'tcp[13] & 2 == 2'
+
+Some offsets and field values may be expressed as names rather than as numeric values. For example `tcp[13]` may be replaced with `tcp[tcpflags]`. The following TCP flag field values are also available: `tcp-fin`, `tcp-syn`, `tcp-rst`, `tcp-push`, `tcp-ack`, `tcp-urg`.
+
+This can be demonstrated as:
+
+         tcpdump -i xl0 'tcp[tcpflags] & tcp-push != 0'
+
+Note that you should use single quotes or a backslash in the expression to **hide the `AND` ('`&`') special character from the shell**.
+
+### UDP Packets
+
+UDP format is illustrated by this `rwho` packet:
+
+    actinide.who > broadcast.who: udp 84
+
+This says that port `who` on `host` actinide sent a UDP datagram to port `who` on host `broadcast`, the Internet `broadcast` address. The packet contained `84` bytes of user data.
+
+Some UDP services are recognized (from the source or destination port number) and the higher level protocol information printed. In particular, Domain Name service requests (RFC-1034/1035) and Sun RPC calls (RFC-1050) to NFS.
+
+#### UDP Name Server Requests
+
+(N.B.:The following description assumes familiarity with the Domain Service protocol described in RFC-1035. If you are not familiar with the protocol, the following description will appear to be written in Greek.)
+
+Name server requests are formatted as
+
+    src > dst: id op? flags qtype qclass name (len)
+
+    h2opolo.1538 > helios.domain: 3+ A? ucbvax.berkeley.edu. (37)
+
+Host `h2opolo` asked the `domain` server on `helios` for an address record (`qtype=A`) associated with the name `ucbvax.berkeley.edu`. The query id was `3`. The `+` indicates the recursion desired flag was set. The query length was `37` bytes, not including the UDP and IP protocol headers. The query operation was the normal one, Query, so the `op` field was omitted. If the `op` had been anything else, it would have been printed between the `3` and the `+`. Similarly, the `qclass` was the normal one, `C_IN`, and omitted. Any other `qclass` would have been printed immediately after the `A`.
+
+A few anomalies are checked and may result in extra fields enclosed in square brackets: If a query contains an answer, authority records or additional records section, ancount, nscount, or arcount are printed as `[na]`, `[nn]` or `[nau]` where `n` is the appropriate count. If any of the response bits are set (`AA`, `RA` or `rcode`) or any of the 'must be zero' bits are set in bytes two and three, `[b2&3=x]` is printed, where `x` is the hex value of header bytes two and three.
+
+#### UDP Name Server Responses
+
+Name server responses are formatted as
+
+    src > dst:  id op rcode flags a/n/au type class data (len)
+
+    helios.domain > h2opolo.1538: 3 3/3/7 A 128.32.137.3 (273)
+    helios.domain > h2opolo.1537: 2 NXDomain* 0/1/0 (97)
+
+In the first example, `helios` responds to query id `3` from `h2opolo` with `3` answer records, `3` name server records and `7` additional records. The first answer record is type `A` (address) and its data is internet address `128.32.137.3`. The total size of the response was `273` bytes, excluding UDP and IP headers. The `op` (`Query`) and response code (`NoError`) were omitted, as was the class (`C_IN`) of the A record.
+
+In the second example, `helios` responds to query 2 with a response code of non-existent domain (`NXDomain`) with no answers, one name server and no authority records. The `*` indicates that the authoritative answer bit was set. Since there were no answers, no type, class or data were printed.
+
+Other flag characters that might appear are `-` (recursion available, `RA`, not set) and `|` (truncated message, `TC`, set). If the `question` section doesn't contain exactly one entry, `[nq]` is printed.
+
+#### SMB/CIFS decoding
+
+`tcpdump` now includes fairly extensive `SMB/CIFS/NBT` decoding for data on `UDP/137`, `UDP/138` and `TCP/139`. Some primitive decoding of `IPX` and `NetBEUI` `SMB` data is also done.
+
+By default a fairly minimal decode is done, with a much more detailed decode done if `-v` is used. Be warned that with `-v` a single `SMB` packet may take up a page or more, so only use `-v` if you really want all the gory details.
+
+For information on SMB packet formats and what all the fields mean see www.cifs.org or the pub/samba/specs/ directory on your favorite samba.org mirror site. The SMB patches were written by Andrew Tridgell (tridge@samba.org).
+
+#### NFS Requests and Replies
+
+Sun NFS (Network File System) requests and replies are printed as:
+
+    src.sport > dst.nfs: NFS request xid xid len op args
+    src.nfs > dst.dport: NFS reply xid xid reply stat len op results
+    
+    sushi.1023 > wrl.nfs: NFS request xid 26377
+            112 readlink fh 21,24/10.73165
+    wrl.nfs > sushi.1023: NFS reply xid 26377
+            reply ok 40 readlink "../var"
+    sushi.1022 > wrl.nfs: NFS request xid 8219
+            144 lookup fh 9,74/4096.6878 "xcolors"
+    wrl.nfs > sushi.1022: NFS reply xid 8219
+            reply ok 128 lookup fh 9,74/4134.3150
+
+In the first line, host `sushi` sends a transaction with `id` `26377` to `wrl`. The request was `112` bytes, excluding the UDP and IP headers. The operation was a readlink (read symbolic link) on file handle (`fh`) `21,24/10.731657119`. (If one is lucky, as in this case, the file handle can be interpreted as a major,minor device number pair, followed by the inode number and generation number.) In the second line, wrl replies `ok` with the same transaction id and the contents of the link.
+
+In the third line, `sushi` asks (using a new transaction id) `wrl` to lookup the name `xcolors` in directory file `9,74/4096.6878`. In the fourth line, `wrl` sends a reply with the respective transaction id.
+
+Note that the data printed depends on the operation type. The format is intended to be self explanatory if read in conjunction with an NFS protocol spec. Also note that older versions of `tcpdump` printed NFS packets in a slightly different format: the transaction id (`xid`) would be printed instead of the non-NFS port number of the packet.
+
+If the `-v` (verbose) flag is given, additional information is printed. For example:
+
+    sushi.1023 > wrl.nfs: NFS request xid 79658
+            148 read fh 21,11/12.195 8192 bytes @ 24576
+    wrl.nfs > sushi.1023: NFS reply xid 79658
+            reply ok 1472 read REG 100664 ids 417/0 sz 29388
+
+(`-v` also prints the IP header `TTL`, `ID`, `length`, and fragmentation fields, which have been omitted from this example.) In the first line, `sushi` asks `wrl` to read `8192` bytes from file `21,11/12.195`, at byte offset `24576`. `Wrl` replies `ok`; the packet shown on the second line is the first fragment of the reply, and hence is only `1472` bytes long (the other bytes will follow in subsequent fragments, but these fragments do not have NFS or even UDP headers and so might not be printed, depending on the filter expression used). Because the `-v` flag is given, some of the file attributes (which are returned in addition to the file data) are printed: the file type ("REG", for regular file), the file mode (in octal), the `UID` and `GID`, and the file size.
+
+If the `-v` flag is given more than once, even more details are printed.
+
+NFS reply packets do not explicitly identify the RPC operation. Instead, `tcpdump` keeps track of "recent" requests, and matches them to the replies using the transaction ID. If a reply does not closely follow the corresponding request, it might not be parsable.
+
+#### AFS Requests and Replies
+
+Transarc AFS (Andrew File System) requests and replies are printed as:
+
+    src.sport > dst.dport: rx packet-type
+    src.sport > dst.dport: rx packet-type service call call-name args
+    src.sport > dst.dport: rx packet-type service reply call-name args
+    
+    elvis.7001 > pike.afsfs:
+            rx data fs call rename old fid 536876964/1/1 ".newsrc.new"
+            new fid 536876964/1/1 ".newsrc"
+    pike.afsfs > elvis.7001: rx data fs reply rename
+
+In the first line, host `elvis` sends a `RX` packet to pike. This was a `RX` data packet to the `fs` (fileserver) service, and is the start of an RPC call. The RPC call was a rename, with the old directory file `id` of `536876964/1/1` and an old filename of `.newsrc.new`, and a new directory file `id` of `536876964/1/1` and a new filename of `.newsrc`. The host pike responds with a RPC reply to the rename call (which was successful, because it was a data packet and not an abort packet).
+
+In general, all AFS RPCs are decoded at least by RPC call name. Most AFS RPCs have at least some of the arguments decoded (generally only the 'interesting' arguments, for some definition of interesting).
+
+The format is intended to be self-describing, but it will probably not be useful to people who are not familiar with the workings of AFS and RX.
+
+If the `-v` (verbose) flag is given twice, acknowledgement packets and additional header information is printed, such as the RX call ID, call number, sequence number, serial number, and the RX packet flags.
+
+If the `-v` flag is given twice, additional information is printed, such as the RX call ID, serial number, and the RX packet flags. The MTU negotiation information is also printed from RX ack packets.
+
+If the `-v` flag is given three times, the security index and service id are printed.
+
+Error codes are printed for abort packets, with the exception of Ubik beacon packets (because abort packets are used to signify a yes vote for the Ubik protocol).
+
+AFS reply packets do not explicitly identify the RPC operation. Instead, `tcpdump` keeps track of "recent" requests, and matches them to the replies using the call number and service ID. If a reply does not closely follow the corresponding request, it might not be parsable.
+
+### KIP AppleTalk (DDP in UDP)
+
+AppleTalk DDP packets encapsulated in UDP datagrams are de-encapsulated and dumped as DDP packets (i.e., all the UDP header information is discarded). The file `/etc/atalk`.names is used to translate `AppleTalk` net and node numbers to names. Lines in this file have the form
+
+    number  name
+    
+    1.254           ether
+    16.1            icsd-net
+    1.254.110       ace
+
+The first two lines give the names of `AppleTalk` networks. The third line gives the name of a particular host (a host is distinguished from a net by the 3rd octet in the number - a net number must have two octets and a host number must have three octets.) The number and name should be separated by whitespace (blanks or tabs). The `/etc/atalk.names` file may contain blank lines or comment lines (lines starting with a `#`).
+
+AppleTalk addresses are printed in the form
+
+    net.host.port
+    
+    144.1.209.2 > icsd-net.112.220
+    office.2 > icsd-net.112.220
+    jssmag.149.235 > icsd-net.2
+
+(If the `/etc/atalk.names` doesn't exist or doesn't contain an entry for some AppleTalk host/net number, addresses are printed in numeric form.) In the first example, NBP (DDP port 2) on net 144.1 node 209 is sending to whatever is listening on port 220 of net icsd node 112. The second line is the same except the full name of the source node is known (`office'). The third line is a send from port 235 on net jssmag node 149 to broadcast on the icsd-net NBP port (note that the broadcast address (255) is indicated by a net name with no host number - for this reason it's a good idea to keep node names and net names distinct in /etc/atalk.names).
+NBP (name binding protocol) and ATP (AppleTalk transaction protocol) packets have their contents interpreted. Other protocols just dump the protocol name (or number if no name is registered for the protocol) and packet size.
+
+## NBP packets
+
+are formatted like the following examples:
+
+    icsd-net.112.220 > jssmag.2: nbp-lkup 190: "=:LaserWriter@*"
+    jssmag.209.2 > icsd-net.112.220: nbp-reply 190: "RM1140:LaserWriter@*" 250
+    techpit.2 > icsd-net.112.220: nbp-reply 190: "techpit:LaserWriter@*" 186
+
+The first line is a name lookup request for laserwriters sent by net icsd host 112 and broadcast on net jssmag. The nbp id for the lookup is 190. The second line shows a reply for this request (note that it has the same id) from host jssmag.209 saying that it has a laserwriter resource named "RM1140" registered on port 250. The third line is another reply to the same request saying host techpit has laserwriter "techpit" registered on port 186.
+
+### ATP packet
+
+formatting is demonstrated by the following example:
+
+    jssmag.209.165 > helios.132: atp-req  12266<0-7> 0xae030001
+    helios.132 > jssmag.209.165: atp-resp 12266:0 (512) 0xae040000
+    helios.132 > jssmag.209.165: atp-resp 12266:1 (512) 0xae040000
+    helios.132 > jssmag.209.165: atp-resp 12266:2 (512) 0xae040000
+    helios.132 > jssmag.209.165: atp-resp 12266:3 (512) 0xae040000
+    helios.132 > jssmag.209.165: atp-resp 12266:4 (512) 0xae040000
+    helios.132 > jssmag.209.165: atp-resp 12266:5 (512) 0xae040000
+    helios.132 > jssmag.209.165: atp-resp 12266:6 (512) 0xae040000
+    helios.132 > jssmag.209.165: atp-resp*12266:7 (512) 0xae040000
+    jssmag.209.165 > helios.132: atp-req  12266<3,5> 0xae030001
+    helios.132 > jssmag.209.165: atp-resp 12266:3 (512) 0xae040000
+    helios.132 > jssmag.209.165: atp-resp 12266:5 (512) 0xae040000
+    jssmag.209.165 > helios.132: atp-rel  12266<0-7> 0xae030001
+    jssmag.209.133 > helios.132: atp-req* 12267<0-7> 0xae030002
+
+Jssmag.209 initiates transaction id 12266 with host helios by requesting up to 8 packets (the `<0-7>`). The hex number at the end of the line is the value of the `userdata' field in the request.
+
+Helios responds with 8 512-byte packets. The `:digit` following the transaction id gives the packet sequence number in the transaction and the number in parens is the amount of data in the packet, excluding the ATP header. The `*` on packet 7 indicates that the EOM bit was set.
+
+Jssmag.209 then requests that packets 3 & 5 be retransmitted. Helios resends them then jssmag.209 releases the transaction. Finally, jssmag.209 initiates the next request. The `*` on the request indicates that XO (`exactly once`) was not set.
