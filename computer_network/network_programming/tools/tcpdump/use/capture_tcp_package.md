@@ -36,9 +36,13 @@
 
 ## Write the raw packets to file and than read
 
-    tcpdump -i any -w test.pcap tcp port 5555
+    tcpdump -i any -B 102400 -w test.pcap tcp port 5555
 
     tcpdump -#nnSxx -r test.pcap
+
+- `-B 102400`
+
+  Set the operating system capture buffer size to 1024m.
 
 ## Capture tcp package sent to host 172.17.0.2 and port 5555
 
@@ -53,6 +57,3 @@ Older versions of tcpdump truncate packets to 68 or 96 bytes. If this is the cas
     tcpdump -i <interface> -s 65535 -w <file>
 
 You will have to specify the correct interface and the name of a file to save into. In addition, you will have to terminate the capture with `^C` when you believe you have captured enough packets.
-
-
-
