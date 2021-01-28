@@ -3,7 +3,8 @@
 - [TCP](#tcp)
   - [Checksum](#checksum)
   - [整理](#整理)
-    - [SYN 占一个序号, ACK 不占序号](#syn-占一个序号-ack-不占序号)
+    - [SYN 报文占一个序号, ACK 报文不占序号](#syn-报文占一个序号-ack-报文不占序号)
+    - [ACK 序号为期望对端下次发送的序号值](#ack-序号为期望对端下次发送的序号值)
 
 ## Checksum
 
@@ -15,7 +16,7 @@
 
 ## 整理
 
-### SYN 占一个序号, ACK 不占序号
+### SYN 报文占一个序号, ACK 报文不占序号
 
     # tcpdump -i any -#nnSU src port 5555
     tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
@@ -33,3 +34,6 @@
 3 为服务端首次向客户端发送数据对应的报文, 此报文中的序号为 2019922734, 即 SYN+ACK 报文的序号+1(即, SYN报文占一个序号).
 
 注意: SYN 标志仅在三次握手中有效
+
+### ACK 序号为期望对端下次发送的序号值
+
