@@ -10,6 +10,8 @@
     - [没有选择确认或否认的滑动窗口协议](#没有选择确认或否认的滑动窗口协议)
     - [紧急指针](#紧急指针)
     - [MSL](#msl)
+  - [References](#references)
+    - [What is Maximum Segment Lifetime (MSL) in TCP?](#what-is-maximum-segment-lifetime-msl-in-tcp)
 
 ## Checksum
 
@@ -80,3 +82,6 @@
 
 - RFC 793中规定 MSL 为 2 分钟, 实际应用中常用的是 30 秒，1 分钟和 2 分钟等
 
+## References
+
+### [What is Maximum Segment Lifetime (MSL) in TCP?](https://stackoverflow.com/questions/289194/what-is-maximum-segment-lifetime-msl-in-tcp)
