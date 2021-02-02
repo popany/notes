@@ -12,6 +12,8 @@
     - [MSL](#msl)
   - [References](#references)
     - [What is Maximum Segment Lifetime (MSL) in TCP?](#what-is-maximum-segment-lifetime-msl-in-tcp)
+    - [TCP half-open - wikipedia](#tcp-half-open---wikipedia)
+    - [TCP half-close - TCP/IP Illustrated, Volume 1 Second Edition 13.2 TCP Connection Establishment and Termination](#tcp-half-close---tcpip-illustrated-volume-1-second-edition-132-tcp-connection-establishment-and-termination)
 
 ## Checksum
 
@@ -85,3 +87,11 @@
 ## References
 
 ### [What is Maximum Segment Lifetime (MSL) in TCP?](https://stackoverflow.com/questions/289194/what-is-maximum-segment-lifetime-msl-in-tcp)
+
+### [TCP half-open - wikipedia](https://en.wikipedia.org/wiki/TCP_half-open)
+
+The term **half-open** refers to TCP connections whose state is out of synchronization between the two communicating hosts, possibly due to a crash of one side. A connection which is in the process of being established is also known as **embryonic connection**. The lack of synchronization could be due to [malicious intent](https://en.wikipedia.org/wiki/SYN_flood).
+
+### TCP half-close - TCP/IP Illustrated, Volume 1 Second Edition 13.2 TCP Connection Establishment and Termination
+
+While it takes three segments to establish a connection, it takes four to terminate one. It is also possible for the connection to be in a **half-open** state (see Section 13.6.3), although this is not common. This reason is that TCP’s data communications model is bidirectional, meaning it is possible to have only one of the two directions operating. The **half-close** operation in TCP closes only a single direction of the data flow. Two half-close operations together close the entire connection. The rule is that either end can send a `FIN` when it is done sending data. When a TCP receives a `FIN`, it must notify the application that the other end has terminated that direction of data flow. The sending of a `FIN` is normally the result of the application issuing a close operation, which typically causes both directions to close.
