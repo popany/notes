@@ -10,10 +10,20 @@
     - [没有选择确认或否认的滑动窗口协议](#没有选择确认或否认的滑动窗口协议)
     - [紧急指针](#紧急指针)
     - [MSL](#msl)
+    - [缓冲区](#缓冲区)
+      - [发送缓冲区](#发送缓冲区)
+      - [接收缓冲区](#接收缓冲区)
+    - [低水位](#低水位)
+      - [发送低水位](#发送低水位)
+      - [接收低水位](#接收低水位)
+    - [SO_REUSEADDR / SO_REUSEPORT / SO_LINGER](#so_reuseaddr--so_reuseport--so_linger)
+      - [SO_REUSEADDR](#so_reuseaddr)
+      - [SO_REUSEPORT](#so_reuseport)
+      - [SO_LINGER](#so_linger)
+    - [keep-alive](#keep-alive)
   - [References](#references)
     - [What is Maximum Segment Lifetime (MSL) in TCP?](#what-is-maximum-segment-lifetime-msl-in-tcp)
-    - [TCP half-open - wikipedia](#tcp-half-open---wikipedia)
-    - [TCP half-close - TCP/IP Illustrated, Volume 1 Second Edition 13.2 TCP Connection Establishment and Termination](#tcp-half-close---tcpip-illustrated-volume-1-second-edition-132-tcp-connection-establishment-and-termination)
+    - [TCP 常用总结](#tcp-常用总结)
 
 ## Checksum
 
@@ -84,14 +94,76 @@
 
 - RFC 793中规定 MSL 为 2 分钟, 实际应用中常用的是 30 秒，1 分钟和 2 分钟等
 
+### 缓冲区
+
+#### 发送缓冲区
+
+- SO_SNDBUF
+
+- 对比 UDP, UDP 不需要发送缓冲区(不需要重发)
+
+- 发送缓冲区满时会导致写入线程阻塞
+
+- 收到对端 ACK 数据段后, 本端才会丢弃已确认的数据段
+
+#### 接收缓冲区
+
+- SO_RCVBUF
+
+- 滑动窗口控制接收缓冲区不溢出, 若发送方无视滑动窗口大小发送了超出滑动窗口的数据段, 则该数据段被丢弃
+
+- 对比 UDP, UDP 没有流量控制, 接收缓冲区慢时, 数据报会被丢弃
+
+### 低水位
+
+#### 发送低水位
+
+- 接收缓冲区中的可用空间超过发送低水位, 内核通知进程"可写"(比如通过 select/epoll)
+
+- 默认为 2048 字节
+
+#### 接收低水位
+
+- 接收缓冲区中的数据超过接收低水位, 内核通知进程"可读"(比如通过 select/epoll)
+
+- 默认为 1 字节
+
+### SO_REUSEADDR / SO_REUSEPORT / SO_LINGER
+
+#### SO_REUSEADDR
+
+- 若 TCP 状态为 TIME_WAIT, 则可以重用端口
+
+- 一个套接字由五元组构成: 协议、本地地址、本地端口、远程地址、远程端口. SO_REUSEADDR 仅仅表示可以重用本地本地地址、本地端口
+
+- 可能导致程序收到非期望数据
+
+- 须慎重
+
+#### [SO_REUSEPORT](https://my.oschina.net/miffa/blog/390931)
+
+#### SO_LINGER
+
+- 指定 close 函数行为.
+
+- 默认为: close 函数立即返回, 如果有数据残留在套接口缓冲区中则系统将试着将这些数据发送给对方
+
+### keep-alive
+
+- 默认为 2 小时
+
+- 真实的网络很复杂, 可能存在各种原因导致 keep-alive 失效
+
+- 通过在空闲时发送 keep-alive 数据段, 并接收 keep-alive ACK 实现
+
 ## References
 
 ### [What is Maximum Segment Lifetime (MSL) in TCP?](https://stackoverflow.com/questions/289194/what-is-maximum-segment-lifetime-msl-in-tcp)
 
-### [TCP half-open - wikipedia](https://en.wikipedia.org/wiki/TCP_half-open)
+### [TCP 常用总结](https://www.cnblogs.com/abelian/p/6135042.html)
 
-The term **half-open** refers to TCP connections whose state is out of synchronization between the two communicating hosts, possibly due to a crash of one side. A connection which is in the process of being established is also known as **embryonic connection**. The lack of synchronization could be due to [malicious intent](https://en.wikipedia.org/wiki/SYN_flood).
 
-### TCP half-close - TCP/IP Illustrated, Volume 1 Second Edition 13.2 TCP Connection Establishment and Termination
 
-While it takes three segments to establish a connection, it takes four to terminate one. It is also possible for the connection to be in a **half-open** state (see Section 13.6.3), although this is not common. This reason is that TCP’s data communications model is bidirectional, meaning it is possible to have only one of the two directions operating. The **half-close** operation in TCP closes only a single direction of the data flow. Two half-close operations together close the entire connection. The rule is that either end can send a `FIN` when it is done sending data. When a TCP receives a `FIN`, it must notify the application that the other end has terminated that direction of data flow. The sending of a `FIN` is normally the result of the application issuing a close operation, which typically causes both directions to close.
+
+
+TODO tcp

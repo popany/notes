@@ -39,6 +39,10 @@
     - [`next`](#next)
     - [`continue`](#continue)
     - [`backtrace`](#backtrace)
+  - [Practice](#practice)
+    - [Start gdb with tui mode and set args](#start-gdb-with-tui-mode-and-set-args)
+    - [Scroll the active window one page up [[ref]](https://sourceware.org/gdb/onlinedocs/gdb/TUI-Keys.html)](#scroll-the-active-window-one-page-up-ref)
+    - [Set breakpoint on line](#set-breakpoint-on-line)
 
 ## Reference
 
@@ -232,3 +236,23 @@ Continue program being debugged, after signal or breakpoint
 ### `backtrace`
 
 Print backtrace of all stack frames, or innermost COUNT frames
+
+## Practice
+
+### Start gdb with tui mode and set args
+
+    gdb -tui --args <program> <arg1> <arg2>
+
+### Scroll the active window one page up [[ref]](https://sourceware.org/gdb/onlinedocs/gdb/TUI-Keys.html)
+
+    PgUp
+
+### Set breakpoint on line
+
+    break <linenumber>
+
+or
+
+    break <filename>:<linenumber>
+
+
