@@ -1,6 +1,13 @@
 # TCP State
 
 - [TCP State](#tcp-state)
+  - [Why is the last ACK needed in TCP four way termination](#why-is-the-last-ack-needed-in-tcp-four-way-termination)
+    - [Edit](#edit)
+    - [Edit 2](#edit-2)
+  - [Bug 25986 - Socket would hang at LAST_ACK forever](#bug-25986---socket-would-hang-at-last_ack-forever)
+  - [What is the purpose of TIME WAIT in TCP connection tear down?](#what-is-the-purpose-of-time-wait-in-tcp-connection-tear-down)
+  - [The `TIME-WAIT` State](#the-time-wait-state)
+  - [`LISTEN` to `SYN_SENT`](#listen-to-syn_sent)
 
 ## [Why is the last ACK needed in TCP four way termination](https://networkengineering.stackexchange.com/questions/38805/why-is-the-last-ack-needed-in-tcp-four-way-termination)
 
@@ -113,3 +120,9 @@ Eventually, the second device (the server in our example) will send a `FIN` to c
 The `TIME-WAIT` state is required for two main reasons. **The first is to provide enough time to ensure that the `ACK` is received by the other device, and to retransmit it if it is lost. The second is to provide a "buffering period" between the end of this connection and any subsequent ones**. If not for this period, it is possible that packets from different connections could be mixed, creating confusion.
 
 The standard specifies that the client should wait double a particular length of time called the **maximum segment lifetime (MSL)** before finishing the close of the connection. The TCP standard defines MSL as being a value of 120 seconds (2 minutes). In modern networks this is an eternity, so TCP allows implementations to choose a lower value if it is believed that will lead to better operation.
+
+## `LISTEN` to `SYN_SENT`
+
+TCP/IP Illustrated, Volume 1 Second Edition - 13.5.1 TCP State Transition Diagram
+
+> The state transition from `LISTEN` to `SYN_SENT` is legal in the TCP protocol but is not supported by Berkeley sockets and is rarely seen.

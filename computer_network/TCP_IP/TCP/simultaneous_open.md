@@ -58,5 +58,3 @@ Since the server passively waits for clients to connect it's easy to predict whe
 The simultaneous open, on the other hand, is subject to connect timeouts on both sides, i.e. this has to be carefully orchestrated for connection to take place so that SYNs cross "in-flight". It's an interesting artifact of the TCP protocol but I don't see any use for it in practice.
 
 You can probably try simulating this by opening a socket, binding it to a port (so the other side knows where to connect to), and trying to connect. Both sides are symmetric. Can probably try that with `netcat` with `-p` option. You'd have to be pretty quick though :)
-
-
