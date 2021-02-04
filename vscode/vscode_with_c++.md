@@ -4,6 +4,8 @@
   - [Debug](#debug)
     - [References](#references)
     - [vscode in windows + gdb in WSL docker container](#vscode-in-windows--gdb-in-wsl-docker-container)
+      - [Debug coredump](#debug-coredump)
+      - [Attach to process](#attach-to-process)
 
 ## Debug
 
@@ -62,3 +64,54 @@
             }
         ]
     }
+
+#### Debug coredump
+
+`lauch.json`
+
+    {
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "(gdb) Launch",
+                "type": "cppdbg",
+                "request": "launch",
+                "program": "<PATH-TO-BINARY>",
+                "args": [],
+                "stopAtEntry": false,
+                "cwd": "${workspaceFolder}",
+                "environment": [],
+                "externalConsole": false,
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ],
+                "coreDumpPath": "<PATH-TO-CORE-DUMP>"
+            }
+        ]
+    }
+
+#### Attach to process
+
+            {
+                "name": "(gdb) Attach",
+                "type": "cppdbg",
+                "request": "attach",
+                "program": "${workspaceFolder}/a.out",
+                "processId": "${command:pickProcess}",
+                "MIMode": "gdb",
+                "setupCommands": [
+                    {
+                        "description": "Enable pretty-printing for gdb",
+                        "text": "-enable-pretty-printing",
+                        "ignoreFailures": true
+                    }
+                ]
+            }

@@ -33,6 +33,7 @@
     - [史上最全分布式数据库概述](#史上最全分布式数据库概述)
     - [浅谈分布式数据库](#浅谈分布式数据库)
     - [分布式数据库DBLE](#分布式数据库dble)
+  - [参考](#参考)
 
 ## 性能指标
 
@@ -98,12 +99,13 @@
 
 ### [分布式数据库DBLE](https://blog.csdn.net/u010882691/article/details/82256955)
 
+## 参考
+
+[精通高并发必须掌握的18个核心技术](https://youzhixueyuan.com/what-are-the-high-concurrency-technologies.html)
 
 
 
 
 
 
-
-
-TODO high concurrency
+TODO high concurrency hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh

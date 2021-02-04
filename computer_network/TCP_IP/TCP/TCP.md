@@ -16,11 +16,12 @@
     - [低水位](#低水位)
       - [发送低水位](#发送低水位)
       - [接收低水位](#接收低水位)
-    - [SO_REUSEADDR / SO_REUSEPORT / SO_LINGER](#so_reuseaddr--so_reuseport--so_linger)
+    - [SO_REUSEADDR / SO_REUSEPORT](#so_reuseaddr--so_reuseport)
       - [SO_REUSEADDR](#so_reuseaddr)
       - [SO_REUSEPORT](#so_reuseport)
-      - [SO_LINGER](#so_linger)
     - [keep-alive](#keep-alive)
+    - [异常终止连接](#异常终止连接)
+    - [半打开连接](#半打开连接)
   - [References](#references)
     - [What is Maximum Segment Lifetime (MSL) in TCP?](#what-is-maximum-segment-lifetime-msl-in-tcp)
     - [TCP 常用总结](#tcp-常用总结)
@@ -128,7 +129,7 @@
 
 - 默认为 1 字节
 
-### SO_REUSEADDR / SO_REUSEPORT / SO_LINGER
+### SO_REUSEADDR / SO_REUSEPORT
 
 #### SO_REUSEADDR
 
@@ -142,12 +143,6 @@
 
 #### [SO_REUSEPORT](https://my.oschina.net/miffa/blog/390931)
 
-#### SO_LINGER
-
-- 指定 close 函数行为.
-
-- 默认为: close 函数立即返回, 如果有数据残留在套接口缓冲区中则系统将试着将这些数据发送给对方
-
 ### keep-alive
 
 - 默认为 2 小时
@@ -155,6 +150,20 @@
 - 真实的网络很复杂, 可能存在各种原因导致 keep-alive 失效
 
 - 通过在空闲时发送 keep-alive 数据段, 并接收 keep-alive ACK 实现
+
+### 异常终止连接
+
+若设置 socket 的 `SO_LINGER` 超时时间为 0, 则调用 `close` 函数后
+
+- 对端会收到 RST 报文段
+
+- 发送队列中残留的数据段会被丢弃
+
+### 半打开连接
+
+- 任何一端主机异常都可能导致发生该情况
+
+- 只要不打算在半打开连接上传输数据, 仍处于连接状态的一方就不会检测另一方已经出现异常
 
 ## References
 

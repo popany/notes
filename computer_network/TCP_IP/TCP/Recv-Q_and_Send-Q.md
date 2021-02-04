@@ -3,6 +3,7 @@
 - [Recv-Q and Send-Q](#recv-q-and-send-q)
   - [Use of Recv-Q and Send-Q](#use-of-recv-q-and-send-q)
     - [EDIT:](#edit)
+  - [linux : netstat listening queue length](#linux--netstat-listening-queue-length)
 
 ## [Use of Recv-Q and Send-Q](https://stackoverflow.com/questions/36466744/use-of-recv-q-and-send-q)
 
@@ -45,3 +46,66 @@ In real life, with non-crappy hosts and applications as you can reasonably expec
 - or the ACK may be on the network between the receiver and the sender.
 
 It takes a RTT (round time trip) for a packet to be send and then ACKed.
+
+## [linux : netstat listening queue length](https://serverfault.com/questions/432022/linux-netstat-listening-queue-length)
+
+Let's look into source code, as it's the best documentation in the world of open source.
+
+`net/ipv4/tcp_diag.c`:
+
+    if (sk->sk_state == TCP_LISTEN) {
+        r->idiag_rqueue = sk->sk_ack_backlog;
+        r->idiag_wqueue = sk->sk_max_ack_backlog;
+    } else {
+        r->idiag_rqueue = max_t(int, tp->rcv_nxt - tp->copied_seq, 0);
+        r->idiag_wqueue = tp->write_seq - tp->snd_una;
+    }
+
+The same thing we can see in unix domain sockets, `net/unix/diag.c`:
+
+    if (sk->sk_state == TCP_LISTEN) {
+        rql.udiag_rqueue = sk->sk_receive_queue.qlen;
+        rql.udiag_wqueue = sk->sk_max_ack_backlog;
+    } else {
+        rql.udiag_rqueue = (u32) unix_inq_len(sk);
+        rql.udiag_wqueue = (u32) unix_outq_len(sk);
+    }
+
+So.
+
+If **socket is established**, Recv-Q and Send-Q means bytes as it's described in documentation.
+
+If **socket is listening**, Recv-Q means current queue size, and Send-Q means configured backlog.
+
+Going deeper into mans gives us folowing in [sock_diag(7)](http://man7.org/linux/man-pages/man7/sock_diag.7.html):
+
+      UDIAG_SHOW_RQLEN
+             The attribute reported in answer to this request is
+             UNIX_DIAG_RQLEN.  The payload associated with this
+             attribute is represented in the following structure:
+
+                 struct unix_diag_rqlen {
+                     __u32 udiag_rqueue;
+                     __u32 udiag_wqueue;
+                 };
+
+             The fields of this structure are as follows:
+
+             udiag_rqueue
+                    For listening sockets: the number of pending
+                    connections.  The length of the array associated
+                    with the UNIX_DIAG_ICONS response attribute is
+                    equal to this value.
+
+                    For established sockets: the amount of data in
+                    incoming queue.
+
+             udiag_wqueue
+                    For listening sockets: the backlog length which
+                    equals to the value passed as the second argu‐
+                    ment to listen(2).
+
+                    For established sockets: the amount of memory
+                    available for sending.
+
+In other words, `ss -ln` is the only command you need
