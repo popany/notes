@@ -6,6 +6,7 @@
   - [alias](#alias)
   - [prompt](#prompt)
   - [basic](#basic)
+    - [Bash variable default value](#bash-variable-default-value)
     - [`set`](#set)
       - [`set -e -x -u`](#set--e--x--u)
     - [list file](#list-file)
@@ -58,7 +59,11 @@
     - [`ssh-keygen`](#ssh-keygen)
     - [`ssh-copy-id`](#ssh-copy-id)
     - [ssh dynamic port forwarding](#ssh-dynamic-port-forwarding)
-  - [`nc`](#nc)
+  - [network](#network)
+    - [`nc`](#nc)
+    - [`ss`](#ss)
+      - [Query tcp buffer sizes for a certain socket](#query-tcp-buffer-sizes-for-a-certain-socket)
+      - [USAGE EXAMPLES](#usage-examples)
 
 ## [Bash scripting cheatsheet](https://devhints.io/bash)
 
@@ -94,6 +99,18 @@ Filename of the shell script:
     export PS1="[\u@\h \W]\$(git_branch)\$ "
 
 ## basic
+
+### [Bash variable default value](https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash/2013589#2013589)
+
+Very close to what you posted, actually.
+
+To get the assigned value, or `default` if it's missing:
+
+    FOO="${VARIABLE:-default}"  # If variable not set or null, use default.
+
+Or to assign `default` to `VARIABLE` at the same time:
+
+    FOO="${VARIABLE:=default}"  # If variable not set or null, set it to default.
 
 ### `set`
 
@@ -467,7 +484,9 @@ Installs an [SSH key](https://www.ssh.com/ssh/key/) on a server as an authorized
 
     ssh -i ~/.ssh/id_rsa -D local_port username@server.com
 
-## `nc`
+## network
+
+### `nc`
 
 CLIENT/SERVER MODEL
 
@@ -480,3 +499,54 @@ CLIENT/SERVER MODEL
    client
 
       nc 127.0.0.1 1234
+
+### `ss`
+
+#### Query tcp buffer sizes for a certain socket
+
+    ss -ntmp
+
+[ref](https://access.redhat.com/discussions/3624151)
+
+> The `-m` switch of ss gives socket memory info.
+>
+>     # ss -ntmp
+>     State      Recv-Q Send-Q Local Address:Port  Peer Address:Port
+>     ESTAB      0      0      10.xx.xx.xxx:22     10.yy.yy.yyy:12345  users:(("sshd",pid=1442,fd=3))
+>              skmem:(r0,rb369280,t0,tb87040,f4096,w0,o0,bl0,d92)
+>
+> Here we can see this socket has Receive Buffer 369280 bytes, and Transmit Buffer 87040 bytes.
+>
+> Keep in mind the kernel will double any socket buffer allocation for overhead. So a process asks for 256 KiB buffer with `setsockopt(SO_RCVBUF)` then it will get 512 KiB buffer space. This is described on man 7 tcp.
+
+    ss -ntmp dst 127.0.0.1:10000
+
+#### [USAGE EXAMPLES](https://www.man7.org/linux/man-pages/man8/ss.8.html#USAGE_EXAMPLES)
+
+- `ss -t -a`
+
+  Display all TCP sockets.
+
+- `ss -t -a -Z`
+
+  Display all TCP sockets with process SELinux security contexts.
+
+- `ss -u -a`
+
+  Display all UDP sockets.
+
+- `ss -o state established '( dport = :ssh or sport = :ssh )'`
+
+  Display all established ssh connections.
+
+- `ss -x src /tmp/.X11-unix/*`
+
+  Find all local processes connected to X server.
+
+- `ss -o state fin-wait-1 '( sport = :http or sport = :https )' dst 193.233.7/24`
+
+  List all the tcp sockets in state FIN-WAIT-1 for our apache to network 193.233.7/24 and look at their timers.
+
+- `ss -a -A 'all,!tcp'`
+
+  List sockets in all states from all socket tables but TCP.

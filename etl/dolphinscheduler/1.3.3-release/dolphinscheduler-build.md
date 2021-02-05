@@ -28,6 +28,10 @@
 
 #### `./docker/build/Dockerfile` 内容
 
+- 环境变量
+
+  - `DOLPHINSCHEDULER_HOME`=`/opt/dolphinscheduler`
+
 - 配置 nginx
 
     RUN echo "daemon off;" >> /etc/nginx/nginx.conf && \
@@ -36,3 +40,4 @@
 
   - nginx 配置文件 `./conf/nginx/dolphinscheduler.conf`
 
+- 启动脚本 `./docker/build/startup.sh`
