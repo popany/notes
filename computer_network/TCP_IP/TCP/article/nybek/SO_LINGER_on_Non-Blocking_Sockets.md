@@ -20,4 +20,4 @@
 
 
 
-TODO tcp
+TODO tcp so_linger

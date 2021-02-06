@@ -119,6 +119,3 @@
   - 数据包是OSI模型中对第三层的数据单位的称呼
 
 - 与最大帧长度有关, 但不同
-
-
-TODO Link Layer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx

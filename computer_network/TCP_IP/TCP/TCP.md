@@ -22,6 +22,7 @@
     - [keep-alive](#keep-alive)
     - [异常终止连接](#异常终止连接)
     - [半打开连接](#半打开连接)
+    - [呼入连接请求队列 (Incoming Connection Queue)](#呼入连接请求队列-incoming-connection-queue)
   - [References](#references)
     - [What is Maximum Segment Lifetime (MSL) in TCP?](#what-is-maximum-segment-lifetime-msl-in-tcp)
     - [TCP 常用总结](#tcp-常用总结)
@@ -165,14 +166,20 @@
 
 - 只要不打算在半打开连接上传输数据, 仍处于连接状态的一方就不会检测另一方已经出现异常
 
+### 呼入连接请求队列 (Incoming Connection Queue)
+
+- 该队列中的连接已被 TCP 接收(三次握手完成)
+
+- 该队列中的连接还没有被应用层接受 (调用 `accept`)
+
+- 该队列的最大长度: backlog (积压值)
+
+- 应用层接受连接前, 对端发送的数据会被放入缓冲队列
+
+- 若该队列已满, TCP 不会处理收到的 SYN, 也不会发回任何报文段, 客户端主动打开将超时
+
 ## References
 
 ### [What is Maximum Segment Lifetime (MSL) in TCP?](https://stackoverflow.com/questions/289194/what-is-maximum-segment-lifetime-msl-in-tcp)
 
 ### [TCP 常用总结](https://www.cnblogs.com/abelian/p/6135042.html)
-
-
-
-
-
-TODO tcp
