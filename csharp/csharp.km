@@ -1831,6 +1831,69 @@
                                                                 "children": []
                                                             }
                                                         ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c92xds8fbdc0",
+                                                            "created": 1612663168801,
+                                                            "text": "System.Data.OleDb",
+                                                            "hyperlink": "https://docs.microsoft.com/en-us/dotnet/api/system.data.oledb",
+                                                            "hyperlinkTitle": ""
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c92xe1vs4800",
+                                                                    "created": 1612663189804,
+                                                                    "text": "OleDbConnection.ConnectionString",
+                                                                    "hyperlink": "https://docs.microsoft.com/en-us/dotnet/api/system.data.oledb.oledbconnection.connectionstring?view=dotnet-plat-ext-5.0",
+                                                                    "hyperlinkTitle": ""
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c92xefbdbew0",
+                                                            "created": 1612663219045,
+                                                            "text": "System.Data.Odbc",
+                                                            "hyperlink": "https://docs.microsoft.com/en-us/dotnet/api/system.data.odbc",
+                                                            "hyperlinkTitle": ""
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c92xeqwfk800",
+                                                                    "created": 1612663244263,
+                                                                    "text": "OdbcConnection.ConnectionString",
+                                                                    "hyperlink": "https://docs.microsoft.com/en-us/dotnet/api/system.data.odbc.odbcconnection.connectionstring?view=dotnet-plat-ext-5.0",
+                                                                    "hyperlinkTitle": ""
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "data": {
+                                                            "id": "c92xfl2876w0",
+                                                            "created": 1612663309917,
+                                                            "text": "System.Data.OracleClient",
+                                                            "hyperlink": "https://docs.microsoft.com/en-us/dotnet/api/system.data.oracleclient",
+                                                            "hyperlinkTitle": ""
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "c92xfs3zjzk0",
+                                                                    "created": 1612663325261,
+                                                                    "text": "OracleConnection.ConnectionString",
+                                                                    "hyperlink": "https://docs.microsoft.com/en-us/dotnet/api/system.data.oracleclient.oracleconnection.connectionstring?view=netframework-4.8",
+                                                                    "hyperlinkTitle": ""
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
                                                     }
                                                 ]
                                             }

@@ -8,6 +8,8 @@
     - [Windows sample configuration file](#windows-sample-configuration-file)
     - [Unix sample configuration file](#unix-sample-configuration-file)
   - [Other resources](#other-resources)
+  - [SOCKS proxy](#socks-proxy)
+  - [Android](#android)
 
 ## [stunnel TLS Proxy](https://www.stunnel.org/static/stunnel.html)
 
@@ -29,4 +31,10 @@
 
 - [How to install and configure stunnel on Ubuntu](https://hamy.io/post/0012/how-to-install-and-configure-stunnel-on-ubuntu/)
 
+## SOCKS proxy
 
+[How to setup an encrypted SOCKS proxy using stunnel](https://hamy.io/post/0013/how-to-setup-an-encrypted-socks-proxy-using-stunnel/#gsc.tab=0)
+
+## Android
+
+[How to run stunnel on your Android devicel](https://hamy.io/post/0011/how-to-run-stunnel-on-your-android-device/#gsc.tab=0)

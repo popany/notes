@@ -10,6 +10,8 @@
   - [ODBC Driver install](#odbc-driver-install)
     - [Windows](#windows)
       - [Oracle](#oracle-1)
+  - [Use ODBC](#use-odbc)
+    - [ODBC Connection String](#odbc-connection-string)
   - [ODBC Programmer's Reference](#odbc-programmers-reference)
 
 ## ODBC config
@@ -87,5 +89,13 @@
   - `cd C:\oracle\x64\instantclient_11_2`
 
   - call `odbc_install.exe`
+
+## Use ODBC
+
+### ODBC Connection String
+
+[Using Connection String Keywords with SQL Server Native Client](https://docs.microsoft.com/en-us/sql/relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client?view=sql-server-ver15)
+
+[OdbcConnection.ConnectionString](https://docs.microsoft.com/en-us/dotnet/api/system.data.odbc.odbcconnection.connectionstring?view=dotnet-plat-ext-5.0)
 
 ## [ODBC Programmer's Reference](https://docs.microsoft.com/en-us/sql/odbc/reference/odbc-programmer-s-reference?view=sql-server-ver15)
