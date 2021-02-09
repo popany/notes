@@ -31,6 +31,9 @@
     - [`zip`](#zip)
     - [`unzip`](#unzip)
     - [Count lines of code](#count-lines-of-code)
+    - [`top`](#top)
+      - [Batch mode](#batch-mode)
+      - [Interactive command](#interactive-command)
   - [`jq`](#jq)
   - [CentOS](#centos)
     - [Check CentOS version](#check-centos-version)
@@ -283,6 +286,24 @@ Extract to a directory
 ### Count lines of code
 
     find ./src -name '*.c'|xargs wc -l
+
+### `top`
+
+#### Batch mode
+
+    top -Eg -b -n1
+
+#### Interactive command
+
+- `I`
+
+  toggle Irix/Solaris modes
+
+  In Solaris mode, a task's cpu usage will be divided by the total number of CPUs
+
+- `c`
+
+  Display the command line
 
 ## `jq`
 
