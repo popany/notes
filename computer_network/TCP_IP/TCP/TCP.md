@@ -36,6 +36,7 @@
   - [References](#references)
     - [What is Maximum Segment Lifetime (MSL) in TCP?](#what-is-maximum-segment-lifetime-msl-in-tcp)
     - [TCP 常用总结](#tcp-常用总结)
+    - [[How many times will TCP retransmit]](#how-many-times-will-tcp-retransmit)
 
 ## Checksum
 
@@ -266,13 +267,69 @@
 
 #### 重传定时器
 
-- 重传超时时间
+- 重传超时(RTO, Retransmission Time Out)
 
-  - 根据 RTT 与其变化确定
+  - 根据 RTT 的均值与方差计算
+
+  - 根据指数退避计算下次重传时间
+
+    - 最大 64 秒
+
+  - 默认最大重传次数: 15
 
 #### 坚持(persist)定时器
 
+- 发送方使用
+
+- 收到关闭窗口 ACK 后设置
+
+- 目的为防止打开窗口 ACK 丢失
+
+- 窗口探查报文段
+
+  - 发送方发送
+
+  - 包含 1 字节数据
+
+  - 发送间隔(秒)
+  
+    5, 6, 12, 24, 48, 60, ... 60
+
+  - 持续发送
+
+    直到窗口开口或连接关闭
+
 #### 保活(keepalive)定时器
+
+- 保活定时器不属于 TCP 规范
+
+  - 理由
+
+    - 出现短暂差错的情况下, 这可能会使一个非常好的连接释放掉
+
+    - 耗费不必要的带宽
+
+    - 在按分组计费的情况下会在互联网上花掉更多的钱
+
+- 探查报文段
+
+  - 两小时发送一次
+
+  - 若没有收到响应, 则按 75 秒间隔发送, 最多发送 10 次
+
+- 异常情况
+
+  - 对端崩溃但未重启
+
+    错误信息为: 连接超时
+
+  - 对端崩溃并重启
+
+    错误信息为: 连接被对端复位
+
+  - 线路故障
+
+    错误信息为: 没有到达主机的路由
 
 #### 2MSL定时器
 
@@ -281,3 +338,36 @@
 ### [What is Maximum Segment Lifetime (MSL) in TCP?](https://stackoverflow.com/questions/289194/what-is-maximum-segment-lifetime-msl-in-tcp)
 
 ### [TCP 常用总结](https://www.cnblogs.com/abelian/p/6135042.html)
+
+### [How many times will TCP retransmit]
+
+f the server program crashes, the kernel will clean up all open sockets appropriately. (Well, appropriate from a TCP point of view; it might violate the application layer protocol, but applications should be prepared for this event.)
+
+If the server kernel crashes and does not come back up, the number and timing of retries depends if the socket were connected yet or not:
+
+    tcp_retries1 (integer; default: 3; since Linux 2.2)
+           The number of times TCP will attempt to
+           retransmit a packet on an established connection
+           normally, without the extra effort of getting
+           the network layers involved.  Once we exceed
+           this number of retransmits, we first have the
+           network layer update the route if possible
+           before each new retransmit.  The default is the
+           RFC specified minimum of 3.
+
+    tcp_retries2 (integer; default: 15; since Linux 2.2)
+           The maximum number of times a TCP packet is
+           retransmitted in established state before giving
+           up.  The default value is 15, which corresponds
+           to a duration of approximately between 13 to 30
+           minutes, depending on the retransmission
+           timeout.  The RFC 1122 specified minimum limit
+           of 100 seconds is typically deemed too short.
+
+(From [tcp(7)](https://man7.org/linux/man-pages/man7/tcp.7.html).)
+
+If the server kernel crashes and does come back up, it won't know about any of the sockets, and will `RST` those follow-on packets, enabling failure much faster.
+
+If any single-point-of-failure routers along the way crash, if they come back up quickly enough, the connection may continue working. This would require that firewalls and routers be stateless, or if they are [stateful](http://en.wikipedia.org/wiki/Stateful_firewall), have rulesets that allow preexisting connections to continue running. (Potentially unsafe, different firewall admins have different policies about this.)
+
+The failures are returned to the program with `errno` set to `ECONNRESET` (at least for [send(2)](https://www.man7.org/linux/man-pages/man2/send.2.html)).

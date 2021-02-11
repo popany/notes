@@ -17,6 +17,9 @@
     - [3b. MANAGING Fields](#3b-managing-fields)
   - [4. INTERACTIVE Commands](#4-interactive-commands)
     - [4a. GLOBAL Commands](#4a-global-commands)
+    - [4b. SUMMARY AREA Commands](#4b-summary-area-commands)
+    - [4c. TASK AREA Commands](#4c-task-area-commands)
+    - [4d. COLOR Mapping](#4d-color-mapping)
   - [5. ALTERNATE-DISPLAY Provisions](#5-alternate-display-provisions)
 
 ## NAME
@@ -715,524 +718,335 @@ If you wish to know in advance whether or not your top has been secured, simply 
 
   If you see a `+' between a displayed number and the following label, it means that top was forced to truncate some portion of that number. By raising the scaling factor, such truncation can be avoided.
 
-          e  :Enforce-Task-Memory-Scale in Task Area
-              With this command you can cycle through the available task
-              area memory scaling which ranges from KiB (kibibytes or
-              1,024 bytes) through PiB (pebibytes or
-              1,125,899,906,842,624 bytes).
-
-              While top will try to honor the selected target range,
-              additional scaling might still be necessary in order to
-              accommodate current values.  If you wish to see a more
-              homogeneous result in the memory columns, raising the
-              scaling range will usually accomplish that goal.  Raising
-              it too high, however, is likely to produce an all zero
-              result which cannot be suppressed with the `0' interactive
-              command.
-
-          g  :Choose-Another-Window/Field-Group
-              You will be prompted to enter a number between 1 and 4
-              designating the field group which should be made the
-              `current' window.  You will soon grow comfortable with
-              these 4 windows, especially after experimenting with
-              alternate-display mode.
-
-          H  :Threads-mode toggle
-              When this toggle is On, individual threads will be
-              displayed for all processes in all visible task windows.
-              Otherwise, top displays a summation of all threads in each
-              process.
-
-          I  :Irix/Solaris-Mode toggle
-              When operating in Solaris mode (`I' toggled Off), a task's
-              cpu usage will be divided by the total number of CPUs.
-              After issuing this command, you'll be told the new state
-              of this toggle.
-
-       *  k  :Kill-a-task
-              You will be prompted for a PID and then the signal to
-              send.
-
-              Entering no PID or a negative number will be interpreted
-              as the default shown in the prompt (the first task
-              displayed).  A PID value of zero means the top program
-              itself.
-
-              The default signal, as reflected in the prompt, is
-              SIGTERM.  However, you can send any signal, via number or
-              name.
-
-              If you wish to abort the kill process, do one of the
-              following depending on your progress:
-                  1) at the pid prompt, type an invalid number
-                  2) at the signal prompt, type 0 (or any invalid signal)
-                  3) at any prompt, type <Esc>
-
-          q  :Quit
-
-       *  r  :Renice-a-Task
-              You will be prompted for a PID and then the value to nice
-              it to.
-
-              Entering no PID or a negative number will be interpreted
-              as the default shown in the prompt (the first task
-              displayed).  A PID value of zero means the top program
-              itself.
-
-              A positive nice value will cause a process to lose
-              priority.  Conversely, a negative nice value will cause a
-              process to be viewed more favorably by the kernel.  As a
-              general rule, ordinary users can only increase the nice
-              value and are prevented from lowering it.
-
-              If you wish to abort the renice process, do one of the
-              following depending on your progress:
-                  1) at the pid prompt, type an invalid number
-                  2) at the nice prompt, type <Enter> with no input
-                  3) at any prompt, type <Esc>
-
-          W  :Write-the-Configuration-File
-              This will save all of your options and toggles plus the
-              current display mode and delay time.  By issuing this
-              command just before quitting top, you will be able restart
-              later in exactly that same state.
-
-          X  :Extra-Fixed-Width
-              Some fields are fixed width and not scalable.  As such,
-              they are subject to truncation which would be indicated by
-              a `+' in the last position.
-
-              This interactive command can be used to alter the widths
-              of the following fields:
-
-                  field  default    field  default    field  default
-                  GID       5       GROUP     8       WCHAN    10
-                  RUID      5       LXC       8       nsIPC    10
-                  SUID      5       RUSER     8       nsMNT    10
-                  UID       5       SUSER     8       nsNET    10
-                                    TTY       8       nsPID    10
-                                    USER      8       nsUSER   10
-                                                      nsUTS    10
-
-              You will be prompted for the amount to be added to the
-              default widths shown above.  Entering zero forces a return
-              to those defaults.
-
-              If you enter a negative number, top will automatically
-              increase the column size as needed until there is no more
-              truncated data.  You can accelerate this process by
-              reducing the delay interval or holding down the <Space>
-              bar.
-
-              Note: Whether explicitly or automatically increased, the
-              widths for these fields are never decreased by top.  To
-              narrow them you must specify a smaller number or restore
-              the defaults.
-
-          Y  :Inspect-Other-Output
-              After issuing the `Y' interactive command, you will be
-              prompted for a target PID.  Typing a value or accepting
-              the default results in a separate screen.  That screen can
-              be used to view a variety of files or piped command output
-              while the normal top iterative display is paused.
-
-              Note: This interactive command is only fully realized when
-              supporting entries have been manually added to the end of
-              the top configuration file.  For details on creating those
-              entries, see topic 6b. ADDING INSPECT Entries.
-
-              Most of the keys used to navigate the Inspect feature are
-              reflected in its header prologue.  There are, however,
-              additional keys available once you have selected a
-              particular file or command.  They are familiar to anyone
-              who has used the pager `less' and are summarized here for
-              future reference.
-
-                  key      function
-                  =        alternate status-line, file or pipeline
-                  /        find, equivalent to `L' locate
-                  n        find next, equivalent to `&' locate next
-                  <Space>  scroll down, equivalent to <PgDn>
-                  b        scroll up, equivalent to <PgUp>
-                  g        first line, equivalent to <Home>
-                  G        last line, equivalent to <End>
-
-          Z  :Change-Color-Mapping
-              This key will take you to a separate screen where you can
-              change the colors for the `current' window, or for all
-              windows.  For details regarding this interactive command
-              see topic 4d. COLOR Mapping.
-
-       *  The commands shown with an asterisk (`*') are not available in
-          Secure mode, nor will they be shown on the level-1 help
-          screen.
-
-   4b. SUMMARY AREA Commands
-       The summary area interactive commands are always available in
-       both full-screen mode and alternate-display mode.  They affect
-       the beginning lines of your display and will determine the
-       position of messages and prompts.
-
-       These commands always impact just the `current' window/field
-       group.  See topic 5. ALTERNATE-DISPLAY Provisions and the `g'
-       interactive command for insight into `current' windows and field
-       groups.
-
-          C  :Show-scroll-coordinates toggle
-              Toggle an informational message which is displayed
-              whenever the message line is not otherwise being used.
-              For additional information see topic 5c. SCROLLING a
-              Window.
-
-          l  :Load-Average/Uptime toggle
-              This is also the line containing the program name
-              (possibly an alias) when operating in full-screen mode or
-              the `current' window name when operating in
-              alternate-display mode.
-
-          t  :Task/Cpu-States toggle
-              This command affects from 2 to many summary area lines,
-              depending on the state of the `1', `2' or `3' command
-              toggles and whether or not top is running under true SMP.
-
-              This portion of the summary area is also influenced by the
-              `H' interactive command toggle, as reflected in the total
-              label which shows either Tasks or Threads.
-
-              This command serves as a 4-way toggle, cycling through
-              these modes:
-                  1. detailed percentages by category
-                  2. abbreviated user/system and total % + bar graph
-                  3. abbreviated user/system and total % + block graph
-                  4. turn off task and cpu states display
-
-              When operating in either of the graphic modes, the display
-              becomes much more meaningful when individual CPUs or NUMA
-              nodes are also displayed.  See the the `1', `2' and `3'
-              commands below for additional information.
-
-          m  :Memory/Swap-Usage toggle
-              This command affects the two summary area lines dealing
-              with physical and virtual memory.
-
-              This command serves as a 4-way toggle, cycling through
-              these modes:
-                  1. detailed percentages by memory type
-                  2. abbreviated % used/total available + bar graph
-                  3. abbreviated % used/total available + block graph
-                  4. turn off memory display
-
-          1  :Single/Separate-Cpu-States toggle
-              This command affects how the `t' command's Cpu States
-              portion is shown.  Although this toggle exists primarily
-              to serve massively-parallel SMP machines, it is not
-              restricted to solely SMP environments.
-
-              When you see `%Cpu(s):' in the summary area, the `1'
-              toggle is On and all cpu information is gathered in a
-              single line.  Otherwise, each cpu is displayed separately
-              as: `%Cpu0, %Cpu1, ...'  up to available screen height.
-
-          2  :NUMA-Nodes/Cpu-Summary toggle
-              This command toggles between the `1' command cpu summary
-              display (only) or a summary display plus the cpu usage
-              statistics for each NUMA Node.  It is only available if a
-              system has the requisite NUMA support.
-
-          3  :Expand-NUMA-Node
-              You will be invited to enter a number representing a NUMA
-              Node.  Thereafter, a node summary plus the statistics for
-              each cpu in that node will be shown until the `1', `2' or
-              `4' command toggle is pressed.  This interactive command
-              is only available if a system has the requisite NUMA
-              support.
-
-          4  :Display-Cpus-Two-Abreast
-              This command turns the `1' toggle Off for individual cpu
-              display but prints the results two abreast.  It requires a
-              terminal with a minimum width of 80 columns.  If a
-              terminal's width is decreased below the minimum while top
-              is running, top reverts to the normal `1' toggle Off
-              state.
-
-              To avoid truncation when displaying detailed cpu
-              statistcs, as opposed to the graphic representations, a
-              minimum width of 165 columns would be required.
-
-          !  :Combine-Cpus-Mode
-              This command toggle is intended for massively parallel SMP
-              environments where, even with the `4' command toggle, not
-              all processors can be displayed.  With each press of `!'
-              the number of additional cpu's combined is doubled thus
-              reducing the total number of cpu lines displayed.
-
-              For example, with the first press of `!' one additional
-              cpu will be combined and displayed as `0-1, 2-3, ...'
-              instead of the normal `%Cpu0, %Cpu1, %Cpu2, %Cpu3, ...'.
-              With a second `!' command toggle two additional cpus are
-              combined and shown as `0-2, 3-5, ...'.  Then the third '!'
-              press, combining four additional cpus, shows as `0-4, 5-9,
-              ...', etc.
-
-              Such progression continues until individual cpus are again
-              displayed and impacts both the `1' and `4' toggles (one or
-              two columns).  Use the `=' command to exit Combine Cpus
-              mode.
-
-       Note: If the entire summary area has been toggled Off for any
-       window, you would be left with just the message line.  In that
-       way, you will have maximized available task rows but
-       (temporarily) sacrificed the program name in full-screen mode or
-       the `current' window name when in alternate-display mode.
-
-   4c. TASK AREA Commands
-       The task area interactive commands are always available in
-       full-screen mode.
-
-       The task area interactive commands are never available in
-       alternate-display mode if the `current' window's task display has
-       been toggled Off (see topic 5. ALTERNATE-DISPLAY Provisions).
-
-       APPEARANCE of task window
-
-          J  :Justify-Numeric-Columns toggle
-              Alternates between right-justified (the default) and left-
-              justified numeric data.  If the numeric data completely
-              fills the available column, this command toggle may impact
-              the column header only.
-
-          j  :Justify-Character-Columns toggle
-              Alternates between left-justified (the default) and right-
-              justified character data.  If the character data
-              completely fills the available column, this command toggle
-              may impact the column header only.
-
-         The following commands will also be influenced by the state of
-         the global `B' (bold enable) toggle.
-
-          b  :Bold/Reverse toggle
-              This command will impact how the `x' and `y' toggles are
-              displayed.  It may also impact the summary area when a bar
-              graph has been selected for cpu states or memory usage via
-              the `t' or `m' toggles.
-
-          x  :Column-Highlight toggle
-              Changes highlighting for the current sort field.  If you
-              forget which field is being sorted this command can serve
-              as a quick visual reminder, providing the sort field is
-              being displayed.  The sort field might not be visible
-              because:
-                  1) there is insufficient Screen Width
-                  2) the `f' interactive command turned it Off
-
-              Note: Whenever Searching and/or Other Filtering is active
-              in a window, column highlighting is temporarily disabled.
-              See the notes at the end of topics 5d. SEARCHING and 5e.
-              FILTERING for an explanation why.
-
-          y  :Row-Highlight toggle
-              Changes highlighting for "running" tasks.  For additional
-              insight into this task state, see topic 3a. DESCRIPTIONS
-              of Fields, the `S' field (Process Status).
-
-              Use of this provision provides important insight into your
-              system's health.  The only costs will be a few additional
-              tty escape sequences.
-
-          z  :Color/Monochrome toggle
-              Switches the `current' window between your last used color
-              scheme and the older form of black-on-white or white-on-
-              black.  This command will alter both the summary area and
-              task area but does not affect the state of the `x', `y' or
-              `b' toggles.
-
-       CONTENT of task window
-
-          c  :Command-Line/Program-Name toggle
-              This command will be honored whether or not the COMMAND
-              column is currently visible.  Later, should that field
-              come into view, the change you applied will be seen.
-
-          f | F  :Fields-Management
-              These keys display a separate screen where you can change
-              which fields are displayed, their order and also designate
-              the sort field.  For additional information on these
-              interactive commands see topic 3b. MANAGING Fields.
-
-          o | O  :Other-Filtering
-              You will be prompted for the selection criteria which then
-              determines which tasks will be shown in the `current'
-              window.  Your criteria can be made case sensitive or case
-              can be ignored.  And you determine if top should include
-              or exclude matching tasks.
-
-              See topic 5e. FILTERING in a window for details on these
-              and additional related interactive commands.
-
-          S  :Cumulative-Time-Mode toggle
-              When Cumulative mode is On, each process is listed with
-              the cpu time that it and its dead children have used.
-
-              When Off, programs that fork into many separate tasks will
-              appear less demanding.  For programs like `init' or a
-              shell this is appropriate but for others, like compilers,
-              perhaps not.  Experiment with two task windows sharing the
-              same sort field but with different `S' states and see
-              which representation you prefer.
-
-              After issuing this command, you'll be informed of the new
-              state of this toggle.  If you wish to know in advance
-              whether or not Cumulative mode is in effect, simply ask
-              for help and view the window summary on the second line.
-
-          u | U  :Show-Specific-User-Only
-              You will be prompted for the uid or name of the user to
-              display.  The -u option matches on  effective user whereas
-              the -U option matches on any user (real, effective, saved,
-              or filesystem).
-
-              Thereafter, in that task window only matching users will
-              be shown, or possibly no processes will be shown.
-              Prepending an exclamation point (`!') to the user id or
-              name instructs top to display only processes with users
-              not matching the one provided.
-
-              Different task windows can be used to filter different
-              users.  Later, if you wish to monitor all users again in
-              the `current' window, re-issue this command but just press
-              <Enter> at the prompt.
-
-          V  :Forest-View-Mode toggle
-              In this mode, processes are reordered according to their
-              parents and the layout of the COMMAND column resembles
-              that of a tree.  In forest view mode it is still possible
-              to toggle between program name and command line (see the
-              `c' interactive command) or between processes and threads
-              (see the `H' interactive command).
-
-              Note: Typing any key affecting the sort order will exit
-              forest view mode in the `current' window.  See topic 4c.
-              TASK AREA Commands, SORTING for information on those keys.
-
-          v  :Hide/Show-Children toggle
-              When in forest view mode, this key serves as a toggle to
-              collapse or expand the children of a parent.
-
-              The toggle is applied against the first (topmost) process
-              in the `current' window.  See topic 5c. SCROLLING a Window
-              for additional information regarding vertical scrolling.
-
-              If the target process has not forked any children, this
-              key has no effect.  It also has no effect when not in
-              forest view mode.
-
-       SIZE of task window
-
-          i  :Idle-Process toggle
-              Displays all tasks or just active tasks.  When this toggle
-              is Off, tasks that have not used any CPU since the last
-              update will not be displayed.  However, due to the
-              granularity of the %CPU and TIME+ fields, some processes
-              may still be displayed that appear to have used no CPU.
-
-              If this command is applied to the last task display when
-              in alternate-display mode, then it will not affect the
-              window's size, as all prior task displays will have
-              already been painted.
-
-          n | #  :Set-Maximum-Tasks
-              You will be prompted to enter the number of tasks to
-              display.  The lessor of your number and available screen
-              rows will be used.
-
-              When used in alternate-display mode, this is the command
-              that gives you precise control over the size of each
-              currently visible task display, except for the very last.
-              It will not affect the last window's size, as all prior
-              task displays will have already been painted.
-
-              Note: If you wish to increase the size of the last visible
-              task display when in alternate-display mode, simply
-              decrease the size of the task display(s) above it.
-
-       SORTING of task window
-
-          For compatibility, this top supports most of the former top
-          sort keys.  Since this is primarily a service to former top
-          users, these commands do not appear on any help screen.
-                command   sorted-field                  supported
-                A         start time (non-display)      No
-                M         %MEM                          Yes
-                N         PID                           Yes
-                P         %CPU                          Yes
-                T         TIME+                         Yes
-
-          Before using any of the following sort provisions, top
-          suggests that you temporarily turn on column highlighting
-          using the `x' interactive command.  That will help ensure that
-          the actual sort environment matches your intent.
-
-          The following interactive commands will only be honored when
-          the current sort field is visible.  The sort field might not
-          be visible because:
-                1) there is insufficient Screen Width
-                2) the `f' interactive command turned it Off
-
-             <  :Move-Sort-Field-Left
-                 Moves the sort column to the left unless the current
-                 sort field is the first field being displayed.
-
-             >  :Move-Sort-Field-Right
-                 Moves the sort column to the right unless the current
-                 sort field is the last field being displayed.
-
-          The following interactive commands will always be honored
-          whether or not the current sort field is visible.
-
-             f | F  :Fields-Management
-                 These keys display a separate screen where you can
-                 change which field is used as the sort column, among
-                 other functions.  This can be a convenient way to
-                 simply verify the current sort field, when running top
-                 with column highlighting turned Off.
-
-             R  :Reverse/Normal-Sort-Field toggle
-                 Using this interactive command you can alternate
-                 between high-to-low and low-to-high sorts.
-
-          Note: Field sorting uses internal values, not those in column
-          display.  Thus, the TTY and WCHAN fields will violate strict
-          ASCII collating sequence.
-
-   4d. COLOR Mapping
-       When you issue the `Z' interactive command, you will be presented
-       with a separate screen.  That screen can be used to change the
-       colors in just the `current' window or in all four windows before
-       returning to the top display.
-
-       The following interactive commands are available.
-           4 upper case letters to select a target
-           8 numbers to select a color
-           normal toggles available
-               B         :bold disable/enable
-               b         :running tasks "bold"/reverse
-               z         :color/mono
-           other commands available
-               a/w       :apply, then go to next/prior
-               <Enter>   :apply and exit
-               q         :abandon current changes and exit
-
-       If you use `a' or `w' to cycle the targeted window, you will have
-       applied the color scheme that was displayed when you left that
-       window.  You can, of course, easily return to any window and
-       reapply different colors or turn colors Off completely with the
-       `z' toggle.
-
-       The Color Mapping screen can also be used to change the `current'
-       window/field group in either full-screen mode or
-       alternate-display mode.  Whatever was targeted when `q' or
-       <Enter> was pressed will be made current as you return to the top
-       display.
+- e: Enforce-Task-Memory-Scale in Task Area
+
+  With this command you can cycle through the available task area memory scaling which ranges from KiB (kibibytes or 1,024 bytes) through PiB (pebibytes or 1,125,899,906,842,624 bytes).
+
+  While top will try to honor the selected target range, additional scaling might still be necessary in order to accommodate current values.  If you wish to see a more homogeneous result in the memory columns, raising the scaling range will usually accomplish that goal. Raising it too high, however, is likely to produce an all zero result which cannot be suppressed with the `0' interactive command.
+
+- g: Choose-Another-Window/Field-Group
+
+  You will be prompted to enter a number between 1 and 4 designating the field group which should be made the `current` window. You will soon grow comfortable with these 4 windows, especially after experimenting with alternate-display mode.
+
+- H: Threads-mode toggle
+
+  When this toggle is On, individual threads will be displayed for all processes in all visible task windows. Otherwise, top displays a summation of all threads in each process.
+
+- I: Irix/Solaris-Mode toggle
+
+  When operating in Solaris mode (`I' toggled Off), a task's cpu usage will be divided by the total number of CPUs. After issuing this command, you'll be told the new state of this toggle.
+
+- `*  k`: Kill-a-task
+
+  You will be prompted for a PID and then the signal to send.
+
+  Entering no PID or a negative number will be interpreted as the default shown in the prompt (the first task displayed). A PID value of zero means the top program itself.
+
+  The default signal, as reflected in the prompt, is SIGTERM. However, you can send any signal, via number or name.
+
+  If you wish to abort the kill process, do one of the following depending on your progress:
+
+  1. at the pid prompt, type an invalid number
+  2. at the signal prompt, type 0 (or any invalid signal)
+  3. at any prompt, type `<Esc>`
+
+- q: Quit
+
+- `*  r: Renice-a-Task
+
+  You will be prompted for a PID and then the value to nice it to.
+
+  Entering no PID or a negative number will be interpreted as the default shown in the prompt (the first task displayed). A PID value of zero means the top program itself.
+
+  A positive nice value will cause a process to lose priority. Conversely, a negative nice value will cause a process to be viewed more favorably by the kernel. As a general rule, ordinary users can only increase the nice value and are prevented from lowering it.
+
+  If you wish to abort the renice process, do one of the following depending on your progress:
+
+  1. at the pid prompt, type an invalid number
+  2. at the nice prompt, type `<Enter>` with no input
+  3. at any prompt, type `<Esc>`
+
+- W: Write-the-Configuration-File
+
+  This will save all of your options and toggles plus the current display mode and delay time. By issuing this command just before quitting top, you will be able restart later in exactly that same state.
+
+- X: Extra-Fixed-Width
+
+  Some fields are fixed width and not scalable. As such, they are subject to truncation which would be indicated by a `+` in the last position.
+
+  This interactive command can be used to alter the widths of the following fields:
+
+        field  default    field  default    field  default
+        GID       5       GROUP     8       WCHAN    10
+        RUID      5       LXC       8       nsIPC    10
+        SUID      5       RUSER     8       nsMNT    10
+        UID       5       SUSER     8       nsNET    10
+                          TTY       8       nsPID    10
+                          USER      8       nsUSER   10
+                                            nsUTS    10
+
+  You will be prompted for the amount to be added to the default widths shown above. Entering zero forces a return to those defaults.
+
+  If you enter a negative number, top will automatically increase the column size as needed until there is no more truncated data. You can accelerate this process by reducing the delay interval or holding down the `<Space>` bar.
+
+  Note: Whether explicitly or automatically increased, the widths for these fields are never decreased by top. To narrow them you must specify a smaller number or restore the defaults.
+
+- Y: Inspect-Other-Output
+
+  After issuing the `Y` interactive command, you will be prompted for a target PID. Typing a value or accepting the default results in a separate screen.  That screen can be used to view a variety of files or piped command output while the normal top iterative display is paused.
+
+  Note: This interactive command is only fully realized when supporting entries have been manually added to the end of the top configuration file. For details on creating those entries, see topic 6b. ADDING INSPECT Entries.
+
+  Most of the keys used to navigate the Inspect feature are reflected in its header prologue. There are, however, additional keys available once you have selected a particular file or command. They are familiar to anyone who has used the pager `less` and are summarized here for future reference.
+
+        key      function
+        =        alternate status-line, file or pipeline
+        /        find, equivalent to `L' locate
+        n        find next, equivalent to `&' locate next
+        <Space>  scroll down, equivalent to <PgDn>
+        b        scroll up, equivalent to <PgUp>
+        g        first line, equivalent to <Home>
+        G        last line, equivalent to <End>
+
+- Z: Change-Color-Mapping
+
+  This key will take you to a separate screen where you can change the colors for the `current` window, or for all windows. For details regarding this interactive command see topic 4d. COLOR Mapping.
+
+- `*`  The commands shown with an asterisk (`*`) are not available in Secure mode, nor will they be shown on the level-1 help screen.
+
+### 4b. SUMMARY AREA Commands
+
+The summary area interactive commands are always available in both full-screen mode and alternate-display mode. They affect the beginning lines of your display and will determine the position of messages and prompts.
+
+These commands always impact just the `current` window/field group. See topic 5. ALTERNATE-DISPLAY Provisions and the `g` interactive command for insight into `current' windows and field groups.
+
+- C: Show-scroll-coordinates toggle
+
+  Toggle an informational message which is displayed whenever the message line is not otherwise being used. For additional information see topic 5c. SCROLLING a Window.
+
+- l: Load-Average/Uptime toggle
+
+  This is also the line containing the program name (possibly an alias) when operating in full-screen mode or the `current` window name when operating in alternate-display mode.
+
+- t: Task/Cpu-States toggle
+
+  This command affects from 2 to many summary area lines, depending on the state of the `1`, `2` or `3` command toggles and whether or not top is running under true SMP.
+
+  This portion of the summary area is also influenced by the `H` interactive command toggle, as reflected in the total label which shows either Tasks or Threads.
+
+  This command serves as a 4-way toggle, cycling through these modes:
+
+  1. detailed percentages by category
+  2. abbreviated user/system and total % + bar graph
+  3. abbreviated user/system and total % + block graph
+  4. turn off task and cpu states display
+
+  When operating in either of the graphic modes, the display becomes much more meaningful when individual CPUs or NUMA nodes are also displayed.  See the the `1`, `2` and `3` commands below for additional information.
+
+- m: Memory/Swap-Usage toggle
+
+  This command affects the two summary area lines dealing with physical and virtual memory.
+
+  This command serves as a 4-way toggle, cycling through these modes:
+
+  1. detailed percentages by memory type
+  2. abbreviated % used/total available + bar graph
+  3. abbreviated % used/total available + block graph
+  4. turn off memory display
+
+- 1: Single/Separate-Cpu-States toggle
+
+  This command affects how the `t` command's Cpu States portion is shown.  Although this toggle exists primarily to serve massively-parallel SMP machines, it is not restricted to solely SMP environments.
+
+  When you see `%Cpu(s):` in the summary area, the `1` toggle is On and all cpu information is gathered in a single line. Otherwise, each cpu is displayed separately as: `%Cpu0, %Cpu1, ...` up to available screen height.
+
+- 2: NUMA-Nodes/Cpu-Summary toggle
+
+  This command toggles between the `1` command cpu summary display (only) or a summary display plus the cpu usage statistics for each NUMA Node. It is only available if a system has the requisite NUMA support.
+
+- 3: Expand-NUMA-Node
+
+  You will be invited to enter a number representing a NUMA Node. Thereafter, a node summary plus the statistics for each cpu in that node will be shown until the `1`, `2` or `4` command toggle is pressed. This interactive command is only available if a system has the requisite NUMA support.
+
+- 4: Display-Cpus-Two-Abreast
+
+  This command turns the `1` toggle Off for individual cpu display but prints the results two abreast. It requires a terminal with a minimum width of 80 columns. If a terminal's width is decreased below the minimum while top is running, top reverts to the normal `1` toggle Off state.
+
+  To avoid truncation when displaying detailed cpu statistcs, as opposed to the graphic representations, a minimum width of 165 columns would be required.
+
+- !: Combine-Cpus-Mode
+
+  This command toggle is intended for massively parallel SMP environments where, even with the `4` command toggle, not all processors can be displayed.  With each press of `!` the number of additional cpu's combined is doubled thus reducing the total number of cpu lines displayed.
+
+  For example, with the first press of `!` one additional cpu will be combined and displayed as `0-1, 2-3, ...` instead of the normal `%Cpu0, %Cpu1, %Cpu2, %Cpu3, ...`. With a second `!` command toggle two additional cpus are combined and shown as `0-2, 3-5, ...`. Then the third '!' press, combining four additional cpus, shows as `0-4, 5-9, ...`, etc.
+
+  Such progression continues until individual cpus are again displayed and impacts both the `1` and `4` toggles (one or two columns). Use the `=` command to exit Combine Cpus mode.
+
+Note: If the entire summary area has been toggled Off for any window, you would be left with just the message line. In that way, you will have maximized available task rows but (temporarily) sacrificed the program name in full-screen mode or the `current' window name when in alternate-display mode.
+
+### 4c. TASK AREA Commands
+
+The task area interactive commands are always available in full-screen mode.
+
+The task area interactive commands are never available in alternate-display mode if the `current` window's task display has been toggled Off (see topic 5. ALTERNATE-DISPLAY Provisions).
+
+APPEARANCE of task window
+
+- J: Justify-Numeric-Columns toggle
+
+  Alternates between right-justified (the default) and left-justified numeric data. If the numeric data completely fills the available column, this command toggle may impact the column header only.
+
+- j: Justify-Character-Columns toggle
+
+  Alternates between left-justified (the default) and right-justified character data. If the character data completely fills the available column, this command toggle may impact the column header only.
+
+The following commands will also be influenced by the state of the global `B` (bold enable) toggle.
+
+- b: Bold/Reverse toggle
+
+  This command will impact how the `x` and `y` toggles are displayed. It may also impact the summary area when a bar graph has been selected for cpu states or memory usage via the `t` or `m` toggles.
+
+- x: Column-Highlight toggle
+
+  Changes highlighting for the current sort field. If you forget which field is being sorted this command can serve as a quick visual reminder, providing the sort field is being displayed. The sort field might not be visible because:
+
+  1. there is insufficient Screen Width
+  2. the `f` interactive command turned it Off
+
+  Note: Whenever Searching and/or Other Filtering is active in a window, column highlighting is temporarily disabled. See the notes at the end of topics 5d. SEARCHING and 5e. FILTERING for an explanation why.
+
+- y: Row-Highlight toggle
+
+  Changes highlighting for "running" tasks. For additional insight into this task state, see topic 3a. DESCRIPTIONS of Fields, the `S` field (Process Status).
+
+  Use of this provision provides important insight into your system's health.  The only costs will be a few additional tty escape sequences.
+
+- z: Color/Monochrome toggle
+
+  Switches the `current` window between your last used color scheme and the older form of black-on-white or white-on-black. This command will alter both the summary area and task area but does not affect the state of the `x`, `y` or `b` toggles.
+
+CONTENT of task window
+
+- c: Command-Line/Program-Name toggle
+
+  This command will be honored whether or not the COMMAND column is currently visible. Later, should that field come into view, the change you applied will be seen.
+
+- f | F: Fields-Management
+
+  These keys display a separate screen where you can change which fields are displayed, their order and also designate the sort field.  For additional information on these interactive commands see topic 3b. MANAGING Fields.
+
+- o | O: Other-Filtering
+
+  You will be prompted for the selection criteria which then determines which tasks will be shown in the `current` window. Your criteria can be made case sensitive or case can be ignored. And you determine if top should include or exclude matching tasks.
+
+  See topic 5e. FILTERING in a window for details on these and additional related interactive commands.
+
+- S  :Cumulative-Time-Mode toggle
+
+  When Cumulative mode is On, each process is listed with the cpu time that it and its dead children have used.
+
+  When Off, programs that fork into many separate tasks will appear less demanding. For programs like `init` or a shell this is appropriate but for others, like compilers, perhaps not. Experiment with two task windows sharing the same sort field but with different `S` states and see which representation you prefer.
+
+  After issuing this command, you'll be informed of the new state of this toggle. If you wish to know in advance whether or not Cumulative mode is in effect, simply ask for help and view the window summary on the second line.
+
+- u | U: Show-Specific-User-Only
+
+  You will be prompted for the uid or name of the user to display. The -u option matches on  effective user whereas the -U option matches on any user (real, effective, saved, or filesystem).
+
+  Thereafter, in that task window only matching users will be shown, or possibly no processes will be shown. Prepending an exclamation point (`!') to the user id or name instructs top to display only processes with users not matching the one provided.
+
+  Different task windows can be used to filter different users.  Later, if you wish to monitor all users again in the `current` window, re-issue this command but just press `<Enter>` at the prompt.
+
+- V: Forest-View-Mode toggle
+
+  In this mode, processes are reordered according to their parents and the layout of the COMMAND column resembles that of a tree. In forest view mode it is still possible to toggle between program name and command line (see the `c` interactive command) or between processes and threads (see the `H` interactive command).
+
+  Note: Typing any key affecting the sort order will exit forest view mode in the `current` window.  See topic 4c. TASK AREA Commands, SORTING for information on those keys.
+
+- v  :Hide/Show-Children toggle
+
+  When in forest view mode, this key serves as a toggle to collapse or expand the children of a parent.
+
+  The toggle is applied against the first (topmost) process in the `current' window.  See topic 5c. SCROLLING a Window for additional information regarding vertical scrolling. If the target process has not forked any children, this key has no effect.  It also has no effect when not in forest view mode.
+
+SIZE of task window
+
+- i: Idle-Process toggle
+
+  Displays all tasks or just active tasks.  When this toggle is Off, tasks that have not used any CPU since the last update will not be displayed.  However, due to the granularity of the %CPU and TIME+ fields, some processes may still be displayed that appear to have used no CPU.
+
+  If this command is applied to the last task display when in alternate-display mode, then it will not affect the window's size, as all prior task displays will have already been painted.
+
+- n | #: Set-Maximum-Tasks
+
+  You will be prompted to enter the number of tasks to display.  The lessor of your number and available screen rows will be used.
+  
+  When used in alternate-display mode, this is the command that gives you precise control over the size of each currently visible task display, except for the very last. It will not affect the last window's size, as all prior task displays will have already been painted.
+
+  Note: If you wish to increase the size of the last visible task display when in alternate-display mode, simply decrease the size of the task display(s) above it.
+
+SORTING of task window
+
+For compatibility, this top supports most of the former top sort keys.  Since this is primarily a service to former top users, these commands do not appear on any help screen.
+
+    command   sorted-field                  supported
+    A         start time (non-display)      No
+    M         %MEM                          Yes
+    N         PID                           Yes
+    P         %CPU                          Yes
+    T         TIME+                         Yes
+
+Before using any of the following sort provisions, top suggests that you temporarily turn on column highlighting using the `x` interactive command. That will help ensure that the actual sort environment matches your intent.
+
+The following interactive commands will only be honored when the current sort field is visible. The sort field might not be visible because:
+
+1. there is insufficient Screen Width
+2. the `f` interactive command turned it Off
+
+- <: Move-Sort-Field-Left
+
+  Moves the sort column to the left unless the current sort field is the first field being displayed.
+
+- >: Move-Sort-Field-Right
+
+  Moves the sort column to the right unless the current sort field is the last field being displayed.
+
+The following interactive commands will always be honored whether or not the current sort field is visible.
+
+- f | F: Fields-Management
+
+  These keys display a separate screen where you can change which field is used as the sort column, among other functions. This can be a convenient way to simply verify the current sort field, when running top with column highlighting turned Off.
+
+- R: Reverse/Normal-Sort-Field toggle
+
+  Using this interactive command you can alternate between high-to-low and low-to-high sorts.
+
+Note: Field sorting uses internal values, not those in column display. Thus, the TTY and WCHAN fields will violate strict ASCII collating sequence.
+
+### 4d. COLOR Mapping
+
+When you issue the `Z` interactive command, you will be presented with a separate screen. That screen can be used to change the colors in just the `current` window or in all four windows before returning to the top display.
+
+The following interactive commands are available.
+
+- 4 upper case letters to select a target
+- 8 numbers to select a color
+
+normal toggles available
+
+    B         :bold disable/enable
+    b         :running tasks "bold"/reverse
+    z         :color/mono
+
+other commands available
+
+    a/w       :apply, then go to next/prior
+    <Enter>   :apply and exit
+    q         :abandon current changes and exit
+
+If you use `a` or `w` to cycle the targeted window, you will have applied the color scheme that was displayed when you left that window. You can, of course, easily return to any window and reapply different colors or turn colors Off completely with the `z` toggle.
+
+The Color Mapping screen can also be used to change the `current` window/field group in either full-screen mode or alternate-display mode. Whatever was targeted when `q` or `<Enter>` was pressed will be made current as you return to the top display.
 
 ## 5. ALTERNATE-DISPLAY Provisions
 
@@ -1243,3 +1057,6 @@ If you wish to know in advance whether or not your top has been secured, simply 
 
 
 
+
+
+TODO top command

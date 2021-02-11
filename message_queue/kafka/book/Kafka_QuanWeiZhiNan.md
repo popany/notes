@@ -9,6 +9,19 @@
       - [1.2.3　主题和分区](#123主题和分区)
       - [1.2.4　生产者和消费者](#124生产者和消费者)
       - [1.2.5 broker和集群](#125-broker和集群)
+      - [1.2.6 多集群](#126-多集群)
+    - [1.3 为什么选择 Kafka](#13-为什么选择-kafka)
+      - [1.3.1 多个生产者](#131-多个生产者)
+      - [1.3.2 多个消费者](#132-多个消费者)
+      - [1.3.3 基于磁盘的数据存储](#133-基于磁盘的数据存储)
+      - [1.3.4 伸缩性](#134-伸缩性)
+      - [1.3.5 高性能](#135-高性能)
+    - [1.4 数据生态系统](#14-数据生态系统)
+  - [第 2 章 安装Kafka](#第-2-章-安装kafka)
+    - [2.1 要事先行](#21-要事先行)
+      - [2.1.1 选择操作系统](#211-选择操作系统)
+      - [2.1.2 安装Java](#212-安装java)
+      - [2.1.3 安装Zookeeper](#213-安装zookeeper)
 
 ## 第 1 章 初识Kafka
 
@@ -238,8 +251,169 @@
 
 - 分区的首领
 
-  - 
+  - 该分区所从属于的 broker
 
+- 分区复制
 
+  - 分区被分配给多个 broker 时发生
+
+- 保留消息
+
+  - 默认的策略
+
+    - 要么保留一段时间
+
+    - 要么保留到消息达到一定大小
+
+  - 主题可以配置自己的保留策略
+
+    - 紧凑型日志
+
+      - 只有最后一个带有特定键的消息会被保留下来
+
+#### 1.2.6 多集群
+
+- 使用多集群的原因
+
+  - 数据类型分离
+
+  - 安全需求隔离
+
+  - 多数据中心(灾难恢复)
+
+- kafka 的消息复制机制
+
+  只能在单个集群里进行, 不能在多个集群之间进行
+
+- MirrorMaker 工具
+
+  - 可实现集群间的消息复制
+
+  - 核心组件
+
+    - 一个消费者
+
+      从一个集群读取消息
+
+    - 一个生产者
+
+      把消息发送到另一个集群上
+
+    - 生产者与消费者间的队列
+
+### 1.3 为什么选择 Kafka
+
+#### 1.3.1 多个生产者
+
+#### 1.3.2 多个消费者
+
+#### 1.3.3 基于磁盘的数据存储
+
+#### 1.3.4 伸缩性
+
+#### 1.3.5 高性能
+
+### 1.4 数据生态系统
+
+- 大数据生态系统
+
+      在线应用程序         流处理               离线处理
+      Apache Solr,        Samza, Spark,        Hadoop
+      OpenTSDB            Storm, Flink
+           ^                  ^                   ^
+           |                  |                   |
+           |                  |                   |
+      |----v------------------v-------------------v----|
+      |                     Kafka                      |
+      |--^------------^-------------^---------------^--|
+         |            |             |               |
+         |            |             |               |
+        指标         日志         交易数据       物联网数据
+
+- 使用场景
+
+  - 活动跟踪
+
+  - 传递消息
+
+  - 度量指标和日志记录
+
+  - 提交日志
+
+  - 流处理
+
+## 第 2 章 安装Kafka
+
+### 2.1 要事先行
+
+#### 2.1.1 选择操作系统
+
+#### 2.1.2 安装Java
+
+推荐安装 Java 8
+
+#### 2.1.3 安装Zookeeper
+
+1. 单机服务
+
+   - 安装目录
+
+     `/usr/local/zookeeper`
+
+   - 数据目录
+
+     `/var/lib/zookeeper`
+
+   配置安装 Zookeeper
+
+       # tar -zxf zookeeper-3.4.6.tar.gz
+       # mv zookeeper-3.4.6 /usr/local/zookeeper
+       # mkdir -p /var/lib/zookeeper
+       # cat > /usr/local/zookeeper/conf/zoo.cfg << EOF
+       > tickTime=2000
+       > dataDir=/var/lib/zookeeper
+       > clientPort=2181
+       > EOF
+       # export JAVA_HOME=/usr/java/jdk1.8.0_51
+       # /usr/local/zookeeper/bin/zkServer.sh start
+       JMX enabled by default
+       Using config: /usr/local/zookeeper/bin/../conf/zoo.cfg
+       Starting zookeeper ... STARTED
+       #
+
+   验证 Zookeeper 是否安装正确
+
+       # telnet localhost 2181
+       Trying ::1...
+       Connected to localhost.
+       Escape character is '^]'.
+       srvr
+       Zookeeper version: 3.4.6-1569965, built on 02/20/2014 09:09 GMT
+       Latency min/avg/max: 0/0/0
+       Received: 1
+       Sent: 0
+       Connections: 1
+       Outstanding: 0
+       Zxid: 0x0
+       Mode: standalone
+       Node count: 4
+       Connection closed by foreign host.
+       #
+
+2. Zookeeper 群组(Ensemble)
+
+   - Zookeeper 集群被称为群组
+
+   - Zookeeper 使用一致性协议
+
+     - 建议每个群组里应该包含奇数个节点(比如 3 个、5 个等)
+
+     - 只有当群组里的大多数节点(也就是法定人数)处于可用状态, Zookeeper 才能处理外部的请求
+
+       - 如果你有一个包含 3 个节点的群组, 那么它允许一个节点失效
+
+       - 如果群组包含 5 个节点, 那么它允许 2 个节点失效
+
+   群组些公共配置文件举例
 
 

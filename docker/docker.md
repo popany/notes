@@ -67,6 +67,11 @@
       - [Remove the volumes associated with the container](#remove-the-volumes-associated-with-the-container)
     - [`docker logs`](#docker-logs)
     - [`docker inspect`](#docker-inspect)
+    - [`docker network`](#docker-network)
+      - [Create network](#create-network)
+      - [Remove network](#remove-network)
+      - [Connect a running container to an existing user-defined bridge](#connect-a-running-container-to-an-existing-user-defined-bridge)
+      - [Disconnect a running container from a user-defined bridge](#disconnect-a-running-container-from-a-user-defined-bridge)
 
 ## Install & Update
 
@@ -454,3 +459,21 @@ This command is only functional for containers that are started with the json-fi
     docker inspect -f '{{json .NetworkSettings.Networks}}' foo|jq
 
     docker inspect -f '{{json .Config}}' foo|jq
+
+### `docker network`
+
+#### Create network
+
+    docker network create my-net
+
+#### Remove network
+
+    docker network rm my-net
+
+#### Connect a running container to an existing user-defined bridge
+
+    docker network connect my-net my-nginx
+
+#### Disconnect a running container from a user-defined bridge
+
+    docker network disconnect my-net my-nginx
