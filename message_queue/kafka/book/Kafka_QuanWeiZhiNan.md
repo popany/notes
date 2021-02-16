@@ -22,6 +22,27 @@
       - [2.1.1 选择操作系统](#211-选择操作系统)
       - [2.1.2 安装Java](#212-安装java)
       - [2.1.3 安装Zookeeper](#213-安装zookeeper)
+    - [2.2　安装Kafka Broker](#22安装kafka-broker)
+    - [2.3 broker配置](#23-broker配置)
+      - [2.3.1 常规配置](#231-常规配置)
+      - [2.3.2 主题的默认配置](#232-主题的默认配置)
+    - [2.4 硬件的选择](#24-硬件的选择)
+      - [2.4.1 磁盘吞吐量](#241-磁盘吞吐量)
+      - [2.4.2 磁盘容量](#242-磁盘容量)
+      - [2.4.3 内存](#243-内存)
+      - [2.4.4 网络](#244-网络)
+      - [2.4.5 CPU](#245-cpu)
+    - [2.5 云端的Kafka](#25-云端的kafka)
+    - [2.6 Kafka集群](#26-kafka集群)
+      - [2.6.1 需要多少个broker](#261-需要多少个broker)
+      - [2.6.2 broker配置](#262-broker配置)
+      - [2.6.3 操作系统调优](#263-操作系统调优)
+    - [2.7 生产环境的注意事项](#27-生产环境的注意事项)
+      - [2.7.1 垃圾回收器选项](#271-垃圾回收器选项)
+      - [2.7.2 数据中心布局](#272-数据中心布局)
+      - [2.7.3 共享Zookeeper](#273-共享zookeeper)
+    - [2.8 总结](#28-总结)
+  - [第 3 章 Kafka生产者——向Kafka写入数据](#第-3-章-kafka生产者向kafka写入数据)
 
 ## 第 1 章 初识Kafka
 
@@ -415,5 +436,324 @@
        - 如果群组包含 5 个节点, 那么它允许 2 个节点失效
 
    群组些公共配置文件举例
+
+       tickTime=2000
+       dataDir=/var/lib/zookeeper
+       clientPort=2181
+       initLimit=20
+       syncLimit=5
+       server.1=zoo1.example.com:2888:3888
+       server.2=zoo2.example.com:2888:3888
+       server.3=zoo3.example.com:2888:3888
+
+   - 假定集群中服务器机器名为  `zoo1.example.com`, `zoo2.example.com`, `zoo3.example.com`
+
+   - 每个服务器要在数据目录中创建一个 myid 文件, 指明自己的 ID, 该 ID 要与配置文件一致
+
+   - `tickTime`
+
+     单位 ms
+
+   - `initLimit`
+
+     - 从节点与主节点建立初始化连接的时间上限
+
+     - 单位 `tickTime`
+
+   - `syncLimit`
+
+     - 从节点与主节点处于不同步状态的时间上限
+
+     - 单位 `tickTime`
+
+   - 服务器地址格式
+
+     `server.X=hostname:peerPort:leaderPort`
+
+     - `X`
+
+       - 服务器的 ID
+
+       - 必须是一个整数
+
+       - 不一定要从 0 开始, 也不要求是连续的
+
+     - `hostname`
+
+       服务器的机器名或 IP 地址
+
+     - `peerPort`
+
+       用于节点间通信的 TCP 端口
+
+     - `leaderPort`
+
+       用于首领选举的 TCP 端口
+
+   - 端口说明
+
+     - 客户端只需要通过 clientPort 就能连接到群组
+
+     - 而群组节点间的通信则需要同时用到这 3 个端口(peerPort, leaderPort, clientPort)
+
+### 2.2　安装Kafka Broker
+
+- Kafka 安装在 `/usr/local/kafka` 目录下
+
+- 把消息日志保存在 `/tmp/kafka-logs` 目录下
+
+安装:
+
+    # tar -zxf kafka_2.11-0.9.0.1.tgz
+    # mv kafka_2.11-0.9.0.1 /usr/local/kafka
+    # mkdir /tmp/kafka-logs
+    # export JAVA_HOME=/usr/java/jdk1.8.0_51
+    # /usr/local/kafka/bin/kafka-server-start.sh -daemon
+    /usr/local/kafka/config/server.properties
+    #
+
+验证安装正确:
+
+- 创建并验证测试主题
+
+      # /usr/local/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181
+      --replication-factor 1 --partitions 1 --topic test
+      Created topic "test".
+      # /usr/local/kafka/bin/kafka-topics.sh --zookeeper localhost:2181
+      --describe --topic test
+      Topic:test PartitionCount:1 ReplicationFactor:1 Configs:
+      Topic: test Partition: 0 Leader: 0 Replicas: 0 Isr: 0
+      #
+
+- 往测试主题上发布消息
+
+      # /usr/local/kafka/bin/kafka-console-producer.sh --broker-list
+      localhost:9092 --topic test
+      Test Message 1
+      Test Message 2
+      ^D
+      #
+
+- 从测试主题上读取消息
+
+      # /usr/local/kafka/bin/kafka-console-consumer.sh --zookeeper
+      localhost:2181 --topic test --from-beginning
+      Test Message 1
+      Test Message 2
+      ^C
+      Consumed 2 messages
+      #
+
+### 2.3 broker配置
+
+#### 2.3.1 常规配置
+
+1. `broker.id`
+
+   - broker 的标识符
+
+   - 可设置为任意整数
+
+     - 默认值 0
+
+     - 在 Kafka 集群里必须是唯一的
+
+2. `port`
+
+   - 默认 9092
+
+3. `zookeeper.connect`
+
+   格式 `hostname:port/path`
+
+   - `hostname`
+
+     Zookeeper 服务器的机器名或 IP 地址
+
+   - `port`
+
+     Zookeeper 的客户端连接端口
+
+   - `/path`
+
+     - Zookeeper 路径, 作为 Kafka 集群的 chroot 环境
+
+     - 可选. 如果不指定, 默认使用根路径
+
+     - 如果路径不存在, broker 会在启动的时候创建
+
+   - 可以指定一组 Zookeeper 服务器, 用分号把它们隔开
+
+4. `log.dirs`
+
+   - 一组用逗号分隔的本地文件系统路径
+
+   - 指定存储日志片段文件的目录
+
+   - "最少使用" 原则
+
+     - 把同一分区的日志片段保存在同一目录
+
+     - 往拥有最少数目分区的目录新增分区
+
+5. `num.recovery.threads.per.data.dir`
+
+   处理每个日志目录中的日志片段的线程池大小
+
+   - 默认值 1
+
+   - 若该值设置为 8, `log.dirs` 设置为 3, 则共需要 24 个线程
+
+   处理日志片段的线程池的使用场景:
+
+   - 服务器正常启动, 用于打开每个分区的日志片段
+   - 服务器崩溃后重启, 用于检查和截短每个分区的日志片段
+   - 服务器正常关闭, 用于关闭日志片段
+
+6. `auto.create.topics.enable`
+
+   - 默认值 `true`
+
+   - 若为 `true`, Kafka 在如下情况自动创建主题
+
+     - 当一个生产者开始往主题写入消息时
+     - 当一个消费者开始从主题读取消息时
+     - 当任意一个客户端向主题发送元数据请求时
+
+#### 2.3.2 主题的默认配置
+
+可以通过管理工具单独配置每个主题
+
+1. `num.partitions`
+
+   - 指定新创建的主题包含的分区个数
+
+   - 默认值 1
+
+   - 可通过手动创建主题指定分区数
+
+2. `log.retention.ms` / `log.retention.hours` / `log.retention.minutes`
+
+   - 数据保存时间
+
+   - 三个参数作用相同, 值最小的参数起作用
+
+   - 默认情况下数据保留一周
+
+   - 保留数据时间检查
+
+     - 通过检查日志片段文件的最后修改时间实现
+
+3. `log.retention.bytes`
+
+   单个分区可保留的数据大小
+
+4. `log.segment.bytes`
+
+   - 日志片段大小上限
+
+     超过该值后, 日志片段文件被关闭, 关闭后才开始等待过期
+
+5. `log.segment.ms`
+
+   - 控制日志片段的关闭时间
+
+6. `message.max.bytes`
+
+   - 压缩后的单个消息大小上限
+
+   - 默认值 `1000 000`
+
+   - 若超过该大小, 生产者会收到 broker 返回的错误
+
+   - 要与消费者客户端设置的 `fetch.message.max.bytes` 相协调
+
+     - 否则会出现消费者被阻塞的情况
+
+   - 要与集群中的 broker 配置的 `replica.fetch.max.bytes` 相协调
+
+### 2.4 硬件的选择
+
+#### 2.4.1 磁盘吞吐量
+
+#### 2.4.2 磁盘容量
+
+#### 2.4.3 内存
+
+#### 2.4.4 网络
+
+#### 2.4.5 CPU
+
+### 2.5 云端的Kafka
+
+### 2.6 Kafka集群
+
+#### 2.6.1 需要多少个broker
+
+决定因素:
+
+- 需要多少磁盘空间来保留数据, 以及单个 broker 有多少空间可用
+
+- 集群处理请求的能力
+
+#### 2.6.2 broker配置
+
+#### 2.6.3 操作系统调优
+
+1. 虚拟内存
+
+   对于大多数依赖吞吐量的应用程序来说, 要尽量避免内存交换
+
+2. 磁盘
+
+   最后访问时间(atime)
+
+   - 更新 atime 导致大量的磁盘写操作
+
+   - Kafka 用不到该属性
+
+   - 为挂载点设置 noatime 参数可以防止更新 atime
+
+3. 网络
+
+### 2.7 生产环境的注意事项
+
+#### 2.7.1 垃圾回收器选项
+
+#### 2.7.2 数据中心布局
+
+#### 2.7.3 共享Zookeeper
+
+- Kafka 使用 Zookeeper 来保存 broker、主题和分区的元数据信息
+
+- 在很多部署环境里, 会让多个 Kafka 集群共享一个 Zookeeper 群
+组(每个集群使用一个 chroot 路径)
+
+- 虽然多个 Kafka 集群可以共享一个 Zookeeper 群组, 但如果有可能的话, 不建议把 Zookeeper 共享给其他应用程序
+
+- Kafka 消费者和 Zookeeper
+
+  - 在 Kafka 0.9.0.0 版本之前
+
+    除了 broker 之外, 消费者也会使用 Zookeeper 来保存一些信息, 比如消费者群组的信息、主题信息、消费分区的偏移量（在消费者群组里发生失效转移时会用到）
+
+  - 到了 0.9.0.0 版本
+
+    Kafka 引入了一个新的消费者接口, 允许 broker 直接维护这些信息
+
+  - 建议使用最新版本的 Kafka
+
+    让消费者把偏移量提交到 Kafka 服务器上，消除对 Zookeeper 的依赖
+
+### 2.8 总结
+
+## 第 3 章 Kafka生产者——向Kafka写入数据
+
+
+
+
+
+
+
 
 
