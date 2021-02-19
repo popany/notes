@@ -25,6 +25,7 @@
       - [`info breakpoints`](#info-breakpoints)
       - [`info functions`](#info-functions)
       - [`info threads`](#info-threads)
+      - [`info stack`](#info-stack)
     - [`thread`](#thread)
       - [`thread <thread ID>`](#thread-thread-id)
     - [`list`](#list)
@@ -132,6 +133,10 @@ All function names
 #### `info threads`
 
 Display currently known threads
+
+#### `info stack`
+
+Backtrace of the stack
 
 ### `thread`
 

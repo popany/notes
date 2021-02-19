@@ -34,6 +34,8 @@
     - [`top`](#top)
       - [Batch mode](#batch-mode)
       - [Interactive command](#interactive-command)
+    - [`kill`](#kill)
+      - [Create core dump](#create-core-dump)
   - [`jq`](#jq)
   - [CentOS](#centos)
     - [Check CentOS version](#check-centos-version)
@@ -304,6 +306,13 @@ Extract to a directory
 - `c`
 
   Display the command line
+
+### `kill`
+
+#### Create core dump
+
+    ulimit -c unlimited
+    kill -3 <pid>
 
 ## `jq`
 

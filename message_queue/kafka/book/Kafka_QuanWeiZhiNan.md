@@ -43,6 +43,11 @@
       - [2.7.3 共享Zookeeper](#273-共享zookeeper)
     - [2.8 总结](#28-总结)
   - [第 3 章 Kafka生产者——向Kafka写入数据](#第-3-章-kafka生产者向kafka写入数据)
+    - [3.1 生产者概览](#31-生产者概览)
+    - [3.2 创建Kafka生产者](#32-创建kafka生产者)
+    - [3.3 发送消息到Kafka](#33-发送消息到kafka)
+      - [3.3.1 同步发送消息](#331-同步发送消息)
+      - [3.3.2 异步发送消息](#332-异步发送消息)
 
 ## 第 1 章 初识Kafka
 
@@ -749,10 +754,224 @@
 
 ## 第 3 章 Kafka生产者——向Kafka写入数据
 
+### 3.1 生产者概览
+
+- 使用场景
+
+  - 记录用户的活动(用于审计和分析)
+  - 记录度量指标
+  - 保存日志消息
+  - 记录智能家电的信息
+  - 与其他应用程序进行异步通信
+  - 缓冲即将写入到数据库的数据, 等等
+
+- 需求
+
+  - 是否每个消息都很重要
+  - 是否允许丢失一小部分消息
+  - 偶尔出现重复消息是否可以接受
+  - 是否有严格的延迟和吞吐量要求
+
+发送消息的主要步骤:
+
+                                              +----------------+
+                                              | ProducerRecord |
+                                              | +------------+ |
+                                              | |   Topic    | |
+                                              | |------------| |
+                                              | |[Partition] | |
+                    +------+----------------->| |------------| |
+                    |      |                  | |   [key]    | |
+                    |      |                  | |------------| |
+                    |      |                  | |   Value    | |
+                    |      |                  | +------------+ |
+                    |      |                  +-------+--------+ 
+                    |      |                          |
+    When successful |      | If can't retry,          | send()
+    return Metadata |      | throw exception          |
+                    |      |                     +----v-----+
+                    |      |                     |Serializer|
+                    |      |                     +----+-----+
+                    |      |                          |
+                    |      |                     +----v------+
+                    |      |                     |Partitioner|
+                    |      |                     +----+------+
+                    |      |                          |
+                    |      |                +---------+---------+
+                    |      |                |                   |
+                    |      |         +------v------+     +------v------+
+                    |      |         |   Topic A   |     |   Topic A   |
+                    |      /\   yes  | Partition 0 |     | Partition 0 |
+                    |    Retry?----->| +---------+ |     | +---------+ |
+                    |      \/        | | Batch 0 | |     | | Batch 0 | |
+                    |      ^         | |---------| |     | |---------| |
+                    |      | yes     | | Batch 1 | |     | | Batch 1 | |
+                    |      |         | |---------| |     | |---------| |
+                    |      /\        | | Batch 2 | |     | | Batch 2 | |
+                    +---- Fail?      | +---------+ |     | +---------+ |
+                           \/        +-------------+     +-------------+
+                           ^                |                   |
+                           |                +---------+---------+
+                           |                          |
+                           |                   +------v------+
+                           +-------------------|Kafka Brocker|
+                                               +-------------+
+                
+    
 
 
 
 
+
+
+
+
+
+### 3.2 创建Kafka生产者
+
+- 生产者的 3 个必选属性
+
+  - `bootstrap.servers`
+
+    - 指定 broker 的地址清单
+
+      - 地址的格式为 `host:port`  
+
+    - 清单里不需要包含所有的 broker 地址
+
+      - 生产者会从给定的 broker 里查找到其他 broker 的信息
+
+      - 建议至少要提供两个 broker 的信息
+
+        - 一旦其中一个宕机, 生产者仍然能够连接到集群上
+
+  - `key.serializer`
+
+    - 必须被设置为一个实现了 `org.apache.kafka.common.serialization.Serializer` 接口的类
+
+    - Kafka 客户端默认提供了
+
+      - `ByteArraySerializer`
+      - `StringSerializer`
+      - `IntegerSerializer`
+
+  - `value.serializer`
+
+代码示例, 创建一个生产者, 只指定必选属性:
+
+    private Properties kafkaProps = new Properties();
+    kafkaProps.put("bootstrap.servers", "broker1:9092,broker2:9092");
+    kafkaProps.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+    kafkaProps.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+    producer = new KafkaProducer<String, String>(kafkaProps);
+
+- 发送消息的三种方式
+
+  - 发送并忘记（fire-and-forget）
+
+    - 不关心消息是否正常到达
+
+    - 大多数情况下，消息会正常到达
+
+      - 因为 Kafka 是高可用的
+      - 而且生产者会自动尝试重发
+
+    - 不过，使用这种方式有时候也会丢失一些消息
+
+- 同步发送
+
+  - 使用 `send()` 方法发送消息
+
+    - 它会返回一个 `Future` 对象
+    - 调用 `get()` 方法进行等待, 就可以知道消息是否发送成功
+
+- 异步发送
+
+  - 调用 `send()` 方法, 并指定一个回调函数
+
+    - 服务器在返回响应时调用该函数
+
+### 3.3 发送消息到Kafka
+
+最简单的消息发送方式:
+
+    ProducerRecord<String, String> record = new ProducerRecord<>("CustomerCountry", "Precision Products", "France");
+    try {
+        producer.send(record);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+- 键和值对象的类型必须与序列化器和生产者对象相匹配
+
+- 消息先是被放进缓冲区, 然后使用单独的线程发送到服务器端
+
+- 忽略 `send()` 返回值, 不关心消息是否发送成功
+
+- 发送消息前生产者可能发生其他异常
+
+  - `SerializationException`
+
+    说明序列化消息失败
+
+  - `BufferExhaustedException` 或 `TimeoutException`
+
+    说明缓冲区已满
+
+  - `InterruptException`
+
+    说明发送线程被中断
+
+#### 3.3.1 同步发送消息
+
+最简单的同步发送消息方式:
+
+    ProducerRecord<String, String> record = new ProducerRecord<>("CustomerCountry", "Precision Products", "France");
+    try {
+        producer.send(record).get();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+- `producer.send()` 方法返回一个 `Future` 对象
+
+- 调用 `Future` 对象的 `get()` 方法等待 Kafka 响应
+
+  - 如果服务器返回错误, `get()` 方法会抛出异常
+
+  - 如果没有发生错误, 返回 `RecordMetadata` 对象
+
+    - 可以用它获取消息的偏移量
+
+KafkaProducer 一般会发生两类错误:
+
+- 可重试错误
+
+  - 可以通过重发消息解决
+
+    比如:
+
+    - 对于连接错误
+
+      可以通过再次建立连接来解决
+
+    - "无主(no leader)"错误
+
+      可以通过重新为分区选举首领来解决
+
+  - `KafkaProducer` 可以被配置成自动重试
+
+    如果在多次重试后仍无法解决问题, 应用程序会收到一个重试异常
+
+- 无法通过重试解决的错误
+
+  比如:
+
+  - "消息太大"异常
+
+    对于这类错误, `KafkaProducer` 不会进行任何重试, 直接抛出异常
+
+#### 3.3.2 异步发送消息
 
 
 
