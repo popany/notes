@@ -4,3 +4,8 @@
   - [Bash For Loop Examples](#bash-for-loop-examples)
 
 ## [Bash For Loop Examples](https://www.cyberciti.biz/faq/bash-for-loop/)
+
+
+
+
+TODO bash for loop

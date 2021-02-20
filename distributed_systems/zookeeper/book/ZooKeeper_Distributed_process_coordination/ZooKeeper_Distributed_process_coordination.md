@@ -1,4 +1,4 @@
-# [ZooKeeper Distributed process coordination]()
+# ZooKeeper Distributed process coordination
 
 - [ZooKeeper Distributed process coordination](#zookeeper-distributed-process-coordination)
   - [CHAPTER 1 Introduction](#chapter-1-introduction)
@@ -19,6 +19,9 @@
       - [API Overview](#api-overview)
       - [Different Modes for Znodes](#different-modes-for-znodes)
         - [Persistent and ephemeral znodes](#persistent-and-ephemeral-znodes)
+        - [Sequential znodes](#sequential-znodes)
+      - [Watches and Notifications](#watches-and-notifications)
+      - [Versions](#versions)
 
 ## CHAPTER 1 Introduction
 
@@ -305,6 +308,75 @@ ZooKeeper does not allow partial **writes** or **reads** of the znode data
 ##### Persistent and ephemeral znodes
 
 - persistent znode
+
+  - can be deleted only through a call to `delete`
+
+- ephemeral znode
+
+  - can be deleted in two situations
+
+    - When the session of the client creator ends, either by expiration or because it explicitly closed.
+
+    - When a client, not necessarily the creator, deletes it.
+
+##### Sequential znodes
+
+- A sequential znode is assigned a unique, monotonically increasing integer.
+
+  - This sequence number is appended to the path used to create the znode
+
+- Sequential znodes provide an easy way to create znodes with unique names
+
+- They also provide a way to easily see the creation order of znodes
+
+four options for the mode of a znode: 
+
+- persistent
+- ephemeral
+- persistent_sequential
+- ephemeral_sequential
+
+#### Watches and Notifications
+
+- A watch is a one-shot operation, which means that it triggers
+one notification
+
+  - To receive multiple notifications over time, the client must set a new watch upon receiving each notification
+
+  - you won’t miss changes to the state
+
+    - because we set watches with operations that read the state of ZooKeeper
+
+- notifications is that they are delivered to a client before any other change is made to the same znode
+
+  - The key property we satisfy is the one that notifications preserve the order of updates the client observes
+
+  - we guarantee that clients observe changes to the ZooKeeper state according to a global order
+
+- ZooKeeper produces different types of notifications, depending on how the watch corresponding to the notification was set
+
+  A client can set a watch for
+  
+  - changes to the data of a znode
+
+  - changes to the children of a znode
+
+  - or a znode being created or deleted
+
+To set a watch
+
+- we can use any of the calls in the API that read the state of ZooKeeper
+
+- These API calls give the option of passing a Watcher object or using the default watcher
+
+#### Versions
+
+
+
+
+
+
+
 
 
 

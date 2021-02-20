@@ -7477,7 +7477,7 @@
                                 "data": {
                                     "id": "c4iryede54w0",
                                     "created": 1595992024721,
-                                    "text": "<plugin>\n  <artifactId>maven-assembly-plugin</artifactId>\n  <configuration>\n\t<archive>\n\t  <manifest>\n\t    <mainClass>org.example.App</mainClass>\n\t  </manifest>\n\t</archive>\n\t<descriptorRefs>\n\t  <descriptorRef>jar-with-dependencies</descriptorRef>\n\t</descriptorRefs>\n  </configuration>\n  <executions>\n\t<execution>\n\t  <id>make-assembly</id>\n\t  <phase>package</phase>\n\t  <goals>\n\t    <goal>single</goal>\n\t  </goals>\n\t</execution>\n  </executions>\n</plugin>"
+                                    "text": "<plugin>\n  <artifactId>maven-assembly-plugin</artifactId>\n<version>3.3.0</version>\n<configuration>\n\t<archive>\n\t  <manifest>\n\t    <mainClass>org.example.App</mainClass>\n\t  </manifest>\n\t</archive>\n\t<descriptorRefs>\n\t  <descriptorRef>jar-with-dependencies</descriptorRef>\n\t</descriptorRefs>\n  </configuration>\n  <executions>\n\t<execution>\n\t  <id>make-assembly</id>\n\t  <phase>package</phase>\n\t  <goals>\n\t    <goal>single</goal>\n\t  </goals>\n\t</execution>\n  </executions>\n</plugin>"
                                 },
                                 "children": []
                             }
