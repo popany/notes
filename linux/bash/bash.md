@@ -64,6 +64,7 @@
     - [`ssh-keygen`](#ssh-keygen)
     - [`ssh-copy-id`](#ssh-copy-id)
     - [ssh dynamic port forwarding](#ssh-dynamic-port-forwarding)
+    - [Map localhost:6103 to foo-host localhost:6103](#map-localhost6103-to-foo-host-localhost6103)
   - [network](#network)
     - [`nc`](#nc)
     - [`ss`](#ss)
@@ -513,6 +514,10 @@ Installs an [SSH key](https://www.ssh.com/ssh/key/) on a server as an authorized
     ssh -D local_port username@server.com
 
     ssh -i ~/.ssh/id_rsa -D local_port username@server.com
+
+### Map localhost:6103 to foo-host localhost:6103
+
+    ssh -L localhost:6103:localhost:6103 root@foo-host
 
 ## network
 
