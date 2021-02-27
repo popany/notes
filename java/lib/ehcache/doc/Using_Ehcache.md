@@ -12,6 +12,12 @@
     - [cache-as-sor example](#cache-as-sor-example)
     - [Copy Cache](#copy-cache)
   - [Specific Technologies](#specific-technologies)
+    - [Distributed Caching](#distributed-caching)
+    - [Hibernate](#hibernate)
+    - [Caching with Java EE Servlet](#caching-with-java-ee-servlet)
+    - [RESTful and SOAP Caching with the Cache Server](#restful-and-soap-caching-with-the-cache-server)
+    - [JCache style caching](#jcache-style-caching)
+    - [Spring, Cocoon, Acegi and other frameworks](#spring-cocoon-acegi-and-other-frameworks)
 
 ## Introduction
 
@@ -190,16 +196,55 @@ More information on configuration can be found here: [copyOnRead and copyOnWrite
 
 ## Specific Technologies
 
+### Distributed Caching
 
+Distributed Ehcache combines the power of the Terracotta platform with the ease of Ehcache application-data caching. Ehcache supports [distributed caching](http://terracotta.org/documentation/2.8/enterprise-ehcache/get-started) with two lines of configuration.
 
+By integrating Enterprise Ehcache with the Terracotta platform, you can take advantage of BigMemory and expanded Terracotta Server Arrays to greatly scale your application and cluster.
 
+The distributed-cache documentation covers how to configure Ehcache in a Terracotta cluster and how to use its API in your application.
 
+### Hibernate
 
+- Perform the same steps as for general-purpose caching (above).
+- Create caches in `ehcache.xml`.
 
+See the [Hibernate Caching](https://www.ehcache.org/documentation/2.8/integrations/hibernate.html) chapter for more information.
 
+### Caching with Java EE Servlet
 
+- Perform the same steps as for general-purpose caching above.
 
+- Configure a cache for your web page in `ehcache.xml`.
 
+- To cache an entire web page, either use `SimplePageCachingFilter` or create your own subclass of `CachingFilter`
 
+- To cache a `jsp:Include` or anything callable from a `RequestDispatcher`, either use `SimplePageFragmentCachingFilter` or create a subclass of `PageFragmentCachingFilter`.
 
-TODO ehcache eeeeeeeeeeeeeee
+- Configure the `web.xml`. Declare the filters created above and create filter mapping associating the filter with a URL.
+
+See the [Web Caching](https://www.ehcache.org/documentation/2.8/modules/web-caching.html) chapter for more information.
+
+### RESTful and SOAP Caching with the Cache Server
+
+- Download the ehcache-standalone-server from <https://sourceforge.net/projects/ehcache/files/ehcache-server>.
+
+- cd to the bin directory
+
+- Type `startup.sh` to start the server with the log in the foreground. By default it will listen on port 8080, will have both RESTful and SOAP web services enabled, and will use a sample Ehcache configuration from the WAR module.
+
+- See the [code samples](https://www.ehcache.org/documentation/2.8/modules/cache-server.html#restful-code-samples) on the Cache Server page. You can use Java or any other programming language with the Cache Server.
+
+See the [Cache Server](https://www.ehcache.org/documentation/2.8/modules/cache-server.html) page for more information.
+
+### JCache style caching
+
+Ehcache contains an early draft implementation of JCache contained in the `net.sf.ehcache.jcache` package. See the [JSR107](https://www.ehcache.org/documentation/2.8/integrations/jsr107.html) chapter for usage.
+
+### Spring, Cocoon, Acegi and other frameworks
+
+Usually, with these, you are using Ehcache without even realising it. The first steps in getting more control over what is happening are:
+
+- discover the cache names used by the framework
+
+- create your own ehcache.xml with settings for the caches and place it in the application classpath.
