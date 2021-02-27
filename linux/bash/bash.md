@@ -25,8 +25,9 @@
       - [Replace "\r\n" with "\n"](#replace-rn-with-n)
     - [`grep`](#grep)
     - [`ps`](#ps)
-    - [`nohup`](#nohup)
     - [`pwdx`](#pwdx)
+    - [`nohup`](#nohup)
+    - [`pwdx`](#pwdx-1)
     - [`tar`](#tar)
     - [`zip`](#zip)
     - [`unzip`](#unzip)
@@ -36,6 +37,10 @@
       - [Interactive command](#interactive-command)
     - [`kill`](#kill)
       - [Create core dump](#create-core-dump)
+  - [Memory](#memory)
+    - [Check swap space usage](#check-swap-space-usage)
+  - [Process](#process)
+    - [List open files belonging a process](#list-open-files-belonging-a-process)
   - [`jq`](#jq)
   - [CentOS](#centos)
     - [Check CentOS version](#check-centos-version)
@@ -246,6 +251,16 @@ Get environment variables of running process
 
     ps eww <pid>
 
+Show Command of `<pid>`
+
+    ps -p <pid> -wwo args
+
+### `pwdx`
+
+Show Current Working Directory Of `<pid>`
+
+    pwdx <pid>
+
 ### `nohup`
 
 The [nohup](https://www.computerhope.com/unix/unohup.htm) command executes another command, and instructs the system to continue running it even if the session is disconnected
@@ -314,6 +329,26 @@ Extract to a directory
 
     ulimit -c unlimited
     kill -3 <pid>
+
+## Memory
+
+### Check swap space usage
+
+    swapon -s
+
+or
+
+    cat /proc/swaps
+
+or
+
+    free -h
+
+## Process
+
+### List open files belonging a process
+
+    lsof -p <pid>
 
 ## `jq`
 
