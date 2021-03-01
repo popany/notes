@@ -2,7 +2,9 @@
 
 - [Java](#java)
   - [Command line tools](#command-line-tools)
-  - [Debug tools](#debug-tools)
+  - [Debug](#debug)
+    - [Remote debug](#remote-debug)
+    - [Debug tools](#debug-tools)
   - [jar](#jar)
     - [Uber-JAR](#uber-jar)
   - [Practice](#practice)
@@ -13,7 +15,25 @@
 [How to compile, package and run a Java program using command-line tools (javac, jar and java)
 ](https://www.codejava.net/java-core/tools/how-to-compile-package-and-run-a-java-program-using-command-line-tools-javac-jar-and-java)
 
-## Debug tools
+## Debug
+
+### Remote debug
+
+    java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar foo.jar
+
+- `transport=dt_socket`
+
+  means the way used to connect to JVM (socket is a good choice, it can be used to debug a distant computer)
+
+- `address=8000`
+
+  TCP/IP port exposed, to connect from the debugger
+
+- `suspend=y`
+
+  if 'y', tell the JVM to wait until debugger is attached to begin execution, otherwise (if 'n'), starts execution right away.
+
+### Debug tools
 
 - jps
 

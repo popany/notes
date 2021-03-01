@@ -27,7 +27,6 @@
     - [`ps`](#ps)
     - [`pwdx`](#pwdx)
     - [`nohup`](#nohup)
-    - [`pwdx`](#pwdx-1)
     - [`tar`](#tar)
     - [`zip`](#zip)
     - [`unzip`](#unzip)
@@ -165,6 +164,10 @@ Exclude file name
 
     find / -maxdepth 1 -mindepth 1 -type d ! -name 'mnt' -exec du -h -d0 {} \;
 
+Find file bigger then 100M
+
+    find / -type f -size +100M -print0 | xargs -0 du -h | sort -nr
+
 ### `cp`
 
 #### [copying a file without changing date stamp](https://www.unix.com/shell-programming-and-scripting/95917-copying-file-without-changing-date-stamp.html)
@@ -264,12 +267,6 @@ Show Current Working Directory Of `<pid>`
 ### `nohup`
 
 The [nohup](https://www.computerhope.com/unix/unohup.htm) command executes another command, and instructs the system to continue running it even if the session is disconnected
-
-### `pwdx`
-
-Find current working directory of a process
-
-    pwdx <PID>
 
 ### `tar`
 
