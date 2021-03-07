@@ -2,10 +2,20 @@
 
 - [DAG Scheduler](#dag-scheduler)
   - [参考](#参考)
+    - [DAG以及任务调度](#dag以及任务调度)
+    - [待读](#待读)
 
 ## 参考
 
-[DAG以及任务调度](https://blog.csdn.net/ThreeAspects/article/details/103439454)
+### [DAG以及任务调度](https://blog.csdn.net/ThreeAspects/article/details/103439454)
+
+1. 可以参考由 DAG 生成拓扑排序部分
+
+   - 该排序未能处理无依赖任务并发的问题
+
+2. 调度部分和 DAG 没什么关系
+
+### 待读
 
 [深度解析 | 基于DAG的分布式任务调度平台：Maat](https://blog.csdn.net/b0Q8cpra539haFS7/article/details/81741196)
 
