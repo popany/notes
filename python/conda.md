@@ -17,6 +17,10 @@
 
     conda create -n mypython3 python=3
 
+or
+
+    conda create --name spy3 python=3.8
+
 ### `conda install`
 
     conda install <pkg>=<version>

@@ -2,6 +2,7 @@
 
 - [Distributed Cache](#distributed-cache)
   - [参考](#参考)
+  - [Web 缓存](#web-缓存)
 
 ## 参考
 
@@ -25,10 +26,29 @@
 
 [Database Caching Strategies Using Redis](https://d0.awsstatic.com/whitepapers/Database/database-caching-strategies-using-redis.pdf)
 
-[ Microservice Pattern – Cache-Aside / Read-Through Pattern With Spring Boot + Redis](https://www.vinsguru.com/cloud-design-patterns-cache-aside-read-through-pattern/)
+[Microservice Pattern – Cache-Aside / Read-Through Pattern With Spring Boot + Redis](https://www.vinsguru.com/cloud-design-patterns-cache-aside-read-through-pattern/)
 
 
+## Web 缓存
 
+[浅谈 Web 缓存](http://www.alloyteam.com/2016/03/discussion-on-web-caching/)
 
+[web缓存原理分析](https://blog.csdn.net/c_kite/article/details/79567864)
+
+[http缓存详解，http缓存推荐方案](https://www.cnblogs.com/echolun/p/9419517.html)
+
+[Web缓存技术概述](https://blog.csdn.net/anhuidelinger/article/details/12093943)
+
+[Web缓存](https://blog.csdn.net/bamboolsu/article/details/49886839)
+
+[web缓存机制](https://segmentfault.com/a/1190000006820010)
+
+[web缓存机制](https://www.cnblogs.com/jkr666666/p/10946529.html)
+
+[通过HTTP协议做Web缓存](https://mobile.51cto.com/hot-552176.htm)
+
+[Web前后端缓存技术](https://blog.csdn.net/yzj5208/article/details/82080868)
+
+[详解web缓存](https://zhuanlan.zhihu.com/p/90507417)
 
 distributed cache ccccccccccccccccccccccccccccccccccccccccccccc

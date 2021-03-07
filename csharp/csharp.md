@@ -28,6 +28,7 @@
     - [tools](#tools)
       - [Sysinternals Process Utilities](#sysinternals-process-utilities)
       - [AsmSpy](#asmspy)
+      - [VS Tools ILSpy](#vs-tools-ilspy)
     - [Lib](#lib)
   - [Performace](#performace)
     - [GC](#gc)
@@ -319,6 +320,8 @@ all managed threads
 #### [Sysinternals Process Utilities](https://docs.microsoft.com/en-us/sysinternals/downloads/process-utilities)
 
 #### [AsmSpy](https://github.com/mikehadlow/AsmSpy)
+
+#### VS Tools ILSpy
 
 ### Lib
 

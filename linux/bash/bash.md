@@ -36,6 +36,7 @@
       - [Interactive command](#interactive-command)
     - [`kill`](#kill)
       - [Create core dump](#create-core-dump)
+    - [`awk`](#awk)
   - [Memory](#memory)
     - [Check swap space usage](#check-swap-space-usage)
   - [Process](#process)
@@ -72,6 +73,7 @@
   - [network](#network)
     - [`nc`](#nc)
     - [`ss`](#ss)
+      - [List socket of `<pid>`](#list-socket-of-pid)
       - [Query tcp buffer sizes for a certain socket](#query-tcp-buffer-sizes-for-a-certain-socket)
       - [USAGE EXAMPLES](#usage-examples)
 
@@ -258,6 +260,10 @@ Show Command of `<pid>`
 
     ps -p <pid> -wwo args
 
+Display the start time and date of the running processes
+
+    ps -eo pid,lstart,cmd
+
 ### `pwdx`
 
 Show Current Working Directory Of `<pid>`
@@ -326,6 +332,12 @@ Extract to a directory
 
     ulimit -c unlimited
     kill -3 <pid>
+
+### `awk`
+
+Use `:` as seperator
+
+    awk -F ":" '{print $1}'
 
 ## Memory
 
@@ -486,6 +498,12 @@ restart `sshd`
     chmod 600 /root/vembuswap
     mkswap /root/vembuswap
     swapon /root/vembuswap
+
+|||
+|-|-|
+[Note](https://www.addictivetips.com/ubuntu-linux-tips/how-to-set-up-a-swap-file-on-linux/)|As the user enters the 4 commands above, a swap file should be up and running. However, that isn’t enough, as the system needs to know at boot what swap is, and where it’s located. This is done by editing the /etc/fstab file (file system tab).
+|||
+
     echo "/root/vembuswap swap swap defaults 0 0" >> /etc/fstab
 
     # verify
@@ -568,6 +586,10 @@ CLIENT/SERVER MODEL
       nc 127.0.0.1 1234
 
 ### `ss`
+
+#### List socket of `<pid>`
+
+    ss -pan | grep <pid>
 
 #### Query tcp buffer sizes for a certain socket
 
