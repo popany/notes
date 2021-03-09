@@ -6,6 +6,8 @@
       - [`glob`](#glob)
     - [format print list](#format-print-list)
     - [get/set environment virable](#getset-environment-virable)
+    - [sort](#sort)
+    - [Sorting HOW TO](#sorting-how-to)
   - [regular expression](#regular-expression)
     - [replace](#replace)
   - [`mmap`](#mmap)
@@ -46,6 +48,10 @@
     import os
     path = os.getenv("PATH")
     os.environ['path'] = 'C:\\tmp;' + os.environ['path']
+
+### sort
+
+### [Sorting HOW TO](https://docs.python.org/3/howto/sorting.html)
 
 ## regular expression
 

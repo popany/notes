@@ -3,6 +3,7 @@
 - [TCP](#tcp)
   - [Checksum](#checksum)
   - [整理](#整理)
+    - [序号](#序号)
     - [SYN](#syn)
       - [SYN 报文占一个序号, ACK 报文不占序号](#syn-报文占一个序号-ack-报文不占序号)
     - [ACK](#ack)
@@ -47,6 +48,10 @@
 [Can a TCP checksum fail to detect an error? If yes, how is this dealt with?](https://stackoverflow.com/questions/3830206/can-a-tcp-checksum-fail-to-detect-an-error-if-yes-how-is-this-dealt-with)
 
 ## 整理
+
+### 序号
+
+序号是32 bit的无符号数，序号到达 $2^{32}-1$ 后又从 $0$ 开始
 
 ### SYN
 
