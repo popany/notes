@@ -37,6 +37,7 @@
     - [`kill`](#kill)
       - [Create core dump](#create-core-dump)
     - [`awk`](#awk)
+    - [`sshpass`](#sshpass)
   - [Memory](#memory)
     - [Check swap space usage](#check-swap-space-usage)
   - [Process](#process)
@@ -338,6 +339,12 @@ Extract to a directory
 Use `:` as seperator
 
     awk -F ":" '{print $1}'
+
+### `sshpass`
+
+    sshpass -p <pwd> ssh <username>@<host> ls
+
+    sshpass -p <pwd> scp -r <local_dir> <username>@<host>:<dir>
 
 ## Memory
 
