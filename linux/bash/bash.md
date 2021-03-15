@@ -40,6 +40,7 @@
     - [`sshpass`](#sshpass)
   - [Memory](#memory)
     - [Check swap space usage](#check-swap-space-usage)
+    - [Clear Memory Cache And Buffer](#clear-memory-cache-and-buffer)
   - [Process](#process)
     - [List open files belonging a process](#list-open-files-belonging-a-process)
   - [`jq`](#jq)
@@ -359,6 +360,20 @@ or
 or
 
     free -h
+
+### Clear Memory Cache And Buffer
+
+Free pagecache, dentries and inodes in cache memory
+
+    sync; echo 3 > /proc/sys/vm/drop_caches
+
+Free dentries and inodes
+
+    sync; echo 2 > /proc/sys/vm/drop_caches
+
+Free pagecache only
+
+    sync; echo 1 > /proc/sys/vm/drop_caches
 
 ## Process
 

@@ -233,3 +233,4 @@ free displays the total amount of free and used **physical** and **swap** memory
 
 
 
+TODO linux check memory usage
