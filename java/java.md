@@ -41,6 +41,8 @@
 
 - jconsole
 
+- jinfo
+
 ## jar
 
 ### [Uber-JAR](https://imagej.net/Uber-JAR)

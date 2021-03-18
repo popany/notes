@@ -2,3 +2,14 @@
 
 - [How to beat the CAP theorem](#how-to-beat-the-cap-theorem)
 
+
+
+
+
+
+
+
+
+
+
+TODO CAP

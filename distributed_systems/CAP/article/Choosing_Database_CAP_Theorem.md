@@ -2,3 +2,15 @@
 
 - [Choosing Database: CAP Theorem](#choosing-database-cap-theorem)
 
+
+
+
+
+
+
+
+
+
+
+
+TODO CAP

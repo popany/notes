@@ -2,3 +2,15 @@
 
 - [An Illustrated Proof of the CAP Theorem](#an-illustrated-proof-of-the-cap-theorem)
 
+
+
+
+
+
+
+
+
+
+
+
+TODO CAP

@@ -2,3 +2,16 @@
 
 - [Understanding the CAP Theorem – Nice Studying](#understanding-the-cap-theorem--nice-studying)
 
+
+
+
+
+
+
+
+
+
+
+
+
+TODO CAP

@@ -2,3 +2,13 @@
 
 - [ACID vs. BASE: The Shifting pH of Database Transaction Processing](#acid-vs-base-the-shifting-ph-of-database-transaction-processing)
 
+
+
+
+
+
+
+
+
+
+TODO ACID

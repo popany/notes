@@ -3,3 +3,15 @@
 - [CAP Theorem](#cap-theorem)
 
 
+
+
+
+
+
+
+
+
+
+
+
+TODO CAP

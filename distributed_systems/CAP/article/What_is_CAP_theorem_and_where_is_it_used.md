@@ -2,3 +2,16 @@
 
 - [What is CAP theorem and where is it used?](#what-is-cap-theorem-and-where-is-it-used)
 
+
+
+
+
+
+
+
+
+
+
+
+
+TODO CAP

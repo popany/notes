@@ -2,3 +2,14 @@
 
 - [CAP theorem: consistency, availability, and partition tolerance](#cap-theorem-consistency-availability-and-partition-tolerance)
 
+
+
+
+
+
+
+
+
+
+
+TODO CAP

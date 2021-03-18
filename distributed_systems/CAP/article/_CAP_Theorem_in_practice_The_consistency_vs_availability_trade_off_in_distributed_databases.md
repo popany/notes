@@ -2,3 +2,15 @@
 
 - [The CAP Theorem in practice: The consistency vs. availability trade-off in distributed databases](#the-cap-theorem-in-practice-the-consistency-vs-availability-trade-off-in-distributed-databases)
 
+
+
+
+
+
+
+
+
+
+
+
+TODO CAP

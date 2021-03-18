@@ -2,3 +2,17 @@
 
 - [Understanding the CAP Theorem](#understanding-the-cap-theorem)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+TODO CAP

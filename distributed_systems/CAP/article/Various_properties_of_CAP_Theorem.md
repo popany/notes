@@ -2,3 +2,16 @@
 
 - [Various properties of CAP Theorem](#various-properties-of-cap-theorem)
 
+
+
+
+
+
+
+
+
+
+
+
+
+TODO CAP

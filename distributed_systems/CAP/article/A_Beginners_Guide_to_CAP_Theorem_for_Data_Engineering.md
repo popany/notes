@@ -2,3 +2,15 @@
 
 - [A Beginner’s Guide to CAP Theorem for Data Engineering](#a-beginners-guide-to-cap-theorem-for-data-engineering)
 
+
+
+
+
+
+
+
+
+
+
+
+TODO CAP
