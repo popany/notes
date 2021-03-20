@@ -9,7 +9,7 @@
 
 ### Local to Remote
 
-Forward connections to `127.0.0.1:55000` to `172.20.0.2:50000` through the host 172.21.0.3.
+Forward connections to `127.0.0.1:55000` to `172.20.0.2:50000` through the host 172.21.0.3 (note: not the same with 172.21.0.2).
 
     ssh -f -C -q -N -L 127.0.0.1:55000:172.20.0.2:50000 root@172.21.0.3
 
