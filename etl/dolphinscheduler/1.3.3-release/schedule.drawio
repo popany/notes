@@ -92,7 +92,7 @@
                     <mxGeometry y="632" width="460" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="30" value="DagHelper" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="630" y="513" width="680" height="138" as="geometry"/>
+                    <mxGeometry x="630" y="513" width="680" height="242" as="geometry"/>
                 </mxCell>
                 <mxCell id="32" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="30" vertex="1">
                     <mxGeometry y="26" width="680" height="8" as="geometry"/>
@@ -108,6 +108,18 @@
                 </mxCell>
                 <mxCell id="68" value="+ static getFlowNodeListPre(TaskNode, List&lt;String&gt;, List&lt;TaskNode&gt;): List&lt;TaskNode&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="30" vertex="1">
                     <mxGeometry y="112" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="259" value="+ static generateFlowDag(String, List&lt;String&gt;, List&lt;String&gt;, TaskDependType): ProcessDag" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="30">
+                    <mxGeometry y="138" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="262" value="+ static getForbiddenTaskNodeMaps(String): Map&lt;String, TaskNode&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="30">
+                    <mxGeometry y="164" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="265" value="+ static findNodeByName(List&lt;TaskNode&gt;, String): TaskNode" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="30">
+                    <mxGeometry y="190" width="680" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="266" value="+ static allDependsForbiddenOrEnd(TaskNode, DAG&lt;String, TaskNode, TaskNodeRelation&gt;, Map&lt;String, TaskNode&gt;, Map&lt;String, TaskInstance&gt;): boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="30">
+                    <mxGeometry y="216" width="680" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="35" value="TaskNode" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
                     <mxGeometry x="630" y="-60" width="300" height="502" as="geometry"/>
@@ -200,7 +212,12 @@
                     <mxGeometry x="1440" y="651" width="360" height="41" as="geometry"/>
                 </mxCell>
                 <mxCell id="70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="68" target="69" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1400" y="638"/>
+                            <mxPoint x="1400" y="672"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="71" value="Json string that can be convert to depList" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="1073" y="195" width="320" height="35" as="geometry"/>
@@ -704,6 +721,23 @@
                 </mxCell>
                 <mxCell id="254" value="8" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="3500" y="1961.5" width="45" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="260" value="generate dag by start nodes and recovery nodes" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1440" y="700.5" width="360" height="41" as="geometry"/>
+                </mxCell>
+                <mxCell id="261" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="259" target="260">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="1390" y="664"/>
+                            <mxPoint x="1390" y="721"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="263" value="parse the forbidden task nodes in process definition" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="1438" y="739" width="360" height="41" as="geometry"/>
+                </mxCell>
+                <mxCell id="264" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="262" target="263">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
