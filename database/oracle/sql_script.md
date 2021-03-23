@@ -45,7 +45,12 @@
       - [View information about Tempfiles](#view-information-about-tempfiles)
       - [View information about free space in datafiles](#view-information-about-free-space-in-datafiles)
       - [View information about free space in tempfiles](#view-information-about-free-space-in-tempfiles)
+  - [Database/Instance Name](#databaseinstance-name)
+    - [Instance Name](#instance-name)
+    - [Database Name](#database-name)
   - [User](#user)
+    - [List Users](#list-users)
+    - [Check USER Tablespace quota limit](#check-user-tablespace-quota-limit)
     - [Create user](#create-user)
     - [CREATE USER statement](#create-user-statement)
     - [DROP USER statement](#drop-user-statement)
@@ -285,7 +290,29 @@ Query to check permissions granted to a role
 
     select * from V$TEMP_SPACE_HEADER;
 
+## Database/Instance Name
+
+### Instance Name
+
+    SELECT sys_context('USERENV','INSTANCE_NAME') AS Instance
+    FROM dual;
+
+### Database Name
+
+    SELECT sys_context('USERENV','DB_NAME') AS Database_Name
+    FROM dual;
+
 ## User
+
+### List Users
+
+    SELECT * FROM ALL_USERS;
+
+    SELECT * FROM DBA_USERS;
+
+### Check USER Tablespace quota limit
+
+    SELECT * FROM DBA_TS_QUOTAS where username = '<USERNAME>';
 
 ### [Create user](https://www.oracletutorial.com/oracle-administration/oracle-create-user)
 
