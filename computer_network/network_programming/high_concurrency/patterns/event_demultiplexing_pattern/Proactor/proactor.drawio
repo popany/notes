@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2020-12-07T09:00:50.890Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" etag="QXUjZqj7YYseXTNpRIX2" version="13.10.0" type="embed">
+<mxfile>
     <diagram id="3gRXEbeZebtQ5nvocdyO" name="Page-1">
-        <mxGraphModel dx="1667" dy="1303" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2065" dy="1303" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -194,11 +194,50 @@
                 <mxCell id="61" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Asynchronous Operation Processor" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1290" y="240" width="240" height="62" as="geometry"/>
                 </mxCell>
-                <mxCell id="62" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; *&amp;nbsp;" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                <mxCell id="62" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; *&amp;nbsp;Executes asynchronous operations&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Queues completion events on a&lt;br&gt;completion event queue when&lt;br&gt;asynchronous operations complete" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
                     <mxGeometry x="1290" y="302" width="240" height="118" as="geometry"/>
                 </mxCell>
-                <mxCell id="63" value="Collaborator" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
-                    <mxGeometry x="1530" y="240" width="100" height="180" as="geometry"/>
+                <mxCell id="63" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; *&amp;nbsp;Asynchronous&lt;br&gt;Operation&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Completion&lt;br&gt;Event Queue" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="1530" y="240" width="110" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="&lt;h1&gt;The structure of the participants in the Proactor pattern&lt;/h1&gt;&lt;p&gt;* Completion handler is associated with Asynchronous Operation&lt;/p&gt;&lt;p&gt;&lt;span&gt;* Completion Handlers process the results of the Asynchronous Operations&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;*&amp;nbsp;Completion Handler potentially invokes additional Asynchronous Operations&lt;br&gt;&lt;/p&gt;&lt;p&gt;*&amp;nbsp;Asynchronous Operation Processor&amp;nbsp;delivers&amp;nbsp;completion events (inserts completion event containing that operation's results into the Completion Event Queue)&lt;/p&gt;&lt;p&gt;* Proactor calls Asynchronous Event Demultiplexer to demultiplex completion events and dispatches completion events to Completion Handlers&lt;/p&gt;&lt;p&gt;&lt;span&gt;*&amp;nbsp;Asynchronous Operations initiate the processing of service requests 'proactively' via a Handle&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;*&amp;nbsp;Initiator invokes asynchronous operations&lt;/p&gt;&lt;p&gt;*&amp;nbsp;Asynchronous Event Eemultiplexer removes completion event from Asynchronous Event Queue&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="-530" y="-288.5" width="660" height="395" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Completion Event Queue" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="1700" y="240" width="240" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Buffers completion events while they&lt;br&gt;are waiting to be removed by an&lt;br&gt;asynchronous event demultiplexer" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="1700" y="302" width="240" height="118" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Handle" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="1940" y="240" width="100" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Asynchronous Event Demultiplexer" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="1290" y="460" width="240" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Can block waiting for completion&lt;br&gt;events to occur on a completion event&lt;br&gt;queue&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Removes a completion event an&lt;br&gt;retruns it to its caller" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="1290" y="522" width="240" height="128" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Completion&lt;br&gt;Event Queue" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="1530" y="460" width="110" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Proactor" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="1700" y="460" width="240" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Calls the asynchronous event&lt;br&gt;demultiplexer to dequeue a completion&lt;br&gt;event&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Demutiplexes and dispatches&lt;br&gt;completion events to completion handler&lt;br&gt;hook method" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="1700" y="522" width="240" height="148" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Completion&lt;br&gt;Handler&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Asynchronous&lt;br&gt;Event Demultiplexer&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Completion Event&lt;br&gt;Queue" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" parent="1" vertex="1">
+                    <mxGeometry x="1940" y="460" width="130" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="Class&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; Initiator" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                    <mxGeometry x="1290" y="720" width="240" height="62" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="Responsibility&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Invokes asynchronous operations&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * May optionally serve as a concrete&lt;br&gt;completion handler" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                    <mxGeometry x="1290" y="782" width="240" height="128" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value="Collaborator&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Asynchronous&lt;br&gt;Operation Processor&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Asynchronous&lt;br&gt;Operation&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Concrete completion&lt;br&gt;Handler&lt;br&gt;&lt;br&gt;&amp;nbsp; &amp;nbsp; * Proactor" style="html=1;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;" vertex="1" parent="1">
+                    <mxGeometry x="1530" y="720" width="150" height="190" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

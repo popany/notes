@@ -5,6 +5,9 @@
   - [Debug](#debug)
     - [Remote debug](#remote-debug)
     - [Debug tools](#debug-tools)
+  - [Decompiler](#decompiler)
+  - [Performance Analysis](#performance-analysis)
+    - [JMC](#jmc)
   - [jar](#jar)
     - [Uber-JAR](#uber-jar)
   - [Practice](#practice)
@@ -42,6 +45,18 @@
 - jconsole
 
 - jinfo
+
+## Decompiler
+
+[JD-GUI](http://java-decompiler.github.io/)
+
+[java-decompiler](https://github.com/JetBrains/intellij-community/tree/master/plugins/java-decompiler/engine)
+
+## Performance Analysis
+
+### JMC
+
+    java -Dcom.sun.management.jmxremote=true -Djava.rmi.server.hostname=<ip> -Dcom.sun.management.jmxremote.port=<port> -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.managementote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -XX:+UnlockCommercialFeatures -XX:+FlightRecorder -jar xxx.jar
 
 ## jar
 
