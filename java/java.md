@@ -8,6 +8,7 @@
   - [Decompiler](#decompiler)
   - [Performance Analysis](#performance-analysis)
     - [JMC](#jmc)
+  - [Diagnostic](#diagnostic)
   - [jar](#jar)
     - [Uber-JAR](#uber-jar)
   - [Practice](#practice)
@@ -57,6 +58,10 @@
 ### JMC
 
     java -Dcom.sun.management.jmxremote=true -Djava.rmi.server.hostname=<ip> -Dcom.sun.management.jmxremote.port=<port> -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.managementote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -XX:+UnlockCommercialFeatures -XX:+FlightRecorder -jar xxx.jar
+
+## Diagnostic
+
+[Arthas](https://arthas.aliyun.com/doc/en/)
 
 ## jar
 
