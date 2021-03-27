@@ -131,7 +131,7 @@
     docker run -dit --name dolphinscheduler \
     --network dolphinscheduler-net \
     -e ZOOKEEPER_QUORUM="zk1:2181,zk2:2181,zk3:2181" \
-    -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="postgres" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" \
+    -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="postgres" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" -e DOLPHINSCHEDULER_RESOURCE_STORAGE_TYPE="NONE"\
     -p 8888:8888 \
     apache/dolphinscheduler:1.3.4-SNAPSHOT all
 
