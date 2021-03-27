@@ -38,6 +38,7 @@
       - [Create core dump](#create-core-dump)
     - [`awk`](#awk)
     - [`sshpass`](#sshpass)
+    - [`date`](#date)
   - [Memory](#memory)
     - [Check swap space usage](#check-swap-space-usage)
     - [Clear Memory Cache And Buffer](#clear-memory-cache-and-buffer)
@@ -346,6 +347,12 @@ Use `:` as seperator
     sshpass -p <pwd> ssh <username>@<host> ls
 
     sshpass -p <pwd> scp -r <local_dir> <username>@<host>:<dir>
+
+### `date`
+
+    date +'%Y/%m/%d %H:%M:%S'
+
+    date +'%Y/%m/%d %T'
 
 ## Memory
 
