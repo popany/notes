@@ -8,6 +8,8 @@
       - [Timer.3 - Binding arguments to a handler](#timer3---binding-arguments-to-a-handler)
       - [Timer.4 - Using a member function as a handler](#timer4---using-a-member-function-as-a-handler)
       - [Timer.5 - Synchronising handlers in multithreaded programs](#timer5---synchronising-handlers-in-multithreaded-programs)
+  - [Practice](#practice)
+    - [A Simple Timer](#a-simple-timer)
 
 ## Reference
 
@@ -98,9 +100,8 @@ Comment| `strand` can make two handlers execute mutually exclusive. `strand` red
         {
             if (count_ < 10)
             {
-                LOG_INFO("Timer 1: {}", count_);
+                std::cout << "Timer 1: " << count_ << std::endl;
                 ++count_;
-                std::this_thread::sleep_for(std::chrono::seconds(3));
 
                 timer1_.expires_at(timer1_.expiry() + boost::asio::chrono::seconds(1));
 
@@ -113,7 +114,7 @@ Comment| `strand` can make two handlers execute mutually exclusive. `strand` red
         {
             if (count_ < 10)
             {
-                LOG_INFO("Timer 2: {}", count_);
+                std::cout << "Timer 2: " << count_ << std::endl;
                 ++count_;
 
                 timer2_.expires_at(timer2_.expiry() + boost::asio::chrono::seconds(1));
@@ -132,12 +133,108 @@ Comment| `strand` can make two handlers execute mutually exclusive. `strand` red
 
     int main()
     {
-        InitLogger();
         boost::asio::io_context io;
         printer p(io);
         boost::thread t(boost::bind(&boost::asio::io_context::run, &io));
         io.run();
         t.join();
 
+        return 0;
+    } 
+
+## Practice
+
+### A Simple Timer
+
+    #include <boost/asio.hpp>
+    #include <boost/bind/bind.hpp>
+    #include <stdexcept>
+    #include <memory>
+    #include <map>
+    #include <string>
+    #include <functional>
+    #include <thread>
+    #include <mutex>
+
+    class Timer
+    {
+        boost::asio::io_context io;
+        std::map<int, std::shared_ptr<boost::asio::steady_timer>> m;
+        std::thread thd;
+        std::mutex mtx;
+
+        void call(const boost::system::error_code& e, std::function<void()> func, int key, int period)
+        {
+            std::shared_ptr<boost::asio::steady_timer> t = nullptr;
+            {
+                std::lock_guard<std::mutex> lock(mtx);
+                if (m.count(key)) {
+                    t = m[key];
+                }
+                else {
+                    return;
+                }
+            }
+            t->expires_at(m[key]->expiry() + boost::asio::chrono::seconds(period));
+            t->async_wait(boost::bind(&Timer::call, this, boost::asio::placeholders::error, func, key, period));
+            func();
+        }
+
+    public:
+
+        void set(int key, int period, std::function<void()> func)
+        {
+            std::lock_guard<std::mutex> lock(mtx);
+            if (m.count(key)) {
+                throw std::runtime_error(std::string("aready set key: ") + std::to_string(key));
+            }
+            m[key] = std::make_shared<boost::asio::steady_timer>(io, boost::asio::chrono::seconds(period));
+            m[key]->async_wait(boost::bind(&Timer::call, this, boost::asio::placeholders::error, func, key, period));
+        }
+
+        void unset(int key)
+        {
+            std::lock_guard<std::mutex> lock(mtx);
+            if (!m.count(key)) {
+                throw std::runtime_error(std::string("unknown key: ") + std::to_string(key));
+            }
+            m.erase(key);
+        }
+
+        void run()
+        {
+            if (thd.joinable()) {
+                throw std::runtime_error("alread run");
+            }
+            thd.swap(std::thread(boost::bind(&boost::asio::io_context::run, &io)));
+        }
+
+        void join()
+        {
+            if (!thd.joinable()) {
+                throw std::runtime_error("not run");
+            }
+            thd.join();
+        }
+    };
+
+    #include <chrono>
+    #include <iostream>
+
+    int main()
+    {
+        try {
+            Timer timer;
+            timer.set(1, 3, []() { std::cout << "sss" << std::endl; });
+            timer.set(2, 1, []() { std::cout << "ttt" << std::endl; });
+            timer.run();
+            std::this_thread::sleep_for(std::chrono::seconds(5));
+            timer.unset(1);
+            timer.unset(2);
+            timer.join();
+        }
+        catch (...) {
+            return 1;
+        }
         return 0;
     }
