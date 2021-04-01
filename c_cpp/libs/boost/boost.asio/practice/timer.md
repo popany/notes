@@ -67,3 +67,77 @@ Each callback handler is "bound" to an `boost::asio::strand<boost::asio::io_cont
 |-|-|
 Comment| `strand` can make two handlers execute mutually exclusive. `strand` reduces the difficulty of multi-threading programming, by remove the mutex that protects the shared variables.
 |||
+
+    #include <iostream>
+    #include <boost/asio.hpp>
+    #include <boost/thread/thread.hpp>
+    #include <boost/bind/bind.hpp>
+
+    class printer
+    {
+    public:
+        printer(boost::asio::io_context& io)
+            : strand_(boost::asio::make_strand(io)),
+            timer1_(io, boost::asio::chrono::seconds(1)),
+            timer2_(io, boost::asio::chrono::seconds(1)),
+            count_(0)
+        {
+            timer1_.async_wait(boost::asio::bind_executor(strand_,
+                boost::bind(&printer::print1, this)));
+
+            timer2_.async_wait(boost::asio::bind_executor(strand_,
+                boost::bind(&printer::print2, this)));
+        }
+
+        ~printer()
+        {
+            std::cout << "Final count is " << count_ << std::endl;
+        }
+
+        void print1()
+        {
+            if (count_ < 10)
+            {
+                LOG_INFO("Timer 1: {}", count_);
+                ++count_;
+                std::this_thread::sleep_for(std::chrono::seconds(3));
+
+                timer1_.expires_at(timer1_.expiry() + boost::asio::chrono::seconds(1));
+
+                timer1_.async_wait(boost::asio::bind_executor(strand_,
+                    boost::bind(&printer::print1, this)));
+            }
+        }
+
+        void print2()
+        {
+            if (count_ < 10)
+            {
+                LOG_INFO("Timer 2: {}", count_);
+                ++count_;
+
+                timer2_.expires_at(timer2_.expiry() + boost::asio::chrono::seconds(1));
+
+                timer2_.async_wait(boost::asio::bind_executor(strand_,
+                    boost::bind(&printer::print2, this)));
+            }
+        }
+
+    private:
+        boost::asio::strand<boost::asio::io_context::executor_type> strand_;
+        boost::asio::steady_timer timer1_;
+        boost::asio::steady_timer timer2_;
+        int count_;
+    };
+
+    int main()
+    {
+        InitLogger();
+        boost::asio::io_context io;
+        printer p(io);
+        boost::thread t(boost::bind(&boost::asio::io_context::run, &io));
+        io.run();
+        t.join();
+
+        return 0;
+    }
