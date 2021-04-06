@@ -91,6 +91,7 @@
       - [10.1.1 Boolean Expression Strings](#1011-boolean-expression-strings)
       - [10.1.2 Value Expression Strings](#1012-value-expression-strings)
   - [Chapter 11 CRUD EBNF Definitions](#chapter-11-crud-ebnf-definitions)
+  - [Chapter 12 Expressions EBNF Definitions](#chapter-12-expressions-ebnf-definitions)
   - [Chapter 13 Implementation Notes](#chapter-13-implementation-notes)
 
 User documentation for developers using X DevAPI.
@@ -1014,5 +1015,7 @@ If you do not wrap the string with `expr()`, it would be assigning the literal s
 ## [Chapter 11 CRUD EBNF Definitions](https://dev.mysql.com/doc/x-devapi-userguide/en/mysql-x-crud-ebnf-definitions.html)
 
 This chapter provides a visual reference guide to the objects and functions available in the X DevAPI.
+
+## [Chapter 12 Expressions EBNF Definitions](https://dev.mysql.com/doc/x-devapi-userguide/en/mysql-x-expressions-ebnf-definitions.html)
 
 ## [Chapter 13 Implementation Notes](https://dev.mysql.com/doc/x-devapi-userguide/en/implementation-notes.html)
