@@ -1,11 +1,14 @@
 <mxfile>
     <diagram id="v6ySnQ32wB-tDuvYsdX_" name="Page-1">
-        <mxGraphModel dx="2067" dy="3703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1683" dy="3483" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
+                <mxCell id="871" value="commandMapper.getOneToRun()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="3153.5" y="-2303" width="260" height="40" as="geometry"/>
+                </mxCell>
                 <mxCell id="801" value="ProcessDefinitionMapper.selectById()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3262" y="-2170" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="3262" y="-2101" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="210" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="206" target="209" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -236,13 +239,13 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="69" value="Find all nodes that the start node directly or indirectly depended on.&amp;nbsp;recoveryNodeNameList can&amp;nbsp;truncate the dependency chain&amp;nbsp;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="1512" y="625" width="360" height="41" as="geometry"/>
+                    <mxGeometry x="1517" y="625" width="360" height="41" as="geometry"/>
                 </mxCell>
-                <mxCell id="70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="68" target="69" edge="1">
+                <mxCell id="70" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="68" target="69" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="1620" y="638"/>
-                            <mxPoint x="1620" y="638"/>
+                            <mxPoint x="1450" y="638"/>
+                            <mxPoint x="1450" y="646"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -750,13 +753,12 @@
                     <mxGeometry x="3642" y="1951.5" width="45" height="45" as="geometry"/>
                 </mxCell>
                 <mxCell id="260" value="generate dag by start nodes and recovery nodes" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="1512" y="677" width="360" height="41" as="geometry"/>
+                    <mxGeometry x="2020" y="1480" width="360" height="41" as="geometry"/>
                 </mxCell>
-                <mxCell id="261" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="259" target="260" edge="1">
+                <mxCell id="261" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="259" target="878" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="1490" y="664"/>
-                            <mxPoint x="1490" y="698"/>
+                            <mxPoint x="1880" y="664"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -1611,6 +1613,9 @@
                 <mxCell id="543" value="MasterSchedulerService.run()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="2815.5" y="-2440" width="240" height="40" as="geometry"/>
                 </mxCell>
+                <mxCell id="872" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="545" target="871">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="545" value="ProcessService.findOneCommand()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3045.5" y="-2360" width="260" height="40" as="geometry"/>
                 </mxCell>
@@ -1622,7 +1627,7 @@
                 </mxCell>
                 <mxCell id="795" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="550" target="799" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="3540" y="-2269" as="targetPoint"/>
+                        <mxPoint x="3540" y="-2200" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="798" value="return" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="795" vertex="1" connectable="0">
@@ -1631,7 +1636,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="550" value="ProcessService.handleCommand()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3045.5" y="-2290" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="3045.5" y="-2221" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="555" value="" style="endArrow=none;dashed=1;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="543" target="533" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -2021,7 +2026,7 @@
                     <mxGeometry x="5600" y="-45" width="340" height="250" as="geometry"/>
                 </mxCell>
                 <mxCell id="785" value="ProcessService.delCommandByid()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3150" y="-1670" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="3150" y="-1601" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="803" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="789" target="801" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -2029,7 +2034,7 @@
                 <mxCell id="805" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="1" source="789" target="804" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="3215" y="-2052"/>
+                            <mxPoint x="3215" y="-1983"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -2037,10 +2042,10 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="789" value="ProcessService.constructProcessInstance()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3150" y="-2230" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="3150" y="-2161" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="799" value="ProcessInstance" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3522" y="-2299" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="3522" y="-2230" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="807" value="true" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="804" target="806" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -2049,10 +2054,10 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="804" value="cmdParam != null" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
-                    <mxGeometry x="3262" y="-2102" width="100" height="100" as="geometry"/>
+                    <mxGeometry x="3262" y="-2033" width="100" height="100" as="geometry"/>
                 </mxCell>
                 <mxCell id="806" value="..." style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3437" y="-2073" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="3437" y="-2004" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="812" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="808" target="810" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -2061,19 +2066,19 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="808" value="ProcessService.generateNewProcessInstance()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3359" y="-1980" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="3359" y="-1911" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="810" value="new ProcessInstance(ProcessDefinition)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3459" y="-1922" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="3459" y="-1853" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="813" value="ProcessInstance.setXXX&lt;br&gt;..." style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3459" y="-1850" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="3459" y="-1781" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="816" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="815" target="813" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="815" value="&lt;div&gt;ProcessDefinition&lt;/div&gt;&lt;div&gt;Command&lt;/div&gt;&lt;div&gt;cmdParam&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3774.5" y="-1859" width="159" height="60" as="geometry"/>
+                    <mxGeometry x="3774.5" y="-1790" width="159" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="784" value="" style="endArrow=none;dashed=1;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="777" target="545" edge="1">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -2082,16 +2087,16 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="819" value="switch (CommandType) ..." style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3262" y="-1780" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="3262" y="-1711" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="821" value="masterExecService.execute()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="3045.5" y="-1598" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="3045.5" y="-1529" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="826" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="823" target="821" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="4470" y="-2710"/>
-                            <mxPoint x="4470" y="-1577"/>
+                            <mxPoint x="4470" y="-1508"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -2101,11 +2106,11 @@
                 <mxCell id="823" value="new MasterExecThread()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4557.75" y="-2731" width="260" height="42" as="geometry"/>
                 </mxCell>
-                <mxCell id="828" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="827" target="823" edge="1">
+                <mxCell id="828" value="parameters" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="827" target="823" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="827" value="&lt;div&gt;ProcessInstance&lt;/div&gt;&lt;div&gt;ProcessService&lt;/div&gt;&lt;div&gt;NettyRemotingClient&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="4904.75" y="-2740" width="159" height="60" as="geometry"/>
+                    <mxGeometry x="4949.75" y="-2740" width="159" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="833" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="829" target="831" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -2122,6 +2127,9 @@
                 <mxCell id="840" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="831" target="838" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
+                <mxCell id="876" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="831" target="875">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="831" value="MasterExecThread.executeProcess()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4797.25" y="-2585" width="260" height="42" as="geometry"/>
                 </mxCell>
@@ -2132,16 +2140,16 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="834" value="MasterExecThread.prepareProcess()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="4911.75" y="-2513" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="4911.75" y="-2437" width="260" height="42" as="geometry"/>
                 </mxCell>
-                <mxCell id="858" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="837" target="856">
+                <mxCell id="858" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="837" target="856" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="837" value="MasterExecThread.runProcess()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="4911.75" y="-2129" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="4911.75" y="-1922" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="838" value="MasterExecThread.endProcess()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="4911.75" y="-1700" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="4911.75" y="-1572" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="846" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="841" target="844" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -2150,55 +2158,112 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="841" value="MasterExecThread.buildFlowDag()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="5019.25" y="-2453" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="5019.25" y="-2377" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="849" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="844" target="847" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="844" value="MasterExecThread.generateFlowDag()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="5122.25" y="-2395" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="5122.25" y="-2319" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="847" value="DagHelper.generateFlowDag()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="5222.25" y="-2335" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="5222.25" y="-2259" width="260" height="42" as="geometry"/>
                 </mxCell>
                 <mxCell id="851" value="DagHelper.buildDagGraph()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="5122.25" y="-2273" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="5122.25" y="-2197" width="260" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="891" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="853" target="889">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="853" value="MasterExecThread.initTaskQueue()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="5020.25" y="-2203" width="260" height="42" as="geometry"/>
+                    <mxGeometry x="5020.25" y="-2127" width="260" height="42" as="geometry"/>
                 </mxCell>
-                <mxCell id="860" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="856" target="859">
+                <mxCell id="860" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" parent="1" source="856" target="859" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="863" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="856" target="861">
+                <mxCell id="863" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="856" target="861" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="865" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="856" target="864">
+                <mxCell id="865" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="856" target="864" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="867" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="856" target="866">
+                <mxCell id="867" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="856" target="866" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="856" value="MasterExecThread.submitPostNode(null)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="5019.25" y="-2073" width="260" height="42" as="geometry"/>
+                <mxCell id="856" value="MasterExecThread.submitPostNode(null)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="5019.25" y="-1866" width="260" height="42" as="geometry"/>
                 </mxCell>
-                <mxCell id="859" value="submit start node" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="5360" y="-2128" width="108" height="31" as="geometry"/>
+                <mxCell id="859" value="submit start node" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="5360" y="-1921" width="108" height="31" as="geometry"/>
                 </mxCell>
-                <mxCell id="861" value="DagHelper.parsePostNodes()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="5130" y="-2018" width="260" height="42" as="geometry"/>
+                <mxCell id="861" value="DagHelper.parsePostNodes()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="5130" y="-1811" width="260" height="42" as="geometry"/>
                 </mxCell>
-                <mxCell id="864" value="MasterExecThread.createTaskInstance()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="5130" y="-1960" width="260" height="42" as="geometry"/>
+                <mxCell id="864" value="MasterExecThread.createTaskInstance()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="5130" y="-1753" width="260" height="42" as="geometry"/>
                 </mxCell>
-                <mxCell id="870" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="866" target="869">
+                <mxCell id="870" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="866" target="869" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="866" value="MasterExecThread.addTaskToStandByList()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="5130" y="-1901" width="260" height="42" as="geometry"/>
+                <mxCell id="866" value="MasterExecThread.addTaskToStandByList()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="5130" y="-1694" width="260" height="42" as="geometry"/>
                 </mxCell>
-                <mxCell id="869" value="logger.info(&quot;add task to stand by list: {}&quot;, taskInstance.getName())" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="5550" y="-1931" width="360" height="31" as="geometry"/>
+                <mxCell id="869" value="logger.info(&quot;add task to stand by list: {}&quot;, taskInstance.getName())" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="5550" y="-1724" width="360" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="874" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="873" target="742">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="873" value="Create New Process and Start" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="4065" y="-615" width="220" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="875" value="check process instance exist&lt;br&gt;check process instance not done" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="4911.75" y="-2510" width="250" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="879" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="878" target="260">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="881" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="878" target="880">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="883" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="878" target="882">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="878" value="DagHelper.generateFlowDag()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1750" y="1543.75" width="260" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="880" value="&lt;div&gt;DagHelper.generateFlowNodeListByStartNode()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1611.25" width="290" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="886" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="882" target="885">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="882" value="&lt;div&gt;DagHelper.generateRelationListByFlowNodes()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1860" y="1680" width="290" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="884" value="" style="endArrow=none;dashed=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="880" target="77">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="2290" y="1330" as="sourcePoint"/>
+                        <mxPoint x="2340" y="1280" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="885" value="&lt;div&gt;generate flow node relation list by task node list;&lt;/div&gt;&lt;div&gt;Edges that are not in the task Node List will not be added to the result&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="2250" y="1681" width="400" height="41" as="geometry"/>
+                </mxCell>
+                <mxCell id="887" value="" style="endArrow=none;dashed=1;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="847" target="878">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="5510" y="-2230" as="sourcePoint"/>
+                        <mxPoint x="4114.000108506944" y="560" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="894" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="889" target="892">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="889" value="processService.findValidTaskListByProcessId()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="5150" y="-2066" width="260" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="892" value="taskInstanceMapper.findValidTaskListByProcessId()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="5279.25" y="-2004" width="290.75" height="42" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
