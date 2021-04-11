@@ -3448,6 +3448,14 @@
                 <mxCell id="1518" value="{ &quot;projectId&quot;: `projectId`, &quot;scheduleId&quot;: `scheduleId`, &quot;schedule&quot;: toJson(`schedule`) }" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1516">
                     <mxGeometry x="100" width="194" height="55" as="geometry"/>
                 </mxCell>
+                <mxCell id="1522" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1" edge="1" parent="1" source="1327" target="1507">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-6170" y="545"/>
+                            <mxPoint x="-6170" y="1695"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
