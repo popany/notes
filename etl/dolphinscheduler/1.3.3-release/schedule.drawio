@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="v6ySnQ32wB-tDuvYsdX_" name="Page-1">
-        <mxGraphModel dx="11555" dy="3415" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="11154" dy="3415" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -3336,6 +3336,9 @@
                 <mxCell id="1480" value="jobKey = new JobKey(jobName,jobGroupName)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
                     <mxGeometry x="-5790" y="1377.5" width="270" height="20" as="geometry"/>
                 </mxCell>
+                <mxCell id="1496" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1482" target="1494">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="1482" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;SchedulerService.setSchedule()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="-6761" y="1499" width="261" height="40" as="geometry"/>
                 </mxCell>
@@ -3375,6 +3378,9 @@
                 </mxCell>
                 <mxCell id="1488" value="startTime/endTime/cronTab are derived from http post parameter `schedule`&lt;br&gt;for example, schedule: {&quot;startTime&quot;:&quot;2021-04-11 00:00:00&quot;,&quot;endTime&quot;:&quot;2121-04-11 00:00:00&quot;,&quot;crontab&quot;:&quot;0 0 * * * ? *&quot;}" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
                     <mxGeometry x="-6792.5" y="695" width="630" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="1494" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;QuartzExecutors.getInstance().addJob()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-6651" y="1667.45" width="321" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
