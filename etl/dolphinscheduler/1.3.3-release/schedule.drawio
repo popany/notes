@@ -3055,8 +3055,15 @@
                 <mxCell id="1409" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1403" target="1408" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1410" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1403" target="1163" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="1410" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1408" target="1163" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-5660" y="2496"/>
+                            <mxPoint x="-5660" y="3430"/>
+                            <mxPoint x="-6240" y="3430"/>
+                            <mxPoint x="-6240" y="3481"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="1403" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;RUN_MODE_SERIAL&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-6443" y="2482.75" width="140" height="26" as="geometry"/>
@@ -3066,9 +3073,6 @@
                 </mxCell>
                 <mxCell id="1404" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;RUN_MODE_PARALLEL&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-6443" y="2564" width="140" height="26" as="geometry"/>
-                </mxCell>
-                <mxCell id="1408" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span&gt;set commandParam: &quot;complementStartDate&quot;=`start`, &quot;ComplementEndDate&quot;=`end`&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" parent="1" vertex="1">
-                    <mxGeometry x="-6183" y="2475.13" width="393" height="41.25" as="geometry"/>
                 </mxCell>
                 <mxCell id="1415" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="1412" target="1145" edge="1">
                     <mxGeometry relative="1" as="geometry">
@@ -3105,14 +3109,63 @@
                 <mxCell id="1412" value="User can set &quot;Complement Data&quot; in the process start step of &quot;set the parameters before starting&quot;.&lt;br&gt;If &quot;Complement Data&quot; was set, user should also set schedule date, for example, if shedule date was set as &quot;2021-04-11 00:00:00 - 2021-04-11 00:00:00&quot; ,&lt;br&gt;then, the http post requirement would have the parameter of scheduleTime=&quot;2021-04-11 00:00:00,2021-05-11 00:00:00&quot;&lt;br&gt;&lt;br&gt;User can also set run mode as&amp;nbsp;&quot;Serial execution&quot; or &quot;Parallel execution&quot;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" parent="1" vertex="1">
                     <mxGeometry x="-6400" y="2173.45" width="830" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="1419" value="&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;font face=&quot;consolas, courier new, monospace&quot;&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;select the from t_ds_schedules with the release_state=1 and specifies the processDefinitionId. For every item, a list of date can get from (start, end, Schedule.crontab), collect these list into `listDate`.&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" parent="1" vertex="1">
-                    <mxGeometry x="-6187" y="2540.19" width="560" height="73.62" as="geometry"/>
+                <mxCell id="1428" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="1419" target="1427">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-6200" y="2614"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1419" value="&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;font face=&quot;consolas, courier new, monospace&quot;&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;select * from t_ds_schedules with the release_state=1 and specifies the processDefinitionId. For every item, a list of date can get from (start, end, Schedule.crontab), collect these list into `listDate`.&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" parent="1" vertex="1">
+                    <mxGeometry x="-6260" y="2540.19" width="560" height="73.62" as="geometry"/>
                 </mxCell>
                 <mxCell id="1422" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="1421" target="1396" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1421" value="get `start`/`end` date by parse the http post parameter `shceduleTime`" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-6581.5" y="2300" width="215" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1408" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span&gt;set commandParam: &quot;complementStartDate&quot;=`start`, &quot;ComplementEndDate&quot;=`end`&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" parent="1" vertex="1">
+                    <mxGeometry x="-6260" y="2475.12" width="393" height="41.25" as="geometry"/>
+                </mxCell>
+                <mxCell id="1425" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1403" target="1408">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-6303" y="2495.8" as="sourcePoint"/>
+                        <mxPoint x="-6180" y="3480.8999999999996" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1430" value="false" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1427" target="1429">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1427" value="`listDate` is empty" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-6240" y="2660" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="1431" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1429" target="1163">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-5660" y="2700"/>
+                            <mxPoint x="-5660" y="3430"/>
+                            <mxPoint x="-6240" y="3430"/>
+                            <mxPoint x="-6240" y="3481"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1429" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span&gt;For every `date` in `listDate`, createCommand and set commandParam: &quot;complementStartDate&quot;=`date`, &quot;ComplementEndDate&quot;=`date`&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="-6100" y="2669.69" width="393" height="60.62" as="geometry"/>
+                </mxCell>
+                <mxCell id="1433" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="1432" target="1429">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-6002" y="2640"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1432" value="Loop by schedule date" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5980" y="2630" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="1434" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span&gt;For every `date` in `listDate`, createCommand and set commandParam: &quot;complementStartDate&quot;=`date`, &quot;ComplementEndDate&quot;=`date`&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="-6100" y="2760" width="393" height="60.62" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
