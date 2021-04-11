@@ -4,6 +4,9 @@
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
+                <mxCell id="1558" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;text-align: left ; line-height: 19px&quot;&gt;Command.setProcessDefinitionId(schedule.getProcessDefinitionId())&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5570" y="2060" width="540" height="40" as="geometry"/>
+                </mxCell>
                 <mxCell id="871" value="commandMapper.getOneToRun()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-2066.5" y="1437.45" width="260" height="40" as="geometry"/>
                 </mxCell>
@@ -2810,7 +2813,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1291" value="&lt;div&gt;START_PROCESS(0, &quot;start a new process&quot;),&lt;/div&gt;&lt;div&gt;START_CURRENT_TASK_PROCESS(1, &quot;start a new process from current nodes&quot;),&lt;/div&gt;&lt;div&gt;RECOVER_TOLERANCE_FAULT_PROCESS(2, &quot;recover tolerance fault process&quot;),&lt;/div&gt;&lt;div&gt;RECOVER_SUSPENDED_PROCESS(3, &quot;recover suspended process&quot;),&lt;/div&gt;&lt;div&gt;START_FAILURE_TASK_PROCESS(4, &quot;start process from failure task nodes&quot;),&lt;/div&gt;&lt;div&gt;COMPLEMENT_DATA(5, &quot;complement data&quot;),&lt;/div&gt;&lt;div&gt;SCHEDULER(6, &quot;start a new process from scheduler&quot;),&lt;/div&gt;&lt;div&gt;REPEAT_RUNNING(7, &quot;repeat running a process&quot;),&lt;/div&gt;&lt;div&gt;PAUSE(8, &quot;pause a process&quot;),&lt;/div&gt;&lt;div&gt;STOP(9, &quot;stop a process&quot;),&lt;/div&gt;&lt;div&gt;RECOVER_WAITTING_THREAD(10, &quot;recover waiting thread&quot;);&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-6360" y="2955.65" width="460" height="188.35" as="geometry"/>
+                    <mxGeometry x="-6360" y="2955.65" width="460" height="164.35" as="geometry"/>
                 </mxCell>
                 <mxCell id="1295" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" parent="1" source="1293" target="1198" edge="1">
                     <mxGeometry relative="1" as="geometry">
@@ -3496,6 +3499,24 @@
                 <mxCell id="1544" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1530" target="1542">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
+                <mxCell id="1554" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1530" target="1552">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1557" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1530" target="1555">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1560" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1530" target="1558">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1564" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1530" target="1163">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-5610" y="4410"/>
+                            <mxPoint x="-6200" y="4410"/>
+                            <mxPoint x="-6200" y="4453"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
                 <mxCell id="1530" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessScheduleJob.execute()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="-5670" y="1628.75" width="240" height="40" as="geometry"/>
                 </mxCell>
@@ -3556,6 +3577,22 @@
                 </mxCell>
                 <mxCell id="1547" value="&lt;div&gt;The actual time the trigger fired. For instance the scheduled time may&lt;/div&gt;&lt;div&gt;have been 10:00:00 but the actual fire time may have been 10:00:03 if&lt;/div&gt;&lt;div&gt;the scheduler was too busy.&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
                     <mxGeometry x="-5095" y="1829.45" width="390" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="1552" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;text-align: left ; line-height: 19px&quot;&gt;new Command()&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5570" y="1940" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1561" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="1555" target="1291">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-5385" y="1990"/>
+                            <mxPoint x="-5735" y="1990"/>
+                            <mxPoint x="-5735" y="2920"/>
+                            <mxPoint x="-6245" y="2920"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1555" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;text-align: left ; line-height: 19px&quot;&gt;Command.setCommandType(CommandType.SCHEDULER)&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5570" y="2000" width="370" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
