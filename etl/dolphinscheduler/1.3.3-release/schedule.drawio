@@ -2217,17 +2217,21 @@
                 <mxCell id="1049" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1043" target="1046" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="1083" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1043" target="1077" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1125" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1043" target="1121" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
                 <mxCell id="1043" value="Project" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-9620" y="-901.07" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="1052" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1045" target="1051" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1299" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1045" target="1079">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1300" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1045" target="1123">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-9330" y="929"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="1045" value="Process Definition" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-9390" y="-680" width="120" height="60" as="geometry"/>
@@ -2295,37 +2299,31 @@
                 <mxCell id="1070" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&lt;font color=&quot;#1b1b1b&quot; face=&quot;consolas, lucida console, courier new, monospace&quot;&gt;ProcessDefinitionMapper.insert()&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-6544" y="-670.07" width="244" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="1076" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1077" target="1079" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1077" value="Process Definition" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-9390" y="756.5" width="120" height="60" as="geometry"/>
-                </mxCell>
                 <mxCell id="1084" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1079" target="1082" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1079" value="&lt;span&gt;online&lt;/span&gt;" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-9210" y="756.5" width="60" height="60" as="geometry"/>
+                    <mxGeometry x="-9210" y="292.5" width="60" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="1082" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;font color=&quot;#1b1b1b&quot; face=&quot;consolas, lucida console, courier new, monospace&quot;&gt;http://127.0.0.1:8888/dolphinscheduler/projects/{projectName}/process/release&lt;/font&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-8880" y="766.5" width="530" height="40" as="geometry"/>
+                    <mxGeometry x="-8880" y="302.5" width="530" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1085" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="1082" target="1087" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="-8200" y="809" as="sourcePoint"/>
+                        <mxPoint x="-8200" y="345" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1086" value="&lt;ul&gt;&lt;li&gt;processId&lt;/li&gt;&lt;li&gt;releaseState&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="1" vertex="1">
-                    <mxGeometry x="-8288" y="729" width="128" height="57.75" as="geometry"/>
+                    <mxGeometry x="-8288" y="265" width="128" height="57.75" as="geometry"/>
                 </mxCell>
                 <mxCell id="1087" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;dolphinscheduler-api&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-8040" y="766.5" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="-8040" y="302.5" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1093" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="1088" target="1091" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1088" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessDefinitionController.releaseProcessDefinition()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7860" y="766.5" width="430" height="40" as="geometry"/>
+                    <mxGeometry x="-7860" y="302.5" width="430" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1090" value="&lt;h1&gt;Notes&lt;/h1&gt;&lt;p&gt;A process is cresponding to a dag diagram with the same name.&lt;/p&gt;&lt;p&gt;&lt;span&gt;Treat the process's taskNode that have the parameter with json key 'processDefinitionId' as a subprocess.&lt;/span&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Start a process will generate a `Command`, which set the process's run parameters.&lt;/p&gt;&lt;p&gt;`Command` can start, pause, stop, recover .etc a processInstance.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-9870" y="-729" width="400" height="209" as="geometry"/>
@@ -2334,21 +2332,22 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1091" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessDefinitionService.releaseProcessDefinition()&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7160" y="766.5" width="430" height="40" as="geometry"/>
+                    <mxGeometry x="-7160" y="302.5" width="430" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1094" value="&lt;ul&gt;&lt;li&gt;loginUser&lt;/li&gt;&lt;li&gt;projectName&lt;/li&gt;&lt;li&gt;processId&lt;/li&gt;&lt;li&gt;releaseState&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="1" vertex="1">
-                    <mxGeometry x="-7374.5" y="687.75" width="149" height="99" as="geometry"/>
+                    <mxGeometry x="-7374.5" y="223.75" width="149" height="99" as="geometry"/>
                 </mxCell>
                 <mxCell id="1098" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1095" target="636" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-6220" y="786"/>
+                            <mxPoint x="-6397" y="322"/>
+                            <mxPoint x="-6220" y="322"/>
                             <mxPoint x="-6220" y="-535"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1095" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessDefinitionMapper.updateById()&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-6544" y="766.5" width="294" height="40" as="geometry"/>
+                    <mxGeometry x="-6544" y="302.5" width="294" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1117" value="" style="group" parent="1" vertex="1" connectable="0">
                     <mxGeometry x="-4380" y="-440" width="390" height="440" as="geometry"/>
@@ -2403,12 +2402,6 @@
                 </mxCell>
                 <mxCell id="1104" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1117" source="1105" target="1116" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1120" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1121" target="1123" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="1121" value="Process Definition" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-9390" y="899" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="1122" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1123" target="1124" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
