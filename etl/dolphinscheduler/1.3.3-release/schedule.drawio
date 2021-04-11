@@ -2229,7 +2229,8 @@
                 <mxCell id="1300" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="1045" target="1123" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-9330" y="1074"/>
+                            <mxPoint x="-9330" y="2310"/>
+                            <mxPoint x="-9180" y="2310"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -2237,6 +2238,13 @@
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-9330" y="468"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1440" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1045" target="1439">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-9330" y="1041"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -2417,25 +2425,25 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1123" value="&lt;span&gt;start&lt;/span&gt;" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-9210" y="1044" width="60" height="60" as="geometry"/>
+                    <mxGeometry x="-9210" y="2281" width="60" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="1128" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="1124" target="1126" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1124" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;font color=&quot;#1b1b1b&quot; face=&quot;consolas, lucida console, courier new, monospace&quot;&gt;http://127.0.0.1:8888/dolphinscheduler/projects/{projectName}/executors/start-check&lt;/font&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-8880" y="1054" width="570" height="40" as="geometry"/>
+                    <mxGeometry x="-8880" y="2291" width="570" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1126" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;dolphinscheduler-api&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-8040" y="1054" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="-8040" y="2291" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1131" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="1127" target="1130" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1127" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ExecutorController.startCheckProcessDefinition()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7860" y="1054" width="430" height="40" as="geometry"/>
+                    <mxGeometry x="-7860" y="2291" width="430" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1129" value="&lt;ul&gt;&lt;li&gt;processDefinitionId&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="1" vertex="1">
-                    <mxGeometry x="-8260" y="1024" width="166" height="57.75" as="geometry"/>
+                    <mxGeometry x="-8260" y="2261" width="166" height="57.75" as="geometry"/>
                 </mxCell>
                 <mxCell id="1136" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1130" target="1135" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -2447,79 +2455,79 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1130" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ExecutorService.startCheckByProcessDefinitionId()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7160" y="1054" width="430" height="40" as="geometry"/>
+                    <mxGeometry x="-7160" y="2291" width="430" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1132" value="&lt;ul&gt;&lt;li&gt;processDefineId&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="1" vertex="1">
-                    <mxGeometry x="-7380" y="1034" width="149" height="37.75" as="geometry"/>
+                    <mxGeometry x="-7380" y="2271" width="149" height="37.75" as="geometry"/>
                 </mxCell>
                 <mxCell id="1134" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;" parent="1" source="1133" target="1130" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="-7160" y="1044" as="targetPoint"/>
+                        <mxPoint x="-7160" y="2281" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="-7117" y="1009"/>
-                            <mxPoint x="-7117" y="1034"/>
-                            <mxPoint x="-6945" y="1034"/>
+                            <mxPoint x="-7117" y="2246"/>
+                            <mxPoint x="-7117" y="2271"/>
+                            <mxPoint x="-6945" y="2271"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1133" value="check if sub processes are offline before starting process definition" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-7097.5" y="984" width="305" height="50" as="geometry"/>
+                    <mxGeometry x="-7097.5" y="2221" width="305" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="1135" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessService.recurseFindSubProcessId()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7010" y="1134" width="330" height="40" as="geometry"/>
+                    <mxGeometry x="-7010" y="2371" width="330" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1138" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;dashed=1" parent="1" source="1137" target="1135" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1137" value="Iterator process's taskNodes, for the taskNode that has the parameter that match the json format of the type `SubProcessParameters` collect the `SubProcessParameters.processDefinitionId` and process this 'subProcess' recursively" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-6657" y="1081.75" width="470" height="52.25" as="geometry"/>
+                    <mxGeometry x="-6657" y="2318.75" width="470" height="52.25" as="geometry"/>
                 </mxCell>
                 <mxCell id="1139" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessDefinitionMapper.queryDefinitionListByIdList()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7010" y="1223.5" width="430" height="40" as="geometry"/>
+                    <mxGeometry x="-7010" y="2460.5" width="430" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1142" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;dashed=1;" parent="1" source="1141" target="1139" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-6902" y="1200"/>
-                            <mxPoint x="-6902" y="1204"/>
+                            <mxPoint x="-6902" y="2437"/>
+                            <mxPoint x="-6902" y="2441"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1141" value="Get all subprocess's definition" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-6529" y="1174" width="183" height="52.25" as="geometry"/>
+                    <mxGeometry x="-6529" y="2411" width="183" height="52.25" as="geometry"/>
                 </mxCell>
                 <mxCell id="1143" value="verify every subprocess's releaseState is online" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7010" y="1297" width="170" height="60" as="geometry"/>
+                    <mxGeometry x="-7010" y="2534" width="170" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="1150" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="1145" target="1149" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1145" value="&lt;span style=&quot;font-size: 11px&quot;&gt;set the parameters before starting&lt;/span&gt;" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-9100" y="1245.5" width="60" height="60" as="geometry"/>
+                    <mxGeometry x="-9100" y="2482.5" width="60" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="1153" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="1149" target="1151" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1149" value="&lt;span&gt;start&lt;/span&gt;" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-9100" y="1434" width="60" height="60" as="geometry"/>
+                    <mxGeometry x="-9100" y="2671" width="60" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="1156" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="1151" target="1154" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1151" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;font color=&quot;#1b1b1b&quot; face=&quot;consolas, lucida console, courier new, monospace&quot;&gt;http://127.0.0.1:8888/dolphinscheduler/projects/{projectName}/executors/start-process-instance&lt;/font&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-8880" y="1444" width="640" height="40" as="geometry"/>
+                    <mxGeometry x="-8880" y="2681" width="640" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1154" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;dolphinscheduler-api&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-8040" y="1444" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="-8040" y="2681" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1159" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="1155" target="1158" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1155" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ExecutorController.startProcessInstance()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7860" y="1444" width="340" height="40" as="geometry"/>
+                    <mxGeometry x="-7860" y="2681" width="340" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1157" value="&lt;ul&gt;&lt;li&gt;processDefinitionId=2&lt;/li&gt;&lt;li&gt;&lt;span&gt;scheduleTime=&lt;/span&gt;&lt;br&gt;&lt;/li&gt;&lt;li&gt;failureStrategy=CONTINUE&lt;/li&gt;&lt;li&gt;warningType=NONE&lt;/li&gt;&lt;li&gt;warningGroupId=0&lt;/li&gt;&lt;li&gt;execType=&lt;/li&gt;&lt;li&gt;startNodeList=&lt;/li&gt;&lt;li&gt;taskDependType=TASK_POST&lt;/li&gt;&lt;li&gt;runMode=RUN_MODE_SERIAL&lt;/li&gt;&lt;li&gt;processInstancePriority=MEDIUM&lt;/li&gt;&lt;li&gt;receivers=&lt;/li&gt;&lt;li&gt;receiversCc=&lt;/li&gt;&lt;li&gt;workerGroup=default&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="1" vertex="1">
-                    <mxGeometry x="-8250" y="1164" width="260" height="310" as="geometry"/>
+                    <mxGeometry x="-8250" y="2401" width="260" height="310" as="geometry"/>
                 </mxCell>
                 <mxCell id="1161" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1158" target="1160" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -2536,7 +2544,7 @@
                 <mxCell id="1179" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="1" source="1158" target="1178" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-7080" y="2353"/>
+                            <mxPoint x="-7080" y="3590"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -2550,7 +2558,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1158" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ExecutorService.execProcessInstance()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7160" y="1444" width="320" height="40" as="geometry"/>
+                    <mxGeometry x="-7160" y="2681" width="320" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1166" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1393" target="1163" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -2566,7 +2574,7 @@
                 <mxCell id="1286" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="1158" target="1282" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-5960" y="1464"/>
+                            <mxPoint x="-5960" y="2701"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -2580,61 +2588,61 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1160" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ExecutorService.createCommand()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-6761" y="1930.5" width="270" height="40" as="geometry"/>
+                    <mxGeometry x="-6761" y="3167.5" width="270" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1162" value="&lt;ul&gt;&lt;li&gt;&lt;span&gt;commandType=null&lt;/span&gt;&lt;br&gt;&lt;/li&gt;&lt;li&gt;&lt;span&gt;processDefineId=2&lt;/span&gt;&lt;br&gt;&lt;/li&gt;&lt;li&gt;nodeDep=TASK_POST&lt;/li&gt;&lt;li&gt;failureStrategy=CONTINUE&lt;/li&gt;&lt;li&gt;startNodeList=&quot;&quot;&lt;/li&gt;&lt;li&gt;schedule=&quot;&quot;&lt;/li&gt;&lt;li&gt;warningType=NONE&lt;/li&gt;&lt;li&gt;executorId=1&lt;/li&gt;&lt;li&gt;warningGroupId=0&lt;/li&gt;&lt;li&gt;runMode=RUN_MODE_SERIAL&lt;/li&gt;&lt;li&gt;processInstancePriority=MEDIUM&lt;/li&gt;&lt;li&gt;workerGroup=&quot;default&quot;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="1" vertex="1">
-                    <mxGeometry x="-7040" y="1685" width="260" height="269" as="geometry"/>
+                    <mxGeometry x="-7040" y="2922" width="260" height="269" as="geometry"/>
                 </mxCell>
                 <mxCell id="1177" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1163" target="1176" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1163" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessService.createCommand()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-6180" y="3028.9" width="270" height="40" as="geometry"/>
+                    <mxGeometry x="-6180" y="4265.9" width="270" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1167" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;new Command()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-6651" y="1987.5" width="130" height="40" as="geometry"/>
+                    <mxGeometry x="-6651" y="3224.5" width="130" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1170" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ExecutorService.checkProcessDefinitionValid()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7040" y="1507" width="370" height="40" as="geometry"/>
+                    <mxGeometry x="-7040" y="2744" width="370" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1171" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ExecutorService.checkTenantSuitable()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7040" y="1566" width="310" height="40" as="geometry"/>
+                    <mxGeometry x="-7040" y="2803" width="310" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1172" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ExecutorService.checkMasterExists()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7040" y="1625" width="290" height="40" as="geometry"/>
+                    <mxGeometry x="-7040" y="2862" width="290" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1211" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="1176" target="1188" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-5480" y="3048.8"/>
-                            <mxPoint x="-5480" y="2987.8"/>
-                            <mxPoint x="-5305" y="2987.8"/>
+                            <mxPoint x="-5480" y="4285.8"/>
+                            <mxPoint x="-5480" y="4224.8"/>
+                            <mxPoint x="-5305" y="4224.8"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1176" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;CommandMapper.insert()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-5813" y="3028.9" width="190" height="40" as="geometry"/>
+                    <mxGeometry x="-5813" y="4265.9" width="190" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1178" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ExecutorService.createCommand()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7040" y="2332.75" width="270" height="40" as="geometry"/>
+                    <mxGeometry x="-7040" y="3569.75" width="270" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1180" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessDefinition.setReceivers()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7040" y="2400.25" width="270" height="40" as="geometry"/>
+                    <mxGeometry x="-7040" y="3637.25" width="270" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1181" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessDefinition.setReceiversCc()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7040" y="2464" width="280" height="40" as="geometry"/>
+                    <mxGeometry x="-7040" y="3701" width="280" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1182" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessDefinitionMapper.updateById()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7040" y="2526.5" width="290" height="40" as="geometry"/>
+                    <mxGeometry x="-7040" y="3763.5" width="290" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1186" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;dolphinscheduler-api&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-8580" y="3200" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="-8580" y="4437" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1187" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ExecutorController.startProcessInstance()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-8400" y="3200" width="340" height="40" as="geometry"/>
+                    <mxGeometry x="-8400" y="4437" width="340" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1188" value="t_ds_command" style="shape=table;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;" parent="1" vertex="1">
-                    <mxGeometry x="-5430" y="3007.8" width="250" height="480" as="geometry"/>
+                    <mxGeometry x="-5430" y="4244.8" width="250" height="480" as="geometry"/>
                 </mxCell>
                 <mxCell id="1189" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="1188" vertex="1">
                     <mxGeometry y="30" width="250" height="30" as="geometry"/>
@@ -2774,57 +2782,57 @@
                 <mxCell id="1285" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" parent="1" source="1282" target="1258" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-5520" y="1466"/>
-                            <mxPoint x="-5520" y="3353"/>
+                            <mxPoint x="-5520" y="2703"/>
+                            <mxPoint x="-5520" y="4590"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1282" value="loginUser.getId()" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-5920" y="1444" width="120" height="43" as="geometry"/>
+                    <mxGeometry x="-5920" y="2681" width="120" height="43" as="geometry"/>
                 </mxCell>
                 <mxCell id="1290" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;" parent="1" source="1288" target="1192" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-5540" y="2067"/>
-                            <mxPoint x="-5540" y="3083"/>
+                            <mxPoint x="-5540" y="3304"/>
+                            <mxPoint x="-5540" y="4320"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1288" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;Command.setCommandType()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-6651" y="2047" width="215" height="40" as="geometry"/>
+                    <mxGeometry x="-6651" y="3284" width="215" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1292" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1;" parent="1" source="1291" target="1288" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-6400" y="1594"/>
-                            <mxPoint x="-6400" y="2057"/>
+                            <mxPoint x="-6400" y="2831"/>
+                            <mxPoint x="-6400" y="3294"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1291" value="&lt;div&gt;START_PROCESS(0, &quot;start a new process&quot;),&lt;/div&gt;&lt;div&gt;START_CURRENT_TASK_PROCESS(1, &quot;start a new process from current nodes&quot;),&lt;/div&gt;&lt;div&gt;RECOVER_TOLERANCE_FAULT_PROCESS(2, &quot;recover tolerance fault process&quot;),&lt;/div&gt;&lt;div&gt;RECOVER_SUSPENDED_PROCESS(3, &quot;recover suspended process&quot;),&lt;/div&gt;&lt;div&gt;START_FAILURE_TASK_PROCESS(4, &quot;start process from failure task nodes&quot;),&lt;/div&gt;&lt;div&gt;COMPLEMENT_DATA(5, &quot;complement data&quot;),&lt;/div&gt;&lt;div&gt;SCHEDULER(6, &quot;start a new process from scheduler&quot;),&lt;/div&gt;&lt;div&gt;REPEAT_RUNNING(7, &quot;repeat running a process&quot;),&lt;/div&gt;&lt;div&gt;PAUSE(8, &quot;pause a process&quot;),&lt;/div&gt;&lt;div&gt;STOP(9, &quot;stop a process&quot;),&lt;/div&gt;&lt;div&gt;RECOVER_WAITTING_THREAD(10, &quot;recover waiting thread&quot;);&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-6360" y="1551.65" width="460" height="188.35" as="geometry"/>
+                    <mxGeometry x="-6360" y="2788.65" width="460" height="188.35" as="geometry"/>
                 </mxCell>
                 <mxCell id="1295" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" parent="1" source="1293" target="1198" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-5560" y="2124"/>
-                            <mxPoint x="-5560" y="3143"/>
+                            <mxPoint x="-5560" y="3361"/>
+                            <mxPoint x="-5560" y="4380"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1293" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;Command.setCommandParam()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-6651" y="2104" width="215" height="40" as="geometry"/>
+                    <mxGeometry x="-6651" y="3341" width="215" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1297" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1" parent="1" source="1296" target="1293" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-6370" y="1872"/>
-                            <mxPoint x="-6370" y="2114"/>
+                            <mxPoint x="-6370" y="3109"/>
+                            <mxPoint x="-6370" y="3351"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1296" value="&lt;div&gt;command parameter keys&lt;/div&gt;&lt;div&gt;CMDPARAM_RECOVER_PROCESS_ID_STRING = &quot;ProcessInstanceId&quot;;&lt;/div&gt;&lt;div&gt;CMDPARAM_RECOVERY_START_NODE_STRING = &quot;StartNodeIdList&quot;;&lt;/div&gt;&lt;div&gt;CMDPARAM_RECOVERY_WAITTING_THREAD = &quot;WaittingThreadInstanceId&quot;;&lt;/div&gt;&lt;div&gt;CMDPARAM_SUB_PROCESS = &quot;processInstanceId&quot;;&lt;/div&gt;&lt;div&gt;CMDPARAM_EMPTY_SUB_PROCESS = &quot;0&quot;;&lt;/div&gt;&lt;div&gt;CMDPARAM_SUB_PROCESS_PARENT_INSTANCE_ID = &quot;parentProcessInstanceId&quot;;&lt;/div&gt;&lt;div&gt;CMDPARAM_SUB_PROCESS_DEFINE_ID = &quot;processDefinitionId&quot;;&lt;/div&gt;&lt;div&gt;CMDPARAM_START_NODE_NAMES = &quot;StartNodeNameList&quot;;&lt;/div&gt;&lt;div&gt;CMDPARAM_COMPLEMENT_DATA_START_DATE = &quot;complementStartDate&quot;;&lt;/div&gt;&lt;div&gt;CMDPARAM_COMPLEMENT_DATA_END_DATE = &quot;complementEndDate&quot;;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-6336" y="1778.45" width="490" height="186.7" as="geometry"/>
+                    <mxGeometry x="-6336" y="3015.45" width="490" height="186.7" as="geometry"/>
                 </mxCell>
                 <mxCell id="1310" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="1302" target="1309" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -2877,6 +2885,9 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1389" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1314" target="1386" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1487" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1314" target="1485">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1314" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;SchedulerService.insertSchedule()&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -3024,24 +3035,24 @@
                     <mxGeometry x="150" width="170" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="1384" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessDefinition.setReceivers()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7040" y="730" width="270" height="40" as="geometry"/>
+                    <mxGeometry x="-7040" y="795" width="270" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1385" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessDefinition.setReceiversCc()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7040" y="793.75" width="280" height="40" as="geometry"/>
+                    <mxGeometry x="-7040" y="858.75" width="280" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1386" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ProcessDefinitionMapper.updateById()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-7040" y="856.25" width="290" height="40" as="geometry"/>
+                    <mxGeometry x="-7040" y="921.25" width="290" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1397" value="true" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="1393" target="1421" edge="1">
                     <mxGeometry x="0.5606" relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-6474" y="2214"/>
+                            <mxPoint x="-6474" y="3451"/>
                         </Array>
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1393" value="commandType == CommandType.COMPLEMENT_DATA" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-6651" y="2173.45" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="-6651" y="3410.45" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="1406" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1396" target="1403" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -3050,7 +3061,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1396" value="switch&lt;br&gt;runMode" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-6514" y="2390" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="-6514" y="3627" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="1409" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1403" target="1408" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -3058,80 +3069,80 @@
                 <mxCell id="1410" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1408" target="1163" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-5660" y="2496"/>
-                            <mxPoint x="-5660" y="3000"/>
-                            <mxPoint x="-6240" y="3000"/>
-                            <mxPoint x="-6240" y="3049"/>
+                            <mxPoint x="-5660" y="3733"/>
+                            <mxPoint x="-5660" y="4237"/>
+                            <mxPoint x="-6240" y="4237"/>
+                            <mxPoint x="-6240" y="4286"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1403" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;RUN_MODE_SERIAL&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-6443" y="2482.75" width="140" height="26" as="geometry"/>
+                    <mxGeometry x="-6443" y="3719.75" width="140" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="1424" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="1404" target="1419" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1404" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;RUN_MODE_PARALLEL&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-6443" y="2564" width="140" height="26" as="geometry"/>
+                    <mxGeometry x="-6443" y="3801" width="140" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="1415" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="1412" target="1145" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="-8890" y="1260" as="targetPoint"/>
+                        <mxPoint x="-8890" y="2497" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="-6221" y="2160"/>
-                            <mxPoint x="-8950" y="2160"/>
-                            <mxPoint x="-8950" y="1291"/>
+                            <mxPoint x="-6221" y="3397"/>
+                            <mxPoint x="-8950" y="3397"/>
+                            <mxPoint x="-8950" y="2528"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1416" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;dashed=1" parent="1" source="1412" target="1393" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-6470" y="2193"/>
-                            <mxPoint x="-6470" y="2193"/>
+                            <mxPoint x="-6470" y="3430"/>
+                            <mxPoint x="-6470" y="3430"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1417" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;dashed=1" parent="1" source="1412" target="1396" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-6290" y="2410"/>
+                            <mxPoint x="-6290" y="3647"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1423" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1" parent="1" source="1412" target="1421" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-6420" y="2209"/>
+                            <mxPoint x="-6420" y="3446"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1412" value="User can set &quot;Complement Data&quot; in the process start step of &quot;set the parameters before starting&quot;.&lt;br&gt;If &quot;Complement Data&quot; was set, user should also set schedule date, for example, if shedule date was set as &quot;2021-04-11 00:00:00 - 2021-04-11 00:00:00&quot; ,&lt;br&gt;then, the http post requirement would have the parameter of scheduleTime=&quot;2021-04-11 00:00:00,2021-05-11 00:00:00&quot;&lt;br&gt;&lt;br&gt;User can also set run mode as&amp;nbsp;&quot;Serial execution&quot; or &quot;Parallel execution&quot;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" parent="1" vertex="1">
-                    <mxGeometry x="-6400" y="2173.45" width="830" height="70" as="geometry"/>
+                    <mxGeometry x="-6400" y="3410.45" width="830" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="1428" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="1419" target="1427" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-6200" y="2614"/>
+                            <mxPoint x="-6200" y="3851"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1419" value="&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;font face=&quot;consolas, courier new, monospace&quot;&gt;&lt;span style=&quot;font-size: 14px&quot;&gt;select * from t_ds_schedules with the release_state=1 and specifies the processDefinitionId. For every item, a list of date can get from (start, end, Schedule.crontab), collect these list into `listDate`.&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" parent="1" vertex="1">
-                    <mxGeometry x="-6260" y="2540.19" width="560" height="73.62" as="geometry"/>
+                    <mxGeometry x="-6260" y="3777.19" width="560" height="73.62" as="geometry"/>
                 </mxCell>
                 <mxCell id="1422" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="1421" target="1396" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1421" value="get `start`/`end` date by parse the http post parameter `shceduleTime`" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-6581.5" y="2300" width="215" height="40" as="geometry"/>
+                    <mxGeometry x="-6581.5" y="3537" width="215" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1408" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span&gt;set commandParam: &quot;complementStartDate&quot;=`start`, &quot;ComplementEndDate&quot;=`end`&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" parent="1" vertex="1">
-                    <mxGeometry x="-6260" y="2475.12" width="393" height="41.25" as="geometry"/>
+                    <mxGeometry x="-6260" y="3712.12" width="393" height="41.25" as="geometry"/>
                 </mxCell>
                 <mxCell id="1425" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1403" target="1408" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="-6303" y="2495.8" as="sourcePoint"/>
-                        <mxPoint x="-6180" y="3480.8999999999996" as="targetPoint"/>
+                        <mxPoint x="-6303" y="3732.8" as="sourcePoint"/>
+                        <mxPoint x="-6180" y="4717.9" as="targetPoint"/>
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
@@ -3144,54 +3155,226 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1427" value="`listDate` is empty" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-6240" y="2660" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="-6240" y="3897" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="1431" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="1429" target="1163" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-5660" y="2700"/>
-                            <mxPoint x="-5660" y="3000"/>
-                            <mxPoint x="-6240" y="3000"/>
-                            <mxPoint x="-6240" y="3049"/>
+                            <mxPoint x="-5660" y="3937"/>
+                            <mxPoint x="-5660" y="4237"/>
+                            <mxPoint x="-6240" y="4237"/>
+                            <mxPoint x="-6240" y="4286"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1429" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;line-height: 19px&quot;&gt;&lt;span&gt;For every `date` in `listDate`, createCommand and set commandParam: &quot;complementStartDate&quot;=`date`, &quot;ComplementEndDate&quot;=`date`&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" parent="1" vertex="1">
-                    <mxGeometry x="-6100" y="2669.69" width="393" height="60.62" as="geometry"/>
+                    <mxGeometry x="-6100" y="3906.69" width="393" height="60.62" as="geometry"/>
                 </mxCell>
                 <mxCell id="1433" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;dashed=1" parent="1" source="1432" target="1429" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-6002" y="2640"/>
+                            <mxPoint x="-6002" y="3877"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1432" value="Loop by schedule date" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
-                    <mxGeometry x="-5980" y="2630" width="140" height="20" as="geometry"/>
+                    <mxGeometry x="-5980" y="3867" width="140" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="1438" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="1434" target="1163" edge="1">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="-5760" y="2930" as="sourcePoint"/>
+                        <mxPoint x="-5760" y="4167" as="sourcePoint"/>
                         <Array as="points">
-                            <mxPoint x="-5660" y="2822"/>
-                            <mxPoint x="-5660" y="3000"/>
-                            <mxPoint x="-6240" y="3000"/>
-                            <mxPoint x="-6240" y="3049"/>
+                            <mxPoint x="-5660" y="4059"/>
+                            <mxPoint x="-5660" y="4237"/>
+                            <mxPoint x="-6240" y="4237"/>
+                            <mxPoint x="-6240" y="4286"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1434" value="&lt;span style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px&quot;&gt;For every `date` in [`start`, `end`], createCommand and set commandParam: &quot;complementStartDate&quot;=`date`, &quot;ComplementEndDate&quot;=`date`&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" parent="1" vertex="1">
-                    <mxGeometry x="-6103.5" y="2792" width="400" height="60.62" as="geometry"/>
+                    <mxGeometry x="-6103.5" y="4029" width="400" height="60.62" as="geometry"/>
                 </mxCell>
                 <mxCell id="1437" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;dashed=1" parent="1" source="1436" target="1434" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-6003" y="2762"/>
+                            <mxPoint x="-6003" y="3999"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1436" value="Loop by day" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
-                    <mxGeometry x="-5980" y="2752" width="80" height="20" as="geometry"/>
+                    <mxGeometry x="-5980" y="3989" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="1442" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1439" target="1441">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1439" value="Cron Manage" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-9210" y="1011" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="1451" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1441" target="1443">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1441" value="online" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-9100" y="1011" width="60" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="1443" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;font color=&quot;#1b1b1b&quot; face=&quot;consolas, lucida console, courier new, monospace&quot;&gt;http://127.0.0.1:8888/dolphinscheduler/projects/{projectName}/schedule/online&lt;/font&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-8880" y="1021" width="530" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1444" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="1443" target="1445">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-8200" y="1063.5" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1445" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;dolphinscheduler-api&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-8040" y="1021" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1446" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1447" target="1449">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1447" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;SchedulerController.online()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-7860" y="1021" width="230" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1456" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1449" target="1455">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1460" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1449" target="1459">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1463" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1449" target="1461">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1464" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1449" target="1462">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1467" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1449" target="1466">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1449" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;SchedulerService.setScheduleState()&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-7160" y="1021" width="290" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1454" value="&lt;ul&gt;&lt;li&gt;id: 1&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" vertex="1" parent="1">
+                    <mxGeometry x="-8250" y="1002.37" width="82" height="48.63" as="geometry"/>
+                </mxCell>
+                <mxCell id="1458" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="1455" target="1457">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1455" value="scheduleStatus == ReleaseState.ONLINE" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-7040" y="1097" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="1457" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;Verify curresponding processDefinition's releaseState is ONLINE, and verify process's subprocess's processDefinition's releaseState is ONLINE recursively&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="-6890" y="1102.5" width="420" height="69" as="geometry"/>
+                </mxCell>
+                <mxCell id="1459" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;check master server exists&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-7040" y="1200.45" width="220" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1461" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;Schedule.setReleaseState()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-7040" y="1266" width="220" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1465" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="1462" target="1342">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-6120" y="1348"/>
+                            <mxPoint x="-6120" y="695"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1462" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ScheduleMapper.updateById()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-7040" y="1328.25" width="220" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1469" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1466" target="1468">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1471" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1466" target="1470">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1466" value="switch&lt;br&gt;scheduleStatus" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-7040" y="1401" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="1473" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1468" target="1472">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1468" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;OFFLINE&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-6901" y="1428" width="81" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="1483" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1470" target="1482">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1470" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;ONLINE&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-6900" y="1506" width="81" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="1475" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1472" target="1474">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1472" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;SchedulerService.deleteSchedule()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-6761" y="1421" width="261" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1477" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1474" target="1476">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1474" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;QuartzExecutors.getInstance().deleteJob(jobName, jobGroupName)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-6443" y="1421" width="490" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1476" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;org.quartz.Scheduler.deleteJob(jobKey)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5900" y="1421" width="310" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1479" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="1478" target="1474">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-6320" y="1386"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1478" value="jobName = &quot;job_&quot; + scheduleId&lt;br&gt;jobGroupName = &quot;jobgroup_&quot; + projectId" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="-6280" y="1371" width="230" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="1481" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="1480" target="1476">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-5822" y="1388"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1480" value="jobKey = new JobKey(jobName,jobGroupName)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5790" y="1377.5" width="270" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="1482" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;SchedulerService.setSchedule()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-6761" y="1499" width="261" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1485" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;set startTime/endTime/cronTab&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-7040" y="730" width="270" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1489" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="1488" target="1485">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-6837" y="710"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1491" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="1485" target="1327">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-6140" y="750"/>
+                            <mxPoint x="-6140" y="545"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1492" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="1485" target="1330">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-6140" y="750"/>
+                            <mxPoint x="-6140" y="575"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1493" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="1485" target="1333">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-6140" y="750"/>
+                            <mxPoint x="-6140" y="605"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="1488" value="startTime/endTime/cronTab are derived from http post parameter `schedule`&lt;br&gt;for example, schedule: {&quot;startTime&quot;:&quot;2021-04-11 00:00:00&quot;,&quot;endTime&quot;:&quot;2121-04-11 00:00:00&quot;,&quot;crontab&quot;:&quot;0 0 * * * ? *&quot;}" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="-6792.5" y="695" width="630" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
