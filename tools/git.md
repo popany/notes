@@ -1,6 +1,8 @@
 # git
 
 - [git](#git)
+  - [`git commmit`](#git-commmit)
+    - [Change last commit time](#change-last-commit-time)
   - [`git tag`](#git-tag)
     - [List tags with pattern `v-*`](#list-tags-with-pattern-v-)
     - [Add a tag](#add-a-tag)
@@ -22,6 +24,20 @@
     - [`autocrlf`](#autocrlf)
     - [safecrlf](#safecrlf)
   - [Q&A](#qa)
+
+## `git commmit`
+
+### Change last commit time
+
+    git commit --amend --date="$(date -R)"
+
+or
+
+    git commit --amend --date=`date -R`
+
+or
+
+    git commit --amend --date="Sun, 25 Dec 2016 19:42:09 +0800"
 
 ## `git tag`
 
