@@ -4503,8 +4503,11 @@
                 <mxCell id="1945" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1943">
                     <mxGeometry x="110" width="42" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="1946" value="startVertexes = new ArrayList&amp;lt;&amp;gt;()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5610" y="10256.25" width="220" height="40" as="geometry"/>
+                <mxCell id="2093" value="assign" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1946" target="2092">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1946" value="new ArrayList&amp;lt;&amp;gt;()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5610" y="10256.25" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1954" value="true" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1949" target="1952">
                     <mxGeometry relative="1" as="geometry"/>
@@ -4515,8 +4518,11 @@
                 <mxCell id="1949" value="preNodeName == null" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="-5610" y="10331" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="1952" value="startVertexes = dag.getBeginNode()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5450" y="10351.25" width="220" height="40" as="geometry"/>
+                <mxCell id="2094" value="assign" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1952" target="2091">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="1952" value="dag.getBeginNode()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5450" y="10351.25" width="130" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1990" value="true" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1955" target="1974">
                     <mxGeometry relative="1" as="geometry"/>
@@ -4581,7 +4587,7 @@
                 <mxCell id="1972" value="ProcessData contain tasks as TaskNode list" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
                     <mxGeometry x="-5375" y="9087" width="250" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="1992" value="add result to" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1974" target="1991">
+                <mxCell id="2099" value="assign" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1974" target="2096">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1974" value="DagHelper.parseConditionTask()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -4652,31 +4658,29 @@
                 <mxCell id="1989" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="1987">
                     <mxGeometry x="110" width="42" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="1991" value="startVertexes&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5130" y="10470" width="90" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="1997" value="assign result to" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="1994" target="1996">
+                <mxCell id="2098" value="assign" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1994" target="2097">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1994" value="Dag.getSubsequentNodes()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="-5450" y="10570" width="220" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="1996" value="startVertexes&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5130" y="10570" width="90" height="40" as="geometry"/>
-                </mxCell>
                 <mxCell id="1993" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="1974" target="1975">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1999" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="1998" target="1994">
-                    <mxGeometry relative="1" as="geometry"/>
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-5285" y="10550"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="1998" value="Get all subsequent nodes of the node&lt;br&gt;&lt;br&gt;Note:&lt;br&gt;only get the driectly connected sub nodes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
-                    <mxGeometry x="-5025" y="10520" width="240" height="60" as="geometry"/>
+                <mxCell id="1998" value="Note:&lt;br&gt;only get the driectly connected sub nodes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="-4955" y="10540" width="240" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2001" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="2000" target="1952">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-5285" y="10321"/>
+                            <mxPoint x="-5352" y="10321"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -4931,6 +4935,18 @@
                 </mxCell>
                 <mxCell id="2090" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="2071" target="2073">
                     <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2091" value="startVertexes" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5250" y="10344" width="160" height="54" as="geometry"/>
+                </mxCell>
+                <mxCell id="2092" value="startVertexes" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5420" y="10249.25" width="160" height="54" as="geometry"/>
+                </mxCell>
+                <mxCell id="2096" value="startVertexes" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5160" y="10463" width="160" height="54" as="geometry"/>
+                </mxCell>
+                <mxCell id="2097" value="startVertexes" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5160" y="10563" width="160" height="54" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
