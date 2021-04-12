@@ -4,6 +4,9 @@
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
+                <mxCell id="2182" value="postNodeList" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5450" y="10643" width="160" height="54" as="geometry"/>
+                </mxCell>
                 <mxCell id="1558" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;div style=&quot;text-align: left ; line-height: 19px&quot;&gt;Command.setProcessDefinitionId(schedule.getProcessDefinitionId())&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-5570" y="2060" width="540" height="40" as="geometry"/>
                 </mxCell>
@@ -4405,6 +4408,12 @@
                 <mxCell id="2101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1912" target="2100">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
+                <mxCell id="2181" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1912" target="2179">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2191" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1912" target="2192">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="1912" value="parsePostNodes()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="-5710" y="10191" width="180" height="40" as="geometry"/>
                 </mxCell>
@@ -4459,13 +4468,13 @@
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="-5600" y="10191" as="targetPoint"/>
                         <Array as="points">
-                            <mxPoint x="-5390" y="10201"/>
-                            <mxPoint x="-5390" y="10201"/>
+                            <mxPoint x="-5440" y="10150"/>
+                            <mxPoint x="-5440" y="10201"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="1930" value="&lt;div&gt;parse the successor nodes of previous node.&lt;/div&gt;&lt;div&gt;this function parse the condition node to find the right branch.&lt;/div&gt;&lt;div&gt;also check all the depends nodes forbidden or complete&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
-                    <mxGeometry x="-5370" y="10186" width="340" height="50" as="geometry"/>
+                    <mxGeometry x="-5380" y="10133.25" width="340" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="1933" value="parameters" style="shape=table;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;" vertex="1" parent="1">
                     <mxGeometry x="-5682" y="10041" width="152" height="150" as="geometry"/>
@@ -4597,7 +4606,7 @@
                     <mxGeometry x="-5450" y="10470" width="220" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1975" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 12px&quot;&gt;DagHelper&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5800" y="11100" width="90" height="40" as="geometry"/>
+                    <mxGeometry x="-5800" y="11530" width="90" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2003" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1976" target="2002">
                     <mxGeometry relative="1" as="geometry"/>
@@ -4607,7 +4616,7 @@
                 </mxCell>
                 <mxCell id="2010" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1976" target="2011">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="-5665" y="11400.7998046875" as="targetPoint"/>
+                        <mxPoint x="-5665" y="11830.7998046875" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2017" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="1976" target="2014">
@@ -4620,10 +4629,10 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="1976" value="parseConditionTask()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5710" y="11100" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="-5710" y="11530" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="1977" value="parameters" style="shape=table;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="-5682" y="10950" width="152" height="150" as="geometry"/>
+                    <mxGeometry x="-5682" y="11380" width="152" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="1978" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="1977">
                     <mxGeometry y="30" width="152" height="30" as="geometry"/>
@@ -4693,10 +4702,10 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2002" value="nodeName's corresponding taskNode's type is not&amp;nbsp; `CONDITIONS`" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5625" y="11160" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="-5625" y="11590" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="2004" value="return empty list&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5420" y="11230" width="100" height="40" as="geometry"/>
+                    <mxGeometry x="-5420" y="11660" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2008" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2006" target="2004">
                     <mxGeometry relative="1" as="geometry"/>
@@ -4707,31 +4716,31 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2006" value="nodeName not in completeTaskList" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5625" y="11270" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="-5625" y="11700" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="2013" value="get the taskInstance's" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2011" target="2026">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="-5360" y="11400" as="targetPoint"/>
+                        <mxPoint x="-5360" y="11830" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2011" value="get noteName's corresponding taskInstance from completeTaskList&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
-                    <mxGeometry x="-5625" y="11380" width="205" height="40" as="geometry"/>
+                    <mxGeometry x="-5625" y="11810" width="205" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2019" value="false" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2014" target="2018">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2021" value="true" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2014" target="2038">
                     <mxGeometry x="0.4839" relative="1" as="geometry">
-                        <mxPoint x="-5390" y="11542" as="targetPoint"/>
+                        <mxPoint x="-5390" y="11972" as="targetPoint"/>
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2014" value="the taskInstance's state is `SUCCESS`" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5625" y="11502" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="-5625" y="11932" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="2023" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2018" target="2048">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="-5390" y="11694" as="targetPoint"/>
+                        <mxPoint x="-5390" y="12124" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2025" value="true" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2023">
@@ -4742,13 +4751,13 @@
                 <mxCell id="2055" value="false" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2018" target="2056">
                     <mxGeometry x="-0.5937" relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-5585" y="11797"/>
+                            <mxPoint x="-5585" y="12227"/>
                         </Array>
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2018" value="the taskInstance's state is&amp;nbsp;`FAILURE`/`NEED_FAULT_TOLERANCE`" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5625" y="11654" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="-5625" y="12084" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="2029" value="field" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2026" target="2027">
                     <mxGeometry relative="1" as="geometry"/>
@@ -4757,29 +4766,29 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2026" value="&lt;span style=&quot;text-align: left&quot;&gt;conditionsParameters&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5270" y="11373" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5270" y="11803" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2027" value="&lt;span style=&quot;text-align: left&quot;&gt;successNode&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5050" y="11326" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5050" y="11756" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2028" value="&lt;span style=&quot;text-align: left&quot;&gt;failedNode&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5050" y="11410" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5050" y="11840" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2032" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" edge="1" parent="1" source="2031" target="2027">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-4970" y="11306"/>
+                            <mxPoint x="-4970" y="11736"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2031" value="node list to run when success" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
-                    <mxGeometry x="-4860" y="11300" width="170" height="20" as="geometry"/>
+                    <mxGeometry x="-4860" y="11730" width="170" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="2034" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="2033" target="2028">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2033" value="node list to run when failed" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
-                    <mxGeometry x="-4855" y="11380" width="160" height="20" as="geometry"/>
+                    <mxGeometry x="-4855" y="11810" width="160" height="20" as="geometry"/>
                 </mxCell>
                 <mxCell id="2043" value="to" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="2035" target="2027">
                     <mxGeometry x="-0.5951" relative="1" as="geometry">
@@ -4787,7 +4796,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2035" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;conditionTaskList&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5290" y="11480" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5290" y="11910" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2041" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2038" target="2035">
                     <mxGeometry relative="1" as="geometry"/>
@@ -4796,7 +4805,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2038" value="set&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5390" y="11522" width="50" height="40" as="geometry"/>
+                    <mxGeometry x="-5390" y="11952" width="50" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2044" value="to" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2040" target="2028">
                     <mxGeometry x="-0.6337" relative="1" as="geometry">
@@ -4804,7 +4813,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2040" value="&lt;div style=&quot;text-align: left&quot;&gt;skipNodeList&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5290" y="11550" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5290" y="11980" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2050" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="2045" target="2028">
                     <mxGeometry relative="1" as="geometry"/>
@@ -4815,7 +4824,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2045" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;conditionTaskList&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5290" y="11632" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5290" y="12062" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2046" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2048" target="2045">
                     <mxGeometry relative="1" as="geometry"/>
@@ -4824,7 +4833,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2048" value="set&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5390" y="11674" width="50" height="40" as="geometry"/>
+                    <mxGeometry x="-5390" y="12104" width="50" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2052" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="2049" target="2027">
                     <mxGeometry relative="1" as="geometry"/>
@@ -4835,64 +4844,64 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2049" value="&lt;div style=&quot;text-align: left&quot;&gt;skipNodeList&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5290" y="11702" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5290" y="12132" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2060" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2054" target="2059">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2054" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;conditionTaskList&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5400" y="11770" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5400" y="12200" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2058" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2056" target="2054">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2056" value="set&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5505" y="11777" width="50" height="40" as="geometry"/>
+                    <mxGeometry x="-5505" y="12207" width="50" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2059" value="just include nodeName&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5190" y="11777" width="140" height="40" as="geometry"/>
+                    <mxGeometry x="-5190" y="12207" width="140" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2061" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;conditionTaskList&lt;/span&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5530" y="11962" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5530" y="12392" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2064" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2063" target="2061">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2063" value="return&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5623" y="11969" width="55" height="40" as="geometry"/>
+                    <mxGeometry x="-5623" y="12399" width="55" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2068" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2065" target="2067">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2065" value="iterate&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5623" y="11869" width="55" height="40" as="geometry"/>
+                    <mxGeometry x="-5623" y="12299" width="55" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2070" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2067" target="2069">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2067" value="&lt;div style=&quot;text-align: left&quot;&gt;skipNodeList&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5530" y="11862" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5530" y="12292" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2072" value="call" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2069" target="2071">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2069" value="for every node&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5315" y="11869" width="95" height="40" as="geometry"/>
+                    <mxGeometry x="-5315" y="12299" width="95" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2071" value="DagHelper.setTaskNodeSkip()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5150" y="11869" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="-5150" y="12299" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2073" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 12px&quot;&gt;DagHelper&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5800" y="12310" width="90" height="40" as="geometry"/>
+                    <mxGeometry x="-5800" y="12740" width="90" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2074" target="2104">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2074" value="setTaskNodeSkip()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5710" y="12310" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="-5710" y="12740" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2075" value="parameters" style="shape=table;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="-5682" y="12160" width="152" height="150" as="geometry"/>
+                    <mxGeometry x="-5682" y="12590" width="152" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="2076" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2075">
                     <mxGeometry y="30" width="152" height="30" as="geometry"/>
@@ -4930,9 +4939,6 @@
                 <mxCell id="2087" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="2085">
                     <mxGeometry x="110" width="42" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2090" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="2071" target="2073">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
                 <mxCell id="2091" value="startVertexes" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="-5250" y="10344" width="160" height="54" as="geometry"/>
                 </mxCell>
@@ -4948,23 +4954,23 @@
                 <mxCell id="2103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2100" target="2102">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="2100" value="iterate&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5623" y="10673" width="53" height="40" as="geometry"/>
+                <mxCell id="2100" value="for every node in&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5623" y="10738" width="103" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="2141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2102" target="2139">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2102" value="startVertexes" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5520" y="10666" width="160" height="54" as="geometry"/>
-                </mxCell>
-                <mxCell id="1993" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="1974" target="1975">
-                    <mxGeometry relative="1" as="geometry"/>
+                    <mxGeometry x="-5472" y="10731" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2104" target="2107">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2104" value="add&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5618" y="12385" width="44" height="40" as="geometry"/>
+                    <mxGeometry x="-5618" y="12815" width="44" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2106" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span style=&quot;text-align: center&quot;&gt;skipTaskNodeList&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5323" y="12378" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5323" y="12808" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2109" value="to" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2107" target="2106">
                     <mxGeometry relative="1" as="geometry"/>
@@ -4973,33 +4979,33 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2107" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span style=&quot;text-align: center&quot;&gt;skipNodeName&amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5533" y="12378" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5533" y="12808" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2110" target="2112">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2110" value="dag.getSubsequentNodes()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5533" y="12470" width="160" height="40" as="geometry"/>
+                    <mxGeometry x="-5533" y="12900" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2115" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2112" target="2114">
                     <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="-5330" y="12577" as="targetPoint"/>
+                        <mxPoint x="-5330" y="13007" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="2112" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span style=&quot;text-align: center&quot;&gt;postNodeList&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5533" y="12550" width="160" height="54" as="geometry"/>
+                    <mxGeometry x="-5533" y="12980" width="160" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="2117" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2114" target="2116">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2114" value="for every node" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5323" y="12557" width="103" height="40" as="geometry"/>
+                    <mxGeometry x="-5323" y="12987" width="103" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2136" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2116" target="2074">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="-4930" y="12577"/>
-                            <mxPoint x="-4930" y="12330"/>
+                            <mxPoint x="-4930" y="13007"/>
+                            <mxPoint x="-4930" y="12760"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
@@ -5008,17 +5014,22 @@
                         <mxPoint x="20" y="-27" as="offset"/>
                     </mxGeometry>
                 </mxCell>
+                <mxCell id="2140" value="true" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2136">
+                    <mxGeometry x="-0.8304" y="2" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
                 <mxCell id="2116" value="DagHelper.isTaskNodeNeedSkip()" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5130" y="12537" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="-5130" y="12967" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="2118" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 12px&quot;&gt;DagHelper&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5800" y="12850" width="90" height="40" as="geometry"/>
+                    <mxGeometry x="-5800" y="13280" width="90" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2119" value="isTaskNodeNeedSkip()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="-5710" y="12850" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="-5710" y="13280" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="2120" value="parameters" style="shape=table;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;" vertex="1" parent="1">
-                    <mxGeometry x="-5682" y="12760" width="152" height="90" as="geometry"/>
+                    <mxGeometry x="-5682" y="13190" width="152" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="2121" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2120">
                     <mxGeometry y="30" width="152" height="30" as="geometry"/>
@@ -5042,9 +5053,176 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2134" value="If taskNode's all depend nodes were in skipTaskNodeList, reture true,&lt;br&gt;else return false" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
-                    <mxGeometry x="-5400" y="12820" width="380" height="30" as="geometry"/>
+                    <mxGeometry x="-5400" y="13250" width="380" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="2133" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="2116" target="2118">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2143" value="true" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2139" target="2142">
+                    <mxGeometry x="0.3388" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2150" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2139" target="2149">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2171" value="false" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2150">
+                    <mxGeometry x="-0.3433" relative="1" as="geometry">
+                        <mxPoint y="5" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2139" value="DagHelper.isTaskNodeNeedSkip()" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5232" y="10718" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="2142" value="DagHelper.setTaskNodeSkip()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5032" y="10738" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="2144" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2139" target="2118">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-5800" y="12871.6005859375" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2090" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="2071" target="2073">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2173" value="true" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2149" target="2172">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2149" value="DagHelper.allDependsForbiddenOrEnd()" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5232" y="10841" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="2151" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 12px&quot;&gt;DagHelper&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5800" y="13611" width="90" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="2152" value="allDependsForbiddenOrEnd()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5710" y="13611" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="2153" value="parameters" style="shape=table;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;" vertex="1" parent="1">
+                    <mxGeometry x="-5682" y="13461" width="152" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="2154" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2153">
+                    <mxGeometry y="30" width="152" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2155" value="taskNode" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="2154">
+                    <mxGeometry width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2156" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="2154">
+                    <mxGeometry x="110" width="42" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2157" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2153">
+                    <mxGeometry y="60" width="152" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2158" value="dag" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="2157">
+                    <mxGeometry width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2159" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="2157">
+                    <mxGeometry x="110" width="42" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2160" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2153">
+                    <mxGeometry y="90" width="152" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2161" value="&lt;span&gt;skipTaskNodeList&lt;/span&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="2160">
+                    <mxGeometry width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2162" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="2160">
+                    <mxGeometry x="110" width="42" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2163" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2153">
+                    <mxGeometry y="120" width="152" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2164" value="&lt;span&gt;completeTaskList&lt;/span&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="2163">
+                    <mxGeometry width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2165" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="2163">
+                    <mxGeometry x="110" width="42" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="2166" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="2149" target="2151">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2168" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="2167" target="2152">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-5490" y="13561"/>
+                            <mxPoint x="-5490" y="13621"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2167" value="If taskNode's has no dependent node&lt;br&gt;&amp;nbsp; &amp;nbsp; return true&lt;br&gt;If taskNode's every dependent node is either contained in completTaskList&lt;br&gt;&amp;nbsp; &amp;nbsp; or is contained in skipTaskNodeList&lt;br&gt;&amp;nbsp; &amp;nbsp; or has runFlag of value FLOWNODE_RUN_FLAG_FORBIDDEN,&lt;br&gt;&amp;nbsp; &amp;nbsp; return true&lt;br&gt;else&lt;br&gt;&amp;nbsp; &amp;nbsp; return false" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="-5450" y="13551" width="410" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="2174" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2172">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-4970" y="11005" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2175" value="true" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="2174">
+                    <mxGeometry x="0.097" y="-4" relative="1" as="geometry">
+                        <mxPoint x="23" y="-4" as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2187" value="false" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2172" target="2188">
+                    <mxGeometry x="-0.4118" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-5192" y="11170"/>
+                        </Array>
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2172" value="the node has runFlag of value FLOWNODE_RUN_FLAG_FORBIDDEN or is contained in completTaskList" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5232" y="10965" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="2178" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2176" target="1912">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-4700" y="11005"/>
+                            <mxPoint x="-4700" y="10211"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2185" value="merge return set into" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2176" target="2184">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-4910" y="11040"/>
+                            <mxPoint x="-4910" y="11040"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2176" value="recursive call&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-4970" y="10985" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="2183" value="assign" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2179" target="2182">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2179" value="new HashSet&amp;lt;&amp;gt;()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5623" y="10650" width="103" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="2184" value="postNodeList" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-4990" y="11070" width="160" height="54" as="geometry"/>
+                </mxCell>
+                <mxCell id="2186" value="postNodeList" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-4990" y="11143" width="160" height="54" as="geometry"/>
+                </mxCell>
+                <mxCell id="2189" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2188" target="2186">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2188" value="add node to&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5120" y="11150" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="2145" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2142" target="2073">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-5840" y="12540" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2190" value="postNodeList" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5526.5" y="11210" width="160" height="54" as="geometry"/>
+                </mxCell>
+                <mxCell id="2193" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2192" target="2190">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2192" value="return&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-5623" y="11217" width="56.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="1993" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="1974" target="1975">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
             </root>
