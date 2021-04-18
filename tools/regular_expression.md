@@ -1,5 +1,13 @@
 # Regular Expression
 
+- [Regular Expression](#regular-expression)
+  - [Replace](#replace)
+    - [Replace to upper case](#replace-to-upper-case)
+      - [To lower case](#to-lower-case)
+    - [remove duplicate lines](#remove-duplicate-lines)
+      - [Match All Lines That Are Not Repeated](#match-all-lines-that-are-not-repeated)
+      - [Replace All Repeated Lines](#replace-all-repeated-lines)
+
 ## Replace
 
 ### Replace to upper case
@@ -15,6 +23,10 @@ Replace:
 The `\U` will cause all following chars to be upper
 
 The `\E` will turn off the `\U`
+
+#### To lower case
+
+    \L\1\E
 
 ### [remove duplicate lines](https://stackoverflow.com/questions/24734796/extract-all-unique-lines)
 
