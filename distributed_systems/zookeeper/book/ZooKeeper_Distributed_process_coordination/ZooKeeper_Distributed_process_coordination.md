@@ -248,11 +248,11 @@ master-worker architecture:
 
 Failures can crop up at any point, and it may be impossible to enumerate all the different corner cases that need to be handled
 
-ZooKeeper has been designed with mostly consistency and availability in mind, although it also provides read-only capability in the presence of network partitions
+ZooKeeper has been designed with mostly consistency and availability in mind, although it also provides **read-only capability** in the presence of network partitions
 
 ### ZooKeeper Is a Success, with Caveats
 
-Having pointed out that the perfect solution is impossible, we can repeat that ZooKeeper is not going to solve all the problems that the distributed application developer has to face.
+Having pointed out that the **perfect solution is impossible**, we can repeat that ZooKeeper is not going to solve all the problems that the distributed application developer has to face.
 
 ## CHAPTER 2 Getting to Grips with ZooKeeper
 
@@ -317,7 +317,7 @@ ZooKeeper does not allow partial **writes** or **reads** of the znode data
 
     - When the session of the client creator ends, either by expiration or because it explicitly closed.
 
-    - When a client, not necessarily the creator, deletes it.
+    - When a client, **not necessarily the creator**, deletes it.
 
 ##### Sequential znodes
 
@@ -329,7 +329,7 @@ ZooKeeper does not allow partial **writes** or **reads** of the znode data
 
 - They also provide a way to easily see the creation order of znodes
 
-four options for the mode of a znode: 
+four options for the mode of a znode:
 
 - persistent
 - ephemeral

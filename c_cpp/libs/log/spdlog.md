@@ -6,7 +6,7 @@
     - [Windows](#windows)
       - [CMakeLists.txt](#cmakeliststxt)
   - [Use](#use)
-    - [Define Macros](#define-macros)
+    - [Define Macros (win32)](#define-macros-win32)
     - [Init Log](#init-log)
       - [reference](#reference)
   - [Document](#document)
@@ -42,7 +42,7 @@ For version v1.8.5
 
 ## Use
 
-### Define Macros
+### Define Macros (win32)
 
     #include "spdlog/spdlog.h"
 
