@@ -14,8 +14,6 @@
   - [Practice](#practice)
     - [`include(GNUInstallDirs)`](#includegnuinstalldirs)
     - [`find_package(Threads REQUIRED)`](#find_packagethreads-required)
-    - [CMake: building with all your cores](#cmake-building-with-all-your-cores)
-      - [Visual Studio IDE](#visual-studio-ide)
 
 [CMake Useful Variables](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Useful-Variables)  
 
@@ -166,9 +164,3 @@ By including `GNUInstallDirs` a set of variables, which contain installation dir
       find_package(Threads)
       add_executable(test test.cpp)
       target_link_libraries(test Threads::Threads)
-
-### [CMake: building with all your cores](https://blog.kitware.com/cmake-building-with-all-your-cores/)
-
-#### Visual Studio IDE
-
-The flag is the /MP flag which has the following help: “/MP[N] use up to ‘n’ processes for compilation”.  The N is optional as /MP without an n will use as many cores as it sees on the machine.  This flag must be set at CMake configure time instead of build time like the –j flag of make. To set the flag you will have to edit the CMake cache with the cmake-gui and add it to the CMAKE_CXX_FLAGS and the CMAKE_C_FLAGS.  The downside is that the IDE will still perform target level parallelism along with object level parallelism which can lead to excessive parallelism grinding your machine and GUI to a halt. It has also been known to randomly create bad object files. However, the speed up is significant so it is usually worth the extra trouble it causes.
