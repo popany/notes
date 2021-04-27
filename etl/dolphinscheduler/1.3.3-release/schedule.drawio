@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="v6ySnQ32wB-tDuvYsdX_" name="Page-1">
-        <mxGraphModel dx="12067" dy="3703" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="11555" dy="3415" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -4598,7 +4598,7 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2666" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="1955" target="2664">
+                <mxCell id="2666" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="1955" target="2664" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-5490" y="10490"/>
@@ -6344,7 +6344,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2564" value="dependResult is&amp;nbsp;DependResult.SUCCESS" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="2564" value="dependResult is&amp;nbsp;DependResult.FAILED" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-7290" y="16170" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="2570" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="2566" target="2568" edge="1">
@@ -6563,17 +6563,17 @@
                 <mxCell id="2637" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="2635" vertex="1">
                     <mxGeometry x="140" width="40" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2639" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="2638" target="2006">
+                <mxCell id="2639" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;dashed=1" parent="1" source="2638" target="2006" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-5565" y="11809"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2638" value="conditions node should be completed before it takes its function" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="2638" value="conditions node should be completed before it takes its function" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="-5307" y="11799" width="350" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="2641" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="2640" target="1908">
+                <mxCell id="2641" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1" parent="1" source="2640" target="1908" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="-7380" y="10741"/>
@@ -6581,46 +6581,46 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2640" value="submit dag's begin nodes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="2640" value="submit dag's begin nodes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="-7342" y="10731" width="150" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="2642" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 12px&quot;&gt;DagHelper&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="2642" value="&lt;div style=&quot;font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;font-family: &amp;#34;helvetica&amp;#34; ; font-size: 12px&quot;&gt;DagHelper&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-5800" y="14080" width="90" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="2643" value="haveConditionsAfterNode()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="2643" value="haveConditionsAfterNode()&lt;font face=&quot;helvetica&quot;&gt;&lt;br&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="-5710" y="14080" width="180" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="2644" value="parameters" style="shape=table;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;" vertex="1" parent="1">
+                <mxCell id="2644" value="parameters" style="shape=table;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;" parent="1" vertex="1">
                     <mxGeometry x="-5682" y="13990" width="152" height="90" as="geometry"/>
                 </mxCell>
-                <mxCell id="2645" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2644">
+                <mxCell id="2645" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2644" vertex="1">
                     <mxGeometry y="30" width="152" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2646" value="parentNodeName" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="2645">
+                <mxCell id="2646" value="parentNodeName" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" parent="2645" vertex="1">
                     <mxGeometry width="110" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2647" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="2645">
+                <mxCell id="2647" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="2645" vertex="1">
                     <mxGeometry x="110" width="42" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2648" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="2644">
+                <mxCell id="2648" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2644" vertex="1">
                     <mxGeometry y="60" width="152" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2649" value="dag" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" vertex="1" parent="2648">
+                <mxCell id="2649" value="dag" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;" parent="2648" vertex="1">
                     <mxGeometry width="110" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2650" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" vertex="1" parent="2648">
+                <mxCell id="2650" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;" parent="2648" vertex="1">
                     <mxGeometry x="110" width="42" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="2657" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="2378" target="2642">
+                <mxCell id="2657" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" parent="1" source="2378" target="2642" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="2659" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="2658" target="2643">
+                <mxCell id="2659" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1" parent="1" source="2658" target="2643" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="2658" value="there is the node which's taskType is `TaskType.CONDITIONS` in the `parentNodeName` corresponding node's child nodes." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="2658" value="there is the node which's taskType is `TaskType.CONDITIONS` in the `parentNodeName` corresponding node's child nodes." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="-5460" y="14060" width="670" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="2664" value="if preNode is conditions node, its state can be&amp;nbsp;FAILURE or NEED_FAULT_TOLERANCE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="2664" value="if preNode is conditions node, its state can be&amp;nbsp;FAILURE or NEED_FAULT_TOLERANCE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="-5440" y="10429.75" width="480" height="20" as="geometry"/>
                 </mxCell>
             </root>
