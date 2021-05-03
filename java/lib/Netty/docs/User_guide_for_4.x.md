@@ -326,7 +326,7 @@ The biggest and only difference between a server and a client in Netty is that d
 
 1. [`Bootstrap`](https://netty.io/4.1/api/io/netty/bootstrap/Bootstrap.html) is similar to [`ServerBootstrap`](https://netty.io/4.1/api/io/netty/bootstrap/ServerBootstrap.html) except that it's for non-server channels such as a **client-side** or **connectionless** channel.
 
-2. If you specify only one [`EventLoopGroup`](https://netty.io/4.1/api/io/netty/channel/EventLoopGroup.html), it will be used both as a boss group and as a worker group. The boss worker is not used for the client side though.
+2. If you specify only one [`EventLoopGroup`](https://netty.io/4.1/api/io/netty/channel/EventLoopGroup.html), it will be used both as a boss group and as a worker group. The **boss worker is not used** for the client side though.
 
 3. Instead of [`NioServerSocketChannel`](https://netty.io/4.1/api/io/netty/channel/socket/nio/NioServerSocketChannel.html), [`NioSocketChannel`](https://netty.io/4.1/api/io/netty/channel/socket/nio/NioSocketChannel.html) is being used to create a client-side [`Channel`](https://netty.io/4.1/api/io/netty/channel/Channel.html).
 
