@@ -719,14 +719,3 @@ If you are going to write a protocol multiplexer, you will probably want to repl
             ctx.pipeline().remove(this);
         }
     }
-
-
-
-
-
-
-
-
-
-
-

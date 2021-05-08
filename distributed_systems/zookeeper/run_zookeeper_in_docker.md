@@ -10,6 +10,7 @@
       - [Replicated mode](#replicated-mode)
   - [Practice](#practice)
     - [Run zookeeper in Replicated mode with 3 nodes](#run-zookeeper-in-replicated-mode-with-3-nodes)
+      - [client](#client)
 
 ## [zookeeper docker hub](https://hub.docker.com/_/zookeeper/)
 
@@ -64,3 +65,7 @@ Zookeeper configuration is located in `/conf`. One way to change it is mounting 
     docker run --name zk2 --hostname zk2 --network zookeeper -e "ZOO_MY_ID=2" -d -v $(pwd)/zoo.cfg:/conf/zoo.cfg zookeeper
 
     docker run --name zk3 --hostname zk3 --network zookeeper -e "ZOO_MY_ID=3" -d -v $(pwd)/zoo.cfg:/conf/zoo.cfg zookeeper
+
+#### client
+
+    docker run -it --rm --network zookeeper zkCli.sh -server zk1
