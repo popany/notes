@@ -296,5 +296,3 @@ sets objects to 'main.o foo.o bar.o utils.o another.o'.
 >     bar := $(foo:%.o=%.c)
 >
 > sets 'bar' to 'a.c b.c l.a c.c'.
-
-
