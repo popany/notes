@@ -22,6 +22,8 @@
         - [Sequential znodes](#sequential-znodes)
       - [Watches and Notifications](#watches-and-notifications)
       - [Versions](#versions)
+    - [ZooKeeper Architecture](#zookeeper-architecture)
+      - [ZooKeeper Quorums](#zookeeper-quorums)
 
 ## CHAPTER 1 Introduction
 
@@ -371,7 +373,31 @@ To set a watch
 
 #### Versions
 
+- Each znode has a version number
 
+  - incremented every time when the znode's data changed
+
+- `setData` and `delete` take a version as an input parameter
+  
+  - operation succeeds only if the version passed by the client matches the current version on the server.
+
+### ZooKeeper Architecture
+
+ZooKeeper ensemble:
+
+- contain a single server and operate in standalone mode
+
+- contain a group of servers and operate in quorum mode
+
+#### ZooKeeper Quorums
+
+- ZooKeeper replicates its data tree across all servers in the ensemble
+
+- quorum
+
+  - is the minimum number of servers that have to be running and available in order for ZooKeeper to work
+
+  - is also the minimum number of servers that have to store a client's data before telling the client it is safely stored
 
 
 
