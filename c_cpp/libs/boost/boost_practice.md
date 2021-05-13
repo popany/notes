@@ -1,21 +1,21 @@
-# boost practice
+# Boost Practice
 
-- [boost practice](#boost-practice)
-  - [Time](#time)
-    - [TimeStamp](#timestamp)
+- [Boost Practice](#boost-practice)
+  - [Build](#build)
+    - [Linux](#linux)
 
-## Time
+## Build
 
-### TimeStamp
+### Linux
 
-    #include <boost/date_time.hpp>
+[reference](https://www.boost.org/doc/libs/1_76_0/more/getting_started/unix-variants.html) 
 
-    std::string GetTimeStmpString()
-    {
-        std::ostringstream date_osstr;
-        const static std::locale currlocale = std::locale(date_osstr.getloc(), new boost::posix_time::time_facet("%Y%m%d%H%M%S%F"));
-        date_osstr.imbue(currlocale);
-        const boost::posix_time::ptime& now = boost::posix_time::second_clock::local_time();
-        date_osstr << now;
-        return date_osstr.str();
-    }
+    wget https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2
+    yum install -y bzip2
+    tar --bzip2 -xf boost_1_76_0.tar.bz2
+    cd boost_1_76_0
+    ./bootstrap.sh  --without-libraries=python,test
+    ./b2 install
+
+
+
