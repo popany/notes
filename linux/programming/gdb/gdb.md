@@ -26,6 +26,7 @@
       - [`info functions`](#info-functions)
       - [`info threads`](#info-threads)
       - [`info stack`](#info-stack)
+      - [`info args`](#info-args)
     - [`thread`](#thread)
       - [`thread <thread ID>`](#thread-thread-id)
     - [`list`](#list)
@@ -40,6 +41,7 @@
     - [`next`](#next)
     - [`continue`](#continue)
     - [`backtrace`](#backtrace)
+    - [`frame`](#frame)
   - [Practice](#practice)
     - [Start gdb with tui mode and set args](#start-gdb-with-tui-mode-and-set-args)
     - [Scroll the active window one page up [[ref]](https://sourceware.org/gdb/onlinedocs/gdb/TUI-Keys.html)](#scroll-the-active-window-one-page-up-ref)
@@ -137,6 +139,10 @@ Display currently known threads
 #### `info stack`
 
 Backtrace of the stack
+
+#### `info args`
+
+Argument variables of current stack frame
 
 ### `thread`
 
@@ -241,6 +247,10 @@ Continue program being debugged, after signal or breakpoint
 ### `backtrace`
 
 Print backtrace of all stack frames, or innermost COUNT frames
+
+### `frame`
+
+Select frame number `n`. Recall that frame zero is the innermost (currently executing) frame, frame one is the frame that called the innermost one, and so on. The highest-numbered frame is the one for main.
 
 ## Practice
 
