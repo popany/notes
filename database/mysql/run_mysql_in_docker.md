@@ -21,6 +21,11 @@
     - [Practice](#practice)
       - [Run container](#run-container)
       - [Connect to MySQL](#connect-to-mysql)
+      - [use docker-compose](#use-docker-compose)
+        - [create docker-compose.yml](#create-docker-composeyml)
+        - [run it](#run-it)
+        - [connect to server](#connect-to-server)
+        - [stop server](#stop-server)
 
 ## Docker
 
@@ -144,3 +149,37 @@ For restoring data. You can use `docker exec` command with `-i` flag, similar to
 #### Connect to MySQL
 
     docker run -ti --network bridge --rm mysql mysql -h172.17.0.2 -uroot -pabc
+
+#### use docker-compose
+
+##### create docker-compose.yml
+
+    version: "3"
+    services:
+      mysql_db:
+        restart: always
+        image: mysql:latest
+        container_name: mysql
+        hostname: mysql
+        volumes:
+          - "./mysql/db-data:/var/lib/mysql"
+        ports:
+          - 3306:3306
+          - 33060:33060
+        environment:
+          - TZ=Asia/Shanghai
+          - MYSQL_ROOT_PASSWORD=abc
+        command: [ "--character-set-server=utf8", "--collation-server=utf8_unicode_ci" ]
+
+##### run it
+
+    cd PATH_TO_DOCKER-COMPOSE.YML
+    docker-compose up -d
+
+##### connect to server
+
+    mysql -h 127.0.0.1 -u root -P 3306 -p rootpw
+
+##### stop server
+
+    docker-compose stop

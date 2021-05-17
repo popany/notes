@@ -219,6 +219,30 @@
                 <mxCell id="73" value="MasterExecThread" style="html=1;" vertex="1" parent="1">
                     <mxGeometry x="896" y="1520" width="122" height="40" as="geometry"/>
                 </mxCell>
+                <mxCell id="79" value="&lt;h1&gt;Execute Process&lt;/h1&gt;&lt;p&gt;This procedure runs in MasterExecThread&amp;nbsp;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="-80" y="1840" width="360" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value=":MasterExecThread" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="1920" width="120" height="660" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="loop for&lt;br&gt;process instance not finished" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="325" y="2080" width="170" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="82" target="85">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="82" value="scan running tasks" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="347.5" y="2230" width="125" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="create task instance of start nodes" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="308.75" y="2000" width="202.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" value="warning for process timeout" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="328.75" y="2160" width="162.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" value="get completed task&lt;br&gt;check and add its post task into readyToSubmitTaskList" style="html=1;" vertex="1" parent="1">
+                    <mxGeometry x="420" y="2290" width="310" height="40" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>

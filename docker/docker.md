@@ -102,15 +102,15 @@ The contents of `/var/lib/docker/`, including images, containers, volumes, and n
 
 - Install required packages. `yum-utils` provides the `yum-config-manager` utility, and `device-mapper-persistent-data` and `lvm2` are required by the `devicemapper` storage driver.
 
-    yum install -y yum-utils \
-        device-mapper-persistent-data \
-        lvm2
+      yum install -y yum-utils \
+          device-mapper-persistent-data \
+          lvm2
 
 - Use the following command to set up the stable repository.
 
-    yum-config-manager \
-        --add-repo \
-        https://download.docker.com/linux/centos/docker-ce.repo
+      yum-config-manager \
+          --add-repo \
+          https://download.docker.com/linux/centos/docker-ce.repo
 
 - Optional: Enable the nightly or test repositories.
 
@@ -118,15 +118,15 @@ The contents of `/var/lib/docker/`, including images, containers, volumes, and n
 
 - Install the latest version of Docker Engine - Community and containerd
 
-        yum install docker-ce docker-ce-cli containerd.io
+      yum install docker-ce docker-ce-cli containerd.io
 
 - Start Docker
 
-        systemctl start docker
+      systemctl start docker
 
 - Verify that Docker Engine - Community is installed correctly by running the hello-world image.
 
-        docker run hello-world
+      docker run hello-world
 
 ## 教程
 
