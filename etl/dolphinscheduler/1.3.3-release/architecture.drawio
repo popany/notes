@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="Chz7LX6HWvREofruiTzN" name="Page-1">
-        <mxGraphModel dx="1555" dy="1415" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1940" dy="1620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -1124,6 +1124,9 @@
                 <mxCell id="419" value="new DBTaskResponceCommand" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="3990" y="6080" width="200" height="40" as="geometry"/>
                 </mxCell>
+                <mxCell id="446" value="DB_TASK_RESPONSE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="420" target="439">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="420" value="channel.writeAndFlush" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="4022.5" y="6150" width="135" height="40" as="geometry"/>
                 </mxCell>
@@ -1135,6 +1138,11 @@
                 </mxCell>
                 <mxCell id="160" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;dashed=1" parent="1" source="159" target="90" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="447" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=1;entryDx=0;entryDy=0;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="423" target="137">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1460" y="3910" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="423" value="t_ds_task_instance" style="html=1;" vertex="1" parent="1">
                     <mxGeometry x="1651.5" y="6000" width="140" height="40" as="geometry"/>
@@ -1179,22 +1187,22 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="438" value="response command status is SUCCESS" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="5825.25" y="5890" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="5825.25" y="6280" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="439" value="DBTaskResponseProcessor" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="5700" y="5760" width="177.25" height="41" as="geometry"/>
+                    <mxGeometry x="5700" y="6150" width="177.25" height="41" as="geometry"/>
                 </mxCell>
                 <mxCell id="440" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="441" target="438" parent="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="441" value="process" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="5750" y="5829" width="62.5" height="40" as="geometry"/>
+                    <mxGeometry x="5750" y="6219" width="62.5" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="445" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" edge="1" parent="1" source="442" target="388">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="442" value="ResponceCache" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="6580" y="5910" width="140" height="40" as="geometry"/>
+                    <mxGeometry x="6580" y="6300" width="140" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
