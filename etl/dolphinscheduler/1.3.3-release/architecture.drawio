@@ -1023,7 +1023,11 @@
                     <mxGeometry x="7600" y="5420" width="140" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="390" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="391" target="393" parent="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="6930" y="5510"/>
+                        </Array>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="391" value="TaskCallbackService.sendResult" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="7066.5" y="5490" width="190" height="40" as="geometry"/>
@@ -1032,28 +1036,34 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="393" value="get remote channel (use client channel or if closed create a new channel to the remote server)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="7275" y="5550" width="280" height="40" as="geometry"/>
+                    <mxGeometry x="6790" y="5560" width="280" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="397" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="394" target="396">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
+                <mxCell id="403" value="TASK_EXECUTE_RESPONSE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="394" target="402">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="394" value="NettyRemoteChannel.writeAndFlush" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="7306" y="5630" width="218" height="40" as="geometry"/>
+                    <mxGeometry x="6821" y="5640" width="218" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="399" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="396" target="398">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="396" value="ChannelFutureListener.operationComplete" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="7604" y="5630" width="246" height="40" as="geometry"/>
+                    <mxGeometry x="7119" y="5640" width="246" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="401" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="398" target="400">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="398" value="fulture.isSuccess" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="7890" y="5690" width="80" height="80" as="geometry"/>
+                    <mxGeometry x="7405" y="5700" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="400" value="remove remote channel" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="8020" y="5710" width="160" height="40" as="geometry"/>
+                    <mxGeometry x="7535" y="5720" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="402" value="TaskResponseProcessor" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="3173.75" y="5640" width="152.5" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
