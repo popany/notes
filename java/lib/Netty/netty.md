@@ -17,6 +17,10 @@
       - [Channels are hierarchical](#channels-are-hierarchical)
       - [Downcast to access transport-specific operations](#downcast-to-access-transport-specific-operations)
       - [Release resources](#release-resources)
+    - [`ChannelConfig`](#channelconfig)
+      - [Option map](#option-map)
+    - [`SocketChannelConfig`](#socketchannelconfig)
+      - [Available options](#available-options)
     - [`ServerChannel`](#serverchannel)
     - [`ChannelFuture`](#channelfuture)
       - [Prefer `addListener(GenericFutureListener)` to `await()`](#prefer-addlistenergenericfuturelistener-to-await)
@@ -53,6 +57,8 @@
         - [Calling `checkpoint(T)` with an Enum](#calling-checkpointt-with-an-enum)
         - [Calling `checkpoint()` with no parameter](#calling-checkpoint-with-no-parameter)
         - [Replacing a decoder with another decoder in a pipeline](#replacing-a-decoder-with-another-decoder-in-a-pipeline)
+    - [`IdleStateHandler`](#idlestatehandler)
+      - [Supported idle states](#supported-idle-states)
 
 ## [Documentation](https://netty.io/wiki/index.html)
 
@@ -263,6 +269,58 @@ Some transports exposes additional operations that is specific to the transport.
 #### Release resources
 
 It is important to call `ChannelOutboundInvoker.close()` or `ChannelOutboundInvoker.close(ChannelPromise)` to release all resources once you are done with the `Channel`. This ensures all resources are released in a proper way, i.e. filehandles.
+
+### [`ChannelConfig`](https://netty.io/4.1/api/io/netty/channel/ChannelConfig.html)
+
+    public interface ChannelConfig
+
+A set of configuration properties of a Channel.
+
+Please down-cast to more specific configuration type such as [`SocketChannelConfig`](https://netty.io/4.1/api/io/netty/channel/socket/SocketChannelConfig.html) or use [`setOptions(Map)`](https://netty.io/4.1/api/io/netty/channel/ChannelConfig.html#setOptions-java.util.Map-) to set the transport-specific properties:
+
+    Channel ch = ...;
+    SocketChannelConfig cfg = (SocketChannelConfig) ch.getConfig();
+    cfg.setTcpNoDelay(false);
+
+#### Option map
+
+An option map property is a dynamic write-only property which allows the configuration of a `Channel` without down-casting its associated `ChannelConfig`. To update an option map, please call `setOptions(Map)`.
+
+All `ChannelConfig` has the following options:
+
+|Name|Associated setter method|
+|-|-|
+`ChannelOption.CONNECT_TIMEOUT_MILLIS`|`setConnectTimeoutMillis(int)`
+`ChannelOption.WRITE_SPIN_COUNT`|`setWriteSpinCount(int)`
+`ChannelOption.WRITE_BUFFER_WATER_MARK`|`setWriteBufferWaterMark(WriteBufferWaterMark)`
+`ChannelOption.ALLOCATOR`|`setAllocator(ByteBufAllocator)`
+`ChannelOption.AUTO_READ`|`setAutoRead(boolean)`
+|
+
+More options are available in the sub-types of `ChannelConfig`. For example, you can configure the parameters which are specific to a TCP/IP socket as explained in `SocketChannelConfig`.
+
+### [`SocketChannelConfig`](https://netty.io/4.1/api/io/netty/channel/socket/SocketChannelConfig.html)
+
+    public interface SocketChannelConfig
+    extends DuplexChannelConfig
+
+A `ChannelConfig` for a `SocketChannel`.
+
+#### Available options
+
+In addition to the options provided by [`DuplexChannelConfig`](https://netty.io/4.1/api/io/netty/channel/socket/DuplexChannelConfig.html), `SocketChannelConfig` allows the following options in the option map:
+
+|Name|Associated setter method|
+|-|-|
+`ChannelOption.SO_KEEPALIVE`|`setKeepAlive(boolean)`
+`ChannelOption.SO_REUSEADDR`|`setReuseAddress(boolean)`
+`ChannelOption.SO_LINGER`|`setSoLinger(int)`
+`ChannelOption.TCP_NODELAY`|`setTcpNoDelay(boolean)`
+`ChannelOption.SO_RCVBUF`|`setReceiveBufferSize(int)`
+`ChannelOption.SO_SNDBUF`|`setSendBufferSize(int)`
+`ChannelOption.IP_TOS`|`setTrafficClass(int)`
+`ChannelOption.ALLOW_HALF_CLOSURE`|`setAllowHalfClosure(boolean)`
+|
 
 ### [`ServerChannel`](https://netty.io/4.1/api/io/netty/channel/ServerChannel.html)
 
@@ -719,3 +777,51 @@ If you are going to write a protocol multiplexer, you will probably want to repl
             ctx.pipeline().remove(this);
         }
     }
+
+### [`IdleStateHandler`](https://netty.io/4.1/api/io/netty/handler/timeout/IdleStateHandler.html)
+
+    public class IdleStateHandler
+    extends ChannelDuplexHandler
+
+Triggers an `IdleStateEvent` when a `Channel` has not performed read, write, or both operation for a while.
+
+#### Supported idle states
+
+|Property|Meaning|
+|-|-|
+`readerIdleTime`|an `IdleStateEvent` whose state is `IdleState.READER_IDLE` will be triggered when no read was performed for the specified period of time. Specify `0` to disable.
+`writerIdleTime`|an `IdleStateEvent` whose state is `IdleState.WRITER_IDLE` will be triggered when no write was performed for the specified period of time. Specify `0` to disable.
+`allIdleTime`|an `IdleStateEvent` whose state is `IdleState.ALL_IDLE` will be triggered when neither read nor write was performed for the specified period of time. Specify `0` to disable.
+|
+
+    // An example that sends a ping message when there is no outbound traffic
+    // for 30 seconds.  The connection is closed when there is no inbound traffic
+    // for 60 seconds.
+   
+    public class MyChannelInitializer extends ChannelInitializer<Channel> {
+         @Override
+        public void initChannel(Channel channel) {
+            channel.pipeline().addLast("idleStateHandler", new IdleStateHandler(60, 30, 0));
+            channel.pipeline().addLast("myHandler", new MyHandler());
+        }
+    }
+   
+    // Handler should handle the IdleStateEvent triggered by IdleStateHandler.
+    public class MyHandler extends ChannelDuplexHandler {
+         @Override
+        public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
+            if (evt instanceof IdleStateEvent) {
+                IdleStateEvent e = (IdleStateEvent) evt;
+                if (e.state() == IdleState.READER_IDLE) {
+                    ctx.close();
+                } else if (e.state() == IdleState.WRITER_IDLE) {
+                    ctx.writeAndFlush(new PingMessage());
+                }
+            }
+        }
+    }
+   
+    ServerBootstrap bootstrap = ...;
+    ...
+    bootstrap.childHandler(new MyChannelInitializer());
+    ...
