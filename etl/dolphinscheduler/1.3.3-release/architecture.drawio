@@ -752,7 +752,7 @@
                 <mxCell id="293" value="ack command" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4987" y="4300" width="90" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="342" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1" parent="1" source="295" target="340" edge="1">
+                <mxCell id="342" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="340" target="295" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="344" value="get ack cache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="295" target="343" edge="1">
@@ -1139,7 +1139,7 @@
                 <mxCell id="423" value="t_ds_task_instance" style="html=1;" vertex="1" parent="1">
                     <mxGeometry x="1651.5" y="6000" width="140" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="428" value="get response cache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="426" target="388">
+                <mxCell id="428" value="get response cache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="388" target="426">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="426" value="response command" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -1174,6 +1174,27 @@
                 </mxCell>
                 <mxCell id="435" value="&lt;span&gt;Two situations:&lt;br&gt;&lt;br&gt;1.If TaskCallbackService.sendAck/sendResult failed to get the origin client channel,&lt;br&gt;a new channel is created, and the back message is processed in&amp;nbsp;&lt;br&gt;TaskCallbackService.NettyRemotingClient.&lt;/span&gt;&lt;span&gt;NettyClientHandler.defaultExecutor&lt;br&gt;&lt;br&gt;2. Else, is processed in&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: center&quot;&gt;WorkerServer.&lt;/span&gt;&lt;span style=&quot;text-align: center&quot;&gt;NettyRemotingServer.defaultExecutor&lt;/span&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
                     <mxGeometry x="5812.5" y="1990" width="460" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="444" value="remove responce cache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="438" target="442">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="438" value="response command status is SUCCESS" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="5825.25" y="5890" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="439" value="DBTaskResponseProcessor" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="5700" y="5760" width="177.25" height="41" as="geometry"/>
+                </mxCell>
+                <mxCell id="440" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="441" target="438" parent="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="441" value="process" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="5750" y="5829" width="62.5" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="445" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" edge="1" parent="1" source="442" target="388">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="442" value="ResponceCache" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="6580" y="5910" width="140" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
