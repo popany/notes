@@ -1204,6 +1204,9 @@
                 <mxCell id="442" value="ResponceCache" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="6580" y="6300" width="140" height="40" as="geometry"/>
                 </mxCell>
+                <mxCell id="448" value="These processes would run in&lt;br&gt;MasterServer.NettyRemotingServer.defaultExecutor&lt;br&gt;if the origin client channel is invalied" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="3280" y="1980" width="290" height="50" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
