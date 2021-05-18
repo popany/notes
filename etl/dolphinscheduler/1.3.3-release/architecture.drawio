@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="Chz7LX6HWvREofruiTzN" name="Page-1">
-        <mxGraphModel dx="2050" dy="1679" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1555" dy="1415" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -695,7 +695,7 @@
                 <mxCell id="272" value="create execution path" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4842" y="4040" width="140" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="275" value=":TaskCallbackService.NettyRemotingClient.&lt;br&gt;NettyClientHandler.defaultExecutor" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
+                <mxCell id="275" value=":&lt;span&gt;thread to run DBTaskAckProcessor/DBTaskResponseProcessor&lt;br&gt;&lt;/span&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="5642" y="1920" width="278" height="5000" as="geometry"/>
                 </mxCell>
                 <mxCell id="338" value="act command status is SUCCESS" style="rhombus;whiteSpace=wrap;html=1;" parent="275" vertex="1">
@@ -1171,6 +1171,9 @@
                 </mxCell>
                 <mxCell id="433" value="include channel" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
                     <mxGeometry x="3480" y="5905" width="100" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="435" value="&lt;span&gt;Two situations:&lt;br&gt;&lt;br&gt;1.If TaskCallbackService.sendAck/sendResult failed to get the origin client channel,&lt;br&gt;a new channel is created, and the back message is processed in&amp;nbsp;&lt;br&gt;TaskCallbackService.NettyRemotingClient.&lt;/span&gt;&lt;span&gt;NettyClientHandler.defaultExecutor&lt;br&gt;&lt;br&gt;2. Else, is processed in&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: center&quot;&gt;WorkerServer.&lt;/span&gt;&lt;span style=&quot;text-align: center&quot;&gt;NettyRemotingServer.defaultExecutor&lt;/span&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="5812.5" y="1990" width="460" height="100" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
