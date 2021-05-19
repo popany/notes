@@ -1,83 +1,83 @@
 <mxfile>
     <diagram id="Chz7LX6HWvREofruiTzN" name="Page-1">
-        <mxGraphModel dx="1940" dy="1620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2067" dy="2103" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="3" value="Worker" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="1930" y="-570" width="80" height="560" as="geometry"/>
+                    <mxGeometry x="1930" y="-805" width="80" height="560" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="MasterServer" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-160" y="-600" width="180" height="760" as="geometry"/>
+                    <mxGeometry x="-160" y="-835" width="180" height="760" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="NettyRemotingServer" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="20" y="-600" width="150" height="200" as="geometry"/>
+                    <mxGeometry x="20" y="-835" width="150" height="200" as="geometry"/>
                 </mxCell>
                 <mxCell id="7" value="TaskResponseProcesser" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="170" y="-600" width="160" height="80" as="geometry"/>
+                    <mxGeometry x="170" y="-835" width="160" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" value="TaskAckProcesser" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="170" y="-520" width="160" height="80" as="geometry"/>
+                    <mxGeometry x="170" y="-755" width="160" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="9" value="TaskKillResponseProcesser" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="170" y="-440" width="160" height="40" as="geometry"/>
+                    <mxGeometry x="170" y="-675" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="MasterSchedulerService" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="20" y="-400" width="150" height="440" as="geometry"/>
+                    <mxGeometry x="20" y="-635" width="150" height="440" as="geometry"/>
                 </mxCell>
                 <mxCell id="11" value="QuartzExecutors" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="20" y="120" width="150" height="40" as="geometry"/>
+                    <mxGeometry x="20" y="-115" width="150" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="12" value="MasterRegistry" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="20" y="40" width="150" height="40" as="geometry"/>
+                    <mxGeometry x="20" y="-195" width="150" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="13" value="ZKMasterClient" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="20" y="80" width="150" height="40" as="geometry"/>
+                    <mxGeometry x="20" y="-155" width="150" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" value="ProcessService" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="170" y="-80" width="160" height="40" as="geometry"/>
+                    <mxGeometry x="170" y="-315" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="16" value="ZKMasterClient" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="170" y="-40" width="160" height="40" as="geometry"/>
+                    <mxGeometry x="170" y="-275" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="17" value="NettyRemotingClient?" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="170" width="160" height="40" as="geometry"/>
+                    <mxGeometry x="170" y="-235" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="18" value="masterExecService&lt;br&gt;(ThreadPoolExecutor)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="170" y="-400" width="160" height="320" as="geometry"/>
+                    <mxGeometry x="170" y="-635" width="160" height="320" as="geometry"/>
                 </mxCell>
                 <mxCell id="19" value="MasterExecThread" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="330" y="-400" width="170" height="320" as="geometry"/>
+                    <mxGeometry x="330" y="-635" width="170" height="320" as="geometry"/>
                 </mxCell>
                 <mxCell id="20" value="SubProcessTaskExecThread" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="500" y="-400" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="500" y="-635" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="21" value="DependentTaskExecThread" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="500" y="-360" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="500" y="-595" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="22" value="ConditionsTaskExecThread" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="500" y="-320" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="500" y="-555" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="23" value="MasterTaskExecThread" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="500" y="-280" width="180" height="160" as="geometry"/>
+                    <mxGeometry x="500" y="-515" width="180" height="160" as="geometry"/>
                 </mxCell>
                 <mxCell id="24" value="TaskInstanceCacheManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="330" y="-560" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="330" y="-795" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="25" value="TaskResponseService" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="330" y="-600" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="330" y="-835" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="26" value="TaskInstanceCacheManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="330" y="-480" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="330" y="-715" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" value="TaskResponseService" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="330" y="-520" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="330" y="-755" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="28" value="&lt;h1&gt;Get one command to run&lt;/h1&gt;&lt;p&gt;This procedure is in MasterSchedulerService's run loop&amp;nbsp;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="-80" y="610" width="360" height="120" as="geometry"/>
+                    <mxGeometry x="-80" y="375" width="360" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="29" value=":MasterSchedulerService" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="320" y="670" width="160" height="1050" as="geometry"/>
+                    <mxGeometry x="320" y="435" width="160" height="1050" as="geometry"/>
                 </mxCell>
                 <mxCell id="35" value="check master note's resource(cpu &amp;amp; memory), if too high, print log, sleep" style="rhombus;whiteSpace=wrap;html=1;" parent="29" vertex="1">
                     <mxGeometry x="40" y="160" width="80" height="80" as="geometry"/>
@@ -92,24 +92,24 @@
                     <mxGeometry x="90" y="550" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="31" value="loop" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="350" y="750" width="100" height="40" as="geometry"/>
+                    <mxGeometry x="350" y="515" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="33" target="43" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="33" value="get zk lock" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="360" y="950" width="80" height="40" as="geometry"/>
+                    <mxGeometry x="360" y="715" width="80" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="35" target="31" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="190" y="870"/>
-                            <mxPoint x="190" y="770"/>
+                            <mxPoint x="190" y="635"/>
+                            <mxPoint x="190" y="535"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="37" value=":Database" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="1452" y="670" width="106" height="1050" as="geometry"/>
+                    <mxGeometry x="1452" y="435" width="106" height="1050" as="geometry"/>
                 </mxCell>
                 <mxCell id="62" value="t_ds_command" style="html=1;" parent="37" vertex="1">
                     <mxGeometry x="3" y="620" width="100" height="40" as="geometry"/>
@@ -121,7 +121,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="39" value="t_ds_command" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="1455" y="1030" width="100" height="40" as="geometry"/>
+                    <mxGeometry x="1455" y="795" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="38" target="39" edge="1">
                     <mxGeometry x="0.0545" relative="1" as="geometry">
@@ -129,13 +129,13 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="42" value=":ZooKeeper" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="1195" y="670" width="100" height="1050" as="geometry"/>
+                    <mxGeometry x="1195" y="435" width="100" height="1050" as="geometry"/>
                 </mxCell>
                 <mxCell id="43" value="/dolphinscheduler/lock/masters" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="1157.5" y="950" width="175" height="40" as="geometry"/>
+                    <mxGeometry x="1157.5" y="715" width="175" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="44" value="/dolphinscheduler/lock/masters" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="1157.5" y="1629" width="175" height="40" as="geometry"/>
+                    <mxGeometry x="1157.5" y="1394" width="175" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="41" target="44" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -143,13 +143,13 @@
                 <mxCell id="47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="41" target="31" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
-                            <mxPoint x="190" y="1649"/>
-                            <mxPoint x="190" y="770"/>
+                            <mxPoint x="190" y="1414"/>
+                            <mxPoint x="190" y="535"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="48" value=":masterExecService" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
-                    <mxGeometry x="897" y="670" width="120" height="1050" as="geometry"/>
+                    <mxGeometry x="897" y="435" width="120" height="1050" as="geometry"/>
                 </mxCell>
                 <mxCell id="76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="50" target="51" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -158,10 +158,10 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="50" value="handle command" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="345" y="1110" width="110" height="40" as="geometry"/>
+                    <mxGeometry x="345" y="875" width="110" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="51" value="construct process instance" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="410" y="1160" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="410" y="925" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="56" target="58" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -170,7 +170,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="56" value="set waiting thread process" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="530" y="1240" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="530" y="1005" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="53" target="56" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -179,28 +179,28 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="58" value="delete old command" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="610" y="1290" width="130" height="40" as="geometry"/>
+                    <mxGeometry x="610" y="1055" width="130" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="60" target="64" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="60" value="create new waiting thread command" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="610" y="1340" width="210" height="40" as="geometry"/>
+                    <mxGeometry x="610" y="1105" width="210" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="64" value="t_ds_command" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="1455" y="1340" width="100" height="40" as="geometry"/>
+                    <mxGeometry x="1455" y="1105" width="100" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="67" target="66" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="67" value="save process instance" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="490" y="1400" width="140" height="40" as="geometry"/>
+                    <mxGeometry x="490" y="1165" width="140" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="53" target="67" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="70" value="delete command by id" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="490" y="1450" width="140" height="40" as="geometry"/>
+                    <mxGeometry x="490" y="1215" width="140" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="53" target="70" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -214,12 +214,12 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="72" value="execute" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="365" y="1520" width="70" height="40" as="geometry"/>
+                    <mxGeometry x="365" y="1285" width="70" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="73" value="MasterExecThread" style="html=1;" parent="1" vertex="1">
-                    <mxGeometry x="896" y="1520" width="122" height="40" as="geometry"/>
+                    <mxGeometry x="896" y="1285" width="122" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="79" value="&lt;h1&gt;Execute Process&lt;/h1&gt;&lt;p&gt;This procedure runs in MasterExecThread&amp;nbsp;&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
+                <mxCell id="79" value="&lt;h1&gt;Execute A Task Instance&lt;/h1&gt;&lt;p&gt;Not include task kill procedure&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-80" y="1840" width="360" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="80" value=":MasterExecThread" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
@@ -307,10 +307,10 @@
                     <mxGeometry x="-30" y="7500" width="360" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="113" value="ExecutorService" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="500" y="-120" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="500" y="-355" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="114" value="taskExecService" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="680" y="-120" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="680" y="-355" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="115" value="MasterTaskExecThread" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="1196.5" y="2629" width="153" height="40" as="geometry"/>
@@ -561,40 +561,40 @@
                     <mxGeometry x="2570.32" y="3720" width="189.37" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="200" value="Master" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-240" y="-600" width="80" height="1080" as="geometry"/>
+                    <mxGeometry x="-240" y="-835" width="80" height="1080" as="geometry"/>
                 </mxCell>
                 <mxCell id="201" value="TaskPriorityQueueConsumer" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-160" y="160" width="180" height="240" as="geometry"/>
+                    <mxGeometry x="-160" y="-75" width="180" height="240" as="geometry"/>
                 </mxCell>
                 <mxCell id="206" value="ExecutorDispatcher" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="20" y="160" width="150" height="200" as="geometry"/>
+                    <mxGeometry x="20" y="-75" width="150" height="200" as="geometry"/>
                 </mxCell>
                 <mxCell id="210" value="TaskPriorityQueue" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="20" y="360" width="150" height="40" as="geometry"/>
+                    <mxGeometry x="20" y="125" width="150" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="213" value="TaskInstanceCacheManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="680" y="-240" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="680" y="-475" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="215" value="ZookeeperRegistryCenter" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="680" y="-200" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="680" y="-435" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="217" value="NettyExecutorManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="680" y="-160" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="680" y="-395" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="219" value="TaskPriorityQueue" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="680" y="-280" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="680" y="-515" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="220" value="NettyExecutorManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="170" y="160" width="160" height="160" as="geometry"/>
+                    <mxGeometry x="170" y="-75" width="160" height="160" as="geometry"/>
                 </mxCell>
                 <mxCell id="221" value="HostManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="170" y="320" width="160" height="40" as="geometry"/>
+                    <mxGeometry x="170" y="85" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="223" value="ZookeeperNodeManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="330" y="160" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="330" y="-75" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="225" value="NettyRemotingClient" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="330" y="200" width="170" height="120" as="geometry"/>
+                    <mxGeometry x="330" y="-35" width="170" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="235" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="227" target="234" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -603,13 +603,13 @@
                     <mxGeometry x="2780" y="3780" width="90" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="231" value="TaskResponseProcesser" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="500" y="200" width="160" height="40" as="geometry"/>
+                    <mxGeometry x="500" y="-35" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="232" value="TaskAckProcesser" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="500" y="240" width="160" height="40" as="geometry"/>
+                    <mxGeometry x="500" y="5" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="233" value="TaskKillResponseProcesser" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="500" y="280" width="160" height="40" as="geometry"/>
+                    <mxGeometry x="500" y="45" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="248" value="TASK_EXECUTE_REQUEST" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="234" target="247" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -621,37 +621,37 @@
                     <mxGeometry x="4658.5" y="1920" width="227" height="5000" as="geometry"/>
                 </mxCell>
                 <mxCell id="237" value="WorkerServer" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2010" y="-570" width="220" height="360" as="geometry"/>
+                    <mxGeometry x="2010" y="-805" width="220" height="360" as="geometry"/>
                 </mxCell>
                 <mxCell id="238" value="NettyRemotingServer" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2230" y="-570" width="180" height="240" as="geometry"/>
+                    <mxGeometry x="2230" y="-805" width="180" height="240" as="geometry"/>
                 </mxCell>
                 <mxCell id="239" value="WorkerRegistry" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2230" y="-330" width="180" height="80" as="geometry"/>
+                    <mxGeometry x="2230" y="-565" width="180" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="241" value="RetryReportTaskStatusThread" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2230" y="-250" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="2230" y="-485" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="243" value="TaskExecuteProcessor" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2410" y="-570" width="170" height="80" as="geometry"/>
+                    <mxGeometry x="2410" y="-805" width="170" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="244" value="TaskKillProcessor" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2410" y="-490" width="170" height="80" as="geometry"/>
+                    <mxGeometry x="2410" y="-725" width="170" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="245" value="DBTaskResponseProcessor" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2410" y="-370" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="2410" y="-605" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="246" value="DBTaskAckProcessor" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2410" y="-410" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="2410" y="-645" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="247" value="TaskExecuteProcessor" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4699.5" y="3840" width="145" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="249" value="ZookeeperRegistryCenter" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2410" y="-330" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="2410" y="-565" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="251" value="heartBeatExecutor" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2410" y="-290" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="2410" y="-525" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="254" value="&lt;h1&gt;WorkerRegistry heartbeat&lt;/h1&gt;&lt;p&gt;T&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="-35" y="7690" width="360" height="120" as="geometry"/>
@@ -666,22 +666,22 @@
                     <mxGeometry x="4740.75" y="3910" width="62.5" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="259" value="TaskCallbackService" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2010" y="-210" width="220" height="160" as="geometry"/>
+                    <mxGeometry x="2010" y="-445" width="220" height="160" as="geometry"/>
                 </mxCell>
                 <mxCell id="261" value="REMOTE_CHANNELS" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2230" y="-210" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="2230" y="-445" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="263" value="ZookeeperRegistryCenter" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2230" y="-170" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="2230" y="-405" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="265" value="NettyRemotingClient" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2230" y="-130" width="180" height="80" as="geometry"/>
+                    <mxGeometry x="2230" y="-365" width="180" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="267" value="DBTaskResponseProcessor" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2410" y="-90" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="2410" y="-325" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="268" value="DBTaskAckProcessor" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2410" y="-130" width="170" height="40" as="geometry"/>
+                    <mxGeometry x="2410" y="-365" width="170" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="274" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="269" target="272" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -702,19 +702,19 @@
                     <mxGeometry x="183.25" y="3220" width="80" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="276" value="workerExecService" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2580" y="-570" width="220" height="40" as="geometry"/>
+                    <mxGeometry x="2580" y="-805" width="220" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="278" value="TaskCallbackService" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2580" y="-530" width="220" height="40" as="geometry"/>
+                    <mxGeometry x="2580" y="-765" width="220" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="280" value="TaskExecutionContextCacheManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2010" y="-50" width="220" height="40" as="geometry"/>
+                    <mxGeometry x="2010" y="-285" width="220" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="282" value="TaskExecutionContextCacheManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2580" y="-490" width="220" height="40" as="geometry"/>
+                    <mxGeometry x="2580" y="-725" width="220" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="283" value="TaskCallbackService" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2580" y="-450" width="220" height="40" as="geometry"/>
+                    <mxGeometry x="2580" y="-685" width="220" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="287" value="&lt;span style=&quot;font-size: 12px&quot;&gt;addRemoteChannel&lt;/span&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="284" target="286" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -807,13 +807,13 @@
                     <mxGeometry x="3335" y="4799" width="130" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="310" value="TaskResponseService" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-160" y="400" width="180" height="80" as="geometry"/>
+                    <mxGeometry x="-160" y="165" width="180" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="311" value="eventQueue" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="20" y="400" width="150" height="40" as="geometry"/>
+                    <mxGeometry x="20" y="165" width="150" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="312" value="TaskResponseWorker" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="20" y="440" width="150" height="40" as="geometry"/>
+                    <mxGeometry x="20" y="205" width="150" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="314" value=":TaskResponseService.&lt;br&gt;TaskResponseWorker" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="3900" y="1920" width="150" height="5000" as="geometry"/>
@@ -947,122 +947,122 @@
                 <mxCell id="367" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="364" target="366" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="369" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="364" target="368">
+                <mxCell id="369" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="364" target="368" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="364" value="task.handle" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7117.25" y="4890" width="88.5" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="380" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="366" target="379">
+                <mxCell id="380" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="366" target="379" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="366" value="task.after" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7122.25" y="5210" width="78.5" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="371" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="368" target="370">
+                <mxCell id="371" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="368" target="370" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="368" value="create command file" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="368" value="create command file" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7285.75" y="4940" width="144.25" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="373" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="370" target="372">
+                <mxCell id="373" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="370" target="372" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="370" value="start process" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="370" value="start process" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7310.75" y="5010" width="94.25" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="375" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="372" target="374">
+                <mxCell id="375" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="372" target="374" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="377" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="372" target="376">
+                <mxCell id="377" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="372" target="376" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="372" value="cacheTaskExecutionContext" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="372" value="cacheTaskExecutionContext" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7273.25" y="5080" width="169.25" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="374" value="TaskExecutionContextCacheManager" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="374" value="TaskExecutionContextCacheManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7600" y="5080" width="230" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="376" value="wait for process exit" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="376" value="wait for process exit" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7294.5" y="5150" width="126.75" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="384" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="379" target="382">
+                <mxCell id="384" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="379" target="382" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="379" value="set responceCommand" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="379" value="set responceCommand" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7087.63" y="5280" width="147.75" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="381" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="382" target="383" parent="1">
+                <mxCell id="381" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="382" target="383" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="389" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="382" target="387">
+                <mxCell id="389" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="382" target="387" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="382" value="removeByTaskInstanceId" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="382" value="removeByTaskInstanceId" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7076.88" y="5350" width="169.25" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="385" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="383" target="374">
+                <mxCell id="385" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1" parent="1" source="383" target="374" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="383" value="TaskExecutionContextCacheManager" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="383" value="TaskExecutionContextCacheManager" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7600" y="5350" width="230" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="386" value="cache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="387" target="388" parent="1">
+                <mxCell id="386" value="cache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="387" target="388" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="395" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="387" target="391">
+                <mxCell id="395" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="387" target="391" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="387" value="responseCommand" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="387" value="responseCommand" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7101.51" y="5420" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="388" value="ResponceCache" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="388" value="ResponceCache" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="6580" y="5420" width="140" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="390" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="391" target="393" parent="1">
+                <mxCell id="390" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="391" target="393" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="6930" y="5510"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="391" value="TaskCallbackService.sendResult" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="391" value="TaskCallbackService.sendResult" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7066.5" y="5490" width="190" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="392" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="393" target="394" parent="1">
+                <mxCell id="392" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="393" target="394" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="393" value="get remote channel (use client channel or if closed create a new channel to the remote server)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="393" value="get remote channel (use client channel or if closed create a new channel to the remote server)" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="6790" y="5560" width="280" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="397" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="394" target="396">
+                <mxCell id="397" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="394" target="396" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="403" value="TASK_EXECUTE_RESPONSE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="394" target="402">
+                <mxCell id="403" value="TASK_EXECUTE_RESPONSE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="394" target="402" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="394" value="NettyRemoteChannel.writeAndFlush" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="394" value="NettyRemoteChannel.writeAndFlush" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="6821" y="5640" width="218" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="399" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="396" target="398">
+                <mxCell id="399" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="396" target="398" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="396" value="ChannelFutureListener.operationComplete" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="396" value="ChannelFutureListener.operationComplete" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7119" y="5640" width="246" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="401" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="398" target="400">
+                <mxCell id="401" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="398" target="400" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="398" value="fulture.isSuccess" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="398" value="fulture.isSuccess" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7405" y="5700" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="400" value="remove remote channel" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="400" value="remove remote channel" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="7535" y="5720" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="402" value="TaskResponseProcessor" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="402" value="TaskResponseProcessor" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3173.75" y="5640" width="152.5" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="404" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="405" target="407" parent="1">
+                <mxCell id="404" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="405" target="407" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="3400" y="5740"/>
@@ -1071,105 +1071,105 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="405" value="process" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="405" value="process" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3218.75" y="5720" width="62.5" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="406" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="407" target="409" parent="1">
+                <mxCell id="406" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="407" target="409" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="407" value="TaskInstanceCacheManager.cacheTaskInstance" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="407" value="TaskInstanceCacheManager.cacheTaskInstance" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3260" y="5790" width="280" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="408" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="409" target="411" parent="1">
+                <mxCell id="408" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="409" target="411" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="409" value="TaskResponseEvent.newResult" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="409" value="TaskResponseEvent.newResult" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3310" y="5860" width="180" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="410" value="put" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="411" target="413" parent="1">
+                <mxCell id="410" value="put" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="411" target="413" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="411" value="TaskResponseEvent" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="411" value="TaskResponseEvent" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3335" y="5930" width="130" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="412" value="take" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="413" target="415" parent="1">
+                <mxCell id="412" value="take" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="413" target="415" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="413" value="TaskResponseService.eventQueue" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="413" value="TaskResponseService.eventQueue" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3570" y="5930" width="210" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="414" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="415" target="417" parent="1">
+                <mxCell id="414" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="415" target="417" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="415" value="persist" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="415" value="persist" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3940" y="5930" width="70" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="416" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="417" target="419" parent="1">
+                <mxCell id="416" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="417" target="419" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="424" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="417" target="423">
+                <mxCell id="424" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="417" target="423" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="425" value="update" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="424">
+                <mxCell id="425" value="update" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="424" vertex="1" connectable="0">
                     <mxGeometry x="0.9138" y="-1" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="417" value="change task state" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="417" value="change task state" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4035" y="6000" width="110" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="418" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="419" target="420" parent="1">
+                <mxCell id="418" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="419" target="420" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="419" value="new DBTaskResponceCommand" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="419" value="new DBTaskResponceCommand" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3990" y="6080" width="200" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="446" value="DB_TASK_RESPONSE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="420" target="439">
+                <mxCell id="446" value="DB_TASK_RESPONSE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="420" target="439" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="420" value="channel.writeAndFlush" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="420" value="channel.writeAndFlush" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="4022.5" y="6150" width="135" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="422" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="421" target="153">
+                <mxCell id="422" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="421" target="153" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="421" value="TaskInstanceCacheManager.removeByTaskInstanceId" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="421" value="TaskInstanceCacheManager.removeByTaskInstanceId" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="910" y="3330" width="310" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="160" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;dashed=1" parent="1" source="159" target="90" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="447" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=1;entryDx=0;entryDy=0;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="423" target="137">
+                <mxCell id="447" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=1;entryDx=0;entryDy=0;dashed=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="423" target="137" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="1460" y="3910" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="423" value="t_ds_task_instance" style="html=1;" vertex="1" parent="1">
+                <mxCell id="423" value="t_ds_task_instance" style="html=1;" parent="1" vertex="1">
                     <mxGeometry x="1651.5" y="6000" width="140" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="428" value="get response cache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="388" target="426">
+                <mxCell id="428" value="get response cache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="388" target="426" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="426" value="response command" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="426" value="response command" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="6260" y="5420" width="140" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="429" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="427" target="393">
+                <mxCell id="429" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="427" target="393" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="427" value="TaskCallbackService.sendResult" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="427" value="TaskCallbackService.sendResult" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="6235" y="5490" width="190" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="431" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="430" target="307">
+                <mxCell id="431" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1" parent="1" source="430" target="307" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="3433" y="4779"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="430" value="include channel" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="430" value="include channel" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="3470" y="4770" width="100" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="432" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" source="433" parent="1" target="411">
+                <mxCell id="432" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1" parent="1" source="433" target="411" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="3442.5" y="5934" as="targetPoint"/>
                         <Array as="points">
@@ -1177,35 +1177,47 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="433" value="include channel" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+                <mxCell id="433" value="include channel" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" parent="1" vertex="1">
                     <mxGeometry x="3480" y="5905" width="100" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="435" value="&lt;span&gt;Two situations:&lt;br&gt;&lt;br&gt;1.If TaskCallbackService.sendAck/sendResult failed to get the origin client channel,&lt;br&gt;a new channel is created, and the back message is processed in&amp;nbsp;&lt;br&gt;TaskCallbackService.NettyRemotingClient.&lt;/span&gt;&lt;span&gt;NettyClientHandler.defaultExecutor&lt;br&gt;&lt;br&gt;2. Else, is processed in&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: center&quot;&gt;WorkerServer.&lt;/span&gt;&lt;span style=&quot;text-align: center&quot;&gt;NettyRemotingServer.defaultExecutor&lt;/span&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
+                <mxCell id="435" value="&lt;span&gt;Two situations:&lt;br&gt;&lt;br&gt;1.If TaskCallbackService.sendAck/sendResult failed to get the origin client channel,&lt;br&gt;a new channel is created, and the back message is processed in&amp;nbsp;&lt;br&gt;TaskCallbackService.NettyRemotingClient.&lt;/span&gt;&lt;span&gt;NettyClientHandler.defaultExecutor&lt;br&gt;&lt;br&gt;2. Else, is processed in&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: center&quot;&gt;WorkerServer.&lt;/span&gt;&lt;span style=&quot;text-align: center&quot;&gt;NettyRemotingServer.defaultExecutor&lt;/span&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" parent="1" vertex="1">
                     <mxGeometry x="5812.5" y="1990" width="460" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="444" value="remove responce cache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="438" target="442">
+                <mxCell id="444" value="remove responce cache" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="438" target="442" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="438" value="response command status is SUCCESS" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="438" value="response command status is SUCCESS" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="5825.25" y="6280" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="439" value="DBTaskResponseProcessor" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="439" value="DBTaskResponseProcessor" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="5700" y="6150" width="177.25" height="41" as="geometry"/>
                 </mxCell>
-                <mxCell id="440" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="441" target="438" parent="1">
+                <mxCell id="440" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="441" target="438" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="441" value="process" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="441" value="process" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="5750" y="6219" width="62.5" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="445" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" edge="1" parent="1" source="442" target="388">
+                <mxCell id="445" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" parent="1" source="442" target="388" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="442" value="ResponceCache" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="442" value="ResponceCache" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="6580" y="6300" width="140" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="448" value="These processes would run in&lt;br&gt;MasterServer.NettyRemotingServer.defaultExecutor&lt;br&gt;if the origin client channel is invalied" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" vertex="1" parent="1">
+                <mxCell id="448" value="These processes would run in&lt;br&gt;MasterServer.NettyRemotingServer.defaultExecutor&lt;br&gt;if the origin client channel is invalied" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;align=left" parent="1" vertex="1">
                     <mxGeometry x="3280" y="1980" width="290" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="449" value="" style="endArrow=none;dashed=1;html=1;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="4360" y="7040" as="sourcePoint"/>
+                        <mxPoint x="4360" y="1720" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="453" value="Worker" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="4420" y="1770" width="100" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="454" value="&lt;span&gt;Server&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+                    <mxGeometry x="4200" y="1770" width="100" height="100" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
