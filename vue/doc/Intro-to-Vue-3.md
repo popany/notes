@@ -27,6 +27,11 @@
     - [update `image` & `inStock` using computed properties](#update-image--instock-using-computed-properties)
   - [Lessons-9 Components & Props](#lessons-9-components--props)
     - [Components Basics](#components-basics)
+  - [Lessons-10 Communicating Events](#lessons-10-communicating-events)
+    - [emit event from `product-display` componet](#emit-event-from-product-display-componet)
+    - [Custom Events](#custom-events)
+  - [Lessons-10 Forms & v-model](#lessons-10-forms--v-model)
+    - [`v-model`](#v-model)
 
 [Video](https://www.vuemastery.com/courses/intro-to-vue-3/creating-the-vue-app-vue3)
 
@@ -375,7 +380,51 @@ Props: A custom attribute for passing data into a component
 
 ### [Components Basics](https://v3.vuejs.org/guide/component-basics.html)
 
+## Lessons-10 Communicating Events
 
+### emit event from `product-display` componet
+
+index.html
+
+    <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
+
+ProductDisplay.js
+
+    app.component('product-display', {
+    ...
+        methods: {
+            addToCart() {
+                this.$emit('add-to-cart')
+            },
+            updateVariant(index) {
+                this.selectedVariant = index
+            }
+        }
+    }
+
+main.js
+
+    const app = Vue.createApp({
+        data() {
+            return {
+                cart: 0,
+                premium: true
+            }
+        },
+        methods: {
+            updateCart() {
+                this.cart += 1
+            }
+        }
+    })
+
+### [Custom Events](https://v3.vuejs.org/guide/component-custom-events.html)
+
+## Lessons-10 Forms & v-model
+
+### `v-model`
+
+2-way binding
 
 
 
