@@ -31,7 +31,7 @@
     - [emit event from `product-display` componet](#emit-event-from-product-display-componet)
     - [Custom Events](#custom-events)
   - [Lessons-10 Forms & v-model](#lessons-10-forms--v-model)
-    - [`v-model`](#v-model)
+    - [2-way binding](#2-way-binding)
 
 [Video](https://www.vuemastery.com/courses/intro-to-vue-3/creating-the-vue-app-vue3)
 
@@ -422,10 +422,97 @@ main.js
 
 ## Lessons-10 Forms & v-model
 
-### `v-model`
+### 2-way binding
 
-2-way binding
+`v-model`
 
+ReviewForms.js
 
+    app.component('review-form', {
+        template:
+        /*html*/
+       `<form class="review-form" @submit.prevent="onSubmit">
+          <h3>Leave a review</h3>
+          <label for="name">Name:</label>
+          <input id="name" v-model="name">
 
+          <label for="review">Review:</label>
+          <textarea id="review" v-model="review"></textarea>
 
+          <label for="rating">Rating:</label>
+          <select id="rating" v-model.number="rating">
+            <option>5</option>
+            <option>4</option>
+            <option>3</option>
+            <option>2</option>
+            <option>1</option>
+          </select>
+
+          <input class="button" type="submit" value="Submit">
+        </form>`,
+
+        data() {
+            return {
+                name: '',
+                review: '',
+                rating: null
+            }
+        },
+        methods: {
+            onSubmit() {
+                let productReview = {
+                    name: this.name,
+                    review: this.review,
+                    rating: this.rating
+                }
+                this.$emit("review-submitted", productReview)
+
+                this.name = ''
+                this.review = ''
+                this.rating = null
+            }
+        }
+    })
+
+`@submit.prevent`
+
+- `@submit.prevent="onSubmit"` to prevent the default behavior (a browser refresh). When this form is submitted, it will trigger the `onSubmit()` method.
+
+- [Event Modifiers](https://v3.vuejs.org/guide/events.html#event-modifiers)
+
+ProductDisplay.js
+
+    app.component('product-display', 
+    ...
+    template:
+    ...
+        <review-form @review-submitted="addReview"></review-form>
+    ...
+
+    methods: {
+        addReview(review) {
+            ...
+        }
+    }
+
+Note
+
+- bind input
+
+  - use `v-model` for 2-way binding html elements to data `name`/`review`/`rating`
+
+    note, `rating` is binded using `v-model.number`
+
+- listen on button submit, call `onSubmit` method if listend
+
+  - use `@submit` to listen `form`'s `button` `submit`
+
+  - use event modifier `.prevent` to prevent default behavior
+
+- in `onSubmit` method emit "review-submitted" event
+
+  `productReview` is the payload of the event
+
+- in the "product-display" component, listen on "review-submitted" event from the "review-form" component, call `addReview` method if listend
+
+  - the payload of "review-submitted" event is passed to `adReview` as argument

@@ -12,6 +12,12 @@
   - [HTML `<ul>` Tag](#html-ul-tag)
   - [HTML `<li>` Tag](#html-li-tag)
   - [HTML `<button>` Tag](#html-button-tag)
+  - [HTML `<form>` Tag](#html-form-tag)
+  - [HTML `<label>` Tag](#html-label-tag)
+  - [HTML `<input>` Tag](#html-input-tag)
+  - [HTML `<textarea>` Tag](#html-textarea-tag)
+  - [HTML `<select>` Tag](#html-select-tag)
+  - [HTML `<option>` Tag](#html-option-tag)
 
 ## [The HTML `<head>` Element](https://www.w3schools.com/html/html_head.asp)
 
@@ -214,7 +220,7 @@ Tip:
 
 - Use CSS to [style lists](https://www.w3schools.com/css/css_list.asp).
 
-## HTML `<button>` Tag
+## [HTML `<button>` Tag](https://www.w3schools.com/tags/tag_button.asp)
 
 Example
 
@@ -234,7 +240,228 @@ Tip:
 
 - You can easily style buttons with CSS! Look at the examples below or visit our [CSS Buttons](https://www.w3schools.com/css/css3_buttons.asp) tutorial.
 
+## [HTML `<form>` Tag](https://www.w3schools.com/tags/tag_form.asp)
 
+Example
+
+An HTML form with two input fields and one submit button:
+
+    <form action="/action_page.php" method="get">
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+Definition and Usage
+
+- The `<form>` tag is used to create an HTML form for user input.
+
+- The `<form>` element can contain one or more of the following form elements:
+
+  - [`<input>`](https://www.w3schools.com/tags/tag_input.asp)
+  - [`<textarea>`](https://www.w3schools.com/tags/tag_textarea.asp)
+  - [`<button>`](https://www.w3schools.com/tags/tag_button.asp)
+  - [`<select>`](https://www.w3schools.com/tags/tag_select.asp)
+  - [`<option>`](https://www.w3schools.com/tags/tag_option.asp)
+  - [`<optgroup>`](https://www.w3schools.com/tags/tag_optgroup.asp)
+  - [`<fieldset>`](https://www.w3schools.com/tags/tag_fieldset.asp)
+  - [`<label>`](https://www.w3schools.com/tags/tag_label.asp)
+  - [`<output>`](https://www.w3schools.com/tags/tag_output.asp)
+
+## [HTML `<label>` Tag](https://www.w3schools.com/tags/tag_label.asp)
+
+Example
+
+Three radio buttons with labels:
+
+    <form action="/action_page.php">
+      <label for="male">Male</label>
+      <input type="radio" name="gender" id="male" value="male"><br>
+      <label for="female">Female</label>
+      <input type="radio" name="gender" id="female" value="female"><br>
+      <label for="other">Other</label>
+      <input type="radio" name="gender" id="other" value="other"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+Definition and Usage
+
+The `<label>` tag defines a label for several elements:
+
+- `<input type="checkbox">`
+- `<input type="color">`
+- `<input type="date">`
+- `<input type="datetime-local">`
+- `<input type="email">`
+- `<input type="file">`
+- `<input type="month">`
+- `<input type="number">`
+- `<input type="password">`
+- `<input type="radio">`
+- `<input type="range">`
+- `<input type="search">`
+- `<input type="tel">`
+- `<input type="text">`
+- `<input type="time">`
+- `<input type="url">`
+- `<input type="week">`
+- `<meter>`
+- `<progress>`
+- `<select>`
+- `<textarea>`
+
+Proper use of labels with the elements above will benefit:
+
+- Screen reader users (will read out loud the label, when the user is focused on the element)
+
+- Users who have difficulty clicking on very small regions (such as checkboxes) - because when a user clicks the text within the `<label>` element, it toggles the input (this increases the hit area).
+
+Tip:
+
+- The `for` attribute of `<label>` must be equal to the `id` attribute of the related element to bind them together. A label can also be bound to an element by placing the element inside the `<label>` element.
+
+## [HTML `<input>` Tag](https://www.w3schools.com/tags/tag_input.asp)
+
+Example
+
+An HTML form with three input fields; two text fields and one submit button:
+
+    <form action="/action_page.php">
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+
+Definition and Usage
+
+- The `<input>` tag specifies an input field where the user can enter data.
+
+- The `<input>` element is the most important form element.
+
+- The `<input>` element can be displayed in several ways, depending on the type attribute.
+
+The different input types are as follows:
+
+- `<input type="button">`
+- `<input type="checkbox">`
+- `<input type="color">`
+- `<input type="date">`
+- `<input type="datetime-local">`
+- `<input type="email">`
+- `<input type="file">`
+- `<input type="hidden">`
+- `<input type="image">`
+- `<input type="month">`
+- `<input type="number">`
+- `<input type="password">`
+- `<input type="radio">`
+- `<input type="range">`
+- `<input type="reset">`
+- `<input type="search">`
+- `<input type="submit">`
+- `<input type="tel">`
+- `<input type="text"> (default value)`
+- `<input type="time">`
+- `<input type="url">`
+- `<input type="week">`
+
+Look at the type attribute to see examples for each input type!
+
+Tip:
+
+- Always use the `<label>` tag to define labels for `<input type="text">`, `<input type="checkbox">`, `<input type="radio">`, `<input type="file">`, and `<input type="password">`.
+
+## [HTML `<textarea>` Tag](https://www.w3schools.com/tags/tag_textarea.asp)
+
+Example
+
+A multi-line text input control (text area):
+
+    <label for="w3review">Review of W3Schools:</label>
+    <textarea id="w3review" name="w3review" rows="4" cols="50">
+    At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+    </textarea>
+
+Definition and Usage
+
+- The `<textarea>` tag defines a multi-line text input control.
+
+- The `<textarea>` element is often used in a form, to collect user inputs like comments or reviews.
+
+- A text area can hold an unlimited number of characters, and the text renders in a fixed-width font (usually Courier).
+
+- The size of a text area is specified by the `<cols>` and `<rows>` attributes (or with CSS).
+
+- The `name` attribute is needed to reference the form data after the form is submitted (if you omit the name attribute, no data from the text area will be submitted).
+
+- The `id` attribute is needed to associate the text area with a `label`.
+
+Tip:
+
+- Always add the `<label>` tag for best accessibility practices
+
+## [HTML `<select>` Tag](https://www.w3schools.com/tags/tag_select.asp)
+
+Example
+
+Create a drop-down list with four options:
+
+    <label for="cars">Choose a car:</label>
+    
+    <select name="cars" id="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+
+Definition and Usage
+
+- The `<select>` element is used to create a drop-down list.
+
+- The `<select>` element is most often used in a form, to collect user input.
+
+- The `name` attribute is needed to reference the form data after the form is submitted (if you omit the name attribute, no data from the drop-down list will be submitted).
+
+- The `id` attribute is needed to associate the drop-down list with a label.
+
+- The [`<option>`](https://www.w3schools.com/tags/tag_option.asp) tags inside the `<select>` element define the available options in the drop-down list.
+
+Tip:
+
+- Always add the `<label>` tag for best accessibility practices
+
+## [HTML `<option>` Tag](https://www.w3schools.com/tags/tag_option.asp)
+
+Example
+A drop-down list with four options:
+
+    <label for="cars">Choose a car:</label>
+    
+    <select id="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="opel">Opel</option>
+      <option value="audi">Audi</option>
+    </select>
+
+Definition and Usage
+
+- The `<option>` tag defines an option in a select list.
+
+- `<option>` elements go inside a [`<select>`](https://www.w3schools.com/tags/tag_select.asp), [`<optgroup>`](https://www.w3schools.com/tags/tag_optgroup.asp), or [`<datalist>`](https://www.w3schools.com/tags/tag_datalist.asp) element.
+
+Note:
+
+- The `<option>` tag can be used without any attributes, but you usually need the `value` attribute, which indicates what is sent to the server on form submission.
+
+Tip:
+
+- If you have a long list of options, you can group related options within the `<optgroup>` tag.
 
 
 
