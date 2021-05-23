@@ -1,0 +1,33 @@
+# vscode with java
+
+- [vscode with java](#vscode-with-java)
+  - [Debug](#debug)
+    - [Attach to process](#attach-to-process)
+
+## Debug
+
+### Attach to process
+
+start process
+
+    /usr/lib/jvm/java-1.8-openjdk/bin/java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -Dlogging.config=classpath:logback-master.xml -Ddruid.mysql.usePingMethod=false -server -Xms4g -Xmx4g -Xmn2g -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=128m -Xss512k -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:LargePageSizeInBytes=128m -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 -XX:+PrintGCDetails -Xloggc:gc.log -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=dump.hprof -classpath /opt/dolphinscheduler/bin/../conf:/opt/dolphinscheduler/bin/../lib/* org.apache.dolphinscheduler.server.master.MasterServer
+
+launch.json
+
+    {
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "type": "java",
+                "name": "Attach to Remote Program",
+                "request": "attach",
+                "hostName": "172.20.0.6",
+                "port": 5005,
+                "mainClass": "org.apache.dolphinscheduler.server.master.MasterServer",
+                "projectName": "dolphinscheduler-server"
+            }
+        ]
+    }

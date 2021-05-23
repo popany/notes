@@ -29,7 +29,7 @@
 
   means the way used to connect to JVM (socket is a good choice, it can be used to debug a distant computer)
 
-- `address=8000`
+- `address=5005`
 
   TCP/IP port exposed, to connect from the debugger
 

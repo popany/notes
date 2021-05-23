@@ -3,8 +3,8 @@
 - [Vue + Spring Boot Demo](#vue--spring-boot-demo)
   - [Reference](#reference)
   - [Install Vue.js](#install-vuejs)
-  - [Create Spring Boot App Using Spring Initializr](#create-spring-boot-app-using-spring-initializr)
   - [Project setup](#project-setup)
+  - [Create Spring Boot App Using Spring Initializr](#create-spring-boot-app-using-spring-initializr)
 
 ## Reference
 
@@ -18,6 +18,17 @@
 
     yum install -y npm
     npm install -g @vue/cli
+
+## Project setup
+
+    todo_mvc
+    ├─┬ backend     → backend module with Spring Boot code
+    │ ├── src
+    │ └── pom.xml
+    ├─┬ frontend    → frontend module with Vue.js code
+    │ ├── src
+    │ └── pom.xml
+    └── pom.xml     → Maven parent pom managing both modules
 
 ## Create Spring Boot App Using Spring Initializr
 
@@ -50,17 +61,6 @@
   - Spring Web WEB
 
     Build web, including RESTful, applications using Spring MVC. Uses Apache Tomcat as the default embedded container.
-
-## Project setup
-
-    todo_mvc
-    ├─┬ backend     → backend module with Spring Boot code
-    │ ├── src
-    │ └── pom.xml
-    ├─┬ frontend    → frontend module with Vue.js code
-    │ ├── src
-    │ └── pom.xml
-    └── pom.xml     → Maven parent pom managing both modules
 
 
 
