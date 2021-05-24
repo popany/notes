@@ -6,7 +6,6 @@
   - [Create Project](#create-project)
     - [Project structure](#project-structure)
     - [Create Project script](#create-project-script)
-  - [Coding](#coding)
   - [Build Project](#build-project)
     - [Compile](#compile)
     - [Package](#package)
@@ -23,6 +22,8 @@
 - [Create a single page app with Spring Boot and Vue.js](https://dev.to/tunaranch/create-a-single-page-app-with-spring-boot-and-vue-js-2on)
 
 - [Serve Static Resources with Spring](https://www.baeldung.com/spring-mvc-static-resources)
+
+- [Vue CLI Configuration Reference](https://cli.vuejs.org/config/)
 
 ## Install Vue.js
 
@@ -250,10 +251,6 @@
 
     </project>
     EOF
-
-## Coding
-
-...
 
 ## Build Project
 
