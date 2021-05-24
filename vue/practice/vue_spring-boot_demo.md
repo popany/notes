@@ -101,13 +101,11 @@
                                 <overwrite>true<\/overwrite>\
                                 <resources>\
                                     <resource>\
-                                        <directory>${project.parent.basedir}\/frontend\/dist<\/directory>\
+                                        <directory>${project.parent.basedir}\/frontend\/target\/dist<\/directory>\
                                         <includes>\
-                                            <include>css\/<\/include>\
-                                            <include>favicon.ico<\/include>\
-                                            <include>img\/<\/include>\
+                                            <include>static\/<\/include>\
                                             <include>index.html<\/include>\
-                                            <include>js\/<\/include>\
+                                            <include>favicon.ico<\/include>\
                                         <\/includes>\
                                     <\/resource>\
                                 <\/resources>\
@@ -146,6 +144,15 @@
       },
       "vueVersion": "3"
     }'
+
+    # Change build paths to make them Maven compatible
+
+    cat > ./frontend/vue.config.js <<EOF
+    module.exports = {
+      outputDir: 'target/dist',
+      assetsDir: 'static'
+    };
+    EOF
 
     # Create ./frontend/pom.xml
 
