@@ -10,6 +10,7 @@
   - [Build Project](#build-project)
     - [Compile](#compile)
     - [Package](#package)
+  - [Start Server](#start-server)
 
 ## Reference
 
@@ -253,12 +254,20 @@
 
     ./mvnv compile
 
-node version v15.8.0 will be installed into  /note/java/java_programming/learn_vue/todo_mvc/frontend/node
+Note:
 
-add `note/` into frontend/.gitignore to ignore this directory
+- `node` version v15.8.0 will be installed into /note/java/java_programming/learn_vue/todo_mvc/frontend/node
+
+  add `note/` into frontend/.gitignore to ignore this directory
+
+- content in the dist will be copied into backend/src/main/resources/public
+
+  add `backend/src/main/resources/public` into ./gitignore to ignore this directory
 
 ### Package
 
     ./mvnv package
 
+## Start Server
 
+    java -jar backend/target/backend-0.0.1-SNAPSHOT.jar
