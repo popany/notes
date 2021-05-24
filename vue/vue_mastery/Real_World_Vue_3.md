@@ -24,6 +24,14 @@ or
 
     vue create real-world-vue
 
+    ? Please pick a preset: Manually select features
+    ? Check the features needed for your project: Choose Vue version, Babel, Router, Linter
+    ? Choose a version of Vue.js that you want to start the project with 3.x
+    ? Use history mode for router? (Requires proper server setup for index fallback in production) Yes
+    ? Pick a linter / formatter config: Prettier
+    ? Pick additional lint features: Lint on save
+    ? Where do you prefer placing config for Babel, ESLint, etc.? In dedicated config files
+
 ### run project
 
     cd real-world-vue
