@@ -1,8 +1,13 @@
 # vscode with java
 
 - [vscode with java](#vscode-with-java)
+  - [reference](#reference)
   - [Debug](#debug)
     - [Attach to process](#attach-to-process)
+
+## reference
+
+[microsoft/vscode-java-debug](https://github.com/microsoft/vscode-java-debug/blob/main/Configuration.md)
 
 ## Debug
 

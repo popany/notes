@@ -12,6 +12,7 @@
       - [Oracle](#oracle-1)
   - [Use ODBC](#use-odbc)
     - [ODBC Connection String](#odbc-connection-string)
+    - [ODBC Connection pool](#odbc-connection-pool)
   - [ODBC Programmer's Reference](#odbc-programmers-reference)
 
 ## ODBC config
@@ -97,5 +98,13 @@
 [Using Connection String Keywords with SQL Server Native Client](https://docs.microsoft.com/en-us/sql/relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client?view=sql-server-ver15)
 
 [OdbcConnection.ConnectionString](https://docs.microsoft.com/en-us/dotnet/api/system.data.odbc.odbcconnection.connectionstring?view=dotnet-plat-ext-5.0)
+
+### ODBC Connection pool
+
+[Driver Manager Connection Pooling](https://docs.microsoft.com/en-us/sql/odbc/reference/develop-app/driver-manager-connection-pooling?view=sql-server-ver15)
+
+[Pooling in the Microsoft Data Access Components](https://docs.microsoft.com/en-us/previous-versions/ms810829(v=msdn.10))
+
+[ODBC Connection pooling](http://www.unixodbc.org/doc/conn_pool.html)
 
 ## [ODBC Programmer's Reference](https://docs.microsoft.com/en-us/sql/odbc/reference/odbc-programmer-s-reference?view=sql-server-ver15)
