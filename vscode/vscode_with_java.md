@@ -4,6 +4,8 @@
   - [reference](#reference)
   - [Debug](#debug)
     - [Attach to process](#attach-to-process)
+  - [JDK Version](#jdk-version)
+    - [Configure the JDK](#configure-the-jdk)
 
 ## reference
 
@@ -36,3 +38,27 @@ launch.json
             }
         ]
     }
+
+## JDK Version
+
+reference: [Configure JDK](https://code.visualstudio.com/docs/java/java-project#_configure-jdk)
+
+Two configurations
+
+- `java.configuration.runtimes`
+
+  specifies options for project's execution environment
+
+- `java.home`
+
+  specifies language server's execution environment
+
+NOTE: Although the Java language server requires JDK version 11 or above to run, this is NOT a requirement to your project's runtime.
+
+### Configure the JDK
+
+opening the Command Palette (Ctrl+Shift+P) and typing the command Java: `Configure Java Runtime`
+
+- Project JDKs
+
+- Java Tooling Runtime
