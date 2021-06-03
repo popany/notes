@@ -42,6 +42,8 @@ edit config file
 
     log_statement = 'all'
 
+Restart the PostgreSQL Service
+
 ## sql
 
 ### get the current number of connections

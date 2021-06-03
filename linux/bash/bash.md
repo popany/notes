@@ -354,6 +354,8 @@ Use `:` as seperator
 
     date +'%Y/%m/%d %T'
 
+    date +'%F %T.%N'
+
 ## Memory
 
 ### Check swap space usage
