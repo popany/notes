@@ -11,6 +11,7 @@
       - [`set -e -x -u`](#set--e--x--u)
     - [list file](#list-file)
       - [list full-path recursively](#list-full-path-recursively)
+    - [`ls`](#ls)
     - [`find`](#find)
     - [`cp`](#cp)
       - [copying a file without changing date stamp](#copying-a-file-without-changing-date-stamp)
@@ -39,6 +40,7 @@
     - [`awk`](#awk)
     - [`sshpass`](#sshpass)
     - [`date`](#date)
+    - [List logged in users](#list-logged-in-users)
   - [Memory](#memory)
     - [Check swap space usage](#check-swap-space-usage)
     - [Clear Memory Cache And Buffer](#clear-memory-cache-and-buffer)
@@ -144,6 +146,20 @@ Or to assign `default` to `VARIABLE` at the same time:
 #### [list full-path recursively](https://stackoverflow.com/questions/1767384/ls-command-how-can-i-get-a-recursive-full-path-listing-one-line-per-file)
 
     find . -type f
+
+### `ls`
+
+Sort files by size
+
+    ls -lhSr
+
+- `-S`
+
+  Sort by file size, largest first
+
+- `-r`
+
+  Reverse order while sorting
 
 ### `find`
 
@@ -355,6 +371,10 @@ Use `:` as seperator
     date +'%Y/%m/%d %T'
 
     date +'%F %T.%N'
+
+### List logged in users
+
+    who -u
 
 ## Memory
 
