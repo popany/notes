@@ -6,7 +6,8 @@
       - [初始化配置 `./docker/build/startup-init-conf.sh`](#初始化配置-dockerbuildstartup-init-confsh)
   - [拉起容器](#拉起容器)
     - [参考 `./docker/build/README.md`](#参考-dockerbuildreadmemd)
-    - [案例](#案例)
+    - [案例 1](#案例-1)
+    - [案例 2](#案例-2)
   - [初始用户名/密码](#初始用户名密码)
 
 ## 参考 `./docker/build/Dockerfile`
@@ -56,7 +57,7 @@
 
 默认环境变量参见 `./docker/build/startup-init-conf.sh`
 
-### 案例
+### 案例 1
 
     docker network create dolphinscheduler-net
 
@@ -70,6 +71,57 @@
     -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="dolphinscheduler" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" -e DOLPHINSCHEDULER_RESOURCE_STORAGE_TYPE="NONE" \
     -p 8888:8888 \
     apache/dolphinscheduler:1.3.4-SNAPSHOT all
+
+### 案例 2
+
+    docker network create dolphinscheduler-net
+
+    docker run -d --name zk1 --network dolphinscheduler-net zookeeper
+
+    docker run -d --name postgres --network dolphinscheduler-net -p 5432:5432 -e POSTGRES_USER=dolphinscheduler -e POSTGRES_PASSWORD=123 postgres
+
+    docker run -d --name dolphinscheduler-master-1 \
+    --network dolphinscheduler-net \
+    -e ZOOKEEPER_QUORUM="zk1:2181" \
+    -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="dolphinscheduler" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" \
+    apache/dolphinscheduler:1.3.4-SNAPSHOT master-server
+
+    docker run -d --name dolphinscheduler-master-2 \
+    --network dolphinscheduler-net \
+    -e ZOOKEEPER_QUORUM="zk1:2181" \
+    -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="dolphinscheduler" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" \
+    apache/dolphinscheduler:1.3.4-SNAPSHOT master-server
+
+    docker run -d --name dolphinscheduler-worker-1 \
+    --network dolphinscheduler-net \
+    -e ZOOKEEPER_QUORUM="zk1:2181" \
+    -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="dolphinscheduler" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" \
+    -e DOLPHINSCHEDULER_RESOURCE_STORAGE_TYPE="NONE" \
+    apache/dolphinscheduler:1.3.4-SNAPSHOT worker-server
+
+    docker run -d --name dolphinscheduler-worker-2 \
+    --network dolphinscheduler-net \
+    -e ZOOKEEPER_QUORUM="zk1:2181" \
+    -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="dolphinscheduler" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" \
+    -e DOLPHINSCHEDULER_RESOURCE_STORAGE_TYPE="NONE" \
+    apache/dolphinscheduler:1.3.4-SNAPSHOT worker-server
+
+    docker run -d --name dolphinscheduler-api \
+    --network dolphinscheduler-net \
+    -e ZOOKEEPER_QUORUM="zk1:2181" \
+    -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="dolphinscheduler" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" \
+    apache/dolphinscheduler:1.3.4-SNAPSHOT api-server
+
+    docker run -d --name dolphinscheduler-alert \
+    --network dolphinscheduler-net \
+    -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="dolphinscheduler" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" \
+    apache/dolphinscheduler:1.3.4-SNAPSHOT alert-server
+
+    docker run -d --name dolphinscheduler-frontend \
+    --network dolphinscheduler-net \
+    -e FRONTEND_API_SERVER_HOST="dolphinscheduler-api" -e FRONTEND_API_SERVER_PORT=12345 \
+    -p 8888:8888 \
+    apache/dolphinscheduler:1.3.4-SNAPSHOT frontend
 
 ## 初始用户名/密码
 
