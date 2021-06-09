@@ -278,13 +278,9 @@ The official `httpd` driver changes the httpd application’s configuration to w
 
 ### ssh into a centos container
 
-[dockerfiles-centos-ssh](https://github.com/CentOS/CentOS-Dockerfiles/tree/master/ssh/centos7)
+reference: [dockerfiles-centos-ssh](https://github.com/CentOS/CentOS-Dockerfiles/tree/master/ssh/centos7)
 
     docker run -ti --name test-ssh -p 50022 centos:7.4 bash
-
-    mkdir /root/.ssh
-
-edit `/root/.ssh/authorized_keys`, add `id_rsa.pub` of client
 
     yum -y install openssh-server
     passwd root

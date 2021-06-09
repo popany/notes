@@ -68,7 +68,8 @@
     docker run -d --name dolphinscheduler \
     --network dolphinscheduler-net \
     -e ZOOKEEPER_QUORUM="zk1:2181" \
-    -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="dolphinscheduler" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" -e DOLPHINSCHEDULER_RESOURCE_STORAGE_TYPE="NONE" \
+    -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="dolphinscheduler" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" \
+    -e DOLPHINSCHEDULER_RESOURCE_STORAGE_TYPE="NONE" \
     -p 8888:8888 \
     apache/dolphinscheduler:1.3.4-SNAPSHOT all
 
@@ -96,20 +97,21 @@
     --network dolphinscheduler-net \
     -e ZOOKEEPER_QUORUM="zk1:2181" \
     -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="dolphinscheduler" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" \
-    -e DOLPHINSCHEDULER_RESOURCE_STORAGE_TYPE="NONE" \
+    -e DOLPHINSCHEDULER_RESOURCE_STORAGE_TYPE="HDFS" \
     apache/dolphinscheduler:1.3.4-SNAPSHOT worker-server
 
     docker run -d --name dolphinscheduler-worker-2 \
     --network dolphinscheduler-net \
     -e ZOOKEEPER_QUORUM="zk1:2181" \
     -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="dolphinscheduler" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" \
-    -e DOLPHINSCHEDULER_RESOURCE_STORAGE_TYPE="NONE" \
+    -e DOLPHINSCHEDULER_RESOURCE_STORAGE_TYPE="HDFS" \
     apache/dolphinscheduler:1.3.4-SNAPSHOT worker-server
 
     docker run -d --name dolphinscheduler-api \
     --network dolphinscheduler-net \
     -e ZOOKEEPER_QUORUM="zk1:2181" \
     -e POSTGRESQL_HOST="postgres" -e POSTGRESQL_PORT="5432" -e POSTGRESQL_USERNAME="dolphinscheduler" -e POSTGRESQL_PASSWORD="123" -e POSTGRESQL_DATABASE="dolphinscheduler" \
+    -e DOLPHINSCHEDULER_RESOURCE_STORAGE_TYPE="HDFS" \
     apache/dolphinscheduler:1.3.4-SNAPSHOT api-server
 
     docker run -d --name dolphinscheduler-alert \
