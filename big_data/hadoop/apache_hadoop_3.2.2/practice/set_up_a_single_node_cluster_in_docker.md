@@ -97,7 +97,7 @@ Reference: <https://github.com/CentOS/CentOS-Dockerfiles/blob/master/ssh/centos7
 
     CMD /usr/sbin/sshd;\
         rm /run/nologin;\
-        test ! -d /tmp/hadoop-root && bin/hdfs namenode -format;\
+        test ! -d /tmp/hadoop-hdp && bin/hdfs namenode -format;\
         sbin/start-dfs.sh;\
         sbin/start-yarn.sh;\
         /bin/bash
