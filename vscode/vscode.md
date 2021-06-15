@@ -15,3 +15,13 @@
 #### [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid)
 
 [document](https://mermaid-js.github.io/mermaid/)
+
+## Settings
+
+### Set Indent for Markdown
+
+- `F1`
+
+- "Configure Language Specific Settings"
+
+- Select Markdown
