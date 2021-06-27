@@ -42,6 +42,8 @@
         - [Build an example](#build-an-example)
     - [Compile gRPC v1.28.1](#compile-grpc-v1281)
       - [CentOS 8](#centos-8-1)
+    - [Compile gRPC v1.38.1](#compile-grpc-v1381)
+      - [Windows vs2019 v140](#windows-vs2019-v140)
 
 ## [C++ Quick Start](https://grpc.io/docs/quickstart/cpp/)
 
@@ -559,3 +561,25 @@ Build the example using cmake:
 
     make -j4 install
     popd
+
+### Compile gRPC v1.38.1
+
+#### Windows vs2019 v140
+
+powershell
+
+    git clone -b RELEASE_TAG_HERE https://github.com/grpc/grpc
+    cd grpc
+    git submodule update --init
+
+    md .build
+    cd .build
+
+    pushd
+    Launch-VsDevShell.ps1
+    popd
+
+    cmake .. -G "Visual Studio 16 2019" -A x64 -T v140 -DgRPC_INSTALL=ON -DgRPC_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=C:/local/grpc
+
+    cmake --build . --config Release -j
+    cmake --install .
