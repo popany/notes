@@ -82,3 +82,11 @@ There are three common methods for constructing an uber jar:
 ### ProcessBuilder
 
 [Java ProcessBuilder: How to suppress output instead of redirecting it](https://stackoverflow.com/questions/55628999/java-processbuilder-how-to-suppress-output-instead-of-redirecting-it)
+
+## Install
+
+### Windows
+
+- [Java Platform, Standard Edition 8 Reference Implementations](https://jdk.java.net/java-se-ri/8-MR3)
+
+- [Java Platform, Standard Edition 11 Reference Implementations](https://jdk.java.net/java-se-ri/11)
