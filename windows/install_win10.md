@@ -3,6 +3,7 @@
 - [Install win10](#install-win10)
   - [下载镜像](#下载镜像)
   - [安装案例](#安装案例)
+  - [制作U盘镜像工具](#制作u盘镜像工具)
   - [问题解决](#问题解决)
     - [U盘未识别问题](#u盘未识别问题)
     - [U盘分区](#u盘分区)
@@ -14,6 +15,10 @@
 ## 安装案例
 
 [Install Windows 10 on Secondary SSD or Hard Drive](https://www.uubyte.com/install-windows-10-on-secondary-hard-drive.html)
+
+## 制作U盘镜像工具
+
+[Rufus](https://rufus.ie/downloads/)
 
 ## 问题解决
 
