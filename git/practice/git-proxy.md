@@ -8,6 +8,7 @@
 config proxy
 
     git config --global --add http.proxy socks5://127.0.0.1:30000
+    git config --global --add https.proxy socks5://127.0.0.1:30000
 
 start tunnel
 

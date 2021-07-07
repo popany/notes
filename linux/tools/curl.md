@@ -4,6 +4,7 @@
   - [HowTO](#howto)
   - [Practice](#practice)
     - [proxy](#proxy)
+    - [Follows redirect](#follows-redirect)
 
 ## HowTO
 
@@ -18,3 +19,9 @@
     curl -x "http://user:pwd@127.0.0.1:1234" "http://httpbin.org/ip"
     curl --proxy "http://user:pwd@127.0.0.1:1234" "http://httpbin.org/ip"
     curl -x "socks5://127.0.0.1:50001" "http://httpbin.org/ip"
+
+### Follows redirect
+
+    -L, --location
+
+    curl -x socks5://127.0.0.1:50001 -L -O https://github.com/Kitware/CMake/releases/download/v3.21.0-rc2/cmake-3.21.0-rc2-linux-x86_64.sh
