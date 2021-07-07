@@ -4,7 +4,8 @@
   - [下载镜像](#下载镜像)
   - [安装案例](#安装案例)
   - [问题解决](#问题解决)
-    - [U盘问题](#u盘问题)
+    - [U盘未识别问题](#u盘未识别问题)
+    - [U盘分区](#u盘分区)
 
 ## 下载镜像
 
@@ -16,6 +17,12 @@
 
 ## 问题解决
 
-### U盘问题
+### U盘未识别问题
+
+由于之前做过其他镜像导致
 
 [How to remove /delete partition from USB drive in Windows 10/8/7/XP?](https://www.eassos.com/blog/how-to-remove-partition-from-usb-drive-in-windows/)
+
+### U盘分区
+
+下载 [DiskGenius](https://www.eassos.com/partitionguru.php)
