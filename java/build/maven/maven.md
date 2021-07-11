@@ -2,6 +2,7 @@
 
 - [maven](#maven)
   - [command](#command)
+    - [创建项目](#创建项目)
     - [idea](#idea)
       - [生成 idea 项目文件](#生成-idea-项目文件)
       - [清除 idea 项目文件](#清除-idea-项目文件)
@@ -17,6 +18,10 @@
       - [Answer 2](#answer-2)
 
 ## command
+
+### 创建项目
+
+    mvn archetype:generate -DgroupId=com.companyname.bank -DartifactId=consumerBanking -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 
 ### idea
 
