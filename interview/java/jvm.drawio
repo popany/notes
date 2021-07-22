@@ -1,9 +1,130 @@
 <mxfile host="65bd71144e">
     <diagram id="Xqb2EUOU-3gydZiSaA1w" name="Page-1">
-        <mxGraphModel dx="1232" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1632" dy="1050" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="&lt;h1&gt;JVM 内存&lt;/h1&gt;&lt;p&gt;JVM 内存&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="-60" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CCFFE6;" vertex="1" parent="1">
+                    <mxGeometry x="190" y="35" width="600" height="355" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="运行时数据区" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="445" y="46" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" edge="1" parent="1" source="5" target="28">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="110" y="185"/>
+                            <mxPoint x="110" y="10"/>
+                            <mxPoint x="235" y="10"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="5" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=7;fillColor=#CCCCFF;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="80" width="160" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="方法区" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="265" y="90" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" edge="1" parent="1" source="8" target="28">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="212" y="-20" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="110" y="340"/>
+                            <mxPoint x="110" y="10"/>
+                            <mxPoint x="235" y="10"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="堆" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CCCCFF;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="310" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" edge="1" parent="1" source="10" target="32">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="590" y="185"/>
+                            <mxPoint x="590" y="10"/>
+                            <mxPoint x="550" y="10"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=7;fillColor=#CCFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="80" width="160" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="虚拟机栈" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="90" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="栈帧N" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3399FF;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="240" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#99CCFF;" vertex="1" parent="1">
+                    <mxGeometry x="430" y="120" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="当前栈帧" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="120" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="局部变量表" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#99FFCC;" vertex="1" parent="1">
+                    <mxGeometry x="437.5" y="143" width="105" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="操作数栈" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#99FFCC;" vertex="1" parent="1">
+                    <mxGeometry x="437.5" y="167" width="105" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="动态链接" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#99FFCC;" vertex="1" parent="1">
+                    <mxGeometry x="437.5" y="191" width="105" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="返回地址" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#99FFCC;" vertex="1" parent="1">
+                    <mxGeometry x="437.5" y="215" width="105" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" edge="1" parent="1" source="25" target="32">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="860" y="340"/>
+                            <mxPoint x="860" y="10"/>
+                            <mxPoint x="550" y="10"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="程序计数器" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CCFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="410" y="310" width="360" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" edge="1" parent="1" source="26" target="32">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="860" y="185"/>
+                            <mxPoint x="860" y="10"/>
+                            <mxPoint x="550" y="10"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=7;fillColor=#CCFFFF;" vertex="1" parent="1">
+                    <mxGeometry x="610" y="80" width="160" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="本地方法栈" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="90" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="线程共享" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="205" y="-60" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="线程私有" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="-60" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9999FF;" vertex="1" parent="1">
+                    <mxGeometry x="228.75" y="120" width="122.5" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="运行时常量池" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E5CCFF;" vertex="1" parent="1">
+                    <mxGeometry x="235" y="159" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="字段和方法数据" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E5CCFF;" vertex="1" parent="1">
+                    <mxGeometry x="235" y="195" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="方法字节码" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E5CCFF;" vertex="1" parent="1">
+                    <mxGeometry x="235" y="230" width="110" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="类的结构信息" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="245" y="130" width="90" height="20" as="geometry"/>
+                </mxCell>
             </root>
         </mxGraphModel>
     </diagram>
