@@ -11,11 +11,15 @@
   - [Sleep](#sleep)
   - [Variables and Arrays](#variables-and-arrays)
     - [Array List](#array-list)
+  - [`$args`](#args)
   - [Print environment variable](#print-environment-variable)
   - [Path](#path)
     - [Create folder if not exists](#create-folder-if-not-exists)
     - [Get obsolute path](#get-obsolute-path)
     - [Recursive file search](#recursive-file-search)
+    - [Get parent path](#get-parent-path)
+  - [Combine path](#combine-path)
+  - [if/else](#ifelse)
   - [Loop through Files and Folders](#loop-through-files-and-folders)
     - [List Files](#list-files)
     - [Display the contents of child directories](#display-the-contents-of-child-directories)
@@ -118,6 +122,24 @@ Sleep 1000ms
         Write-output $a
     }
 
+## `$args`
+
+An example:
+
+    function PrintArgs()
+    {
+        Write-Host "You passed $($args.Count) arguments:"
+        $args | Write-Host
+    }
+
+Calling PrintArgs:
+
+    > PrintArgs 'a' 'b' 'c'
+    You passed 3 arguments:
+    a
+    b
+    c
+
 ## Print environment variable
 
     $env:PATH
@@ -141,6 +163,31 @@ or
 ### Recursive file search
 
     Get-ChildItem -Path V:\Myfolder -Filter file_name -Recurse -ErrorAction SilentlyContinue -Force
+
+### Get parent path
+
+    $SCRIPT_ROOT_DIR=$PSScriptRoot
+    $PARENT_DIR=Split-Path -parent $SCRIPT_ROOT_DIR
+
+## Combine path
+
+    $FOO_BAR_PATH=Join-Path -Path $FOO_PATH -ChildPath "bar"
+
+## if/else
+
+example:
+
+    $x = 30
+
+    if($x -eq 10){
+        write-host("Value of X is 10")
+    } elseif($x -eq 20){
+        write-host("Value of X is 20")
+    } elseif($x -eq 30){
+        write-host("Value of X is 30")
+    } else {
+        write-host("This is else statement")
+    }
 
 ## Loop through Files and Folders
 
