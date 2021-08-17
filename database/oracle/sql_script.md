@@ -7,6 +7,7 @@
   - [Procedure](#procedure)
     - [Recompile Procedure](#recompile-procedure)
     - [创建存储过程](#创建存储过程)
+      - [调用上面创建的存储过程](#调用上面创建的存储过程)
   - [View](#view)
     - [Recomplie View](#recomplie-view)
   - [强制终止在执行的sql](#强制终止在执行的sql)
@@ -110,6 +111,27 @@
       RETURN_CODE := 0;
       RETURN_MSG := TO_CHAR(V_STARTTIME, 'yyyy-MM-dd hh24:mi:ss') || ' - ' || TO_CHAR(V_CURRENTTIME, 'yyyy-MM-dd hh24:mi:ss');
     END;
+
+#### 调用上面创建的存储过程
+
+    declare
+        v_seconds int:=1;  --入数
+        v_return_code int;  --出参1
+        v_return_msg varchar(200);  --出参2
+    begin
+        sp_test_wait(v_seconds, v_return_code, v_return_msg);
+        -- 打印输出信息
+        dbms_output.put_line(v_return_code);
+        dbms_output.put_line(v_return_msg);
+        dbms_output.put_line('putline======');
+    end;
+    /
+
+注意, 使用 sqlplus 时:
+
+- 最后一行的 `/` 时必须的
+
+- 若要查看 dbms_output 打印结果, 需要提前执行 `set serveroutput on`
 
 ## View
 
