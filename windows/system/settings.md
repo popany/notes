@@ -4,6 +4,7 @@
   - [TCP](#tcp)
     - [TCP keep-alive 设置](#tcp-keep-alive-设置)
       - [详细请参考以下官方文档](#详细请参考以下官方文档)
+      - [试验](#试验)
 
 ## TCP
 
@@ -27,3 +28,7 @@ If the `KeepAlivetime` parameter does not already exist in the above location, c
     Valid Range: 1-0xFFFFFFFF
     Default: 7,200,000 (two hours)
     Description: The parameter controls how often TCP attempts to verify that an idle connection is still intact by sending a keep-alive packet. If the remote system is still reachable and functioning, it acknowledges the keep-alive transmission. Keep-alive packets are not sent by default. This feature may be enabled on a connection by an application
+
+#### 试验
+
+Win10 系统设置 KeepAliveTime, 重启后生效
