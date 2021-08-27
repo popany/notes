@@ -6,6 +6,10 @@
     - [vscode in windows + gdb in WSL docker container](#vscode-in-windows--gdb-in-wsl-docker-container)
       - [Debug coredump](#debug-coredump)
       - [Attach to process](#attach-to-process)
+  - [C/C++ IntelliSense](#cc-intellisense)
+    - [macro define](#macro-define)
+      - [c_cpp_properties.json](#c_cpp_propertiesjson)
+      - [C/C++ IntelliSense](#cc-intellisense-1)
 
 ## Debug
 
@@ -115,3 +119,51 @@
                     }
                 ]
             }
+
+## C/C++ IntelliSense
+
+### macro define
+
+#### c_cpp_properties.json
+
+    F1
+    C/C++: Edit Configurations (JSON)
+
+[c_cpp_properties.json reference](https://code.visualstudio.com/docs/cpp/c-cpp-properties-schema-reference)
+
+    {
+      "env": {
+        "myDefaultIncludePath": ["${workspaceFolder}", "${workspaceFolder}/include"],
+        "myCompilerPath": "/usr/local/bin/gcc-7"
+      },
+      "configurations": [
+        {
+          "name": "Mac",
+          "intelliSenseMode": "clang-x64",
+          "includePath": ["${myDefaultIncludePath}", "/another/path"],
+          "macFrameworkPath": ["/System/Library/Frameworks"],
+          "defines": ["FOO", "BAR=100"],
+          "forcedInclude": ["${workspaceFolder}/include/config.h"],
+          "compilerPath": "/usr/bin/clang",
+          "cStandard": "c11",
+          "cppStandard": "c++17",
+          "compileCommands": "/path/to/compile_commands.json",
+          "browse": {
+            "path": ["${workspaceFolder}"],
+            "limitSymbolsToIncludedHeaders": true,
+            "databaseFilename": ""
+          }
+        }
+      ],
+      "version": 4
+    }
+
+#### C/C++ IntelliSense
+
+Settings > Extensions > C/C++ > C_Cpp Default: Defines
+
+Edit in settings.json
+
+    {
+        "C_Cpp.default.defines": ["__LINUX__"]
+    }
