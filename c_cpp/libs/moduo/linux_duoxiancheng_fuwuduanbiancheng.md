@@ -15,6 +15,8 @@
     - [1.11 对象池](#111-对象池)
       - [1.11.1 `enable_shared_from_this`](#1111-enable_shared_from_this)
       - [1.11.2 弱回调](#1112-弱回调)
+  - [第 2 章 线程同步精要](#第-2-章-线程同步精要)
+    - [2.6 借 `shared_ptr` 实现 copy-on-write](#26-借-shared_ptr-实现-copy-on-write)
   - [第 6 章 muduo 网络库简介](#第-6-章-muduo-网络库简介)
     - [目录结构](#目录结构)
       - [6.3.1 代码结构](#631-代码结构)
@@ -123,6 +125,36 @@
 
 有时候我们需要"如果对象还活着, 就调用它的成员函数, 否则忽略之" 的语意, 就像 `Observable::notifyObservers()` 那样, 我称之为"弱回调". 这也是可以实现的, 利用 `weak_ptr`, 我们可以把 `weak_ptr` 绑到 `boost::function` 里, 这样对象的生命期就不会被延长. 然后在回调的时候先尝试提升为 `shared_ptr`, 如果提升成功, 说明接受回调的对象还健在, 那么久执行回调; 如果提升失败, 就不必劳神了.
 
+## 第 2 章 线程同步精要
+
+### 2.6 借 `shared_ptr` 实现 copy-on-write
+
+    typedef std::vector<Foo> FooList;
+    typedef boost::shared_ptr<FooList> FooListPtr;
+    MutexLock mutex;
+    FooListPtr g_foos;
+
+    void traverse()
+    {
+        FooListPtr foos;
+        {
+            MutexLockGuard lock(mutex);
+            foos = g_foos;
+        }
+
+        for (std::vector<Foo>::const_iterator it = foos->begin(); it != foos->end(); ++it) {
+            it->doit();
+        }
+    }
+
+    void post(const Foo& f)
+    {
+        MutexLockGuard lock(mutex);
+        if (!g_foos.unique()) {
+            g_foos.reset(new FooList(*g_foos));
+        }
+        f_foos->push_back(f);
+    }
 
 ## 第 6 章 muduo 网络库简介
 
