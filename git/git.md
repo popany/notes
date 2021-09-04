@@ -23,6 +23,7 @@
   - [Config](#config)
     - [`autocrlf`](#autocrlf)
     - [safecrlf](#safecrlf)
+    - [sshCommand](#sshcommand)
   - [Q&A](#qa)
 
 ## `git commmit`
@@ -271,6 +272,10 @@ Initialize, fetch and checkout any nested submodules
 
     #提交包含混合换行符的文件时给出警告
     git config --global core.safecrlf warn
+
+### sshCommand
+
+    git config --global core.sshCommand "ssh -i /c/code/.ssh/id_rsa"
 
 ## Q&A
 
