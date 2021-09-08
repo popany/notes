@@ -30,6 +30,13 @@
     - [7.4 muduo `Buffer` 类的设计与使用](#74-muduo-buffer-类的设计与使用)
       - [7.4.2 为什么 non-blocking 网络编程中应用层 buffer 是必需的](#742-为什么-non-blocking-网络编程中应用层-buffer-是必需的)
     - [7.5 一种自动反射消息类型的 Protobuf 网络传输方案](#75-一种自动反射消息类型的-protobuf-网络传输方案)
+      - [7.5.1 网络编程中使用 Protobuf 的两个先决条件](#751-网络编程中使用-protobuf-的两个先决条件)
+      - [7.5.2 根据 type name 反射自动创建 `Message` 对象](#752-根据-type-name-反射自动创建-message-对象)
+        - [原理简述](#原理简述)
+        - [验证思路](#验证思路)
+        - [根据 type name 自动创建 `Message` 的关键代码](#根据-type-name-自动创建-message-的关键代码)
+        - [线程安全性](#线程安全性)
+      - [7.5.3 Protobuf 传输格式](#753-protobuf-传输格式)
 
 ## 第 1 章 线程安全的对象生命周期管理
 
@@ -248,9 +255,108 @@ muduo `EventLoop` 采用的是 `epoll(4)` level trigger, 而不是 edge trigger.
 
 ### 7.5 一种自动反射消息类型的 Protobuf 网络传输方案
 
+#### 7.5.1 网络编程中使用 Protobuf 的两个先决条件
 
+在网络编程中使用 Protobuf 需要解决以下两个问题
 
+1. 长度, Protobuf 打包的数据没有自带长度信息或终结符, 需要由应用程序自己在发送和接收的时候做正确的切分.
 
+2. 类型, Protobuf 打包的数据没有自带类型信息, 需要由发送方吧类型信息传给接收方, 接收方创建具体的 Protobuf Message 对象, 再做反序列化.
+
+#### 7.5.2 根据 type name 反射自动创建 `Message` 对象
+
+Google Protobuf 本身具有很强的反射(reflection)功能, 可以根据 type name 创建具体类型的 `Message` 对象.
+
+##### 原理简述
+
+Protobuf `Message class` 采用了 Prototype pattern, `Message class` 定义了 `New()` 虚函数, 用以返回本对象的一份新实体, 类型与本对象的真是类型相同. 也就是说, 拿到 `Message*` 指针, 不用知道它的具体类型, 就能创建和其类型一样的具体 Message type 的对象.
+
+每个具体 Message type 都有一个 default instance, 可以通过 `ConcreteMessage::default_instance()` 获得, 也可以通过 `MessageFactory::GetPrototype(const Descriptor)` 来获得. 所以现在问题转变为:
+
+1. 如何拿到 `MessageFactory`
+
+2. 如何拿到 `Descriptor*`
+
+我们的英雄是 `DescriptorPool`, 它可以根据 type name 查到 `Descriptor*`, 只要找到合适的 `DescriptorPool` 再调用 `DescriptorPool::FindMessageTypeByName(const string& type_name)`即可.
+
+##### 验证思路
+
+proto 文件
+
+    package muduo
+    
+    message Query {
+      required int64 id = 1;
+      required string questioner = 2;
+      repeated string question = 3;
+    }
+    
+    message Answer {
+      required int64 id = 1;
+      required string questioner = 2;
+      required string answerer = 3;
+      repeated string solution = 4;
+    }
+    
+    message Empty {
+      optional int32 id = 1;
+    }
+
+以下代码验证 `ConcreteMessage::default_instance()`/`ConcreteMessage::descriptor()`/`MessageFactory::GetPrototype()`/`DescriptorPool::FindMessageTypeByName()`之间的不变式(invariant), 注意其中的 `assert`:
+
+    typedef muduo::Query T;
+
+    std::string type_name = T::descriptor()->full_name();
+
+    const Descriptor* descriptor = DescriptorPool::generated_pool()->FindMessageTypeByName(type_name);
+    assert(descriptor == T::descriptor());
+
+    const Message* prototype = MessageFactory::generated_factory()->GetPrototype(descriptor);
+    assert(prototype == &T::default_instance());
+
+    T* new_obj = dynamic_cast<T*>(prototype->New());
+    assert(new_obj != NULL);
+    assert(new_obj != prototype);
+    assert(typeid(*new_obj) == typeid(T::default_instance()));
+
+    delete new_obj;
+
+##### 根据 type name 自动创建 `Message` 的关键代码
+
+1. 用 `DescriptorPool::generated_pool()` 找到一个 `DescriptorPool` 对象, 它包括了程序编译的时候所链接的全部 Protobuf Message types.
+
+2. 根据 type name 用 `DescriptorPool::FindMessageTypeByName()` 查找 `Descriptor`.
+
+3. 再用 `MessageFactory::generated_factory()` 找到 `MessageFactory` 对象, 它能创建程序编译的时候所链接的全部 Protobuf Message types.
+
+4. 然后, 用 `MessageFactory::GetPrototype()` 找到具体 `Message` type 的 default instance.
+
+5. 最后, 用 prototype->New() 创建对象.
+
+.
+
+    Message* createMessage(const std::string& typeName)
+    {
+      Message* message = NULL;
+      const Descriptor* descriptor = Descriptor::generated_pool()->FindMessageTypeByName(typeName);
+      if (descriptor)
+      {
+        message = prototype->New();
+      }
+      return message;
+    }
+
+调用方式:
+
+    Message* newQuery = createMessage("muduo.Query");
+    assert(newQuery != NULL);
+    assert(typeid(*newQuery) == typeid(muduo::Query::default_instance()));
+
+##### 线程安全性
+
+Google 的文档说, 我们用到的那几个 `MessageFactory` 和 DescriptorPool 都是线程安全的, `Message::New()` 也是线程安全的. 并且他们都是 const member function. 关键问题解决了, 那么剩下的工作就是设计一种包含长度和消息类型的 Protobuf 传输格式.
+
+#### 7.5.3 Protobuf 传输格式
 
 
 
