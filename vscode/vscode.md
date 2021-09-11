@@ -25,3 +25,19 @@
 - "Configure Language Specific Settings"
 
 - Select Markdown
+
+## Trubleshooting
+
+### ssh remote
+
+#### ERROR: cannot verify update.code.visualstudio.com's certificate
+
+Add a line of :
+
+    check-certificate=off
+
+to your .wgetrc file under the user’s home directory (on the target system)
+
+Note: It will disable the SSL certificate check for all wget commands you use, unless you change it to :
+
+    check-certificate=on

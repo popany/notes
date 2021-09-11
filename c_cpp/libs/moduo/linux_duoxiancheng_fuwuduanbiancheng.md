@@ -36,7 +36,8 @@
         - [验证思路](#验证思路)
         - [根据 type name 自动创建 `Message` 的关键代码](#根据-type-name-自动创建-message-的关键代码)
         - [线程安全性](#线程安全性)
-      - [7.5.3 Protobuf 传输格式](#753-protobuf-传输格式)
+    - [7.10 用 timing wheel 踢掉空闲连接](#710-用-timing-wheel-踢掉空闲连接)
+      - [7.10.1 timing wheel 原理](#7101-timing-wheel-原理)
 
 ## 第 1 章 线程安全的对象生命周期管理
 
@@ -356,7 +357,16 @@ proto 文件
 
 Google 的文档说, 我们用到的那几个 `MessageFactory` 和 DescriptorPool 都是线程安全的, `Message::New()` 也是线程安全的. 并且他们都是 const member function. 关键问题解决了, 那么剩下的工作就是设计一种包含长度和消息类型的 Protobuf 传输格式.
 
-#### 7.5.3 Protobuf 传输格式
+### 7.10 用 timing wheel 踢掉空闲连接
+
+#### 7.10.1 timing wheel 原理
+
+simple timing wheel 的基本结构是一个循环队列, 还有一个指向队尾的指针(tail), 这个指针每秒移动一格, 就像钟表上的时针, timing wheel 由此得名.
+
+
+
+
+
 
 
 
