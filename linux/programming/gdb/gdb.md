@@ -6,6 +6,7 @@
     - [GDB Command Reference](#gdb-command-reference)
     - [How to open a source file in GDB TUI](#how-to-open-a-source-file-in-gdb-tui)
     - [Step out of current function with GDB](#step-out-of-current-function-with-gdb)
+  - [GDB Cheat Sheet](#gdb-cheat-sheet)
   - [gdbserver](#gdbserver)
   - [Command](#command)
     - [Start `gdb`](#start-gdb)
@@ -27,6 +28,8 @@
       - [`info threads`](#info-threads)
       - [`info stack`](#info-stack)
       - [`info args`](#info-args)
+      - [`info locals`](#info-locals)
+      - [`info variables`](#info-variables)
     - [`thread`](#thread)
       - [`thread <thread ID>`](#thread-thread-id)
     - [`list`](#list)
@@ -35,15 +38,21 @@
       - [`list FILE:FUNCTION`](#list-filefunction)
       - [`list FUNCTION`](#list-function)
     - [`break <location>`](#break-location)
+    - [`clear`](#clear)
     - [`delete`](#delete)
       - [`delete 1`](#delete-1)
+    - [`enable`](#enable)
+    - [`disable`](#disable)
     - [`step`](#step)
     - [`next`](#next)
     - [`continue`](#continue)
     - [`backtrace`](#backtrace)
     - [`frame`](#frame)
-  - [Practice](#practice)
+    - [`print`](#print)
+  - [tui](#tui)
     - [Start gdb with tui mode and set args](#start-gdb-with-tui-mode-and-set-args)
+    - [Select one file](#select-one-file)
+  - [Practice](#practice)
     - [Scroll the active window one page up [[ref]](https://sourceware.org/gdb/onlinedocs/gdb/TUI-Keys.html)](#scroll-the-active-window-one-page-up-ref)
     - [Set breakpoint on line](#set-breakpoint-on-line)
 
@@ -56,6 +65,8 @@
 ### [How to open a source file in GDB TUI](https://stackoverflow.com/questions/17342393/how-to-open-a-source-file-in-gdb-tui)
 
 ### [Step out of current function with GDB](https://stackoverflow.com/questions/24712690/step-out-of-current-function-with-gdb)
+
+## [GDB Cheat Sheet](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf)
 
 ## gdbserver
 
@@ -144,6 +155,14 @@ Backtrace of the stack
 
 Argument variables of current stack frame
 
+#### `info locals`
+
+Local variables of current stack frame
+
+#### `info variables`
+
+All global and static variable names
+
 ### `thread`
 
 #### `thread <thread ID>`
@@ -224,6 +243,20 @@ Example:
 
 ### `break <location>`
 
+### `clear`
+
+Clear breakpoint at specified line or function.
+
+Argument may be line number, function name, or "*" and an address.
+
+- If line number is specified, all breakpoints in that line are cleared.
+- If function is specified, breakpoints at beginning of function are cleared.
+- If an address is specified, breakpoints at that address are cleared.
+
+- With no argument, clears all breakpoints in the line that the selected frame is executing in.
+
+See also the "delete" command which clears breakpoints by number.
+
 ### `delete`
 
 Delete some breakpoints or auto-display expressions
@@ -231,6 +264,10 @@ Delete some breakpoints or auto-display expressions
 #### `delete 1`
 
 Delete break point 1
+
+### `enable`
+
+### `disable`
 
 ### `step`
 
@@ -252,11 +289,23 @@ Print backtrace of all stack frames, or innermost COUNT frames
 
 Select frame number `n`. Recall that frame zero is the innermost (currently executing) frame, frame one is the frame that called the innermost one, and so on. The highest-numbered frame is the one for main.
 
-## Practice
+### `print`
+
+- Print pointer as array
+  
+      p *array@len
+
+## tui
 
 ### Start gdb with tui mode and set args
 
     gdb -tui --args <program> <arg1> <arg2>
+
+### Select one file
+
+    list sourcefile.c:1
+
+## Practice
 
 ### Scroll the active window one page up [[ref]](https://sourceware.org/gdb/onlinedocs/gdb/TUI-Keys.html)
 
@@ -269,5 +318,3 @@ Select frame number `n`. Recall that frame zero is the innermost (currently exec
 or
 
     break <filename>:<linenumber>
-
-

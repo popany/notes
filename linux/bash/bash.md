@@ -40,6 +40,7 @@
     - [`awk`](#awk)
     - [`sshpass`](#sshpass)
     - [`date`](#date)
+    - [`tee`](#tee)
     - [List logged in users](#list-logged-in-users)
   - [Memory](#memory)
     - [Check swap space usage](#check-swap-space-usage)
@@ -371,6 +372,16 @@ Use `:` as seperator
     date +'%Y/%m/%d %T'
 
     date +'%F %T.%N'
+
+### `tee`
+
+    ls -a | tee output.file
+
+    program [arguments...] 2>&1 | tee outfile
+
+Furthermore, if you want to append to the log file, use `tee -a` as:
+
+    program [arguments...] 2>&1 | tee -a outfile
 
 ### List logged in users
 

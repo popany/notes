@@ -1,11 +1,11 @@
 <mxfile host="65bd71144e">
     <diagram id="jPKvV5iT3YLOxVD6vbvR" name="Page-1">
-        <mxGraphModel dx="2867" dy="2103" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="2867" dy="1844" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="2" value="Buffer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="-470" y="-300" width="160" height="86" as="geometry"/>
+                    <mxGeometry x="-400" y="-50" width="160" height="86" as="geometry"/>
                 </mxCell>
                 <mxCell id="3" value="+ field: type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="2" vertex="1">
                     <mxGeometry y="26" width="160" height="26" as="geometry"/>
@@ -17,7 +17,7 @@
                     <mxGeometry y="60" width="160" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="InetAddress" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="-470" y="-130" width="160" height="86" as="geometry"/>
+                    <mxGeometry x="-400" y="120" width="160" height="86" as="geometry"/>
                 </mxCell>
                 <mxCell id="7" value="+ field: type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="6" vertex="1">
                     <mxGeometry y="26" width="160" height="26" as="geometry"/>
@@ -65,7 +65,7 @@
                     <mxGeometry y="268" width="305" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="14" value="EventLoopThread" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="-480" y="-10" width="160" height="86" as="geometry"/>
+                    <mxGeometry x="-410" y="240" width="160" height="86" as="geometry"/>
                 </mxCell>
                 <mxCell id="15" value="+ field: type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="14" vertex="1">
                     <mxGeometry y="26" width="160" height="26" as="geometry"/>
@@ -565,7 +565,7 @@
                 <mxCell id="181" value="EventLoop::wakeup()" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="2320" y="1020" width="140" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="186" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fillColor=#CCE5FF;dashed=1" parent="1" source="184" target="174" edge="1">
+                <mxCell id="186" value="set callback" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fillColor=#CCE5FF;dashed=1" parent="1" source="184" target="174" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="184" value="&lt;div&gt;Connector::startInLoop()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
@@ -574,11 +574,14 @@
                 <mxCell id="192" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#CCE5FF;" parent="1" source="187" target="190" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="246" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="187" target="193">
+                <mxCell id="246" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="187" target="193" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="187" value="&lt;div&gt;EventLoop::EventLoop()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="2920" y="680" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="322" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="190" target="247">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="190" value="&lt;div&gt;new Channel(this, wakeupFd_)&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="2990" y="740" width="200" height="40" as="geometry"/>
@@ -606,20 +609,20 @@
                 <mxCell id="210" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#CCE5FF;" parent="1" source="201" target="208" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="252" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="201" target="251">
+                <mxCell id="252" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="201" target="251" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="253" value="connected" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="252">
+                <mxCell id="253" value="connected" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="252" vertex="1" connectable="0">
                     <mxGeometry x="0.7353" y="-2" relative="1" as="geometry">
                         <mxPoint y="97" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="259" value="block on" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="252">
+                <mxCell id="259" value="block on" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="252" vertex="1" connectable="0">
                     <mxGeometry x="0.909" relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="258" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="201" target="256">
+                <mxCell id="258" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="201" target="256" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="201" value="&lt;div&gt;EventLoop::loop()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
@@ -647,88 +650,85 @@
                 <mxCell id="211" value="&lt;div&gt;call - Connector::startInLoop()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3080" y="1140" width="190" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="220" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="215" target="218">
+                <mxCell id="220" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="215" target="218" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="223" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="215" target="221">
+                <mxCell id="223" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="215" target="221" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="215" value="&lt;div&gt;Connector::connect()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3160" y="1200" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="218" value="&lt;div&gt;system call&lt;/div&gt;&lt;div&gt;sockets::createNonblockingOrDie()&lt;/div&gt;&lt;div&gt;sockets::connect()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;align=left" vertex="1" parent="1">
+                <mxCell id="218" value="&lt;div&gt;system call&lt;/div&gt;&lt;div&gt;sockets::createNonblockingOrDie()&lt;/div&gt;&lt;div&gt;sockets::connect()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;align=left" parent="1" vertex="1">
                     <mxGeometry x="3240" y="1260" width="220" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="228" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="221" target="226">
+                <mxCell id="228" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="221" target="226" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="237" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="221" target="235">
+                <mxCell id="237" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="221" target="235" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="221" value="&lt;div&gt;Connector::connecting()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="221" value="&lt;div&gt;Connector::connecting()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3240" y="1320" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="226" value="&lt;div&gt;&lt;div&gt;channel_.reset(new Channel(loop_, sockfd));&lt;/div&gt;&lt;div&gt;channel_-&amp;gt;setWriteCallback(std::bind(&amp;amp;Connector::handleWrite, this));&lt;/div&gt;&lt;div&gt;channel_-&amp;gt;setErrorCallback(std::bind(&amp;amp;Connector::handleError, this));&lt;/div&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;align=left" vertex="1" parent="1">
+                <mxCell id="226" value="&lt;div&gt;&lt;div&gt;channel_.reset(new Channel(loop_, sockfd));&lt;/div&gt;&lt;div&gt;channel_-&amp;gt;setWriteCallback(std::bind(&amp;amp;Connector::handleWrite, this));&lt;/div&gt;&lt;div&gt;channel_-&amp;gt;setErrorCallback(std::bind(&amp;amp;Connector::handleError, this));&lt;/div&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;align=left" parent="1" vertex="1">
                     <mxGeometry x="3320" y="1380" width="390" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="230" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="229" target="181">
+                <mxCell id="230" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.75;entryDx=0;entryDy=0;dashed=1" parent="1" source="229" target="181" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="2500" y="1050"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="229" value="wakeup can be called in the same thread with EventLoop::loop(), just before the call to EventLoop::loop()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                <mxCell id="229" value="wakeup can be called in the same thread with EventLoop::loop(), just before the call to EventLoop::loop()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="1" vertex="1">
                     <mxGeometry x="2350" y="1090" width="570" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="233" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="232" target="226">
+                <mxCell id="233" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1" parent="1" source="232" target="226" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="232" value="Init Connector::channel_" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                <mxCell id="232" value="Init Connector::channel_" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3780" y="1380" width="150" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="240" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="235" target="238">
+                <mxCell id="240" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="235" target="238" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="235" value="channel_-&amp;gt;enableWriting()" style="html=1;strokeColor=#000000;fillColor=none;align=left" vertex="1" parent="1">
+                <mxCell id="235" value="channel_-&amp;gt;enableWriting()" style="html=1;strokeColor=#000000;fillColor=none;align=left" parent="1" vertex="1">
                     <mxGeometry x="3320" y="1440" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="245" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="238" target="242">
+                <mxCell id="245" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="238" target="242" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="238" value="&lt;div&gt;Channel::update()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="238" value="&lt;div&gt;Channel::update()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3400" y="1500" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="242" value="&lt;div&gt;loop_-&amp;gt;updateChannel(this)&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="242" value="&lt;div&gt;loop_-&amp;gt;updateChannel(this)&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3480" y="1560" width="170" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="243" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#CCE5FF;dashed=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" source="244" target="242" parent="1">
+                <mxCell id="243" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#CCE5FF;dashed=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="244" target="242" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="244" value="add Connector::channel_ into poller_,&lt;br&gt;the poller_-&amp;gt;poll will return after connected" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;align=left" vertex="1" parent="1">
+                <mxCell id="244" value="add Connector::channel_ into poller_,&lt;br&gt;the poller_-&amp;gt;poll will return after connected" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;align=left" parent="1" vertex="1">
                     <mxGeometry x="3717.5" y="1545" width="240" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="248" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="247" target="190">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="247" value="EventLoop::&lt;span&gt;wakeupChannel_&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="3260" y="730" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="247" value="EventLoop::&lt;span&gt;wakeupChannel_&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="3290" y="710" width="120" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="249" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" source="250" parent="1" target="226">
+                <mxCell id="249" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1" parent="1" source="250" target="226" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="3580" y="1340" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="250" value="&lt;span style=&quot;text-align: left&quot;&gt;Connector::channel_&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="250" value="&lt;span style=&quot;text-align: left&quot;&gt;Connector::channel_&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3730" y="1290" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="251" value="&lt;div&gt;poller_-&amp;gt;poll()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="251" value="&lt;div&gt;poller_-&amp;gt;poll()&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3000" y="1670" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="255" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="254" target="218">
+                <mxCell id="255" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1" parent="1" source="254" target="218" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="315" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="254" target="316">
+                <mxCell id="315" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="254" target="316" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="4220" y="1220"/>
@@ -736,155 +736,161 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="254" value="&lt;span style=&quot;text-align: left&quot;&gt;Connector::channel_::fd_&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="254" value="&lt;span style=&quot;text-align: left&quot;&gt;Connector::channel_::fd_&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="3550" y="1190" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="262" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="256" target="260">
+                <mxCell id="262" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="256" target="260" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="256" value="&lt;span style=&quot;text-align: left&quot;&gt;Connector::channel_::handleEvent()&lt;/span&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
-                    <mxGeometry x="3000" y="1730" width="240" height="40" as="geometry"/>
+                <mxCell id="256" value="&lt;span style=&quot;text-align: left&quot;&gt;Connector::channel_::handleEvent()&lt;/span&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="3000" y="1730" width="210" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="265" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="260" target="263">
+                <mxCell id="265" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="260" target="263" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="260" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;Channel::handleEventWithGuard()&lt;/span&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="260" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;Channel::handleEventWithGuard()&lt;/span&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3080" y="1790" width="200" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="267" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="263" target="266">
+                <mxCell id="267" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="263" target="266" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="263" value="&lt;div style=&quot;text-align: left&quot;&gt;Channel::writeCallback_&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="263" value="&lt;div style=&quot;text-align: left&quot;&gt;Channel::writeCallback_&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3160" y="1850" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="270" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="266" target="268">
+                <mxCell id="270" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="266" target="268" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="276" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="266" target="274">
+                <mxCell id="276" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="266" target="274" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="266" value="&lt;div style=&quot;text-align: left&quot;&gt;Connector::handleWrite()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="266" value="&lt;div style=&quot;text-align: left&quot;&gt;Connector::handleWrite()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3360" y="1850" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="283" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="268" target="282">
+                <mxCell id="283" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="268" target="282" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="285" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="268" target="284">
+                <mxCell id="285" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="268" target="284" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="288" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="268" target="287">
+                <mxCell id="288" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="268" target="287" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="268" value="&lt;div style=&quot;text-align: left&quot;&gt;Connector::removeAndResetChannel()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="268" value="&lt;div style=&quot;text-align: left&quot;&gt;Connector::removeAndResetChannel()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3440" y="1910" width="240" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="272" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#CCE5FF;dashed=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" source="273" parent="1" target="282">
+                <mxCell id="272" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#CCE5FF;dashed=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="273" target="282" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="3742.5" y="1905" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="273" value="epoll&amp;nbsp;EPOLL_CTL_DEL" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;align=left" vertex="1" parent="1">
+                <mxCell id="273" value="epoll&amp;nbsp;EPOLL_CTL_DEL" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;align=left" parent="1" vertex="1">
                     <mxGeometry x="3790" y="1955" width="140" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="278" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="274" target="277">
+                <mxCell id="278" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="274" target="277" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="274" value="&lt;div style=&quot;text-align: left&quot;&gt;Connector::newConnectionCallback_&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="274" value="&lt;div style=&quot;text-align: left&quot;&gt;Connector::newConnectionCallback_&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3440" y="2180" width="240" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="280" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="277" target="279">
+                <mxCell id="280" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="277" target="279" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="295" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="277" target="293">
+                <mxCell id="295" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="277" target="293" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="298" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="277" target="296">
+                <mxCell id="298" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="277" target="296" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="277" value="&lt;div style=&quot;text-align: left&quot;&gt;TcpClient::newConnection()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="277" value="&lt;div style=&quot;text-align: left&quot;&gt;TcpClient::newConnection()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3720" y="2180" width="200" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="319" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="279" target="316">
+                <mxCell id="319" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="279" target="316" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="279" value="new TcpConnection()" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="279" value="new TcpConnection()" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3810" y="2240" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="282" value="&lt;div style=&quot;text-align: left&quot;&gt;channel_::disableAll()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="282" value="&lt;div style=&quot;text-align: left&quot;&gt;channel_::disableAll()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3540" y="1970" width="180" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="284" value="&lt;div style=&quot;text-align: left&quot;&gt;channel_::remove()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="284" value="&lt;div style=&quot;text-align: left&quot;&gt;channel_::remove()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3540" y="2030" width="180" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="287" value="loop_-&amp;gt;queueInLoop(std::bind(&amp;amp;Connector::resetChannel, this))" style="html=1;strokeColor=#000000;fillColor=none;align=left;fontStyle=0" vertex="1" parent="1">
+                <mxCell id="287" value="loop_-&amp;gt;queueInLoop(std::bind(&amp;amp;Connector::resetChannel, this))" style="html=1;strokeColor=#000000;fillColor=none;align=left;fontStyle=0" parent="1" vertex="1">
                     <mxGeometry x="3540" y="2090" width="350" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="289" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#CCE5FF;dashed=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="290" target="284">
+                <mxCell id="289" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#CCE5FF;dashed=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="290" target="284" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="3690" y="1930" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="290" value="EPollPoller::channels_.erase(fd)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;align=left" vertex="1" parent="1">
+                <mxCell id="290" value="EPollPoller::channels_.erase(fd)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;align=left" parent="1" vertex="1">
                     <mxGeometry x="3795" y="2010" width="190" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="291" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#CCE5FF;dashed=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="292" target="287">
+                <mxCell id="291" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#CCE5FF;dashed=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="292" target="287" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="3700" y="1940" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="292" value="apped&amp;nbsp;channel_.reset() to loop_" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;align=left" vertex="1" parent="1">
+                <mxCell id="292" value="apped&amp;nbsp;channel_.reset() to loop_" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;align=left" parent="1" vertex="1">
                     <mxGeometry x="3980" y="2070" width="190" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="293" value="&lt;div&gt;conn-&amp;gt;setConnectionCallback();&lt;/div&gt;&lt;div&gt;conn-&amp;gt;setMessageCallback();&lt;/div&gt;&lt;div&gt;conn-&amp;gt;setWriteCompleteCallback();&lt;/div&gt;&lt;div&gt;conn-&amp;gt;setCloseCallback();&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;align=left" vertex="1" parent="1">
+                <mxCell id="293" value="&lt;div&gt;conn-&amp;gt;setConnectionCallback();&lt;/div&gt;&lt;div&gt;conn-&amp;gt;setMessageCallback();&lt;/div&gt;&lt;div&gt;conn-&amp;gt;setWriteCompleteCallback();&lt;/div&gt;&lt;div&gt;conn-&amp;gt;setCloseCallback();&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;align=left" parent="1" vertex="1">
                     <mxGeometry x="3810" y="2380" width="200" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="301" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="296" target="299">
+                <mxCell id="301" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="296" target="299" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="305" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="296" target="304">
+                <mxCell id="305" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="296" target="304" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="310" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="296" target="308">
+                <mxCell id="310" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="296" target="308" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="296" value="&lt;div style=&quot;text-align: left&quot;&gt;TcpConnection::connectEstablished()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="296" value="&lt;div style=&quot;text-align: left&quot;&gt;TcpConnection::connectEstablished()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3810" y="2480" width="230" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="299" value="&lt;div style=&quot;text-align: left&quot;&gt;channel_-&amp;gt;tie(shared_from_this())&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="299" value="&lt;div style=&quot;text-align: left&quot;&gt;channel_-&amp;gt;tie(shared_from_this())&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3900" y="2540" width="230" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="303" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="302" target="299">
+                <mxCell id="303" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1" parent="1" source="302" target="299" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="302" value="&lt;div&gt;Tie this channel to the owner object(TcpConnection) managed by shared_ptr,&lt;/div&gt;&lt;div&gt;prevent the owner object being destroyed in handleEvent.&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;align=left" vertex="1" parent="1">
+                <mxCell id="302" value="&lt;div&gt;Tie this channel to the owner object(TcpConnection) managed by shared_ptr,&lt;/div&gt;&lt;div&gt;prevent the owner object being destroyed in handleEvent.&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;align=left" parent="1" vertex="1">
                     <mxGeometry x="4200" y="2520" width="420" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="304" value="&lt;div style=&quot;text-align: left&quot;&gt;channel_-&amp;gt;enableReading()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="304" value="&lt;div style=&quot;text-align: left&quot;&gt;channel_-&amp;gt;enableReading()&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3900" y="2600" width="170" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="307" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="306" target="304">
+                <mxCell id="307" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;dashed=1" parent="1" source="306" target="304" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="306" value="&lt;div&gt;EPOLL_CTL_ADD&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;align=left" vertex="1" parent="1">
+                <mxCell id="306" value="&lt;div&gt;EPOLL_CTL_ADD&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;align=left" parent="1" vertex="1">
                     <mxGeometry x="4150" y="2590" width="120" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="312" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="308" target="311">
+                <mxCell id="312" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="308" target="311" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="308" value="&lt;div style=&quot;text-align: left&quot;&gt;TcpConnection::connectionCallback_(shared_from_this())&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="308" value="&lt;div style=&quot;text-align: left&quot;&gt;TcpConnection::connectionCallback_(shared_from_this())&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="3900" y="2660" width="320" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="311" value="&lt;div style=&quot;text-align: left&quot;&gt;muduo::net::defaultConnectionCallback(const TcpConnectionPtr&amp;amp; conn)&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="311" value="&lt;div style=&quot;text-align: left&quot;&gt;muduo::net::defaultConnectionCallback(const TcpConnectionPtr&amp;amp; conn)&lt;br&gt;&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="4260" y="2660" width="420" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="313" value=":Server" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;strokeColor=#000000;fillColor=none;" vertex="1" parent="1">
+                <mxCell id="313" value=":Server" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;collapsible=0;recursiveResize=0;outlineConnect=0;strokeColor=#000000;fillColor=none;" parent="1" vertex="1">
                     <mxGeometry x="5750" y="600" width="100" height="3000" as="geometry"/>
                 </mxCell>
-                <mxCell id="316" value="&lt;div&gt;socket_(new Socket(sockfd)),&lt;/div&gt;&lt;div&gt;channel_(new Channel(loop, sockfd)),&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;align=left" vertex="1" parent="1">
+                <mxCell id="316" value="&lt;div&gt;socket_(new Socket(sockfd)),&lt;/div&gt;&lt;div&gt;channel_(new Channel(loop, sockfd)),&lt;/div&gt;" style="html=1;strokeColor=#000000;fillColor=none;align=left" parent="1" vertex="1">
                     <mxGeometry x="3890" y="2300" width="230" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="320" value="TcpServer" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="320" value="TcpServer" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="5720" y="680" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="324" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1" edge="1" parent="1" source="323" target="47">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="323" value="timerfd_" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="-770" y="-720" width="60" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
