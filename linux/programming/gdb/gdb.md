@@ -12,7 +12,7 @@
     - [Start `gdb`](#start-gdb)
       - [Start `gdb` with an executable program specified](#start-gdb-with-an-executable-program-specified)
       - [Start `gdb` with both an executable program and a core file specified](#start-gdb-with-both-an-executable-program-and-a-core-file-specified)
-      - [Debug a running process](#debug-a-running-process)
+      - [Attach a running process](#attach-a-running-process)
       - [Pass arguments to executable](#pass-arguments-to-executable)
     - [Debugging Programs with Multiple Threads](#debugging-programs-with-multiple-threads)
       - [Inquire about existing threads](#inquire-about-existing-threads)
@@ -82,7 +82,7 @@
 
     gdb program core
 
-#### Debug a running process
+#### Attach a running process
 
     gdb program 1234
 
