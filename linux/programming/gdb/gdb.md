@@ -55,6 +55,7 @@
   - [Practice](#practice)
     - [Scroll the active window one page up [[ref]](https://sourceware.org/gdb/onlinedocs/gdb/TUI-Keys.html)](#scroll-the-active-window-one-page-up-ref)
     - [Set breakpoint on line](#set-breakpoint-on-line)
+    - [set environment (gdb mode only)](#set-environment-gdb-mode-only)
 
 ## Reference
 
@@ -318,3 +319,11 @@ Select frame number `n`. Recall that frame zero is the innermost (currently exec
 or
 
     break <filename>:<linenumber>
+
+### [set environment (gdb mode only)](https://www.irya.unam.mx/computo/sites/manuales/fce12/debugger/cl/commandref/gdb_mode/cmd_set_environm.htm)
+
+    set environment name [ value ]
+
+    show environment [name]
+
+    unset environment [name]

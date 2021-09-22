@@ -38,6 +38,8 @@
         - [线程安全性](#线程安全性)
     - [7.10 用 timing wheel 踢掉空闲连接](#710-用-timing-wheel-踢掉空闲连接)
       - [7.10.1 timing wheel 原理](#7101-timing-wheel-原理)
+  - [第 12 章 C++ 经验谈](#第-12-章-c-经验谈)
+    - [12.2 不要重载全局 `::operator new()`](#122-不要重载全局-operator-new)
 
 ## 第 1 章 线程安全的对象生命周期管理
 
@@ -363,10 +365,11 @@ Google 的文档说, 我们用到的那几个 `MessageFactory` 和 DescriptorPoo
 
 simple timing wheel 的基本结构是一个循环队列, 还有一个指向队尾的指针(tail), 这个指针每秒移动一格, 就像钟表上的时针, timing wheel 由此得名.
 
+## 第 12 章 C++ 经验谈
 
+### 12.2 不要重载全局 `::operator new()`
 
-
-
+`::operator new()` 和 `::operator delete()` 是干什么的, 与通常用的 `new`/`delete` 表达式有何区别和联系, 参考侯捷的《池内春秋》
 
 
 
