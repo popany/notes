@@ -15,6 +15,10 @@
     - [Figure 20.5 `dg_cli` function that broadcasts.](#figure-205-dg_cli-function-that-broadcasts-1)
     - [IP Fragmentation and Broadcasts](#ip-fragmentation-and-broadcasts)
   - [20.5 Race Conditions](#205-race-conditions)
+    - [Blocking and Unblocking the Signal with `pselect`](#blocking-and-unblocking-the-signal-with-pselect)
+    - [Using `sigsetjmp` and `siglongjmp`](#using-sigsetjmp-and-siglongjmp)
+    - [Using IPC from Signal Handler to Function](#using-ipc-from-signal-handler-to-function)
+  - [20.6 Summary](#206-summary)
 
 ## 20.1 Introduction
 
@@ -179,14 +183,15 @@ AIX, FreeBSD, and MacOS implement this limitation. Linux, Solaris, and HP-UX fra
 
 ## 20.5 Race Conditions
 
+Race conditions of a different type often exist when dealing with signals. The problem occurs because a signal can normally be delivered at anytime while our program is executing. POSIX allows us to block a signal from being delivered, but this is often of little use while we are performing I/O operations.
 
+### Blocking and Unblocking the Signal with `pselect`
 
+### Using `sigsetjmp` and `siglongjmp`
 
+### Using IPC from Signal Handler to Function
 
+## 20.6 Summary
 
-
-
-
-
-
-
+Broadcasting sends a datagram that all hosts on the attached subnet receive. The disadvantage in broadcasting is that every host on the subnet must process the datagram, up through the UDP layer in the case of a UDP datagram, even if the host is not participating in the application. For high data rate applications, such as audio or video, this can place an excessive processing load on these hosts. We will see in the next chapter that multicasting solves this problem because only the hosts that are interested in the application receive the datagram.
+ 
