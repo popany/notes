@@ -631,11 +631,3 @@ Nine socket options provide the API for multicasting:
 Enable or disable loopback of multicasts
 
 The first six are for receiving, and the last three are for sending. There is enough difference between the IPv4 socket options and the IPv6 socket options that protocol-independent multicasting code becomes littered with `#ifdefs` very quickly. We developed 12 functions of our own, all beginning with `mcast_`, that can help in writing multicast applications that work with either IPv4 or IPv6.
-
-
-
-
-
-
-
-
