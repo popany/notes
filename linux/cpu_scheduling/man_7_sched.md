@@ -9,6 +9,12 @@
     - [SCHED_RR: Round-robin scheduling](#sched_rr-round-robin-scheduling)
     - [SCHED_DEADLINE: Sporadic task model deadline scheduling](#sched_deadline-sporadic-task-model-deadline-scheduling)
     - [SCHED_OTHER: Default Linux time-sharing scheduling](#sched_other-default-linux-time-sharing-scheduling)
+    - [The nice value](#the-nice-value)
+    - [SCHED_BATCH: Scheduling batch processes](#sched_batch-scheduling-batch-processes)
+    - [SCHED_IDLE: Scheduling very low priority jobs](#sched_idle-scheduling-very-low-priority-jobs)
+    - [Resetting scheduling policy for child processes](#resetting-scheduling-policy-for-child-processes)
+    - [Privileges and resource limits](#privileges-and-resource-limits)
+    - [Limiting the CPU usage of real-time and deadline processes](#limiting-the-cpu-usage-of-real-time-and-deadline-processes)
 
 ## NAME
 
@@ -181,6 +187,86 @@ SCHED_OTHER can be used at only **static priority 0** (i.e., threads under real-
 The thread to run is chosen from the static priority 0 list based on a dynamic priority that is **determined only inside this list**. **The dynamic priority is based on the nice value** (see below) and is **increased for each time quantum the thread is ready to run, but denied to run by the scheduler**. This ensures fair progress among all SCHED_OTHER threads.
 
 In the Linux kernel source code, the SCHED_OTHER policy is actually named SCHED_NORMAL.
+
+### The nice value
+
+The nice value is an attribute that can be used to influence the CPU scheduler to favor or disfavor a process in scheduling decisions. It affects the scheduling of SCHED_OTHER and SCHED_BATCH (see below) processes. The nice value can be modified using nice(2), setpriority(2), or sched_setattr(2).
+
+According to POSIX.1, the nice value is a per-process attribute; that is, the threads in a process should share a nice value. However, on Linux, the nice value is a per-thread attribute: different threads in the same process may have different nice values.
+
+The range of the nice value varies across UNIX systems. On modern Linux, the range is -20 (high priority) to +19 (low priority). On some other systems, the range is -20..20. Ver early Linux kernels (Before Linux 2.0) had the range -infinity..15.
+
+The degree to which the nice value affects the relative scheduling of SCHED_OTHER processes likewise varies across UNIX systems and across Linux kernel versions.
+
+With the advent of the CFS scheduler in kernel 2.6.23, Linux adopted an algorithm that causes relative differences in nice values to have a much stronger effect. In the current implementation, each unit of difference in the nice values of two processes results in a factor of 1.25 in the degree to which the scheduler favors the higher priority process. This causes very low nice values (+19) to truly provide little CPU to a process whenever there is any other higher priority load on the system, and makes high nice values (-20) deliver most of the CPU to applications that require it (e.g., some audio applications).
+
+On Linux, the RLIMIT_NICE resource limit can be used to define a limit to which an unprivileged process's nice value can be raised; see `setrlimit(2)` for details.
+
+For further details on the nice value, see the subsections on the autogroup feature and group scheduling, below.
+
+### SCHED_BATCH: Scheduling batch processes
+
+(Since Linux 2.6.16.) SCHED_BATCH can be used only at static priority 0.  This policy is similar to SCHED_OTHER in that it schedules the thread according to its dynamic priority (based on the nice value). The difference is that this policy will cause the scheduler to always assume that the thread is CPU-intensive. Consequently, the scheduler will apply a small scheduling penalty with respect to wakeup behavior, so that this thread is mildly disfavored in scheduling decisions.
+
+This policy is useful for workloads that are noninteractive, but do not want to lower their nice value, and for workloads that want a deterministic scheduling policy without interactivity causing extra preemptions (between the workload's tasks).
+
+### SCHED_IDLE: Scheduling very low priority jobs
+
+(Since Linux 2.6.23.) SCHED_IDLE can be used only at static priority 0; the process **nice value has no influence** for this policy.
+
+This policy is intended for running jobs at extremely low priority (lower even than a +19 nice value with the SCHED_OTHER or SCHED_BATCH policies).
+
+### Resetting scheduling policy for child processes
+
+Each thread has a reset-on-fork scheduling flag. When this flag is set, children created by `fork(2)` do not inherit privileged scheduling policies. The reset-on-fork flag can be set by either:
+
+- ORing the SCHED_RESET_ON_FORK flag into the policy argument when calling sched_setscheduler(2) (since Linux 2.6.32); or
+
+- specifying the SCHED_FLAG_RESET_ON_FORK flag in `attr.sched_flags` when calling `sched_setattr(2)`.
+
+Note that the constants used with these two APIs have different names. The state of the reset-on-fork flag can analogously be retrieved using sched_getscheduler(2) and sched_getattr(2).
+
+The reset-on-fork feature is intended for media-playback applications, and can be used to prevent applications evading the RLIMIT_RTTIME resource limit (see `getrlimit(2)`) by creating multiple child processes.
+
+More precisely, if the reset-on-fork flag is set, the following rules apply for subsequently created children:
+
+- If the calling thread has a scheduling policy of SCHED_FIFO or SCHED_RR, the policy is reset to SCHED_OTHER in child processes.
+
+- If the calling process has a negative nice value, the nice value is reset to zero in child processes.
+
+After the reset-on-fork flag has been enabled, it can be reset only if the thread has the CAP_SYS_NICE capability. This flag is disabled in child processes created by `fork(2)`.
+
+### Privileges and resource limits
+
+In Linux kernels before 2.6.12, only privileged (CAP_SYS_NICE) threads can set a nonzero static priority (i.e., set a real-time scheduling policy).  The only change that an unprivileged thread can make is to set the SCHED_OTHER policy, and this can be don only if the effective user ID of the caller matches the real or effective user ID of the target thread (i.e., the thread specified by pid) whose policy is being changed.
+
+A thread must be privileged (CAP_SYS_NICE) in order to set or modify a SCHED_DEADLINE policy.
+
+Since Linux 2.6.12, the RLIMIT_RTPRIO resource limit defines a ceiling on an unprivileged thread's static priority for the SCHED_RR and SCHED_FIFO policies. The rules for changing scheduling policy and priority are as follows:
+
+- If an unprivileged thread has a nonzero RLIMIT_RTPRIO soft limit, then it can change its scheduling policy and priority, subject to the restriction that the priority cannot be set to a value higher than the maximum of its current priority and its RLIMIT_RTPRIO soft limit.
+
+- If the RLIMIT_RTPRIO soft limit is 0, then the only permitted changes are to lower the priority, or to switch to a non-real-time policy.
+
+- Subject to the same rules, another unprivileged thread can also make these changes, as long as the effective user ID of the thread making the change matches the real or effective user ID of the target thread.
+
+- Special rules apply for the SCHED_IDLE policy. In Linux kernels before 2.6.39, an unprivileged thread operating under this policy cannot change its policy, regardless of the value of its RLIMIT_RTPRIO resource limit.  In Linux kernels since 2.6.39, an unprivileged thread can switch to either the SCHED_BATCH or the SCHED_OTHER policy so long as its nice value falls within the range permitted by its RLIMIT_NICE resource limit (see `getrlimit(2)`).
+
+Privileged (CAP_SYS_NICE) threads ignore the RLIMIT_RTPRIO limit; as with older kernels, they can make arbitrary changes to scheduling policy and priority. See getrlimit(2) for further information on RLIMIT_RTPRIO.
+
+### Limiting the CPU usage of real-time and deadline processes
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
