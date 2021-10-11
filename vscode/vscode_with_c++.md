@@ -165,5 +165,5 @@ Settings > Extensions > C/C++ > C_Cpp Default: Defines
 Edit in settings.json
 
     {
-        "C_Cpp.default.defines": ["__LINUX__"]
+        "C_Cpp.default.defines": ["__LINUX__", "__cplusplus=201103L"]
     }

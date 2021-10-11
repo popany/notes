@@ -17,7 +17,7 @@
 
 [Demystifying C++ lambdas](https://blog.feabhas.com/2014/03/demystifying-c-lambdas/)
 
-
+[C++ Basics: Understanding Lambda](https://towardsdatascience.com/c-basics-understanding-lambda-7df00705fa48)
 
 
 TODO C++ functor fffffffffffffffffffffffffffffffffffff
