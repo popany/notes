@@ -10,6 +10,7 @@
     - [macro define](#macro-define)
       - [c_cpp_properties.json](#c_cpp_propertiesjson)
       - [C/C++ IntelliSense](#cc-intellisense-1)
+    - [Include Linux kernel headers](#include-linux-kernel-headers)
 
 ## Debug
 
@@ -167,3 +168,46 @@ Edit in settings.json
     {
         "C_Cpp.default.defines": ["__LINUX__", "__cplusplus=201103L"]
     }
+
+### Include Linux kernel headers
+
+- 鼠标移动至带波浪线的 #include
+
+  - 点击 [Quick Fix...]
+
+    - 选择 [Edit "includePath" setting]
+      
+      工作目录下生成文件 .vscode/c_cpp_properties.json
+
+- 编辑 .vscode/c_cpp_properties.json 如下
+
+      {
+          "configurations": [
+              {
+                  "name": "Linux",
+                  "includePath": [
+                      "${workspaceFolder}/**",
+                      "/usr/src/kernels/3.10.0-1062.el7.x86_64/include/"
+                  ],
+                  "defines": [],
+                  "compilerPath": "/usr/bin/gcc",
+                  "cStandard": "c89",
+                  "cppStandard": "gnu++98",
+                  "intelliSenseMode": "linux-gcc-x64"
+              }
+          ],
+          "version": 4
+      }
+  
+  即, 在 "includePath" 中加入 "/usr/src/kernels/3.10.0-1062.el7.x86_64/include/", 注意于前一条目用逗号分隔
+
+
+
+
+
+
+
+
+
+
+

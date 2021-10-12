@@ -17,6 +17,14 @@
     - [Tips for best performance](#tips-for-best-performance)
   - [ExaNIC Library (libexanic) Usage](#exanic-library-libexanic-usage)
     - [Quick start](#quick-start)
+    - [Opening the device](#opening-the-device)
+    - [Receive](#receive)
+    - [In-place receive](#in-place-receive)
+    - [Transmit](#transmit)
+    - [Transmit preloading](#transmit-preloading)
+    - [Releasing resources](#releasing-resources)
+    - [Flow steering](#flow-steering)
+    - [Flow hashing](#flow-hashing)
 
 ## [Introduction](https://exablaze.com/docs/exanic/user-guide/programming/)
 
@@ -247,6 +255,450 @@ This user guide walks through the main functions in libexanic in a tutorial form
 It is recommended that users first consult the SmartNIC Configuration Guide and ensure that that the software is installed and working.
 
 ### Quick start
+
+Here are two short examples which illustrate basic frame transmission and reception. The functions used are elaborated on in further sections.
+
+    #include <stdio.h>
+    #include <string.h>
+    #include <exanic/exanic.h>
+    #include <exanic/fifo_tx.h>
+    
+    int main(void)
+    {
+        char *device = "exanic0";
+        int port = 0;
+    
+        exanic_t *exanic = exanic_acquire_handle(device);
+        if (!exanic)
+        {
+            fprintf(stderr, "exanic_acquire_handle: %s\n", exanic_get_last_error());
+            return 1;
+        }
+    
+        exanic_tx_t *tx = exanic_acquire_tx_buffer(exanic, port, 0);
+        if (!tx)
+        {
+            fprintf(stderr, "exanic_acquire_tx_buffer: %s\n", exanic_get_last_error());
+            return 1;
+        }
+    
+        char frame[1000];
+        memset(frame, 0xff, 1000);
+        if (exanic_transmit_frame(tx, frame, sizeof(frame)) == 0)
+            printf("Transmitted a frame\n");
+    
+        exanic_release_tx_buffer(tx);
+        exanic_release_handle(exanic);
+        return 0;
+    }
+
+.
+
+    #include <stdio.h>
+    #include <exanic/exanic.h>
+    #include <exanic/fifo_rx.h>
+    
+    int main(void)
+    {
+        char *device = "exanic0";
+        int port = 0;
+    
+        exanic_t *exanic = exanic_acquire_handle(device);
+        if (!exanic)
+        {
+            fprintf(stderr, "exanic_acquire_handle: %s\n", exanic_get_last_error());
+            return 1;
+        }
+    
+        exanic_rx_t *rx = exanic_acquire_rx_buffer(exanic, port, 0);
+        if (!rx)
+        {
+            fprintf(stderr, "exanic_acquire_rx_buffer: %s\n", exanic_get_last_error());
+            return 1;
+        }
+    
+        char buf[2048];
+        exanic_cycles32_t timestamp;
+    
+        while (1)
+        {
+            ssize_t sz = exanic_receive_frame(rx, buf, sizeof(buf), &timestamp);
+            if (sz > 0)
+            {
+                printf("Got a valid frame\n");
+                break;
+            }
+        }
+    
+        exanic_release_rx_buffer(rx);
+        exanic_release_handle(exanic);
+        return 0;
+    }
+
+### Opening the device
+
+The first step is to open a handle to the device:
+
+    #include <exanic/exanic.h>
+
+    exanic_t * exanic_acquire_handle(const char *device);
+
+The SmartNIC cards in the system will be `"exanic0", "exanic1"`, ... in order of PCI ID. This is the same device name reported by the `exanic-config` utility.
+
+To avoid hardcoding the SmartNIC device name in an application, the following function can also be used to look up the **device name** and **port number** from a **Linux interface name**:
+
+    #include <exanic/config.h>
+   
+    int exanic_find_port_by_interface_name(const char *name, char *device,
+                                           size_t device_len, int *port_number);
+
+`device_len` specifies the length of the `device` buffer into which the device name is returned; it should be at least 8 bytes. The return value is `0` on success and `-1` if the requested interface name was not found.
+
+### Receive
+
+The SmartNIC delivers packets into logical receive buffers. To attach to a receive buffer, the programmer should call:
+
+    #include <exanic/fifo_rx.h>
+    
+    exanic_rx_t * exanic_acquire_rx_buffer(exanic_t *exanic,
+                                           int port_number, int buffer_number);
+
+There is **no limit to the number of applications** that can connect to a receive buffer. By default, all received traffic on a given port will arrive in the buffer obtained by setting buffer_number = 0. Frames destined for other hosts are filtered out by hardware unless promiscuous mode is enabled. When hardware flow steering is enabled, and for buffer_number > 0, this function can be used to attach to a **userspace flow steering** or **flow hashing buffer**. Flow steering mode configures the SmartNIC hardware to redirect received frames from the default buffer to one of 32 userspace buffers. For details on enabling and configuring flow steering, see the flow steering section of this document.
+
+To receive a frame, call:
+
+    ssize_t exanic_receive_frame(exanic_rx_t *rx,
+                                 char *rx_buf, size_t rx_buf_size,
+                                 uint32_t *timestamp);
+
+The caller should poll this function in a loop, possibly interspersed with other work. (There is currently no API that would put the current process to sleep waiting for a packet; this may be available in the future, but would naturally involve higher latency.)
+
+The return value will be one of:
+
+    >0                         The length of the frame acquired
+    0                          No frame currently available
+    -EXANIC_RX_FRAME_ABORTED   Frame aborted by sender
+    -EXANIC_RX_FRAME_CORRUPT   Frame failed hardware CRC check
+    -EXANIC_RX_FRAME_HWOVFL    Frame lost due to hardware overflow
+                               (e.g. insufficient PCIe/memory bandwidth)
+    -EXANIC_RX_FRAME_SWOVFL    Frame lost due to software overflow
+                               (e.g. scheduling issue)
+    -EXANIC_RX_FRAME_TRUNCATED Supplied buffer was too short
+
+The frame delivered to `rx_buf` is a complete **Ethernet frame** including the CRC footer, however the CRC has already been verified by the hardware.
+
+The frame timestamp is returned via the provided `timestamp` pointer. `timestamp` can be `NULL` if the timestamp is not required. The returned timestamp provides the lower 32 bits of the card's internal time stamp counter when the first byte of the packet arrived. Within the next second or so one should pass this value to `exanic_expand_timestamp()` which adds the upper 32 bits to produce a full 64-bit timestamp:
+
+    #include <exanic/time.h>
+
+    exanic_cycles_t exanic_expand_timestamp(exanic_t *exanic,
+                                       exanic_cycles32_t timestamp);
+
+The resulting 64-bit timestamp is a value in cycles since the UNIX epoch. You can operate directly on these values in cycles space (subtraction, addition, etc). You can convert the results into nanoseconds, picoseconds and timespec formats using the below functions:
+
+    #include <exanic/time.h>
+
+    void exanic_cycles_to_timespec(exanic_t *exanic,
+                                    exanic_cycles_t timestamp,
+                                                   struct timespec *ts);
+    void exanic_cycles_to_timespecps(exanic_t *exanic,
+                                      exanic_cycles_t timestamp,
+                                       struct exanic_timespecps *tsps);
+    uint64_t exanic_cycles_to_ns(exanic_t *exanic,
+                                exanic_cycles_t timestamp);
+    uint64_t exanic_cycles_to_ps(exanic_t *exanic,
+                                exanic_cycles_t timestamp,
+                                bool *overflow);
+
+|||
+|-|-|
+Note|exanic_cycles_to_ps() will truncate the result to 64 bits; it can be used for relative times but use exanic_cycles_to_timespecps() if an absolute time with picosecond precision is required (there are more than 64 bits worth of picoseconds since epoch).
+|
+
+|||
+|-|-|
+Note|The above timestamp manipulations functions are new. For 1.8.1 and earlier versions, use exanic_timestamp_to_counter(exanic, timestamp), which is equivalent to exanic_expand_timestamp() followed by exanic_cycles_to_ns().
+|
+
+|||
+|-|-|
+Note|Although all of the above functions will work with any SmartNIC device, only the Cisco Nexus NIC HPT (formerly ExaNIC HPT) device supports true picosecond resolution timestamps.
+|
+
+The function `exanic_receive_frame` may spin for a very short period of time (<2 µs) to wait for additional fragments of the frame to arrive via PCI Express. To avoid blocking, there is another function for receiving partial frames:
+
+    ssize_t exanic_receive_chunk(exanic_rx_t *rx, char *rx_buf, int *more_chunks);
+
+This function receives frames in chunks of at most 120 bytes.
+
+When a new chunk is available, `exanic_receive_chunk` will deliver the data to `rx_buf` and return the number of bytes received. `*more_chunks` will be set to `1` if there are more chunks in the frame, or `0` if this is the last chunk. If there is no new data available, `exanic_receive_chunk` will return `0` and `*more_chunks` will be left unchanged.
+
+To receive a complete frame, the caller should poll `exanic_receive_chunk` in a loop until `*more_chunks` is set to `0`.
+
+If `*more_chunks` is 1 but the caller is not interested in the remainder of the frame, there is a convenience function available that skips the rest of the current frame:
+
+    int exanic_receive_abort(exanic_rx_t *rx);
+
+Finally there is an `exanic_receive_chunk_ex` function; this takes an info parameter that returns extra frame metadata:
+
+    exanic_receive_chunk_ex(exanic_rx_t *rx, char *rx_buf, int *more_chunks,
+                            struct rx_chunk_info *info);
+
+In particular `info.timestamp` can be used to obtain the frame timestamp which is not otherwise available through the `exanic_receive_chunk` API. Note that each chunk of the frame will contain the same timestamp (the start-of-frame timestamp).
+
+### In-place receive
+
+There are also in-place versions of `exanic_receive_chunk` and `exanic_receive_chunk_ex` that return pointers into the live RX ring buffer. These functions are only intended for advanced users; the performance advantages are minimal (note that Cisco published performance numbers use the normal `exanic_receive_frame` APIs) and there is a risk of processing corrupt data if hardware overtakes software. After consuming the data buffer, the user should call `exanic_receive_chunk_recheck` with the previously returned chunk ID to determine whether corrupt data may have been read.
+
+    ssize_t exanic_receive_chunk_inplace(exanic_rx_t *rx, char **rx_buf_ptr,
+                                         uint32_t *chunk_id,
+                                         int *more_chunks);
+    ssize_t exanic_receive_chunk_inplace_ex(exanic_rx_t *rx,
+                                            char **rx_buf_ptr,
+                                            uint32_t *chunk_id,
+                                            int *more_chunks,
+                                            struct rx_chunk_info *info);
+    int exanic_receive_chunk_recheck(exanic_rx_t *rx, uint32_t chunk_id);
+
+### Transmit
+
+The SmartNIC also contains transmit buffers from which packets are transmitted. To attach to a transmit buffer, the programmer should call:
+
+    #include <exanic/fifo_tx.h>
+    
+    exanic_tx_t * exanic_acquire_tx_buffer(exanic_t *exanic,
+                                           int port_number, size_t requested_size);
+
+Each application is allocated a portion of the available transmit buffer space. The maximum amount of memory that can be allocated per port depends on the card:
+
+|Model | Buffer Memory|
+|-|-|
+Cisco Nexus SmartNIC K3P-S (formerly X25) | 128KiB per port (256KiB total) <br> 1MB per port (2MB in total) as a separately available firmware image. The images built with 1MB per port incur an additional port-to-wire latency of ~20ns
+Cisco Nexus SmartNIC K35-S (formerly X10) <br> Cisco Nexus NIC GM (formerly ExaNIC GM) <br> Cisco Nexus NIC HPT (formerly ExaNIC HPT) | 128KiB per port (256KiB total)
+| Cisco Nexus SmartNIC K35-Q (formerly X40) <br> Cisco Nexus SmartNIC+ V5P <br> Cisco Nexus SmartNIC K3P-Q (formerly X100) |64KiB per port (512KiB total)
+|
+
+The `requested_size` should be 0 or a multiple of 4096. A value of 0 indicates to use the default size, which is currently 4096. Larger values can increase transmit bandwidth for applications that send many packets close together, at the expense of reducing the number of applications that can share a port.
+
+To transmit a packet, call:
+
+    int exanic_transmit_frame(exanic_tx_t *tx, const char *frame, size_t frame_size);
+
+The frame to be sent should include the Ethernet header but not include the CRC footer which is added by the hardware. Note that once a frame has been moved into a transmit buffer, it cannot be read back out.
+
+It is also possible to obtain a pointer directly into the NIC frame buffer with:
+
+    char * exanic_begin_transmit_frame(exanic_tx_t *tx, size_t frame_size);
+
+Packet transmission is then triggered with:
+
+    int exanic_end_transmit_frame(exanic_tx_t *tx, size_t frame_size);
+
+`frame_size` should be less than or equal to the size allocated in `exanic_begin_transmit_frame`. Care should be taken when using this direct write interface because the returned pointer is **in PCI Express memory space**; to ensure processor write coalescing it should be written in an approximately sequential fashion and it must not be read from. If in doubt, use the simpler `exanic_transmit_frame` API (published performance numbers for the SmartNIC use that function, the performance difference is minimal).
+
+There is another variant of `exanic_transmit_frame` available, called `exanic_transmit_frame_ex`. This function takes an additional argument: `uint32_t flags`. The only currently-available flag is `EXA_FRAME_WARM`, which causes a **dummy register** write to be triggered, in order to bring the hot path into the instruction cache.
+
+The hardware transmit timestamp of the frame most recently sent on a port can be retrieved with:
+
+    exanic_cycles32_t exanic_get_tx_timestamp(exanic_tx_t *tx);
+
+This can be converted to a time in cycles since the UNIX epoch using the `exanic_expand_timestamp()` function. See `exanic_receive_frame()` for more details on timestamp manipulation functions.
+
+|||
+|-|-|
+|Note|Both exanic_transmit_frame and exanic_begin_transmit_frame may spin for a very short period of time (<2 µs) if the transmit buffer is full.
+|
+
+### Transmit preloading
+
+In some cases, the packet to be sent, or a choice of packets to be sent, is known ahead of time. Transmit preloading refers to the notion of **loading the card with a packet before it is required to be sent**, and using a single register write to trigger the packet to be sent. The general idea is to remove the overhead of transferring the packet from the critical path.
+
+For a single packet, this can be done using `exanic_begin_transmit_frame` and `exanic_end_transmit_frame` as described above. The API does not currently support preloading more than one packet per TX buffer handle however.
+
+To preload more than a few packets at a time, it becomes necessary to manually manage the TX buffer. To do this, first acquire a TX buffer of the desired size using `exanic_acquire_tx_buffer`. Then, write the packets to be preloaded into the buffer pointed to by `tx->buffer`. Each packet must be prefixed by an 8-byte chunk header (`struct tx_chunk`) and 2 bytes of padding (such that the IP header is word aligned). The chunk header should be filled out as follows:
+
+- `feedback_slot_index` should be set to `tx->feedback_slot`, or 0x8000 if feedback is not required.
+
+- `feedback_id` is the value to be written into the feedback slot when packet transmission completes.
+
+- `length` is the length of the frame plus the 2 padding bytes.
+
+- `type` should be `EXANIC_TX_TYPE_RAW`.
+
+- `flags` are currently unused in the context of transmit preloading, and should be left as 0.
+
+The preloaded frame(s) can then be sent when required by writing to the the `TX_COMMAND` register. The value written should be `tx->buffer_offset` plus the offset pointing to the chunk to be transmitted. When packet transmission completes, the card will write the value specified in `feedback_id` to `*(tx->feedback)`.
+
+There is an example of using this feature in `examples/exanic/exanic-tx-preload.c`, including detailed implementations of all of the above steps.
+
+|||
+|-|-|
+Note|The SmartNIC transmit buffers are mapped in write-combining mode, which means multiple writes can be buffered by the CPU and sent together. For preloading purposes, it is usually desired to flush the data to the NIC immediately after filling out the buffer. The most reliable way of doing this is to perform a **dummy write to a read-only register**, such as register 0.
+|
+
+### Releasing resources
+
+The API handles should be freed with the following functions:
+
+    void exanic_release_handle(exanic_t *exanic);
+    void exanic_release_rx_buffer(exanic_rx_t *rx);
+    void exanic_release_tx_buffer(exanic_rx_t *rx);
+
+### Flow steering
+
+Flow steering is available in newer releases of the SmartNIC firmware, which can be obtained from the Exablaze repository. It is supported in firmware versions 2014-05-28 and later. All flow steering is performed in hardware on the SmartNIC, freeing the host CPU to perform other work. Use of SmartNIC flow steering does **not** incur any additional latency penalty on received frames.
+
+Flow steering makes use of the concepts of filters and buffers. Each physical port on the card has a default receive buffer (buffer 0) in host memory to which all traffic is normally delivered and which is shared between the kernel and userspace applications. All ports have an additional 32 userspace buffers, numbered 1 to 32, that can be obtained by a user's application as follows.
+
+First, to attach to an unused receive filter buffer for a given card port, use the function:
+
+    #include <exanic/fifo_rx.h>
+    
+    exanic_rx_t * exanic_acquire_unused_filter_buffer(exanic_t *exanic,
+                                                      int port_number);
+
+This returns an `exanic_rx_t` instance with an unused receive buffer. The `buffer_number` field of this instance indicates which of the 32 userspace buffers was allocated. To obtain a reference to a specific buffer at a later time, use:
+
+    exanic_rx_t * exanic_acquire_rx_buffer(exanic_t *exanic,
+                                        int port_number, int buffer_number);
+
+The `buffer_number` argument should be set to the number of the desired buffer. If this buffer has not yet been allocated it will be allocated by this function. There is no limit to the number of applications that can connect to a given buffer.
+
+|||
+|-|-|
+|Note|`exanic_acquire_rx_buffer()` / `exanic_acquire_unused_filter_buffer()` may fail with an error "Cannot allocate memory" even though sufficient buffers remain.
+|
+
+This problem occurs due to Linux memory fragmentation. The function needs to allocate contiguous memory to operate. If a machine is up for a long time (especially if it undergoes heavy memory churn), memory can become fragmented and congested which limits the number of pages available for allocation.
+
+The SmartNIC driver will report this in the system log as "'exanic0: Failed to allocate 512 page(s) for filter DMA region".
+
+A suggestion to resolve this is to run:
+
+    echo 1 >/proc/sys/vm/compact_memory
+
+which will attempt to compact the memory in the kernel to free up contiguous blocks.
+
+If that doesn't help you could try:
+
+    sync; echo 3 >/proc/sys/vm/drop_caches
+
+This should cause the kernel to drop its caches (e.g. for file system objects) and again free up contiguous memory.
+
+Once the application has acquired userspace buffers, it can begin to define rules that direct traffic towards them. Rules exist in two sets, MAC address rules and IP address rules. Current versions of the firmware supports 128 IP address rules and 64 MAC address rules per physical port, but this may be increased in future firmware revisions.
+
+To define an IP address rule, use the exanic_ip_filter_t struct, shown below, setting any fields that you wish to perform a wildcard match on to zero. All fields are stored in network byte order – so you must use appropriate calls to htons and htonl prior to assignment.
+
+    #include <exanic/filter.h>
+
+    typedef struct exanic_ip_filter
+    {
+        uint32_t src_addr; /**< Source IP address of packet */
+        uint32_t dst_addr; /**< Destination IP address of packet */
+        uint16_t src_port; /**< Source port of packet */
+        uint16_t dst_port; /**< Destination port of packet */
+        uint8_t protocol; /**< IPPROTO_UDP or IPPROTO_TCP */
+    } exanic_ip_filter_t;
+
+To bind the rule to the previously obtained buffer use the function `exanic_filter_add_ip`, passing in the previously obtained buffer and the filter rule you have defined:
+
+    int exanic_filter_add_ip(exanic_t *exanic,
+                             const exanic_rx_t *buffer,
+                             const exanic_ip_filter_t *filter);
+
+This function will return a unique positive integer ID for each rule created on a given port, or -1 if no further rules can be allocated. From this point on, frames matching the given rule will be steered by the hardware to the defined userspace buffer, and will not reach the Linux network stack or the default userspace buffer. Calls to `exanic_receive_frame`, using the acquired buffer as the first argument, will only return frames matching the rules associated with the buffer. Frames not matching any rules will still be delivered to buffer 0.
+
+To add a MAC address rule, first define the rule using the `exanic_mac_filter_t` struct, where all fields are in network byte order. This means that `dst_mac[0]` is the most significant byte of the destination MAC address. Set to zero any field to perform a wildcard match.
+
+    typedef struct exanic_mac_filter
+    {
+        uint8_t dst_mac[6];
+        uint16_t ethertype;
+        uint16_t vlan;
+        int vlan_match_method;
+    } exanic_mac_filter_t;
+
+In the case of VLAN tagged frames, a number of match modes can be used. These are defined in the enumeration `vlan_match_method`:
+
+    #include <exanic/pcie_if.h>
+
+    enum vlan_match_method
+    {
+        /** Match on all frames, whether VLAN or not. */
+        EXANIC_VLAN_MATCH_METHOD_ALL = 0,
+
+        /** Only match on the VLAN given. */
+        EXANIC_VLAN_MATCH_METHOD_SPECIFIC = 1,
+
+        /** Only match if frame does not have a vlan tag. */
+        EXANIC_VLAN_MATCH_METHOD_NOT_VLAN = 2,
+
+        /** Match frames that have a VLAN tag, but not those that don't. */
+        EXANIC_VLAN_MATCH_METHOD_ALL_VLAN = 3,
+    };
+
+Then, bind the filter to a previously acquired buffer using:
+
+    int exanic_filter_add_mac(exanic_t *exanic,
+                              const exanic_rx_t *buffer,
+                              const exanic_mac_filter_t *filter);
+
+This function will return a unique positive integer ID for each MAC address rule on a given port, or -1 if no hardware rules remain. As in the case of IP rules, once a rule is bound to a buffer, calls to `exanic_receive_frame` for that buffer will only return frames matching rules associated with that buffer.
+
+It should be mentioned that it is possible to create rules such that more than one rule matches an incoming ethernet frame. When this is the case, priority is resolved as follows:
+
+- MAC address rules have higher priority than IP address rules,
+
+- Within a given set of MAC or IP address rules, the lower the rule ID, the higher the rule priority.
+
+Rules can be released using:
+
+    int exanic_filter_remove_ip(exanic_t *exanic, int port_number, int filter_id);
+
+    int exanic_filter_remove_mac(exanic_t *exanic, int port_number, int filter_id);
+
+### Flow hashing
+
+The SmartNIC also supports hardware flow hashing which can be used to distribute load evenly amongst a number of host processors. When enabled, the SmartNIC hardware will deliver received frames to one of a number of userspace receive buffers based on a hash computed over IP headers. The hash function guarantees that all frames belonging to a given flow will always arrive in the same buffer. For a given SmartNIC port, flow steering and flow hashing cannot be used at the same time.
+
+To enable flow hashing on a specific port, use the function:
+
+    #include <exanic/fifo_rx.h>
+
+    int exanic_enable_flow_hashing(exanic_t *exanic, int port_number,
+                                   int max_buffers, int hash_function);
+
+This function will allocate up to `max_buffers` userspace receive buffers and distribute IP traffic evenly among them using the `hash_function`. The number of buffers must be a power of 2, and currently a maximum of 32 buffers are available. The number of actual receive buffers allocated is returned by this function. The available hash functions are defined in `rx_hash_function`.
+
+    enum rx_hash_function
+    {
+        /* Symmetric hash over source port, destination port */
+        EXANIC_RX_HASH_FUNCTION_PORT = 0,
+
+        /* Symmetric hash over source ip, destination ip */
+        EXANIC_RX_HASH_FUNCTION_IP = 1,
+
+        /* Symmetric hash over source ip & port, destination ip & port */
+        EXANIC_RX_HASH_FUNCTION_PORT_IP = 2,
+    };
+
+The application can then attach to the userspace flow hashing buffers by calling `exanic_acquire_rx_buffer`, passing in buffer numbers from 1 to the number of allocated userspace receive buffers. IP traffic will be balanced across each of these buffers, and `exanic_receive_frame` can be used to obtain the traffic in each buffer.
+
+To disable flow hashing and free all allocated buffers, use:
+
+    void exanic_disable_flow_hashing(exanic_t *exanic, int port_number);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
