@@ -2,6 +2,8 @@
 
 - [Linux Driver Concepts](#linux-driver-concepts)
   - [Major / Minor number](#major--minor-number)
+  - [I/O Port](#io-port)
+    - [Memory-mapped I/O and port-mapped I/O on peripherals](#memory-mapped-io-and-port-mapped-io-on-peripherals)
 
 ## Major / Minor number
 
@@ -37,8 +39,8 @@
 
     - is a unique number which specifies a particular driver
 
-    - Every Device driver has their unique major number which helps kernel to identify the driver 
- 
+    - Every Device driver has their unique major number which helps kernel to identify the driver
+
     - When any application in user space open any device file, kernel check major number associated with that device file and identify which driver is responsible for handling this request.
 
   - minor number
@@ -49,8 +51,39 @@
 
     - Two or more device of same type can have same major number but not minor number.
 
+## I/O Port
 
+### Memory-mapped I/O and port-mapped I/O on peripherals
 
+- memory-mapped I/O
+
+  - maps device registers into regular data space.
+
+  - There is no difference between accessing it and accessing system memory space.
+
+  - To store data in the memory-mapped device register is to send instructions or data to the device.
+
+  - Reading data from the memory-mapped I/O register is to obtain the device status or data.
+
+  - The device address space is a part of the system memory space;
+
+  - the **control register** and **status register** after memory mapping can be regarded as ordinary variables, just declare a pointer variable pointing to this register or a group of registers, and the declaration to be displayed The value of this pointer variable.
+
+  - the device address is part of the system memory address space. Any machine instruction that is encoded to transfer data between a memory location and the processor or between two memory locations can potentially be used to access the I/O device. The I/O device is treated as if it were another memory location. Because the I/O address space occupies a range in the system memory address space, this region of the memory address space is not available for an application to use.
+
+- port-mapped I/O
+
+  - maps control and data registers to a separate data space.
+
+  - The devices are programmed to occupy a range in the I/O address space.
+
+  - Each device is on a different I/O port.
+
+  - The I/O ports are accessed through special processor instructions, and actual physical access is accomplished through special hardware circuitry.
+
+  - The **I/O device address** is referred to as the port number when specified for these special instructions
+
+  - This I/O method is also called isolated I/O because the memory space is isolated from the I/O space, thus the entire memory address space is available for application use.
 
 
 
