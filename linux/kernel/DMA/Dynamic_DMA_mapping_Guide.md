@@ -18,7 +18,7 @@ The kernel normally uses virtual addresses. Any address returned by `kmalloc()`,
 
 The virtual memory system (TLB, page tables, etc.) translates **virtual addresses** to CPU **physical addresses**, which are stored as `phys_addr_t` or `resource_size_t`. The kernel manages device resources like **registers** as **physical addresses**. These are the addresses in `/proc/iomem`. The **physical address** is not directly useful to a driver; it must use `ioremap()` to map the space and produce a **virtual address**.
 
-I/O devices use a third kind of address: a **bus address**. If a device has **registers** at an **MMIO address**, or if it performs **DMA** to read or write system memory, the addresses used by the device are **bus addresses**.  In some systems, **bus addresses** are identical to CPU **physical addresses**, but in general they are not.  IOMMUs and host bridges can produce arbitrary mappings between physical and bus addresses.
+I/O devices use a third kind of address: a **bus address**. If a device has **registers** at an **MMIO address**, or if it performs **DMA** to read or write system memory, the addresses used by the device are **bus addresses**.  In some systems, **bus addresses** are identical to CPU **physical addresses**, but in general they are not. IOMMUs and host bridges can produce arbitrary mappings between physical and bus addresses.
 
 From a device's point of view, DMA uses the bus address space, but it may be restricted to a subset of that space. For example, even if a system supports 64-bit addresses for main memory and PCI BARs, it may use an IOMMU so devices only need to use 32-bit DMA addresses.
 

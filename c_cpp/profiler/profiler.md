@@ -16,6 +16,10 @@
 
 [Linux 系统动态追踪技术介绍](https://blog.arstercz.com/introduction_to_linux_dynamic_tracing/)
 
+[List of performance analysis tools](https://en.wikipedia.org/wiki/List_of_performance_analysis_tools)
+
+[Brendan Gregg's Homepage](https://www.brendangregg.com/index.html)
+
 ## Tools
 
 ### [Valgrind](https://valgrind.org/)
