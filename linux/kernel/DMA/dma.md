@@ -5,6 +5,7 @@
   - [The Generic DMA Layer](#the-generic-dma-layer)
     - [DMA mappings](#dma-mappings)
   - [Bus address](#bus-address)
+  - [Types of DMA mappings](#types-of-dma-mappings)
 
 - DMA is the hardware mechanism that allows peripheral components to transfer their I/O data directly to and from main memory without the need to involve the system processor.
 
@@ -66,7 +67,17 @@
 
 - So that Linux can use the dynamic DMA mapping, it needs some help from the drivers, namely it has to take into account that DMA addresses should be mapped only for the time they are actually used and unmapped after the DMA transfer.
 
+## Types of DMA mappings
 
+There are two types of DMA mappings:
+
+- Consistent DMA mappings
+
+  - which are usually mapped at driver initialization, unmapped at the end and for which the hardware should guarantee that the **device** and the **CPU** can **access the data in parallel** and will see updates made by each other without any explicit software flushing.
+
+- Streaming DMA mappings
+
+  - which are usually mapped for one DMA transfer, unmapped right after it (unless you use `dma_sync_*`) and for which hardware can optimize for sequential accesses.
 
 
 

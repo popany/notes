@@ -52,7 +52,7 @@ If the device supports DMA, the driver sets up a buffer using `kmalloc()` or a s
 
 In some simple systems, the device can do DMA directly to physical address Y.  But in many others, there is IOMMU hardware that translates DMA addresses to physical addresses, e.g., it translates Z to Y. This is part of the reason for the DMA API: the driver can give a virtual address X to an interface like `dma_map_single()`, which sets up any required **IOMMU mapping** and returns the DMA address Z. The driver then tells the device to do DMA to Z, and the IOMMU maps it to the buffer at address Y in system RAM.
 
-So that Linux can use the dynamic DMA mapping, it needs some help from the drivers, namely it has to take into account that DMA addresses should be mapped only for the time they are actually used and unmapped after the DMA transfer.
+So that Linux can use the **dynamic DMA mapping**, it needs some help from the drivers, namely it has to take into account that DMA addresses should be mapped only for the time they are actually used and unmapped after the DMA transfer.
 
 The following API will work of course even on platforms where no such hardware exists.
 
@@ -226,7 +226,7 @@ This routine will allocate RAM for that region, so it acts similarly to `__get_f
 
 The consistent DMA mapping interfaces, will by default return a DMA address which is 32-bit addressable. Even if the device indicates (via the DMA mask) that it may address the upper 32-bits, consistent allocation will only return > 32-bit addresses for DMA if the consistent DMA mask has been explicitly changed via `dma_set_coherent_mask()`. This is true of the `dma_pool` interface as well.
 
-`dma_alloc_coherent()` returns two values: the virtual address which you can use to access it from the CPU and `dma_handle` which you pass to the card.
+`dma_alloc_coherent()` returns two values: the virtual address which you can use to **access it from the CPU** and `dma_handle` which you **pass to the card**.
 
 The CPU virtual address and the DMA address are both guaranteed to be aligned to the smallest `PAGE_SIZE` order which is greater than or equal to the requested size. This invariant exists (for example) to guarantee that if you allocate a chunk which is smaller than or equal to 64 kilobytes, the extent of the buffer you receive will not cross a 64K boundary.
 
