@@ -11,3 +11,14 @@
 [The chained scatterlist API](https://lwn.net/Articles/256368/)
 
 [Rationalizing scatter/gather chains](https://lwn.net/Articles/263343/)
+
+[Direct Memory Access (DMA)](http://inputoutput5822.weebly.com/direct-memory-access.html)
+
+[Direct memory access](https://en.wikipedia.org/wiki/Direct_memory_access)
+
+[What is Direct Memory Access (DMA) and Why Should We Know About it?](http://gauss.ececs.uc.edu/Courses/c4029/lectures/dma.pdf)
+
+[Explain the various DMA transfer modes in computer architecture?](https://www.tutorialspoint.com/explain-the-various-dma-transfer-modes-in-computer-architecture)
+
+[Direct Memory Access (DMA)](https://binaryterms.com/direct-memory-access-dma.html)
+
