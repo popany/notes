@@ -5,6 +5,11 @@
   - [view all network shares](#view-all-network-shares)
   - [`7z`](#7z)
   - [`wmic`](#wmic)
+  - [配置路由](#配置路由)
+    - [查看路由](#查看路由)
+    - [跟踪路由](#跟踪路由)
+    - [删除路由](#删除路由)
+    - [新增路由](#新增路由)
   - [Demos](#demos)
     - [`copy_file.bat`](#copy_filebat)
   - [HowTo](#howto)
@@ -34,6 +39,24 @@
 [View command line arguments for a running app](https://www.addictivetips.com/windows-tips/command-line-arguments-for-an-app-on-windows-10/)
 
     wmic path Win32_Process where handle='22792' get Commandline /format:list
+
+## 配置路由
+
+### 查看路由
+
+    route print
+
+### 跟踪路由
+
+    tracert 14.215.177.39
+
+### 删除路由
+
+    route delete 0.0.0.0
+
+### 新增路由
+
+    route -p add 14.215.0.0 mask 255.255.0.0 192.168.43.1
 
 ## Demos
 
