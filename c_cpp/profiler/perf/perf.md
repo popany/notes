@@ -1,8 +1,9 @@
 # perf
 
 - [perf](#perf)
-  - [Main Page](#main-page)
 
-## [Main Page](https://perf.wiki.kernel.org/index.php/Main_Page)
+[perf wiki](https://perf.wiki.kernel.org/index.php/Main_Page)
+
+[perf Examples](https://www.brendangregg.com/perf.html)
 
 TODO perf pppppppppppppppppppppppp

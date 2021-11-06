@@ -2,6 +2,7 @@
 
 - [Linux kernel profiling with `perf`](#linux-kernel-profiling-with-perf)
   - [1 Introduction](#1-introduction)
+    - [1.1 Commands](#11-commands)
     - [1.2 Events](#12-events)
       - [1.2.1 Hardware events](#121-hardware-events)
   - [2 Counting with `perf stat`](#2-counting-with-perf-stat)
@@ -12,7 +13,7 @@
 
 Perf is a profiler tool for Linux 2.6+ based systems that abstracts away CPU hardware differences in Linux performance measurements and presents a simple commandline interface. Perf is based on the `perf_events` interface exported by recent versions of the Linux kernel. This article demonstrates the `perf` tool through example runs. Output was obtained on a Ubuntu 11.04 system with kernel 2.6.38-8-generic results running on an HP 6710b with dual-core Intel Core2 T7100 CPU). For readability, some output is abbreviated using ellipsis (`[...]`).
 
-Commands
+### 1.1 Commands
 
 The perf tool offers a rich set of commands to collect and analyze performance and trace data. The command line usage is reminiscent of `git` in that there is a generic tool, `perf`, which implements a set of commands: `stat`, `record`, `report`, `[...]`
 
@@ -151,7 +152,7 @@ PMU hardware events are CPU specific and documented by the CPU vendor. The `perf
 
 ## 2 Counting with `perf stat`
 
-For any of the supported events, `perf` can keep a running count during process execution. In counting modes, the occurrences of events are simply aggregated and presented on standard output at the end of an application run. To generate these statistics, use the `stat` command of `perf`. For instance:
+For any of the supported events, `perf` can keep a running count during process execution. In **counting modes**, the occurrences of events are simply aggregated and presented on standard output at the end of an application run. To generate these statistics, use the `stat` command of `perf`. For instance:
 
     perf stat -B dd if=/dev/zero of=/dev/null count=1000000
     
