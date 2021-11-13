@@ -3,6 +3,7 @@
 - [Value Categories](#value-categories)
   - [type v.s. category](#type-vs-category)
   - [A cast expression to non-reference type is `prvalue` expression](#a-cast-expression-to-non-reference-type-is-prvalue-expression)
+  - [xvalue](#xvalue)
 
 ## type v.s. category
 
@@ -37,3 +38,15 @@ such as `static_cast<double>(x)`, `std::string{}`, or `(int)42`
 编译报错
 
     error: lvalue required as left operand of assignment
+
+## xvalue
+
+An xvalue (an "eXpiring" value) is a glvalue that denotes an object whose resources can be reused
+
+xvalue expressions:
+
+- a **function call or an overloaded operator expression**, whose return type is rvalue reference to object, such as `std::move(x)`
+
+- a **cast expression** to rvalue reference to object type, such as `static_cast<char&&>(x)`
+
+- ...
