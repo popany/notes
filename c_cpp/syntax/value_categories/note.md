@@ -3,7 +3,13 @@
 - [Value Categories](#value-categories)
   - [type v.s. category](#type-vs-category)
   - [A cast expression to non-reference type is `prvalue` expression](#a-cast-expression-to-non-reference-type-is-prvalue-expression)
+  - [glvalue](#glvalue)
+    - [lvalue Examples](#lvalue-examples)
+  - [rvalue](#rvalue)
+    - [prvalue](#prvalue)
   - [xvalue](#xvalue)
+  - [lvalue reference](#lvalue-reference)
+  - [rvalue reference](#rvalue-reference)
 
 ## type v.s. category
 
@@ -39,6 +45,46 @@ such as `static_cast<double>(x)`, `std::string{}`, or `(int)42`
 
     error: lvalue required as left operand of assignment
 
+## glvalue
+
+glvalue is the set of things with identity.
+
+glvalues contains both lvalues (also known as **classical lvalues**) and **xvalues**.
+
+- identity
+
+  If you have (or you can take) the memory address of a value and use it safely, then the value **has identity**.
+
+- lvalue 
+
+  is a kind of glvalue that cannot be moved
+
+- xvalue
+
+  is a kind of glvalue that can be moved
+
+### lvalue Examples
+
+- Examples of expressions that are lvalues include:
+
+  - a named variable or constant;
+
+  - or a function that returns a reference.
+
+- Examples of expressions that are not lvalues include:
+
+  - a temporary;
+
+  - or a function that returns by value.
+
+## rvalue
+
+A value that is movable is known as an rvalue (or classical rvalue)
+
+### prvalue
+
+doesn't have identity, but is movable
+
 ## xvalue
 
 An xvalue (an "eXpiring" value) is a glvalue that denotes an object whose resources can be reused
@@ -50,3 +96,21 @@ xvalue expressions:
 - a **cast expression** to rvalue reference to object type, such as `static_cast<char&&>(x)`
 
 - ...
+
+## lvalue reference
+
+- An lvalue reference can bind to an lvalue, but not to an rvalue.
+
+- An lvalue const reference can bind to an lvalue or to an rvalue.
+
+## rvalue reference
+
+- An unnamed rvalue reference is an xvalue so it's an rvalue.
+
+- Conversely, if an rvalue reference has a name, then the expression consisting of that name is an lvalue.
+
+  You can use `static_cast<T&&>(name)` to get the unnamed rvalue reference
+
+
+
+
