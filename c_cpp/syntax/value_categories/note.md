@@ -115,12 +115,10 @@ cannot compile:
 
 ## rvalue reference
 
+- rvalue references enable you to distinguish an lvalue from an rvalue
+
 - An unnamed rvalue reference is an xvalue so it's an rvalue.
 
 - Conversely, if an rvalue reference has a name, then the expression consisting of that name is an lvalue.
 
   You can use `static_cast<T&&>(name)` to get the unnamed rvalue reference
-
-
-
-
