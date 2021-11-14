@@ -8,6 +8,7 @@
   - [rvalue](#rvalue)
     - [prvalue](#prvalue)
   - [xvalue](#xvalue)
+    - [xvalue is a glvalue but cannot be used as lvalue](#xvalue-is-a-glvalue-but-cannot-be-used-as-lvalue)
   - [lvalue reference](#lvalue-reference)
   - [rvalue reference](#rvalue-reference)
 
@@ -96,6 +97,15 @@ xvalue expressions:
 - a **cast expression** to rvalue reference to object type, such as `static_cast<char&&>(x)`
 
 - ...
+
+### xvalue is a glvalue but cannot be used as lvalue
+
+    int a = 0;
+    static_cast<int&&>(a) = 1;
+
+cannot compile:
+
+    error: using xvalue (rvalue reference) as lvalue
 
 ## lvalue reference
 
