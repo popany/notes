@@ -2,6 +2,15 @@
 
 - [Effective C++](#effective-c)
 
+- [Effective C++](#effective-c)
+  - [Chapter 1: Accustoming Yourself to C++](#chapter-1-accustoming-yourself-to-c)
+    - [Item 3: Use const whenever possible](#item-3-use-const-whenever-possible)
+  - [Chapter 2: Constructors, Destructors, and Assignment Operators](#chapter-2-constructors-destructors-and-assignment-operators)
+    - [Item 8: Prevent exceptions from leaving destructors](#item-8-prevent-exceptions-from-leaving-destructors)
+    - [Item 9: Never call virtual functions during construction or destruction](#item-9-never-call-virtual-functions-during-construction-or-destruction)
+  - [Chapter 3: Resource Management](#chapter-3-resource-management)
+    - [Item 14: Think carefully about copying behavior in resource-managing classes](#item-14-think-carefully-about-copying-behavior-in-resource-managing-classes)
+
 ## Chapter 1: Accustoming Yourself to C++
 
 ### Item 3: Use const whenever possible
@@ -52,10 +61,30 @@ An object doesn’t become a derived class object until execution of a derived c
 
 Upon entry to the base class destructor, the object becomes a base class object, and all parts of C++ - virtual functions, dynamic_casts, etc., - treat it that way.
 
+## Chapter 3: Resource Management
 
+### Item 14: Think carefully about copying behavior in resource-managing classes
 
+    class Lock {
+    public:
+        explicit Lock(Mutex *pm)   // init shared_ptr with the Mutex
+        : mutexPtr(pm, unlock)     // to point to and the unlock func as the deleter
+        {
+            lock(mutexPtr.get());
+        }
+    private:
+        std::tr1::shared_ptr<Mutex> mutexPtr;
+    };
 
+If construction of a `std::tr1::shared_ptr` throws, the deleter is automatically called, but in this case, that will yield a call to `unlock` without a call to `lock` having been made. Such an unmatched call to `unlock` will also occur if the call to `lock` throws. fxw suggests this constructor rewrite:
 
+    explicit Lock(Mutex *pm)
+    {
+        lock(pm);
+        mutexPtr.reset(pm, unlock);
+    }
+
+There was no room in the book for this explanation, so I left the code in the book unchanged, but I added a footnote pointing to this errata entry.
 
 
 
