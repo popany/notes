@@ -9,6 +9,13 @@
   - [Sequenced Before](#sequenced-before)
   - [Happen Before](#happen-before)
   - [synchronizes with relation](#synchronizes-with-relation)
+  - [acquire/release semantics](#acquirerelease-semantics)
+  - [processor reordering](#processor-reordering)
+    - [four types of memory barrier](#four-types-of-memory-barrier)
+      - [#LoadLoad](#loadload)
+      - [#StoreStore](#storestore)
+      - [#LoadStore`](#loadstore)
+      - [#StoreLoad](#storeload)
   - [References](#references)
 
 ## atomic
@@ -18,6 +25,8 @@ Hence the memory model was designed to disallow visible reordering of operations
 - All changes to a single atomic variable appear to occur in a single total modification order, specific to that variable. This is introduced in 1.10p5, and the last non-note sentence of 1.10p10 states that loads of that variable must be consistent with this modification order.
 
 ### Sequentially Consistent
+
+Sequential consistency means that all threads agree on the order in which memory operations occurred, and that order is consistent with the order of operations in the program source code.
 
 - This is the default mode used when none is specified,
 
@@ -85,8 +94,56 @@ A thread T1 normally **communicates with** a thread T2 by assigning to some shar
 
   Assignment to atomic variable has **release semantics**, while reference to atomic variable has **acquire semantics**. The pair **behaves essentially like a lock release and acquisition with respect to the memory model**.
 
+## acquire/release semantics
+
+- **Acquire semantics** is a property that can only apply to operations that **read** from shared memory, whether they are [read-modify-write](http://preshing.com/20120612/an-introduction-to-lock-free-programming#atomic-rmw) operations or plain loads. The operation is then considered a **read-acquire**. Acquire semantics prevent memory **reordering of the read-acquire with** any read or write operation that **follows** it in program order.
+
+- **Release semantics** is a property that can only apply to operations that **write** to shared memory, whether they are read-modify-write operations or plain stores. The operation is then considered a **write-release**. Release semantics prevent memory **reordering of the write-release with** any read or write operation that precedes it in program order.
+
+These semantics are particularly suitable in cases when there's a producer/consumer relationship, where one thread publishes some information and the other reads it.
+
+## processor reordering
+
+- Like compiler reordering, processor reordering is invisible to a single-threaded program.
+
+- It only becomes apparent when [lock-free techniques](http://preshing.com/20120612/an-introduction-to-lock-free-programming) are used – that is, when shared memory is manipulated without any mutual exclusion between threads.
+
+- However, unlike compiler reordering, the effects of processor reordering are [only visible in multicore and multiprocessor systems](http://preshing.com/20120515/memory-reordering-caught-in-the-act).
+
+### four types of memory barrier
+
+Each type of memory barrier is **named after the type of memory reordering it's designed to prevent**: for example, `#StoreLoad` is designed to prevent the reordering of a store followed by a load.
+
+#### #LoadLoad
+
+A LoadLoad barrier effectively prevents reordering of loads performed before the barrier with loads performed after the barrier.
+
+#### #StoreStore
+
+A StoreStore barrier effectively prevents reordering of stores performed before the barrier with stores performed after the barrier.
+
+#### #LoadStore`
+
+A LoadStore barrier effectively prevents reordering of loads performed before the barrier with stores performed after the barrier.
+
+On a real CPU, instructions which act as a `#LoadStore` barrier typically act as at least one of `#LoadLoad` or `#StoreStore` barrier type.
+
+#### #StoreLoad
+
+A StoreLoad barrier ensures that all stores performed before the barrier are visible to other processors, and that all loads performed after the barrier receive the latest value that is visible at the time of the barrier. In other words, it effectively prevents reordering of all stores before the barrier against all loads after the barrier, respecting the way a [sequentially consistent](http://preshing.com/20120612/an-introduction-to-lock-free-programming#sequential-consistency) multiprocessor would perform those operations.
+
+On most processors, instructions that act as a `#StoreLoad` barrier tend to be more expensive than instructions acting as the other barrier types.
+
+[As Doug Lea also points out](http://g.oswego.edu/dl/jmm/cookbook.html), it just so happens that on all current processors, every instruction which acts as a `#StoreLoad` barrier also acts as a full memory fence.
+
 ## References
 
 [Memory model synchronization modes](https://gcc.gnu.org/wiki/Atomic/GCCMM/AtomicSync)
 
 [N2480: A Less Formal Explanation of the Proposed C++ Concurrency Memory Model](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2480.html)
+
+[An Introduction to Lock-Free Programming](https://preshing.com/20120612/an-introduction-to-lock-free-programming/)
+
+[Acquire and Release Semantics](https://preshing.com/20120913/acquire-and-release-semantics/)
+
+[Memory Barriers Are Like Source Control Operations](https://preshing.com/20120710/memory-barriers-are-like-source-control-operations/)
