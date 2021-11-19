@@ -94,6 +94,18 @@ A thread T1 normally **communicates with** a thread T2 by assigning to some shar
 
   Assignment to atomic variable has **release semantics**, while reference to atomic variable has **acquire semantics**. The pair **behaves essentially like a lock release and acquisition with respect to the memory model**.
 
+A release fence A **synchronizes with** an acquire fence B if there exist atomic operations X and Y, both operating on some atomic object M, such that A is **sequenced before** X, X modifies M, Y is **sequenced before** B, and Y reads the value written by X or a value written by any side effect in the hypothetical release sequence X would head if it were a release operation.
+
+We just need a way to **safely propagate modifications from one thread to another** once they're complete. That's where the **synchronizes-with** relation comes in.
+
+In every synchronizes-with relationship, you should be able to identify two key ingredients, which I like to call the **guard variable** and the **payload**. The payload is the set of data being propagated between threads, while the guard variable protects access to the payload.
+
+If read-acquire operation `B` **read the value written by** the write-release operation `A`, or any side effect in the release sequence headed by `A`, the **synchronized-with** relationship is complete, and we've achieved the coveted **happens-before** relationship between threads.
+
+Synchronizes-with is not only way to achieve a happens-before relationship, a pair of write-release/read-acquire operations is not the only way to achieve synchronizes-with; nor are C++11 atomics the only way to achieve acquire and release semantics.
+
+Unlocking a mutex always synchronizes-with a subsequent lock of that mutex.
+
 ## acquire/release semantics
 
 - **Acquire semantics** is a property that can only apply to operations that **read** from shared memory, whether they are [read-modify-write](http://preshing.com/20120612/an-introduction-to-lock-free-programming#atomic-rmw) operations or plain loads. The operation is then considered a **read-acquire**. Acquire semantics prevent memory **reordering of the read-acquire with** any read or write operation that **follows** it in program order.
@@ -147,3 +159,5 @@ On most processors, instructions that act as a `#StoreLoad` barrier tend to be m
 [Acquire and Release Semantics](https://preshing.com/20120913/acquire-and-release-semantics/)
 
 [Memory Barriers Are Like Source Control Operations](https://preshing.com/20120710/memory-barriers-are-like-source-control-operations/)
+
+[The Synchronizes-With Relation](https://preshing.com/20130823/the-synchronizes-with-relation/)
