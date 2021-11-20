@@ -16,6 +16,7 @@
       - [#StoreStore](#storestore)
       - [#LoadStore`](#loadstore)
       - [#StoreLoad](#storeload)
+  - [内存排序](#内存排序)
   - [References](#references)
 
 ## atomic
@@ -147,6 +148,22 @@ A StoreLoad barrier ensures that all stores performed before the barrier are vis
 On most processors, instructions that act as a `#StoreLoad` barrier tend to be more expensive than instructions acting as the other barrier types.
 
 [As Doug Lea also points out](http://g.oswego.edu/dl/jmm/cookbook.html), it just so happens that on all current processors, every instruction which acts as a `#StoreLoad` barrier also acts as a full memory fence.
+
+## 内存排序
+
+在多线程场景, 访问全局内存的所有线程所执行的所有内存操作可构成一个集合 `S`.
+
+- 对于一次程序执行, 每一线程均可在 `S` 上定义一个偏序, 该偏序关系来自两个方面:
+
+  1. 发生于该线程的内存操作的实际顺序,
+
+     该顺序可在下次程序执行时发生改变, 可通过引入 memory barrier 防止这种改变.
+
+  2. 由该线程的内存操作结果推断出的发生于其他线程的内存操作的顺序, 该顺序可能与实际所在的线程中的顺序不同.
+
+- 对于分别处不同线程的内存操作, 可通过引入线程间的同步操作定义偏序关系.
+
+对于 sequentially consistent 内存模型, 对于一次程序执行, 所有线程所定义的偏序关系之间不存在矛盾.
 
 ## References
 
