@@ -6,6 +6,7 @@
     - [Relaxed](#relaxed)
     - [Acquire/Release](#acquirerelease)
     - [Consume](#consume)
+  - [atomic operation](#atomic-operation)
   - [Sequenced Before](#sequenced-before)
   - [Happen Before](#happen-before)
   - [synchronizes with relation](#synchronizes-with-relation)
@@ -16,7 +17,9 @@
       - [#StoreStore](#storestore)
       - [#LoadStore`](#loadstore)
       - [#StoreLoad](#storeload)
-  - [内存排序](#内存排序)
+  - [总结](#总结)
+    - [内存排序](#内存排序)
+    - [aquire / release 语义](#aquire--release-语义)
   - [References](#references)
 
 ## atomic
@@ -69,6 +72,10 @@ The relaxed mode is most commonly used when the programmer simply wants an varia
 
 - is a further subtle refinement in the release/acquire memory model that relaxes the requirements slightly by removing the happens before ordering on non-dependent shared variables as well.
 
+## atomic operation
+
+A memory operation can be non-atomic even when performed by a single CPU instruction
+
 ## Sequenced Before
 
 If `a` and `b` are performed by the same thread, and `a` "comes first", we say that `a` is sequenced before `b`
@@ -84,6 +91,12 @@ If `a` happens before `b`, then `b` must see the effect of `a`, or the effects o
 An evaluation `a` can happen before `b` either because they are executed in that order by a single thread, i.e `a` is sequenced before `b`, or because there is an intervening communication between the two threads that enforces ordering.
 
 In general, an evaluation `a` **happens before** an evaluation `b` if they are ordered by a chain of **synchronizes with** and **sequenced-before** relationships.
+
+If operations A and B are performed by the same thread, and A's statement comes before B's statement in program order, then A happens-before B
+
+[The common definition](https://preshing.com/20130702/the-happens-before-relation/):
+
+- Let A and B represent operations performed by a multithreaded process. If A **happens-before** B, then the memory effects of A effectively become visible to the thread performing B before B is performed.
 
 ## synchronizes with relation
 
@@ -109,9 +122,9 @@ Unlocking a mutex always synchronizes-with a subsequent lock of that mutex.
 
 ## acquire/release semantics
 
-- **Acquire semantics** is a property that can only apply to operations that **read** from shared memory, whether they are [read-modify-write](http://preshing.com/20120612/an-introduction-to-lock-free-programming#atomic-rmw) operations or plain loads. The operation is then considered a **read-acquire**. Acquire semantics prevent memory **reordering of the read-acquire with** any read or write operation that **follows** it in program order.
+- **Acquire semantics** is a property that can only apply to operations that **read** from shared memory, whether they are [read-modify-write](http://preshing.com/20120612/an-introduction-to-lock-free-programming#atomic-rmw) operations or plain loads. The operation is then considered a **read-acquire**. Acquire semantics prevent memory **reordering of the read-acquire** with any read or write operation that **follows** it in program order.
 
-- **Release semantics** is a property that can only apply to operations that **write** to shared memory, whether they are read-modify-write operations or plain stores. The operation is then considered a **write-release**. Release semantics prevent memory **reordering of the write-release with** any read or write operation that precedes it in program order.
+- **Release semantics** is a property that can only apply to operations that **write** to shared memory, whether they are read-modify-write operations or plain stores. The operation is then considered a **write-release**. Release semantics prevent memory **reordering of the write-release** with any read or write operation that precedes it in program order.
 
 These semantics are particularly suitable in cases when there's a producer/consumer relationship, where one thread publishes some information and the other reads it.
 
@@ -149,7 +162,9 @@ On most processors, instructions that act as a `#StoreLoad` barrier tend to be m
 
 [As Doug Lea also points out](http://g.oswego.edu/dl/jmm/cookbook.html), it just so happens that on all current processors, every instruction which acts as a `#StoreLoad` barrier also acts as a full memory fence.
 
-## 内存排序
+## 总结
+
+### 内存排序
 
 在多线程程序的执行过程中, 每一线程均可能对全局内存进行操作, 所有的这些操作构成一个集合 `S`.
 
@@ -163,8 +178,21 @@ On most processors, instructions that act as a `#StoreLoad` barrier tend to be m
 
 - 对于分别执行于不同线程的内存操作, 可以通过线程间的同步([The Synchronizes-With Relation](https://preshing.com/20130823/the-synchronizes-with-relation/))定义偏序关系.
 
-
 对于 sequentially consistent 内存模型, 每次程序执行, 所有线程所定义的偏序关系之间不存在矛盾.
+
+### aquire / release 语义
+
+- 可通过对 atomic 变量的 aquire 模式读获得 aquire 语义
+
+- 可通过对 atomic 变量的 release 模式写获得 release 语义
+
+- 也可通过 relaxed 模式操作 atomic 变量 + memory barrier 的方式获得 aquire / release 语义
+
+- 可通过 aquire / release 语义获得两个线程的同步(the synchronizes-with relation)
+
+- 可通过 synchronizes-with relation 获得跨线程的两个内存操作之间的 happens-before relation
+
+- 可通过 sequenced-before relation 获得同一个线程执行的两个内存操作之间的 happens-before relation
 
 ## References
 
@@ -179,3 +207,7 @@ On most processors, instructions that act as a `#StoreLoad` barrier tend to be m
 [Memory Barriers Are Like Source Control Operations](https://preshing.com/20120710/memory-barriers-are-like-source-control-operations/)
 
 [The Synchronizes-With Relation](https://preshing.com/20130823/the-synchronizes-with-relation/)
+
+[Atomic vs. Non-Atomic Operations](https://preshing.com/20130618/atomic-vs-non-atomic-operations/)
+
+[The Happens-Before Relation](https://preshing.com/20130702/the-happens-before-relation/)
