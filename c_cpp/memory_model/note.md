@@ -161,7 +161,8 @@ On most processors, instructions that act as a `#StoreLoad` barrier tend to be m
 
   2. 由该线程的内存操作结果可推断出的发生于其他线程的内存操作的顺序. 该顺序可能与实际所在的线程中的顺序不同.
 
-- 对于分别执行于不同线程的内存操作, 可以通过线程间的同步定义偏序关系.
+- 对于分别执行于不同线程的内存操作, 可以通过线程间的同步([The Synchronizes-With Relation](https://preshing.com/20130823/the-synchronizes-with-relation/))定义偏序关系.
+
 
 对于 sequentially consistent 内存模型, 每次程序执行, 所有线程所定义的偏序关系之间不存在矛盾.
 

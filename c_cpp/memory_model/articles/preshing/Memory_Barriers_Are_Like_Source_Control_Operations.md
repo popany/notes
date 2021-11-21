@@ -131,8 +131,3 @@ In this analogy, I've said that each programmer represents a single thread of ex
 I haven't written about every type of memory barrier yet. For instance, there are also [data dependency barriers](http://www.mjmwired.net/kernel/Documentation/memory-barriers.txt#305). I'll describe those further in a future post. Still, the four types given here are the big ones.
 
 If you're interested in how CPUs work under the hood – things like stores buffers, cache coherency protocols and other hardware implementation details – and why they perform memory reordering in the first place, I'd recommend the [fine](http://www.rdrop.com/users/paulmck/scalability/paper/whymb.2010.07.23a.pdf) [work](http://www.kernel.org/doc/Documentation/memory-barriers.txt) of Paul McKenney & David Howells. Indeed, I suspect most programmers who have successfully written lock-free code have at least a passing familiarity with such hardware details.
-
-
-
-
-
