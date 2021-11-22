@@ -23,6 +23,7 @@
   - [acquire/release semantics](#acquirerelease-semantics)
     - [c++ specific acquire release sematics](#c-specific-acquire-release-sematics)
   - [Memory Ordering](#memory-ordering)
+  - [Compiler Instruction Reordering](#compiler-instruction-reordering)
   - [processor reordering](#processor-reordering)
     - [four types of memory barrier](#four-types-of-memory-barrier)
       - [#LoadLoad](#loadload)
@@ -212,6 +213,14 @@ These semantics are particularly suitable in cases when there's a producer/consu
 ## Memory Ordering
 
 Changes to memory ordering are made both by the compiler (at compile time) and by the processor (at run time), all in the name of making your code run faster. [[12]](#12-memory-ordering-at-compile-time)
+
+Memory reordering goes largely unnoticed by programmers writing single-threaded code. It often goes unnoticed in multithreaded programming, too, since mutexes, semaphores and events are all designed to prevent memory reordering around their call sites. It's only when lock-free techniques are used – when memory is shared between threads without any kind of mutual exclusion – that the cat is finally out of the bag, and the effects of memory reordering [can be plainly observed](http://preshing.com/20120515/memory-reordering-caught-in-the-act). [[12]](#12-memory-ordering-at-compile-time)
+
+## Compiler Instruction Reordering
+
+Compiler is free to reorder of instructions only in cases where single-threaded program behavior does not change. Such instruction reordering typically happens only when compiler optimizations are enabled. [[12]](#12-memory-ordering-at-compile-time)
+
+The majority of function calls act as compiler barriers, whether they contain their own compiler barrier or not. [[12]](#12-memory-ordering-at-compile-time)
 
 ## processor reordering
 
