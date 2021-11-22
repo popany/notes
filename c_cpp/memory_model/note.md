@@ -11,6 +11,7 @@
     - [atomic operation](#atomic-operation)
     - [operations on the same atomic variable](#operations-on-the-same-atomic-variable)
   - [Sequentially Consistent](#sequentially-consistent)
+  - [sequentially consistent memory model](#sequentially-consistent-memory-model)
   - [Sequenced Before](#sequenced-before)
   - [Happens-Before](#happens-before)
     - [The Common Definition of The Happens-Before Relation](#the-common-definition-of-the-happens-before-relation)
@@ -20,6 +21,8 @@
     - [communication between threads](#communication-between-threads)
     - [synchronizes-with](#synchronizes-with)
   - [acquire/release semantics](#acquirerelease-semantics)
+    - [c++ specific acquire release sematics](#c-specific-acquire-release-sematics)
+  - [Memory Ordering](#memory-ordering)
   - [processor reordering](#processor-reordering)
     - [four types of memory barrier](#four-types-of-memory-barrier)
       - [#LoadLoad](#loadload)
@@ -41,6 +44,8 @@
     - [8. The Happens-Before Relation](#8-the-happens-before-relation)
     - [9. Weak vs. Strong Memory Models](#9-weak-vs-strong-memory-models)
     - [10. Acquire and Release Fences](#10-acquire-and-release-fences)
+    - [11. Acquire and Release Fences Don't Work the Way You'd Expect](#11-acquire-and-release-fences-dont-work-the-way-youd-expect)
+    - [12. Memory Ordering at Compile Time](#12-memory-ordering-at-compile-time)
 
 ## c++ memory model synchronization modes
 
@@ -99,6 +104,12 @@ Hence the memory model was designed to disallow visible reordering of operations
 ## Sequentially Consistent
 
 Sequential consistency means that all threads agree on the order in which memory operations occurred, and that order is consistent with the order of operations in the program source code. [[3]](#3-an-introduction-to-lock-free-programming)
+
+## sequentially consistent memory model
+
+In a [sequentially consistent](http://preshing.com/20120612/an-introduction-to-lock-free-programming#sequential-consistency) memory model, there is no memory reordering. It's as if the entire program execution is reduced to a sequential interleaving of instructions from each thread. In particular, the result r1 = r2 = 0 from [Memory Reordering Caught in the Act](http://preshing.com/20120515/memory-reordering-caught-in-the-act) becomes impossible.  [[9]](#9-weak-vs-strong-memory-models)
+
+In any case, sequential consistency only really becomes interesting as a **software** memory model, when working in higher-level programming languages. In Java 5 and higher, you can declare shared variables as `volatile`. In C++11, you can use the default ordering constraint, `memory_order_seq_cst`, when performing operations on atomic library types. If you do those things, the toolchain will **restrict compiler reordering** and **emit CPU-specific instructions which act as the appropriate memory barrier types**. In this way, a sequentially consistent memory model can be "**emulated**" even on weakly-ordered multicore devices. [[9]](#9-weak-vs-strong-memory-models)
 
 ## Sequenced Before
 
@@ -185,6 +196,22 @@ Acquire and release semantics can be achieved using simple combinations of the m
 The barriers must (somehow) be placed after the read-acquire operation, but before the write-release. [Update: Please note that these barriers are technically more strict than what’s required for acquire and release semantics on a single memory operation, but they do achieve the desired effect.] [[4]](#4-acquire-and-release-semantics)
 
 These semantics are particularly suitable in cases when there's a producer/consumer relationship, where one thread publishes some information and the other reads it. [[3]](#3-an-introduction-to-lock-free-programming)
+
+### c++ specific acquire release sematics
+
+- In C++11, a Release Fence Is Not Considered a "Release Operation":
+
+  - You might reasonably expect a release fence to be considered a "release operation", but if you comb through the C++11 standard, you'll find that it's actually very careful not to call it that. [[11]](#11-acquire-and-release-fences-dont-work-the-way-youd-expect)
+
+  - In the language of C++11, only a store can be a release operation, and only a load can be an acquire operation. (See §29.3.1 of [working draft N3337](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf).) A memory fence is neither a load nor a store, so obviously, it can't be an acquire or release operation. Furthermore, if we accept that acquire and release semantics apply only to acquire and release operations, it's clear that Raymond Chen's definition does not apply to acquire and release fences. [[11]](#11-acquire-and-release-fences-dont-work-the-way-youd-expect)
+
+- Nor Can a Release Operation Take the Place of a Release Fence
+
+  - A release operation only needs to prevent preceding memory operations from being reordered past itself, but a release fence must prevent preceding memory operations from being reordered past all subsequent writes. Because of this difference, a release operation can never take the place of a release fence. [[11]](#11-acquire-and-release-fences-dont-work-the-way-youd-expect)
+
+## Memory Ordering
+
+Changes to memory ordering are made both by the compiler (at compile time) and by the processor (at run time), all in the name of making your code run faster. [[12]](#12-memory-ordering-at-compile-time)
 
 ## processor reordering
 
@@ -277,3 +304,7 @@ Under the above definition, the x86/64 family of processors is usually strongly-
 ### 9. [Weak vs. Strong Memory Models](https://preshing.com/20120930/weak-vs-strong-memory-models/)
 
 ### 10. [Acquire and Release Fences](https://preshing.com/20130922/acquire-and-release-fences/)
+
+### 11. [Acquire and Release Fences Don't Work the Way You'd Expect](https://preshing.com/20131125/acquire-and-release-fences-dont-work-the-way-youd-expect/)
+
+### 12. [Memory Ordering at Compile Time](https://preshing.com/20120625/memory-ordering-at-compile-time/)

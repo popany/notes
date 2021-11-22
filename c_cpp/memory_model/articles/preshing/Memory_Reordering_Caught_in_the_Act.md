@@ -1,7 +1,7 @@
 # [Memory Reordering Caught in the Act](https://preshing.com/20120515/memory-reordering-caught-in-the-act/)
 
 - [Memory Reordering Caught in the Act](#memory-reordering-caught-in-the-act)
-  - [Let’s Make It Happen](#lets-make-it-happen)
+  - [Let's Make It Happen](#lets-make-it-happen)
   - [Preventing It With a StoreLoad Barrier](#preventing-it-with-a-storeload-barrier)
   - [Similar Instructions and Different Platforms](#similar-instructions-and-different-platforms)
 
@@ -19,7 +19,7 @@ One way to understand this is that Intel x86/64 processors, like most processor 
 
 ![fig2](./fig/Memory_Reordering_Caught_in_the_Act/reordered.png)
 
-## Let’s Make It Happen
+## Let's Make It Happen
 
 It’s all well and good to be told this kind of thing might happen, but there’s nothing like seeing it with your own eyes. That’s why I’ve written a small sample program to show this type of reordering actually happening. You can download the source code [here](http://preshing.com/files/ordering.zip).
 

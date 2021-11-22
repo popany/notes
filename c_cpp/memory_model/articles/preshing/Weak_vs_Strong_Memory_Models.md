@@ -5,6 +5,7 @@
     - [Weak With Data Dependency Ordering](#weak-with-data-dependency-ordering)
   - [Strong Memory Models](#strong-memory-models)
   - [Sequential Consistency](#sequential-consistency)
+  - [Further Details](#further-details)
 
 There are many types of memory reordering, and not all types of reordering occur equally often. It all depends on processor you're targeting and/or the toolchain you're using for development.
 
@@ -60,10 +61,12 @@ Apparently **SPARC** processors, when running in **TSO** mode, are another examp
 
 In a [sequentially consistent](http://preshing.com/20120612/an-introduction-to-lock-free-programming#sequential-consistency) memory model, there is no memory reordering. It's as if the entire program execution is reduced to a sequential interleaving of instructions from each thread. In particular, the result r1 = r2 = 0 from [Memory Reordering Caught in the Act](http://preshing.com/20120515/memory-reordering-caught-in-the-act) becomes impossible.
 
-These days, you won’t easily find a modern multicore device which guarantees sequential consistency at the hardware level. However, it seems at least one sequentially consistent, dual-processor machine existed back in 1989: The 386-based Compaq SystemPro. According to Intel’s docs, the 386 wasn’t advanced enough to perform any memory reordering at runtime.
+These days, you won't easily find a modern multicore device which guarantees sequential consistency at the hardware level. However, it seems at least one sequentially consistent, dual-processor machine existed back in 1989: The 386-based [Compaq SystemPro](http://vogons.zetafleet.com/viewtopic.php?t=23842#178666). According to Intel's docs, the 386 wasn't advanced enough to perform any memory reordering at runtime.
 
-In any case, sequential consistency only really becomes interesting as a software memory model, when working in higher-level programming languages. In Java 5 and higher, you can declare shared variables as volatile. In C++11, you can use the default ordering constraint, memory_order_seq_cst, when performing operations on atomic library types. If you do those things, the toolchain will restrict compiler reordering and emit CPU-specific instructions which act as the appropriate memory barrier types. In this way, a sequentially consistent memory model can be “emulated” even on weakly-ordered multicore devices. If you read Herlihy & Shavit’s The Art of Multiprocessor Programming, be aware that most of their examples assume a sequentially consistent software memory model.
+In any case, sequential consistency only really becomes interesting as a **software** memory model, when working in higher-level programming languages. In Java 5 and higher, you can declare shared variables as `volatile`. In C++11, you can use the default ordering constraint, `memory_order_seq_cst`, when performing operations on atomic library types. If you do those things, the toolchain will **restrict compiler reordering** and **emit CPU-specific instructions which act as the appropriate memory barrier types**. In this way, a sequentially consistent memory model can be "**emulated**" even on weakly-ordered multicore devices. If you read Herlihy & Shavit's [The Art of Multiprocessor Programming](http://www.amazon.com/gp/product/0123973376/ref=as_li_ss_tl?ie=UTF8&tag=preshonprogr-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0123973376), be aware that most of their examples assume a sequentially consistent software memory model.
 
-Further Details
+## Further Details
 
+There are many other subtle details filling out the spectrum of memory models, but in my experience, they haven’t proved quite as interesting when writing lock-free code at the application level. There are things like control dependencies, causal consistency, and different memory types. Still, most discussions come back the four main categories I’ve outlined here.
 
+If you really want to nitpick the fine details of processor memory models, and you enjoy eating formal logic for breakfast, you can check out the [admirably detailed work](http://www.cl.cam.ac.uk/~pes20/weakmemory/) done at the University of Cambridge. Paul McKenney has written an [accessible overview](http://lwn.net/Articles/470681/) of some of their work and its associated tools.
