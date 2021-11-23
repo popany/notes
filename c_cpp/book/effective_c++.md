@@ -10,6 +10,9 @@
     - [Item 9: Never call virtual functions during construction or destruction](#item-9-never-call-virtual-functions-during-construction-or-destruction)
   - [Chapter 3: Resource Management](#chapter-3-resource-management)
     - [Item 14: Think carefully about copying behavior in resource-managing classes](#item-14-think-carefully-about-copying-behavior-in-resource-managing-classes)
+  - [Chapter 4: Designs and Declarations](#chapter-4-designs-and-declarations)
+    - [Item 20: Prefer pass-by-reference-to-const to pass-byvalue](#item-20-prefer-pass-by-reference-to-const-to-pass-byvalue)
+    - [Item 21: Don’t try to return a reference when you must return an object](#item-21-dont-try-to-return-a-reference-when-you-must-return-an-object)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -57,7 +60,7 @@ If an operation may fail by throwing an exception and there may be a need to han
 
 ### Item 9: Never call virtual functions during construction or destruction
 
-An object doesn’t become a derived class object until execution of a derived class constructor begins.
+An object doesn't become a derived class object until execution of a derived class constructor begins.
 
 Upon entry to the base class destructor, the object becomes a base class object, and all parts of C++ - virtual functions, dynamic_casts, etc., - treat it that way.
 
@@ -85,6 +88,32 @@ If construction of a `std::tr1::shared_ptr` throws, the deleter is automatically
     }
 
 There was no room in the book for this explanation, so I left the code in the book unchanged, but I added a footnote pointing to this errata entry.
+
+## Chapter 4: Designs and Declarations
+
+### Item 20: Prefer pass-by-reference-to-const to pass-byvalue
+
+For built-in types, then, when you have a choice between pass-by-value and pass-by-reference-to-const, it's not unreasonable to choose pass-by-value. This same advice applies to iterators and function objects in the STL, because, by convention, they are designed to be passed by value. Implementers of iterators and function objects are responsible for seeing to it that they are efficient to copy and are not subject to the slicing problem.
+
+...
+
+In general, the only types for which you can reasonably assume that pass-by-value is inexpensive are built-in types and STL iterator and function object types. For everything else, follow the advice of this Item and prefer pass-by-reference-to-const over pass-by-value.
+
+### Item 21: Don’t try to return a reference when you must return an object
+
+The right way to write a function that must return a new object is to have that function return a new object. For Rational’s operator*, that means either the following code or something essentially equivalent:
+
+    inline const Rational operator*(const Rational& lhs, const Rational& rhs) 
+    {
+        return Rational(lhs.n * rhs.n, lhs.d * rhs.d);
+    }
+
+Sure, you may incur the cost of constructing and destructing `operator*`'s return value, but in the long run, that's a small price to pay for correct behavior. Besides, the bill that so terrifies you may never arrive. Like all programming languages, C++ allows compiler implementers to apply optimizations to improve the performance of the generated code without changing its observable behavior, and it turns out that **in some cases, construction and destruction of `operator*`'s return value can be safely eliminated**. When compilers take advantage of that fact (and compilers often do), your program continues to behave the way it's supposed to, just faster than you expected.
+
+
+
+
+
 
 
 
