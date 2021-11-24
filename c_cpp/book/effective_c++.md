@@ -151,27 +151,27 @@ refer non-member non-friend functions to member functions. Doing so increases en
 
 为此, 需为 `Widget` 定义特化的 `std::swap`, 并在 `Widget` 中定义 public `swap` 成员函数:
 
-    class Widget {  // same as above, except for the addition of the swap mem func
+    class Widget {
     public:
         ...
         void swap(Widget& other)
         {
             using std::swap; // the need for this declaration is explained later in this Item
 
-            swap(pImpl, other.pImpl);  // to swap Widgets, swap their pImpl pointers
+            swap(pImpl, other.pImpl);
         }
         ...
     };
 
     namespace std {
-        template<>  // revised specialization of std::swap
+        template<>
         void swap<Widget>(Widget& a, Widget& b)
         {
             a.swap(b); // to swap Widgets, call their swap member function
         }
     }
 
-特化 `std::swap` 模板函数的目的仅仅是为了调用 `Widget::swap`, 后者完成具体的交换动作(需要访问 `Widget` 的私有成员). `std::swap` 的使用者无需关心具体的实现方式, 只需期待通用的交换结果即可.
+特化 `std::swap` 模板函数的目的仅仅是为了调用 `Widget::swap`, 后者完成具体的交换操作(需要访问 `Widget` 的私有成员). `std::swap` 的使用者无需关心具体的实现方式, 只需期待通用的交换结果即可.
 
 这种形式与 STL 容器相一致, 后者也是提供了 public `swap` 成员函数及调用该函数的特化的 `std::swap`.
 
@@ -230,9 +230,9 @@ refer non-member non-friend functions to member functions. Doing so increases en
 
 若 `Widget` 定义在全局命名空间中, 则对应的非对象 `swap` 函数也定义成全局的即可(依然符合与 `Widget` 属于同一命名空间).
 
-上述方案是对 `class` 和 `class template` 的通用方案. 但对于 `class` 的情况, 为了在更多场景下都能实现优化(比如用户直接调用 `std::swap` 的场景), 除了要定义与 `class` 同一命名空间的非成员 `swap` 函数外, 还需特化 class 对应的 `std::swap`.
+上述方案是对 `class` 和 `class template` 的通用方案. 但对于 `class` 的情况, 为了在更多场景下都能实现优化(主要为应对用户错误的直接调用 `std::swap` 的场景), 除了要定义与 `class` 同一命名空间的非成员 `swap` 函数外, 还需特化 class 对应的 `std::swap`.
 
-考虑到 `swap` 函数分为三种情况, 即, 默认的 `std::swap` 或特化的 `std::swap` 或与特定类属于同一命名空间的 `swap`, 且后两种情况可能不存在或只存在一种. 当后两种情况不存在时需要退化到默认的 `std::swap`. `swap` 的具体使用方式如下所示:
+考虑到 `swap` 函数分为三种情况, 即, 默认的 `std::swap` 或特化的 `std::swap` 或与特定类属于同一命名空间的 `swap`, 且后两种情况可能不存在或只存在一种. 当后两种情况不存在时需要退化到调用默认的 `std::swap`, `swap` 的具体使用方式如下所示:
 
     template<typename T>
     void doSomething(T& obj1, T& obj2)
@@ -245,4 +245,4 @@ refer non-member non-friend functions to member functions. Doing so increases en
 
 编译器会优先搜索与对应类属于同一命名空间的 `swap`, 之后是特化的 `std::swap`, 最后是默认的 `std::swap`.
 
-对于成员函数 `swap`, 不能抛出异常, 以保证 `swap` 可用于实现异常安全场景, 参考 Item 29. 成员函数 `swap` 的高效性与不抛异常并不矛盾, 因为高效往往建立于对基础类型的操作上,而对基础类型的操作是不会引发异常的.
+对于成员函数 `swap`, 不能抛出异常, 以保证 `swap` 可用于实现异常安全场景, 参考 Item 29. 成员函数 `swap` 的高效性与不抛异常并不矛盾, 因为高效往往建立于对基础类型的操作上, 而对基础类型的操作是不会引发异常的.
