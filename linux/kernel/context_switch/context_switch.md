@@ -16,4 +16,8 @@
 
 [Kernel Stack Management During Context Switch](https://exposnitc.github.io/os_design-files/timer_stack_management.html)
 
+[Thread context switch Vs. process context switch](https://stackoverflow.com/questions/5440128/thread-context-switch-vs-process-context-switch)
+
+[How long does it take to make a context switch?](https://blog.tsunanet.net/2010/11/how-long-does-it-take-to-make-context.html)
+
 TODO context switch ccccccccccccccccccccccccccccchhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh

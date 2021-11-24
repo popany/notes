@@ -22,9 +22,9 @@
     - [synchronizes-with](#synchronizes-with)
   - [acquire/release semantics](#acquirerelease-semantics)
     - [c++ specific acquire release sematics](#c-specific-acquire-release-sematics)
-  - [Memory Ordering](#memory-ordering)
-  - [Compiler Instruction Reordering](#compiler-instruction-reordering)
-  - [processor reordering](#processor-reordering)
+  - [Memory Reordering](#memory-reordering)
+    - [Compiler Instruction Reordering](#compiler-instruction-reordering)
+    - [processor reordering](#processor-reordering)
     - [four types of memory barrier](#four-types-of-memory-barrier)
       - [#LoadLoad](#loadload)
       - [#StoreStore](#storestore)
@@ -210,19 +210,19 @@ These semantics are particularly suitable in cases when there's a producer/consu
 
   - A release operation only needs to prevent preceding memory operations from being reordered past itself, but a release fence must prevent preceding memory operations from being reordered past all subsequent writes. Because of this difference, a release operation can never take the place of a release fence. [[11]](#11-acquire-and-release-fences-dont-work-the-way-youd-expect)
 
-## Memory Ordering
+## Memory Reordering
 
 Changes to memory ordering are made both by the compiler (at compile time) and by the processor (at run time), all in the name of making your code run faster. [[12]](#12-memory-ordering-at-compile-time)
 
 Memory reordering goes largely unnoticed by programmers writing single-threaded code. It often goes unnoticed in multithreaded programming, too, since mutexes, semaphores and events are all designed to prevent memory reordering around their call sites. **It's only when lock-free techniques are used** – when memory is shared between threads without any kind of mutual exclusion – that the cat is finally out of the bag, and **the effects of memory reordering [can be plainly observed](http://preshing.com/20120515/memory-reordering-caught-in-the-act)**. [[12]](#12-memory-ordering-at-compile-time)
 
-## Compiler Instruction Reordering
+### Compiler Instruction Reordering
 
 Compiler is free to reorder of instructions only in cases where single-threaded program behavior does not change. Such instruction reordering typically happens only when compiler optimizations are enabled. [[12]](#12-memory-ordering-at-compile-time)
 
 The majority of function calls act as compiler barriers, whether they contain their own compiler barrier or not. [[12]](#12-memory-ordering-at-compile-time)
 
-## processor reordering
+### processor reordering
 
 Like compiler reordering, **processor reordering** is invisible to a single-threaded program. It only becomes apparent when [**lock-free** techniques](http://preshing.com/20120612/an-introduction-to-lock-free-programming) are used – that is, when shared memory is manipulated without any mutual exclusion between threads. However, unlike compiler reordering, the effects of processor reordering are [only visible in multicore and multiprocessor systems](http://preshing.com/20120515/memory-reordering-caught-in-the-act). [[5]](#5-memory-barriers-are-like-source-control-operations)
 
