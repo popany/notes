@@ -19,6 +19,8 @@
     - [Item 26: Postpone variable definitions as long as possible](#item-26-postpone-variable-definitions-as-long-as-possible)
     - [Item 27: Minimize casting](#item-27-minimize-casting)
     - [Item 29: Strive for exception-safe code](#item-29-strive-for-exception-safe-code)
+  - [Item 30: Understand the ins and outs of inlining](#item-30-understand-the-ins-and-outs-of-inlining)
+  - [Item 31: Minimize compilation dependencies between files](#item-31-minimize-compilation-dependencies-between-files)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -384,11 +386,45 @@ Exception-safe 函数按由弱到强可分为如下三类:
 
 在定义接口时, 应该确定该接口的异常安全级别, 并在文档中说明.
 
+## Item 30: Understand the ins and outs of inlining
 
+内联函数的问题:
 
+- On machines with limited memory, overzealous inlining can give rise to programs that are too big for the available space.
 
+- Even with virtual memory, inline-induced code bloat can lead to additional paging, a reduced instruction cache hit rate, and the performance penalties that accompany these things.
 
+成员函数与友元函数均为隐式声明内联函数.
 
+对于显示声明的内联函数, `inline` 关键字置于函数定义之前, 且函数定义在头文件中.
+
+模板函数不是默认内联的, 定义内联的模板函数需使用 `inline` 关键字.
+
+虚函数是无视内联的, 因为要等到运行时才知道具体调用的函数.
+
+大多数编译器支持设置诊断等级, 当内联失败时, 打印错误.
+
+## Item 31: Minimize compilation dependencies between files
+
+- **Avoid using objects when object references and pointers will do**. You may define references and pointers to a type with only a declaration for the type. Defining objects of a type necessitates the presence of the type's definition.
+
+- **Depend on class declarations instead of class definitions whenever you can**. Note that you never need a class definition to declare a function using that class, not even if the function passes or returns the class type by value:
+
+      class Date;  // class declaration
+      Date today();  // fine — no definition
+      void clearAppointments(Date d);  // of Date is needed
+
+  The ability to declare `today` and `clearAppointments` **without defining** `Date` may surprise you, but it's not as curious as it seems. If anybody calls those functions, `Date`'s definition must have been seen prior to the call. Why bother to declare functions that nobody calls, you wonder? Simple. It's not that nobody calls them, it's that not everybody calls them. If you have a library containing dozens of function declarations, it's unlikely that every client calls every function. By moving the onus of **providing class definitions** from your header file of function declarations to clients' files containing function calls, you eliminate artificial client dependencies on **type definitions** they don't really need.
+
+- **Provide separate header files for declarations and definitions**. In order to facilitate adherence to the **above guidelines**, header files need to come in pairs: **one for declarations**, the **other for definitions**. These files must be kept consistent, of course. If a declaration is changed in one place, it must be changed in both. As a result, library clients should always `#include` a declaration file instead of forward-declaring something themselves, and **library authors should provide both header files**. For example, the `Date` client wishing to declare `today` and `clearAppointments` shouldn't manually forward-declare `Date` as shown above. Rather, it should `#include` the appropriate header of declarations:
+
+      #include "datefwd.h" // header file declaring (but not defining) class Date
+      Date today(); // as before
+      void clearAppointments(Date d);
+
+...
+
+It would be a serious mistake, however, to dismiss **Handle classes** and **Interface classes** simply because they have a cost associated with them. So do virtual functions, and you wouldn't want to forgo those, would you? (If so, you're reading the wrong book.) Instead, consider using these techniques in an evolutionary manner. Use Handle classes and Interface classes during development to **minimize the impact on clients when implementations change**. Replace Handle classes and Interface classes with concrete classes for production use when it can be shown that the difference in **speed and/or size** is significant enough to justify the increased coupling between classes. 
 
 
 
