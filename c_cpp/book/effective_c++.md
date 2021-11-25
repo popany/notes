@@ -21,6 +21,8 @@
     - [Item 29: Strive for exception-safe code](#item-29-strive-for-exception-safe-code)
   - [Item 30: Understand the ins and outs of inlining](#item-30-understand-the-ins-and-outs-of-inlining)
   - [Item 31: Minimize compilation dependencies between files](#item-31-minimize-compilation-dependencies-between-files)
+  - [Chapter 6: Inheritance and Object-Oriented Design](#chapter-6-inheritance-and-object-oriented-design)
+    - [Item 32: Make sure public inheritance models "is-a"](#item-32-make-sure-public-inheritance-models-is-a)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -425,6 +427,11 @@ Exception-safe 函数按由弱到强可分为如下三类:
 ...
 
 It would be a serious mistake, however, to dismiss **Handle classes** and **Interface classes** simply because they have a cost associated with them. So do virtual functions, and you wouldn't want to forgo those, would you? (If so, you're reading the wrong book.) Instead, consider using these techniques in an evolutionary manner. Use Handle classes and Interface classes during development to **minimize the impact on clients when implementations change**. Replace Handle classes and Interface classes with concrete classes for production use when it can be shown that the difference in **speed and/or size** is significant enough to justify the increased coupling between classes. 
+
+## Chapter 6: Inheritance and Object-Oriented Design
+
+### Item 32: Make sure public inheritance models "is-a"
+
 
 
 
