@@ -15,6 +15,10 @@
     - [Item 21: Don't try to return a reference when you must return an object](#item-21-dont-try-to-return-a-reference-when-you-must-return-an-object)
     - [Item 23: Prefer non-member non-friend functions to member functions](#item-23-prefer-non-member-non-friend-functions-to-member-functions)
     - [Item 25: Consider support for a non-throwing swap](#item-25-consider-support-for-a-non-throwing-swap)
+  - [Chapter 5: Implementations](#chapter-5-implementations)
+    - [Item 26: Postpone variable definitions as long as possible](#item-26-postpone-variable-definitions-as-long-as-possible)
+    - [Item 27: Minimize casting](#item-27-minimize-casting)
+    - [Item 29: Strive for exception-safe code](#item-29-strive-for-exception-safe-code)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -246,3 +250,149 @@ refer non-member non-friend functions to member functions. Doing so increases en
 编译器会优先搜索与对应类属于同一命名空间的 `swap`, 之后是特化的 `std::swap`, 最后是默认的 `std::swap`.
 
 对于成员函数 `swap`, 不能抛出异常, 以保证 `swap` 可用于实现异常安全场景, 参考 Item 29. 成员函数 `swap` 的高效性与不抛异常并不矛盾, 因为高效往往建立于对基础类型的操作上, 而对基础类型的操作是不会引发异常的.
+
+## Chapter 5: Implementations
+
+### Item 26: Postpone variable definitions as long as possible
+
+关于循环中使用的对象, 其定义放在循环外(A 方案)还是循环外(B 方案).
+
+- A 方案开销: 1 次构造 + 1 次析构 + n 次赋值
+
+- B 方案开销: n 次构造 + n 次析构
+
+如果赋值开销小于构造加析构的开销, A 方案性能更好, 尤其在 n 比较大的情况.
+
+但是 A 方案中变量的作用域更广, 会提到理解与维护的成本. 因此除非在已明确 1) 赋值开销小于构造加析构的开销, 且, 2) 有高性能需求的场景, 其他场景应使用方案 B.
+
+### Item 27: Minimize casting
+
+- Avoid casts whenever practical, especially `dynamic_casts` in performance-sensitive code. If a design requires casting, try to develop a cast-free alternative.
+
+- When casting is necessary, try to hide it inside a function. Clients can then call the function instead of putting casts in their own code.
+
+- Prefer C++-style casts to old-style casts. They are easier to see, and they are more specific about what they do.
+
+### Item 29: Strive for exception-safe code
+
+    class PrettyMenu {
+    public:
+        ...
+        void changeBackground(std::istream& imgSrc);
+        ...
+    private:
+        Mutex mutex; 
+        Image *bgImage;
+        int imageChanges;
+    };
+
+    void PrettyMenu::changeBackground(std::istream& imgSrc)
+    {
+        lock(&mutex);
+        delete bgImage;
+        ++imageChanges;
+        bgImage = new Image(imgSrc);
+        unlock(&mutex);
+    }
+
+对于 **exception-safe 函数, 应满足如下两个基本要求(上例中的函数 `PrettyMenu::changeBackground` 一个也没有满足):
+
+- **Leak no resources**. The code above fails this test, because if the `new Image(imgSrc)` expression yields an exception, the call to unlock never gets executed, and the `mutex` is held forever.
+
+- **Don't allow data structures to become corrupted**. If `new Image(imgSrc)` throws, `bgImage` is left pointing to a deleted object. In addition, `imageChanges` has been incremented, even though it's not true that a new image has been installed. (On the other hand, the old image has definitely been eliminated, so I suppose you could argue that the image has been "changed.")
+
+Exception-safe 函数按由弱到强可分为如下三类:
+
+- Functions offering **the basic guarantee** promise that if an exception is thrown, everything in the program **remains in a valid state**. No objects or data structures become corrupted, and all objects are in an internally consistent state (e.g., all class invariants are satisfied). However, the **exact state** of the program may **not be predictable**.
+
+- Functions offering **the strong guarantee** promise that if an exception is thrown, the **state of the program is unchanged**. Calls to such functions are atomic in the sense that if they succeed, they succeed completely, and if they fail, the program state is as if they'd never been called.
+
+- Functions offering **the nothrow guarantee** promise never to throw exceptions, because they always do what they promise to do. All operations on built-in types (e.g., ints, pointers, etc.) are nothrow (i.e., offer the nothrow guarantee). This is a critical building block of exception-safe code.
+
+如果允许, 应尽量编写符合 **the nothrow guarantee** 的函数, 但通常做不到.
+
+要使得 `changeBackground` **几乎**满足 **the strong guarantee**, 需作如下两点修改:
+
+1. 将 `bgImage` 换为智能指针
+
+2. 修改 `++imageChanges` 的位置
+
+修改后的代码如下:
+
+    class PrettyMenu {
+        ...
+        std::tr1::shared_ptr<Image> bgImage;
+        ...
+    };
+
+    void PrettyMenu::changeBackground(std::istream& imgSrc)
+    {
+        Lock ml(&mutex);
+        bgImage.reset(new Image(imgSrc));
+        ++imageChanges;
+    }
+
+上述代码之所以只是"**几乎**" **the strong guarantee** 的, 是因为当 `Image` 的构造函数抛异常时, `imgSrc` stream 的 read marker 可能发生了改变. 在解决该问题前, 上述代码只是 **the basic guarantee** 的.
+
+此处暂时不纠结上述代码怎样满足 **ther strong guarantee**.
+
+下面介绍一种可用于实现 **the strong guarantee** 的常用策略: **copy and swap**. 该策略的基本思路是, 创建一份将要修改的对象的副本, 并将所有的修改应用到该副本上. 即便在修改副本过程中发生异常, 也可保证原对象状态不变. 若副本修改成功, 则通过不抛异常的操作交换副本与原始对象.
+
+实现 **copy and swap** 策略时通常借助 **"pimpl idiom"**, 代码如下所示:
+
+    struct PMImpl {
+        std::tr1::shared_ptr<Image> bgImage;
+        int imageChanges;
+    };
+
+    class PrettyMenu {
+        ...
+    private:
+        Mutex mutex;
+        std::tr1::shared_ptr<PMImpl> pImpl;
+    };
+
+    void PrettyMenu::changeBackground(std::istream& imgSrc)
+    {
+        using std::swap;
+        Lock ml(&mutex);
+        std::tr1::shared_ptr<PMImpl> pNew(new PMImpl(*pImpl));
+        pNew->bgImage.reset(new Image(imgSrc));
+        ++pNew->imageChanges;
+        swap(pImpl, pNew);
+    }
+
+"copy and swap" 策略虽然可以保证原对象状态不被修改, 但仍不足以保证 **the strong guarantee**. 参考下例:
+
+    void someFunc()
+    {
+        ...  // make copy of local state
+        f1();
+        f2();
+        ...  // swap modified state into place
+    }
+
+虽然 `someFunc` 使用了 "copy and swap" 策略, 但如果 `f1()` 或 `f2()` 不满足 **the strong guarantee**, 则, 函数 `someFunc` 不满足 **the strong guarantee**.
+
+并且, 即使 `f1()` 与 `f2()` 均为 "**the strong guarantee**" 的, `someFunc` 依旧不满足 **the strong guarantee**. 考虑如下情况:
+
+`f1()` 调用成功, 程序的状态发生了改变, `f2()` 调用过程中抛出异常, 此时程序的状态与 `someFunc` 调用前不同, 即, 不满足 **the strong guarantee**.
+
+虽然在一些场景下可通过 "copy and swap" 策略实现 **the strong guarantee**, 但现实中往往由于性能、内存、代码复杂性的原因不得不采用 **the basic guarantee** 的方案.
+
+对于一个软件系统, 要么其实异常安全的, 要么不是异常安全的, 不存在部分异常安全这种说法. 即便软件系统中只有一个函数不是异常安全的, 则该软件系统不是异常安全的. 因为对该函数的调用可能导致资源泄露或数据损坏.
+
+在定义接口时, 应该确定该接口的异常安全级别, 并在文档中说明.
+
+
+
+
+
+
+
+
+
+
+
+
+
