@@ -23,6 +23,14 @@
   - [Item 31: Minimize compilation dependencies between files](#item-31-minimize-compilation-dependencies-between-files)
   - [Chapter 6: Inheritance and Object-Oriented Design](#chapter-6-inheritance-and-object-oriented-design)
     - [Item 32: Make sure public inheritance models "is-a"](#item-32-make-sure-public-inheritance-models-is-a)
+    - [Item 33: Avoid hiding inherited names](#item-33-avoid-hiding-inherited-names)
+  - [Item 34: Differentiate between inheritance of interface and inheritance of implementation](#item-34-differentiate-between-inheritance-of-interface-and-inheritance-of-implementation)
+  - [Item 35: Consider alternatives to virtual functions](#item-35-consider-alternatives-to-virtual-functions)
+    - [The Template Method Pattern via the Non-Virtual Interface Idiom](#the-template-method-pattern-via-the-non-virtual-interface-idiom)
+    - [The Strategy Pattern via Function Pointers](#the-strategy-pattern-via-function-pointers)
+    - [The Strategy Pattern via `tr1::function`](#the-strategy-pattern-via-tr1function)
+    - [The "Classic" Strategy Pattern](#the-classic-strategy-pattern)
+  - [Item 36: Never redefine an inherited non-virtual function](#item-36-never-redefine-an-inherited-non-virtual-function)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -426,11 +434,84 @@ Exception-safe 函数按由弱到强可分为如下三类:
 
 ...
 
-It would be a serious mistake, however, to dismiss **Handle classes** and **Interface classes** simply because they have a cost associated with them. So do virtual functions, and you wouldn't want to forgo those, would you? (If so, you're reading the wrong book.) Instead, consider using these techniques in an evolutionary manner. Use Handle classes and Interface classes during development to **minimize the impact on clients when implementations change**. Replace Handle classes and Interface classes with concrete classes for production use when it can be shown that the difference in **speed and/or size** is significant enough to justify the increased coupling between classes. 
+It would be a serious mistake, however, to dismiss **Handle classes** and **Interface classes** simply because they have a cost associated with them. So do virtual functions, and you wouldn't want to forgo those, would you? (If so, you're reading the wrong book.) Instead, consider using these techniques in an evolutionary manner. Use Handle classes and Interface classes during development to **minimize the impact on clients when implementations change**. Replace Handle classes and Interface classes with concrete classes for production use when it can be shown that the difference in **speed and/or size** is significant enough to justify the increased coupling between classes.
 
 ## Chapter 6: Inheritance and Object-Oriented Design
 
 ### Item 32: Make sure public inheritance models "is-a"
+
+Public inheritance means "is-a".
+
+Private inheritance means something entirely different (see Item 39), and protected inheritance is something whose meaning eludes me to this day.
+
+### Item 33: Avoid hiding inherited names
+
+C++'s name-hiding rules do just that: **hide names**. Whether the names correspond to the **same or different types** is immaterial.
+
+注意: 以上论述同样适用于函数(函数签名可视为函数的类型).
+
+...
+
+The scope of a derived class is nested inside its base class's scope.
+
+...
+
+As you can see, this applies even though the functions in the base and derived classes take **different parameter types**, and it also applies regardless of whether the functions are **virtual or non-virtual**. In the same way that, at the beginning of this Item, the `double x` in the function `someFunc` hides the `int x` at global scope, here the function `mf3` in Derived hides a Base function named `mf3` that has a **different type**.
+
+The rationale behind this behavior is that it prevents you from accidentally inheriting overloads from distant base classes when you create a new derived class in a library or application framework.
+
+...
+
+This means that if you inherit from a base class with overloaded functions and you want to redefine or override only some of them, you need to include a **`using` declaration** for each **name** you'd otherwise be hiding. If you don't, some of the names you'd like to inherit will be hidden.
+
+...
+
+Things to Remember:
+
+- Names in derived classes hide names in base classes. Under public inheritance, this is never desirable. 
+
+- To make hidden names visible again, employ using declarations or forwarding functions.
+
+## Item 34: Differentiate between inheritance of interface and inheritance of implementation
+
+Pure virtual functions must be redeclared in concrete derived classes, but they may also have implementations of their own.
+
+对于基类提供默认实现的某一函数, 若某一派生类需要实现其特有版本, 为了防止该派生类的编写者忘记重写该函数. 可在基类中将该函数声明为纯虚函数, 并在基类中提供定义. 这样, 如果派生类的编写者忘记重写该函数, 则会导致编译报错(因为派生类中必须提供基类的纯虚函数的定义). 对于使用默认版本的情况, 在派生类的实现中调用基类版本即可.
+
+## Item 35: Consider alternatives to virtual functions
+
+### The Template Method Pattern via the Non-Virtual Interface Idiom
+
+This basic design - having clients call private virtual functions indirectly through public non-virtual member functions — is known as the **non-virtual interface (NVI) idiom**. It's a particular manifestation of the more general design pattern called **Template Method** (a pattern
+that, unfortunately, has **nothing to do with C++ templates**). I call the non-virtual function (e.g., `healthValue`) the virtual function's wrapper.
+
+**An advantage of the NVI idiom** is suggested by the **"do 'before' stuff"** and **"do 'after' stuff"** comments in the code. Those comments identify code segments guaranteed to be called before and after the virtual function that does the real work. This means that the wrapper ensures that before a virtual function is called, the proper context is set up, and after the call is over, the context is cleaned up. For example, the "before" stuff could include locking a mutex, making a log entry, verifying that class invariants and function preconditions are satisfied, etc. The "after" stuff could include unlocking a mutex, verifying function postconditions, reverifying class invariants, etc. There's not really any good way to do that if you let clients call virtual functions directly.
+
+It may have crossed your mind that the NVI idiom involves **derived classes redefining private virtual functions** - **redefining functions they can't call**! There's no design contradiction here. Redefining a virtual function specifies **how** something is to be done. Calling a virtual function specifies **when** it will be done. These concerns are independent. The NVI idiom allows derived classes to redefine a virtual function, thus giving them control over **how** functionality is implemented, but the base class reserves for itself the right to say **when** the function will be called. It may seem odd at first, but **C++'s rule that derived classes may redefine private inherited virtual functions is perfectly sensible**.
+
+### The Strategy Pattern via Function Pointers
+
+This approach is a simple application of another common design pattern, **Strategy**. Compared to approaches based on virtual functions in the `GameCharacter` hierarchy, it offers some interesting flexibility:
+
+- Different instances of the same character type can have different health calculation functions.
+
+- Health calculation functions for a particular character may be changed at runtime.
+
+### The Strategy Pattern via `tr1::function`
+
+...
+
+于上一条比, 只是把函数指针换成了 `tr1::function`
+
+### The "Classic" Strategy Pattern
+
+This approach has the appeal of being quickly recognizable to people familiar with the "standard" Strategy pattern implementation, plus it offers the possibility that an existing health calculation algorithm can be tweaked by adding a derived class to the `HealthCalcFunc` hierarchy.
+
+## Item 36: Never redefine an inherited non-virtual function
+
+
+
+
 
 
 
