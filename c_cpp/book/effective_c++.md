@@ -1,8 +1,6 @@
 # Effective C++
 
 - [Effective C++](#effective-c)
-
-- [Effective C++](#effective-c)
   - [Chapter 1: Accustoming Yourself to C++](#chapter-1-accustoming-yourself-to-c)
     - [Item 3: Use const whenever possible](#item-3-use-const-whenever-possible)
   - [Chapter 2: Constructors, Destructors, and Assignment Operators](#chapter-2-constructors-destructors-and-assignment-operators)
@@ -19,18 +17,24 @@
     - [Item 26: Postpone variable definitions as long as possible](#item-26-postpone-variable-definitions-as-long-as-possible)
     - [Item 27: Minimize casting](#item-27-minimize-casting)
     - [Item 29: Strive for exception-safe code](#item-29-strive-for-exception-safe-code)
-  - [Item 30: Understand the ins and outs of inlining](#item-30-understand-the-ins-and-outs-of-inlining)
-  - [Item 31: Minimize compilation dependencies between files](#item-31-minimize-compilation-dependencies-between-files)
+    - [Item 30: Understand the ins and outs of inlining](#item-30-understand-the-ins-and-outs-of-inlining)
+    - [Item 31: Minimize compilation dependencies between files](#item-31-minimize-compilation-dependencies-between-files)
   - [Chapter 6: Inheritance and Object-Oriented Design](#chapter-6-inheritance-and-object-oriented-design)
     - [Item 32: Make sure public inheritance models "is-a"](#item-32-make-sure-public-inheritance-models-is-a)
     - [Item 33: Avoid hiding inherited names](#item-33-avoid-hiding-inherited-names)
-  - [Item 34: Differentiate between inheritance of interface and inheritance of implementation](#item-34-differentiate-between-inheritance-of-interface-and-inheritance-of-implementation)
-  - [Item 35: Consider alternatives to virtual functions](#item-35-consider-alternatives-to-virtual-functions)
-    - [The Template Method Pattern via the Non-Virtual Interface Idiom](#the-template-method-pattern-via-the-non-virtual-interface-idiom)
-    - [The Strategy Pattern via Function Pointers](#the-strategy-pattern-via-function-pointers)
-    - [The Strategy Pattern via `tr1::function`](#the-strategy-pattern-via-tr1function)
-    - [The "Classic" Strategy Pattern](#the-classic-strategy-pattern)
-  - [Item 36: Never redefine an inherited non-virtual function](#item-36-never-redefine-an-inherited-non-virtual-function)
+    - [Item 34: Differentiate between inheritance of interface and inheritance of implementation](#item-34-differentiate-between-inheritance-of-interface-and-inheritance-of-implementation)
+    - [Item 35: Consider alternatives to virtual functions](#item-35-consider-alternatives-to-virtual-functions)
+      - [The Template Method Pattern via the Non-Virtual Interface Idiom](#the-template-method-pattern-via-the-non-virtual-interface-idiom)
+      - [The Strategy Pattern via Function Pointers](#the-strategy-pattern-via-function-pointers)
+      - [The Strategy Pattern via `tr1::function`](#the-strategy-pattern-via-tr1function)
+      - [The "Classic" Strategy Pattern](#the-classic-strategy-pattern)
+    - [Item 36: Never redefine an inherited non-virtual function](#item-36-never-redefine-an-inherited-non-virtual-function)
+    - [Item 37: Never redefine a function's inherited default parameter value](#item-37-never-redefine-a-functions-inherited-default-parameter-value)
+    - [Item 38: Model "has-a" or "is-implemented-in-terms-of" through composition](#item-38-model-has-a-or-is-implemented-in-terms-of-through-composition)
+    - [Item 39: Use private inheritance judiciously](#item-39-use-private-inheritance-judiciously)
+    - [Item 40: Use multiple inheritance judiciously](#item-40-use-multiple-inheritance-judiciously)
+  - [Chapter 7: Templates and Generic Programming](#chapter-7-templates-and-generic-programming)
+    - [Item 41: Understand implicit interfaces and compiletime polymorphism](#item-41-understand-implicit-interfaces-and-compiletime-polymorphism)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -396,7 +400,7 @@ Exception-safe 函数按由弱到强可分为如下三类:
 
 在定义接口时, 应该确定该接口的异常安全级别, 并在文档中说明.
 
-## Item 30: Understand the ins and outs of inlining
+### Item 30: Understand the ins and outs of inlining
 
 内联函数的问题:
 
@@ -414,7 +418,7 @@ Exception-safe 函数按由弱到强可分为如下三类:
 
 大多数编译器支持设置诊断等级, 当内联失败时, 打印错误.
 
-## Item 31: Minimize compilation dependencies between files
+### Item 31: Minimize compilation dependencies between files
 
 - **Avoid using objects when object references and pointers will do**. You may define references and pointers to a type with only a declaration for the type. Defining objects of a type necessitates the presence of the type's definition.
 
@@ -472,15 +476,15 @@ Things to Remember:
 
 - To make hidden names visible again, employ using declarations or forwarding functions.
 
-## Item 34: Differentiate between inheritance of interface and inheritance of implementation
+### Item 34: Differentiate between inheritance of interface and inheritance of implementation
 
 Pure virtual functions must be redeclared in concrete derived classes, but they may also have implementations of their own.
 
 对于基类提供默认实现的某一函数, 若某一派生类需要实现其特有版本, 为了防止该派生类的编写者忘记重写该函数. 可在基类中将该函数声明为纯虚函数, 并在基类中提供定义. 这样, 如果派生类的编写者忘记重写该函数, 则会导致编译报错(因为派生类中必须提供基类的纯虚函数的定义). 对于使用默认版本的情况, 在派生类的实现中调用基类版本即可.
 
-## Item 35: Consider alternatives to virtual functions
+### Item 35: Consider alternatives to virtual functions
 
-### The Template Method Pattern via the Non-Virtual Interface Idiom
+#### The Template Method Pattern via the Non-Virtual Interface Idiom
 
 This basic design - having clients call private virtual functions indirectly through public non-virtual member functions — is known as the **non-virtual interface (NVI) idiom**. It's a particular manifestation of the more general design pattern called **Template Method** (a pattern
 that, unfortunately, has **nothing to do with C++ templates**). I call the non-virtual function (e.g., `healthValue`) the virtual function's wrapper.
@@ -489,7 +493,7 @@ that, unfortunately, has **nothing to do with C++ templates**). I call the non-v
 
 It may have crossed your mind that the NVI idiom involves **derived classes redefining private virtual functions** - **redefining functions they can't call**! There's no design contradiction here. Redefining a virtual function specifies **how** something is to be done. Calling a virtual function specifies **when** it will be done. These concerns are independent. The NVI idiom allows derived classes to redefine a virtual function, thus giving them control over **how** functionality is implemented, but the base class reserves for itself the right to say **when** the function will be called. It may seem odd at first, but **C++'s rule that derived classes may redefine private inherited virtual functions is perfectly sensible**.
 
-### The Strategy Pattern via Function Pointers
+#### The Strategy Pattern via Function Pointers
 
 This approach is a simple application of another common design pattern, **Strategy**. Compared to approaches based on virtual functions in the `GameCharacter` hierarchy, it offers some interesting flexibility:
 
@@ -497,17 +501,148 @@ This approach is a simple application of another common design pattern, **Strate
 
 - Health calculation functions for a particular character may be changed at runtime.
 
-### The Strategy Pattern via `tr1::function`
+#### The Strategy Pattern via `tr1::function`
 
 ...
 
 于上一条比, 只是把函数指针换成了 `tr1::function`
 
-### The "Classic" Strategy Pattern
+#### The "Classic" Strategy Pattern
 
 This approach has the appeal of being quickly recognizable to people familiar with the "standard" Strategy pattern implementation, plus it offers the possibility that an existing health calculation algorithm can be tweaked by adding a derived class to the `HealthCalcFunc` hierarchy.
 
-## Item 36: Never redefine an inherited non-virtual function
+### Item 36: Never redefine an inherited non-virtual function
+
+如果派生类重新定义了基类中的某个函数, 设为 `mf`, 则通过基类指针调用 `mf` 时, 调用的是基类版本, 通过派生类指针调用 `mf` 时, 调用的是派生类版本. 这是我们不希望看到的.
+
+If reading this Item gives you a sense of déjà vu, it's probably because you've already read Item 7, which explains why destructors in polymorphic base classes should be virtual. If you violate that guideline (i.e., if you declare a non-virtual destructor in a polymorphic base class), you'll also be violating this guideline, because derived classes would invariably **redefine an inherited non-virtual function**: the base class's destructor. This would be true even for derived classes that declare no destructor, because, as Item 5 explains, the destructor is one of the member functions that compilers generate for you if you don't declare one yourself. In essence, Item 7 is nothing more than a special case of this Item, though it's important enough to merit calling out on its own.
+
+### Item 37: Never redefine a function's inherited default parameter value
+
+That being the case, the justification for this Item becomes quite straightforward: virtual functions are **dynamically bound**, but default parameter values are **statically bound**.
+
+对于虚函数 `mf`, 若在基类与派生类中都定义了默认参数, 由于默认参数是静态绑定的, 则通过指针以默认参数调用 `mf` 时, 实际使用参数值只与指针类型有关, 与对象的实际类型无关.
+
+可通过 NVI idiom 来避免需要定义虚函数的默认参数的场景. 即, 在基类中定义公有的非需函数并定义其默认参数, 使该非需函数调用私有的虚函数, 并传入默认参数值. 代码如下:
+
+    class Shape {
+    public:
+        enum ShapeColor { Red, Green, Blue };
+        void draw(ShapeColor color = Red) const
+        {
+            doDraw(color);
+        }
+        ...
+    private:
+        virtual void doDraw(ShapeColor color) const = 0;
+    };
+
+    class Rectangle: public Shape {
+    public:
+        ...
+    private:
+        virtual void doDraw(ShapeColor color) const;
+        ...
+    };
+
+### Item 38: Model "has-a" or "is-implemented-in-terms-of" through composition
+
+Composition means either "has-a" or "is-implemented-in-terms-of". That's because you are dealing with **two different domains** in your software. Some objects in your programs correspond to **things in the world** you are modeling, e.g., people, vehicles, video frames, etc. Such objects are part of the **application domain**. Other objects are purely **implementation artifacts**, e.g., buffers, mutexes, search trees, etc. These kinds of objects correspond to your software's **implementation domain**. When composition occurs between objects in the application domain, it expresses a **has-a relationship**. When it occurs in the implementation domain, it expresses an **is-implemented-in-terms-of relationship**.
+
+### Item 39: Use private inheritance judiciously
+
+Clearly, private inheritance doesn't mean is-a.
+
+"Whoa!" you say. "Before we get to the meaning, let's cover the **behavior**. How does private inheritance behave?" Well, the first rule governing private inheritance you've just seen in action: in contrast to public inheritance, compilers will generally **not convert a derived class object** (such as `Student`) into a base class object (such as `Person`) if the inheritance relationship between the classes is private. That's why the call to eat fails for the object `s`. The second rule is that members inherited from a private base class **become private members of the derived class**, even if they were protected or public in the base class.
+
+**Private inheritance means is-implemented-in-terms-of**. If you make a class `D` privately inherit from a class `B`, you do so because you are interested in taking advantage of some of the features available in class `B`, not because there is any conceptual relationship between objects of types `B` and `D`. As such, private inheritance is purely an implementation technique.
+
+The fact that private inheritance means **is-implemented-in-terms-of** is a little disturbing, because Item 38 points out that **composition can mean the same thing**. How are you supposed to choose between them? The answer is simple: **use composition whenever you can**, and use private inheritance whenever you must. When must you? Primarily when protected members and/or virtual functions enter the picture, though there's also an edge case where space concerns can tip the scales toward private inheritance. We'll worry about the edge case later. After all, it's an edge case.
+
+...
+
+I remarked earlier that private inheritance is useful primarily **when a would-be derived class wants access to the protected parts of a would be base class or would like to redefine one or more of its virtual functions**, but the conceptual relationship between the classes is is-implemented-in-terms-of instead of is-a. However, I also said that there was an edge case involving space optimization that could nudge you to prefer private inheritance over composition.
+
+The edge case is edgy indeed: it applies only when you're **dealing with a class that has no data** in it. Such classes have no non-static data members; no virtual functions (because the existence of such functions adds a `vptr` to each object — see Item 7); and no virtual base classes (because such base classes also incur a size overhead — see Item 40). Conceptually, objects of such empty classes should use no space, because there is no per-object data to be stored. However, there are technical reasons for C++ decreeing that **freestanding objects must have non-zero size**, so if you do this,
+
+    class Empty {};
+
+    class HoldsAnInt {
+    private:
+        int x;
+        Empty e;
+    };
+
+you'll find that `sizeof(HoldsAnInt) > sizeof(int)`; an `Empty` data member requires memory. With most compilers, `sizeof(Empty)` is `1`, because C++'s edict against **zero-size freestanding objects** is typically satisfied by the silent insertion of a char into "empty" objects. However, alignment requirements (see Item 50) may cause compilers to add padding to classes like `HoldsAnInt`, so it's likely that `HoldsAnInt` objects wouldn't gain just the size of a `char`, they would actually enlarge enough to hold a second `int`. (On all the compilers I tested, that’s exactly what happened.)
+
+But perhaps you've noticed that I've been careful to say that "freestanding" objects mustn't have zero size. This constraint **doesn't apply to base class parts of derived class objects**, because they're not freestanding. If you inherit from `Empty` instead of containing an object of that type,
+
+    class HoldsAnInt: private Empty {
+    private:
+        int x;
+    };
+
+you're almost sure to find that `sizeof(HoldsAnInt) == sizeof(int)`. This is known as the **empty base optimization (EBO)**, and it's implemented by all the compilers I tested. If you're a library developer whose clients care about space, the EBO is worth knowing about. Also worth knowing is that the **EBO is generally viable only under single inheritance**. The rules governing C++ object layout generally mean that the **EBO can't be applied to derived classes that have more than one base**.
+
+In practice, "empty" classes **aren't truly empty**. Though they never have non-static data members, they often **contain typedefs, enums, static data members, or non-virtual functions**. The STL has many technically empty classes that contain useful members (usually typedefs), including the base classes `unary_function` and `binary_function`, from which classes for user-defined function objects typically inherit. Thanks to widespread implementation of the EBO, such inheritance rarely increases the size of the inheriting classes.
+
+### Item 40: Use multiple inheritance judiciously
+
+When it comes to **multiple inheritance (MI)**, the C++ community largely breaks into two basic camps. One camp believes that if single inheritance (SI) is good, multiple inheritance must be better. The other camp argues that single inheritance is good, but multiple inheritance isn't worth the trouble. In this Item, our primary goal is to understand both perspectives on the MI question.
+
+One of the first things to recognize is that when MI enters the designscape, it becomes possible to inherit the same name (e.g., function, typedef, etc.) from more than one base class. That **leads to new opportunities for ambiguity**.
+
+...
+
+Note that in this example, the call to `checkOut` is ambiguous, **even though only one of the two functions is accessible**. (`checkOut` is public in `BorrowableItem` but private in `ElectronicGadget`.) That's in accord with the C++ rules for resolving calls to overloaded functions: **before seeing whether a function is accessible, C++ first identifies the function that's the best match for the call**. It checks accessibility only after finding the best-match function. In this case, the name `checkOut` is **ambiguous during name lookup**, so neither function overload resolution nor best match determination takes place. The accessibility of `ElectronicGadget::checkOut` is therefore never examined. To resolve the ambiguity, you must specify which base class's function to call:
+
+    mp.BorrowableItem::checkOut();
+
+Multiple inheritance just means inheriting from more than one base class, but it is not uncommon for MI to be found in hierarchies that have higher-level base classes, too. That can lead to what is sometimes known as the **"deadly MI diamond"**:
+
+    class File { ... };
+
+    class InputFile: public File { ... };
+
+    class OutputFile: public File { ... };
+
+    class IOFile: public InputFile,
+                  public OutputFile
+    { ... };
+
+Any time you have an inheritance hierarchy with **more than one path** between a base class and a derived class (such as between `File` and `IOFile` above, which has paths through both `InputFile` and `OutputFile`), you must confront the question of whether you want the data members in the base class to be replicated for each of the paths. For example, suppose that the `File` class has a data member, `fileName`. **How many copies of this field should `IOFile` have**? On the one hand, it **inherits a copy from each of its base classes**, so that suggests that `IOFile` should have two fileName data members. On the other hand, simple logic says that an `IOFile` object has only one file name, so the `fileName` field it **inherits through its two base classes should not be replicated**.
+
+C++ takes no position on this debate. It happily **supports both** options, though its **default is to perform the replication**. If that's not what you want, you must make the class with the data (i.e., `File`) a **virtual base class**. To do that, you have all classes that immediately inherit from it use **virtual inheritance**:
+
+    class File { ... };
+
+    class InputFile: virtual public File { ... };
+
+    class OutputFile: virtual public File { ... };
+
+    class IOFile: public InputFile,
+                  public OutputFile
+    { ... };
+
+The standard C++ library contains an MI hierarchy just like this one, except the classes are class templates, and the names are `basic_ios`, `basic_istream`, `basic_ostream`, and `basic_iostream` instead of `File`, `InputFile`, `OutputFile`, and `IOFile`.
+
+**From the viewpoint of correct behavior, public inheritance should always be virtual**. If that were the only point of view, the rule would be simple: anytime you use public inheritance, use virtual public inheritance. Alas, **correctness is not the only perspective**. Avoiding the replication of inherited fields **requires some behind-the-scenes legerdemain** on the part of compilers, and the result is that objects created from classes using virtual inheritance are **generally larger than they would be** without virtual inheritance. Access to data members in virtual base classes is also **slower** than to those in non-virtual base classes. The details vary from compiler to compiler, but the basic thrust is clear: **virtual inheritance costs**.
+
+It **costs in other ways**, too. The rules governing the initialization of virtual base classes are **more complicated** and less intuitive than are those for non-virtual bases. The responsibility for **initializing a virtual base is borne by the most derived class in the hierarchy**. Implications of this rule include (1) classes derived from virtual bases that require initialization must be aware of their virtual bases, no matter how far distant the bases are, and (2) when a new derived class is added to the hierarchy, it must assume initialization responsibilities for its virtual bases (both direct and indirect).
+
+My **advice on virtual base classes** (i.e., on virtual inheritance) is simple. First, **don't use virtual bases unless you need to**. By default, use non-virtual inheritance. Second, if you must use virtual base classes, try to **avoid putting data in them**. That way you won't have to worry about oddities in the initialization (and, as it turns out, assignment) rules for such classes. It's worth noting that Interfaces in Java and .NET, which are in many ways comparable to virtual base classes in C++, are not allowed to contain any data.
+
+...
+
+One reasonable application of multiple inheritance: combine public inheritance of an interface with private inheritance of an implementation.
+
+## Chapter 7: Templates and Generic Programming
+
+Ultimately, it was discovered that the C++ template mechanism is itself **Turing-complete**: it can be used to compute any computable value. That led to template metaprogramming: the creation of programs that execute inside C++ compilers and that stop running when compilation is complete.
+
+### Item 41: Understand implicit interfaces and compiletime polymorphism
+
+The world of templates and generic programming is fundamentally different. In that world, **explicit interfaces** and **runtime polymorphism** continue to exist, but they're less important. Instead, **implicit interfaces** and **compile-time polymorphism** move to the fore.
 
 
 
