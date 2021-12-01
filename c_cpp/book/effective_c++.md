@@ -35,6 +35,9 @@
     - [Item 40: Use multiple inheritance judiciously](#item-40-use-multiple-inheritance-judiciously)
   - [Chapter 7: Templates and Generic Programming](#chapter-7-templates-and-generic-programming)
     - [Item 41: Understand implicit interfaces and compiletime polymorphism](#item-41-understand-implicit-interfaces-and-compiletime-polymorphism)
+    - [Item 42: Understand the two meanings of typename](#item-42-understand-the-two-meanings-of-typename)
+    - [Item 43: Know how to access names in templatized base classes](#item-43-know-how-to-access-names-in-templatized-base-classes)
+    - [Item 44: Factor parameter-independent code out of templates](#item-44-factor-parameter-independent-code-out-of-templates)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -643,6 +646,184 @@ Ultimately, it was discovered that the C++ template mechanism is itself **Turing
 ### Item 41: Understand implicit interfaces and compiletime polymorphism
 
 The world of templates and generic programming is fundamentally different. In that world, **explicit interfaces** and **runtime polymorphism** continue to exist, but they're less important. Instead, **implicit interfaces** and **compile-time polymorphism** move to the fore.
+
+...
+
+An explicit interface typically consists of function signatures, i.e., function names, parameter types, **return types**, etc. The Widget class public interface, for example,
+
+    class Widget {
+    public:
+        Widget();
+        virtual ~Widget();
+        virtual std::size_t size() const;
+        virtual void normalize();
+        void swap(Widget& other);
+    };
+
+consists of a constructor, a destructor, and the functions `size`, `normalize`, and `swap`, along with the parameter types, return types, and constnesses of these functions. (It also includes the compiler-generated copy constructor and copy assignment operator — see Item 5.) It could also include typedefs and, if you were so bold as to violate Item 22's advice to make data members private, data members, though in this case, it does not.
+
+An **implicit interface** is quite different. It is not based on function signatures. Rather, **it consists of valid expressions**. Look again at the conditional at the beginning of the doProcessing template:
+
+    template<typename T>
+    void doProcessing(T& w)
+    {
+        if (w.size() > 10 && w != someNastyWidget) { ...
+
+The implicit interface for `T` (`w`'s type) **appears to have** these constraints:
+
+- It must offer a member function named `size` that returns an integral value.
+
+- It must support an `operator!=` function that compares two objects of type `T`. (Here, we assume that `someNastyWidget` is of type `T`.)
+
+Thanks to the possibility of operator overloading, **neither of these constraints need be satisfied**. Yes, `T` must support a `size` member function, though it's worth mentioning that the function might be inherited from a base class. But this member function **need not return an integral type**. It **need not even return a numeric type**. For that matter, it **need not even return a type for which `operator>` is defined**! All it needs to do is return an object of some type `X` such that there is an `operator>` that can be called with an object of type `X` and an `int` (because 10 is of type int). The `operator>` need not take a parameter of type `X`, because it could take a parameter of type `Y`, and that would be okay as long as there were an implicit conversion from objects of type `X` to objects of type `Y`!
+
+Similarly, there is no requirement that `T` support `operator!=`, because it would be just as acceptable for `operator!=` to take one object of type `X` and one object of type `Y`. As long as `T` can be converted to `X` and `someNastyWidget`'s type can be converted to `Y`, the call to `operator!=` would be valid.
+
+(As an aside, this analysis doesn't take into account the possibility that `operator&&` could be overloaded, thus changing the meaning of the above expression from a conjunction to something potentially quite different.)
+
+...
+
+The implicit interfaces imposed on a template's parameters are just as real as the explicit interfaces imposed on a class's objects, and both are checked during compilation. Just as you can't use an object in a way contradictory to the explicit interface its class offers (the code won't compile), **you can't try to use an object in a template unless that object supports the implicit interface the template requires** (again, the code won't compile).
+
+### Item 42: Understand the two meanings of typename
+
+Question: what is the difference between `class` and `typename` in the following template declarations?
+
+    template<class T> class Widget;
+    template<typename T> class Widget;
+
+Answer: nothing. **When declaring a template type parameter**, `class` and `typename` mean exactly the same thing.
+
+...
+
+C++ doesn't always view `class` and `typename` as equivalent, however. Sometimes you must use `typename`.  To understand when, we have to talk about two kinds of names you can refer to in a template.
+
+Suppose we have a template for a function that takes an STL-compatible container holding objects that can be assigned to `int`s. Further suppose that this function simply prints the value of its second element. It's a silly function implemented in a silly way, and as I've written it below, it **shouldn't even compile**, but please overlook those things — there's a method to my madness:
+
+    template<typename C>
+    void print2nd(const C& container)  // this is not valid C++
+    {
+        if (container.size() >= 2) {
+            C::const_iterator iter(container.begin());
+            ++iter;
+            int value = *iter;
+            std::cout << value;
+        }
+    }
+
+I've highlighted the two local variables in this function, `iter` and `value`. The type of `iter` is `C::const_iterator`, a type that depends on the template parameter `C`. **Names in a template that are dependent on a template parameter are called dependent names**. When a dependent name is nested inside a class, I call it a **nested dependent name**. `C::const_iterator` is a nested dependent name. In fact, it's a nested dependent type name, i.e., a nested dependent name that refers to a type.
+
+The other local variable in `print2nd`, `value`, has type `int`. `int` is a name that does not depend on any template parameter. Such names are known as **non-dependent names**, (I have no idea why they're not called independent names. If, like me, you find the term "non-dependent" an abomination, you have my sympathies, but "non-dependent" is the term for these kinds of names, so, like me, roll your eyes and resign yourself to it.)
+
+Nested dependent names can lead to parsing difficulties. For example, suppose we made `print2nd` even sillier by starting it this way:
+
+    template<typename C>
+    void print2nd(const C& container)
+    {
+        C::const_iterator * x;
+        ...
+    }
+
+This looks like we're declaring `x` as a local variable that's a pointer to a `C::const_iterator`. But it looks that way only because we "know" that `C::const_iterator` is a type. But **what if `C::const_iterator` weren't a type**? What if C had a static data member that happened to be named `const_iterator`, and what if `x` happened to be the name of a global variable? In that case, the code above wouldn't declare a local variable, it would be a multiplication of `C::const_iterator` by `x`! Sure, that sounds crazy, but it's possible, and **people who write C++ parsers have to worry about all possible inputs**, even the crazy ones.
+
+**Until `C` is known, there's no way to know whether `C::const_iterator` is a type or isn't, and when the template `print2nd` is parsed, `C` isn't known**. C++ has a rule to resolve this ambiguity: if the parser encounters a nested dependent name in a template, it assumes that the name is not a type unless you tell it otherwise. **By default, nested dependent names are not types**. (There is an exception to this rule that I'll get to in a moment.)
+
+With that in mind, look again at the beginning of `print2nd`:
+
+    template<typename C>
+    void print2nd(const C& container)
+    {
+        if (container.size() >= 2) {
+            C::const_iterator iter(container.begin()); // this name is assumed to not be a type
+            ...
+Now it should be clear **why this isn't valid C++**. The declaration of `iter` makes sense only if `C::const_iterator` is a type, but we haven't told C++ that it is, and C++ assumes that it's not. To rectify the situation, **we have to tell C++ that `C::const_iterator` is a type**. We do that **by putting `typename` immediately in front of it**:
+
+    template<typename C> // this is valid C++
+    void print2nd(const C& container)
+    {
+        if (container.size() >= 2) {
+            typename C::const_iterator iter(container.begin());
+            ...
+        }
+    }
+
+The general rule is simple: **anytime you refer to a nested dependent type name in a template, you must immediately precede it by the word `typename`**. (Again, I'll describe an **exception** shortly.) `typename` should be used to identify only nested dependent type names; other names shouldn't have it. For example, here's a function template that takes both a container and an iterator into that container:
+
+    template<typename C>        // typename allowed (as is "class")
+    void f(const C& container,  // typename not allowed
+           typename C::iterator iter);  // typename required
+
+`C` is not a nested dependent type name (it's not nested inside anything dependent on a template parameter), so it must not be preceded by `typename` when declaring container, but `C::iterator` is a nested dependent type name, so it's required to be preceded by `typename`.
+
+The **exception** to the "`typename` must precede nested dependent type names" rule is that `typename` must not precede nested dependent type names **in a list of base classes** or **as a base class identifier in a member initialization list**. For example:
+
+    template<typename T>
+    class Derived: public Base<T>::Nested {  // base class list: typename not allowed
+    public:
+        explicit Derived(int x)
+            : Base<T>::Nested(x)  // base class identifier in member initialization list: typename not allowed
+        {
+            typename Base<T>::Nested temp;
+            ...
+        } 
+        ...
+    };
+
+Such inconsistency is irksome, but once you have a bit of experience under your belt, you'll barely notice it.
+
+Let's look at one last `typename` example, because it's representative of something you're going to see in real code. Suppose we're writing a function template that takes an iterator, and we want to make a local copy, `temp`, of the object the iterator points to. We can do it like this:
+
+    template<typename IterT>
+    void workWithIterator(IterT iter)
+    {
+        typename std::iterator_traits<IterT>::value_type temp(*iter);
+        ...
+    }
+
+Don't let the `std::iterator_traits<IterT>::value_type` startle you. That's just a use of a standard traits class (see Item 47), the C++ way of saying "**the type of thing pointed to by objects of type IterT**." The statement declares a local variable (`temp`) of the same type as what `IterT` objects point to, and it initializes `temp` with the object that `iter` points to. If `IterT` is `vector<int>::iterator`, `temp` is of type `int`. If `IterT` is `list<string>::iterator`, `temp` is of type `string`. Because `std::iterator_traits<IterT>::value_type` is a nested dependent type name (`value_type` is nested inside `iterator_traits<IterT>`, and `IterT` is a template parameter), we must precede it by `typename`.
+
+If you think reading `std::iterator_traits<IterT>::value_type` is unpleasant, imagine what it's like to type it. If you're like most programmers, the thought of typing it more than once is ghastly, so you'll want to create a `typedef`. For traits member names like `value_type` (again, see Item 47 for information on traits), a common convention is for the `typedef` name to be the same as the traits member name, so such a local typedef is often defined like this:
+
+    template<typename IterT>
+    void workWithIterator(IterT iter)
+    {
+        typedef typename std::iterator_traits<IterT>::value_type value_type;
+        value_type temp(*iter); ...
+    }
+
+Many programmers find the "typedef typename" juxtaposition initially jarring, but it's a logical fallout from the rules for referring to nested dependent type names. You'll get used to it fairly quickly. After all, you have strong motivation. How many times do you want to type `typename std::iterator_traits<IterT>::value_type`?
+
+As a closing note, I should mention that enforcement of the rules surrounding `typename` **varies from compiler to compiler**. Some compilers accept code where `typename` is required but missing; some accept code where `typename` is present but not allowed; and a few (usually older ones) reject `typename` where it's present and required. This means that the interaction of `typename` and nested dependent type names can lead to some mild portability headaches.
+
+Things to Remember:
+
+- **When declaring template parameters**, `class` and `typename` are interchangeable.
+
+- Use `typename` to identify **nested dependent type names**, except in base class lists or as a base class identifier in a member initialization list.
+
+### Item 43: Know how to access names in templatized base classes
+
+当基类为模板类, 在派生类中调用基类的函数时, 不能仅通过函数名调用, 否则会编译报错. 因为编译器在处理派生类定义时无法确定基类类型(因为模板类型未确定, 且考虑到模板特化可以定义与通用模板不同的实现), 所以编译器无法确定基类中是否实现了派生类中调用的函数.
+
+上述在派生类中引用模板基类中的**函数**的情况同样适用于引用模板基类中的**成员变量**. 编译器拒绝为派生类查找可能继承自模板基类的名称(函数/变量...).
+
+可通过三种方式解决上述问题:
+
+1. `this->` + 名称
+
+2. 使用 `using` 声明名称来自于模板基类
+
+3. 通过类名显式引用
+
+   该方法不推荐使用, 因为对于虚函数, 会失去动态绑定的行为
+
+Fundamentally, the issue is whether compilers will diagnose invalid references to base class members sooner (when derived class template definitions are parsed) or later (when those templates are instantiated with specific template arguments). C++'s policy is to prefer early diagnoses, and that's why it **assumes it knows nothing about the contents of base classes** when those classes are instantiated from templates.
+
+Things to Remember:
+
+- In derived class templates, refer to names in base class templates via a "`this->`" prefix, via `using` declarations, or via an explicit base class qualification.
+
+### Item 44: Factor parameter-independent code out of templates
 
 
 
