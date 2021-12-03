@@ -39,7 +39,7 @@
     - [Item 43: Know how to access names in templatized base classes](#item-43-know-how-to-access-names-in-templatized-base-classes)
     - [Item 44: Factor parameter-independent code out of templates](#item-44-factor-parameter-independent-code-out-of-templates)
     - [Item 45: Use member function templates to accept "all compatible types"](#item-45-use-member-function-templates-to-accept-all-compatible-types)
-  - [Item 46: Define non-member functions inside templates when type conversions are desired](#item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired)
+    - [Item 46: Define non-member functions inside templates when type conversions are desired](#item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -924,7 +924,7 @@ Things to Remember:
 
 - If you declare member templates for generalized copy construction or generalized assignment, you’ll still need to declare the normal copy constructor and copy assignment operator, too.
 
-## Item 46: Define non-member functions inside templates when type conversions are desired
+### Item 46: Define non-member functions inside templates when type conversions are desired
 
 
 
