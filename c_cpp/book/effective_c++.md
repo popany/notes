@@ -38,6 +38,8 @@
     - [Item 42: Understand the two meanings of typename](#item-42-understand-the-two-meanings-of-typename)
     - [Item 43: Know how to access names in templatized base classes](#item-43-know-how-to-access-names-in-templatized-base-classes)
     - [Item 44: Factor parameter-independent code out of templates](#item-44-factor-parameter-independent-code-out-of-templates)
+    - [Item 45: Use member function templates to accept "all compatible types"](#item-45-use-member-function-templates-to-accept-all-compatible-types)
+  - [Item 46: Define non-member functions inside templates when type conversions are desired](#item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -825,13 +827,104 @@ Things to Remember:
 
 ### Item 44: Factor parameter-independent code out of templates
 
+This Item has discussed only bloat due to non-type template parameters, but type parameters can lead to bloat, too.
 
+Things to Remember:
 
+- Templates generate multiple classes and multiple functions, so any template code not dependent on a template parameter causes bloat.
 
+- Bloat due to non-type template parameters can often be eliminated by replacing template parameters with function parameters or class data members.
 
+- Bloat due to type parameters can be reduced by sharing implementations for instantiation types with identical binary representations
 
+### Item 45: Use member function templates to accept "all compatible types"
 
+**Iterators into STL containers are almost always smart pointers**; certainly you couldn't expect to move a built-in pointer from one node in a linked list to the next by using "`++`", yet that works for `list::iterators`.
 
+...
+
+与具有隐式转换关系的两种类型的指针相应的两种智能指针之间没有隐式转换关系. 因为这两种智能指针均为模板类实例化后产生的新类型, 编译器将其视为两种完全不同的类型, 二者间的转换关系需要定义.
+
+两种类型间的转换可通过构造函数实现, 常规情况下, 对于类型 `A`, 每增加一种可转换至 `A` 的类型, 就需要在 `A` 中定义对应的构造函数. 这不得不产生重复性的工作, 且需要修改 `A` 代码. 对于智能指针模板类, 为了避免上述问题, 可使用模板类的成员函数模板, 更具体是构造函数模板(又称 generalized copy constructor).
+
+    template<typename T>
+        class SmartPtr {
+        public:
+            template<typename U>  // member template 
+            SmartPtr(const SmartPtr<U>& other);
+            ...
+    };
+
+注意, 构造函数模板声明中未使用 `explicit` 关键字, 以便支持隐式类型转换.
+
+具体实现上依赖智能指针的 `get` 方法:
+
+    template<typename T>
+    class SmartPtr {
+    public:
+        template<typename U>
+        SmartPtr(const SmartPtr<U>& other)
+        : heldPtr(other.get()) { ... }
+
+        T* get() const { return heldPtr; }
+        ...
+    private:
+        T *heldPtr;
+    };
+
+注意, 以上实现自然地过滤了 `U*` 无法隐式转换为 `T*` 的情况, 这是我们希望的.
+
+同样, 智能指针也应支持具有转换关系的指针的赋值, 以 `shared_ptr` 为例:
+
+    template<class T> class shared_ptr {
+    public:
+        template<class Y>
+        explicit shared_ptr(Y * p);
+
+        template<class Y>
+        shared_ptr(shared_ptr<Y> const& r);  // generalized copy constructor
+
+        template<class Y>
+        explicit shared_ptr(weak_ptr<Y> const& r);
+
+        template<class Y>
+        explicit shared_ptr(auto_ptr<Y>& r);
+
+        template<class Y>
+        shared_ptr& operator=(shared_ptr<Y> const& r);  // generalized copy assignment
+
+        template<class Y>
+        shared_ptr& operator=(auto_ptr<Y>& r);
+
+        ...
+    };
+
+注意, 上面代码中的构造函数中, 只有 generalized copy constructor 没有使用 `explicit` 关键字, 使得除 `shared_ptr` 模板类型之外的类型均不支持隐式转换为 `shared_ptr` 模板类型.
+
+注意, 上面代码中通过定义 generalized copy constructor 与 generalized copy assignment 并不能阻止编译器(在代码中有使用复制构造函数或赋值运算符时)生成默认的复制构造函数和赋值运算符. 为了阻止这一行为, 已使复制构造函数与赋值运算符遵循我们的需要, 我们需要对二者进行定义:
+
+    template<class T> class shared_ptr {
+    public:
+        shared_ptr(shared_ptr const& r);  // copy constructor
+
+        template<class Y>
+        shared_ptr(shared_ptr<Y> const& r);  // generalized copy constructor
+
+        shared_ptr& operator=(shared_ptr const& r);  // copy assignment
+
+        template<class Y>
+        shared_ptr& operator=(shared_ptr<Y> const& r);  // generalized copy assignment
+
+        ...
+    };
+
+Things to Remember:
+
+- Use member function templates to generate functions that accept all compatible types.
+
+- If you declare member templates for generalized copy construction or generalized assignment, you’ll still need to declare the normal copy constructor and copy assignment operator, too.
+
+## Item 46: Define non-member functions inside templates when type conversions are desired
 
 
 
