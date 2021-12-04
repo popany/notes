@@ -982,6 +982,35 @@ Things to Remember:
 
 ### Item 46: Define non-member functions inside templates when type conversions are desired
 
+尝试将 Item 24 中的有理数类 `Rational` 扩展为模板类如下:
+
+    template<typename T>
+    class Rational {
+    public:
+        Rational(const T& numerator = 0, const T& denominator = 1);
+        const T numerator() const;
+        const T denominator() const;
+        ...
+    };
+
+    template<typename T>
+    const Rational<T> operator*(const Rational<T>& lhs, const Rational<T>& rhs)
+    { ... }
+
+对于下面的代码:
+
+    Rational<int> oneHalf(1, 2);
+    Rational<int> result = oneHalf * 2; 
+
+第二行会编译报错. 问题源于模板推断. 若编译器将表达式 `oneHalf * 2` 按模板函数 `template<typename T> const Rational<T> operator*(const Rational<T>& lhs, const Rational<T>& rhs)` 进行模板推断. 对于第一个参数 `oneHalf`, 可推断出 `T` 的类型为 `int`. 但对于第二个参数 `2`, 编译器无法推断 `T` 的类型, 原因如下:
+
+1. 函数的两个参数是分别进行模板推断的, 即便在对第一个参数进行模板推断时已推断出了 `T` 的类型, 在对第二个参数进行模板对端时编译器不会利用这一信息.
+
+2. 编译器在进行模板推断时, 不会考虑隐式类型转换. 即, 编译器不会利用存在 `int` 到 `Rational` 的隐式类型转换这一信息.
+
+   补充说明: 编译器会在函数调用时进行隐式类型转换(如果需要的话). 在模板推断阶段, 还不存在函数的声明与定义, 编译器会根据模板推断结果生成函数的定义. 即, 编译器对隐式类型转换信息的利用在模板推断之后.
+
+
 
 
 
