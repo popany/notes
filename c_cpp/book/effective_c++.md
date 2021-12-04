@@ -172,16 +172,30 @@ refer non-member non-friend functions to member functions. Doing so increases en
 
 2. 作为非成员函数实现
 
+       class Rational {
+           ...  // contains no operator*
+       };
+
+       const Rational operator*(const Rational& lhs, const Rational& rhs)
+       {
+           return Rational(lhs.numerator() * rhs.numerator(),
+                           lhs.denominator() * rhs.denominator());
+       }
+
 3. 作为友元函数实现
 
-考虑乘法满足交换律, 且, 对于乘法运算符 
+我们要支持 mixed-mode operations, 且考虑乘法满足交换律, 我们要支持如下两种情况:
 
+    Rational oneHalf(1, 2);
 
-只有参数在函数的变量列表中时才可能出发隐式的类型转换, `this` 指针不在成员函数的变量列表中, 所以无法触发针对 `this` 指针的隐式类型转换.
+    result = oneHalf * 2;  // (1)
+    result = 2 * oneHalf;  // (2)
 
+考虑到只能针对函数的变量列表中的参数触发隐式类型转换, `this` 指针不在成员函数的变量列表中, 所以无法触发针对 `this` 指针的隐式类型转换. 所以方案 "1. 作为成员函数实现" 是不支 "情况 (2)" 的, 即, 表达式 `2 * oneHalf` 中的 `2` 不能隐式转换为 `Rational`.
 
+方案 "2. 作为非成员函数实现" 与方案 "3. 作为友元函数实现" 均可满足 "情况 (1)" 与 "情况 (2)" 的要求. 但我们最终选择方案 "2. 作为非成员函数实现", 此处我们根据的原则是: "如果能不用友元函数, 那就别用".
 
-
+这里还要澄清一点, 成员函数的对立面是非成员函数, 而不是友元函数. 太多 C++ 程序员认为, 对于一个与某一类型相关的函数, 若其不能作为该类型的成员函数实现, 就应该作为该类型的友元函数实现, 这种观点是有瑕疵的.
 
 ### Item 25: Consider support for a non-throwing swap
 
