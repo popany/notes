@@ -41,6 +41,7 @@
     - [Item 44: Factor parameter-independent code out of templates](#item-44-factor-parameter-independent-code-out-of-templates)
     - [Item 45: Use member function templates to accept "all compatible types"](#item-45-use-member-function-templates-to-accept-all-compatible-types)
     - [Item 46: Define non-member functions inside templates when type conversions are desired](#item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired)
+    - [Item 47: Use traits classes for information about types](#item-47-use-traits-classes-for-information-about-types)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -1009,6 +1010,76 @@ Things to Remember:
 2. 编译器在进行模板推断时, 不会考虑隐式类型转换. 即, 编译器不会利用存在 `int` 到 `Rational` 的隐式类型转换这一信息.
 
    补充说明: 编译器会在函数调用时进行隐式类型转换(如果需要的话). 在模板推断阶段, 还不存在函数的声明与定义, 编译器会根据模板推断结果生成函数的定义. 即, 编译器对隐式类型转换信息的利用在模板推断之后.
+
+解决方案如下:
+
+    template<typename T>
+    class Rational {
+    public:
+        ...
+        friend const Rational operator*(const Rational& lhs, const Rational& rhs);
+    };
+
+    template<typename T>
+    const Rational<T> operator*(const Rational<T>& lhs, const Rational<T>& rhs)
+    { ... }
+
+即, 将表示两个 `Rational` 对象相乘的 `operator*` 运算符声明为 `Rational` 模板类的友元函数. 从而在 `Rational<int>` 完成模板实例化同时, 也完成了对函数 `const Rational<int> operator*(const Rational<int>& lhs, const Rational<int>& rhs)` 的声明. 根据该函数声明, 并结合隐式类型转换, 编译器会将表达式 `oneHalf * 2` 视为对该函数声明所指的函数的调用. 注意, 这里没有模板推断发生.
+
+注意, 模板类中声明友元函数时没有使用 `Rational<T>` 而是用了 `Rational`, 二者效果相同, 这里只是一种简写.
+
+至此, 上述方案解决了编译的问题, 但链接会报错. 因为 `Rational<int>` 完成模板实例化时仅完成了对友元函数的声明, 并没有进行定义. 为解决该问题, 将模板运算符的定义同声明一起放到模板类中即可.
+
+    template<typename T>
+    class Rational {
+    public:
+        ...
+        friend const Rational operator*(const Rational& lhs, const Rational& rhs)
+        {
+            return Rational(lhs.numerator() * rhs.numerator(), lhs.denominator() * rhs.denominator());
+        }
+    };
+
+注意, 在上述方案中, 利用友元函数的目的并不是为了访问类的私有成员. 目的是为了在模板类完成模板实例化同时完成相应的函数声明与定义.
+
+上述方案可以按如下思路理解:
+
+1. 为了使编译器在处理表达式 `oneHalf * 2` 时可利用隐式类型转换, 需要在此之前完成函数 `operator*` 的声明.
+
+2. 为了在处理表达式 `oneHalf * 2` 前完成函数 `operator*` 的声明, 需将其声明为 `Rational` 模板类的友元函数.
+
+3. 为了完成对函数 `operator` 的定义, 需要将其作为友元函数定义在 `Rational` 模板类中.
+
+注意, 将一个非成员函数声明在类中的唯一方法就是将其声明为该类的友元函数. (原文: The only way to declare a nonmember function inside a class is to make it a friend.)
+
+定义在类中的函数(包括友元函数), 默认是 `inline` 的. 在有些情况下, 这不是我们所期望的. 我们可以在类外定义一个帮助函数, 在帮助函数中编写实际的功能, 再使友元函数调用该帮助函数, 以降低 `inline` 的影响. 具体见下例:
+
+    template<typename T>
+    const Rational<T> doMultiply(const Rational<T>& lhs, const Rational<T>& rhs)
+    {
+        return Rational<T>(lhs.numerator() * rhs.numerator(), lhs.denominator() * rhs.denominator());
+    }
+
+    template<typename T>
+    class Rational {
+    public:
+        ...
+        friend
+        const Rational<T> operator*(const Rational<T>& lhs, const Rational<T>& rhs)
+        { return doMultiply(lhs, rhs); }
+        ...
+    };
+
+### Item 47: Use traits classes for information about types
+
+
+
+
+
+
+
+
+
 
 
 
