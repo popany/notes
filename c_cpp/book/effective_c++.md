@@ -12,6 +12,7 @@
     - [Item 20: Prefer pass-by-reference-to-const to pass-byvalue](#item-20-prefer-pass-by-reference-to-const-to-pass-byvalue)
     - [Item 21: Don't try to return a reference when you must return an object](#item-21-dont-try-to-return-a-reference-when-you-must-return-an-object)
     - [Item 23: Prefer non-member non-friend functions to member functions](#item-23-prefer-non-member-non-friend-functions-to-member-functions)
+    - [Item 24: Declare non-member functions when type conversions should apply to all parameters](#item-24-declare-non-member-functions-when-type-conversions-should-apply-to-all-parameters)
     - [Item 25: Consider support for a non-throwing swap](#item-25-consider-support-for-a-non-throwing-swap)
   - [Chapter 5: Implementations](#chapter-5-implementations)
     - [Item 26: Postpone variable definitions as long as possible](#item-26-postpone-variable-definitions-as-long-as-possible)
@@ -141,6 +142,47 @@ Sure, you may incur the cost of constructing and destructing `operator*`'s retur
 
 refer non-member non-friend functions to member functions. Doing so increases encapsulation, packaging flexibility, and functional extensibility.
 
+### Item 24: Declare non-member functions when type conversions should apply to all parameters
+
+通常使用户自定义的类型支持隐式类型转换是不明智的, 但同其他规则一样, 也存在例外. 比如, 对于自定义的数值类型而言, 通常支持**隐式**类型转换是合理的.
+
+比如下面的有理数类:
+
+    class Rational {
+    public:
+        Rational(int numerator = 0, int denominator = 1);
+
+        int numerator() const;
+        int denominator() const;
+    private:
+        ...
+    };
+
+注意, `Rational` 的构造函数的声明未使用 `explicit` 关键字以支持隐式类型转换, 具体是由 `int` 类型转换为 `Rational`.
+
+假设我们要针对 `Rational` 实现 `operator*`, 可选的方案有如下三种:
+
+1. 作为成员函数实现
+
+       class Rational {
+       public:
+           ...
+           const Rational operator*(const Rational& rhs) const;
+       };
+
+2. 作为非成员函数实现
+
+3. 作为友元函数实现
+
+考虑乘法满足交换律, 对于乘法运算符 
+
+
+只有参数在函数的变量列表中时才可能出发隐式的类型转换, `this` 指针不在成员函数的变量列表中, 所以无法触发针对 `this` 指针的隐式类型转换.
+
+
+
+
+
 ### Item 25: Consider support for a non-throwing swap
 
 `std::swap` 可用于支持拷贝构造函数且支持拷贝赋值运算符的类.
@@ -222,7 +264,7 @@ refer non-member non-friend functions to member functions. Doing so increases en
         }
     }
 
-这是非法的, 因为 C++ 不允许模板函数偏特化.
+这是非法的, 因为 **C++ 不允许模板函数偏特化**.
 
 对于需要偏特化模板函数的场景, 通常直接采用函数重载的方式
 
