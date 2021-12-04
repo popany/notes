@@ -174,7 +174,7 @@ refer non-member non-friend functions to member functions. Doing so increases en
 
 3. 作为友元函数实现
 
-考虑乘法满足交换律, 对于乘法运算符 
+考虑乘法满足交换律, 且, 对于乘法运算符 
 
 
 只有参数在函数的变量列表中时才可能出发隐式的类型转换, `this` 指针不在成员函数的变量列表中, 所以无法触发针对 `this` 指针的隐式类型转换.
