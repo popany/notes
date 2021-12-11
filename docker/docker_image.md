@@ -3,7 +3,7 @@
 - [Docker Image](#docker-image)
   - [整理](#整理)
     - [参考](#参考)
-  - [实践](#实践)
+  - [案例](#案例)
     - [在 Dockerfile 中通过 `RUN` 命令删除之前 `ADD` 的文件并不能减小最终镜像的大小](#在-dockerfile-中通过-run-命令删除之前-add-的文件并不能减小最终镜像的大小)
 
 ## 整理
@@ -34,15 +34,19 @@
 
 - [Digging into Docker layers](https://jessicagreben.medium.com/digging-into-docker-layers-c22f948ed612)
 
-## 实践
+- [What's A Docker Image Anyway?](https://vsupalov.com/whats-a-docker-image/)
+
+- [Digging into Docker layers](https://jessicagreben.medium.com/digging-into-docker-layers-c22f948ed612)
+
+## 案例
 
 ### 在 Dockerfile 中通过 `RUN` 命令删除之前 `ADD` 的文件并不能减小最终镜像的大小
 
 参考:
 
-[Why RUN command which deletes files inflates image size?](https://forums.docker.com/t/why-run-command-which-deletes-files-inflates-image-size/33670)
+- [Why RUN command which deletes files inflates image size?](https://forums.docker.com/t/why-run-command-which-deletes-files-inflates-image-size/33670)
 
-[Creating Smaller Docker Images](https://www.ianlewis.org/en/creating-smaller-docker-images)
+- [Creating Smaller Docker Images](https://www.ianlewis.org/en/creating-smaller-docker-images)
 
 原因:
 
