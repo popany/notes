@@ -35,7 +35,11 @@
         return 0;
     }
 
-上述代码中 `plusOne` 与 `plus` 等价. 推测 lambda 表达式对应的匿名 functor 存在于栈上.
+上述代码中 `plusOne` 与 `plus` 等价.
+
+说明:
+
+lambda 表达式对应的匿名 functor 存在于栈上.
 
 ## References
 
