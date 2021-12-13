@@ -72,6 +72,8 @@
         * c776088 (HEAD -> b, c) add c.txt
         * bfcd659 (origin/b) add b.txt
 
+    可见分支 `b` 已具有其 `upstream` 分支 `c` 的更新
+
 11. 在仓库 `foo1` 中在分支 `b` 中做提交后推送到远端
 
         cd /demo/foo1
@@ -80,11 +82,11 @@
         git commit -m "add b1.txt"
         git push origin HEAD
 
-12. 在仓库 `foo2` 中获取分支 `b` 的远程变更
+12. 在仓库 `foo2` 中获取分支 `b` 的远程变更, 切换到分支 `b`
 
         cd /demo/foo2
-        git checkout b
         git fetch origin b
+        git checkout b
 
 13. 调用 `git rebase`
 
@@ -93,16 +95,17 @@
 
     说明:
 
-    因为分支 `b` 的 `upstream` 分支 `c` 没有变化, 所以上面的 `git rebase` 命令不会更新分支 `b` 
+    因为分支 `b` 的 `upstream` 分支 `c` 没有变化, 所以上面的 `git rebase` 命令不会更新分支 `b`
 
 14. 在仓库 `foo2` 中将分支 `b` 的 `upstream` 分支设置为 `origin b`
 
+        git checkout b
         $ git branch -u origin/b
         Branch 'b' set up to track remote branch 'b' from 'origin'.
 
 15. 调用 `git rebase`
 
-        # git rebase
+        $ git rebase
         Successfully rebased and updated refs/heads/b.
 
 16. 查看结果
