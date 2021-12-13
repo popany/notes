@@ -18,6 +18,7 @@
     - [Starting with Submodules](#starting-with-submodules)
     - [Cloning a Project with Submodules](#cloning-a-project-with-submodules)
     - [`git submodule` command](#git-submodule-command)
+  - [`git log`](#git-log)
   - [Practice](#practice)
     - [SSH Key](#ssh-key)
   - [Config](#config)
@@ -238,6 +239,10 @@ With `git clone`
 Initialize, fetch and checkout any nested submodules
 
     git submodule update --init --recursive
+
+## `git log`
+
+    git log --graph --pretty=oneline --abbrev-commit
 
 ## Practice
 
