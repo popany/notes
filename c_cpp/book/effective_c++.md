@@ -1072,12 +1072,50 @@ Things to Remember:
 
 ### Item 47: Use traits classes for information about types
 
+trait 技术用于在编译阶段确定模板参数的类型.
 
+trait 技术需要在支持自定义类型的同时支持基础类型.
 
+以 `std::advance` 函数为例, 该函数需要针对不同迭代器类型采取特定实现以获得最佳性能. 同时该函数需要支持指针这一内部类型.
 
+实现 trait 的标准做法是借助于模板以及模板的特化. 通常将 trait 实现为结构体, 我们将这些结构体称为 trait 类.
 
+案例: `iterator_traits` 的实现
 
+1. trait 类定义
 
+       template<typename IterT>
+       struct iterator_traits {
+       typedef typename IterT::iterator_category iterator_category;
+           ...
+       };
+
+   说明:
+
+   - 由 `interator_traits` 模板的定义可知, 对于每种迭代器类型, 其内部需要定义 (实际是 typedef) 名为 `iterator_category` 的类型.
+
+   - 类型 `iterator_category` 有 5 种, 分别对应 5 种迭代器
+
+         struct input_iterator_tag {};
+         struct output_iterator_tag {};
+         struct forward_iterator_tag: public input_iterator_tag {};
+         struct bidirectional_iterator_tag: public forward_iterator_tag {};
+         struct random_access_iterator_tag: public bidirectional_iterator_tag {};
+
+   - 举例
+
+     - `deque` 的迭代器中, 定义 `iterator_category` 为 `random_access_iterator_tag`
+
+           template < ... > // template params elided
+           class deque {
+           public:
+               class iterator {
+               public:
+               typedef random_access_iterator_tag iterator_category;
+                   ...
+               };
+               ...
+           };
 
 
 
