@@ -42,6 +42,7 @@
     - [Item 45: Use member function templates to accept "all compatible types"](#item-45-use-member-function-templates-to-accept-all-compatible-types)
     - [Item 46: Define non-member functions inside templates when type conversions are desired](#item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired)
     - [Item 47: Use traits classes for information about types](#item-47-use-traits-classes-for-information-about-types)
+    - [Item 48: Be aware of template metaprogramming](#item-48-be-aware-of-template-metaprogramming)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -1102,6 +1103,8 @@ trait 技术需要在支持自定义类型的同时支持基础类型.
          struct bidirectional_iterator_tag: public forward_iterator_tag {};
          struct random_access_iterator_tag: public bidirectional_iterator_tag {};
 
+     注意: `iterator_tag` 间存在继承关系.
+
    - 举例
 
      - `deque` 的迭代器中, 定义 `iterator_category` 为 `random_access_iterator_tag`
@@ -1111,12 +1114,64 @@ trait 技术需要在支持自定义类型的同时支持基础类型.
            public:
                class iterator {
                public:
-               typedef random_access_iterator_tag iterator_category;
+                   typedef random_access_iterator_tag iterator_category;
                    ...
                };
                ...
            };
 
+     - `list` 的迭代器中, 定义 `iterator_category` 为 `bidirectional_iterator_tag`
+
+           template < ... >
+           class list {
+           public:
+               class iterator {
+               public:
+                   typedef bidirectional_iterator_tag iterator_category; ...
+               };
+               ...
+           };
+
+2. 为了将指针用作随机访问迭代器, 将 `iterator_traits` 模板针对指针类型进行偏特化:
+
+       template<typename T>
+       struct iterator_traits<T*>
+       {
+           typedef random_access_iterator_tag iterator_category;
+           ...
+       };
+
+3. 通过函数重载实现针对不同的 `iterator_category` 采用特定实现
+
+       template<typename IterT, typename DistT>
+       void advance(IterT& iter, DistT d)
+       {
+           doAdvance(iter, d, std::iterator_traits<IterT>::iterator_category());
+       }
+
+       template<typename IterT, typename DistT>
+       void doAdvance(IterT& iter, DistT d, std::random_access_iterator_tag)
+       {
+           iter += d;
+       }
+       
+       template<typename IterT, typename DistT>
+       void doAdvance(IterT& iter, DistT d, std::bidirectional_iterator_tag)
+       { 
+           if (d >= 0) { while (d--) ++iter; }
+           else { while (d++) --iter; }
+       }
+       
+       template<typename IterT, typename DistT>
+       void doAdvance(IterT& iter, DistT d, std::input_iterator_tag)
+       {
+           if (d < 0 ) {
+               throw std::out_of_range("Negative distance"); // see below
+           }
+           while (d--) ++iter;
+       }
+
+### Item 48: Be aware of template metaprogramming
 
 
 
