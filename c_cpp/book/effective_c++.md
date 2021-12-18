@@ -43,6 +43,7 @@
     - [Item 46: Define non-member functions inside templates when type conversions are desired](#item-46-define-non-member-functions-inside-templates-when-type-conversions-are-desired)
     - [Item 47: Use traits classes for information about types](#item-47-use-traits-classes-for-information-about-types)
     - [Item 48: Be aware of template metaprogramming](#item-48-be-aware-of-template-metaprogramming)
+  - [Chapter 8: Customizing `new` and `delete`](#chapter-8-customizing-new-and-delete)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -1173,6 +1174,24 @@ trait 技术需要在支持自定义类型的同时支持基础类型.
 
 ### Item 48: Be aware of template metaprogramming
 
+模板元程序 (Template metaprogramming, TMP) 用 C++ 编写, 执行在编译器, 其执行后会生成由模板实例化产生的 C++ 源码.
+
+模板元程序是图灵完备的, 即, 其强大到足以进行任意计算.
+
+模板元程序中的循环基于递归式的模板实例化.
+
+模板元编程的 "hello world" -- 计算阶乘:
+
+    template<unsigned n>
+    struct Factorial {
+        enum { value = n * Factorial<n-1>::value };
+    };
+    template<>
+    struct Factorial<0> {
+        enum { value = 1 };
+    }
+
+## Chapter 8: Customizing `new` and `delete`
 
 
 
