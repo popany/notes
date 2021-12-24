@@ -231,7 +231,7 @@ refer non-member non-friend functions to member functions. Doing so increases en
         WidgetImpl *pImpl; 
     };
 
-`Widget` 的拷贝方式为深拷贝, 但对于 `swap`, 显然只需要交换 `pImpl` 指针即可. 对于默认的 `std::move`, 由于会调用 `Widget` 拷贝构造函数和拷贝赋值运算符, 即, 会采用深拷贝的方式, 而不是交换 `pImpl` 指针, 这造成性能的浪费.
+`Widget` 的拷贝方式为深拷贝, 但对于 `swap`, 显然只需要交换 `pImpl` 指针即可. 对于默认的 `std::swap`, 由于会调用 `Widget` 拷贝构造函数和拷贝赋值运算符, 即, 会采用深拷贝的方式, 而不是交换 `pImpl` 指针, 这造成性能的浪费.
 
 为此, 需为 `Widget` 定义特化的 `std::swap`, 并在 `Widget` 中定义 public `swap` 成员函数:
 
