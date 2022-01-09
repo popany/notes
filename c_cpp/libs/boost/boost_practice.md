@@ -3,6 +3,8 @@
 - [Boost Practice](#boost-practice)
   - [Build](#build)
     - [Linux](#linux)
+  - [Use](#use)
+    - [How can I get CMake to find my alternative Boost installation?](#how-can-i-get-cmake-to-find-my-alternative-boost-installation)
 
 ## Build
 
@@ -17,5 +19,9 @@
     ./bootstrap.sh  --without-libraries=python,test
     ./b2 install
 
+## Use
 
+### [How can I get CMake to find my alternative Boost installation?](https://stackoverflow.com/questions/3016448/how-can-i-get-cmake-to-find-my-alternative-boost-installation)
+
+    BOOST_ROOT=/usr/local/... ccmake .
 
