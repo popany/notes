@@ -20,6 +20,8 @@
 
     script_path=`realpath "${BASH_SOURCE:-$0}"`
     echo ${script_path}
+    script_dir=`dirname ${script_path}`
+    echo ${script_dir}
 
 ## check arugument supplied
 
