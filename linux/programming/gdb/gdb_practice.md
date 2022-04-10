@@ -1,0 +1,21 @@
+# gdb practice
+
+- [gdb practice](#gdb-practice)
+  - [Print C++ vtables using GDB](#print-c-vtables-using-gdb)
+  - [打印局部静态符号](#打印局部静态符号)
+
+## [Print C++ vtables using GDB](https://stackoverflow.com/questions/6191678/print-c-vtables-using-gdb)
+
+    p /a (*(void ***)obj)[0]@10
+
+    p /a (*(void ***)(*this))[0]@10
+
+    p /a (*(void ***)(this))[0]@10
+
+## 打印局部静态符号
+
+    p (spdlog::details::registry) 'spdlog::details::registry::instance()::s_instance'
+
+查看符号名
+
+    nm -C xxx.so | grep "spdlog::details::registry::instance"
