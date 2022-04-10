@@ -1,0 +1,463 @@
+<mxfile host="65bd71144e">
+    <diagram id="ubafr0LIJR61je2ugAOx" name="Page-1">
+        <mxGraphModel dx="1157" dy="3415" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="15" value="&lt;div&gt;template &amp;lt;typename TContext, unsigned TMaxSubstitutions = 4&amp;gt;&lt;/div&gt;&lt;div&gt;class M&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="120" y="120" width="680" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="&lt;div&gt;template &amp;lt;typename&amp;gt;&lt;/div&gt;&lt;div&gt;struct _S;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="160" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="struct&lt;br&gt;/class" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="160" width="40" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="private" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="160" width="40" height="760" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="&lt;div&gt;template &amp;lt;typename, typename...&amp;gt;&lt;/div&gt;&lt;div&gt;struct _C;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="200" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;div&gt;template &amp;lt;typename, typename...&amp;gt;&lt;/div&gt;&lt;div&gt;struct _O;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="240" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="122" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1" edge="1" parent="1" source="26" target="69">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1360" y="320" as="targetPoint"/>
+                        <mxPoint x="850" y="280" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="26" value="&lt;div&gt;template &amp;lt;typename&amp;gt;&lt;/div&gt;&lt;div&gt;class _R;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="280" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="&lt;div&gt;template &amp;lt;typename... TS&amp;gt;&lt;/div&gt;&lt;div&gt;struct WrapState;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="320" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="using" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="640" width="40" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="using TypeInfo = detail::TypeInfo" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="640" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="&lt;div&gt;template &amp;lt;typename TKey, typename TValue, unsigned TCapacity, typename THasher = std::hash&amp;lt;TKey&amp;gt;&amp;gt;&lt;/div&gt;&lt;div&gt;using HashTable = detail::HashTable&amp;lt;TKey, TValue, TCapacity, THasher&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="760" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="&lt;div&gt;template &amp;lt;typename T&amp;gt;&lt;/div&gt;&lt;div&gt;using ArrayView = detail::ArrayView&amp;lt;T&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="720" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="&lt;div&gt;template &amp;lt;typename T, unsigned TCapacity&amp;gt;&lt;/div&gt;&lt;div&gt;using Array = detail::Array&amp;lt;T, TCapacity&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="680" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="public" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="920" width="40" height="520" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="struct&lt;br&gt;/class" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="920" width="40" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="using" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="160" y="1000" width="40" height="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="using Context = TContext" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1000" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="class Control" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="920" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="struct Parent" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="360" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="using Parents = ArrayView&amp;lt;Parent&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="800" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="struct StateRegistry" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="400" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="&lt;div&gt;template &amp;lt;unsigned TCapacity&amp;gt;&lt;/div&gt;&lt;div&gt;class StateRegistryT : public StateRegistry&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="440" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="using Index = unsigned char" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="840" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="struct Fork" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="480" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="using ForkPointers = ArrayView&amp;lt;Fork*&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="520" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="&lt;div&gt;template &amp;lt;typename T&amp;gt;&lt;/div&gt;&lt;div&gt;struct ForkT&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="560" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="struct Transition" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="600" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="using TransitionQueue = ArrayView&amp;lt;Transition&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="880" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="class Bare" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="960" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="&lt;div&gt;template &amp;lt;typename... TInjections&amp;gt;&lt;/div&gt;&lt;div&gt;using BaseT = _B&amp;lt;TInjections...&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1080" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="&lt;div&gt;template &amp;lt;typename TState, typename... TSubStates&amp;gt;&lt;/div&gt;&lt;div&gt;using Composite&lt;span&gt;&#9;&lt;/span&gt;= _C&amp;lt;TState, TSubStates...&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1120" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="&lt;div&gt;template &amp;lt;typename... TSubStates&amp;gt;&lt;/div&gt;&lt;div&gt;using CompositePeers = _C&amp;lt;Base, TSubStates...&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1160" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="&lt;div&gt;template &amp;lt;typename TState, typename... TSubStates&amp;gt;&lt;/div&gt;&lt;div&gt;using Orthogonal = _O&amp;lt;TState, TSubStates...&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1200" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="using Base = _B&amp;lt;Bare&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1040" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="&lt;div&gt;template &amp;lt;typename... TSubStates&amp;gt;&lt;/div&gt;&lt;div&gt;using OrthogonalPeers = _O&amp;lt;Base, TSubStates...&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1240" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="&lt;div&gt;template &amp;lt;typename TState, typename... TSubStates&amp;gt;&lt;/div&gt;&lt;div&gt;using Root = _R&amp;lt;Composite&amp;lt;TState, TSubStates...&amp;gt;&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1280" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="&lt;div&gt;template &amp;lt;typename... TSubStates&amp;gt;&lt;/div&gt;&lt;div&gt;using PeerRoot = _R&amp;lt;CompositePeers&amp;lt;TSubStates...&amp;gt;&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1320" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="&lt;div&gt;template &amp;lt;typename TState, typename... TSubStates&amp;gt;&lt;/div&gt;&lt;div&gt;using OrthogonalRoot = _R&amp;lt;Orthogonal&amp;lt;TState, TSubStates...&amp;gt;&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1360" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" value="&lt;div&gt;template &amp;lt;typename... TSubStates&amp;gt;&lt;/div&gt;&lt;div&gt;using OrthogonalPeerRoot = _R&amp;lt;OrthogonalPeers&amp;lt;TSubStates...&amp;gt;&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="200" y="1400" width="600" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="69" value="&lt;div&gt;template &amp;lt;typename TApex&amp;gt;&lt;/div&gt;&lt;div&gt;class _R final&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1640" y="280" width="440" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="private" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1640" y="320" width="40" height="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="using" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1680" y="360" width="40" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="using Apex = typename WrapState&amp;lt;TApex&amp;gt;::Type" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="360" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" value="using StateRegistryImpl = StateRegistryT&amp;lt;StateCapacity&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="400" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="using StateParentStorage = Array&amp;lt;Parent, StateCount&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="440" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="using ForkParentStorage = Array&amp;lt;Parent, ForkCount&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="480" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="using ForkPointerStorage = Array&amp;lt;Fork*, ForkCount&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="520" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" value="using TransitionQueueStorage = Array&amp;lt;Transition, ForkCount&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="560" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="enum" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1680" y="1040" width="40" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" value="ReverseDepth = Apex::ReverseDepth" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1040" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="88" value="ForkCount = Apex::ForkCount" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1160" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" value="ProngCount = Apex::ProngCount" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1200" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" value="Width = Apex::Width" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1240" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" value="StateCount = Apex::StateCount" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1120" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="93" value="DeepWidth = Apex::DeepWidth" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1080" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="public" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1640" y="1040" width="40" height="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" value="enum" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1680" y="320" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="96" value="StateCapacity = (unsigned) 1.3 * Apex::StateCount" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="320" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" value="protected" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1640" y="880" width="40" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="99" value="method" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1680" y="1280" width="40" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="100" value="_R(Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1280" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" value="&lt;div&gt;template &amp;lt;typename T&amp;gt;&lt;/div&gt;&lt;div&gt;inline void schedule()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1520" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="102" value="&lt;div&gt;template &amp;lt;typename T&amp;gt;&lt;/div&gt;&lt;div&gt;inline bool isActive()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1560" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" value="&lt;div&gt;template &amp;lt;typename T&amp;gt;&lt;/div&gt;&lt;div&gt;inline bool isResumable()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1600" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="104" value="&lt;div&gt;template &amp;lt;typename T&amp;gt;&lt;/div&gt;&lt;div&gt;inline void resume()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1480" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" value="&lt;div&gt;template &amp;lt;typename T&amp;gt;&lt;/div&gt;&lt;div&gt;inline void changeTo()&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1440" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="106" value="&lt;div&gt;template &amp;lt;typename TEvent&amp;gt;&lt;/div&gt;&lt;div&gt;inline void react(const TEvent&amp;amp; event)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1400" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="107" value="void update()" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1360" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="108" value="~_R()" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1320" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="109" value="method" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1680" y="880" width="40" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" value="void requestImmediate(const Transition request)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="920" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="111" value="void requestScheduled(const Transition request)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="960" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="112" value="unsigned id(const Transition request)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="1000" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="113" value="void processTransitions()" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="880" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="114" value="field" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1680" y="600" width="40" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="115" value="Context&amp;amp; _context" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="600" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="116" value="StateRegistryImpl _stateRegistry" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="640" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="117" value="StateParentStorage _stateParents" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="680" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="118" value="ForkParentStorage&amp;nbsp; _forkParents" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="720" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="119" value="ForkPointerStorage _forkPointers" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="760" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="120" value="TransitionQueueStorage _requests" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="800" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="121" value="Apex _apex" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="840" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="123" value="&lt;div&gt;template &amp;lt;typename TContext, unsigned TMaxSubstitutions&amp;gt;&lt;/div&gt;&lt;div&gt;template &amp;lt;typename TH&amp;gt;&lt;/div&gt;&lt;div&gt;struct M&amp;lt;TContext, TMaxSubstitutions&amp;gt;::_S&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1640" y="-2220" width="480" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="124" value="method" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1680" y="-1920" width="40" height="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="126" value="void deepEnter(Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1720" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="127" value="bool deepUpdateAndTransition(Control&amp;amp; control, Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1680" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="128" value="void deepUpdate(Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1640" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="129" value="&lt;div&gt;template &amp;lt;typename TEvent&amp;gt;&lt;/div&gt;&lt;div&gt;void deepReact(const TEvent&amp;amp; event, Control&amp;amp; control, Context&amp;amp; context)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1600" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="130" value="void deepLeave(Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1560" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="131" value="enum" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1680" y="-2160" width="40" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="132" value="ReverseDepth = 1" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-2160" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="133" value="public" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1640" y="-2160" width="40" height="880" as="geometry"/>
+                </mxCell>
+                <mxCell id="134" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="16" target="123">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1520" y="-250" as="targetPoint"/>
+                        <mxPoint x="810" y="310" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="135" value="DeepWidth = 0" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-2120" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="136" value="StateCount = 1" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-2080" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="137" value="ForkCount = 0" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-2040" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="138" value="ProngCount = 0" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-2000" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="139" value="Width = 1" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1960" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="140" value="field" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="1680" y="-1320" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="141" value="void deepForwardRequest(const enum Transition::Type)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1520" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="142" value="void deepRequestRemain()" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1480" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="143" value="void deepRequestRestart()" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1440" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="144" value="void deepRequestResume()" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1400" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="145" value="void deepChangeToRequested(Context&amp;amp;)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1360" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="146" value="Head _head" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1320" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="147" value="&lt;div&gt;_S(StateRegistry&amp;amp; stateRegistry,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;const Parent parent,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;Parents&amp;amp; stateParents,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;Parents&amp;amp; forkParents,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;ForkPointers&amp;amp; forkPointers)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1920" width="400" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="151" value="void deepForwardSubstitute(Control&amp;amp;, Context&amp;amp;)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1840" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="152" value="bool deepSubstitute(Control&amp;amp; control, Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1800" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="153" value="void deepEnterInitial(Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="1720" y="-1760" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="154" value="&lt;div&gt;template &amp;lt;typename TContext, unsigned TMaxSubstitutions&amp;gt;&lt;/div&gt;&lt;div&gt;template &amp;lt;typename TH, typename... TS&amp;gt;&lt;/div&gt;&lt;div&gt;struct M&amp;lt;TContext, TMaxSubstitutions&amp;gt;::_C final&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2320" y="-2500" width="480" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="155" value="enum" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="2360" y="-2160" width="40" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="156" value="ReverseDepth = SubStates::ReverseDepth + 1" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-2160" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="157" value="DeepWidth = SubStates::DeepWidth" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-2120" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="158" value="StateCount = State::StateCount + SubStates::StateCount" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-2080" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="159" value="ForkCount = SubStates::ForkCount + 1" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-2040" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="160" value="ProngCount = SubStates::ProngCount + sizeof...(TS)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-2000" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="161" value="Width = sizeof...(TS)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1960" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="162" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="22" target="154">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1650" y="-2180" as="targetPoint"/>
+                        <mxPoint x="810" y="190" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="163" value="public" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="2320" y="-2440" width="40" height="1240" as="geometry"/>
+                </mxCell>
+                <mxCell id="164" value="struct" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="2360" y="-2440" width="40" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="165" value="&lt;div&gt;template &amp;lt;unsigned TN, typename...&amp;gt;&lt;/div&gt;&lt;div&gt;struct Sub;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-2440" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="166" value="&lt;div&gt;template &amp;lt;unsigned TN, typename TI, typename... TR&amp;gt;&lt;/div&gt;&lt;div&gt;struct Sub&amp;lt;TN, TI, TR...&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-2400" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="167" value="&lt;div&gt;template &amp;lt;unsigned TN, typename TI&amp;gt;&lt;/div&gt;&lt;div&gt;struct Sub&amp;lt;TN, TI&amp;gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-2360" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="169" value="using" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="2360" y="-2320" width="40" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="170" value="using Head = TH" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-2320" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="171" value="using Fork = ForkT&amp;lt;Head&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-2280" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="172" value="using State = _S&amp;lt;Head&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-2240" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="173" value="using SubStates = Sub&amp;lt;0, TS...&amp;gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-2200" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="174" value="method" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="2360" y="-1920" width="40" height="600" as="geometry"/>
+                </mxCell>
+                <mxCell id="175" value="void deepEnter(Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1720" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="176" value="bool deepUpdateAndTransition(Control&amp;amp; control, Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1680" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="177" value="void deepUpdate(Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1640" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="178" value="&lt;div&gt;template &amp;lt;typename TEvent&amp;gt;&lt;/div&gt;&lt;div&gt;void deepReact(const TEvent&amp;amp; event, Control&amp;amp; control, Context&amp;amp; context)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1600" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="179" value="void deepLeave(Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1560" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="180" value="void deepForwardRequest(const enum Transition::Type)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1520" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="181" value="void deepRequestRemain()" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1480" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="182" value="void deepRequestRestart()" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1440" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="183" value="void deepRequestResume()" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1400" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="184" value="void deepChangeToRequested(Context&amp;amp;)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1360" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="185" value="&lt;div&gt;_C(StateRegistry&amp;amp; stateRegistry,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;const Parent parent,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;Parents&amp;amp; stateParents,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;Parents&amp;amp; forkParents,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;ForkPointers&amp;amp; forkPointers)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1920" width="400" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="186" value="void deepForwardSubstitute(Control&amp;amp;, Context&amp;amp;)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1840" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="187" value="bool deepSubstitute(Control&amp;amp; control, Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1800" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="188" value="void deepEnterInitial(Context&amp;amp; context)" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1760" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="189" value="field" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="2360" y="-1320" width="40" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="190" value="Fork _fork" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1320" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="191" value="State _state" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1280" width="400" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="192" value="SubStates _subStates" style="rounded=0;whiteSpace=wrap;html=1;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2400" y="-1240" width="400" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
