@@ -3,6 +3,7 @@
 - [gdb practice](#gdb-practice)
   - [Print C++ vtables using GDB](#print-c-vtables-using-gdb)
   - [打印局部静态符号](#打印局部静态符号)
+  - [查找函数](#查找函数)
 
 ## [Print C++ vtables using GDB](https://stackoverflow.com/questions/6191678/print-c-vtables-using-gdb)
 
@@ -19,3 +20,9 @@
 查看符号名
 
     nm -C xxx.so | grep "spdlog::details::registry::instance"
+
+## 查找函数
+
+    info functions <regex>
+
+

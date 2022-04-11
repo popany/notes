@@ -41,6 +41,7 @@
     - [`sshpass`](#sshpass)
     - [`date`](#date)
     - [`tee`](#tee)
+    - [`lddtree`](#lddtree)
     - [List logged in users](#list-logged-in-users)
   - [Memory](#memory)
     - [Check swap space usage](#check-swap-space-usage)
@@ -383,6 +384,10 @@ Furthermore, if you want to append to the log file, use `tee -a` as:
 
     program [arguments...] 2>&1 | tee -a outfile
 
+### `lddtree`
+
+    apt install pax-utils
+
 ### List logged in users
 
     who -u
@@ -701,3 +706,4 @@ CLIENT/SERVER MODEL
 - `ss -a -A 'all,!tcp'`
 
   List sockets in all states from all socket tables but TCP.
+

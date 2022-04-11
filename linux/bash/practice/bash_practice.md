@@ -5,6 +5,7 @@
   - [script path](#script-path)
   - [check arugument supplied](#check-arugument-supplied)
   - [realpath](#realpath)
+  - [process all arguments except the first one](#process-all-arguments-except-the-first-one)
 
 ## rename file
 
@@ -35,3 +36,6 @@
     absolute_path=`realpath $1`
     echo ${absolute_path}
 
+## process all arguments except the first one
+
+    echo "${@:2}"
