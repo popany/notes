@@ -35,7 +35,11 @@ ssh root@${remote_ip} -i ~/.ssh/id_ed25519 -p 22 chpasswd <<END
 foo:${password}
 END
 
-ssh-copy-id -f -i ~/.ssh/id_ed25519.pub -p 22 foo@${remote_ip}
+scp -i ~/.ssh/id_ed25519 -P 22 ~/.ssh/id_ed25519.pub root@${remote_ip}:
+ssh root@${remote_ip} -i ~/.ssh/id_ed25519 -p 22 "mkdir /home/${user_name}/.ssh"
+ssh root@${remote_ip} -i ~/.ssh/id_ed25519 -p 22 "cat id_ed25519.pub > /home/${user_name}/.ssh/authorized_keys"
+ssh root@${remote_ip} -i ~/.ssh/id_ed25519 -p 22 "chown -R ${user_name}:${user_name} /home/${user_name}/.ssh"
+ssh root@${remote_ip} -i ~/.ssh/id_ed25519 -p 22 'rm id_ed25519.pub'
 
 ssh root@${remote_ip} -i ~/.ssh/id_ed25519 -p 22 'sed -i -f - /etc/ssh/sshd_config' <<'SED_END'
 s/^PasswordAuthentication yes/PasswordAuthentication no/
