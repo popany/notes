@@ -18,5 +18,15 @@
 
     jupyter notebook --ip=0.0.0.0 --port=8080 --allow-root .
 
+## run one remote server
+
+- on remote server
+
+      jupyter notebook --no-browser --port=8086
+
+- on local host
+
+      ssh -N -L localhost:8087:localhost:8086 user@server.address
+
 
 
