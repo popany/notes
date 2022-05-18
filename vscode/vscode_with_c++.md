@@ -201,10 +201,17 @@ Edit in settings.json
   
   即, 在 "includePath" 中加入 "/usr/src/kernels/3.10.0-1062.el7.x86_64/include/", 注意于前一条目用逗号分隔
 
+## cmake
 
+[Create a build task](https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/build.md#create-a-build-task)
 
+    > Tasks: Configure task
 
+[How to run Cmake in Visual Studio Code using tasks](https://stackoverflow.com/questions/49584507/how-to-run-cmake-in-visual-studio-code-using-tasks)
 
+[Is it possible to run commands like cmake.build from tasks.json? #1264](https://github.com/microsoft/vscode-cmake-tools/issues/1264)
+
+[How to run Cmake in Visual Studio Code using tasks](https://stackoverflow.com/questions/49584507/how-to-run-cmake-in-visual-studio-code-using-tasks)
 
 
 
