@@ -57,3 +57,16 @@ relace text between `#start` and `#end` tag in file myconfig
     ~$ x="$(echo $x | sed 's/:/ /g')"
     ~$ echo "$x"
     /usr/local/bin /usr/bin /bin /usr/local/games /usr/games
+
+## [sed examples of capture groups](https://linuxhint.com/sed-capture-group-examples/)
+
+- Capturing Single group using sed command
+
+  The command written below will capture the word "Hello" and then replace the word occurring after it ("sed!") with "Linuxhint": You may have noticed that capture group is enclosed in parenthesis expression "\(" and "\)".
+
+      $ echo Hello sed! | sed 's/\(Hello\) sed!/\1 Linuxhint/'
+      Hello Linuxhint
+
+
+
+
