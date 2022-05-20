@@ -40,7 +40,7 @@ relace text between `#start` and `#end` tag in file myconfig
     }\
     #end' myconfig
 
-## [Replace a string including a slash “/” using sed command](https://unix.stackexchange.com/questions/382077/replace-a-string-including-a-slash-using-sed-command/382079)
+## [Replace a string including a slash "/" using sed command](https://unix.stackexchange.com/questions/382077/replace-a-string-including-a-slash-using-sed-command/382079)
 
 - escape `/` symbol:
 
@@ -50,3 +50,10 @@ relace text between `#start` and `#end` tag in file myconfig
 
       sed -i 's|I1Rov4Rvh/GtjpuuYttr==|mytest|g'
       sed -i 's:I1Rov4Rvh/GtjpuuYttr==:mytest:g'
+
+## [Use sed on a string variable rather than a file](https://askubuntu.com/a/595277)
+
+    ~$ x="$PATH"
+    ~$ x="$(echo $x | sed 's/:/ /g')"
+    ~$ echo "$x"
+    /usr/local/bin /usr/bin /bin /usr/local/games /usr/games
