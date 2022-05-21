@@ -4,6 +4,7 @@
   - [Print C++ vtables using GDB](#print-c-vtables-using-gdb)
   - [打印局部静态符号](#打印局部静态符号)
   - [查找函数](#查找函数)
+  - [查看 core 文件中动态库路径](#查看-core-文件中动态库路径)
 
 ## [Print C++ vtables using GDB](https://stackoverflow.com/questions/6191678/print-c-vtables-using-gdb)
 
@@ -25,4 +26,7 @@
 
     info functions <regex>
 
+## 查看 core 文件中动态库路径
+
+    gdb -c <core-file> <executable-file> -ex "i sharedlibrary" --batch
 
