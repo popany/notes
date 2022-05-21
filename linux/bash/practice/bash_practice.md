@@ -6,6 +6,7 @@
   - [check arugument supplied](#check-arugument-supplied)
   - [realpath](#realpath)
   - [process all arguments except the first one](#process-all-arguments-except-the-first-one)
+  - [set variable from function](#set-variable-from-function)
 
 ## rename file
 
@@ -39,3 +40,14 @@
 ## process all arguments except the first one
 
     echo "${@:2}"
+
+## set variable from function
+
+    function foo
+    {
+        x=$(date)
+        echo ${x}
+    }
+
+    y=$(foo)
+    echo ${y}
