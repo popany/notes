@@ -3,6 +3,7 @@
 - [perf practice](#perf-practice)
   - [install perf in docker](#install-perf-in-docker)
   - [perf top](#perf-top)
+  - [perf report -g](#perf-report--g)
   - [火焰图带符号](#火焰图带符号)
 
 ## [install perf in docker](https://stackoverflow.com/a/48672750)
@@ -19,7 +20,19 @@ and make a symbolic link to /usr/bin/perf. (in my case):
 
     perf top -g -p <pid>
 
+## perf report -g
+
+参考: [CppCon 2015: Chandler Carruth "Tuning C++: Benchmarks, and CPUs, and Compilers! Oh My!"](https://www.youtube.com/watch?v=nXaxk27zwlk)
+
+    perf record -g <executalbe-file>
+    perf report -g
+    perf report -g 'graph,0.5,caller'
+
 ## 火焰图带符号
+
+编译选项
+
+    -fno-omit-frame-pointer
 
 [Profiling Software Using perf and Flame Graphs](https://www.percona.com/blog/2019/11/20/profiling-software-using-perf-and-flame-graphs/)
 

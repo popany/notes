@@ -7,6 +7,7 @@
   - [realpath](#realpath)
   - [process all arguments except the first one](#process-all-arguments-except-the-first-one)
   - [set variable from function](#set-variable-from-function)
+  - [$(< xxx)](#-xxx)
 
 ## rename file
 
@@ -51,3 +52,8 @@
 
     y=$(foo)
     echo ${y}
+
+## $(< xxx)
+
+    clang++ $(< flags) -o bench vector/bench.cpp -lbenchmark
+
