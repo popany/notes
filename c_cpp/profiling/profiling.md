@@ -1,12 +1,14 @@
 # profiling
 
 - [profiling](#profiling)
-  - [Tools](#tools)
-    - [Valgrind](#valgrind)
-    - [GNU gprof](#gnu-gprof)
-    - [gperftools/gperftools](#gperftoolsgperftools)
-    - [google/orbit](#googleorbit)
-    - [perf](#perf)
+  - [Performance Tools](#performance-tools)
+    - [Unmodified application](#unmodified-application)
+    - [Modified application](#modified-application)
+    - [Simulators](#simulators)
+  - [GNU gprof](#gnu-gprof)
+  - [gperftools/gperftools](#gperftoolsgperftools)
+  - [google/orbit](#googleorbit)
+  - [perf Examples](#perf-examples)
 
 [Profiling/Benchmarking Tools](https://hackingcpp.com/cpp/tools/profilers.html)
 
@@ -20,16 +22,46 @@
 
 [Brendan Gregg's Homepage](https://www.brendangregg.com/index.html)
 
-## Tools
+## Performance Tools
 
-### [Valgrind](https://valgrind.org/)
+reference: [C++ Performance and Optimisation - Hubert Matthews](https://www.youtube.com/watch?v=G6IYBY-ZyLI)
 
-### [GNU gprof](https://sourceware.org/binutils/docs/gprof/)
+### Unmodified application
 
-### [gperftools/gperftools](https://github.com/gperftools/gperftools)
+- [perf](https://perf.wiki.kernel.org/index.php/Main_Page)
 
-### [google/orbit](https://github.com/google/orbit)
+- [OProfile](https://oprofile.sourceforge.io/news/)
 
-### [perf](https://perf.wiki.kernel.org/index.php/Main_Page)
+- top
 
-[perf Examples](https://www.brendangregg.com/perf.html)
+- iotop
+
+- vmstat
+
+- iostat
+
+### Modified application
+
+- Gprof/gcov
+
+- C++ std::chrono::high_resolution_clock()
+
+- boost::time::cpu_timer
+
+### Simulators
+
+- [Valgrind](https://valgrind.org/)
+
+- [callgrind](https://valgrind.org/docs/manual/cl-manual.html)
+
+- [cachegrind](https://valgrind.org/docs/manual/cg-manual.html)
+
+
+## [GNU gprof](https://sourceware.org/binutils/docs/gprof/)
+
+## [gperftools/gperftools](https://github.com/gperftools/gperftools)
+
+## [google/orbit](https://github.com/google/orbit)
+
+
+## [perf Examples](https://www.brendangregg.com/perf.html)

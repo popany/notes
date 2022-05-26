@@ -1,6 +1,9 @@
 # optimize
 
 - [optimize](#optimize)
+  - [youtube](#youtube)
+
+## youtube
 
 [CppCon 2015: Chandler Carruth "Tuning C++: Benchmarks, and CPUs, and Compilers! Oh My!"](https://www.youtube.com/watch?v=nXaxk27zwlk)
 
