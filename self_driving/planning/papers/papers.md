@@ -6,7 +6,7 @@
 
 - [An Efﬁcient Generation Method based on Dynamic Curvature of theReference Curve for Robust Trajectory Planning](https://www.researchgate.net/publication/348078602_An_Efficient_Generation_Method_based_on_Dynamic_Curvature_of_the_Reference_Curve_for_Robust_Trajectory_Planning)
 
-
+- [Real - Time Trajectory and Velocity Planning for Autonomous Vehicles](https://www.ijeat.org/wp-content/uploads/papers/v10i5/E28800610521.pdf)
 
 
 

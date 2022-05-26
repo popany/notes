@@ -1,6 +1,6 @@
-# profiler
+# profiling
 
-- [profiler](#profiler)
+- [profiling](#profiling)
   - [Tools](#tools)
     - [Valgrind](#valgrind)
     - [GNU gprof](#gnu-gprof)
