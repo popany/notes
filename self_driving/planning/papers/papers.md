@@ -16,3 +16,14 @@
 
 [Parameterization Approach of the Frenet Transformation for Model Predictive Control of Autonomous Vehicles](https://cdn.syscop.de/publications/Reiter2021.pdf)
 
+[Newton Algorithms for Riemannian Distance Related Problems on Connected Locally Symmetric Manifolds](http://users.isr.ist.utl.pt/~jxavier/ieeetsp2013b.pdf)
+
+[Robust and Efficient Computation of the Closest Point on a Spline Curve](http://homepage.divms.uiowa.edu/~kearney/pubs/CurvesAndSufacesClosestPoint.pdf)
+
+[Computing the minimum distance between a point and a NURBS curve](https://hal.inria.fr/inria-00518359/document)
+
+
+
+
+
+
