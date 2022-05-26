@@ -1,6 +1,10 @@
 # Papers
 
 - [Papers](#papers)
+  - [planning](#planning)
+  - [frenet](#frenet)
+
+## planning
 
 - [Optimal Trajectory Generation for Dynamic Street Scenarios in a Frenet Frame](https://www.researchgate.net/publication/224156269_Optimal_Trajectory_Generation_for_Dynamic_Street_Scenarios_in_a_Frenet_Frame)
 
@@ -8,5 +12,7 @@
 
 - [Real - Time Trajectory and Velocity Planning for Autonomous Vehicles](https://www.ijeat.org/wp-content/uploads/papers/v10i5/E28800610521.pdf)
 
+## frenet
 
+[Parameterization Approach of the Frenet Transformation for Model Predictive Control of Autonomous Vehicles](https://cdn.syscop.de/publications/Reiter2021.pdf)
 
