@@ -307,3 +307,6 @@ nm -DC ./src/hello_demo
                      w __cxa_finalize
                      w __gmon_start__
                      U __libc_start_main
+
+    $ nm -C ./src/hello_demo |grep greeting
+    0000000000001149 t greeting()
