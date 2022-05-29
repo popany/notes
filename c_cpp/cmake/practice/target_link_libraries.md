@@ -6,6 +6,9 @@
   - [private link greeting](#private-link-greeting)
   - [Conclusion](#conclusion)
   - [Supplementary](#supplementary)
+  - [Experiment](#experiment)
+    - [Experiment 1](#experiment-1)
+    - [Experiment 2](#experiment-2)
 
 ## PRIVATE v.s. PUBLIC
 
@@ -237,3 +240,70 @@ In this case, `target_link_libraries (hello PRIVATE greeting)` and `target_link_
     cmake version 3.22.1
     GNU Make 4.2.1
     gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1)
+
+## Experiment
+
+### Experiment 1
+
+mod src/main.cc to
+
+    #include <hello.h>
+
+    const char* greeting()
+    {
+        return "how are you!";
+    }
+
+    int main()
+    {
+        hello();
+
+        return 0;
+    }
+
+output of `hemo_demo` changes to:
+
+    hello, how are you!
+
+nm -DC ./src/hello_demo
+
+    $ nm -DC ./src/hello_demo
+                     w _ITM_deregisterTMCloneTable
+                     w _ITM_registerTMCloneTable
+                     U hello()
+    0000000000001149 T greeting()
+                     w __cxa_finalize
+                     w __gmon_start__
+                     U __libc_start_main
+
+### Experiment 2
+
+make `greeting()` function defined in `src/main.cc` in "Experiment 1" `static`:
+
+    #include <hello.h>
+
+    static const char* greeting()
+    {
+        return "how are you!";
+    }
+
+    int main()
+    {
+        hello();
+
+        return 0;
+    }
+
+output of `hemo_demo` changes back to:
+
+    hello, nice to meet you!
+
+nm -DC ./src/hello_demo
+
+    $ nm -DC ./src/hello_demo
+                     w _ITM_deregisterTMCloneTable
+                     w _ITM_registerTMCloneTable
+                     U hello()
+                     w __cxa_finalize
+                     w __gmon_start__
+                     U __libc_start_main
