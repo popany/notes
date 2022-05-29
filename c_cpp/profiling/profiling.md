@@ -9,6 +9,7 @@
   - [gperftools/gperftools](#gperftoolsgperftools)
   - [google/orbit](#googleorbit)
   - [perf Examples](#perf-examples)
+  - [vtune](#vtune)
 
 [Profiling/Benchmarking Tools](https://hackingcpp.com/cpp/tools/profilers.html)
 
@@ -65,3 +66,6 @@ reference: [C++ Performance and Optimisation - Hubert Matthews](https://www.yout
 
 
 ## [perf Examples](https://www.brendangregg.com/perf.html)
+
+## [vtune](https://www.intel.com/content/www/us/en/developer/tools/oneapi/vtune-profiler.html#gs.27a49g)
+

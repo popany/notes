@@ -14,3 +14,8 @@
 [Understanding Compiler Optimization - Chandler Carruth - Opening Keynote Meeting C++ 2015](https://www.youtube.com/watch?v=FnGCDLhaxKU)
 
 [CppCon 2018: Fedor Pikus “Design for Performance”](https://www.youtube.com/watch?v=m25p3EtBua4)
+
+[The Basics of Profiling - Mathieu Ropert - CppCon 2021](https://www.youtube.com/watch?v=dToaepIXW4s)
+
+
+
