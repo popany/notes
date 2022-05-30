@@ -89,13 +89,9 @@ The transformation from **local vehicle coordinates** to Frenet coordinates is b
 
 Transformation vehicle frame to Frenet frame.
 
+Given a point $P_C$ in the vehicle frame search for the closest point $R_C$ on the reference path. The run length of $R_C$, which is known from the reference path points, determins the $s$ coordinate of the transformed point $P_F$. If the reference path is sufficiently smooth (continuously differentiable) then the vector $\vec{PR}$ is orthogonal to the reference path at the point $R_C$. The signed length of $\vec{PR}$ determines the $d$ coordinate of $P_F$. The sign is positive, if $P_C$ lies on the left along the run lenght of the reference path.
 
+The procedure to transform a point $P_F$ from Frenet coordinates to the local vehicle frame in Cartesian coordinates is analogous. First, the point $R_C$, which lies on the reference path at run length $s$. Next, a normal unit vector $\vec{d}$ is determined, which, in this point, is orthogonal to the reference path. The direction of this vector points towards positive $d$ values and therefore points to the left with increasing run length $s$. Therefore, the vector $\vec{d}$ depends on the run length, which leads to:
 
-
-
-
-
-
-
-TODO xxxxxx
+$P_C(s,d) = R_C(s) + d \cdot \vec{d}(s)$
 
