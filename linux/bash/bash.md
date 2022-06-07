@@ -48,6 +48,7 @@
     - [Clear Memory Cache And Buffer](#clear-memory-cache-and-buffer)
   - [Process](#process)
     - [List open files belonging a process](#list-open-files-belonging-a-process)
+    - [show env variable of process](#show-env-variable-of-process)
   - [`jq`](#jq)
   - [CentOS](#centos)
     - [Check CentOS version](#check-centos-version)
@@ -425,6 +426,10 @@ Free pagecache only
 ### List open files belonging a process
 
     lsof -p <pid>
+
+### show env variable of process
+
+    cat /proc/<pid>/environ | tr '\0' '\n'
 
 ## `jq`
 

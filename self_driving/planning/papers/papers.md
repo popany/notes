@@ -12,6 +12,8 @@
 
 - [Real - Time Trajectory and Velocity Planning for Autonomous Vehicles](https://www.ijeat.org/wp-content/uploads/papers/v10i5/E28800610521.pdf)
 
+- [VectorNet: Encoding HD Maps and Agent Dynamics from Vectorized Representation](https://arxiv.org/pdf/2005.04259.pdf)
+
 ## frenet
 
 [Parameterization Approach of the Frenet Transformation for Model Predictive Control of Autonomous Vehicles](https://cdn.syscop.de/publications/Reiter2021.pdf)
