@@ -34,6 +34,7 @@
     - [Count lines of code](#count-lines-of-code)
     - [`top`](#top)
       - [Batch mode](#batch-mode)
+      - [refresh interval](#refresh-interval)
       - [Interactive command](#interactive-command)
     - [`kill`](#kill)
       - [Create core dump](#create-core-dump)
@@ -335,6 +336,10 @@ Extract to a directory
 #### Batch mode
 
     top -Eg -b -n1
+
+#### refresh interval
+
+    top -d 1
 
 #### Interactive command
 
