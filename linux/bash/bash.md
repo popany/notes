@@ -39,6 +39,7 @@
     - [`kill`](#kill)
       - [Create core dump](#create-core-dump)
     - [`awk`](#awk)
+    - [`tr`](#tr)
     - [`sshpass`](#sshpass)
     - [`date`](#date)
     - [`tee`](#tee)
@@ -365,6 +366,16 @@ Extract to a directory
 Use `:` as seperator
 
     awk -F ":" '{print $1}'
+
+### `tr`
+
+[How to concatenate multiple lines of output to one line?](https://stackoverflow.com/questions/15580144/how-to-concatenate-multiple-lines-of-output-to-one-line)
+
+    grep pattern file | tr '\n' ' '
+
+or
+
+    grep pattern file | awk '{print}' ORS='" '
 
 ### `sshpass`
 

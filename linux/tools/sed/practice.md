@@ -67,6 +67,17 @@ relace text between `#start` and `#end` tag in file myconfig
       $ echo Hello sed! | sed 's/\(Hello\) sed!/\1 Linuxhint/'
       Hello Linuxhint
 
+## sed reference variable
+
+    $ bar="bb"
+    $ echo aa foo aa | sed s'#foo#'"${bar}"'#'
+    aa xx bb xx aa
+
+
+
+
+
+
 
 
 
