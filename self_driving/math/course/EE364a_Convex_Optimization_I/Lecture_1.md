@@ -2,7 +2,9 @@
 
 - [Lecture 1 | Convex Optimization I (Stanford)](#lecture-1--convex-optimization-i-stanford)
 
-09:00
+(mathematical) optimization problem
 
+$minimize f_0(x)$
 
+$subject\hspace*{1} to$
 
