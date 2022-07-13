@@ -1,0 +1,5 @@
+# Change RelWithDebInfo Optimization
+
+    if (RELWITHDEBINFO_FORCE_OPTIMIZATION_O3)
+        string(REPLACE "-O2" "-O3" CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO}")
+    endif()

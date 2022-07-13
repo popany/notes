@@ -3,6 +3,7 @@
 - [Papers](#papers)
   - [planning](#planning)
   - [frenet](#frenet)
+  - [ilqr](#ilqr)
 
 ## planning
 
@@ -24,7 +25,9 @@
 
 [Computing the minimum distance between a point and a NURBS curve](https://hal.inria.fr/inria-00518359/document)
 
+## ilqr
 
+[Synthesis and Stabilization of Complex Behaviors through Online Trajectory Optimization](https://homes.cs.washington.edu/~todorov/papers/TassaIROS12.pdf)
 
 
 
