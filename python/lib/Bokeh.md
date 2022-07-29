@@ -3,6 +3,7 @@
 - [Bokeh](#bokeh)
   - [First steps](#first-steps)
   - [User guide](#user-guide)
+  - [practice](#practice)
 
 [home page](https://bokeh.org/)
 
@@ -29,6 +30,8 @@
 
 [Plotting with basic glyphs](https://docs.bokeh.org/en/latest/docs/user_guide/plotting.html#userguide-plotting)
 
+## practice
 
+[Bokeh - How to Layout Charts to Create Figure?](https://coderzcolumn.com/tutorials/data-science/bokeh-how-to-layout-charts-to-create-figure)
 
 

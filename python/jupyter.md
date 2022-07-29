@@ -5,6 +5,9 @@
     - [Install two packages from conda-forge channel](#install-two-packages-from-conda-forge-channel)
   - [HowTo](#howto)
     - [Run jupyter from docker container](#run-jupyter-from-docker-container)
+  - [run one remote server](#run-one-remote-server)
+  - [Practice](#practice)
+    - [How to increase the cell width of the Jupyter Notebook in browser?](#how-to-increase-the-cell-width-of-the-jupyter-notebook-in-browser)
 
 ## Jupyter Notebook Extensions
 
@@ -28,5 +31,10 @@
 
       ssh -N -L localhost:8087:localhost:8086 user@server.address
 
+## Practice
 
+### [How to increase the cell width of the Jupyter Notebook in browser?](https://www.sneppets.com/python/how-to-increase-the-cell-width-of-the-jupyter-notebook-in-browser/)
+
+    from IPython.core.display import display, HTML
+    display(HTML("<style>.container { width:100% !important; }</style>"))
 

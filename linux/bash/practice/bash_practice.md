@@ -8,6 +8,7 @@
   - [process all arguments except the first one](#process-all-arguments-except-the-first-one)
   - [set variable from function](#set-variable-from-function)
   - [$(< xxx)](#-xxx)
+  - [bash <(echo xxx)](#bash-echo-xxx)
 
 ## rename file
 
@@ -57,3 +58,6 @@
 
     clang++ $(< flags) -o bench vector/bench.cpp -lbenchmark
 
+## bash <(echo xxx)
+
+    bash <(echo "ssh ${user}@${ip} mkdir -p /home/${user}/test; scp ./foo ${user}@${ip}:/home/${user}/test")
