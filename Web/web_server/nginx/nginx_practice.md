@@ -8,6 +8,7 @@
         - [proxy_connect_timeout](#proxy_connect_timeout)
         - [proxy_pass](#proxy_pass)
         - [proxy_timeout](#proxy_timeout)
+  - [NGINX as a file server](#nginx-as-a-file-server)
 
 ## Tcp Port Forward
 
@@ -92,3 +93,19 @@ In this case, the server name is searched among the described [server groups](ht
     Context: stream, server
 
 Sets the `timeout` between two successive read or write operations on client or proxied server connections. If no data is transmitted within this time, the connection is closed.
+
+## [NGINX as a file server](https://www.yanxurui.cc/posts/server/2017-03-21-NGINX-as-a-file-server/)
+
+    # cat /etc/nginx/conf.d/foo.conf
+    server {
+        listen 8001;
+
+        autoindex on;
+        autoindex_exact_size off;
+        autoindex_localtime on;
+
+        location / {
+            root /opt/resources;
+        }
+    }
+
