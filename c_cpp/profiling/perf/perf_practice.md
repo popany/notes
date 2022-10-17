@@ -30,17 +30,20 @@ and make a symbolic link to /usr/bin/perf. (in my case):
 
 ## 火焰图带符号
 
-编译选项
-
-    -fno-omit-frame-pointer
+如果没有使用编译选项 `-fno-omit-frame-pointer`, 则需要使用 --call-graph dwarf.
 
 [Profiling Software Using perf and Flame Graphs](https://www.percona.com/blog/2019/11/20/profiling-software-using-perf-and-flame-graphs/)
 
     git clone https://github.com/brendangregg/FlameGraph
 
-    perf record -a -F 99 -g --call-graph dwarf -p <pid> -- sleep 120
+    perf record -a -F 99 -g --call-graph dwarf,65528 -p <pid> -- sleep 120
 
     perf script > perf.script
 
     ./FlameGraph/stackcollapse-perf.pl perf.script | ./FlameGraph/flamegraph.pl > flamegraph.svg
 
+参考: 
+
+[perf-record](https://man7.org/linux/man-pages/man1/perf-record.1.html)
+
+[What do the perf record choices of LBR vs DWARF vs fp do?](https://stackoverflow.com/questions/57430338/what-do-the-perf-record-choices-of-lbr-vs-dwarf-vs-fp-do)
