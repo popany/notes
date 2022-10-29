@@ -5,6 +5,7 @@
   - [Practice](#practice)
     - [proxy](#proxy)
     - [Follows redirect](#follows-redirect)
+  - [Build](#build)
 
 ## HowTO
 
@@ -25,3 +26,9 @@
     -L, --location
 
     curl -x socks5://127.0.0.1:50001 -L -O https://github.com/Kitware/CMake/releases/download/v3.21.0-rc2/cmake-3.21.0-rc2-linux-x86_64.sh
+
+## Build
+
+github: https://github.com/curl/curl
+
+[Build curl with CMake](https://everything.curl.dev/build/cme)
