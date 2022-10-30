@@ -5,7 +5,7 @@
   - [build planning](#build-planning)
   - [bazel](#bazel)
   - [vscode](#vscode)
-    - [generate compile_commands.json](#generate-compile_commandsjson)
+    - [generate compile_commands.json for planning](#generate-compile_commandsjson-for-planning)
     - [config clangd](#config-clangd)
   - [Run Planning](#run-planning)
 
@@ -43,7 +43,7 @@ docs/specs/bazel_in_apollo_an_overview.md
 
 ## vscode
 
-### generate compile_commands.json
+### generate compile_commands.json for planning
 
 https://github.com/grailbio/bazel-compilation-database
 
