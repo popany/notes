@@ -8,6 +8,7 @@
     - [generate compile_commands.json for planning](#generate-compile_commandsjson-for-planning)
     - [config clangd](#config-clangd)
   - [Run Planning](#run-planning)
+  - [Set vscode clangd for both planning & cyber](#set-vscode-clangd-for-both-planning--cyber)
 
 ## prepare
 
@@ -128,5 +129,50 @@ stop
 
     bash scripts/planning.sh stop
 
+## Set vscode clangd for both planning & cyber
 
+- modify cyber/mainboard/BUILD as to modules/planning/BUILD
+
+      compilation_database(
+          name = "example_compdb",
+          targets = [
+              "mainboard"
+          ]
+      )
+
+- reset .vscode/settings.json file
+
+  remove below
+
+
+        "clangd.arguments": [
+            ...
+        ]
+
+- build
+
+      ./apollo.sh build_dbg
+
+- replace `__EXEC_ROOT__` in `compile_commands.json` 
+
+      execroot=$(bazel info execution_root)
+      sed -i "s@__EXEC_ROOT__@${execroot}@" ${execroot}/bazel-out/k8-dbg/bin/modules/planning/compile_commands.json
+      sed -i "s@__EXEC_ROOT__@${execroot}@" ${execroot}/bazel-out/k8-dbg/bin/cyber/mainboard/compile_commands.json
+
+- create file .clangd
+
+      If:
+        PathMatch: cyber/.*
+      
+      CompileFlags:
+        CompilationDatabase: /apollo/.cache/bazel/540135163923dd7d5820f3ee4b306b32/execroot/apollo/bazel-out/k8-dbg/bin/cyber/mainboard
+      
+      ---
+      
+      If:
+        PathMatch: modules/planning/.*
+      
+      CompileFlags:
+        CompilationDatabase: /apollo/.cache/bazel/540135163923dd7d5820f3ee4b306b32/execroot/apollo/bazel-out/k8-dbg/bin/modules/planning
+ 
 
