@@ -19,8 +19,6 @@
 
 [How to copy DLL files into the same folder as the executable using CMake?](https://stackoverflow.com/questions/10671916/how-to-copy-dll-files-into-the-same-folder-as-the-executable-using-cmake)  
 
-[CMake RPATH handling](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/RPATH-handling)  
-
 ## Examples
 
 [https://cmake.org/examples/](https://cmake.org/examples/)
