@@ -3,6 +3,7 @@
 - [protobuf](#protobuf)
   - [Use ExternalProject_Add](#use-externalproject_add)
   - [external_protobuf/cmake/protogen.cmake](#external_protobufcmakeprotogencmake)
+  - [cmake_protobuf_example1/cmake/protobuf.cmake](#cmake_protobuf_example1cmakeprotobufcmake)
 
 ## Use ExternalProject_Add
 
@@ -62,3 +63,5 @@ reference: [CMakeLists.txt](https://chromium.googlesource.com/external/github.co
       set(${SRCS} ${${SRCS}} PARENT_SCOPE)
       set(${HDRS} ${${HDRS}} PARENT_SCOPE)
     endfunction()
+
+## [cmake_protobuf_example1/cmake/protobuf.cmake](https://github.com/li-weihua/cmake_protobuf_example1/blob/main/cmake/protobuf.cmake)
