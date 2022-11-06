@@ -1,9 +1,9 @@
 # protobuf
 
 - [protobuf](#protobuf)
-  - [Use ExternalProject_Addk](#use-externalproject_addk)
+  - [Use ExternalProject_Add](#use-externalproject_add)
 
-## Use ExternalProject_Addk
+## Use ExternalProject_Add
 
 reference: [CMakeLists.txt](https://chromium.googlesource.com/external/github.com/grpc/grpc/+/HEAD/examples/cpp/helloworld/cmake_externalproject/CMakeLists.txt)
 
