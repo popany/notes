@@ -21,6 +21,7 @@
   - [`git log`](#git-log)
   - [Practice](#practice)
     - [SSH Key](#ssh-key)
+    - [How to shallow clone a specific commit with depth 1?](#how-to-shallow-clone-a-specific-commit-with-depth-1)
   - [Config](#config)
     - [`autocrlf`](#autocrlf)
     - [safecrlf](#safecrlf)
@@ -253,6 +254,17 @@ Initialize, fetch and checkout any nested submodules
     ssh-keygen -t rsa -b 4096 -C "xxx@example.com"
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_rsa
+
+### [How to shallow clone a specific commit with depth 1?](https://stackoverflow.com/questions/31278902/how-to-shallow-clone-a-specific-commit-with-depth-1)
+
+Starting with Git 2.5.0 (which needs to be available at both the client and server side) you can set `uploadpack.allowReachableSHA1InWant=true` on the server side to enable fetching of specific SHA1s:
+
+    git init
+    git remote add origin <url>
+    git fetch --depth 1 origin <sha1>
+    git checkout FETCH_HEAD
+
+Note that I did not find a syntax to do this with `git clone` directly.
 
 ## Config
 

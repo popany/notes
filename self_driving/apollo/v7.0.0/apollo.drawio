@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="elwUW64XEa5zMgBQE0xd" name="Page-1">
-        <mxGraphModel dx="1073" dy="553" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1460" dy="768" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -350,22 +350,25 @@
                 <mxCell id="127" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="123" target="126" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="2440" y="2580" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="2435" y="2580"/>
+                        </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="123" value="&lt;div style=&quot;text-align: left&quot;&gt;apollo::cyber::class_loader::LoadLibrary()&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2340" y="2480" width="260" height="40" as="geometry"/>
+                <mxCell id="123" value="&lt;div style=&quot;text-align: left&quot;&gt;apollo::cyber::class_loader::ClassLoaderManager::LoadLibrary()&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="2340" y="2480" width="380" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="129" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="126" target="128" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="126" value="new" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2450" y="2565" width="40" height="30" as="geometry"/>
+                    <mxGeometry x="2490" y="2565" width="40" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="135" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="128" target="133" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="128" value="&lt;div style=&quot;text-align: left&quot;&gt;apollo::cyber::class_loader::ClassLoader&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2560" y="2560" width="260" height="40" as="geometry"/>
+                    <mxGeometry x="2600" y="2560" width="260" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="131" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" parent="1" source="132" target="116" edge="1">
                     <mxGeometry relative="1" as="geometry">
@@ -379,34 +382,70 @@
                 <mxCell id="132" value="- one dag file contains at least one module_config&lt;br&gt;- one module_config contains one .so file, and at least one Component class" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;align=left" parent="1" vertex="1">
                     <mxGeometry x="2440" y="2275" width="420" height="30" as="geometry"/>
                 </mxCell>
+                <mxCell id="210" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="133" target="209">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="133" value="&lt;div style=&quot;text-align: left&quot;&gt;ClassLoader::LoadLibrary()&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="2680" y="2640" width="180" height="40" as="geometry"/>
+                    <mxGeometry x="2720" y="2640" width="180" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="136" value="ClassLoader" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="3160" y="2520" width="160" height="86" as="geometry"/>
+                    <mxGeometry x="3240" y="2240" width="560" height="372" as="geometry"/>
                 </mxCell>
-                <mxCell id="137" value="+ field: type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="136" vertex="1">
-                    <mxGeometry y="26" width="160" height="26" as="geometry"/>
+                <mxCell id="137" value="- library_path_: std::string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="136" vertex="1">
+                    <mxGeometry y="26" width="560" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="193" value="- loadlib_ref_count_: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="136">
+                    <mxGeometry y="52" width="560" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="196" value="- loadlib_ref_count_mutex_: std::mutex" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="136">
+                    <mxGeometry y="78" width="560" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="194" value="- classobj_ref_count_: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="136">
+                    <mxGeometry y="104" width="560" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="195" value="- classobj_ref_count_mutex_: std::mutex" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="136">
+                    <mxGeometry y="130" width="560" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="138" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="136" vertex="1">
-                    <mxGeometry y="52" width="160" height="8" as="geometry"/>
+                    <mxGeometry y="156" width="560" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="139" value="+ method(type): type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="136" vertex="1">
-                    <mxGeometry y="60" width="160" height="26" as="geometry"/>
+                <mxCell id="139" value="+ IsLibraryLoaded(): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="136" vertex="1">
+                    <mxGeometry y="164" width="560" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="197" value="+ LoadLibrary(): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="136">
+                    <mxGeometry y="190" width="560" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="198" value="+ UnloadLibrary(): int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="136">
+                    <mxGeometry y="216" width="560" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="199" value="+ GetLibraryPath() const: const std::string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="136">
+                    <mxGeometry y="242" width="560" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="200" value="+ template &lt;typename Base&gt; GetValidClassNames(): std::vector&lt;std::string&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="136">
+                    <mxGeometry y="268" width="560" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="201" value="+ template &lt;typename Base&gt; CreateClassObj(const std::string&amp; class_name): std::shared_ptr&lt;Base&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="136">
+                    <mxGeometry y="294" width="560" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="206" value="+ template &lt;typename Base&gt; IsClassValid(const std::string&amp; class_name): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="136">
+                    <mxGeometry y="320" width="560" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="207" value="- template &lt;typename Base&gt; OnClassObjDeleter(Base* obj): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="136">
+                    <mxGeometry y="346" width="560" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="140" value="apollo::cyber::ComponentBase" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-                    <mxGeometry x="3360" y="1160" width="440" height="346" as="geometry"/>
+                    <mxGeometry x="3360" y="724" width="440" height="346" as="geometry"/>
                 </mxCell>
                 <mxCell id="141" value="# is_shutdown_: std::atomic&lt;bool&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="140" vertex="1">
                     <mxGeometry y="26" width="440" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="153" value="# node_: std::shared_ptr&lt;apollo::cyber::Node&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="140">
+                <mxCell id="153" value="# node_: std::shared_ptr&lt;apollo::cyber::Node&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="140" vertex="1">
                     <mxGeometry y="52" width="440" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="154" value="# config_file_path_: std::::string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="140">
+                <mxCell id="154" value="# config_file_path_: std::::string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="140" vertex="1">
                     <mxGeometry y="78" width="440" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="155" value="# readers_: std::vector&lt;std::shared_ptr&lt;apollo::cyber::ReaderBase&gt;&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="140">
+                <mxCell id="155" value="# readers_: std::vector&lt;std::shared_ptr&lt;apollo::cyber::ReaderBase&gt;&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="140" vertex="1">
                     <mxGeometry y="104" width="440" height="26" as="geometry"/>
                 </mxCell>
                 <mxCell id="142" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="140" vertex="1">
@@ -415,131 +454,252 @@
                 <mxCell id="143" value="+ virtual Initialize(const apollo::cyber::proto::ComponentConfig &amp;): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="140" vertex="1">
                     <mxGeometry y="138" width="440" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="144" value="+ virtual Initialize(const apollo::cyber::proto::TimerComponentConfig &amp;): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="140">
+                <mxCell id="144" value="+ virtual Initialize(const apollo::cyber::proto::TimerComponentConfig &amp;): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="140" vertex="1">
                     <mxGeometry y="164" width="440" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="156" value="+ virtual Shutdown(void): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="140">
+                <mxCell id="156" value="+ virtual Shutdown(void): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="140" vertex="1">
                     <mxGeometry y="190" width="440" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="157" value="# virtual Init(void): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="140">
+                <mxCell id="157" value="# virtual Init(void): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="140" vertex="1">
                     <mxGeometry y="216" width="440" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="158" value="# virtual Clear(void): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="140">
+                <mxCell id="158" value="# virtual Clear(void): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="140" vertex="1">
                     <mxGeometry y="242" width="440" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="159" value="# ConfigFilePath(void) const: const std::string &amp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="140">
+                <mxCell id="159" value="# ConfigFilePath(void) const: const std::string &amp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="140" vertex="1">
                     <mxGeometry y="268" width="440" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="160" value="# LoadConfigFiles(const apollo::cyber::proto::ComponentConfig &amp;): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="140">
+                <mxCell id="160" value="# LoadConfigFiles(const apollo::cyber::proto::ComponentConfig &amp;): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="140" vertex="1">
                     <mxGeometry y="294" width="440" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="161" value="# LoadConfigFiles(const apollo::cyber::proto::TimerComponentConfig &amp;): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="140">
+                <mxCell id="161" value="# LoadConfigFiles(const apollo::cyber::proto::TimerComponentConfig &amp;): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="140" vertex="1">
                     <mxGeometry y="320" width="440" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="145" value="apollo::cyber::Component&lt;apollo::prediction::PredictionObstacles, apollo::canbus::Chassis, apollo::localization::LocalizationEstimate, apollo::cyber::NullType&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
-                    <mxGeometry x="3320" y="1640" width="960" height="138" as="geometry"/>
+                <mxCell id="145" value="apollo::cyber::Component&lt;apollo::prediction::PredictionObstacles, apollo::canbus::Chassis, apollo::localization::LocalizationEstimate, apollo::cyber::NullType&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="3320" y="1204" width="960" height="138" as="geometry"/>
                 </mxCell>
-                <mxCell id="146" value="+ field: type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="145">
+                <mxCell id="146" value="+ field: type" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="145" vertex="1">
                     <mxGeometry y="26" width="960" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="147" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="145">
+                <mxCell id="147" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="145" vertex="1">
                     <mxGeometry y="52" width="960" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="148" value="+ Initialize(const apollo::cyber::proto::ComponentConfig &amp;) override: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="145">
+                <mxCell id="148" value="+ Initialize(const apollo::cyber::proto::ComponentConfig &amp;) override: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="145" vertex="1">
                     <mxGeometry y="60" width="960" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="149" value="+ Process(const std::shared_ptr&lt;M0&gt; &amp;, const std::shared_ptr&lt;M1&gt; &amp;, const std::shared_ptr&lt;M2&gt; &amp;): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="145">
+                <mxCell id="149" value="+ Process(const std::shared_ptr&lt;M0&gt; &amp;, const std::shared_ptr&lt;M1&gt; &amp;, const std::shared_ptr&lt;M2&gt; &amp;): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="145" vertex="1">
                     <mxGeometry y="86" width="960" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="150" value="- virtual Proc(const std::shared_ptr&lt;M0&gt; &amp;, const std::shared_ptr&lt;M1&gt; &amp;, const std::shared_ptr&lt;M2&gt; &amp;) = 0: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="145">
+                <mxCell id="150" value="- virtual Proc(const std::shared_ptr&lt;M0&gt; &amp;, const std::shared_ptr&lt;M1&gt; &amp;, const std::shared_ptr&lt;M2&gt; &amp;) = 0: bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="145" vertex="1">
                     <mxGeometry y="112" width="960" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="152" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="145" target="140">
+                <mxCell id="152" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="145" target="140" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="3570" y="1692" as="sourcePoint"/>
-                        <mxPoint x="3730" y="1692" as="targetPoint"/>
+                        <mxPoint x="3570" y="1256" as="sourcePoint"/>
+                        <mxPoint x="3730" y="1256" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="162" value="apollo::planning::PlanningComponent" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
-                    <mxGeometry x="3400" y="1920" width="1100" height="632" as="geometry"/>
+                <mxCell id="162" value="apollo::planning::PlanningComponent" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="3400" y="1484" width="1100" height="632" as="geometry"/>
                 </mxCell>
-                <mxCell id="163" value="- traffic_light_reader_: std::shared_ptr&lt;apollo::cyber::Reader&lt;apollo::perception::TrafficLightDetection&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="163" value="- traffic_light_reader_: std::shared_ptr&lt;apollo::cyber::Reader&lt;apollo::perception::TrafficLightDetection&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="26" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="166" value="- routing_reader_: std::shared_ptr&lt;apollo::cyber::Reader&lt;apollo::routing::RoutingResponse&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="166" value="- routing_reader_: std::shared_ptr&lt;apollo::cyber::Reader&lt;apollo::routing::RoutingResponse&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="52" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="167" value="- pad_msg_reader_: std::shared_ptr&lt;apollo::cyber::Reader&lt;apollo::planning::PadMessage&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="167" value="- pad_msg_reader_: std::shared_ptr&lt;apollo::cyber::Reader&lt;apollo::planning::PadMessage&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="78" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="168" value="- relative_map_reader_: std::shared_ptr&lt;apollo::cyber::Reader&lt;apollo::relative_map::MapMsg&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="168" value="- relative_map_reader_: std::shared_ptr&lt;apollo::cyber::Reader&lt;apollo::relative_map::MapMsg&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="104" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="169" value="- story_telling_reader_: std::shared_ptr&lt;apollo::cyber::Reader&lt;apollo::storytelling::Stories&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="169" value="- story_telling_reader_: std::shared_ptr&lt;apollo::cyber::Reader&lt;apollo::storytelling::Stories&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="130" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="170" value="- planning_writer_: std::shared_ptr&lt;apollo::cyber::Writer&lt;apollo::planning::ADCTrajectory&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="170" value="- planning_writer_: std::shared_ptr&lt;apollo::cyber::Writer&lt;apollo::planning::ADCTrajectory&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="156" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="171" value="- rerouting_writer_: std::shared_ptr&lt;apollo::cyber::Writer&lt;apollo::routing::RoutingRequest&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="171" value="- rerouting_writer_: std::shared_ptr&lt;apollo::cyber::Writer&lt;apollo::routing::RoutingRequest&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="182" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="172" value="- planning_learning_data_writer_: std::shared_ptr&lt;apollo::cyber::Writer&lt;apollo::planning::PlanningLearningData&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="172" value="- planning_learning_data_writer_: std::shared_ptr&lt;apollo::cyber::Writer&lt;apollo::planning::PlanningLearningData&gt; &gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="208" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="173" value="- mutex_: std::mutex" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="173" value="- mutex_: std::mutex" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="234" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="174" value="- traffic_light_: apollo::perception::TrafficLightDetection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="174" value="- traffic_light_: apollo::perception::TrafficLightDetection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="260" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="175" value="- routing_: apollo::routing::RoutingResponse" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="175" value="- routing_: apollo::routing::RoutingResponse" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="286" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="176" value="- pad_msg_: apollo::planning::PadMessage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="176" value="- pad_msg_: apollo::planning::PadMessage" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="312" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="177" value="- relative_map_: apollo::relative_map::MapMsg" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="177" value="- relative_map_: apollo::relative_map::MapMsg" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="338" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="178" value="- stories_: apollo::storytelling::Stories" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="178" value="- stories_: apollo::storytelling::Stories" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="364" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="179" value="- local_view_: apollo::planning::LocalView" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="179" value="- local_view_: apollo::planning::LocalView" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="390" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="180" value="- planning_base_: std::unique_ptr&lt;apollo::planning::PlanningBase&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="180" value="- planning_base_: std::unique_ptr&lt;apollo::planning::PlanningBase&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="416" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="181" value="- injector_: std::shared_ptr&lt;apollo::planning::DependencyInjector&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="181" value="- injector_: std::shared_ptr&lt;apollo::planning::DependencyInjector&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="442" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="182" value="- config_: apollo::planning::PlanningConfig" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="182" value="- config_: apollo::planning::PlanningConfig" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="468" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="183" value="- message_process_: apollo::planning::MessageProcess" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="183" value="- message_process_: apollo::planning::MessageProcess" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="494" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="164" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="164" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="520" width="1100" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="165" value="+ virtual Init(void): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="165" value="+ virtual Init(void): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="528" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="185" value="+ virtual Proc(const std::shared_ptr&lt;apollo::prediction::PredictionObstacles&gt; &amp;, const std::shared_ptr&lt;apollo::canbus::Chassis&gt; &amp;, const std::shared_ptr&lt;apollo::localization::LocalizationEstimate&gt; &amp;): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="185" value="+ virtual Proc(const std::shared_ptr&lt;apollo::prediction::PredictionObstacles&gt; &amp;, const std::shared_ptr&lt;apollo::canbus::Chassis&gt; &amp;, const std::shared_ptr&lt;apollo::localization::LocalizationEstimate&gt; &amp;): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="554" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="186" value="- CheckRerouting(void): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="186" value="- CheckRerouting(void): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="580" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="188" value="- CheckInput(void): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="162">
+                <mxCell id="188" value="- CheckInput(void): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="162" vertex="1">
                     <mxGeometry y="606" width="1100" height="26" as="geometry"/>
                 </mxCell>
-                <mxCell id="184" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="162" target="145">
+                <mxCell id="184" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="162" target="145" edge="1">
                     <mxGeometry width="160" relative="1" as="geometry">
-                        <mxPoint x="3769.999999999999" y="1772" as="sourcePoint"/>
-                        <mxPoint x="3550.0588235294117" y="1638" as="targetPoint"/>
+                        <mxPoint x="3769.999999999999" y="1336" as="sourcePoint"/>
+                        <mxPoint x="3550.0588235294117" y="1202" as="targetPoint"/>
                     </mxGeometry>
+                </mxCell>
+                <mxCell id="189" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="190" target="85">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="2460" y="1702"/>
+                            <mxPoint x="2460" y="1720"/>
+                        </Array>
+                        <mxPoint x="2440" y="1740" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="190" value="dag file paths" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2490" y="1691.47" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="191" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" source="192" parent="1" target="111">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="2305" y="2050"/>
+                            <mxPoint x="2305" y="2065"/>
+                        </Array>
+                        <mxPoint x="2300" y="2100" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="192" value="dag file path" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;align=left" vertex="1" parent="1">
+                    <mxGeometry x="2335" y="2040" width="80" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="215" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="209" target="211">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="216" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="209" target="213">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="221" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="209" target="219">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="209" value="&lt;div style=&quot;text-align: left&quot;&gt;apollo::cyber::class_loader::utility::LoadLibrary()&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="2820" y="2720" width="280" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="211" value="&lt;div style=&quot;text-align: left&quot;&gt;apollo::cyber::class_loader::utility::SetCurActiveClassLoader()&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="2940" y="2800" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="213" value="&lt;div style=&quot;text-align: left&quot;&gt;apollo::cyber::class_loader::utility::SetCurLoadingLibraryName()&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="2940" y="2880" width="360" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="218" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="219" target="220" parent="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="219" value="new" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="2940" y="3045" width="40" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="223" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="220" target="222">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="238" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="220" target="237">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="220" value="&lt;div style=&quot;text-align: left&quot;&gt;apollo::cyber::class_loader::SharedLibrary&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="3040" y="3040" width="260" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="222" value="shared_library" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="3380" y="3030" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="224" value="Parameters" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=1;align=center;pointerEvents=1;" vertex="1" parent="1">
+                    <mxGeometry x="3120" y="2980" width="180" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="225" value="" style="shape=partialRectangle;html=1;whiteSpace=wrap;collapsible=0;dropTarget=0;pointerEvents=1;fillColor=none;top=0;left=0;bottom=1;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="224">
+                    <mxGeometry y="30" width="180" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="226" value="const std::string&amp;amp;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;overflow=hidden;pointerEvents=1;" vertex="1" parent="225">
+                    <mxGeometry width="130" height="30" as="geometry">
+                        <mxRectangle width="130" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="227" value="path" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;pointerEvents=1;" vertex="1" parent="225">
+                    <mxGeometry x="130" width="50" height="30" as="geometry">
+                        <mxRectangle width="50" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="240" style="edgeStyle=orthogonalEdgeStyle;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="237" target="239">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="237" value="&lt;div style=&quot;text-align: left&quot;&gt;apollo::cyber::class_loader::SharedLibrary::Load()&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="3180" y="3120" width="300" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="242" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="239" target="241">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="239" value="&lt;div style=&quot;text-align: left&quot;&gt;dlopen()&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="3300" y="3200" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="241" value="handle_" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="3460" y="3190" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="243" value="SharedLibrary" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+                    <mxGeometry x="4080" y="2240" width="350" height="242" as="geometry"/>
+                </mxCell>
+                <mxCell id="244" value="- handle_: void*" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="243">
+                    <mxGeometry y="26" width="350" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="247" value="- path_: std::string" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="243">
+                    <mxGeometry y="52" width="350" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="248" value="- static mutex_: std::mutex" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="243">
+                    <mxGeometry y="78" width="350" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="245" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="243">
+                    <mxGeometry y="104" width="350" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="246" value="+ Unload(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="243">
+                    <mxGeometry y="112" width="350" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="249" value="+ IsLoaded(): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="243">
+                    <mxGeometry y="138" width="350" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="250" value="+ HasSymbol(const std::string&amp; name): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="243">
+                    <mxGeometry y="164" width="350" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="251" value="+ GetSymbol(const std::string&amp; name): void*" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="243">
+                    <mxGeometry y="190" width="350" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="252" value="+ GetPath() const: const std::string&amp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="243">
+                    <mxGeometry y="216" width="350" height="26" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
