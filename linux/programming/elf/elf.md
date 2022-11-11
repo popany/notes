@@ -14,15 +14,29 @@
 
   `objdump -tC <file>`
 
-  - `-t, --syms               Display the contents of the symbol table(s)`
+  - `-t, --syms`
+    
+    Display the contents of the symbol table(s)
 
-  - `-T, --dynamic-syms       Display the contents of the dynamic symbol table`
+  - `-T, --dynamic-syms`
+
+    Display the contents of the dynamic symbol table
 
 - `readelf -Ws <file>`
 
-  - `-W --wide              Allow output width to exceed 80 characters`
+  - `-W --wide`
 
-  - `-s --syms              Display the symbol table`
+    Allow output width to exceed 80 characters
+
+  - `-s --syms`
+
+    Display the symbol table
+
+- `readelf -Ws --dyn-syms <file>`
+
+  - `--dyn-syms`
+
+    Displays the entries in dynamic symbol table section of the file, if it has one. The output format is the same as the format used by the `--syms` option
 
 ## strip symbols
 
