@@ -2,6 +2,7 @@
 
 - [nlohmann json](#nlohmann-json)
   - [GDB Pretty Printing](#gdb-pretty-printing)
+  - [How Json Deal with Inf and Nan](#how-json-deal-with-inf-and-nan)
 
 ## [GDB Pretty Printing](https://github.com/nlohmann/json/issues/1952)
 
@@ -44,3 +45,11 @@
 
     from nlohmann_gdb import register_json_printer
     register_json_printer()
+
+## How Json Deal with Inf and Nan
+
+- [Number Handling](https://json.nlohmann.me/features/types/number_handling/)
+
+- [RFC 8259 - The JavaScript Object Notation (JSON) Data Interchange Format](https://www.rfc-editor.org/rfc/rfc8259)
+
+  > 6.  Numbers

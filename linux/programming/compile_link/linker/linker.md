@@ -24,8 +24,4 @@
 
 [Beginner's Guide to Linkers](https://www.lurklurk.org/linkers/linkers.html)
 
-## ld
-
-[Command Line Options](https://ftp.gnu.org/old-gnu/Manuals/ld-2.9.1/html_chapter/ld_2.html#SEC3)
-
 

@@ -3,6 +3,7 @@
 - [Executable and Linkable Format 101. Part 2: Symbols](#executable-and-linkable-format-101-part-2-symbols)
   - [Defining Symbols](#defining-symbols)
   - [ELF Symbol structure](#elf-symbol-structure)
+  - [Symbol and String Tables](#symbol-and-string-tables)
 
 ## Defining Symbols
 
@@ -69,20 +70,32 @@ The Elements of this structure include:
   - `SHT_SYMTAB`, `SHT_DYNSYM`: Symbol Table (`.symtab`, `.dynsym`).
   - `SHT_STRTAB`, `SHT_DYNSTR`:  String Table (`.strtab`, `.dynstr`).
   - `SHT_REL`: Relocation Table without explicit addends (`.rel.dyn`, `.rel.plt`).
-SHT_RELA: Relocation Table with explicit addends (.rela.dyn, .rela.plt).
-SHT_HASH: Hash Table for dynamic symbol resolution (.gnu.hash)
-SHT_DYNAMIC: section holding Dynamic Linking information (.dynamic)
-SHT_NOBITS: section takes no space in disk (.bss).
+  - `SHT_RELA`: Relocation Table with explicit addends (`.rela.dyn`, `.rela.plt`).
+  - `SHT_HASH`: Hash Table for dynamic symbol resolution (`.gnu.hash`)
+  - `SHT_DYNAMIC`: section holding Dynamic Linking information (`.dynamic`)
+  - `SHT_NOBITS`: section takes no space in disk (`.bss`).
 
-st_value: This field specifies the symbol value for a given Symbol Table entry. The interpretation of this field can vary depending on the object type.
-For ET_REL files st_value holds a section offset. The section in which this offset resides is specified on its st_shndx field.
-For ET_EXEC / ET_DYN files, st_value holds a virtual address. If this field contains a value of 0 and the symbol’s section pointed by st_shndx has a sh_type field of type SHT_UNDEF, the symbol is an imported relocation, and its value will be resolved at runtime by the RTLD (ld.so).
-st_size: Field containing symbol’s size.
-Symbol and String Tables
+- `st_value`: This field specifies the symbol value for a given Symbol Table entry. The interpretation of this field can vary depending on the object type.
 
+  - For `ET_REL` files `st_value` holds a section offset. The section in which this offset resides is specified on its `st_shndx` field.
+  - For `ET_EXEC` / `ET_DYN` files, `st_value` holds a virtual address. If this field contains a value of 0 and the symbol's section pointed by `st_shndx` has a `sh_type` field of type `SHT_UNDEF`, the symbol is an imported relocation, and its value will be resolved at runtime by the `RTLD` (ld.so).
 
+- `st_size`: Field containing symbol's size.
 
+## Symbol and String Tables
 
+A single ELF object may contain a maximum of two Symbol Tables. These are `.symtab` and `.dynsym`. The difference between these two instances involves the number and type of symbols they contain. We refer `.symtab` as the binary's **global Symbol Table**, containing all symbol references in the current object. The section `.strtab` is the **String Table** of `.symtab` Symbol Table. String Tables store null-terminated strings used to reference objects from a different section. Each String Table contains the exact number of entries as its corresponding Symbol Table. This entails that each string entry at a given index in `.strtab` corresponds to an `Elfxx_Sym` entry at the same index in `.symtab`.
 
+On the other hand, we have `.dynsym` Symbol Table. This Symbol Table only holds symbols needed for Dynamic Linking. (We'll cover Dynamic Linking extensively in future posts.) As an overview, when developing an application, sometimes we'd want to use symbols that don't reside within the context of our program but are instead defined in external objects such as libraries (Shared Objects). Dynamic Linking is the process where the linker tries to dynamically bind those external symbols at runtime in order for them to be referenced safely within the context of a program.
 
-TODO elf eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+If a given binary has been stripped (`.symtab`/`.strtab` have been removed) and this same binary has been compiled so that a subset of its symbols will be dynamically linked, this subset of symbols can be recovered by parsing `.dynsym` table located at `DT_SYMTAB` entry within `PT_DYNAMIC` segment. For dynamically linked executables, `.dynsym` will not be removed even if target binary has been stripped, since it is needed at runtime by the `RTLD` in the process of Dynamic Linking.
+
+As with `.symtab`, `.dynsym` has its own string table called `.dynstr`. All the relationships previously covered between `.symtab` and `.strtab` also apply between `.dynsym` and `.dynstr`. The following diagram illustrates the concepts of Symbols and String tables that we’ve just discussed:
+
+![fig1](./figs/photo_2018-01-13_11-28-32.jpg)
+
+In this diagram, we see an example representation of various data structures from a binary containing the symbol `_IO_stdin_used`. This symbol is represented as the second `Elf32_Sym` instance in `.dynsym` Symbol Table. Note that `.dynsym` is a section represented as an `Elf32_Shdr` structure, and the index of its String Table within the Section Header Table can be retrieved by its `Elf32_Shdr`'s `sh_link` field.
+
+Moreover, This symbol resides within the `.rodata` section as shown by its `Elf32_Sym` `st_shndx` field, which denotes the fourth `Elf32_Shdr` instance within the Section Header Table. This `Elf32_Shdr` instance's `sh_name` field points to the second null terminated string within the Section Header String Table, which is the '.rodata' string.
+
+Furthermore, we can obtain `_IO_stdin_used`'s attributes based on its `Elf32_Sym` instance. We can see that it is of type OBJECT, and its binding is of type GLOBAL. Therefore, we can assume this symbol is a Global variable. Note that the st_value field may lead to misconceptions since it contains a virtual address denoting the symbol's **location** within its correspondent section, but not the actual value of the Symbol.
