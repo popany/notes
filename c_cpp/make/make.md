@@ -6,6 +6,9 @@
   - [Examples](#examples)
   - [Practice](#practice)
     - [Create directories using make file](#create-directories-using-make-file)
+    - [Determine whether an environment variable is defined](#determine-whether-an-environment-variable-is-defined)
+    - [Test whether a directory exists inside a makefile](#test-whether-a-directory-exists-inside-a-makefile)
+    - [call bash cmd in makfile](#call-bash-cmd-in-makfile)
   - [command](#command)
     - [Pass macro definition](#pass-macro-definition)
 
@@ -20,6 +23,33 @@
 ## Practice
 
 ### [Create directories using make file](https://stackoverflow.com/questions/1950926/create-directories-using-make-file)
+
+### [Determine whether an environment variable is defined](https://stackoverflow.com/a/69847025)
+
+    $ cat Makefile
+    ifdef FOO
+    $(info FOO is defined)
+    endif
+    all:;@:
+
+    $ make
+
+    $ FOO=1 make
+    FOO is defined
+
+### [Test whether a directory exists inside a makefile](https://stackoverflow.com/a/20763842)
+
+    .PHONY: all
+    all:
+    ifneq ($(wildcard ./check_dir/.),)
+    	@echo "Found ./check_dir"
+    else
+    	@echo "Did not find ~/check_dir"
+    endif
+
+### call bash cmd in makfile
+
+    $(shell mkdir test_dir)
 
 ## command
 

@@ -86,6 +86,8 @@
       - [List socket of `<pid>`](#list-socket-of-pid)
       - [Query tcp buffer sizes for a certain socket](#query-tcp-buffer-sizes-for-a-certain-socket)
       - [USAGE EXAMPLES](#usage-examples)
+  - [gpu](#gpu)
+    - [check gpu name](#check-gpu-name)
 
 ## [Bash scripting cheatsheet](https://devhints.io/bash)
 
@@ -728,3 +730,8 @@ CLIENT/SERVER MODEL
 
   List sockets in all states from all socket tables but TCP.
 
+## gpu
+
+### check gpu name
+
+    nvidia-smi --query-gpu=name --format=csv,noheader
