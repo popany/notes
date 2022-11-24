@@ -23,6 +23,31 @@ http://www.vishalchovatiya.com/variadic-template-cpp-implementing-unsophisticate
 
 http://www.vishalchovatiya.com/crtp-c-examples/
 
+http://www.vishalchovatiya.com/when-to-use-const-vs-constexpr-in-cpp/
+
+http://www.vishalchovatiya.com/memory-layout-of-cpp-object/
+
+http://www.vishalchovatiya.com/execute-threads-parallelly-at-given-time-pthread_barrier_t/
+
+
+http://www.vishalchovatiya.com/signal-handling/
+
+http://www.vishalchovatiya.com/thread-conditional-wait-with-mutex-pthread_cond_t/
+
+
+http://www.vishalchovatiya.com/vim-editor-commands/
+
+
+http://www.vishalchovatiya.com/default-handlers-in-c-weak_alias/
+
+http://www.vishalchovatiya.com/program-gets-run-linux
+
+http://www.vishalchovatiya.com/understand-elf-file-format/
+
+
+
+
+
 
 
 
