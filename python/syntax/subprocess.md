@@ -2,6 +2,7 @@
 
 - [subprocess](#subprocess)
   - [Popen](#popen)
+  - [assign output to value](#assign-output-to-value)
 
 ## Popen
 
@@ -15,4 +16,6 @@
                 break
             sys.stdout.write(line.decode('utf-8'))
 
+## assign output to value
 
+    uid = subprocess.check_output(['id', '-u']).decode().strip()

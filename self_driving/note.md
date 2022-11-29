@@ -11,3 +11,8 @@
 ## simulator
 
 [carla-simulator/carla](https://github.com/carla-simulator/carla)
+
+[CommonRoad](https://commonroad.in.tum.de/)
+
+[OpenSCENARIO](https://www.asam.net/standards/detail/openscenario/)
+
