@@ -74,7 +74,6 @@ cmocka is an elegant unit testing framework for C with support for mock objects.
 
 ## Resources
 
-[Incomplete types and shared_ptr / unique_ptr](http://howardhinnant.github.io/incomplete.html)
 
 
 
