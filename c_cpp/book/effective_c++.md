@@ -44,6 +44,7 @@
     - [Item 47: Use traits classes for information about types](#item-47-use-traits-classes-for-information-about-types)
     - [Item 48: Be aware of template metaprogramming](#item-48-be-aware-of-template-metaprogramming)
   - [Chapter 8: Customizing `new` and `delete`](#chapter-8-customizing-new-and-delete)
+    - [Item 49: Understand the behavior of the new-handler.](#item-49-understand-the-behavior-of-the-new-handler)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -1193,6 +1194,58 @@ trait 技术需要在支持自定义类型的同时支持基础类型.
 
 ## Chapter 8: Customizing `new` and `delete`
 
+The two primary players in the game are the allocation and deallocation routines (`operator new` and `operator delete`), with a supporting role played by the **new-handler** - the function called when `operator new` can't satisfy a request for memory.
+
+Memory management in a multithreaded environment poses challenges not present in a single-threaded system, because **both the heap and the new-handler are modifiable global resources**, subject to the race conditions that can bedevil threaded systems. Many Items in this chapter mention the use of modifiable static data, always something to put thread-aware programmers on high alert. Without proper synchronization, the use of lock-free algorithms, or careful design to prevent concurrent access, calls to memory routines can lead to baffling behavior or to corrupted heap management data structures. Rather than repeatedly remind you of this danger, I'll mention it here and assume that you keep it in mind for the rest of the chapter. 
+
+Something else to keep in mind is that `operator new` and `operator delete` apply only to allocations for single objects. Memory for arrays is allocated by `operator new[]` and deallocated by `operator delete[]`. (In both cases, note the "[]" part of the function names.) Unless indicated otherwise, everything I write about `operator new` and `operator delete` also applies to `operator new[]` and `operator delete[]`.
+
+Finally, note that heap memory for STL containers is managed by the containers' allocator objects, not by `new` and `delete` directly. That being the case, this chapter has nothing to say about STL allocators.
+
+### Item 49: Understand the behavior of the new-handler.
+
+When operator new can't satisfy a memory allocation request, it throws an exception. Long ago, it returned a `null` pointer, and some older compilers still do that. You can still get the old behavior (sort of), but I'll defer that discussion until the end of this Item.
+
+Before `operator new` throws an exception in response to an unsatisfiable request for memory, it calls a client-specifiable error-handling function called a `new-handler`. (This is not quite true. What `operator new` really does is a bit more complicated. Details are provided in Item 51.) To specify the out-of-memory-handling function, clients call `set_new_handler`, a standard library function declared in `<new>`:
+
+    namespace std {
+        typedef void (*new_handler)();
+        new_handler set_new_handler(new_handler p) throw();
+    }
+
+As you can see, `new_handler` is a typedef for a pointer to a function that takes and returns nothing, and `set_new_handler` is a function that takes and returns a `new_handler`. (The "`throw()`" at the end of `set_new_handler`'s declaration is an exception specification. It essentially says that this function won't throw any exceptions, though the truth is a bit more interesting. For details, see Item 29.)
+
+`set_new_handler`'s parameter is a pointer to the function `operator new` should call if it can't allocate the requested memory. The return value of `set_new_handler` is a pointer to the function in effect for that purpose before set_new_handler was called.
+
+You use `set_new_handler` like this:
+
+    // function to call if operator new can't allocate enough memory
+    void outOfMem()
+    {
+        std::cerr << "Unable to satisfy request for memory\n";
+        std::abort();
+    }
+    int main()
+    {
+        std::set_new_handler(outOfMem);
+        int *pBigDataArray = new int[100000000L]; ...
+    }
+
+If `operator new` is unable to allocate space for 100,000,000 integers, `outOfMem` will be called, and the program will abort after issuing an error message. (By the way, consider what happens if memory must be dynamically allocated during the course of writing the error message to `cerr`....)
+
+When `operator new` is unable to fulfill a memory request, it calls the new-handler function repeatedly until it can find enough memory. The code giving rise to these repeated calls is shown in Item 51, but this high-level description is enough to conclude that a well-designed new-handler function **must do one of** the following:
+
+- Make more memory available. This may allow the next memory allocation attempt inside `operator new` to succeed. One way to implement this strategy is to allocate a large block of memory at program start-up, then release it for use in the program the first time the new-handler is invoked.
+
+- Install a different new-handler. If the current new-handler can't make any more memory available, perhaps it knows of a different new-handler that can. If so, the current new-handler can install the other new-handler in its place (by calling `set_new_handler`). The next time `operator new` calls the new-handler function, it will get the one most recently installed. (A variation on this theme is for a new-handler to modify its own behavior, so the next time it's invoked, it does something different. One way to achieve this is to have the new-handler **modify static, namespace-specific, or global data** that affects the new-handler's behavior.)
+
+- Deinstall the new-handler, i.e., pass the `null` pointer to `set_new_handler`. With no new-handler installed, `operator new` will **throw an exception** when memory allocation is unsuccessful.
+
+- Throw an exception of type `bad_alloc` or some type derived from `bad_alloc`. Such exceptions will **not be caught by `operator new`**, so they will propagate to the site originating the request for memory. 
+
+- Not return, typically by calling `abort` or `exit`.
+
+These choices give you considerable flexibility in implementing new-handler functions.
 
 
 
