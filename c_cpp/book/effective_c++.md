@@ -45,6 +45,7 @@
     - [Item 48: Be aware of template metaprogramming](#item-48-be-aware-of-template-metaprogramming)
   - [Chapter 8: Customizing `new` and `delete`](#chapter-8-customizing-new-and-delete)
     - [Item 49: Understand the behavior of the new-handler.](#item-49-understand-the-behavior-of-the-new-handler)
+    - [Item 50: Understand when it makes sense to replace  `new` and `delete`](#item-50-understand-when-it-makes-sense-to-replace--new-and-delete)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -1247,6 +1248,15 @@ When `operator new` is unable to fulfill a memory request, it calls the new-hand
 
 These choices give you considerable flexibility in implementing new-handler functions.
 
+C++ has no support for class-specific new-handlers, but it doesn't need any. You can implement this behavior yourself. You just have each class provide its own versions of `set_new_handler` and `operator new`. The class's `set_new_handler` allows clients to specify the new-handler for the class (exactly like the standard `set_new_handler` allows clients to specify the global new-handler). The class's `operator new` ensures that the class-specific new-handler is used in place of the global new-handler when memory for class objects is allocated.
+
+...
+
+As for `Widget` inheriting from a templatized base class that takes `Widget` as a type parameter, don't feel bad if the notion makes you a little woozy. It initially has that effect on everybody. However, it turns out to be such a useful technique, it has a name, albeit one that reflects the fact that it looks natural to no one the first time they see it. It's called the **curiously recurring template pattern (CRTP)**. Honest.
+
+...
+
+### Item 50: Understand when it makes sense to replace  `new` and `delete`
 
 
 
