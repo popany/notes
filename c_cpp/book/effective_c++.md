@@ -1256,7 +1256,75 @@ As for `Widget` inheriting from a templatized base class that takes `Widget` as 
 
 ...
 
-### Item 50: Understand when it makes sense to replace  `new` and `delete`
+### Item 50: Understand when it makes sense to replace `new` and `delete`
+
+Why would anybody want to replace the compiler-provided versions of `operator new` or `operator delete` in the first place?
+
+- To detect usage errors. Failure to `delete` memory conjured up by `new` leads to memory leaks. Using more than one `delete` on `new`ed memory yields undefined behavior. If `operator new` keeps a list of allocated addresses and `operator delete` removes addresses from the list, it's easy to detect such usage errors. Similarly, a variety of programming mistakes can lead to data overruns (writing beyond the end of an allocated block) and underruns (writing prior to the beginning of an allocated block). Custom `operator new`s can overal locate blocks so there's room to put known byte patterns ("signatures") before and after the memory made available to clients. `operator delete`s can check to see if the signatures are still intact. If they're not, an overrun or underrun occurred sometime during the life of the allocated block, and `operator delete` can log that fact, along with the value of the offending pointer.
+
+- To improve efficiency. The versions of `operator new` and `operator delete` that ship with compilers are designed for **general-purpose use**. They have to be acceptable for long-running programs (e.g., web servers), but they also have to be acceptable for programs that execute for less than a second. They have to handle series of requests for large blocks of memory, small blocks, and mixtures of the two. They have to accommodate allocation patterns ranging from the dynamic allocation of a few blocks that exist for the duration of the program to constant allocation and deallocation of a large number of short-lived objects. They have to worry about heap fragmentation, a process that, if unchecked, eventually leads to the inability to satisfy requests for large blocks of memory, even when ample free memory is distributed across many small blocks. 
+
+Given the demands made on memory managers, it's no surprise that the `operator new`s and `operator delete`s that ship with compilers take a middle-of-the-road strategy. They work reasonably well for everybody, but optimally for nobody. If you have a good understanding of your program's dynamic memory usage patterns, you can often find that custom versions of `operator new` and `operator delete` outperform the default ones. By "outperform," I mean they run faster — sometimes orders of magnitude faster — and they require less memory — up to 50% less. For some (though by no means all) applications, replacing the stock `new` and `delete` with custom versions is an easy way to pick up significant performance improvements.
+
+- To collect usage statistics. Before heading down the path of writing custom `new`s and `delete`s, it's prudent to gather information about how your software uses its dynamic memory. What is the distribution of allocated block sizes? What is the distribution of their lifetimes? Do they tend to be allocated and deallocated in FIFO ("first in, first out") order, LIFO ("last in, first out") order, or something closer to random order? Do the usage patterns change over time, e.g., does your software have different allocation/deallocation patterns in different stages of execution? What is the maximum amount of dynamically allocated memory in use at any one time (i.e., its "high water mark")? Custom versions of `operator new` and `operator delete` make it easy to collect this kind of information.
+
+In concept, writing a custom `operator new` is pretty easy. For example, here's a quick first pass at a global `operator new` that facilitates the detection of under- and overruns. There are a lot of little things wrong with it, but we'll worry about those in a moment.
+
+    static const int signature = 0xDEADBEEF;
+    typedef unsigned char Byte;
+    // this code has several flaws — see below
+    void* operator new(std::size_t size) throw(std::bad_alloc)
+    {
+        using namespace std;
+        size_t realSize = size + 2 * sizeof(int); // increase size of request so 2
+        // signatures will also fit inside
+        void *pMem = malloc(realSize); // call malloc to get the actual
+        if (!pMem) throw bad_alloc(); // memory
+        // write signature into first and last parts of the memory
+        *(static_cast<int*>(pMem)) = signature;
+        *(reinterpret_cast<int*>(static_cast<Byte*>(pMem)+realSize-sizeof(int))) =
+        signature;
+        // return a pointer to the memory just past the first signature
+        return static_cast<Byte*>(pMem) + sizeof(int);
+    }
+
+Most of the shortcomings of this `operator new` have to do with its failure to adhere to the C++ conventions for functions of that name. For example, Item 51 explains that all `operator new`s should contain a loop calling a new-handling function, but this one doesn't. However, Item 51 is devoted to such conventions, so I'll ignore them here. I want to focus on a more subtle issue now: alignment.
+
+Many computer architectures require that data of particular types be placed in memory at particular kinds of addresses. For example, an architecture might require that pointers occur at addresses that are a multiple of four (i.e., be four-byte aligned) or that `double`s must occur at addresses that are a multiple of eight (i.e., be eight-byte aligned). Failure to follow such constraints could lead to hardware exceptions at runtime. Other architectures are more forgiving, though they may offer better performance if alignment preferences are satisfied. For example, doubles may be aligned on any byte boundary on the Intel x86 architecture, but access to them is a lot faster if they are eight-byte aligned.
+
+Alignment is relevant here, because C++ requires that all `operator new`s return pointers that are suitably aligned for any data type. `malloc` labors under the same requirement, so having `operator new` return a pointer it gets from `malloc` is safe. However, in `operator new` above, we're not returning a pointer we got from `malloc`, we’re returning a pointer we got from `malloc` offset by the size of an `int`. There is no guarantee that this is safe! If the client called `operator new` to get enough memory for a `double` (or, if we were writing `operator new[]`, an array of `double`s) and we were running on a machine where `int`s were four bytes in size but `double`s were required to be eight-byte aligned, we'd probably return a pointer with improper alignment. That might cause the program to crash. Or it might just cause it to run more slowly. Either way, it's probably not what we had in mind.
+
+Details like alignment are the kinds of things that distinguish professional-quality memory managers from ones thrown together by programmers distracted by the need to get on to other tasks. Writing a custom memory manager that almost works is pretty easy. Writing one that works well is a lot harder. As a general rule, I suggest you not attempt it unless you have to. 
+
+The topic of this Item is knowing when it can make sense to replace the default versions of `new` and `delete`, either **globally** or on a **per-class basis**. We're now in a position to summarize when in more detail than we did before. 
+
+- To detect usage errors.
+
+- To collect statistics about the use of dynamically allocated memory.
+
+- To increase the speed of allocation and deallocation.
+
+- To reduce the space overhead of default memory management.
+
+- To compensate for suboptimal alignment in the default allocator.
+
+- To cluster related objects near one another. If you know that particular data structures are generally used together and you'd like to minimize the frequency of page faults when working on the data, it can make sense to create a separate heap for the data structures so they are clustered together on as few pages as possible. Placement versions of new and delete (see Item 52) can make it possible to achieve such clustering.
+
+- To obtain unconventional behavior. Sometimes you want operators `new` and `delete` to do something that the compiler-provided versions don't offer. For example, you might want to allocate and deallocate blocks in shared memory, but have only a C API through which to manage that memory. Writing custom versions of `new` and `delete` (probably placement versions — again, see Item 52) would allow you to drape the C API in C++ clothing. As another example, you might write a custom `operator delete` that overwrites deallocated memory with zeros in order to increase the security of application data. 
+
+Things to Remember
+
+- There are many valid reasons for writing custom versions of `new` and `delete`, including improving performance, debugging heap usage errors, and collecting heap usage information.
+
+### Item 51: Adhere to convention when writing new and delete
+
+Item 50 explains when you might want to write your own versions of `operator new` and `operator delete`, but it doesn't explain the conventions you must follow when you do it. The rules aren't hard to follow, but some of them are unintuitive, so it's important to know what they are.
+
+We'll begin with `operator new`. Implementing a conformant `operator new` requires having the right return value, calling the new-handling function when insufficient memory is available (see Item 49), and being prepared to cope with requests for no memory. You'll also want to avoid inadvertently hiding the "normal" form of new, though that's more a class interface issue than an implementation requirement; it's addressed in Item 52.
+
+The return value part of `operator new` is easy. If you can supply the requested memory, you return a pointer to it. If you can't, you follow the rule described in Item 49 and throw an exception of type `bad_alloc`.
+
+It's not quite that simple, however, because `operator new` actually tries to allocate memory more than once, calling the new-handling function after each failure. The assumption here is that the new-handling function might be able to do something to free up some memory. Only when the pointer to the new-handling function is null does `operator new` throw an exception. 
 
 
 
