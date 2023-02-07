@@ -28,6 +28,16 @@
     - [6.1. Architecture](#61-architecture)
       - [6.1.1. Basic architecture components](#611-basic-architecture-components)
       - [6.1.2. ASAM OpenSCENARIO elements](#612-asam-openscenario-elements)
+        - [Elements of the OSC Director](#elements-of-the-osc-director)
+        - [Elements in the Simulator Core](#elements-in-the-simulator-core)
+        - [Element states](#element-states)
+        - [Static elements](#static-elements)
+      - [6.1.3. Executing a scenario](#613-executing-a-scenario)
+      - [6.1.4. Actions and conditions](#614-actions-and-conditions)
+      - [6.1.5. Abstract ASAM OpenSCENARIO architecture](#615-abstract-asam-openscenario-architecture)
+    - [6.2. Road networks and environment models](#62-road-networks-and-environment-models)
+    - [6.3. Coordinate systems](#63-coordinate-systems)
+      - [6.3.1. World coordinate system (Xw, Yw, Zw)](#631-world-coordinate-system-xw-yw-zw)
 
 # Introduction
 
@@ -179,19 +189,111 @@ The ASAM OpenSCENARIO architecture contains the following basic components:
 
 #### 6.1.2. ASAM OpenSCENARIO elements
 
-OSC Director and Simulator Core both manage the lifecycle of **elements** within their respective scope. An element is an object instance that exists either in the OSC Director or in the Simulator Core and may change its state during the execution of a scenario. ASAM OpenSCENARIO clearly states which elements shall be encapsulated in an OSC Director and which elements are managed by a Simulator Core.
+OSC Director and Simulator Core both manage the lifecycle of **elements** within their respective scope. An element is an object instance that exists either in the OSC Director or in the Simulator Core and may change its state during the execution of a scenario. **ASAM OpenSCENARIO clearly states which elements shall be encapsulated in an OSC Director and which elements are managed by a Simulator Core**.
 
+##### Elements of the OSC Director
 
+The OSC Director manages the lifecycle of the following elements:
 
+- Storyboard (1 per scenario)
 
+- Story instances (0..* per Storyboard)
 
+- Act instances (1..* per Story)
 
+- ManeuverGroup instances (1..* per Act)
 
+- Maneuver instances (0..* per ManeuverGroup)
 
+- Event instances (1..* per Maneuver)
 
+- Action instances (1..* per Event)
 
+The OSC Director performs the nested and concurrent execution of the elements above. This includes:
 
+- Forking into different execution paths.
 
+- Joining from different execution paths.
+
+- Loop execution (ManeuverGroup , Event) for maximumExecutionCount > 1.
+
+##### Elements in the Simulator Core
+
+ASAM OpenSCENARIO also requires an abstract understanding of elements that are not under the responsibility of the OSC Director at runtime. These are:
+
+- Entities representing traffic participants, such as vehicles and pedestrians
+
+- Environmental parameters, such as time of day, weather, and road conditions
+
+- Traffic signal controllers and traffic signals
+
+- Traffic objects, such as swarms of vehicles, sources for vehicles, and sinks of vehicles
+
+- Controllers: Default controllers, user-defined controllers like simulated drivers, drivers in the loop, or for the appearance of the ScenarioObject
+
+- Control strategies: Entity control instructions that originate from actions
+
+- Variables and user defined values
+
+##### Element states
+
+Elements generally have a set of property values at runtime. Because properties and relations, for example speed and position, may change during the simulation the complete set of property values and relations at a specific time represents the state of an element.
+
+##### Static elements
+
+A static element is a stateless component that does not change during runtime. Examples of static elements are the road network and road surface descriptions. These resources may be shared between OSC Director and Simulator Core.
+
+#### 6.1.3. Executing a scenario
+
+Executing a scenario synchronizes the state of the elements in the OSC Director with the state of the elements in the Simulator Core.
+
+The OSC Director interprets the OSC Model Instance at runtime, which translates in commands to the Simulator Core. The Simulator Core handles its elements, whose states are used by the OSC Director, to guide the developing scenario in the directions prescribed by the OSC Model Instance.
+
+As an example, the SpeedCondition can be used via its application in a startTrigger to couple the speed of an entity managed by the Simulator Core to the start of an event that is managed by the OSC Director.
+
+#### 6.1.4. Actions and conditions
+
+Actions and Conditions are abstract concepts that enable an OSC Director to interact with the Simulator Core and thus manage the ongoing simulation in accordance with the OSC Model Instance. Actions are used to manage the simulation by targeting the behavior of traffic simulation elements in Simulator Core. Conditions evaluate the state of traffic simulation elements in Simulator Core.
+
+#### 6.1.5. Abstract ASAM OpenSCENARIO architecture
+
+With the definition of actions and conditions, the logical interface between OSC Director and Simulator Core can be refined into an Apply Action Interface and an Evaluate Condition Interface. More generic interfaces are also required for general commands like initialize, starting, and stopping a simulation. Figure 4 illustrates the architecture of ASAM OpenSCENARIO.
+
+### 6.2. Road networks and environment models
+
+A scenario description may require references to a specific road network as well as inclusion of specific 3D models that represent the simulated environment visually. The definition of road network logic and/or environment 3D models is **optional** of ASAM OpenSCENARIO. Those references are established within the **RoadNetwork language element**. As an example, the ASAM **OpenDRIVE** file format is common when it comes to describing road network logic.
+
+Scenario authors often need to refer to items defined in the road network, for example, **to instruct a vehicle to drive in a specific lane**. ASAM OpenSCENARIO does not impose its own naming system for these items; they should be referred with the names allocated by their own file format.
+
+The following features of the road network may be addressed using ASAM OpenSCENARIO:
+
+- Individual road
+
+- Lane within a road
+
+- Traffic signal
+
+- Traffic signal controller
+
+- Road object
+
+As mentioned before, a road network description supported by ASAM OpenSCENARIO is the ASAM OpenDRIVE format. This format describes the logical information related to road structure, such as road id, lane id, and road geometry. This information may be used to locate and position instances of Entity acting on the road and to position traffic participants. If ASAM OpenDRIVE is used to represent the road network, the ASAM OpenSCENARIO file should follow the ASAM OpenDRIVE conventions for numbering lanes.
+
+### 6.3. Coordinate systems
+
+In ASAM OpenSCENARIO, the following coordinate system types are defined:
+
+- A coordinate system that consists of three orthogonal directions associated with X, Y, and Z axes and a coordinate origin where axes meet, defines the **right-handed** Cartesian coordinate system. It is compliant with the ISO 8855:2011 [11] definition. Orientation of road objects is expressed extrinsically by the **heading (yaw)**, **pitch**, and **roll** angles derived from the sequence of rotations in the order: Z-axis, then Y-axis, then X-axis. The positive rotation is assumed to be counter-clockwise ("right-hand rule", see Figure 5):
+
+- A **road-based coordinate system** that consists of two coordinate axes associated with the reference line of the corresponding road (s-axis) and the direction orthogonal to it (t-axis) and pointing leftwards. The definition of the s- and t-axes depends on the reference part of the road in use (see Figure 6):
+
+- A coordinate system associated with **positions on the earth** and defined by the corresponding terrestrial reference system (geodetic datum) in use.
+
+#### 6.3.1. World coordinate system (Xw, Yw, Zw)
+ 
+Coordinate system of type (X, Y, Z) fixed in the inertial reference frame of the simulation environment, with Xw and Yw axes parallel to the ground plane and Zw axis pointing upward.
+
+Neither origin nor orientation of the world coordinate system are defined by the ASAM OpenSCENARIO standard. If a road network is referenced from a scenario, the world coordinate system is aligned with the inertial coordinate system present in this description (in particular, the Zw-coordinate is assumed to consider a road elevation, an entire road super-elevation, or a lateral road shape profile).
 
 
 
