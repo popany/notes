@@ -1,21 +1,21 @@
 # [ASAM OpenSCENARIO: User Guide](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4908&token=ae9d9b44ab9257e817072a653b5d5e98ee0babf8)
 
 - [ASAM OpenSCENARIO: User Guide](#asam-openscenario-user-guide)
-- [Introduction](#introduction)
-  - [Overview](#overview)
-    - [What is a scenario?](#what-is-a-scenario)
-    - [What is ASAM OpenSCENARIO?](#what-is-asam-openscenario)
-  - [Conventions and notations](#conventions-and-notations)
-    - [Normative and non-normative statements](#normative-and-non-normative-statements)
-    - [Naming conventions](#naming-conventions)
-    - [Units](#units)
-    - [Data types](#data-types)
-    - [Modal verbs](#modal-verbs)
-    - [Typographic conventions](#typographic-conventions)
-  - [Deliverables](#deliverables)
-  - [Revision history](#revision-history)
-  - [Changelog](#changelog)
-  - [Complementary standards and formats](#complementary-standards-and-formats)
+  - [Introduction](#introduction)
+    - [Overview](#overview)
+      - [What is a scenario?](#what-is-a-scenario)
+      - [What is ASAM OpenSCENARIO?](#what-is-asam-openscenario)
+    - [Conventions and notations](#conventions-and-notations)
+      - [Normative and non-normative statements](#normative-and-non-normative-statements)
+      - [Naming conventions](#naming-conventions)
+      - [Units](#units)
+      - [Data types](#data-types)
+      - [Modal verbs](#modal-verbs)
+      - [Typographic conventions](#typographic-conventions)
+    - [Deliverables](#deliverables)
+    - [Revision history](#revision-history)
+    - [Changelog](#changelog)
+    - [Complementary standards and formats](#complementary-standards-and-formats)
   - [1. Scope](#1-scope)
   - [2. Normative References](#2-normative-references)
   - [3. Terms and definitions](#3-terms-and-definitions)
@@ -38,16 +38,98 @@
     - [6.2. Road networks and environment models](#62-road-networks-and-environment-models)
     - [6.3. Coordinate systems](#63-coordinate-systems)
       - [6.3.1. World coordinate system (Xw, Yw, Zw)](#631-world-coordinate-system-xw-yw-zw)
+      - [6.3.2. Road coordinate system (s/t)](#632-road-coordinate-system-st)
+      - [6.3.3. Lane coordinate System (s/t)](#633-lane-coordinate-system-st)
+      - [6.3.4. Vehicle coordinate system (Xv, Yv, Zv)](#634-vehicle-coordinate-system-xv-yv-zv)
+      - [6.3.5. Pedestrian / MiscObject coordinate system (Xp/m , Yp/m , Zp/m)](#635-pedestrian--miscobject-coordinate-system-xpm--ypm--zpm)
+      - [6.3.6. Trajectory coordinate system (s/t)](#636-trajectory-coordinate-system-st)
+      - [6.3.7. Geographic coordinate system (latitude, longitude, altitude)](#637-geographic-coordinate-system-latitude-longitude-altitude)
+      - [6.3.8. Positioning](#638-positioning)
+    - [6.4. Distances](#64-distances)
+      - [6.4.1. Visualization](#641-visualization)
+      - [6.4.2. Referring to distances in ASAM OpenSCENARIO](#642-referring-to-distances-in-asam-openscenario)
+      - [6.4.3. Euclidean distance](#643-euclidean-distance)
+      - [6.4.4. Distances in an entity coordinate system](#644-distances-in-an-entity-coordinate-system)
+      - [6.4.5. Distances in road coordinates](#645-distances-in-road-coordinates)
+      - [6.4.6. Lane distance and trajectory distance](#646-lane-distance-and-trajectory-distance)
+      - [6.4.7. Involving an entity in a distance calculation](#647-involving-an-entity-in-a-distance-calculation)
+        - [freeSpace = false](#freespace--false)
+        - [freeSpace = true](#freespace--true)
+      - [6.4.8. Guideline for positions on different roads](#648-guideline-for-positions-on-different-roads)
+        - [Longitudinal distance](#longitudinal-distance)
+          - [Road coordinate system](#road-coordinate-system)
+          - [Lane coordinate system](#lane-coordinate-system)
+          - [Trajectory coordinate system](#trajectory-coordinate-system)
+        - [Lateral distance](#lateral-distance)
+          - [Road coordinate system](#road-coordinate-system-1)
+          - [Lane coordinate system](#lane-coordinate-system-1)
+          - [Trajectory coordinate system](#trajectory-coordinate-system-1)
+        - [Helping route](#helping-route)
+    - [6.5. Speed](#65-speed)
+    - [6.6. Controllers](#66-controllers)
+      - [6.6.1. Controller types](#661-controller-types)
+      - [6.6.2. Controlling a scenario object](#662-controlling-a-scenario-object)
+      - [6.6.3. Assigning a user-defined controller](#663-assigning-a-user-defined-controller)
+      - [6.6.4. Activating a user-defined controller](#664-activating-a-user-defined-controller)
+      - [6.6.5. Assigning the default controller](#665-assigning-the-default-controller)
+      - [6.6.6. Activating the default controller](#666-activating-the-default-controller)
+    - [6.7. Appearance](#67-appearance)
+    - [6.8. Routes](#68-routes)
+    - [6.9. Trajectories](#69-trajectories)
+        - [6.9.1. Entity is not at the start of trajectory, timeReference is not set](#691-entity-is-not-at-the-start-of-trajectory-timereference-is-not-set)
+        - [6.9.2. Entity is not at the start of trajectory, timeReference is set (in the future)](#692-entity-is-not-at-the-start-of-trajectory-timereference-is-set-in-the-future)
+        - [6.9.3. Entity is not at the start of trajectory, timeReference is set (in the past)](#693-entity-is-not-at-the-start-of-trajectory-timereference-is-set-in-the-past)
+        - [6.9.4. Entity is at an ambiguous point near the trajectory](#694-entity-is-at-an-ambiguous-point-near-the-trajectory)
+        - [6.9.5. Trajectory-relative positions](#695-trajectory-relative-positions)
+    - [6.10. Traffic simulation](#610-traffic-simulation)
+    - [6.11. Traffic signals](#611-traffic-signals)
+    - [6.12. Variables](#612-variables)
+    - [6.13. Properties](#613-properties)
+  - [7. Components of a scenario](#7-components-of-a-scenario)
+    - [7.1. Overview of a scenario](#71-overview-of-a-scenario)
+    - [7.2. Storyboard and entities](#72-storyboard-and-entities)
+      - [7.2.1. Storyboard](#721-storyboard)
+      - [7.2.2. Entities](#722-entities)
+        - [Motion control for entities](#motion-control-for-entities)
+        - [Entity selections](#entity-selections)
+        - [Spawned objects](#spawned-objects)
+        - [Entity class hierarchy](#entity-class-hierarchy)
+        - [Generalization of entities](#generalization-of-entities)
+        - [3D models for entities](#3d-models-for-entities)
+    - [7.3. ManeuverGroups, Events and Maneuvers](#73-maneuvergroups-events-and-maneuvers)
+      - [7.3.1. ManeuverGroups and Actors](#731-maneuvergroups-and-actors)
+      - [7.3.2. Events](#732-events)
+      - [7.3.3. Maneuver](#733-maneuver)
+    - [7.4. Actions](#74-actions)
+      - [7.4.1. Private action](#741-private-action)
+      - [7.4.2. Global action](#742-global-action)
+      - [7.4.3. User-defined action](#743-user-defined-action)
+    - [7.5. Actions at runtime](#75-actions-at-runtime)
+    - [7.6. Conditions and triggers](#76-conditions-and-triggers)
+  - [8. Scenario at runtime](#8-scenario-at-runtime)
+  - [9. Reuse mechanisms](#9-reuse-mechanisms)
+  - [10. Tutorial: How to create a scenario](#10-tutorial-how-to-create-a-scenario)
+    - [10.1. Example description of a scenario](#101-example-description-of-a-scenario)
+    - [10.2. Entities](#102-entities)
+    - [10.3. Init section](#103-init-section)
+    - [10.4. Stories](#104-stories)
+    - [10.5. Acts](#105-acts)
+    - [10.6. ManeuverGroups](#106-maneuvergroups)
+    - [10.7. Maneuvers](#107-maneuvers)
+    - [10.8. Events and actions](#108-events-and-actions)
+    - [10.9. Sequential execution](#109-sequential-execution)
+    - [10.10. Traffic signal](#1010-traffic-signal)
+  - [11. Examples](#11-examples)
 
-# Introduction
+## Introduction
 
-## Overview
+### Overview
 
 The primary use of ASAM OpenSCENARIO is the description of complex maneuvers that involve multiple vehicles.
 
 The standard may be used in conjunction with ASAM OpenDRIVE [1] and ASAM OpenCRG [2], which describe static content in driving simulation.
 
-### What is a scenario?
+#### What is a scenario?
 
 A scenario is a description of how the view of the world changes with time, usually from a specific perspective.
 
@@ -65,7 +147,7 @@ In a simulation context, a complete scenario is comprised of the following parts
 
   - Optional behavior models of dynamic entities
 
-### What is ASAM OpenSCENARIO?
+#### What is ASAM OpenSCENARIO?
 
 ASAM OpenSCENARIO defines a **data model** and a **derived file format** for the description of scenarios used in driving and traffic simulators, as well as in automotive virtual development, testing, and validation.
 
@@ -101,27 +183,27 @@ Vehicle dynamics|ASAM OpenSCENARIO does not include elements to describe advance
 Environmental models|ASAM OpenSCENARIO includes elements to define environmental properties, such as the current time or the weather, but does not specify how this is to be interpreted by a simulator.
 |
 
-## Conventions and notations
+### Conventions and notations
 
-### Normative and non-normative statements
+#### Normative and non-normative statements
 
-### Naming conventions
+#### Naming conventions
 
-### Units
+#### Units
 
-### Data types
+#### Data types
 
-### Modal verbs
+#### Modal verbs
 
-### Typographic conventions
+#### Typographic conventions
 
-## Deliverables
+### Deliverables
 
-## Revision history
+### Revision history
 
-## Changelog
+### Changelog
 
-## Complementary standards and formats
+### Complementary standards and formats
 
 ASAM OpenSCENARIO can be complemented by other logical road network and 3D model formats. The following list gives some examples:
 
@@ -295,8 +377,501 @@ Coordinate system of type (X, Y, Z) fixed in the inertial reference frame of the
 
 Neither origin nor orientation of the world coordinate system are defined by the ASAM OpenSCENARIO standard. If a road network is referenced from a scenario, the world coordinate system is aligned with the inertial coordinate system present in this description (in particular, the Zw-coordinate is assumed to consider a road elevation, an entire road super-elevation, or a lateral road shape profile).
 
+#### 6.3.2. Road coordinate system (s/t)
 
+To every road specified in the road network definition document (external to ASAM OpenSCENARIO), there is a s/t-type coordinate system assigned. The road reference line defines the s-axis belonging to the (X,Y)-plane of the world coordinate system. The shape of the s-axis line is flat and determined by the geometry of the road projected on the (X,Y)-plane (Z-coordinates equal to 0). The origin of s-coordinates are fixed at the beginning of the road reference line and not affected by an elevation of the road (its inclination in the s-direction).
 
+In contrast, multiple t-axes can be defined along the s-axis. Each t-axis points orthogonally leftwards to the s-axis direction and originates on the s-axis at the point with the concerned s-coordinate. All t-axes lie on the surface which is derived from the road surface as if its elevation were not considered. Therefore, t-axes adopt a lateral slope of the road as they are oriented coplanar to the road surface. As the consequence, t-coordinates are not affected by a superelevation of the road.
 
+The following constraints are defined:
 
+- It is assumed the s-axis line has a smooth shape (no leaps nor kinks).
+
+- Being two-dimensional by its nature, the Road coordinate system does not define any vertical positioning. This means positions, specified with (s/t)-coordinates, are on the road surface.
+
+- Both s- and t-coordinates are applicable within boundaries of the respective road only.
+
+- In the case of multiple chained roads, each road defines its own s-axis.
+
+- In the case of roads with a complex lateral profile (for example, uneven surface), applicability and conversion of s/t-coordinates into other coordinate systems might appear problematic or even impossible.
+
+#### 6.3.3. Lane coordinate System (s/t)
+
+#### 6.3.4. Vehicle coordinate system (Xv, Yv, Zv)
+
+The vehicle axis system of type (X, Y, Z), as defined in ISO 8855:2011 [11], is fixed in the reference frame of the vehicle sprung mass. The Xv axis is horizontal and forwards with the vehicle at rest. The Xv axis is parallel to the vehicle’s longitudinal plane of symmetry. The Yv axis is perpendicular to the vehicle’s longitudinal plane of symmetry and points left. The Zv axis points upward.
+
+In ASAM OpenSCENARIO, the origin of this coordinate system is derived by projecting the center of the vehicle's **rear axis** to the ground plane at neutral load conditions. The origin remains fixed to the vehicle sprung mass, as illustrated in Figure 7.
+
+#### 6.3.5. Pedestrian / MiscObject coordinate system (Xp/m , Yp/m , Zp/m)
+
+The axis system for a pedestrian (subscript p) or a miscellaneous object (subscript m) is fixed in the reference frame of the object’s bounding box. The X axis is horizontal and normal to the object’s front plane. The Y axis is horizontal, perpendicular to X, and points to the left. The Z-axis points upward.
+
+The origin of this coordinate system is derived from the geometrical center of the object’s bounding box under neutral load conditions (if applicable) projected onto the ground plane.
+
+#### 6.3.6. Trajectory coordinate system (s/t)
+
+To every trajectory specified within the scenario, there is a s/t-type coordinate system assigned. The trajectory is deemed as an imaginary spatial directed line ("trajectory line") on the road surface indicating a movement path. The geometry of the trajectory line defines the s-axis course and shape. The origin of s-coordinates is fixed to the beginning of the trajectory line which can go through multiple chained roads.
+
+In contrast, multiple t-axes can be defined along the s-axis. Each t-axis points orthogonally leftwards to the s-axis direction and originates on the s-axis at the point with the concerned s-coordinate. All t-axes lie on the surface of the road and therefore adopt a lateral slope profile and an elevation of the road.
+
+The following constraints are defined:
+
+- Being two-dimensional by its nature, the Trajectory coordinate system does not define any vertical positioning. This means positions, specified with (s/t)-coordinates, are on the road surface.
+
+- S-coordinates are applicable within the length of the respective trajectory line only.
+
+- T-coordinates are applicable within boundaries of the respective road only.
+
+- If a trajectory line has a polyline shape, t-axes are undefined at points where the line has sharp kinks.
+
+- In the case of roads with a complex lateral profile (for example, uneven surface), applicability and conversion of s/t-coordinates into other coordinate systems might appear problematic or even impossible.
+
+#### 6.3.7. Geographic coordinate system (latitude, longitude, altitude)
+
+ASAM OpenSCENARIO accepts position coordinates expressed in spherical geographic coordinate systems as longitude, latitude, and altitude. Interpretation of geographic coordinates might depend on the reference geoid model (datum) used in the geographic coordinate system and is therefore **external to** ASAM OpenSCENARIO.
+
+The world coordinate system is considered the projected coordinate system compatible with the ENU (East, North, Up) convention of the X/Y/Z-axis directions and is derived from the used geographic coordinate system that is based on the applied geoid model. The (X,Y)-plane of the world coordinate system is assumed to be a local tangent plane in relation to the surface of the reference geoid model.
+
+If coordinates of positions are derived from the geographic coordinate system, the road network definition shall specify the map projection system type involved and provide its mandatory parameters.
+
+#### 6.3.8. Positioning
+
+ASAM OpenSCENARIO provides various ways to position or localize instances of Entity acting in the scenario:
+
+- Absolute in the world coordinate system
+
+- Absolute/relative in the geographic coordinate system
+
+- Relative to another Entity
+
+- Absolute/relative in the road coordinate system
+
+- Absolute/relative in the lane coordinate system
+
+- Relative to a Route
+
+- Relative to a Trajectory
+
+### 6.4. Distances
+
+ASAM OpenSCENARIO interprets distances in special ways. To properly use instances of Action and Condition, it is important to understand distance interpretation.
+
+Depending on the use case, a distance may be specified between:
+
+- Two points
+
+- A point and an Entity (with or without bounding box considerations)
+
+- Two entities (with or without bounding box considerations)
+
+Distances in ASAM OpenSCENARIO may be measured in two ways:
+
+- From a local coordinate system, with lateral and longitudinal distance in an Entity, road, lane, or trajectory coordinate system
+
+- In absolute context, that is Euclidean distance
+
+#### 6.4.1. Visualization
+
+#### 6.4.2. Referring to distances in ASAM OpenSCENARIO
+
+In ASAM OpenSCENARIO, lateral and longitudinal distance depends on the type of referential, for example Entity, road, lane, or trajectory. Euclidean distance is measured in a global context.
+
+#### 6.4.3. Euclidean distance
+
+Euclidean distance between two points in Euclidean space is the length of a line segment between those two points, as shown in Figure 9. It is unambiguously defined in ℝ3, independently from the coordinate system that describes the coordinates.
+
+#### 6.4.4. Distances in an entity coordinate system
+
+Given two points A = (XA , YA , ZA) and B = (XB , YB , ZB) in the coordinates of a specific Entity, the definition in ASAM OpenSCENARIO is:
+
+- Longitudinal Entity distance - (dXAB): |XB - XA |
+
+- Lateral Entity distance - (dYAB): |YB - YA |
+
+#### 6.4.5. Distances in road coordinates
+
+Given two points in road coordinates A = (sA , tA , hA) and B = (sB , tB , hB), the definition in ASAM OpenSCENARIO is:
+
+- Longitudinal road distance: dsAB: |sB - sA|
+
+- Lateral road distance: dtAB: |tB - tA|
+
+#### 6.4.6. Lane distance and trajectory distance
+
+Distances based on the lane or trajectory referentials are measured using the same methods as distances measured in the road referential.
+
+- Distances measured in the lane referential use the lane center as a reference line, rather than the road reference line.
+
+- Distances measured in the trajectory referential use the trajectory as a reference line, rather than the road reference line.
+
+#### 6.4.7. Involving an entity in a distance calculation
+
+In addition to distances between two points, ASAM OpenSCENARIO also support distance measurement between two entities or between an entity and a point. In both cases, it is important to identify the two points of interest and apply the distance concepts introduced in this chapter.
+
+Identifying the point of interest for an Entity depends on the value of the Boolean attribute freeSpace. It determines whether the entities bounding box shall be taken into consideration (freeSpace = true), or shall not be taken into consideration (freeSpace = false).
+
+##### freeSpace = false
+
+In this case, the **bounding boxes of the entity shall not be considered**. The point of the entity used to calculate the distance is the entity's origin.
+
+##### freeSpace = true
+
+In this case, the bounding boxes of the Entity shall be considered. Which point is chosen depends on the desired distance type.
+
+#### 6.4.8. Guideline for positions on different roads
+
+##### Longitudinal distance
+
+###### Road coordinate system
+
+The longitudinal distance can only be calculated when the path between start and target positions forms an unambiguous chain of consecutive road reference lines (s-axes). In the case of ambiguity, a helping route can be defined so that both start and target positions are found on the same route (see for more the section Section 6.4.8.3).
+
+When calculating the longitudinal distance, breaks of road reference lines (also known as s-axes) of directly connected roads do **not affect the result**.
+
+The longitudinal distance is calculated as a **sum of lengths of segments** along the chained road s-axes between projections of start and target positions on respective s-axes.
+
+###### Lane coordinate system
+
+###### Trajectory coordinate system
+
+##### Lateral distance
+
+###### Road coordinate system
+
+In the case, reference lines of connected roads along the chain are not contiguous, the lateral distance is not meaningful and therefore **undefined**.
+
+###### Lane coordinate system
+
+The lateral distance is undefined.
+
+###### Trajectory coordinate system
+
+##### Helping route
+
+### 6.5. Speed
+
+Speed is measured as the magnitude of the speed vector in the vehicle coordinate system, consisting of longitudinal and lateral speed components.
+
+### 6.6. Controllers
+
+Controller are elements of the simulation core that control the **motion or appearance** of a ScenarioObject. ASAM OpenSCENARIO does **not specify how controllers work and how they are implemented**. ASAM OpenSCENARIO considers a controller as a **runtime element** that is used to enforce the control strategies (see Section 7.4.1.1) assigned to instances of ScenarioObject.
+
+Any number of Controller elements can be assigned to objects of type Vehicle or Pedestrian.
+
+A Controller may be internal, as a part of the simulator, or external, defined in a file. The intended use cases for controllers are:
+
+- Specifying that a vehicle is controlled by the system under test.
+
+- Defining **smart actor behavior**, where a controller takes intelligent decisions in response to the road network or other actors. Hence, controllers can be used, for example, to make agents in a scenario behave in a human-like way.
+
+- Assigning a vehicle to direct **human control**.
+
+By default, controllers are assigned in a deactivated state.
+
+#### 6.6.1. Controller types
+
+ASAM OpenSCENARIO defines four different domains of a Controller:
+
+- Longitudinal
+
+- Lateral
+
+- Lighting
+
+- Animation
+
+ASAM OpenSCENARIO defines two types of controllers:
+
+- The default controller that enforces control strategies exactly as they are described by the actions
+
+- A user-defined controller that may have custom interpretations of control strategies
+
+ASAM OpenSCENARIO **cannot prescribe** the behavior of an user-defined controller. This means that simulations with user-defined controllers can differ from simulations generated using only default controllers, even though they use the same OSC Model Instance. This allows the scenario designer to use ASAM OpenSCENARIO in a broader scope, interpreting Action as suggestions rather than commands. Repeatable simulation results are only expected when using default controllers.
+
+#### 6.6.2. Controlling a scenario object
+
+#### 6.6.3. Assigning a user-defined controller
+
+#### 6.6.4. Activating a user-defined controller
+
+#### 6.6.5. Assigning the default controller
+
+#### 6.6.6. Activating the default controller
+
+### 6.7. Appearance
+
+### 6.8. Routes
+
+A **Route** is used to **navigate** instances of Entity through the **road** network based on a list of **waypoints** on the road that are linked in a specific order, resulting in directional route. A **Waypoint consists of a position and a RouteStrategy**. The RouteStrategy indicates how to reach the position. An Entity's movement between the waypoints is created by the simulator which uses the RouteStrategy as constraint. There may be more than one way to travel between a pair of waypoints. If this is the case, the RouteStrategy specified in the target Waypoint shall be used.
+
+The different available and simulator-specific options for RouteStrategy are:
+
+- Fastest: Selects the route with the shortest travelling time between start and target location.
+
+- Least intersections: Selects the route with as few junctions as possible between start and target location.
+
+- Random: It is up to the simulator how to reach the target location.
+
+- Shortest: Selects the route with the shortest path between start and target location.
+
+### 6.9. Trajectories
+
+Instances of Trajectory are used to define an intended path for Entity motion in precise mathematical terms. The motion path may be specified using different mathematical shapes:
+
+- Polyline: A concatenation of simple line segments across a set of vertices.
+
+- Clothoid: Euler spiral, meaning a curve with linearly increasing curvature.
+
+- Non-Uniform Rational B-Splines (Nurbs) of arbitrary order.
+
+By using nurbs, most relevant paths may be expressed either directly or with arbitrary approximation: Nurbs curves form a strict superset of the curves expressible as Bézier curves, piecewise Bézier curves, or non-rational B-Splines, which can be mapped to corresponding nurbs curves. Because nurbs curves directly support the expression of conic sections, such as circles and ellipses) approximation of, for example clothoids using arc spline approaches, is feasible.
+
+Also, nurbs make it relatively easy to ensure continuity up to a given derivative: A nurbs curve of degree k, meaning order k+1, is infinitely continuously differentiable in the interior of each knot span and k-M-1 times continuously differentiable at a knot. M is the multiplicity of the knot, meaning the number of consecutive knot vector elements with the same value.
+
+Commonly used nurbs curves are curves of quadratic (order = 3) and cubic (order = 4) degree. Higher-order curves are usually only required if continuity in higher derivatives needs to be ensured. Because the effort for evaluating curves increases with rising orders, it is recommended to restrict instances of Trajectory to lower orders.
+
+Instances of Trajectory may be specified using just the three-positional dimensions along the X, Y, and Z axes (see Section 6.3 for coordinate system definitions). Alternatively, instances of Trajectory may also be specified using the three-positional dimensions and the three-rotational dimensions (heading, pitch and roll) for six total dimensions. In the second case, the path not only specifies the movement of the entity along the path, but also the orientation of the corresponding entity during that movement.
+
+When a Trajectory is specified relative to the position of a moving entity, its absolute position cannot be calculated before the scenario starts. In this case, the trajectory must be calculated at runtime when the corresponding FollowTrajectoryAction is triggered.
+
+Additionally, an instance of Trajectory may be specified with or without a time dimension, allowing for the combined or separate specification of the entities longitudinal domain: A trajectory incorporating the time dimension completely specifies the motion of the entity, including its speed. A trajectory without the time dimension does not specify the speed along the path. This approach allows for the separate control of speed.
+
+A Trajectory provides a mathematically precise definition of a motion path. The corresponding entities behavior, however, depends on the actions employing it: Either an Entity follows this path exactly or it uses the path as a guidance for the controller to follow as best as the entities rules of motion allow.
+
+The following sections describe edge cases in the definition of trajectories.
+
+##### 6.9.1. Entity is not at the start of trajectory, timeReference is not set
+
+Starting conditions:
+
+- When the FollowTrajectoryAction starts, the entity is not at the beginning of the trajectory.
+
+- Time references are not set.
+
+Expected behavior:
+
+- If the followingMode is position, the entity teleports to the beginning of the trajectory.
+
+- If the followingMode is follow, the controller attempts to steer as close to the trajectory as possible. Because the timeReference is not defined, the controller steers towards the point that bring the entity in line with the trajectory as soon as feasible. Considering the current position, orientation, and performance limitations of the entity, this is possibly not the start point of the trajectory, and maybe not even the geometrically closest point, as shown in Figure 19.
+
+##### 6.9.2. Entity is not at the start of trajectory, timeReference is set (in the future)
+
+...
+
+##### 6.9.3. Entity is not at the start of trajectory, timeReference is set (in the past)
+
+...
+
+##### 6.9.4. Entity is at an ambiguous point near the trajectory
+
+...
+
+##### 6.9.5. Trajectory-relative positions
+
+...
+
+### 6.10. Traffic simulation
+
+In addition to deterministic behavior of instances of Entity, ASAM OpenSCENARIO also provides ways to define stochastic or not precisely defined behavior. This can be useful for the following purposes:
+
+- Make the scenario more realistic.
+
+- Induce variances into the scenario sequence.
+
+- Define traffic parameters, such as traffic density.
+
+To define stochastic behavior, surrounding intelligent traffic agents may be defined using instances of TrafficAction. With the help of this action, the parameterization of traffic sources, traffic sinks, and traffic swarms may be specified.
+
+The definition of a TrafficAction in ASAM OpenSCENARIO does not specify which maneuvers the intelligent traffic agents execute. Instead, those actions specify the initialization or termination of vehicles whose behavior is controlled by external traffic simulation models. Spawned traffic participants makes routing decisions based on their corresponding driver model, just as with the ActivateControllerAction.
+
+### 6.11. Traffic signals
+
+...
+
+### 6.12. Variables
+
+Variables in ASAM OpenSCENARIO are similar to variables in programming languages. They have the following characteristics:
+
+- Variables are defined in the scope of the whole scenario. All variables that are used in a scenario shall be defined in a VariableDeclaration.
+
+- Variables are named and typed. The same naming rules apply to variables as to parameters (see Section 9.1).
+
+- Variables have an initialization value. They are set to their initialization value at load time of the simulation.
+
+Unlike parameter values (see Section 9.1), variable values can also change during runtime. This can be achieved in two ways:
+
+- From within the scenario (OSC Model instance) by using a VariableAction
+
+- From external side. For this, the Simulator Core needs to provide an interface to change variable values.
+
+### 6.13. Properties
+
+Instances of Property may be used to define test-instance specific or use-case specific properties of ASAM OpenSCENARIO sub-elements. Properties are available for the following types:
+
+- Vehicle
+
+- Pedestrian
+
+- MiscObject
+
+- Controller
+
+- RoadCondition
+
+- FileHeader
+
+## 7. Components of a scenario
+
+### 7.1. Overview of a scenario
+
+To represent a traffic situation, an OSC Model Instance is built up of four main components:
+
+- Road network: mapping of the different driving surfaces and all relevant elements of the road infrastructure, like traffic signals.
+
+- Entities: road users, including vehicles, pedestrians, and other miscellaneous objects that interact during a scenario.
+
+- Actions: basic building blocks to define dynamic behavior of the entities. It may also be used to modify simulation states or components of the simulated world.
+
+- Triggers: mechanism that determines when an action starts or stops. It is built on logical expressions revolving around the states of entities or the simulation.
+
+The structure of the OSC Model Instance was created with the purpose to host and combine the main components listed above in such a way that rich driving scenarios can be defined. This chapter introduces the ASAM OpenSCENARIO structure, how the different components fit in the structure, and how these components relate to one another.
+
+### 7.2. Storyboard and entities
+
+#### 7.2.1. Storyboard
+
+In ASAM OpenSCENARIO, the **storyboard covers the complete scenario description**. The storyboard provides the answers to the questions "who" is doing "what" and "when" in a scenario. An ASAM OpenSCENARIO Storyboard element consists of the following elements:
+
+- Init: Initialization element that sets the initial states of the scenario elements, such as the position and speed of instances of Entity. It is not possible to specify conditional behavior in this section.
+
+- One or more Story elements (optional): Story elements enable scenario authors to group different scenario aspects into a higher-level hierarchy and thus create a structure for large scenarios.
+
+- stopTrigger: determines the end of the scenario.
+
+Instances of Story in ASAM OpenSCENARIO contain Act instances, which in turn define conditional groups of Action instances. Each **act** focuses on answering the question **"when"** something happens in the timeline of its corresponding story. The act regulates the story via its startTrigger instance and its stopTrigger instance. If a startTrigger evaluates to true, the act’s ManeuverGroup instances are executed.
+
+A **ManeuverGroup** element is part of the Act element and addresses the question of **"who"** is doing something, by assigning entities as Actors (see Section 7.3.1) in the included Maneuver instances. Maneuver groups may also include catalog references with predefined maneuvers. This concept is described in Section 9.4.
+
+The **Maneuver** element defines **"what"** is happening in a scenario. A Maneuver is a container for Event instances that need to share a common scope. Events control the simulated world or the actors defined in their parent maneuver group. This is achieved through triggering Action instances, via user-defined Condition instances.
+
+#### 7.2.2. Entities
+
+In a scenario, instances of Entity are the participants that make up the developing traffic situation. Vehicle, Pedestrian, and MiscObjects instances may change their location dynamically. A MiscObject instance represents an object, such as tree or pole. The possible categories are identical to the ones that are defined in ASAM OpenDRIVE. If an object is already defined in the road network file, it can be instantiated in the scenario as Entity as ExternalObjectReference.
+
+Instances of Entity may be specified in the scenario format but the properties are specific to their type. For example, a Vehicle is an instance of Entity that has properties like vehicleCategory and performance. In contrast, a Pedestrian is specified by a property pedestrianCategory.
+
+##### Motion control for entities
+
+...
+
+##### Entity selections
+
+...
+
+##### Spawned objects
+
+An entity may be represented by a single ScenarioObject instance or by an EntitySelection instance. Both, ScenarioObject and EntitySelection instances, are declared in the scenario file and are globally identified by their name attribute when they are used in actions and conditions. An entity may also be represented by a **SpawnedObject instance which is created by a traffic source**. These objects are created dynamically and have no static name that would enable a scenario author to reference them explicitly in a defined entity condition or in a private action.
+
+##### Entity class hierarchy
+
+The Entity class hierarchy provides an overview of the relations between Entity, EntitySelection, EntityRef and SpawnedObject.
+
+##### Generalization of entities
+
+ASAM OpenSCENARIO relates the Vehicle, Pedestrian, MiscObject, and EntitySelection classes in the generalized concept Entity. This is useful because the concept of entity provides the building blocks for many actions and conditions - for example: A CollisionCondition instance can model the collision between a Vehicle instance and a MiscObject instance, such as a tree.
+
+##### 3D models for entities
+
+### 7.3. ManeuverGroups, Events and Maneuvers
+
+#### 7.3.1. ManeuverGroups and Actors
+
+#### 7.3.2. Events
+
+Actions are singular elements that may need to be combined to create meaningful behavior in a scenario. This behavior is created by the type **Event** which serves as a **container for actions**. Events also incorporate start triggers. The event start trigger determines when the event starts and when the actions contained in the event, start.
+
+#### 7.3.3. Maneuver
+
+A **maneuver groups events** creating a scope where the events can interact with each other using the event priority rules. The definition of a maneuver may be outsourced to a catalog and parameterized for easy reuse in a variety of scenarios.
+
+### 7.4. Actions
+
+Actions enable ASAM OpenSCENARIO to prescribe element behavior in traffic simulations or to directly affect element states, which in turn determine how a simulation evolves. An Action instance is defined in a OSC Model Instance.
+
+#### 7.4.1. Private action
+
+...
+
+#### 7.4.2. Global action
+
+...
+
+#### 7.4.3. User-defined action
+
+...
+
+### 7.5. Actions at runtime
+
+...
+
+### 7.6. Conditions and triggers
+
+...
+
+## 8. Scenario at runtime
+
+This section covers the expected runtime behavior of the Storyboard and its nested elements in a simulation.
+
+...
+
+## 9. Reuse mechanisms
+
+...
+
+## 10. Tutorial: How to create a scenario
+
+### 10.1. Example description of a scenario
+
+The file for the sample scenario used in this tutorial is named SimpleOvertake.xosc. The file is located in the examples directory.
+
+### 10.2. Entities
+
+In the Entities section, we define the traffic participants used in the scenario: one or more instances of Vehicle, Pedestrian, MiscObject, or ExternalObjectReference.
+
+### 10.3. Init section
+
+The following XML example shows multiple instances of Action that position the entities Vehicle 1 and Vehicle 2 using road coordinates and define initial velocities. Vehicle 1 has speed 150 km/h and is located 58 m behind Vehicle 2, which has speed 130 km/h.
+
+### 10.4. Stories
+
+Instances of Story may be used to group **independent parts of the scenario**, to make it easier to follow. In this example, we need only one Story. If an Act is moved from one Story to another, the scenario works in the same way, as long as there are no naming conflicts.
+
+### 10.5. Acts
+
+An Act allows a set of multiple instances of Trigger to determine when the specific Act starts.
+
+### 10.6. ManeuverGroups
+
+Using ManeuverGroup we specify the Actors that are executing the actions. Because we want Vehicle 1 to change lanes, we specify its name under Actors. This means that all the actions under this ManeuverGroup are executed by Vehicle 1.
+
+### 10.7. Maneuvers
+
+In this example, one Maneuver is used to group two instances of Event.
+
+### 10.8. Events and actions
+
+Under Maneuver_1 we define two instances of Event, one for left lane change called Turn left and the other one with right lane change named Turn right. Left and right means relative to the current lane.
+
+### 10.9. Sequential execution
+
+...
+
+### 10.10. Traffic signal
+
+...
+
+## 11. Examples
+
+...
 
