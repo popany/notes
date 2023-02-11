@@ -10,6 +10,8 @@
       - [Markdown Preview Mermaid Support](#markdown-preview-mermaid-support)
   - [Settings](#settings)
     - [Set Indent for Markdown](#set-indent-for-markdown)
+    - [Disable default C++ intelliSenseEngine](#disable-default-c-intellisenseengine)
+    - [Close Auto Format](#close-auto-format)
   - [Trubleshooting](#trubleshooting)
     - [ssh remote](#ssh-remote)
       - [ERROR: cannot verify update.code.visualstudio.com's certificate](#error-cannot-verify-updatecodevisualstudiocoms-certificate)
@@ -45,6 +47,14 @@
 - "Configure Language Specific Settings"
 
 - Select Markdown
+
+### Disable default C++ intelliSenseEngine
+
+    "C_Cpp.intelliSenseEngine": "disabled",
+
+### Close Auto Format
+
+    "editor.formatOnSave": false
 
 ## Trubleshooting
 

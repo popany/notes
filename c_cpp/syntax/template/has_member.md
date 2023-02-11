@@ -11,3 +11,5 @@
 [Gockel Hut - C++ Pirate - has_member](http://www.gockelhut.com/cpp-pirate/has-member.html)
 
 [How to detect whether there is a specific member variable in class?](https://stackoverflow.com/a/16000226)
+
+[Check if a class has a member function of a given signature](https://stackoverflow.com/a/16824239)
