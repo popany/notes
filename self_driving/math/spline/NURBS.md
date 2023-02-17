@@ -15,6 +15,12 @@
     - [B-Splines](#b-splines)
     - [NURBS](#nurbs-1)
   - [Bézier curve](#bézier-curve)
+  - [Spline (mathematics)](#spline-mathematics)
+    - [Introduction](#introduction)
+    - [Examples](#examples)
+      - [Algorithm for computing natural cubic splines](#algorithm-for-computing-natural-cubic-splines)
+  - [An Interactive Introduction to Splines](#an-interactive-introduction-to-splines)
+  - [B-spline](#b-spline)
 
 ## [NURBS 是什么?](https://www.rhino3d.com/features/nurbs/)
 
@@ -121,5 +127,32 @@ NURBS stands for Non-Uniform Rational B-Spline. It means NURBS uses rational Bé
 ## [Bézier curve](https://en.wikipedia.org/wiki/B%C3%A9zier_curve)
 
 ...
+
+## [Spline (mathematics)](https://en.wikipedia.org/wiki/Spline_(mathematics))
+
+### Introduction
+
+Spline functions for interpolation are normally determined as the minimizers of suitable measures of roughness (for example integral squared curvature) subject to the interpolation constraints. Smoothing splines may be viewed as generalizations of interpolation splines where the functions are determined to minimize a weighted combination of the average squared approximation error over observed data and the roughness measure.
+
+### Examples
+
+#### Algorithm for computing natural cubic splines
+
+## [An Interactive Introduction to Splines](https://ibiblio.org/e-notes/Splines/Intro.htm)
+
+## [B-spline](https://en.wikipedia.org/wiki/B-spline)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

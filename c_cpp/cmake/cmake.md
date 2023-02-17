@@ -14,6 +14,7 @@
   - [Practice](#practice)
     - [`include(GNUInstallDirs)`](#includegnuinstalldirs)
     - [`find_package(Threads REQUIRED)`](#find_packagethreads-required)
+    - [What is the idiomatic way in CMAKE to add the -fPIC compiler option?](#what-is-the-idiomatic-way-in-cmake-to-add-the--fpic-compiler-option)
 
 [CMake Useful Variables](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Useful-Variables)  
 
@@ -162,3 +163,12 @@ By including `GNUInstallDirs` a set of variables, which contain installation dir
       find_package(Threads)
       add_executable(test test.cpp)
       target_link_libraries(test Threads::Threads)
+
+### [What is the idiomatic way in CMAKE to add the -fPIC compiler option?](https://stackoverflow.com/a/38297422)
+
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
+
+
+
+
