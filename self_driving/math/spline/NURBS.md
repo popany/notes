@@ -21,6 +21,8 @@
       - [Algorithm for computing natural cubic splines](#algorithm-for-computing-natural-cubic-splines)
   - [An Interactive Introduction to Splines](#an-interactive-introduction-to-splines)
   - [B-spline](#b-spline)
+  - [B-splines](#b-splines-1)
+  - [Cubic Spline interpolation in C++](#cubic-spline-interpolation-in-c)
 
 ## [NURBS 是什么?](https://www.rhino3d.com/features/nurbs/)
 
@@ -142,9 +144,9 @@ Spline functions for interpolation are normally determined as the minimizers of 
 
 ## [B-spline](https://en.wikipedia.org/wiki/B-spline)
 
+## [B-splines](https://www.cl.cam.ac.uk/teaching/1999/AGraphHCI/SMAG/node4.html)
 
-
-
+## [Cubic Spline interpolation in C++](https://kluge.in-chemnitz.de/opensource/spline/)
 
 
 
