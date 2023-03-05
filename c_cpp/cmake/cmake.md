@@ -1,6 +1,7 @@
 # cmake
 
 - [cmake](#cmake)
+  - [Docs](#docs)
   - [Examples](#examples)
   - [`Find<package>.cmake` file](#findpackagecmake-file)
   - [Debug](#debug)
@@ -19,6 +20,12 @@
 [CMake Useful Variables](https://gitlab.kitware.com/cmake/community/wikis/doc/cmake/Useful-Variables)  
 
 [How to copy DLL files into the same folder as the executable using CMake?](https://stackoverflow.com/questions/10671916/how-to-copy-dll-files-into-the-same-folder-as-the-executable-using-cmake)  
+
+## Docs
+
+[Using Dependencies Guide](https://cmake.org/cmake/help/latest/guide/using-dependencies/index.html)
+
+[Importing and Exporting Guide](https://cmake.org/cmake/help/latest/guide/importing-exporting/index.html)
 
 ## Examples
 
