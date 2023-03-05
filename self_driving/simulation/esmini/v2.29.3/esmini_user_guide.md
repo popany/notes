@@ -28,6 +28,8 @@
       - [4.5.2. Evaluate OpenDRIVE connectivity](#452-evaluate-opendrive-connectivity)
       - [4.5.3. Inspect OpenDRIVE geometry and road IDs](#453-inspect-opendrive-geometry-and-road-ids)
     - [4.6. Plot scenario data](#46-plot-scenario-data)
+    - [4.7. Save OSI data](#47-save-osi-data)
+  - [5. Scenario features](#5-scenario-features)
 
 ## 1. Introduction
 
@@ -358,7 +360,40 @@ The `--res_path` is a special path directive should normally point to esmini/res
 
 ...
 
+### 4.7. Save OSI data
 
+esmini can provide OSI groundtruth data in three ways:
+
+1. Send over UDP
+
+2. API to fetch via function call from a custom application
+
+3. Save to OSI trace file
+
+Only trace file way is described here. To save OSI data, add argument `--osi_file [filename]`. The filename is optional. If omitted it will be named `ground_truth.osi`. Example:
+
+    ./bin/esmini --window 60 60 800 400 --osc ./resources/xosc/cut-in.xosc --osi_file
+
+will create `ground_truth.osi` in the current folder. The format is according to the OSI standard "Binary trace file", see OSI documentation [2.2.6 OSI trace files](https://opensimulationinterface.github.io/osi-documentation/index.html#_osi_trace_files).
+
+esmini provides a script, osi2csv.py, that converts an OSI trace file into .csv format. The script can also serve as example how to parse and extract data from an OSI trace file:
+
+    ./scripts/osi2csv.py ground_truth.osi
+
+will create ground_truth.csv.
+(if file type association is not setup, try: `python ./scripts/osi2csv.py ground_truth.osi`)
+
+However the .csv file created with osi2csv will not contain all OSI information. To get a readable text file including the complete content of a OSI trace file you can make use of this Python script from the OSI project:
+
+https://github.com/OpenSimulationInterface/open-simulation-interface/blob/master/format/osi2read.py
+
+Use as following example:
+
+    ../open-simulation-interface/format/osi2read.py --data ./ground_truth.osi --output ground_truth --type GroundTruth
+
+it should create `ground_truth.txth` which is readable in a text editor.
+
+## 5. Scenario features
 
 
 
