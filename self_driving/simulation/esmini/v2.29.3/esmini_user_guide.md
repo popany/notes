@@ -30,6 +30,49 @@
     - [4.6. Plot scenario data](#46-plot-scenario-data)
     - [4.7. Save OSI data](#47-save-osi-data)
   - [5. Scenario features](#5-scenario-features)
+    - [5.1. Speed profile](#51-speed-profile)
+      - [5.1.1. Special case: Single entry](#511-special-case-single-entry)
+        - [1. Speed can be reached within time](#1-speed-can-be-reached-within-time)
+        - [2. Speed can't be reached in time due to acceleration constraints](#2-speed-cant-be-reached-in-time-due-to-acceleration-constraints)
+        - [3. Speed can't be reached in time due to jerk constraints](#3-speed-cant-be-reached-in-time-due-to-jerk-constraints)
+      - [5.1.2. What if current speed differ from the first entry?](#512-what-if-current-speed-differ-from-the-first-entry)
+      - [5.1.3. What if time is missing in entry?](#513-what-if-time-is-missing-in-entry)
+      - [5.1.4. Initial acceleration taken into account](#514-initial-acceleration-taken-into-account)
+      - [5.1.5. Sharp brake-to-stop profile](#515-sharp-brake-to-stop-profile)
+      - [5.1.6. More info](#516-more-info)
+    - [5.2. Road signs](#52-road-signs)
+      - [5.2.1. The system](#521-the-system)
+      - [5.2.2. esmini sign catalogs](#522-esmini-sign-catalogs)
+      - [5.2.3. Sign 3D models](#523-sign-3d-models)
+      - [5.2.4. Example](#524-example)
+    - [5.3. Expressions](#53-expressions)
+    - [5.4. Parameter distributions](#54-parameter-distributions)
+    - [5.5. Trajectories](#55-trajectories)
+  - [6. Controllers](#6-controllers)
+    - [6.1. Controller concept](#61-controller-concept)
+    - [6.2. Background and motivation](#62-background-and-motivation)
+    - [6.3. Brief on implementation](#63-brief-on-implementation)
+    - [6.4. How it works for the user](#64-how-it-works-for-the-user)
+    - [6.5. The ghost concept](#65-the-ghost-concept)
+    - [6.6. esmini embedded controllers](#66-esmini-embedded-controllers)
+  - [7. OpenSceneGraph and 3D models](#7-openscenegraph-and-3d-models)
+  - [8. Support / Q\&A](#8-support--qa)
+  - [9. Build guide](#9-build-guide)
+    - [9.1. Build configurations in Visual Studio and Visual Studio Code](#91-build-configurations-in-visual-studio-and-visual-studio-code)
+    - [9.2. Build configurations from command line](#92-build-configurations-from-command-line)
+    - [9.3. External dependencies](#93-external-dependencies)
+    - [9.4. Additional platform dependencies](#94-additional-platform-dependencies)
+    - [9.5. Run with Linux and visual studio code](#95-run-with-linux-and-visual-studio-code)
+    - [9.6. Debug with Linux and visual studio code](#96-debug-with-linux-and-visual-studio-code)
+    - [9.7. Dynamic protobuf linking](#97-dynamic-protobuf-linking)
+    - [9.8. Slim esmini - customize configration](#98-slim-esmini---customize-configration)
+    - [9.9. MSYS2 / MinGW-w64 support](#99-msys2--mingw-w64-support)
+    - [9.10. Build esmini project](#910-build-esmini-project)
+      - [Windows/Visual Studio](#windowsvisual-studio)
+      - [macOS](#macos)
+      - [Linux](#linux)
+    - [9.11. CentOS 7 (Linux)](#911-centos-7-linux)
+  - [10. Command reference](#10-command-reference)
 
 ## 1. Introduction
 
@@ -394,6 +437,467 @@ Use as following example:
 it should create `ground_truth.txth` which is readable in a text editor.
 
 ## 5. Scenario features
+
+### 5.1. Speed profile
+
+(introduced in esmini v2.23.0)
+
+The OpenSCENARIO [SpeedAction](https://www.asam.net/static_downloads/ASAM_OpenSCENARIO_V1.1.1_Model_Documentation/modelDocumentation/content/SpeedAction.html) will reach a specified speed in a way described by additional attributes, e.g. shape and duration. To achieve multiple speed target over time you would need to add multiple SpeedAction events to the scenario. Moreover, there is no way to explicitly control the jerk (acceleration/deceleration rates).
+
+However with the SpeedProfileAction (introduced in OpenSCENARIO v1.2) you can specify a series of speed targets over time, in one action. Optionally you can also specify dynamic constraints for jerk (gradually changing acceleration and deceleration), acceleration and speed.
+
+If you run the example scenario [speed-profile.xosc](https://github.com/esmini/esmini/blob/master/resources/xosc/speed-profile.xosc) as follows:
+
+    ./bin/esmini.exe --window 60 60 800 400 --osc ./resources/xosc/speed-profile.xosc --fixed_timestep 0.01 --record sim.dat
+
+    ./scripts/plot_dat.py sim.dat --param speed
+
+Tip: For quick experiments, skip the visualization and bring the plot asap by replacing the two commands with:
+
+    ./bin/esmini.exe --headless --osc ./resources/xosc/speed-profile.xosc --fixed_timestep 0.01 --record sim.dat;./scripts/plot_dat.py sim.dat --param speed
+
+The scenario includes two cars with identical speed profiles with one exception: The white Car1 use activate dynamic constraints by setting FollowingMode="follow" while the red Car2 will apply constant acceleration (linear interpolation) between speed targets by setting FollowingMode="position".
+
+The action for white car:
+
+    <SpeedProfileAction followingMode="follow">
+        <DynamicConstraints
+            maxAcceleration = "5.0"
+            maxDeceleration = "10.0"
+            maxAccelerationRate = "4.0"
+            maxDecelerationRate = "3.0"
+            maxSpeed = "50"
+        />
+        <SpeedProfileEntry time="0.0" speed="0.0"/>
+        <SpeedProfileEntry time="4.0" speed="10.0"/>
+        <SpeedProfileEntry time="4.0" speed="4.0"/>
+        <SpeedProfileEntry time="2.0" speed="8.0"/>
+    </SpeedProfileAction>
+
+The time values are relative each other and start of the action. In this case the action is triggered at simulation time = 2 seconds. Initial speed for both cars is 0. First entry has therefor no effect since it applies speed = 0 at time = 2 (2 + 0). After additional 4 seconds (sim time = 6s) the speed target is 10 m/s. At sim time 10s the speed target is 4 m/s and finally after 2 more seconds the final speed target value is 8.0 m/s.
+
+The "follow" mode deserves some additional explanation. As shown in the figure, it start and ends with zero acceleration. Then is basically will try to match the acceleration "lines" but cutting the corners according to acceleration and deceleration rate constraints. This way the intermediate speed values will not always be reached. However, the final speed value will be reached.
+
+If the target speed or accelerations can’t be reached with given constraints the action will revert to linear mode (FollowingMode="position") for the remainder of the profile. This "failure" is logged.
+
+Another approach would be to try to perform a best effort, but that would require additional input to decide whether to prioritize reaching specified speed targets or respect time stamps…​
+
+Note: The implementation of this feature is preliminary and experimental. Behavior and details might change.
+
+Let’s manipulate the scenario in different ways to illustrate some special cases of the speed-profile feature.
+
+#### 5.1.1. Special case: Single entry
+
+(Special case implementation introduced in esmini v2.23.1)
+
+Compared to SpeedAction, the SpeedProfileAction offers more tools in terms of dynamic constraints. Hence it can be actually be useful also for single entry, i.e. reach a single target speed.
+
+The implementation differs for the single entry case. Target speed will be reached if constraints allows for it. If not, the speed will still be reached, but later than specified.
+
+There are three sub cases:
+
+##### 1. Speed can be reached within time
+
+The speed profile will contain three phases: Jerk, constant acceleration, jerk.
+
+Example:
+
+Replace the four entries in speed-profile.xosc with the following ones:
+
+    <SpeedProfileEntry time="0.0" speed="0.0"/>
+    <SpeedProfileEntry time="4.0" speed="10.0"/>
+
+Initial positive jerk will be applied until necessary acceleration is reached. Keep constant acceleration (linear segment in the speed profile) until negative jerk needs to be applied in order to reach target speed on time and at zero acceleration.
+
+##### 2. Speed can't be reached in time due to acceleration constraints
+
+This speed profile will also contain three phases: Jerk, constant acceleration, jerk.
+
+Example:
+
+Replace the four entries in speed-profile.xosc with the following ones:
+
+    <SpeedProfileEntry time="0.0" speed="0.0"/>
+    <SpeedProfileEntry time="3.0" speed="10.0"/>
+
+Initial positive jerk will be applied until maximum acceleration is reached (or maximum deceleration). Keep constant acceleration (linear segment in the speed profile) until negative jerk needs to be applied in order to reach target speed at zero acceleration. Due to the acceleration limitation there will be a delay as well. The log file will include something like:
+
+    SpeedProfile: Constraining acceleration from 5.86 to 5.00
+    SpeedProfile: Extend 0.46 s
+
+##### 3. Speed can't be reached in time due to jerk constraints
+
+This speed profile will contain only two jerk phases.
+
+Example:
+
+Keep entries from last case, but change jerk settings as follows:
+
+    maxAccelerationRate="3.0"
+    maxDecelerationRate="2.0"
+
+In this case the jerk settings are too weak to reach target speed in time. Not enough acceleration can be achieved in the given time window.
+
+Positive jerk will be applied until negative jerk has to be applied in order to reach target speed at zero acceleration. Hence there is no room for a phase of constant acceleration. Due to the jerk limitation there will be a delay. The log file will include something like:
+
+    SpeedProfile: Can't reach target speed 10.00 on target time 3.00s with given jerk constraints, extend to 4.08s
+
+#### 5.1.2. What if current speed differ from the first entry?
+
+Replace the four entries with the following ones:
+
+    <SpeedProfileEntry time="0.0" speed="3.0"/>
+    <SpeedProfileEntry time="4.0" speed="10.0"/>
+
+What we see here is that for linear mode (FollowingMode="position") the speed of the first entry will apply immediately regardless of the current speed at the time of the action being triggered. For constrained mode (FollowingMode="follow") we see that the initial speed value (3.0) is overridden by the current speed (0.0). From there it will strive for the second entry, obeying the constraints.
+
+The overall idea with the "follow" mode is to maintain continuity in the speed profile, up to jerk degree.
+
+#### 5.1.3. What if time is missing in entry?
+
+Replace any entries with the following ones:
+
+    <SpeedProfileEntry speed="10.0"/>
+
+Specified max acceleration will be applied until target speed is reached. Note: In the non-linear case and with multiple entries, the function will fail if the specified acceleration can’t be reached with given jerk constraints (maxAcceleration and maxDeceleration). Try to lower the maxAcceleration/deceleration in this case.
+
+You can also combine entries with and without time constraint, like in following example:
+
+    <SpeedProfileEntry speed="10.0"/>
+    <SpeedProfileEntry time="3.0" speed="15.0"/>
+
+Car will accelerate until speed 10 m/s is reached, then spend 3 seconds to reach 15 m/s.
+
+#### 5.1.4. Initial acceleration taken into account
+
+(from release v2.23.2)
+
+What if the acceleration is not zero when the SpeedProfileAction is started, for example interrupting an ongoing SpeedAction in Follow mode?
+
+To maintain a continuous acceleration profile the action will use current acceleration as initial value. The standard states that the acceleration is expected to be zero at start and end of the action. The esmini interpretation is that the CHANGE is zero at start while the ACTUAL value is zero at end (since the action can only control acceleration while being active, not before).
+
+Example: Once again starting from [speed-profile.xosc](https://github.com/esmini/esmini/blob/master/resources/xosc/speed-profile.xosc), instead of setting an instant initial speed make it ramp up from 0 to 5 m/s over a duration of 4 seconds by tweaking the initial speed actions, for both entities, as below:
+
+    <SpeedActionDynamics dynamicsShape="linear" value="5.0" dynamicsDimension="time"/>
+    <SpeedActionTarget>
+        <AbsoluteTargetSpeed value="4.0"/>
+    </SpeedActionTarget>
+
+The initial speed action will apply constant acceleration until time = 2.0 seconds, when the SpeedProfileAction is triggered. While the linear profile will jump to 0 m/s (as specified in first entry) the follow mode profile will just apply necessary jerk to reach target acceleration with respect to following entries.
+
+Initial acceleration is also respected for the special case of a single entry, for example:
+
+    <SpeedProfileEntry time="3.0" speed="10.0"/>
+
+#### 5.1.5. Sharp brake-to-stop profile
+
+To skip jerk phase, e.g. as in emergency brake with an abrupt stop, just set AccelerationRate to a large number.
+
+Example: Once again starting from [speed-profile.xosc](https://github.com/esmini/esmini/blob/master/resources/xosc/speed-profile.xosc), change speed in the Init speed actions to 10.0 and replace the speed profile actions as below:
+
+    <SpeedProfileAction followingMode="follow">
+        <DynamicConstraints
+            maxAcceleration = "5.0"
+            maxDeceleration = "10.0"
+            maxAccelerationRate = "1E10"
+            maxDecelerationRate = "3.0"
+            maxSpeed = "50"
+        />
+        <SpeedProfileEntry time="0.0" speed="10.0"/>
+        <SpeedProfileEntry time="4.0" speed="0.0"/>
+    </SpeedProfileAction>
+
+Note: A drawback is that the setting will affect any acceleration phase in the complete profile. In other words, a limitation is that entries can't have individual settings. In the example above it's not problem since the first jerk phase is a deceleration while the second is an acceleration. If different rate values of same type are needed, it can be achieved by defining multiple SpeedProfile actions in a sequence, with individual performance settings.
+
+#### 5.1.6. More info
+
+To get more understanding of the implementation, see a few slides [here](https://drive.google.com/file/d/1DmjVHftcsbU71Ce_GASZ6IArcPA6teNF/view?usp=sharing).
+
+### 5.2. Road signs
+
+(framework updated in esmini v2.25.0)
+
+#### 5.2.1. The system
+
+Road signs are specified in the [OpenDRIVE](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4422&token=e590561f3c39aa2260e5442e29e93f6693d1cccd#top-016f925e-bfe2-481d-b603-da4524d7491f) road network description file. A road sign is identified by up to four parameters:
+
+1. country code
+
+2. type
+
+3. subtype
+
+4. value
+
+Country code is a two letter word according to the [ISO 3166-1 alpha-2 system](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Examples: Sweden = se, Germany = de.
+
+...
+
+#### 5.2.2. esmini sign catalogs
+
+Instead of hard-coding road sign support esmini will lookup the [OSI code](https://opensimulationinterface.github.io/open-simulation-interface/structosi3_1_1TrafficSign_1_1MainSign_1_1Classification.html) from a separate sign definition file, which is unique for each country. Name convention for the file is: `country code` + "_traffic_signals.txt". Example: Swedish catalog is named "se_traffic_signals.txt".
+
+...
+
+#### 5.2.3. Sign 3D models
+
+...
+
+#### 5.2.4. Example
+
+...
+
+### 5.3. Expressions
+
+From OpenSCENARIO v1.1 [expressions](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4908&token=ae9d9b44ab9257e817072a653b5d5e98ee0babf8#_expressions) including mathematical operations are supported in assignment of value to OpenSCENARIO [parameters](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4908&token=ae9d9b44ab9257e817072a653b5d5e98ee0babf8#_parameters) and XML element attributes. Examples:
+
+...
+
+### 5.4. Parameter distributions
+
+Parameter values and distributions can be specified in a separate [Parameter value distribution file](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4908&token=ae9d9b44ab9257e817072a653b5d5e98ee0babf8#_parameter_value_distribution_file). This is a convenient way of running multiple variations, or parameter value permutations, of a single scenario.
+
+Here’s an example: [cut-in_parameter_set.xosc](https://github.com/esmini/esmini/blob/master/resources/xosc/cut-in_parameter_set.xosc).
+
+...
+
+### 5.5. Trajectories
+
+Using OpenSCENARIO [FollowTrajectoryAction](https://www.asam.net/static_downloads/ASAM_OpenSCENARIO_V1.2.0_Model_Documentation/modelDocumentation/content/FollowTrajectoryAction.html) you can define various types of trajectories for entities to follow.
+
+esmini supports all three (as of OpenSCENARIO 1.2) shapes:
+
+1. polyline
+
+2. clothoid
+
+3. nurbs
+
+Here follows a few design choices for the polyline type that affect the behavior.
+
+When FollowMode is `follow` esmini will:
+
+1. Calculate heading based on direction of the line segments. However corners are interpolated in order to look better and avoid discontinuities.
+
+2. Calculate speed based on current speed (when action is triggered) and then with constant acceleration per segment reach destination vertex on time (or earlier if distance is too short vs time). This approach results in a continuous speed profile.
+
+When FollowMode is `position` esmini will:
+
+1. For world coordinates, apply whatever heading is specified in the vertices (note that 0.0 is default). Lane and road coordinates will align to road direction as default.
+
+2. For each segment, calculate constant speed needed to reach next vertex on time. This approach results in a discontinuous speed profile.
+
+## 6. Controllers
+
+### 6.1. Controller concept
+
+OpenSCENARIO provides the controller concept as a way to outsource control the motion and appearance of scenario entities. For the OpenSCENARIO description of the controller concept, see [OpenSCENARIO User Guide](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4908&token=ae9d9b44ab9257e817072a653b5d5e98ee0babf8#_controllers).
+
+Controllers can be assigned to object of type **Vehicle or Pedestrian**. Once assigned, controllers are activated for a given domain (e.g longitudinal, lateral, Lighting, Animation) using the ActivateControllerAction. It’s also possible to activate immediately as part of the AssignControllerAction.
+
+While the ActivateControllerAction is executing, the Controller assigned to that object will manage specified domain(s). Controllers may be **internal** (part of the simulator) or **external** (defined in another file).
+
+Intended use cases for Controllers include:
+
+- Specifying that a vehicle is controlled by the system under test.
+
+- Defining smart actor behavior, where a controller takes intelligent decisions in response to the road network or other actors. Hence, controllers can be used, for example, to make agents in a scenario behave in a human-like way.
+
+- Assigning a vehicle to direct human control.
+
+The Controller element contains Properties, which can be used to specify controller behavior either directly or by a file reference.
+
+Although OpenSCENARIO from v1.2 supports assignment of multiple controllers to an object, esmini is currently only supporting one controller to be assigned (and hence activated) to an object at the time.
+
+### 6.2. Background and motivation
+
+esmini version < 2.0 totally lacked support for controllers. Instead some similar functionality were implemented as part of different example-applications. For example, EgoSimulator provided interactive control of one vehicle. There was also an "external" mode which allowed for an external vehicle simulator to report current position for the typical Ego (VUT/SUT…​) vehicle.
+
+First, this approach made the example code of simple applications complex. Secondly, it limited the use cases of esmini since functionality was tightly embedded in the applications.
+
+Controllers provides a much more flexible way of adding functionality to esmini, in a way harmonizing with the standard (OpenSCENARIO 1.X). A side effect of this "outsourcing" of functionality is that the former demo applications could be reduced to a minimum both in number and size.
+
+### 6.3. Brief on implementation
+
+Controllers was introduced in esmini v2.0. Briefly it works as follows:
+
+There is a collection of embedded controllers coming with esmini. Each controller inherit from the base class Controller (Controller.h/cpp). In order for esmini to be aware of the existence of a controller it has to be registered. This is done through the ScenarioReader method [RegisterController](https://github.com/esmini/esmini/blob/3d1abcd6b3e3855707dc424f7c25477bbf136078/EnvironmentSimulator/Modules/ScenarioEngine/SourceFiles/ScenarioReader.hpp#L132). It will put the controller into a collection to have available when the scenario is being parsed. So all controllers need to be registered prior to loading the scenario.
+
+A controller is registered with the following information:
+
+1. Its static name which is used as identifier.
+
+2. A pointer to a function instantiating the controller.
+
+This architecture makes it possible for an external module to create a controller and registering it without modifying any of esmini modules. In that way it is a semi-plugin concept, you can say.
+
+Note: Even though ScenarioReader have a helper function for registering all the embedded controllers the RegisterController can be called from any module directly, at any time prior to scenario initialization.
+
+esmini catalog framework supports controllers as well, so controllers can be defined in catalogs as presets, just like vehicles and routes for example.
+
+### 6.4. How it works for the user
+
+...
+
+### 6.5. The ghost concept
+
+...
+
+### 6.6. esmini embedded controllers
+
+Below is a listing of some of the available controllers in esmini. Note that only DefaultController is related to the OpenSCENARIO standard. The other ones are esmini-specific and will not work in other tools (so far there is no standard plugin-architecture for controllers to enable moving between tools). For updated and complete definition of controllers and their parameters, see [ControllerCatalog.xosc](https://github.com/esmini/esmini/blob/master/resources/xosc/Catalogs/Controllers/ControllerCatalog.xosc).
+
+...
+
+## 7. OpenSceneGraph and 3D models
+
+...
+
+## 8. Support / Q&A
+
+...
+
+## 9. Build guide
+
+### 9.1. Build configurations in Visual Studio and Visual Studio Code
+
+...
+
+### 9.2. Build configurations from command line
+
+CMake tool is used to create standard make configurations. A few example "create…​" batch scripts are supplied (in `scripts` folder) as examples how to generate desired build setup from command line.
+
+...
+
+### 9.3. External dependencies
+
+esmini is designed to link all dependencies statically. Main reason is to have a all-inclusive library for easy integration either as a shared library/DLL (e.g. plugin in Unity, or S-function in Simulink) or statically linked into a native application.
+
+Note: Nothing stops you from going with all dynamic linking, it’s just that provided build scripts are not prepared for it.
+
+CMake scripts will download several pre-compiled 3rd party packages and **3D model resource files**.
+
+...
+
+### 9.4. Additional platform dependencies
+
+Linux Ubuntu 18.04
+
+    sudo apt install build-essential gdb ninja-build git pkg-config libgl1-mesa-dev libpthread-stubs0-dev libjpeg-dev libxml2-dev libpng-dev libtiff5-dev libgdal-dev libpoppler-dev libdcmtk-dev libgstreamer1.0-dev libgtk2.0-dev libcairo2-dev libpoppler-glib-dev libxrandr-dev libxinerama-dev curl cmake
+
+Also, g++ version >= 5 is needed for c++14 code support.
+
+Windows and Mac: Install the cmake application
+
+### 9.5. Run with Linux and visual studio code
+
+...
+
+### 9.6. Debug with Linux and visual studio code
+
+...
+
+### 9.7. Dynamic protobuf linking
+
+When linking esmini with software already dependent on Google protobuf there might be need for dynamic linking of shared protobuf library. This can be achieved by defining cmake symbol DYN_PROTOBUF as following example:
+
+    cmake .. -D DYN_PROTOBUF=True
+
+Then build as usual. It will link with protobuf shared library instead of linking with a static library.
+
+When running esmini protobuf shared library need to be available. Set LD_LIBRARY_PATH to point to the folder where the library is, example:
+
+    export LD_LIBRARY_PATH=./externals/OSI/linux/lib-dyn
+
+Note:
+
+The dynamic versions of protobuf were added Aug 31 2021. So you might need to update the OSI library package. Get the latest from following links:
+
+- [OSI Windows](https://dl.dropboxusercontent.com/s/an58ckp2qfx5069/osi_v10.7z?dl=0)
+
+- [OSI Linux](https://dl.dropboxusercontent.com/s/kwtdg0c1c8pawa1/osi_linux.7z?dl=0)
+
+- [OSI Mac](https://dl.dropboxusercontent.com/s/m62v19gp0m73dte/osi_mac.7z?dl=0)
+
+### 9.8. Slim esmini - customize configration
+
+The external dependencies OSG, OSI and SUMO are optional. Also the unit test suite is optional, in effect making the dependecy to googletest framework optional as well. All these options are simply controlled by the following cmake options:
+
+- USE_OSG
+
+- USE_OSI
+
+- USE_SUMO
+
+- USE_GTEST
+
+So, for example, to cut dependency to OSG and SUMO, run:
+
+    cmake .. -D USE_OSG=False -D USE_SUMO=False
+
+To disable OSG, SUMO, OSI and googletest, run:
+
+    cmake .. -D USE_OSG=False -D USE_SUMO=False -D USE_OSI=False -D USE_GTEST=False
+
+All options are enabled/True as default.
+
+Note:
+
+Disabling an external dependency will disable corresponding functionality. So, for example, disabling OSI means that no OSI data can be created by esmini. Disabling OSG means that esmini can’t visualize the scenario. However it can still run the scenario and create a .dat file, which can be played and visualized later in another esmini build in which OSG is enabled (even on another platform).
+
+### 9.9. MSYS2 / MinGW-w64 support
+
+...
+
+### 9.10. Build esmini project
+
+First generate build configuration (see above)
+
+Then it should work on all platform to build using cmake as follows:
+
+    cmake --build . --config Release --target install
+
+Or you can go with platform specific ways of building:
+
+#### Windows/Visual Studio
+
+...
+
+#### macOS
+
+...
+
+#### Linux
+
+Once `cmake ..` has created the build configuration, of course you can build by calling the gnu `make` applciation directly instead of going via `cmake --build` as described above.
+
+    cd build
+    make -j4 install
+
+This will build all projects, in four parallel jobs, and copy the binaries into a dedicated folder found by the demo batch scripts.
+
+### 9.11. CentOS 7 (Linux)
+
+...
+
+## 10. Command reference
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
