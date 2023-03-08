@@ -707,7 +707,7 @@ Intended use cases for Controllers include:
 
 The Controller element contains Properties, which can be used to specify controller behavior either directly or by a file reference.
 
-Although OpenSCENARIO from v1.2 supports assignment of multiple controllers to an object, esmini is currently only supporting one controller to be assigned (and hence activated) to an object at the time.
+Although OpenSCENARIO from v1.2 supports assignment of multiple controllers to an object, **esmini is currently only supporting one controller to be assigned (and hence activated) to an object at the time**.
 
 ### 6.2. Background and motivation
 
@@ -737,7 +737,97 @@ esmini catalog framework supports controllers as well, so controllers can be def
 
 ### 6.4. How it works for the user
 
-...
+Controllers are completely handled in the OpenSCENARIO file. With one exception: esmini provides the `--disable-controllers` option which totally ignore any controllers, just performing the scenario with DefaultControllers, which can be handy when previewing and debugging scenarios.
+
+In terms of OpenSCENARIO a controller is assigned to an entity (object) in any of two ways:
+
+1. As part of the **Entities section** and **ScenarioObject definition**, using the **ObjectController** element.
+
+2. The **AssignControllerAction** which can be triggered as any action at any time during the simulation.
+
+Once assigned the controller must finally be activated using the ActivateControllerAction which can be triggered at any time. It provides an attribute to specify which domain(s) to control: Lateral, Longitudinal or both.
+
+Example 1: Implicit assignment of controller using the `ObjectController` element:
+
+    <Entities>
+       <ScenarioObject name="Ego">
+         <CatalogReference catalogName="VehicleCatalog" entryName="$HostVehicle"/>
+          <ObjectController>
+              <Controller name="MyController" >
+                 <Properties>
+                     <Property name="esminiController" value="InteractiveController" />
+                     <Property name="speedFactor" value="1.5" />
+                 </Properties>
+              </Controller>
+          </ObjectController>
+       </ScenarioObject>
+    </Entities>
+
+Example 2: As above, but using catalog reference:
+
+    <Entities>
+       <ScenarioObject name="Ego">
+         <CatalogReference catalogName="VehicleCatalog" entryName="$HostVehicle"/>
+            <ObjectController>
+                <CatalogReference catalogName="ControllerCatalog" entryName="interactiveDriver" />
+            </ObjectController>
+       </ScenarioObject>
+    </Entities>
+
+Example 3: Activate controller in the Init section:
+
+    <Init>
+       <Actions>
+          <Private entityRef="Ego">
+             <PrivateAction>
+                <TeleportAction>
+                   <Position>
+                      <LanePosition roadId="0" laneId="-3" offset="0" s="$EgoStartS"/>
+                   </Position>
+                </TeleportAction>
+             </PrivateAction>
+             <PrivateAction>
+                  <ActivateControllerAction longitudinal="true" lateral="true" />
+             </PrivateAction>
+          </Private>
+       </Actions>
+    </Init>
+
+Example 4: Assign and activate the controller in the Storyboard section:
+
+    <Event name="InteractiveEvent" maximumExecutionCount="1" priority="overwrite">
+       <Action name="AssignControllerAction">
+         <PrivateAction>
+              <ControllerAction>
+                  <AssignControllerAction>
+                      <CatalogReference catalogName="ControllerCatalog" entryName="interactiveDriver" />
+                  </AssignControllerAction>
+              </ControllerAction>
+          </PrivateAction>
+       </Action>
+       <Action name="ActivateControllerAction">
+          <PrivateAction>
+              <ControllerAction>
+                  <ActivateControllerAction longitudinal="true" lateral="true" />
+              </ControllerAction>
+          </PrivateAction>
+       </Action>
+       <StartTrigger>
+          <ConditionGroup>
+             <Condition name="" delay="0" conditionEdge="none">
+                <ByValueCondition>
+                   <SimulationTimeCondition value="20" rule="greaterThan"/>
+                </ByValueCondition>
+             </Condition>
+          </ConditionGroup>
+       </StartTrigger>
+    </Event>
+
+To disable any controller simply apply ActivateControllerAction on no domain, like:
+
+    <ActivateControllerAction longitudinal="false" lateral="false" />
+
+That should work in all OpenSCENARIO supporting tools. In esmini you can also assign DefaultController which will disconnect any assigned controller.
 
 ### 6.5. The ghost concept
 
