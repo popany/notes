@@ -45,7 +45,8 @@
     - [Item 48: Be aware of template metaprogramming](#item-48-be-aware-of-template-metaprogramming)
   - [Chapter 8: Customizing `new` and `delete`](#chapter-8-customizing-new-and-delete)
     - [Item 49: Understand the behavior of the new-handler.](#item-49-understand-the-behavior-of-the-new-handler)
-    - [Item 50: Understand when it makes sense to replace  `new` and `delete`](#item-50-understand-when-it-makes-sense-to-replace--new-and-delete)
+    - [Item 50: Understand when it makes sense to replace `new` and `delete`](#item-50-understand-when-it-makes-sense-to-replace-new-and-delete)
+    - [Item 51: Adhere to convention when writing new and delete](#item-51-adhere-to-convention-when-writing-new-and-delete)
 
 ## Chapter 1: Accustoming Yourself to C++
 
@@ -1325,6 +1326,3 @@ We'll begin with `operator new`. Implementing a conformant `operator new` requir
 The return value part of `operator new` is easy. If you can supply the requested memory, you return a pointer to it. If you can't, you follow the rule described in Item 49 and throw an exception of type `bad_alloc`.
 
 It's not quite that simple, however, because `operator new` actually tries to allocate memory more than once, calling the new-handling function after each failure. The assumption here is that the new-handling function might be able to do something to free up some memory. Only when the pointer to the new-handling function is null does `operator new` throw an exception. 
-
-
-
