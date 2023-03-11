@@ -3,6 +3,7 @@
 - [jupyter](#jupyter)
   - [Jupyter Notebook Extensions](#jupyter-notebook-extensions)
     - [Install two packages from conda-forge channel](#install-two-packages-from-conda-forge-channel)
+  - [jupytext](#jupytext)
   - [HowTo](#howto)
     - [Run jupyter from docker container](#run-jupyter-from-docker-container)
   - [run one remote server](#run-one-remote-server)
@@ -14,6 +15,10 @@
 [Jupyter Notebook extensions to enhance your efficiency](https://www.endtoend.ai/blog/jupyter-notebook-extensions-to-enhance-your-efficiency/)
 
 ### [Install two packages from conda-forge channel](https://www.endtoend.ai/blog/jupyter-notebook-extensions-to-enhance-your-efficiency/)
+
+## [jupytext](https://github.com/mwouts/jupytext)
+
+...
 
 ## HowTo
 
