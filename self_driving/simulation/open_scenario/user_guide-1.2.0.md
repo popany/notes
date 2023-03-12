@@ -106,6 +106,15 @@
       - [7.4.3. User-defined action](#743-user-defined-action)
     - [7.5. Actions at runtime](#75-actions-at-runtime)
     - [7.6. Conditions and triggers](#76-conditions-and-triggers)
+      - [7.6.1. Triggers and condition groups](#761-triggers-and-condition-groups)
+        - [Start trigger](#start-trigger)
+        - [Stop trigger](#stop-trigger)
+      - [7.6.2. Condition edges](#762-condition-edges)
+      - [7.6.3. Condition delay](#763-condition-delay)
+      - [7.6.4. Corner cases of edges and delays](#764-corner-cases-of-edges-and-delays)
+      - [7.6.5. Condition types](#765-condition-types)
+        - [ByEntityConditions](#byentityconditions)
+        - [ByValueConditions](#byvalueconditions)
   - [8. Scenario at runtime](#8-scenario-at-runtime)
   - [9. Reuse mechanisms](#9-reuse-mechanisms)
   - [10. Tutorial: How to create a scenario](#10-tutorial-how-to-create-a-scenario)
@@ -817,7 +826,73 @@ Actions enable ASAM OpenSCENARIO to prescribe element behavior in traffic simula
 
 ### 7.6. Conditions and triggers
 
+A scenario can be regarded as a collection of meaningful **actions** whose **activation is regulated by triggers**. These triggers play an important role on how a scenario evolves because the same set of actions may lead to a multitude of different outcomes. The outcome strongly depends on how actions are triggered in relation to one other. In ASAM OpenSCENARIO, **a trigger is the outcome arising from a combination of conditions and always evaluates to either true or false**.
+
+In ASAM OpenSCENARIO, **a condition is a container for logical expressions** and is assessed at runtime. The condition operates on the **current and previous** evaluations of its logical expressions to produce a Boolean output that is used by triggers.
+
+#### 7.6.1. Triggers and condition groups
+
+The `Trigger` class is an association of `ConditionGroup` instances, which are an association of `Condition` instances. At runtime, a condition group evaluates to either true or false and its outcome is calculated as the **AND** operation between all its conditions:
+
+A conditionGroup is evaluated to true when all its associated conditions are evaluated to true.
+
+The outcome of a trigger is calculated as the **OR** operation between all its condition groups.
+
+A trigger evaluates to true when at least one of its condition groups evaluates to true.
+
+##### Start trigger
+
+An **instance of** the `Trigger` class instantiated as a start trigger is used to move a runtime instantiation of a `Storyboard` **element** from the `standbyState` to the `runningState`. **Only the `Act` class and `Event` class host start triggers** and any element that does not contain a start trigger **inherits** the start trigger from its parent element. For example, **starting an act also starts its maneuver groups and maneuvers**, but **does not start the events** because the events have their own start triggers. Furthermore, **no events may start if they do not belong to an act that is in the `runningState`**.
+
+The `Story` class is an exception to the rules above since it does not require a formal start trigger given that **starting a simulation is equivalent to starting the `Story`**.
+
+##### Stop trigger
+
+A stop trigger is used to force a runtime instantiation of a `StoryboardElement` to transition from its `standbyState` or `runningState` to the `completeState`. **Only the storyboard and the act host stop triggers**. All storyboard elements **inherit** the stop triggers from their parent. This is true **even if the storyboard element under consideration has its own stop triggers**. For example, if a story is affected by a stop trigger, so are all its acts, even though they have their own stop triggers.
+
+When a stop trigger is received, the concerned storyboard element is expected to transition to the `completeState` with a `stopTransition`, and clear all remaining number of executions, if applicable. If the trigger occurs when the element is in the `runningState`, it is expected that its execution is terminated immediately.
+
+#### 7.6.2. Condition edges
+
+When edges are defined, with `rising`, `falling`, and `risingOrFalling`, the condition evaluation is also dependent on past values of its logical expression at the discrete time $t_{d-1}$. 
+
 ...
+
+#### 7.6.3. Condition delay
+
+A delay is a modification of a condition that allows **past values of the condition evaluation** to be used in the present $t_{d}$. When a delay $\Delta t$ is defined, a condition at time $t_{d}$ is represented by the evaluation of the logical expressions associated to that condition, at $t_{d} - \Delta t$, rather than the evaluation of its logical expressions at time $t_{d}$. In other words, evaluation of a delayed condition at time $t_{d}$ it is equivalent to the evaluation of a similar condition, but without delay, at time $t_{d} - \Delta t$:
+
+$C_{D}\left(t_{d}\right) = C\left(t_{d - \Delta} \right)$
+
+#### 7.6.4. Corner cases of edges and delays
+
+Both edge and delay concepts rely on previous evaluations of the logical expression of a condition. Depending on when the condition is evaluated, these previous evaluations of the logical expression **may not be available**.
+
+The first time a condition defined with `edge` is checked, there is no information about previous evaluations of its logical expression. At runtime, a condition defined with `edge` shall **always evaluate to false**, the first time it is checked. ASAM OpenSCENARIO expects a condition to be checked for the first time once its enclosing storyboard element enters the `standbyState`. If `standbyState` is not defined, `runningState` shall be used.
+
+In case of conditions defined with delay, if $t_{d} < \Delta t$, the concerned condition evaluates to false.
+
+#### 7.6.5. Condition types
+
+The base condition type contains three basic elements: `name`, `delay`, and `conditionEdge`. Whereas the first element is self-explanatory, clarification on the other terms is given in the preceding sections. Other elements of a condition depend on its subtype, of which there are two: `ByEntityCondition` and `ByValueCondition`.
+
+##### ByEntityConditions
+
+The `ByEntityCondition` class hosts classes of conditions which use the **states entities** to perform the conditional evaluation. The conditional evaluation may depend on the value of a single state, or on how the value of any one given state relates to another state. The other state may be:
+
+- within the entity
+
+- between entities
+
+- between the entity and the corresponding characteristics of the road network
+
+Entity conditions require the definition of triggering entities whose states are used in the conditional evaluation. If more than one triggering entity is defined, the user is given two alternatives to determine when the condition evaluates to true: either all triggering entities verify the logical expression or at least one entity verifies the logical expression.
+
+##### ByValueConditions
+
+The `ByValueCondition` classes hosts condition classes with logical expressions that depend on **simulation states** rather than **entity states**. Examples are scenario states, times, and traffic signal information.
+
+Value conditions also provide a **wrapper** for external conditions that may depend on values that are not accessible from the scenario and are only available to the user implementation. Examples are pressing buttons, custom signals, and commands.
 
 ## 8. Scenario at runtime
 
