@@ -762,7 +762,7 @@ In ASAM OpenSCENARIO, the **storyboard covers the complete scenario description*
 
 Instances of **Story** in ASAM OpenSCENARIO contain **Act instances**, which in turn define conditional groups of Action instances. Each **act** focuses on answering the question **"when"** something happens in the timeline of its corresponding story. The act regulates the story via its `startTrigger` instance and its `stopTrigger` instance. If a `startTrigger` evaluates to true, the act's **`ManeuverGroup` instances** are executed.
 
-A **`ManeuverGroup`** element is part of the **`Act`** element and addresses the question of **"who"** is doing something, by **assigning entities as `Actor`s** (see Section 7.3.1) in the included `Maneuver` instances. Maneuver groups may also include catalog references with **predefined maneuvers**. This concept is described in Section 9.4.
+A **`ManeuverGroup`** element is part of the **`Act`** element and addresses the question of **"who"** is doing something, by **assigning entities as `Actors** (see Section 7.3.1) in the included `Maneuver` instances. Maneuver groups may also include catalog references with **predefined maneuvers**. This concept is described in Section 9.4.
 
 The **Maneuver** element defines **"what"** is happening in a scenario. **A `Maneuver` is a container for `Event` instances** that need to share a common scope. Events control the simulated world or the actors defined in their parent maneuver group. This is achieved through triggering Action instances, via user-defined Condition instances.
 
@@ -914,11 +914,21 @@ The file for the sample scenario used in this tutorial is named SimpleOvertake.x
 
 ### 10.2. Entities
 
-In the Entities section, we define the traffic participants used in the scenario: one or more instances of Vehicle, Pedestrian, MiscObject, or ExternalObjectReference.
+In the `Entities` section, we define the traffic participants used in the scenario: one or more instances of `Vehicle`, `Pedestrian`, `MiscObject`, or `ExternalObjectReference`.
+
+To state you want to use an entity from the catalog, use the following syntax:
+
+    <ScenarioObject name="Entity name in scenario">
+      <CatalogReference catalogName="VehicleCatalog" entryName="Entity name in catalog"/>
+    </ScenarioObject>
 
 ### 10.3. Init section
 
 The following XML example shows multiple instances of Action that position the entities Vehicle 1 and Vehicle 2 using road coordinates and define initial velocities. Vehicle 1 has speed 150 km/h and is located 58 m behind Vehicle 2, which has speed 130 km/h.
+
+Values in the scenario xosc are in SI unit system.
+
+ASAM OpenSCENARIO does not enforce specifying the initial position and speed of entities, but it is considered best practice to do so. Most actions and conditions require those values to be set.
 
 ### 10.4. Stories
 
@@ -928,17 +938,33 @@ Instances of Story may be used to group **independent parts of the scenario**, t
 
 An Act allows a set of multiple instances of Trigger to determine when the specific Act starts.
 
+This example scenario contains a **`startTrigger` at `Act` and `Event` level**. At `Act` level, they are used just to start the simple overtaking scenario. At the `Event` level, they control the scenario's execution.
+
+All ASAM OpenSCENARIO storyboard elements may **run in parallel**. Sequential execution is introduced indirectly by triggers, which can control how certain storyboard elements start or stop.
+
 ### 10.6. ManeuverGroups
 
-Using ManeuverGroup we specify the Actors that are executing the actions. Because we want Vehicle 1 to change lanes, we specify its name under Actors. This means that all the actions under this ManeuverGroup are executed by Vehicle 1.
+Using `ManeuverGroup` we specify the `Actors` that are executing the actions. Because we want Vehicle 1 to change lanes, we specify its name under `Actors`. This means that all the actions under this ManeuverGroup are executed by Vehicle 1.
+
+For executing global actions `Actors` may be left empty.
+
+For **determining actors during runtime**, you have to use `selectTriggeringEntities = true`, which is explained in Section 7.3.1.
 
 ### 10.7. Maneuvers
 
-In this example, one Maneuver is used to group two instances of Event.
+In this example, one `Maneuver` is used to group two instances of `Event`. Two instances of `Maneuver` may also be used, each hosting one `Event`. Both alternatives yield the same simulation outcome, as long as each `Event` retain its `startTrigger`.
 
 ### 10.8. Events and actions
 
-Under Maneuver_1 we define two instances of Event, one for left lane change called Turn left and the other one with right lane change named Turn right. Left and right means relative to the current lane.
+Under `Maneuver_1` we define two instances of `Event`, one for left lane change called `Turn left` and the other one with right lane change named `Turn right`. `Left` and `right` means **relative to the current lane**.
+
+In the first Event that we want to execute, which is `Turn left`, we use one `ConditionGroup` and inside it one `RelativeDistanceCondition`. This condition checks if the current longitudinal distance between `Vehicle 1` and `Vehicle 2` is shorter than 20 m. Because `Vehicle 1` has a higher speed than `Vehicle 2` their relative distance falls below 20 m at some point and `StartTrigger` gets triggered on `Turn left` event, and `Vehicle 1` starts its `LaneChange` action to the left.
+
+The second `Event` named `Turn right` contains also one `LaneChangeAction`, but this one targets the same lane where `Vehicle 2` is currently located. That means, the target is to get back to the same lane where `Vehicle 1` was, but this time in front of `Vehicle 2`.
+
+In this action, we specified the **exact coordinates** on the target lane, but we could have also used relative road coordinates relative to `Vehicle 2`. Using **relative coordinates** makes the scenario more portable to other road networks.
+
+For triggering the event `Turn right` we use two conditions in one condition group, which means they both have to be true at the exact same time. We use `RelativeDistanceCondition` that checks whether the relative longitudinal distance between `Vehicle 2` and `Vehicle 1` is no longer greater than 10 m. However, we have to combine this condition with `SimulationTimeCondition` to disallow triggering `RelativeDistanceCondition` anytime before 5 seconds.
 
 ### 10.9. Sequential execution
 
