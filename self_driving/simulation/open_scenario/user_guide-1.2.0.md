@@ -734,7 +734,7 @@ Instances of Property may be used to define test-instance specific or use-case s
 
 ### 7.1. Overview of a scenario
 
-To represent a traffic situation, an OSC Model Instance is built up of four main components:
+To represent a traffic situation, an **OSC Model Instance** is built up of four main components:
 
 - Road network: mapping of the different driving surfaces and all relevant elements of the road infrastructure, like traffic signals.
 
@@ -744,25 +744,27 @@ To represent a traffic situation, an OSC Model Instance is built up of four main
 
 - Triggers: mechanism that determines when an action starts or stops. It is built on logical expressions revolving around the states of entities or the simulation.
 
+It is possible to design a scenario **without a road network** but it restricts the application of certain ASAM OpenSCENARIO actions.
+
 The structure of the OSC Model Instance was created with the purpose to host and combine the main components listed above in such a way that rich driving scenarios can be defined. This chapter introduces the ASAM OpenSCENARIO structure, how the different components fit in the structure, and how these components relate to one another.
 
 ### 7.2. Storyboard and entities
 
 #### 7.2.1. Storyboard
 
-In ASAM OpenSCENARIO, the **storyboard covers the complete scenario description**. The storyboard provides the answers to the questions "who" is doing "what" and "when" in a scenario. An ASAM OpenSCENARIO Storyboard element consists of the following elements:
+In ASAM OpenSCENARIO, the **storyboard covers the complete scenario description**. The storyboard provides the answers to the questions **"who" is doing "what" and "when"** in a scenario. An ASAM OpenSCENARIO Storyboard element consists of the following elements:
 
-- Init: Initialization element that sets the initial states of the scenario elements, such as the position and speed of instances of Entity. It is not possible to specify conditional behavior in this section.
+- Init: Initialization element that sets the initial states of the scenario elements, such as the **position and speed** of instances of Entity. It is not possible to specify conditional behavior in this section.
 
 - One or more Story elements (optional): Story elements enable scenario authors to group different scenario aspects into a higher-level hierarchy and thus create a structure for large scenarios.
 
 - stopTrigger: determines the end of the scenario.
 
-Instances of Story in ASAM OpenSCENARIO contain Act instances, which in turn define conditional groups of Action instances. Each **act** focuses on answering the question **"when"** something happens in the timeline of its corresponding story. The act regulates the story via its startTrigger instance and its stopTrigger instance. If a startTrigger evaluates to true, the act’s ManeuverGroup instances are executed.
+Instances of **Story** in ASAM OpenSCENARIO contain **Act instances**, which in turn define conditional groups of Action instances. Each **act** focuses on answering the question **"when"** something happens in the timeline of its corresponding story. The act regulates the story via its `startTrigger` instance and its `stopTrigger` instance. If a `startTrigger` evaluates to true, the act's **`ManeuverGroup` instances** are executed.
 
-A **ManeuverGroup** element is part of the Act element and addresses the question of **"who"** is doing something, by assigning entities as Actors (see Section 7.3.1) in the included Maneuver instances. Maneuver groups may also include catalog references with predefined maneuvers. This concept is described in Section 9.4.
+A **`ManeuverGroup`** element is part of the **`Act`** element and addresses the question of **"who"** is doing something, by **assigning entities as `Actor`s** (see Section 7.3.1) in the included `Maneuver` instances. Maneuver groups may also include catalog references with **predefined maneuvers**. This concept is described in Section 9.4.
 
-The **Maneuver** element defines **"what"** is happening in a scenario. A Maneuver is a container for Event instances that need to share a common scope. Events control the simulated world or the actors defined in their parent maneuver group. This is achieved through triggering Action instances, via user-defined Condition instances.
+The **Maneuver** element defines **"what"** is happening in a scenario. **A `Maneuver` is a container for `Event` instances** that need to share a common scope. Events control the simulated world or the actors defined in their parent maneuver group. This is achieved through triggering Action instances, via user-defined Condition instances.
 
 #### 7.2.2. Entities
 
