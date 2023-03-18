@@ -10,7 +10,13 @@
 
 - [Cubic Spline interpolation in C++](https://kluge.in-chemnitz.de/opensource/spline/)
 
-  [ttk592/spline](https://github.com/ttk592/spline)
+- [ttk592/spline](https://github.com/ttk592/spline)
+
+- [Spline and spline fitting module](http://eigen.tuxfamily.org/dox/unsupported/group__Splines__Module.html)
+
+- [msteinbeck/tinyspline](https://github.com/msteinbeck/tinyspline)
+
+- [pradeep-pyro/tinynurbs](https://github.com/pradeep-pyro/tinynurbs)
 
 ## resource
 
