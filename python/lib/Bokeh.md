@@ -5,6 +5,7 @@
   - [User guide](#user-guide)
   - [Bokeh server applications](#bokeh-server-applications)
   - [practice](#practice)
+  - [FIX](#fix)
 
 [home page](https://bokeh.org/)
 
@@ -46,3 +47,7 @@ Install the jupyter-server-proxy package:
 [Bokeh - How to Layout Charts to Create Figure?](https://coderzcolumn.com/tutorials/data-science/bokeh-how-to-layout-charts-to-create-figure)
 
 [Bokeh - How to Click and Drag?](https://stackoverflow.com/questions/30184926/bokeh-how-to-click-and-drag)
+
+## FIX
+
+[Bokeh Server not showing up in jupyterlab in a docker container](https://discourse.bokeh.org/t/bokeh-server-not-showing-up-in-jupyterlab-in-a-docker-container/7641)
