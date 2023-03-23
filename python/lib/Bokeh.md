@@ -48,6 +48,8 @@ Install the jupyter-server-proxy package:
 
 [Bokeh - How to Click and Drag?](https://stackoverflow.com/questions/30184926/bokeh-how-to-click-and-drag)
 
+[Adding a point to a bokeh plot on click](https://stackoverflow.com/a/50080573)
+
 ## FIX
 
 [Bokeh Server not showing up in jupyterlab in a docker container](https://discourse.bokeh.org/t/bokeh-server-not-showing-up-in-jupyterlab-in-a-docker-container/7641)
