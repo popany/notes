@@ -5,6 +5,7 @@
   - [Managing dependencies](#managing-dependencies)
   - [Golang tutorial series](#golang-tutorial-series)
   - [Goroutines](#goroutines)
+  - [opensource](#opensource)
 
 ## Hello World
 
@@ -66,4 +67,8 @@ https://www.golinuxcloud.com/goroutines-golang/
 https://medium.com/@manus.can/golang-tutorial-goroutines-and-channels-c2cd491f77ab
 
 https://zetcode.com/golang/goroutine/
+
+## opensource
+
+[7 GitHub projects to make you a better Go Developer](https://dev.to/ankit01oss/7-github-projects-to-make-you-a-better-go-developer-2nmh)
 
