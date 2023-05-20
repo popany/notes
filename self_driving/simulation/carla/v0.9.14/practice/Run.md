@@ -24,6 +24,7 @@
 
     docker run --rm -ti \
         --privileged \
+        --gpus all \
         -v $(pwd):/home/carla/carla-package \
         -e DISPLAY=192.168.99.1:0.0 \
         carla-prerequisites:latest \
