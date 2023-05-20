@@ -8,6 +8,8 @@
   - [Build UE4](#build-ue4)
   - [Build Carla](#build-carla)
   - [Carla Package Path](#carla-package-path)
+  - [Make Process](#make-process)
+    - [`make CarlaUE4Editor`](#make-carlaue4editor)
 
 ## Reference
 
@@ -139,4 +141,13 @@ https://forums.unrealengine.com/t/upcoming-disruption-of-service-impacting-unrea
 ## Carla Package Path
 
 Dist/CARLA_0.9.14-dirty.tar.gz
+
+## Make Process
+
+### `make CarlaUE4Editor`
+
+    ./Util/BuildTools/Setup.sh
+    ./Util/BuildTools/BuildLibCarla.sh --server --release
+    ./Util/BuildTools/BuildCarlaUE4.sh --build
+
 
