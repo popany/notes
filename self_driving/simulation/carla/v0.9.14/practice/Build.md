@@ -25,7 +25,6 @@
   - [Run](#run)
   - [Debug](#debug)
     - [Debug `CarlaUE4-Linux-Shipping`](#debug-carlaue4-linux-shipping)
-  - [Run](#run-1)
 
 ## Reference
 
@@ -355,6 +354,7 @@ Dockerfile
       update-alternatives --install /usr/bin/clang clang /usr/lib/llvm-10/bin/clang 180
 
     RUN apt install -y xorg-dev # Inorder to run in docker container
+    RUN apt install -y gdb
     
     RUN useradd -m carla
     USER carla
@@ -409,19 +409,22 @@ Debug in docker
     docker run --rm -ti \
         --privileged \
         --gpus all \
-        -e DISPLAY=<ip>:0.0
-
+        -e NVIDIA_DISABLE_REQUIRE=1 \
+        -e NVIDIA_DRIVER_CAPABILITIES=all --device /dev/dri \
+        -v /etc/vulkan/icd.d/nvidia_icd.json:/etc/vulkan/icd.d/nvidia_icd.json \
+        -v /etc/vulkan/implicit_layer.d/nvidia_layers.json:/etc/vulkan/implicit_layer.d/nvidia_layers.json \
+        -v /usr/share/glvnd/egl_vendor.d/10_nvidia.json:/usr/share/glvnd/egl_vendor.d/10_nvidia.json \
+        -e XDG_RUNTIME_DIR=/tmp/carla-xdg \
+        -v /tmp/carla-xdg:/tmp/carla-xdg \
+        -e DISPLAY=172.24.10.124:0.0 \
         -v $(pwd)/UE4.26:/home/carla/UE4.26 \
         -v $(pwd)/carla:/home/carla/carla \
         carla-runtime:latest \
         bash
 
-Note: carla was built in release version.
-
-    cd ~/carla/Unreal/CarlaUE4/Binaries/Linux
+    cd ~/carla/Unreal/CarlaUE4/Saved/StagedBuilds/LinuxNoEditor/CarlaUE4/Binaries/Linux/
     gdb --args CarlaUE4-Linux-Shipping
 
-## Run
 
 
 
