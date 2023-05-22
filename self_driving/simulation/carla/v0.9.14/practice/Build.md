@@ -369,6 +369,22 @@ Build runtime image:
 
 ## Run
 
+Prepare packages 
+
+    mkdir carla-package
+    cd carla-package
+    tar -xzvf ../carla/Dist/CARLA_0.9.14-dirty.tar.gz -C .
+
+Chown of carla-package
+
+    docker run --rm -ti \
+        -uroot \
+        -v $(pwd):/home/carla/carla-package \
+        carla-runtime:latest \
+        bash -c "chown -R carla:carla /home/carla/carla-package" 
+
+Run in container
+
     docker run --rm -ti \
         --privileged \
         --gpus all \
@@ -394,6 +410,7 @@ Debug in docker
         --privileged \
         --gpus all \
         -e DISPLAY=<ip>:0.0
+
         -v $(pwd)/UE4.26:/home/carla/UE4.26 \
         -v $(pwd)/carla:/home/carla/carla \
         carla-runtime:latest \
