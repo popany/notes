@@ -382,10 +382,8 @@ Build runtime image:
         -e DISPLAY=172.24.10.124:0.0 \
         -v $(pwd):/home/carla/carla_package \
         carla-runtime:latest \
-        bash
+        bash -c "cd /home/carla/carla_package && ./CarlaUE4.sh"
 	
-
-
 ## Debug
 
 ### Debug `CarlaUE4-Linux-Shipping`
