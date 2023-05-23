@@ -11,6 +11,7 @@
     - [call bash cmd in makfile](#call-bash-cmd-in-makfile)
   - [command](#command)
     - [Pass macro definition](#pass-macro-definition)
+  - [makefile 语法](#makefile-语法)
 
 ## [GNU Make Manual](https://www.gnu.org/software/make/manual/)
 
@@ -75,3 +76,25 @@ Just use a specific variable for that. [[ref]](https://stackoverflow.com/questio
     echo foo | gcc  -E -xc - 
     ...
     foo
+
+## makefile 语法
+
+在 Makefile 中, 一句依赖语句通常被称为规则 (rule). 规则包含一个或多个组件, 主要有: 目标 (target) 依赖项 (prerequisites/dependencies) 和命令 (recipe/command)
+
+一个典型的 Makefile 规则如下所示:
+
+    target: dependencies
+            commands
+
+- 目标 (target): 该规则生成的文件
+
+- 依赖项 (dependencies): 用于生成目标所需的文件列表
+
+- 命令 (commands): 当任何依赖项发生更改时, 执行以生成目标的命令
+
+以下是一个简单的 Makefile 规则示例:
+
+    output.o: input.c input.h
+            gcc -c input.c -o output.o
+
+在这个示例中, output.o 是目标, input.c 和 input.h 是依赖项. 命令 gcc -c input.c -o output.o 用于从依赖项生成目标文件
