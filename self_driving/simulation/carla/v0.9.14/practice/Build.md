@@ -6,7 +6,7 @@
     - [Build carla-dev image](#build-carla-dev-image)
     - [Build UE4](#build-ue4)
     - [Build Carla](#build-carla)
-  - [Carla Package Path](#carla-package-path)
+    - [Carla Package Path](#carla-package-path)
   - [Make Process](#make-process)
     - [`make CarlaUE4Editor`](#make-carlaue4editor)
       - [./Util/BuildTools/Setup.sh](#utilbuildtoolssetupsh)
@@ -20,7 +20,6 @@
     - [`make build.utils`](#make-buildutils)
     - [`make package`](#make-package)
       - [Util/BuildTools/Package.sh](#utilbuildtoolspackagesh)
-  - [Runtime Image](#runtime-image)
   - [Run](#run)
   - [Debug](#debug)
     - [Debug `CarlaUE4-Linux-Shipping`](#debug-carlaue4-linux-shipping)
@@ -50,6 +49,10 @@ Reference:
 - `Util/Docker/Prerequisites.Dockerfile`
 
 - https://carla.readthedocs.io/en/0.9.14/build_linux/
+
+- Need vulkan installed in docker image to run CarlaUE4.sh
+
+  https://gitlab.com/nvidia/container-images/vulkan/-/tree/master?ref_type=heads
 
 Dockerfile
 
@@ -141,9 +144,7 @@ Build image:
             ./Update.sh && \
             make CarlaUE4Editor && \
             make PythonAPI && \
-            make build.utils && \
-            make package && \
-            rm -r /home/carla/carla/Dist"
+            make package"
 
 - Failed to make build.utils
 
@@ -153,9 +154,9 @@ Build image:
 
   Failed for /home/carla/carla/Util/DockerUtils/fbx/dependencies is mounted from host.
 
-## Carla Package Path
+### Carla Package Path
 
-Dist/CARLA_0.9.14-dirty.tar.gz
+Dist/CARLA_0.9.14.tar.gz
 
 ## Make Process
 
@@ -302,84 +303,20 @@ steps:
 
 ...
 
-## Runtime Image
-
-Reference:
-
-- Need vulkan installed in docker image
-
-  https://gitlab.com/nvidia/container-images/vulkan/-/tree/master?ref_type=heads
-
-Dockerfile
-
-    FROM nvidia/vulkan:1.3-470
-    
-    USER root
-    
-    ENV DEBIAN_FRONTEND=noninteractive
-    RUN apt-get update ; \
-      apt-get install -y wget software-properties-common && \
-      add-apt-repository ppa:ubuntu-toolchain-r/test && \
-      wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key|apt-key add - && \
-      apt-add-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal main" && \
-      apt-get update ; \
-      apt-get install -y build-essential \
-        clang-10 \
-        lld-10 \
-        g++-7 \
-        cmake \
-        ninja-build \
-        libvulkan1 \
-        python \
-        python-dev \
-        python3-dev \
-        python3-pip \
-        libpng-dev \
-        libtiff5-dev \
-        libjpeg-dev \
-        tzdata \
-        sed \
-        curl \
-        unzip \
-        autoconf \
-        libtool \
-        rsync \
-        libxml2-dev \
-        git \
-        aria2 && \
-      pip3 install -Iv setuptools==47.3.1 && \
-      pip3 install distro && \
-      update-alternatives --install /usr/bin/clang++ clang++ /usr/lib/llvm-10/bin/clang++ 180 && \
-      update-alternatives --install /usr/bin/clang clang /usr/lib/llvm-10/bin/clang 180
-
-    RUN apt install -y xorg-dev # Inorder to run in docker container
-    RUN apt install -y gdb
-    
-    RUN useradd -m carla
-    USER carla
-    WORKDIR /home/carla
-    ENV UE4_ROOT /home/carla/UE4.26
-    
-    WORKDIR /home/carla/
-
-Build runtime image:
-
-    docker build -t carla-runtime .
-
 ## Run
 
 Prepare packages 
 
     mkdir carla-package
     cd carla-package
-    tar -xzvf ../carla/Dist/CARLA_0.9.14-dirty.tar.gz -C .
+    tar -xzvf ../carla/Dist/CARLA_0.9.14.tar.gz -C .
 
 Chown of carla-package
 
     docker run --rm -ti \
         -uroot \
         -v $(pwd):/home/carla/carla-package \
-        carla-runtime:latest \
+        carla-dev:latest \
         bash -c "chown -R carla:carla /home/carla/carla-package" 
 
 Run in container
@@ -396,8 +333,12 @@ Run in container
         -v /tmp/carla-xdg:/tmp/carla-xdg \
         -e DISPLAY=172.24.10.124:0.0 \
         -v $(pwd):/home/carla/carla_package \
-        carla-runtime:latest \
+        carla-dev:latest \
         bash -c "cd /home/carla/carla_package && ./CarlaUE4.sh"
+
+Reference:
+
+[Rendering options](https://carla.readthedocs.io/en/0.9.14/adv_rendering_options/)
 	
 ## Debug
 
@@ -418,13 +359,11 @@ Debug in docker
         -e DISPLAY=172.24.10.124:0.0 \
         -v $(pwd)/UE4.26:/home/carla/UE4.26 \
         -v $(pwd)/carla:/home/carla/carla \
-        carla-runtime:latest \
+        carla-dev:latest \
         bash
 
     cd ~/carla/Unreal/CarlaUE4/Saved/StagedBuilds/LinuxNoEditor/CarlaUE4/Binaries/Linux/
     gdb --args CarlaUE4-Linux-Shipping
-
-
 
 
 
