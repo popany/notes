@@ -23,6 +23,7 @@
   - [Run](#run)
   - [Debug](#debug)
     - [Debug `CarlaUE4-Linux-Shipping`](#debug-carlaue4-linux-shipping)
+  - [Run in Ubuntu Desktop](#run-in-ubuntu-desktop)
 
 ## Reference
 
@@ -365,5 +366,33 @@ Debug in docker
     cd ~/carla/Unreal/CarlaUE4/Saved/StagedBuilds/LinuxNoEditor/CarlaUE4/Binaries/Linux/
     gdb --args CarlaUE4-Linux-Shipping
 
+## Run in Ubuntu Desktop
 
+reference:
 
+https://leimao.github.io/blog/Docker-Container-GUI-Display/
+
+    # For VNC :5
+    export DISPLAY=:5
+    xhost +
+
+    docker run --rm -ti \
+        --privileged \
+        --gpus all \
+        -e NVIDIA_DISABLE_REQUIRE=1 \
+        -v $HOME/.Xauthority:/home/carla/.Xauthority \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -e NVIDIA_DRIVER_CAPABILITIES=all \
+        --device /dev/dri \
+        -e DISPLAY=$DISPLAY \
+        -v /etc/vulkan/icd.d/nvidia_icd.json:/etc/vulkan/icd.d/nvidia_icd.json \
+        -v /etc/vulkan/implicit_layer.d/nvidia_layers.json:/etc/vulkan/implicit_layer.d/nvidia_layers.json \
+        -v /usr/share/glvnd/egl_vendor.d/10_nvidia.json:/usr/share/glvnd/egl_vendor.d/10_nvidia.json \
+        -e XDG_RUNTIME_DIR=/tmp/carla-xdg \
+        -v /tmp/carla-xdg:/tmp/carla-xdg \
+        -v $(pwd)/UE4.26:/home/carla/UE4.26 \
+        -v $(pwd)/carla:/home/carla/carla \
+        carla-dev:latest \
+        bash
+
+    xhost -
