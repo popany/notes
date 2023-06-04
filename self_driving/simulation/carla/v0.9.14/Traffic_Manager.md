@@ -25,14 +25,23 @@
       - [Stage 5- Vehicle Lights Stage](#stage-5--vehicle-lights-stage)
   - [Using the Traffic Manager](#using-the-traffic-manager)
     - [Vehicle behavior considerations](#vehicle-behavior-considerations)
+    - [Creating a Traffic Manager](#creating-a-traffic-manager)
+    - [Configuring autopilot behavior](#configuring-autopilot-behavior)
+    - [Delegating the Traffic Manager to automatically update vehicle lights](#delegating-the-traffic-manager-to-automatically-update-vehicle-lights)
+    - [Stopping a Traffic Manager](#stopping-a-traffic-manager)
+  - [Deterministic mode](#deterministic-mode)
+  - [Hybrid physics mode](#hybrid-physics-mode)
+  - [Running multiple Traffic Managers](#running-multiple-traffic-managers)
+  - [Synchronous mode](#synchronous-mode)
+  - [Traffic manager in large maps](#traffic-manager-in-large-maps)
 
 ## What is the Traffic Manager?
 
-The Traffic Manager (TM) is the module that controls vehicles in autopilot mode in a simulation. Its goal is to populate a simulation with realistic urban traffic conditions. Users can customize some behaviors, for example, to set specific learning circumstances.
+The Traffic Manager (TM) is the module that controls vehicles in autopilot mode in a simulation. Its goal is to populate a simulation with realistic urban traffic conditions. Users can **customize some behaviors**, for example, to set specific learning circumstances.
 
 ### Structured design
 
-**TM is built on CARLA's client-side**. The execution flow is divided into **stages**, each with independent operations and goals. This facilitates the development of phase-related functionalities and data structures while improving computational efficiency. Each stage runs on a different thread. Communication with other stages is managed through synchronous messaging. Information **flows in one direction**.
+**TM is built on CARLA's client-side**. The execution flow is divided into **stages**, each with independent operations and goals. This facilitates the development of phase-related functionalities and data structures while improving computational efficiency. Each stage runs on a different thread. Communication with other stages is managed through **synchronous messaging**. Information **flows in one direction**.
 
 ### User customization
 
@@ -46,7 +55,7 @@ The above diagram is a representation of the internal architecture of the TM. Th
 
 #### 1. Store and update the current state of the simulation.
 
-- The [Agent Lifecycle & State Management](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#alsm) (ALSM) scans the world to keep track of all the vehicles and walkers present and to clean up entries for those that no longer exist. All the data is retrieved from the server and is passed through several [stages](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#stages-of-the-control-loop). The ALSM is the only component that makes calls to the server.
+- The [Agent Lifecycle & State Management](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#alsm) (ALSM) scans the world to keep track of all the vehicles and walkers present and to clean up entries for those that no longer exist. All the data is retrieved from the server and is passed through several [stages](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#stages-of-the-control-loop). **The ALSM is the only component that makes calls to the server**.
 
 - The [vehicle registry](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#vehicle-registry) contains an array of vehicles on autopilot (controlled by the TM) and a list of pedestrians and vehicles not on autopilot (not controlled by the TM).
 
@@ -54,7 +63,7 @@ The above diagram is a representation of the internal architecture of the TM. Th
 
 #### 2. Calculate the movement of every autopilot vehicle.
 
-The TM generates **viable commands** for all vehicles in the [vehicle registry](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#vehicle-registry) according to the [simulation state](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#simulation-state). Calculations for each vehicle are done separately. These calculations are divided into different [stages](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#stages-of-the-control-loop). The [control loop](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#control-loop) makes sure that all calculations are consistent by creating **synchronization barriers** between stages. No vehicle moves to the next stage before calculations are finished for all vehicles in the current stage. Each vehicle goes through the following stages:
+The TM generates **viable commands** for all vehicles in the [vehicle registry](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#vehicle-registry) according to the [simulation state](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#simulation-state). Calculations for each vehicle are done separately. These calculations are divided into different [stages](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#stages-of-the-control-loop). The [control loop](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#control-loop) makes sure that all calculations are consistent by creating **synchronization barriers** between stages. No vehicle moves to the next stage before calculations are finished for all vehicles in the current stage. **Each vehicle** goes through the following stages:
 
 - 2.1 - [Localization Stage](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#stage-1-localization-stage).
 
@@ -118,13 +127,13 @@ The simulation state:
 
 - Receives data from the [ALSM](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#alsm) including current actor position, velocity, traffic light influence, traffic light state, etc.
 
-Stores all information in cache, avoiding subsequent calls to the server during the [control loop](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#control-loop).
+Stores all information in cache, **avoiding subsequent calls to the server during the [control loop](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#control-loop)**.
 
 Related .cpp files: `SimulationState.cpp`, `SimulationState.h`.
 
 ### Control loop
 
-The control loop manages the calculations of the next command for all autopilot vehicles so they are performed synchronously. The control loop consists of five different [stages](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#stages-of-the-control-loop); localization, collision, traffic light, motion planner and vehicle lights.
+The control loop manages the calculations of the next command for all autopilot vehicles so they are performed synchronously. The control loop consists of **five different [stages](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#stages-of-the-control-loop)**: localization, collision, traffic light, motion planner and vehicle lights.
 
 The control loop:
 
@@ -279,6 +288,182 @@ Related .cpp files: `VehicleLightStage.cpp`.
 
 ### Vehicle behavior considerations
 
+The TM implements general behavior patterns that must be taken into consideration when you set vehicles to autopilot:
 
+- **Vehicles are not goal-oriented**, they follow a dynamically produced trajectory and choose a path randomly when approaching a junction. Their path is endless.
 
+- **Vehicles' target speed is 70% of their current speed limit** unless any other value is set.
 
+- **Junction priority does not follow traffic regulations**. The TM uses its own priority system at junctions. The resolution of this restriction is a work in progress. In the meantime, some issues may arise, for example, vehicles inside a roundabout yielding to a vehicle trying to get in.
+
+TM behavior can be adjusted through the Python API. For specific methods, see the TM section of the Python API [documentation](https://carla.readthedocs.io/en/0.9.14/python_api/#carla.TrafficManager). Below is a general summary of what is possible through the API:
+
+|Topic|Description|
+|-|-|
+General:|- Create a TM instance connected to a port. <br>- Retrieve the port where a TM is connected.
+Safety conditions:|<br>- Set a minimum distance between stopped vehicles (for a single vehicle or for all vehicles). This will affect the minimum moving distance. <br>- Set the desired speed as a percentage of the current speed limit (for a single vehicle or for all vehicles). <br>- Reset traffic lights.
+Collision managing:|- Enable/Disable collisions between a vehicle and a specific actor. <br>- Make a vehicle ignore all other vehicles. <br>- Make a vehicle ignore all walkers. <br>- Make a vehicle ignore all traffic lights.
+Lane changes:|- Force a lane change, ignoring possible collisions. <br>- Enable/Disable lane changes for a vehicle.
+Hybrid physics mode:|- Enable/Disable hybrid physics mode. <br>- Change the radius in which physics is enabled.
+|
+
+### Creating a Traffic Manager
+
+TM is **designed to work in synchronous mode**. Using TM in asynchronous mode can lead to unexpected and undesirable results. Read more in the section [Synchronous mode](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#synchronous-mode).
+
+A TM instance is created by a [`carla.Client`](https://carla.readthedocs.io/en/0.9.14/python_api/#carla.Client), passing the port to be used. The default port is `8000`.
+
+To create a TM instance:
+
+    tm = client.get_trafficmanager(port)
+
+To enable autopilot for a set of vehicles, retrieve the port of the TM instance and set `set_autopilot` to `True`, passing the TM port at the same time. If no port is provided, it will try to connect to a TM in the default port (`8000`). If the TM does not exist, it will create one:
+
+    tm_port = tm.get_port()
+    for v in vehicles_list:
+        v.set_autopilot(True,tm_port)
+
+Creating or connecting to a TM in multi-client situations is different from the above example. Learn more in the section [Running multiple Traffic Managers](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#running-multiple-traffic-managers).
+
+The `generate_traffic.py` script in `/PythonAPI/examples` provides an example of how to create a TM instance using a port passed as a script argument and register every vehicle spawned to it by setting the autopilot to `True` in a batch:
+
+    traffic_manager = client.get_trafficmanager(args.tm-port)
+    tm_port = traffic_manager.get_port()
+    ...
+    batch.append(SpawnActor(blueprint, transform).then(SetAutopilot(FutureActor, True,tm_port)))
+    ...
+    traffic_manager.global_percentage_speed_difference(30.0)
+
+### Configuring autopilot behavior
+
+The following example creates a TM instance and configures dangerous behavior for a specific vehicle so it will ignore all traffic lights, leave no safety distance from other vehicles, and drive 20% faster than the current speed limit:
+
+    tm = client.get_trafficmanager(port)
+    tm_port = tm.get_port()
+    for v in my_vehicles:
+        v.set_autopilot(True,tm_port)
+    danger_car = my_vehicles[0]
+    tm.ignore_lights_percentage(danger_car,100)
+    tm.distance_to_leading_vehicle(danger_car,0)
+    tm.vehicle_percentage_speed_difference(danger_car,-20)
+
+The example below sets the same list of vehicles to autopilot but instead configures them with moderate driving behavior. The vehicles drive 80% slower than the current speed limit, leaving at least 5 meters between themselves and other vehicles, and never perform lane changes:
+
+    tm = client.get_trafficmanager(port)
+    tm_port = tm.get_port()
+    for v in my_vehicles:
+        v.set_autopilot(True,tm_port)
+    danger_car = my_vehicles[0]
+    tm.global_distance_to_leading_vehicle(5)
+    tm.global_percentage_speed_difference(80)
+    for v in my_vehicles: 
+        tm.auto_lane_change(v,False)
+
+### Delegating the Traffic Manager to automatically update vehicle lights
+
+By default, vehicle lights (brake, turn indicators, etc...) of the vehicles managed by the TM are never updated. It is possible to delegate the TM to update the vehicle lights of a given vehicle actor:
+
+    tm = client.get_trafficmanager(port)
+    for actor in my_vehicles:
+        tm.update_vehicle_lights(actor, True)
+
+Vehicle lights management has to be specified on a per-vehicle basis, and there could be at any given time both vehicles with and without the automatic light management.
+
+### Stopping a Traffic Manager
+
+The TM is not an actor that needs to be destroyed; it will stop when the client that created it stops. This is automatically managed by the API, the user does not have to do anything. However, when shutting down a TM, the user must destroy the vehicles controlled by it, otherwise they will remain immobile on the map. The script `generate_traffic.py` does this automatically:
+
+    client.apply_batch([carla.command.DestroyActor(x) for x in vehicles_list])
+
+Shutting down a TM-Server will shut down the TM-Clients connecting to it. To learn the difference between a TM-Server and a TM-Client, read about [Running multiple Traffic Managers](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#running-multiple-traffic-managers).
+
+## Deterministic mode
+
+In deterministic mode, the TM will produce the same results and behaviors under the same conditions. Do not mistake determinism with the recorder. While the recorder allows you to store the log of a simulation to play it back, determinism ensures that the TM will always have the same output over different executions of a script as long as the same conditions are maintained.
+
+Deterministic mode is available in **synchronous mode only**. In asynchronous mode, there is less control over the simulation and determinism cannot be achieved. Read more in the section "[Synchronous mode](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#synchronous-mode)" before starting.
+
+To enable deterministic mode, use the following method:
+
+    my_tm.set_random_device_seed(seed_value)
+
+`seed_value` is an `int` number from which random numbers will be generated. The value itself is not relevant, but the same value will always result in the same output. **Two simulations, with the same conditions, that use the same seed value, will be deterministic**.
+
+To maintain determinism over multiple simulation runs, **the seed must be set for every simulation**. For example, each time the world is [reloaded](https://carla.readthedocs.io/en/0.9.14/python_api/#carla.Client.reload_world), the seed must be set again:
+
+    client.reload_world()
+    my_tm.set_random_device_seed(seed_value)
+
+Deterministic mode can be tested in the `generate_traffic.py` example script by passing a seed value as an argument. The following example populates a map with 50 autopilot actors in synchronous mode and sets the seed to an arbitrary value of `9`:
+
+    cd PythonAPI/examples
+    python3 generate_traffic.py -n 50 --seed 9
+
+The CARLA server and the TM must be in synchronous mode before enabling deterministic mode. Read more [here](https://carla.readthedocs.io/en/0.9.14/adv_traffic_manager/#synchronous-mode) about synchronous mode in TM.
+
+## Hybrid physics mode
+
+Hybrid mode allows users to disable most physics calculations for all autopilot vehicles, or for autopilot vehicles outside of a certain radius of a vehicle tagged with `hero`. This removes the vehicle physics bottleneck from a simulation. Vehicles whose physics are disabled will move by teleportation. Basic calculations for linear acceleration are maintained to ensure position updates and vehicle speed remain realistic and the toggling of physics calculations on vehicles is fluid.
+
+Hybrid mode uses the [`Actor.set_simulate_physics()`](https://carla.readthedocs.io/en/latest/python_api/#carla.Actor.set_simulate_physics) method to toggle physics calculations. It is disabled by default. There are two options to enable it:
+
+- [`TrafficManager.set_hybrid_physics_mode(True)`](https://carla.readthedocs.io/en/latest/python_api/#carla.TrafficManager.set_hybrid_physics_mode) — This method enables hybrid mode for the TM object calling it.
+
+- Running `generate_traffic.py` with the flag `--hybrid` — This example script creates a TM and spawns vehicles in autopilot. It then sets these vehicles to hybrid mode when the `--hybrid flag` is passed as a script argument.
+
+To modify the behavior of hybrid mode, use the following two parameters:
+
+- Radius (default = 50 meters) — The radius is relative to vehicles tagged with `hero`. All vehicles inside this radius will have physics enabled; vehicles outside of the radius will have physics disabled. The size of the radius is modified using [`traffic_manager.set_hybrid_physics_radius(r)`](https://carla.readthedocs.io/en/0.9.14/python_api/#carla.TrafficManager.set_hybrid_physics_radius).
+
+- Hero vehicle — A vehicle tagged with role_name='hero' that acts as the center of the radius.
+
+  - If there is no hero vehicle, all vehicles' physics will be disabled.
+
+  - If there is more than one hero vehicle, the radius will be considered for them all, creating different areas of influence with physics enabled.
+
+## Running multiple Traffic Managers
+
+...
+
+## Synchronous mode
+
+**TM is designed to work in synchronous mode**. **Both the CARLA server and TM should be set to synchronous in order to function properly**. **Using TM in asynchronous mode can lead to unexpected and undesirable results**, however, if asynchronous mode is required, the simulation should run at 20-30 fps at least.
+
+The script below demonstrates how to set both the server and TM to synchronous mode:
+
+    ...
+
+    # Set the simulation to sync mode
+    init_settings = world.get_settings()
+    settings = world.get_settings()
+    settings.synchronous_mode = True
+    # After that, set the TM to sync mode
+    my_tm.set_synchronous_mode(True)
+
+    ...
+
+    # Tick the world in the same client
+    world.apply_settings(init_settings)
+    world.tick()
+    ...
+
+    # Always disable sync mode before the script ends to prevent the server blocking whilst waiting for a tick
+    settings.synchronous_mode = False
+    my_tm.set_synchronous_mode(False)
+
+The `generate_traffic.py` example script starts a TM and populates the map with vehicles and pedestrians. It automatically sets the TM and the CARLA server to synchronous mode:
+
+    cd PythonAPI/examples
+    python3 generate_traffic.py -n 50
+
+If asynchronous mode is required, use the `--async` flag when running the above command.
+
+If more than one TM is set to synchronous mode, synchrony will fail. Follow these guidelines to avoid issues:
+
+...
+
+Disable synchronous mode (for both the world and TM) in your script managing ticks before it finishes to prevent the server blocking, waiting forever for a tick.
+
+## Traffic manager in large maps
+
+...

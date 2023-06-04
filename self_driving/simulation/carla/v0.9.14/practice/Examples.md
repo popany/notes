@@ -59,7 +59,7 @@ https://carla.readthedocs.io/en/0.9.14/adv_agents/
 
 https://carla.readthedocs.io/en/0.9.14/tuto_G_carsim_integration/
 
+https://carla.readthedocs.io/en/0.9.14/foundations/
 
-
-
+https://carla-scenariorunner.readthedocs.io/en/latest/
 
