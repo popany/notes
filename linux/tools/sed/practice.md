@@ -73,7 +73,9 @@ relace text between `#start` and `#end` tag in file myconfig
     $ echo aa foo aa | sed s'#foo#'"${bar}"'#'
     aa xx bb xx aa
 
+## strip first 28 characters
 
+    sed -r 's#^.{28}##' local-glog.txt
 
 
 
