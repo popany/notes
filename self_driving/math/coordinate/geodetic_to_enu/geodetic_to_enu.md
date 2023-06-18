@@ -17,6 +17,10 @@
 
 [World Geodetic System](https://en.wikipedia.org/wiki/World_Geodetic_System)
 
+[Local tangent plane coordinates](https://en.wikipedia.org/wiki/Local_tangent_plane_coordinates)
+
+[Geodetic coordinates](https://en.wikipedia.org/wiki/Geodetic_coordinates)
+
 ## Geodetic to ECEF
 
 ref: [From geodetic to ECEF coordinates](https://en.wikipedia.org/wiki/Geographic_coordinate_conversion#From_geodetic_to_ECEF_coordinates)
