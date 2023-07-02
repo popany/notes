@@ -8,6 +8,10 @@
 
 https://en.wikipedia.org/wiki/K-d_tree
 
+https://github.com/crvs/KDTree
+
+https://gitee.com/ghowoght/kd-tree/blob/master/include/kdtree.hpp
+
 ## rtree
 
 https://en.wikipedia.org/wiki/R-tree
