@@ -16,3 +16,6 @@
 
 [在brpc接口内部core，但是使用gdb分析时遇到问题](https://github.com/apache/incubator-brpc/issues/165)
 
+## Generate empty so
+
+    gcc -shared -o libmissing.so -x c /dev/null
