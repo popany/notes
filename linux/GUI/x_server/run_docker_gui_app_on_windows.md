@@ -1,4 +1,4 @@
-# Run Gui App In Docker Container
+# Run Docker Gui App on Windows
 
 - [Run Gui App In Docker Container](#run-gui-app-in-docker-container)
   - [How to use GUI apps in linux docker container from Windows Host](#how-to-use-gui-apps-in-linux-docker-container-from-windows-host)
