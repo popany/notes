@@ -101,7 +101,7 @@
        mkdir build
        cd build
        cmake .. -DCMAKE_CUDA_ARCHITECTURES=86
-       make -8 CXXFLAGS="-DBOOST_BIND_GLOBAL_PLACEHOLDERS"
+       make -j8 CXXFLAGS="-DBOOST_BIND_GLOBAL_PLACEHOLDERS"
        make install
 
        cp  /opt/colmap/build/src/colmap/exe/colmap /usr/local/bin
