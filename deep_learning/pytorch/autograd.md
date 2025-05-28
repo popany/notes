@@ -6,6 +6,8 @@
   - [`torch.autograd.Function` exercise](#torchautogradfunction-exercise)
   - [Q\&A](#qa)
     - [什么情况下继承了torch.autograd.Function类的forward函数会有多个返回值](#什么情况下继承了torchautogradfunction类的forward函数会有多个返回值)
+  - [Example](#example)
+    - [Example 1](#example-1)
 
 ## Reference
 
@@ -197,3 +199,108 @@ output:
 
 在这个例子中，`MyCustomFunction.forward()` 返回了两个结果，而 `MyCustomFunction.backward()` 方法接收了两个梯度，这两个梯度分别与 `forward` 中的两个输出相对应。在实际应用中，你可能会遇到复杂的自定义操作，它需要根据多个输出的梯度来计算输入的梯度。
 
+## Example
+
+### Example 1
+
+表达式：
+
+$$
+{\displaystyle \mathbf Y = \left( \mathbf A \mathbf {B} ^{-1} \right) ^{\top } + \operatorname {tr} \left( \mathbf A \right) \mathbf B}
+$$
+
+对$\mathbf A$求导：
+
+$$
+{\displaystyle \frac {\partial \mathbf Y}{\partial \mathbf {A} }= \mathbf {B} ^{-\top}} + I \otimes \mathbf B
+$$
+
+对$\mathbf B$的求导：
+
+$$
+{\displaystyle \frac {\partial \mathbf Y}{\partial \mathbf {B} } = - \mathbf {B}^{-\top} \mathbf A ^{\top} \mathbf {B}^{-\top} + \operatorname {tr} \left( \mathbf A \right) \mathbf I}
+$$
+
+
+代码：
+
+    import torch
+    
+    class MatrixOpsFunction(torch.autograd.Function):
+        @staticmethod
+        def forward(ctx, A, B):
+            """
+            支持批量矩阵运算的正确实现
+            A.shape = [batch, n, n]
+            B.shape = [batch, n, n]
+            """
+            # 保存反向传播所需参数
+            ctx.save_for_backward(A, B)
+            
+            # 批量矩阵求逆
+            B_inv = torch.inverse(B)
+            
+            # 正确计算批量转置
+            term1 = torch.matmul(A, B_inv).transpose(1, 2)  # [batch, n, n]
+            
+            # 批量迹计算 (关键修正)
+            trace_A = torch.einsum('bii->b', A)  # 正确获取批量迹 [batch]
+            trace_A = trace_A.view(-1, 1, 1)     # 调整为 [batch, 1, 1]
+            
+            term2 = trace_A * B  # 正确广播
+            
+            return term1 + term2
+    
+        @staticmethod
+        def backward(ctx, grad_output):
+            A, B = ctx.saved_tensors
+            batch_size, n, _ = A.shape
+            
+            # 批量求逆
+            B_inv = torch.inverse(B)
+            
+            # 计算梯度
+            grad_A = torch.matmul(grad_output, B_inv.transpose(1, 2))
+            grad_B = -torch.matmul(B_inv.transpose(1, 2), torch.matmul(A.transpose(1, 2), grad_output))
+            grad_B = torch.matmul(grad_B, B_inv)
+            
+            # 迹相关的梯度修正
+            trace_grad = torch.einsum('bii->b', grad_output).view(-1, 1, 1)
+            grad_A += trace_grad * torch.eye(n, device=A.device).unsqueeze(0)
+            grad_B += trace_grad * B
+            
+            return grad_A, grad_B
+        
+    
+    # 测试数据
+    batch_size = 2
+    n = 3
+    A = torch.randn(batch_size, n, n, dtype=torch.double, requires_grad=True)
+    B = torch.randn(batch_size, n, n, dtype=torch.double, requires_grad=True)
+    
+    # 前向传播
+    Y = MatrixOpsFunction.apply(A, B)
+    
+    # 反向传播
+    loss = Y.norm()
+    loss.backward()
+    
+    # 检查梯度形状
+    print(f"A梯度形状: {A.grad.shape}")  # 应输出 torch.Size([2, 3, 3])
+    print(f"B梯度形状: {B.grad.shape}")  # 应输出 torch.Size([2, 3, 3])
+    
+    # 数值梯度检验
+    from torch.autograd import gradcheck
+    
+    # 创建专用测试张量（保持梯度追踪）
+    test_A = torch.randn(2, 3, 3, dtype=torch.double, requires_grad=True)
+    test_B = torch.randn(2, 3, 3, dtype=torch.double, requires_grad=True)
+    
+    # 执行梯度检验
+    test = gradcheck(MatrixOpsFunction.apply, 
+                    (test_A, test_B),  # 使用未分离的测试输入
+                    eps=1e-6,
+                    atol=1e-4,
+                    check_sparse_nnz=True)  # 完整检验所有元素
+    print(f"梯度检验结果: {test}")
+    
